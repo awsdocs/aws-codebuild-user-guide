@@ -1,0 +1,82 @@
+# AWS CodeBuild User Guide
+
+-----
+*****Copyright &copy; 2018 Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
+
+-----
+Amazon's trademarks and trade dress may not be used in 
+     connection with any product or service that is not Amazon's, 
+     in any manner that is likely to cause confusion among customers, 
+     or in any manner that disparages or discredits Amazon. All other 
+     trademarks not owned by Amazon are the property of their respective
+     owners, who may or may not be affiliated with, connected to, or 
+     sponsored by Amazon.
+
+-----
+## Contents
++ [What Is AWS CodeBuild?](welcome.md)
+   + [AWS CodeBuild Concepts](concepts.md)
++ [Getting Started with AWS CodeBuild](getting-started.md)
++ [AWS CodeBuild Samples](samples.md)
+   + [AWS CodeBuild Use Case-Based Samples](use-case-based-samples.md)
+      + [Amazon ECR Sample for AWS CodeBuild](sample-ecr.md)
+      + [Docker Sample for AWS CodeBuild](sample-docker.md)
+      + [GitHub Enterprise Sample for AWS CodeBuild](sample-github-enterprise.md)
+      + [GitHub Pull Request Sample for AWS CodeBuild](sample-github-pull-request.md)
+      + [Use AWS Config with AWS CodeBuild Sample](how-to-integrate-config.md)
+      + [Build Badges Sample with AWS CodeBuild](sample-build-badges.md)
+      + [Build Notifications Sample for AWS CodeBuild](sample-build-notifications.md)
+      + [Docker in Custom Image Sample for AWS CodeBuild](sample-docker-custom-image.md)
+      + [AWS CodeDeploy Sample for AWS CodeBuild](sample-codedeploy.md)
+      + [AWS Lambda Sample for AWS CodeBuild](sample-lambda.md)
+      + [AWS Elastic Beanstalk Sample for AWS CodeBuild](sample-elastic-beanstalk.md)
+   + [AWS CodeBuild Code-Based Samples](code-based-samples.md)
+      + [C++ Hello World Sample for AWS CodeBuild](sample-c-plus-plus-hw.md)
+      + [Go Hello World Sample for AWS CodeBuild](sample-go-hw.md)
+      + [Maven in 5 Minutes Sample for AWS CodeBuild](sample-maven-5m.md)
+      + [Node.js Hello World Sample for AWS CodeBuild](sample-nodejs-hw.md)
+      + [Python Hello World Sample for AWS CodeBuild](sample-python-hw.md)
+      + [Ruby Hello World Sample for AWS CodeBuild](sample-ruby-hw.md)
+      + [Scala Hello World Sample for AWS CodeBuild](sample-scala-hw.md)
+      + [WAR Hello World Sample for AWS CodeBuild](sample-war-hw.md)
+      + [.NET Core in Linux Sample for AWS CodeBuild](sample-net-core-linux.md)
++ [Plan a Build for AWS CodeBuild](planning.md)
+   + [Build Specification Reference for AWS CodeBuild](build-spec-ref.md)
+   + [Build Environment Reference for AWS CodeBuild](build-env-ref.md)
+      + [Docker Images Provided by AWS CodeBuild](build-env-ref-available.md)
+      + [Build Environment Compute Types](build-env-ref-compute-types.md)
+      + [Shells and Commands in Build Environments](build-env-ref-cmd.md)
+      + [Environment Variables in Build Environments](build-env-ref-env-vars.md)
+      + [Background Tasks in Build Environments](build-env-ref-background-tasks.md)
++ [Run AWS CodeBuild Directly](how-to-run.md)
++ [Use AWS CodeBuild with Amazon Virtual Private Cloud](vpc-support.md)
+   + [AWS CloudFormation VPC Template](cloudformation-vpc-template.md)
++ [Use AWS CodePipeline with AWS CodeBuild to Test Code and Run Builds](how-to-create-pipeline.md)
++ [Use AWS CodeBuild with Jenkins](jenkins-plugin.md)
++ [Working with Build Projects and Builds in AWS CodeBuild](builds-projects-and-builds.md)
+   + [Working with Build Projects](working-with-build-projects.md)
+      + [Create a Build Project in AWS CodeBuild](create-project.md)
+      + [View a List of Build Project Names in AWS CodeBuild](view-project-list.md)
+      + [View a Build Project's Details in AWS CodeBuild](view-project-details.md)
+      + [Change a Build Project's Settings in AWS CodeBuild](change-project.md)
+      + [Delete a Build Project in AWS CodeBuild](delete-project.md)
+   + [Working with Builds in AWS CodeBuild](builds-working.md)
+      + [Run a Build in AWS CodeBuild](run-build.md)
+      + [View Build Details in AWS CodeBuild](view-build-details.md)
+      + [View a List of Build IDs in AWS CodeBuild](view-build-list.md)
+      + [View a List of Build IDs for a Build Project in AWS CodeBuild](view-builds-for-project.md)
+      + [Stop a Build in AWS CodeBuild](stop-build.md)
+      + [Delete Builds in AWS CodeBuild](delete-builds.md)
++ [Advanced Topics](advanced-topics.md)
+   + [Advanced Setup](setting-up.md)
+   + [Command Line Reference for AWS CodeBuild](cmd-ref.md)
+   + [AWS SDKs and Tools Reference for AWS CodeBuild](sdk-ref.md)
+   + [Authentication and Access Control for AWS CodeBuild](auth-and-access-control.md)
+      + [Overview of Managing Access Permissions to Your AWS CodeBuild Resources](auth-and-access-control-iam-access-control-identity-based.md)
+      + [Using Identity-Based Policies (IAM Policies) for AWS CodeBuild](auth-and-access-control-iam-identity-based-access-control.md)
+      + [AWS CodeBuild Permissions Reference](auth-and-access-control-permissions-reference.md)
+   + [Logging AWS CodeBuild API Calls with AWS CloudTrail](cloudtrail.md)
++ [Troubleshooting AWS CodeBuild](troubleshooting.md)
++ [Limits for AWS CodeBuild](limits.md)
++ [AWS CodeBuild User Guide Document History](history.md)
++ [AWS Glossary](glossary.md)

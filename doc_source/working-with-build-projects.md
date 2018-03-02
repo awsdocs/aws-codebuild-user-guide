@@ -1,0 +1,12 @@
+# Working with Build Projects<a name="working-with-build-projects"></a>
+
+A *build project* defines how AWS CodeBuild will run a build\. It includes information such as where to get the source code, the build environment to use, the build commands to run, and where to store the build output\.
+
+You can perform these tasks when working with build projects:
+
+
++ [Create a Build Project in AWS CodeBuild](create-project.md)
++ [View a List of Build Project Names in AWS CodeBuild](view-project-list.md)
++ [View a Build Project's Details in AWS CodeBuild](view-project-details.md)
++ [Change a Build Project's Settings in AWS CodeBuild](change-project.md)
++ [Delete a Build Project in AWS CodeBuild](delete-project.md)
