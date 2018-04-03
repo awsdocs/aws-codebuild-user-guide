@@ -51,13 +51,10 @@ This bucket must be in the same AWS region as your builds\. For example, if you 
 1. On the **Configure your project** page, for **Project name**, type a name for this build project\. Build project names must be unique across each AWS account\.
 
 1. In **Source: What to build**, for **Source provider**, choose **GitHub Enterprise**\.
-
    + For **Personal Access Token**, paste the token you copied to your clipboard and choose **Save Token**\. In **Repository URL**, enter the URL for your GitHub Enterprise repository\.
 **Note**  
 You only need to enter and save the personal access token once\. All future AWS CodeBuild projects will use this token\.
-
    + Select **Webhook** to rebuild every time a code change is pushed to this repository\.
-
    + Select **Insecure SSL** to ignore SSL warnings while connecting to your GitHub Enterprise project repository\.
 **Note**  
 We recommend that you use **Insecure SSL** for testing only\. It should not be used in a production environment\.  
@@ -66,15 +63,11 @@ We recommend that you use **Insecure SSL** for testing only\. It should not be u
 1. In **Environment: How to build**:
 
    For **Environment image**, do one of the following:
-
    + To use a Docker image managed by AWS CodeBuild, choose **Use an image managed by AWS CodeBuild**, and then make selections from **Operating system**, **Runtime**, and **Version**\.
-
    + To use another Docker image, choose **Specify a Docker image**\. For **Custom image type**, choose **Other** or **Amazon ECR**\. If you choose **Other**, then for **Custom image ID**, type the name and tag of the Docker image in Docker Hub, using the format `repository-name/image-name:image-tag`\. If you choose **Amazon ECR**, then use **Amazon ECR repository** and **Amazon ECR image** to choose the Docker image in your AWS account\. 
 
    For **Build specification**, do one of the following:
-
    + Use the buildspec\.yml file in the source code root directory\.
-
    + Override the build specification by inserting the build commands\.
 
    For more information, see the [Build Spec Reference](build-spec-ref.md)\.
@@ -82,25 +75,16 @@ We recommend that you use **Insecure SSL** for testing only\. It should not be u
    For **Certificate**, choose **Install certificate from your S3**\. For **Bucket of certificate**, choose the S3 bucket where your SSL certificate is stored\. For **Object key of certificate**, type the name of your S3 object key\.
 
 1. In **Artifacts: Where to put the artifacts from this build project**, for **Artifacts type**, do one of the following:
-
    + If you do not want to create any build output artifacts, choose **No artifacts**\.
-
    + To store the build output in an Amazon S3 bucket, choose **Amazon S3**, and then do the following:
-
      + If you want to use your project name for the build output ZIP file or folder, leave **Artifacts name** blank\. Otherwise, type the name in the **Artifacts name** box\. By default, the artifact name is the project name\. If you want to specify a different name, type it in the artifacts name box\. If you want to output a ZIP file, then include the zip extension\.
-
      + For **Bucket name**, choose the name of the output bucket\.
-
      + If you chose **Insert build commands** earlier in this procedure, then for **Output files**, type the locations of the files from the build that you want to put into the build output ZIP file or folder\. For multiple locations, separate each location with a comma \(for example, `appspec.yml, target/my-app.jar`\)\. For more information, see the description of `files` in [Build Spec Syntax](build-spec-ref.md#build-spec-ref-syntax)\.
 
 1. In **Cache**, do one of the following:
-
    + If you do not want to use a cache, choose **No cache**\.
-
    + To use a cache, choose **Amazon S3**, and then do the following:
-
      + For **Bucket**, choose the name of the Amazon S3 bucket where the cache is stored\.
-
      + \(Optional\) For **Path prefix**, type an Amazon S3 path prefix\. The **Path prefix** value is similar to a directory name that enables you to store the cache under the same directory in a bucket\. 
 **Important**  
 Do not append "/" to the end of **Path prefix**\.
@@ -108,23 +92,16 @@ Do not append "/" to the end of **Path prefix**\.
    Using a cache saves considerable build time because reusable pieces of the build environment are stored in the cache and used across builds\.
 
 1. In **Service role**, do one of the following:
-
    + If you do not have an AWS CodeBuild service role, choose **Create a service role in your account**\. In **Role name**, accept the default name or type your own\.
-
    + If you have an AWS CodeBuild service role, choose **Choose an service existing role from your account**\. In **Role name**, choose the service role\.
 **Note**  
 When you use the console to create or update a build project, you can create an AWS CodeBuild service role at the same time\. By default, the role works with that build project only\. If you use the console to associate this service role with another build project, the role is updated to work with the other build project\. A service role can work with up to 10 build projects\.
 
 1. In **VPC**, do one of the following:
-
    + If you are not using a VPC for your project, choose **No VPC**\.
-
    + If you are using want AWS CodeBuild to work with your VPC:
-
      + For **VPC**, choose the VPC ID that AWS CodeBuild uses\.
-
      + For **Subnets**, choose the subnets that include resources that AWS CodeBuild uses\.
-
      + For **Security Groups**, choose the security groups that AWS CodeBuild uses to allow access to resources in the VPCs\.
 
    For more information, see [Use AWS CodeBuild with Amazon Virtual Private Cloud](vpc-support.md)\.

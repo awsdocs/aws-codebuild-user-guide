@@ -114,9 +114,6 @@ The IAM entity that modifies this policy must have permission in IAM to modify p
 1. Download the `GoOutputArtifact.zip` file to your local computer or instance, and then extract the contents of the `GoOutputArtifact.zip` file\. In the extracted contents, get the `hello` file\.
 
 ## Related Resources<a name="w3ab1b9c47b7b9"></a>
-
 + For more information about getting started with AWS CodeBuild, see [Getting Started with AWS CodeBuild](getting-started.md)\.
-
 + For more information about troubleshooting problems with AWS CodeBuild, see [Troubleshooting AWS CodeBuild](troubleshooting.md)\.
-
 + For more information about limits in AWS CodeBuild, see [Limits for AWS CodeBuild](limits.md)\.

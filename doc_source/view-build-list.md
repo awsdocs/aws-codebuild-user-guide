@@ -2,7 +2,7 @@
 
 To view a list of build IDs for builds managed by AWS CodeBuild, you can use the AWS CodeBuild console, AWS CLI, or AWS SDKs\.
 
-
+**Topics**
 + [View a List of Build IDs \(Console\)](#view-build-list-console)
 + [View a List of Build IDs \(AWS CLI\)](#view-build-list-cli)
 + [View a List of Build IDs \(AWS SDKs\)](#view-build-list-sdks)
@@ -18,7 +18,6 @@ By default, only the ten most recent builds are displayed\. To view more builds,
 ## View a List of Build IDs \(AWS CLI\)<a name="view-build-list-cli"></a>
 
 For more information about using the AWS CLI with AWS CodeBuild, see the [Command Line Reference](cmd-ref.md)\.
-
 + Run the `list-builds` command:
 
   ```
@@ -26,9 +25,7 @@ For more information about using the AWS CLI with AWS CodeBuild, see the [Comman
   ```
 
   In the preceding command, replace the following placeholders:
-
   + *sort\-order*: Optional string\. How to list the build IDs\. Valid values include `ASCENDING` and `DESCENDING`\.
-
   + *next\-token*: Optional string\. During a previous run, if there were more than 100 items in the list, only the first 100 items would be returned, along with a unique string called a *next token*\. To get the next batch of items in the list, run this command again, adding the next token to the call\. To get all of the items in the list, keep running this command with each subsequent next token, until no more next tokens are returned\.
 
   For example, if you run this command:

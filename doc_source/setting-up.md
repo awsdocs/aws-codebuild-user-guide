@@ -4,7 +4,7 @@ If you follow the steps in [Getting Started](getting-started.md) to access AWS C
 
 We assume you already have an AWS account\. However, if you do not already have one, go to [http://aws\.amazon\.com](http://aws.amazon.com), choose **Sign In to the Console**, and follow the online instructions\.
 
-
+**Topics**
 + [Add AWS CodeBuild Access Permissions to an IAM Group or IAM User](#setting-up-service-permissions-group)
 + [Create an AWS CodeBuild Service Role](#setting-up-service-role)
 + [Create and Configure an AWS KMS CMK for AWS CodeBuild](#setting-up-kms)
@@ -23,11 +23,8 @@ For information about AWS root accounts and administrator IAM users, see [The Ac
 1. Open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
 
    You should have already signed in to the AWS Management Console by using one of the following:
-
    + Your AWS root account\. This is not recommended\. For more information, see [The Account Root User](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html) in the *IAM User Guide*\.
-
    + An administrator IAM user in your AWS account\. For more information, see [Creating Your First IAM Admin User and Group](http://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html) in the *IAM User Guide*\.
-
    + An IAM user in your AWS account with permission to perform the following minimum set of actions:
 
      ```
@@ -48,11 +45,8 @@ For information about AWS root accounts and administrator IAM users, see [The Ac
 1. To add a custom set of AWS CodeBuild access permissions to an IAM group or IAM user, skip ahead to step 4 in this procedure\.
 
    To add a default set of AWS CodeBuild access permissions to an IAM group or IAM user, choose **Policy Type**, **AWS Managed**, and then do the following:
-
    + To add full access permissions to AWS CodeBuild, select the box named **AWSCodeBuildAdminAccess**\. Then choose **Policy Actions**, **Attach**\. Select the box next to the target IAM group or IAM user, and then choose **Attach Policy**\. Repeat this for the policies named **AmazonS3ReadOnlyAccess** and **IAMFullAccess**\.
-
    + To add access permissions to AWS CodeBuild for everything except build project administration, select the box named **AWSCodeBuildDeveloperAccess**\. Then choose **Policy Actions**, **Attach**\. Select the box next to the target IAM group or IAM user, and then choose **Attach Policy**\. Repeat this for the policy named **AmazonS3ReadOnlyAccess**\.
-
    + To add read\-only access permissions to AWS CodeBuild, select the boxes named **AWSCodeBuildReadOnlyAccess**\. Select the box next to the target IAM group or IAM user, and then choose **Attach Policy**\. Repeat this for the policy named **AmazonS3ReadOnlyAccess**\.
 
    You have now added a default set of AWS CodeBuild access permissions to an IAM group or IAM user\. Skip the rest of the steps in this procedure\.
@@ -133,25 +127,15 @@ This policy allows access to all AWS CodeBuild actions and to a potentially larg
    ```
 
    You must run the command three times, replacing *group\-name* or *user\-name* with the IAM group name or IAM user name, and replacing *policy\-arn* once for each of the following policy Amazon Resource Names \(ARNs\): 
-
    + To add full access permissions to AWS CodeBuild, use the following policy ARNs:
-
      + `arn:aws:iam::aws:policy/AWSCodeBuildAdminAccess`
-
      + `arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess`
-
      + `arn:aws:iam::aws:policy/IAMFullAccess`
-
    + To add access permissions to AWS CodeBuild for everything except build project administration, use the following policy ARNs:
-
      + `arn:aws:iam::aws:policy/AWSCodeBuildDeveloperAccess`
-
      + `arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess`
-
    + To add read\-only access permissions to AWS CodeBuild, use the following policy ARNs:
-
      + `arn:aws:iam::aws:policy/AWSCodeBuildReadOnlyAccess`
-
      + `arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess`
 
    You have now added a default set of AWS CodeBuild access permissions to an IAM group or IAM user\. Skip the rest of the steps in this procedure\.
@@ -216,13 +200,9 @@ This policy allows access to all AWS CodeBuild actions and to a potentially larg
 ## Create an AWS CodeBuild Service Role<a name="setting-up-service-role"></a>
 
 You need an AWS CodeBuild service role so that AWS CodeBuild can interact with dependent AWS services on your behalf\. You can create an AWS CodeBuild service role by using the AWS CodeBuild or AWS CodePipeline consoles\. For information, see:
-
 + [Create a Build Project \(Console\)](create-project.md#create-project-console)
-
 + [Create a Pipeline that Uses AWS CodeBuild \(AWS CodePipeline Console\)](how-to-create-pipeline.md#how-to-create-pipeline-console)
-
 + [Add an AWS CodeBuild Build Action to a Pipeline \(AWS CodePipeline Console\)](how-to-create-pipeline.md#how-to-create-pipeline-add)
-
 + [Change a Build Project's Settings \(Console\)](change-project.md#change-project-console)
 
 If you do not plan to use these consoles, this section describes how to create an AWS CodeBuild service role with the IAM console or the AWS CLI\. <a name="setting-up-service-role-console"></a>
@@ -232,11 +212,8 @@ If you do not plan to use these consoles, this section describes how to create a
 1. Open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
 
    You should have already signed in to the console by using one of the following:
-
    + Your AWS root account\. This is not recommended\. For more information, see [The Account Root User](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html) in the *IAM User Guide*\.
-
    + An administrator IAM user in your AWS account\. For more information, see [Creating Your First IAM Admin User and Group](http://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html) in the *IAM User Guide*\.
-
    + An IAM user in your AWS account with permission to perform the following minimum set of actions:
 
      ```
@@ -490,11 +467,8 @@ To configure a CMK for use by AWS CodeBuild, follow the instructions in the "How
   ]
 }
 ```
-
 + *region\-ID* represents the ID of the AWS region where the Amazon S3 buckets associated with AWS CodeBuild are located \(for example, `us-east-1`\)\.
-
 + *account\-ID* represents the ID of the of the AWS account that owns the CMK\.
-
 + *CodeBuild\-service\-role* represents the name of the AWS CodeBuild service role you created or identified earlier in this topic\.
 
 **Note**  

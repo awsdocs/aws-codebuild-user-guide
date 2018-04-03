@@ -31,4 +31,4 @@ The following tables list the current limits in AWS CodeBuild\. These limits are
 | Maximum number of builds you can request information about at any one time by using the AWS CLI, AWS SDKs | 100 | 
 | Number of minutes you can specify for the build timeout of a single build | 5 to 480 \(8 hours\) | 
 
-\* Limits for the maximum number of concurrent running builds vary, depending on the compute type\. For some compute types, the default is 20\. To request a higher concurrent build limit or if you get a "Cannot have more than X active builds for the account" error, contact AWS support\.
+\* Limits for the maximum number of concurrent running builds vary, depending on the compute type\. For some compute types, the default is 20\. For a new account, the limit can be between 1 and 5\. To request a higher concurrent build limit or if you get a "Cannot have more than X active builds for the account" error, contact AWS support\.

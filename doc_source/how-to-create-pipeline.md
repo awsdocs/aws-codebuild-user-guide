@@ -12,7 +12,7 @@ The following table lists tasks and the methods available for performing them\. 
 | Create a continuous delivery \(CD\) pipeline with AWS CodePipeline that automates builds with AWS CodeBuild |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/codebuild/latest/userguide/how-to-create-pipeline.html)  |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/codebuild/latest/userguide/how-to-create-pipeline.html)  | 
 | Add test and build automation with AWS CodeBuild to an existing pipeline in AWS CodePipeline |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/codebuild/latest/userguide/how-to-create-pipeline.html)  |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/codebuild/latest/userguide/how-to-create-pipeline.html)  | 
 
-
+**Topics**
 + [Prerequisites](#how-to-create-pipeline-prerequisites)
 + [Create a Pipeline that Uses AWS CodeBuild \(AWS CodePipeline Console\)](#how-to-create-pipeline-console)
 + [Create a Pipeline that Uses AWS CodeBuild \(AWS CLI\)](#how-to-create-pipeline-cli)
@@ -59,9 +59,7 @@ For AWS OpsWorks, see [Application Source](http://docs.aws.amazon.com/opsworks/l
 Use the following procedure to create a pipeline that uses AWS CodeBuild to build and deploy your source code\.
 
 To create a pipeline that only tests your source code, your options are to:
-
 + Use the following procedure to create the pipeline, and then delete the Build and Beta stages from the pipeline\. Then use the [Add an AWS CodeBuild Test Action to a Pipeline \(AWS CodePipeline Console\)](#how-to-create-pipeline-add-test) procedure in this topic to add to the pipeline a test action that uses AWS CodeBuild\.
-
 + Use one of the other procedures in this topic to create the pipeline, and then use the [Add an AWS CodeBuild Test Action to a Pipeline \(AWS CodePipeline Console\)](#how-to-create-pipeline-add-test) procedure in this topic to add to the pipeline a test action that uses AWS CodeBuild\.
 
 **To use the create pipeline wizard in AWS CodePipeline to create a pipeline that uses AWS CodeBuild**
@@ -71,11 +69,8 @@ To create a pipeline that only tests your source code, your options are to:
 1. Open the AWS CodePipeline console, at [https://console\.aws\.amazon\.com/codepipeline](https://console.aws.amazon.com/codepipeline)\.
 
    You need to have already signed in to the AWS Management Console by using one of the following:
-
    + Your AWS root account\. This is not recommended\. For more information, see [The Account Root User](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html) in the *IAM User Guide*\.
-
    + An administrator IAM user in your AWS account\. For more information, see [Creating Your First IAM Admin User and Group](http://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html) in the *IAM User Guide*\.
-
    + An IAM user in your AWS account with permission to use the following minimum set of actions:
 
      ```
@@ -114,11 +109,8 @@ To create a pipeline that only tests your source code, your options are to:
 1. On the **Step 1: Name** page, for **Pipeline name**, type a name for the pipeline; for example, **CodeBuildDemoPipeline**\. If you choose a different name, substitute it throughout this procedure\. Choose **Next step**\.
 
 1. On the **Step 2: Source** page, for **Source provider**, do one of the following:
-
    + If your source code is stored in an Amazon S3 bucket, choose **Amazon S3**\. For **Amazon S3 location**, type the path to the source code, using the format `s3://bucket-name/path/to/file-name.zip`\. Choose **Next step**\.
-
    + If your source code is stored in an AWS CodeCommit repository, choose **AWS CodeCommit**\. For **Repository name**, choose the name of the repository that contains the source code\. For **Branch name**, choose the name of the branch that represents the version of the source code you want to build\. Choose **Next step**\.
-
    + If your source code is stored in a GitHub repository, choose **GitHub**\. Choose **Connect to GitHub**, and follow the instructions to authenticate with GitHub\. For **Repository**, choose the name of the repository that contains the source code\. For **Branch**, choose the name of the branch that represents the version of the source code you want to build\. Choose **Next step**\.
 
 1. On the **Step 3: Build** page, for **Build provider**, choose **AWS CodeBuild**\.
@@ -136,25 +128,18 @@ If you enable webhooks for an AWS CodeBuild project, and the project is used as 
 1. \(Optional\) Type a description in the **Description** box\.
 
 1. For **Environment image**, do one of the following:
-
    + To use a build environment based on a Docker image that is managed by AWS CodeBuild, choose **Use an image managed by AWS CodeBuild**\. Make your selections from the **Operating system**, **Runtime**, and **Version** drop\-down lists\. For more information, see [Docker Images Provided by AWS CodeBuild](build-env-ref-available.md)\.
-
    + To use a build environment based on a Docker image in an Amazon ECR repository in your AWS account, choose **Specify a Docker image**\. For **Custom image type**, choose **Amazon ECR**\. Use the **Amazon ECR repository** and **Amazon ECR image** drop\-down lists to specify the desired Amazon ECR repository and Docker image in that repository\.
-
    + To use a build environment based on a publicly available Docker image in Docker Hub, choose **Specify a Docker image**\. For **Custom image type**, choose **Other**\. In the **Custom image ID** box, type the Docker image ID, using the format `docker-repo-name/docker-image-name:tag`\. 
 
 1. For **Build specification**, do one of the following:
-
    + If your source code includes a build spec file, choose **Use the buildspec\.yml in the source code root directory**\. 
-
    + If your source code does not include a build spec file, choose **Insert build commands**\. For **Build command**, type the commands you want to run during the build phase in the build environment; for multiple commands, separate each command with `&&`\. For **Output files**, type the paths to the build output files in the build environment that you want to send to AWS CodePipeline; for multiple files, separate each file path with a comma\. For more information, see the tooltips in the console\.
 
 1. For **AWS CodeBuild service role**, do one of the following:
-
    + If you do not have an AWS CodeBuild service role in your AWS account, choose **Create a service role in your account**\. In the **Role name** box, type a name for the service role or leave the suggested name\. \(Service role names must be unique across your AWS account\.\) 
 **Note**  
 If you use the console to create an AWS CodeBuild service role, by default this service role works with this build project only\. If you use the console to associate this service role with another build project, this role will be updated to work with the other build project\. A single AWS CodeBuild service role can work with up to ten build projects\.
-
    + If you have an AWS CodeBuild service role in your AWS account, choose **Choose an existing service role from your account**\. In the **Role name** box, choose the name of the service role\.
 
 1. Expand **Advanced**\.
@@ -164,7 +149,7 @@ If you use the console to create an AWS CodeBuild service role, by default this 
    Select the **Privileged** check box only if you plan to use this build project to build Docker images, and the build environment image you chose is not one provided by AWS CodeBuild with Docker support\. Otherwise, all associated builds that attempt to interact with the Docker daemon will fail\. Note that you must also start the Docker daemon so that your builds can interact with it as needed\. One way to do this is to initialize the Docker daemon in the `install` phase of your build spec by running the following build commands\. \(Do not run the following build commands if you chose a build environment image provided by AWS CodeBuild with Docker support\.\)
 
    ```
-   - nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375 --storage-driver=overlay&
+   - nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://127.0.0.1:2375 --storage-driver=overlay&
    - timeout -t 15 sh -c "until docker info; do echo .; sleep 1; done"
    ```
 
@@ -180,9 +165,7 @@ To store and retrieve sensitive values, we recommend your build commands use the
 1. After the build project is saved, choose **Next step**\.
 
 1. On the **Step 4: Deploy** page, do one of the following:
-
    + If you do not want to deploy the build output artifact, for **Deployment provider**, choose **No Deployment**\. 
-
    + If you want to deploy the build output artifact, for **Deployment provider**, choose a deployment provider, and then specify the settings when prompted\.
 
 1. Choose **Next step**\.
@@ -301,15 +284,10 @@ The build project must define build output artifact settings \(even though AWS C
    ```
 
    In this JSON\-formatted data:
-
    + The value of `roleArn` must match the ARN of the AWS CodePipeline service role you created or identified as part of the prerequisites\.
-
    + The values of `S3Bucket` and `S3ObjectKey` in `configuration` assume the source code is stored in an Amazon S3 bucket\. For settings for other source code repository types, see the [AWS CodePipeline Pipeline Structure Reference](http://docs.aws.amazon.com/codepipeline/latest/userguide/pipeline-structure.html) in the *AWS CodePipeline User Guide*\.
-
    + The value of `ProjectName` is the name of the AWS CodeBuild build project you created earlier in this procedure\.
-
    + The value of `location` is the name of the Amazon S3 bucket used by this pipeline\. For more information, see [Create a Policy for an Amazon S3 Bucket to Use as the Artifact Store for AWS CodePipeline](http://docs.aws.amazon.com/codepipeline/latest/userguide/access-permissions.html#how-to-create-bucket-policy) in the *AWS CodePipeline User Guide*\.
-
    + The value of `name` is the name of this pipeline\. All pipeline names must be unique to your account\.
 
    Although this data describes only a source action and a build action, you can add actions for activities related to testing, deploying the build output artifact, invoking AWS Lambda functions, and more\. For more information, see the [AWS CodePipeline Pipeline Structure Reference](http://docs.aws.amazon.com/codepipeline/latest/userguide/pipeline-structure.html) in the *AWS CodePipeline User Guide*\.
@@ -378,11 +356,8 @@ You can also get the build output artifact by choosing the **Build artifacts** l
 1. Open the AWS CodePipeline console at [https://console\.aws\.amazon\.com/codepipeline](https://console.aws.amazon.com/codepipeline)\.
 
    You should have already signed in to the AWS Management Console by using one of the following:
-
    + Your AWS root account\. This is not recommended\. For more information, see [The Account Root User](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html) in the *IAM User Guide*\.
-
    + An administrator IAM user in your AWS account\. For more information, see [Creating Your First IAM Admin User and Group](http://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html) in the *IAM User Guide*\.
-
    + An IAM user in your AWS account with permission to perform the following minimum set of actions:
 
      ```
@@ -453,25 +428,18 @@ If you enable webhooks for an AWS CodeBuild project, and the project is used as 
 1. \(Optional\) Type a description in the **Description** box\.
 
 1. For **Environment image**, do one of the following:
-
    + To use a build environment based on a Docker image that is managed by AWS CodeBuild, choose **Use an image managed by AWS CodeBuild**\. Make your selections from the **Operating system**, **Runtime**, and **Version** drop\-down lists\. For more information, see [Docker Images Provided by AWS CodeBuild](build-env-ref-available.md)\.
-
    + To use a build environment based on a Docker image in an Amazon ECR repository in your AWS account, choose **Specify a Docker image**\. For **Custom image type**, choose **Amazon ECR**\. Use the **Amazon ECR repository** and **Amazon ECR image** drop\-down lists to specify the desired Amazon ECR repository and Docker image in that repository\.
-
    + To use a build environment based on a Docker image in Docker Hub, choose **Specify a Docker image**\. For **Custom image type**, choose **Other**\. In the **Custom image ID** box, type the Docker image ID, using the format `docker-repo-name/docker-image-name:tag`\. 
 
 1. For **Build specification**, do one of the following:
-
    + If your source code includes a build spec file, choose **Use the buildspec\.yml in the source code root directory**\. 
-
    + If your source code does not include a build spec file, choose **Insert build commands**\. For **Build command**, type the commands you want to run during the build phase in the build environment; for multiple commands, separate each command with `&&`\. For **Output files**, type the paths to the build output files in the build environment that you want to send to AWS CodePipeline; for multiple files, separate each file path with a comma\. For more information, see the tooltips in the console\.
 
 1. For **AWS CodeBuild service role**, do one of the following:
-
    + If you do not have an AWS CodeBuild service role in your AWS account, choose **Create a service role in your account**\. In the **Role name** box, type a name for the service role or leave the suggested name\. \(Service role names must be unique across your AWS account\.\) 
 **Note**  
 If you use the console to create an AWS CodeBuild service role, by default this service role works with this build project only\. If you use the console to associate this service role with another build project, this role will be updated to work with the other build project\. A single AWS CodeBuild service role can work with up to ten build projects\.
-
    + If you have an AWS CodeBuild service role in your AWS account, choose **Choose an existing service role from your account**\. In the **Role name** box, choose the name of the service role\.
 
 1. Expand **Advanced**\.
@@ -483,7 +451,7 @@ If you use the console to create an AWS CodeBuild service role, by default this 
    Select the **Privileged** check box only if you plan to use this build project to build Docker images, and the build environment image you chose is not one provided by AWS CodeBuild with Docker support\. Otherwise, all associated builds that attempt to interact with the Docker daemon will fail\. Note that you must also start the Docker daemon so that your builds can interact with it as needed\. One way to do this is to initialize the Docker daemon in the `install` phase of your build spec by running the following build commands\. \(Do not run the following build commands if you chose a build environment image provided by AWS CodeBuild with Docker support\.\)
 
    ```
-   - nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375 --storage-driver=overlay&
+   - nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://127.0.0.1:2375 --storage-driver=overlay&
    - timeout -t 15 sh -c "until docker info; do echo .; sleep 1; done"
    ```
 
@@ -529,11 +497,8 @@ You can also get the build output artifact by choosing the **Build artifacts** l
 1. Open the AWS CodePipeline console at [https://console\.aws\.amazon\.com/codepipeline](https://console.aws.amazon.com/codepipeline)\.
 
    You should have already signed in to the AWS Management Console by using one of the following:
-
    + Your AWS root account\. This is not recommended\. For more information, see [The Account Root User](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html) in the *IAM User Guide*\.
-
    + An administrator IAM user in your AWS account\. For more information, see [Creating Your First IAM Admin User and Group](http://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html) in the *IAM User Guide*\.
-
    + An IAM user in your AWS account with permission to perform the following minimum set of actions:
 
      ```
@@ -602,25 +567,18 @@ If you enable webhooks for an AWS CodeBuild project, and the project is used as 
 1. \(Optional\) Type a description in the **Description** box\.
 
 1. For **Environment image**, do one of the following:
-
    + To use a build environment based on a Docker image that is managed by AWS CodeBuild, choose **Use an image managed by AWS CodeBuild**\. Make your selections from the **Operating system**, **Runtime**, and **Version** drop\-down lists\. For more information, see [Docker Images Provided by AWS CodeBuild](build-env-ref-available.md)\.
-
    + To use a build environment based on a Docker image in an Amazon ECR repository in your AWS account, choose **Specify a Docker image**\. For **Custom image type**, choose **Amazon ECR**\. Use the **Amazon ECR repository** and **Amazon ECR image** drop\-down lists to specify the desired Amazon ECR repository and Docker image in that repository\.
-
    + To use a build environment based on a Docker image in Docker Hub, choose **Specify a Docker image**\. For **Custom image type**, choose **Other**\. In the **Custom image ID** box, type the Docker image ID, using the format `docker-repo-name/docker-image-name:tag`\. 
 
 1. For **Build specification**, do one of the following:
-
    + If your source code includes a build spec file, choose **Use the buildspec\.yml in the source code root directory**\. 
-
    + If your source code does not include a build spec file, choose **Insert build commands**\. For **Build command**, type the commands you want to run during the build phase in the build environment\. For multiple commands, separate each command with `&&`\. For **Output files**, type the paths to the build output files in the build environment that you want to send to AWS CodePipeline\. For multiple files, separate each file path with a comma\. For more information, see the tooltips in the console\.
 
 1. For **AWS CodeBuild service role**, do one of the following:
-
    + If you do not have an AWS CodeBuild service role in your AWS account, choose **Create a service role in your account**\. In the **Role name** box, type a name for the service role or leave the suggested name\. \(Service role names must be unique across your AWS account\.\) 
 **Note**  
 If you use the console to create an AWS CodeBuild service role, by default, this service role works with this build project only\. If you use the console to associate this service role with another build project, this role will be updated to work with the other build project\. A single AWS CodeBuild service role can work with up to ten build projects\.
-
    + If you have an AWS CodeBuild service role in your AWS account, choose **Choose an existing service role from your account**\. In the **Role name** box, choose the name of the service role\.
 
 1. \(Optional\) Expand **Advanced**\.
@@ -630,7 +588,7 @@ If you use the console to create an AWS CodeBuild service role, by default, this
    Select the **Privileged** check box only if you plan to use this build project to build Docker images, and the build environment image you chose is not one provided by AWS CodeBuild with Docker support\. Otherwise, all associated builds that attempt to interact with the Docker daemon will fail\. Note that you must also start the Docker daemon so that your builds can interact with it as needed\. One way to do this is to initialize the Docker daemon in the `install` phase of your build spec by running the following build commands\. \(Do not run the following build commands if you chose a build environment image provided by AWS CodeBuild with Docker support\.\)
 
    ```
-   - nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375 --storage-driver=overlay&
+   - nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://127.0.0.1:2375 --storage-driver=overlay&
    - timeout -t 15 sh -c "until docker info; do echo .; sleep 1; done"
    ```
 

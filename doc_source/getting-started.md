@@ -5,7 +5,7 @@ In this walkthrough, you will use AWS CodeBuild to build a collection of sample 
 **Important**  
 Completing this walkthrough may result in charges to your AWS account\. These include possible charges for AWS CodeBuild and for AWS resources and actions related to Amazon S3, AWS KMS, and CloudWatch Logs\. For more information, see [AWS CodeBuild Pricing](http://aws.amazon.com/codebuild/pricing), [Amazon S3 Pricing](http://aws.amazon.com/s3/pricing), [AWS Key Management Service Pricing](http://aws.amazon.com/kms/pricing), and [Amazon CloudWatch Pricing](http://aws.amazon.com/cloudwatch/pricing)\.
 
-
+**Topics**
 + [Step 1: Create or Use Amazon S3 Buckets to Store the Build Input and Output](#getting-started-input-bucket)
 + [Step 2: Create the Source Code to Build](#getting-started-create-source-code)
 + [Step 3: Create the Build Spec](#getting-started-create-build-spec)
@@ -21,9 +21,7 @@ Completing this walkthrough may result in charges to your AWS account\. These in
 ## Step 1: Create or Use Amazon S3 Buckets to Store the Build Input and Output<a name="getting-started-input-bucket"></a>
 
 To complete this walkthrough, you will need two Amazon S3 buckets:
-
 + One of these buckets will store the build input \(which we call the *input bucket*\)\. In this walkthrough, we will name this input bucket `codebuild-region-ID-account-ID-input-bucket`, where *region\-ID* represents the AWS region of the bucket, and *account\-ID* represents your AWS account ID\.
-
 + The other bucket will store the build output \(which we call the *output bucket*\)\. In this walkthrough, we will name this output bucket `codebuild-region-ID-account-ID-output-bucket`\.
 
 If you chose a different name for either of these buckets, substitute it throughout this walkthrough\.
@@ -179,13 +177,10 @@ Because a build spec declaration must be valid YAML, the spacing in a build spec
 Instead of including a build spec file in your source code, you can declare build commands separately when you create a build project\. This is helpful if you want to build your source code with different build commands without updating your source code's repository each time\. For more information, see [Build Spec Syntax](build-spec-ref.md#build-spec-ref-syntax)\.
 
 In this build spec declaration:
-
 + `version` represents the version of the build spec standard being used\. This build spec declaration uses the latest version, `0.2`\.
-
 + `phases` represents the build phases during which you can instruct AWS CodeBuild to run commands\. These build phases are listed here as `install`, `pre_build`, `build`, and `post_build`\. You cannot change the spelling of these build phase names, and you cannot create additional build phase names\. 
 
   In this example, during the `build` phase, AWS CodeBuild runs the `mvn install` command\. This command instructs Apache Maven to compile, test, and package the compiled Java class files into a build output artifact\. For completeness, a few `echo` commands are placed in each build phase in this example\. When you view detailed build information later in this walkthrough, the output of these `echo` commands can help you better understand how AWS CodeBuild runs commands and in which order\. \(Although all build phases are included in this example, you are not required to include an build phase if you do not plan to run any commands during that phase\.\) For each build phase included, AWS CodeBuild runs each specified command, one at a time, in the order listed, from beginning to end\. 
-
 + `artifacts` represents the set of build output artifacts that AWS CodeBuild will upload to the output bucket\. `files` represents the files to include in the build output\. AWS CodeBuild will upload the single `messageUtil-1.0.jar` file found in the `target` relative directory in the build environment\. The file name `messageUtil-1.0.jar` and the directory name `target` are based on the way Apache Maven creates and stores build output artifacts for this example only\. In your own builds, these file names and directories will be different\. 
 
 For more information, see the [Build Spec Reference](build-spec-ref.md)\.
@@ -327,23 +322,15 @@ An IAM user in your AWS account with the AWS managed policies named **AWSCodeBui
    Replace *serviceIAMRole* with the Amazon Resource Name \(ARN\) of an AWS CodeBuild service role \(for example, `arn:aws:iam::account-ID:role/role-name`\)\. To create one, see [Create an AWS CodeBuild Service Role](setting-up.md#setting-up-service-role)\.
 
    In this data:
-
    + `name` represents a required identifier for this build project \(in this example, `codebuild-demo-project`\)\. If you use a different name, substitute it throughout this procedure\. Build project names must be unique across all build projects in your account\. 
-
    + For `source`, `type` is a required value that represents the source code's repository type \(in this example, `S3` for an Amazon S3 bucket\)\.
-
    + For `source`, `location` represents the path to the source code \(in this example, the input bucket name followed by the ZIP file name\)\.
-
    + For `artifacts`, `type` is a required value that represents the build output artifact's repository type \(in this example, `S3` for an Amazon S3 bucket\)\.
-
    + For `artifacts`, `location` represents the name of the output bucket you created or identified earlier \(in this example, `codebuild-region-ID-account-ID-output-bucket`\)\.
-
    + For `environment`, `type` is a required value that represents the type of build environment \(`LINUX_CONTAINER` is currently the only allowed value\)\.
-
    + For `environment`, `image` is a required value that represents the Docker image name and tag combination this build project will use, as specified by the Docker image repository type \(in this example, `aws/codebuild/java:openjdk-8` for a Docker image in the AWS CodeBuild Docker images repository\)\. `aws/codebuild/java` is the name of the Docker image\. `openjdk-8` is the tag of the Docker image\. 
 
      To find more Docker images you can use in your scenarios, see the [Build Environment Reference](build-env-ref.md)\.
-
    + For `environment`, `computeType` is a required value that represents the computing resources AWS CodeBuild will use \(in this example, `BUILD_GENERAL1_SMALL`\)\.
 **Note**  
 Other available values in the original JSON\-formatted data, such as `description`, `buildspec`, `auth` \(including `type` and `resource`\), `path`, `namespaceType`, `name` \(for `artifacts`\), `packaging`, `environmentVariables` \(including `name` and `value`\), `timeoutInMinutes`, `encryptionKey`, and `tags` \(including `key` and `value`\) are optional\. They are not used in this walkthrough, so they are not shown here\. For more information, see [Create a Build Project \(AWS CLI\)](create-project.md#create-project-cli)\.
@@ -386,23 +373,14 @@ Other available values in the original JSON\-formatted data, such as `descriptio
      }
    }
    ```
-
    + `project` represents information about this build project\.
-
      + `tags` represents any tags that were declared\.
-
      + `packaging` represents how the build output artifact will be stored in the output bucket\. `NONE` means that a folder will be created inside of the output bucket and then the build output artifact will be stored inside of that folder\.
-
      + `lastModified` represents the time, in Unix time format, when information about the build project was last changed\.
-
      + `timeoutInMinutes` represents the number of minutes after which AWS CodeBuild will stop the build if the build has not been completed\. \(The default is 60 minutes\.\)
-
      + `created` represents the time, in Unix time format, when the build project was created\.
-
      + `environmentVariables` represents any environment variables that were declared and are available for AWS CodeBuild to use during the build\.
-
      + `encryptionKey` represents the Amazon Resource Name \(ARN\) of the AWS KMS customer master key \(CMK\) that AWS CodeBuild used to encrypt the build output artifact\.
-
      + `arn` represents the ARN of the build project\.
 
 **Note**  
@@ -467,25 +445,15 @@ You can complete this step with the [AWS CodeBuild console](#getting-started-run
      }
    }
    ```
-
    + `build` represents information about this build\.
-
      + `buildComplete` represents whether the build was completed \(`true`\); otherwise, `false`\.
-
      + `initiator` represents the entity that started the build\.
-
      + `artifacts` represents information about the build output, including its location\.
-
      + `projectName` represents the name of the build project\.
-
      + `buildStatus` represents the current build status when the `start-build` command was run\.
-
      + `currentPhase` represents the current build phase when the `start-build` command was run\.
-
      + `startTime` represents the time, in Unix time format, when the build process started\.
-
      + `id` represents the ID of the build\.
-
      + `arn` represents the Amazon Resource Name \(ARN\) of the build\.
 
    Make a note of the `id` value\. You will need it in the next step\.
@@ -501,25 +469,15 @@ You can complete this step with the [AWS CodeBuild console](#getting-started-mon
 1. If the **codebuild\-demo\-project:*build\-ID*** page is not displayed, then in the navigation bar, choose **Build history**\. Next, in the list of build projects, choose the **Build run** link that corresponds to **codebuild\-demo\-project** for **Project**\. There should be only one matching link\. \(If you have completed this walkthrough before, choose the link that corresponds to the most recent value in the **Completed** column\.\)
 
 1. On the build details page, in **Phase details**, the following list of build phases should be displayed, with **Succeeded** in the **Status** column:
-
    + **SUBMITTED**
-
    + **PROVISIONING**
-
    + **DOWNLOAD\_SOURCE**
-
    + **INSTALL**
-
    + **PRE\_BUILD**
-
    + **BUILD**
-
    + **POST\_BUILD**
-
    + **UPLOAD\_ARTIFACTS**
-
    + **FINALIZING**
-
    + **COMPLETED**
 
    In the page title area, a green box with **Succeeded** should be displayed\.
@@ -597,20 +555,14 @@ If successful, data similar to this will appear in the output\.
   ]
 }
 ```
-
 + `buildsNotFound` represents the build IDs for any builds where information is not available\. In this example, it should be empty\.
-
 + `builds` represents information about each build where information is available\. In this example, information about only one build appears in the output\.
-
   + `phases` represents the set of build phases AWS CodeBuild runs during the build process\. Information about each build phase is listed separately as `startTime`, `endTime`, and `durationInSeconds` \(when the build phase started and ended, expressed in Unix time format, and how long it lasted, in seconds\), as well as `phaseType` such as \(`SUBMITTED`, `PROVISIONING`, `DOWNLOAD_SOURCE`, `INSTALL`, `PRE_BUILD`, `BUILD`, `POST_BUILD`, `UPLOAD_ARTIFACTS`, `FINALIZING`, or `COMPLETED`\) and `phaseStatus` \(such as `SUCCEEDED`, `FAILED`, `FAULT`, `TIMED_OUT`, `IN_PROGRESS`, or `STOPPED`\)\. The first time you run the `batch-get-builds` command, there might not be many \(or any\) phases\. After subsequent runs of the `batch-get-builds` command with the same build ID, more build phases should appear in the output\.
-
   + `logs` represents information in Amazon CloudWatch Logs about the build's logs\.
-
   + `md5sum` and `sha256sum` represent MD5 and SHA\-256 hashes of the build's output artifact\. These appear in the output only if the related build project's `packaging` value is set to `ZIP` \(which you did not set in this walkthrough\) \. You can use these hashes along with a checksum tool to confirm both file integrity and authenticity\.
 **Note**  
 You can also use the Amazon S3 console to view these hashes\. Select the box next to the build output artifact, and then choose **Actions**, **Properties**\. In the **Properties** pane, expand **Metadata**, and view the values for **x\-amz\-meta\-codebuild\-content\-md5** and **x\-amz\-meta\-codebuild\-content\-sha256**\. \(In the Amazon S3 console, the build output artifact's **ETag** value should not be interpreted to be either the MD5 or SHA\-256 hash\.\)  
 If you use the AWS SDKs to get these hashes, the values are named `codebuild-content-md5` and `codebuild-content-sha256`\. 
-
   + `endTime` represents the time, in Unix time format, when the build process ended\.
 
 ## Step 8: View Detailed Build Information<a name="getting-started-build-log"></a>

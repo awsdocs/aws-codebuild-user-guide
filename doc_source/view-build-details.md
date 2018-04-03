@@ -2,7 +2,7 @@
 
 To view details about builds managed by AWS CodeBuild, you can use the AWS CodeBuild console, AWS CLI, or AWS SDKs\.
 
-
+**Topics**
 + [View Build Details \(Console\)](#view-build-details-console)
 + [View Build Details \(AWS CLI\)](#view-build-details-cli)
 + [View Build Details \(AWS SDKs\)](#view-build-details-sdks)
@@ -13,9 +13,7 @@ To view details about builds managed by AWS CodeBuild, you can use the AWS CodeB
 1. Open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codebuild/](https://console.aws.amazon.com/codebuild/)\.
 
 1. Do one of the following:
-
    + In the navigation pane, choose **Build history**\. In the list of builds, in the **Build run** column, choose the link that corresponds to the build\. 
-
    + In the navigation pane, choose **Build projects**\. In the list of build projects, in the **Project** column, choose the link that corresponds to the name of the build project\. Then, in the list of builds, in the **Build run** column, choose the link that corresponds to the build\.
 **Note**  
 By default, only the ten most recent builds or build projects are displayed\. To view more builds or build projects, select a different value for **Builds per page** or **Projects per page** or select the back and forward arrows for **Viewing builds** or **Viewing projects**\.
@@ -31,11 +29,8 @@ aws codebuild batch-get-builds --ids ids
 ```
 
 Replace the following placeholder:
-
 + *ids*: Required string\. One or more build IDs to view details about\. To specify more than one build ID, separate each build ID with a space\. You can specify up to 100 build IDs\. To get a list of build IDs, see one or more of the following topics:
-
   + [View a List of Build IDs \(AWS CLI\)](view-build-list.md#view-build-list-cli)
-
   + [View a List of Build IDs for a Build Project \(AWS CLI\)](view-builds-for-project.md#view-builds-for-project-cli)
 
 For example, if you run this command:

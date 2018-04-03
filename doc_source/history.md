@@ -1,9 +1,7 @@
 # AWS CodeBuild User Guide Document History<a name="history"></a>
 
 Here is a list of important changes to the *AWS CodeBuild User Guide*\.
-
 + **Latest API version:** 2016\-10\-06
-
 + **Latest documentation update:** January 25, 2018
 
 
@@ -11,6 +9,7 @@ Here is a list of important changes to the *AWS CodeBuild User Guide*\.
 
 | Change | Description | Date Changed | 
 | --- | --- | --- | 
+| AWS CodeBuild available in Asia Pacific \(Mumbai\), EU \(Paris\), and South America \(São Paulo\) | AWS CodeBuild is now available in the Asia Pacific \(Mumbai\), EU \(Paris\), and South America \(São Paulo\) regions\. For more information, see the [AWS CodeBuild](http://docs.aws.amazon.com/general/latest/gr/rande.html#codebuild_region) section of the "AWS Regions and Endpoints" topic in the Amazon Web Services General Reference\. | March 28, 2018 | 
 | GitHub Enterprise support | AWS CodeBuild can now build from source code stored in a GitHub Enterprise repository\. For more information, see [GitHub Enterprise Sample](sample-github-enterprise.md)\. | January, 25, 2018 | 
 | Git clone depth support |  AWS CodeBuild now supports the creation of a shallow clone with a history truncated to the specified number of commits\. For more information, see [Create a Build Project](create-project.md)\. | January, 25, 2018 | 
 | VPC support |  VPC\-enabled builds are now able to access resources inside your VPC\. For more information, see [VPC Support](vpc-support.md)\. | November, 27, 2017 | 

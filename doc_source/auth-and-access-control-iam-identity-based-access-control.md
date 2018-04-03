@@ -5,7 +5,7 @@ This topic provides examples of identity\-based policies that demonstrate how an
 **Important**  
 We recommend that you first review the introductory topics that explain the basic concepts and options available to manage access to your AWS CodeBuild resources\. For more information, see [Overview of Managing Access Permissions to Your AWS CodeBuild Resources](auth-and-access-control-iam-access-control-identity-based.md)\.
 
-
+**Topics**
 + [Permissions Required to Use the AWS CodeBuild Console](#console-permissions)
 + [Permissions Required for the AWS CodeBuild Console to Connect to Source Providers Using OAuth](#console-policies)
 + [AWS Managed \(Predefined\) Policies for AWS CodeBuild](#managed-policies)
@@ -29,21 +29,13 @@ The following shows an example of a permissions policy that allows a user to get
 ## Permissions Required to Use the AWS CodeBuild Console<a name="console-permissions"></a>
 
 A user who uses the AWS CodeBuild console must have a minimum set of permissions that allows the user to describe other AWS resources for the AWS account\. You must have permissions from the following services:
-
 + AWS CodeBuild
-
 + Amazon CloudWatch
-
 + AWS CodeCommit \(if you are storing your source code in an AWS CodeCommit repository\)
-
 + Amazon Elastic Container Registry \(Amazon ECR\) \(if you are using a build environment that relies on a Docker image in an Amazon ECR repository\)
-
 + Amazon Elastic Container Service \(Amazon ECS\) \(if you are using a build environment that relies on a Docker image in an Amazon ECR repository\)
-
 + AWS Identity and Access Management \(IAM\)
-
 + AWS Key Management Service \(AWS KMS\)
-
 + Amazon Simple Storage Service \(Amazon S3\)
 
 If you create an IAM policy that is more restrictive than the minimum required permissions, the console won't function as intended\.
@@ -51,11 +43,8 @@ If you create an IAM policy that is more restrictive than the minimum required p
 ## Permissions Required for the AWS CodeBuild Console to Connect to Source Providers Using OAuth<a name="console-policies"></a>
 
 The AWS CodeBuild console uses the following API actions to connect to source providers \(for example, GitHub repositories\) using OAuth\.
-
 + `codebuild:ListConnectedOAuthAccounts`
-
 + `codebuild:ListRepositories`
-
 + `codebuild:PersistOAuthToken`
 
 To associate source providers using OAuth \(such as GitHub repositories\) with your build projects, you must use the AWS CodeBuild console\. To do this, you must first add the preceding API actions to IAM access policies associated with the IAM user you use to access the AWS CodeBuild console\.
@@ -67,11 +56,8 @@ These API actions are not intended to be called by your code\. Therefore, these 
 AWS addresses many common use cases by providing standalone IAM policies that are created and administered by AWS\. These AWS managed policies grant necessary permissions for common use cases so you can avoid having to investigate what permissions are needed\. For more information, see [AWS Managed Policies](http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html#aws-managed-policies) in the *IAM User Guide*\.
 
 The following AWS managed policies, which you can attach to users in your account, are specific to AWS CodeBuild\.
-
 + **AWSCodeBuildAdminAccess** – Provides full access to AWS CodeBuild including permissions to administrate AWS CodeBuild build projects\. 
-
 + **AWSCodeBuildDeveloperAccess** – Provides access to AWS CodeBuild but does not allow build project administration\.
-
 + **AWSCodeBuildReadOnlyAccess** – Provides read\-only access to AWS CodeBuild\.
 
 To access build output artifacts that AWS CodeBuild creates, you must also attach the AWS managed policy named **AmazonS3ReadOnlyAccess**\.
@@ -86,7 +72,7 @@ In this section, you can find example user policies that grant permissions for A
 
 You can use the following sample IAM policies to limit AWS CodeBuild access for your IAM users and roles\.
 
-
+**Topics**
 + [Allow a User to Get Information About Build Projects](#customer-managed-policies-example-batch-get-projects)
 + [Allow a User to Create Build Projects](#customer-managed-policies-example-create-project)
 + [Allow a User to Delete Build Projects](#customer-managed-policies-example-delete-project)

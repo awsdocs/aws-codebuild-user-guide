@@ -4,7 +4,7 @@ A *build project* defines how AWS CodeBuild will run a build\. It includes infor
 
 You can perform these tasks when working with build projects:
 
-
+**Topics**
 + [Create a Build Project in AWS CodeBuild](create-project.md)
 + [View a List of Build Project Names in AWS CodeBuild](view-project-list.md)
 + [View a Build Project's Details in AWS CodeBuild](view-project-details.md)

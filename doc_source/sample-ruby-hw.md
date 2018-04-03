@@ -8,7 +8,7 @@ Running this sample may result in charges to your AWS account\. These include po
 **Note**  
  Did you know you can use AWS Cloud9 to work with the code in this topic? AWS Cloud9 is an online, cloud\-based integrated development environment \(IDE\) you can use to write, run, debug, and deploy code—using just a browser from an internet\-connected machine\. AWS Cloud9 includes a code editor, debugger, terminal, and essential tools, such as the AWS CLI and Git\. In many cases, you don't need to install files or configure your development machine to start working with code\. Learn more in the [AWS Cloud9 User Guide](http://docs.aws.amazon.com/cloud9/latest/user-guide/)\.
 
-
+**Topics**
 + [Running the Sample](#sample-ruby-hw-running)
 + [Directory Structure](#sample-ruby-hw-dir)
 + [Files](#sample-ruby-hw-files)
@@ -119,9 +119,6 @@ end
 ```
 
 ## Related Resources<a name="w3ab1b9c50c35c17"></a>
-
 + For more information about getting started with AWS CodeBuild, see [Getting Started with AWS CodeBuild](getting-started.md)\.
-
 + For more information about troubleshooting problems with AWS CodeBuild, see [Troubleshooting AWS CodeBuild](troubleshooting.md)\.
-
 + For more information about limits in AWS CodeBuild, see [Limits for AWS CodeBuild](limits.md)\.

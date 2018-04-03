@@ -11,11 +11,8 @@ aws codebuild batch-delete-builds --ids ids
 ```
 
 In the preceding command, replace the following placeholder:
-
 + *ids*: Required string\. The IDs of the builds to delete\. To specify multiple builds, separate each build ID with a space\. To get a list of build IDs, see the following topics:
-
   + [View a List of Build IDs \(AWS CLI\)](view-build-list.md#view-build-list-cli)
-
   + [View a List of Build IDs for a Build Project \(AWS CLI\)](view-builds-for-project.md#view-builds-for-project-cli)
 
 If successful, a `buildsDeleted` array appears in the output, containing the Amazon Resource Name \(ARN\) of each build that was successfully deleted\. Information about builds that were not successfully deleted appears in output within a `buildsNotDeleted` array\.

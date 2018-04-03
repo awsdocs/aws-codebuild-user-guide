@@ -5,16 +5,13 @@ When you call AWS CodeBuild to run a build, you must provide information about t
 A build environment contains a Docker image\. For information, see [Docker Glossary: Image](https://docs.docker.com/glossary/?term=image) on the Docker Docs website\. 
 
 When you provide information to AWS CodeBuild about the build environment, you specify the identifier of a Docker image in a supported repository type\. These include the AWS CodeBuild Docker image repository, publicly available images in Docker Hub, and Amazon Elastic Container Registry \(Amazon ECR\) repositories in your AWS account:
-
 + We recommend that you use Docker images stored in the AWS CodeBuild Docker image repository, because they are optimized for use with the service\. For more information, see [Docker Images Provided by AWS CodeBuild](build-env-ref-available.md)\. 
-
 + To get the identifier of a publicly available Docker image stored in Docker Hub, see [Searching for images](https://docs.docker.com/docker-hub/repos/#searching-for-images) on the Docker Docs website\.
-
 + To learn how to work with Docker images stored in Amazon ECR repositories in your AWS account, see our [Amazon ECR Sample](sample-ecr.md)\.
 
 In addition to a Docker image identifier, you also specify a set of computing resources that the build environment will use\. For more information, see [Build Environment Compute Types](build-env-ref-compute-types.md)\.
 
-
+**Topics**
 + [Docker Images Provided by AWS CodeBuild](build-env-ref-available.md)
 + [Build Environment Compute Types](build-env-ref-compute-types.md)
 + [Shells and Commands in Build Environments](build-env-ref-cmd.md)

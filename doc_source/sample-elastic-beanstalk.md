@@ -33,11 +33,8 @@ In this section, you will use Maven to produce the source code to be built\. Lat
    ```
 
 After you run Maven, continue with one of the following scenarios:
-
 + [Scenario A: Run AWS CodeBuild Manually and Deploy to Elastic Beanstalk Manually](#sample-elastic-beanstalk-manual) 
-
 + [Scenario B: Use AWS CodePipeline to Run AWS CodeBuild and Deploy to Elastic Beanstalk](#sample-elastic-beanstalk-codepipeline)
-
 + [Scenario C: Use the Elastic Beanstalk Command Line Interface \(EB CLI\) to Run AWS CodeBuild and Deploy to an Elastic Beanstalk Environment](#sample-elastic-beanstalk-eb-cli)
 
 ## Scenario A: Run AWS CodeBuild Manually and Deploy to Elastic Beanstalk Manually<a name="sample-elastic-beanstalk-manual"></a>
@@ -106,23 +103,14 @@ In this step, you will use the AWS CodeBuild console to create a build project a
    Use the AWS region selector to choose a region that supports AWS CodeBuild and matches the region where your Amazon S3 output bucket is stored\.
 
 1. Create a build project and then run a build\. For more information, see [Create a Build Project \(Console\)](create-project.md#create-project-console) and [Run a Build \(Console\)](run-build.md#run-build-console)\. Leave all settings at their default values, except for these settings\.
-
    + For **Environment: How to build**:
-
      + For **Environment image**, choose **Use an image managed by AWS CodeBuild**\.
-
      + For **Operating system**, choose **Ubuntu**\.
-
      + For **Runtime**, choose **Java**\.
-
      + For **Version**, choose **aws/codebuild/java:openjdk\-8**\.
-
    + For **Artifacts: Where to put the artifacts from this build project**:
-
      + For **Artifacts name**, type a build output file name that's easy for you to remember\. Include the `.zip` extension\.
-
    + For **Show advanced settings**:
-
      + For **Artifacts packaging**, choose **Zip**\.
 
 ### Step A3: Create the Application and Environment and Deploy<a name="sample-elastic-beanstalk-manual-deploy"></a>
@@ -136,9 +124,7 @@ In this step, you will use the Elastic Beanstalk console to create an applicatio
 1. Create an Elastic Beanstalk application\. For more information, see [Managing and Configuring AWS Elastic Beanstalk Applications](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/applications.html)\.
 
 1. Create an Elastic Beanstalk environment for this application\. For more information, see [The Create New Environment Wizard](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environments-create-wizard.html)\. Leave all settings at their default values, except for these settings\.
-
    + For **Platform**, choose **Tomcat**\.
-
    + For **Application code**, choose **Upload your code**, and then choose **Upload**\. For **Source code origin**, choose **Public S3 URL**, and then type the full URL to the build output ZIP file in the output bucket\. Then choose **Upload**\.
 
 1. After Elastic Beanstalk deploys the build output to the environment, you can see the results in a web browser\. Go to the environment URL for the instance \(for example, `http://my-environment-name.random-string.region-ID.elasticbeanstalk.com`\)\. The web browser should display the text `Hello World!`\.
@@ -198,21 +184,13 @@ In this step, you will use the AWS CodePipeline and Elastic Beanstalk consoles t
    Use the AWS region selector to choose a region that supports AWS CodeBuild and, if you're storing the source code in an Amazon S3 input bucket, choose the region that matches the one where your input bucket is stored\.
 
 1. Create a pipeline\. For information, see [Create a Pipeline that Uses AWS CodeBuild \(AWS CodePipeline Console\)](how-to-create-pipeline.md#how-to-create-pipeline-console)\. Leave all settings at their default values, except for these settings\.
-
    + For **Step 3: Build**, for **Configure your project**, choose **Create a new build project**\. For **Environment: How to build**:
-
      + For **Environment image**, choose **Use an image managed by AWS CodeBuild**\.
-
      + For **Operating system**, choose **Ubuntu**\.
-
      + For **Runtime**, choose **Java**\.
-
      + For **Version**, choose **aws/codebuild/java:openjdk\-8**\.
-
    + For **Step 4: Beta**, for **Deployment provider**, choose **AWS Elastic Beanstalk**\.
-
      + For the application, choose the **create a new one in Elastic Beanstalk** link\. This opens the Elastic Beanstalk console\. For more information, see [Managing and Configuring AWS Elastic Beanstalk Applications](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/applications.html)\. After you create the application, return to the AWS CodePipeline console, and then select the application you just created\.
-
      + For the environment, choose the **create a new one in Elastic Beanstalk** link\. This opens the Elastic Beanstalk console\. For more information, see [The Create New Environment Wizard](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environments-create-wizard.html)\. Leave all but one setting at their default values: for **Platform**, choose **Tomcat**\. After you create the environment, return to the AWS CodePipeline console, and then select the environment you just created\.
 
 1. After the pipeline has run successfully, you can see the results in a web browser\. Go to the environment URL for the instance \(for example, `http://my-environment-name.random-string.region-ID.elasticbeanstalk.com`\)\. The web browser should display the text `Hello World!`\.
@@ -289,15 +267,10 @@ In this step, you will add an Elastic Beanstalk configuration file and a build s
    ```
 
    When prompted:
-
    + Choose an AWS region where AWS CodeBuild is supported and matches where you want to create your Elastic Beanstalk application and environment\.
-
    + Create an Elastic Beanstalk application, and type a name for the application\.
-
    + Choose the `Tomcat` platform\.
-
    + Choose the `Tomcat 8 Java 8` version\.
-
    + Choose whether you want to use SSH to set up access to your environment's instances\.
 
 1.  From the same directory, run the eb create command to create an Elastic Beanstalk environment\.
@@ -307,11 +280,8 @@ In this step, you will add an Elastic Beanstalk configuration file and a build s
    ```
 
    When prompted:
-
    + Type the name for the new environment, or accept the suggested name\.
-
    + Type the DNS CNAME prefix for the environment, or accept the suggested value\.
-
    + For this sample, accept the Classic load balancer type\.
 
 1. After you run the eb create command, the EB CLI does the following:
@@ -335,9 +305,6 @@ In this step, you will add an Elastic Beanstalk configuration file and a build s
 If you want, you can make changes to the source code and then run the eb deploy command from the same directory\. The EB CLI performs the same steps as the eb create command, but it deploys the build output to the existing environment instead of creating a new environment\.
 
 ## Related Resources<a name="w3ab1b9c47c35c15"></a>
-
 + For more information about getting started with AWS CodeBuild, see [Getting Started with AWS CodeBuild](getting-started.md)\.
-
 + For more information about troubleshooting problems with AWS CodeBuild, see [Troubleshooting AWS CodeBuild](troubleshooting.md)\.
-
 + For more information about limits in AWS CodeBuild, see [Limits for AWS CodeBuild](limits.md)\.

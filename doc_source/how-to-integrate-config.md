@@ -3,18 +3,14 @@
 AWS Config provides an inventory of your AWS resources and a history of configuration changes to these resources\. AWS Config now supports AWS CodeBuild as an AWS resource, which means the service can track your AWS CodeBuild projects\. For more information about AWS Config, see [What Is AWS Config?](http://docs.aws.amazon.com/config/latest/developerguide/WhatIsConfig.html) in the *AWS Config Developer Guide*\.
 
 You can see the following information about AWS CodeBuild resources on the **Resource Inventory** page in the AWS Config console:
-
 + A timeline of your AWS CodeBuild configuration changes\.
-
 + Configuration details for each AWS CodeBuild project\.
-
 + Relationships with other AWS resources\.
-
 + A list of changes to your AWS CodeBuild projects\.
 
 The procedures in this topic show you how to set up AWS Config and look up and view AWS CodeBuild projects\.
 
-
+**Topics**
 + [Prerequisites](#how-to-create-a-build-project)
 + [Set Up AWS Config](#setup-config)
 + [Look Up AWS CodeBuild Projects](#lookup-projects)
@@ -25,9 +21,7 @@ The procedures in this topic show you how to set up AWS Config and look up and v
 Create your AWS CodeBuild project\(s\)\. For more information, see [Create a Build Project](create-project.md)\.
 
 ## Set Up AWS Config<a name="setup-config"></a>
-
 + [Setting up AWS Config \(Console\)](http://docs.aws.amazon.com/config/latest/developerguide/gs-console.html)
-
 + [Setting up AWS Config \(AWS CLI\)](http://docs.aws.amazon.com/config/latest/developerguide/gs-cli.html)
 
 **Note**  

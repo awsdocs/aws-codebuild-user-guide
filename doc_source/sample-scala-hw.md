@@ -5,7 +5,7 @@ This Scala sample produces as build output a single JAR file named `core_2.11-1.
 **Important**  
 Running this sample may result in charges to your AWS account\. These include possible charges for AWS CodeBuild and for AWS resources and actions related to Amazon S3, AWS KMS, and CloudWatch Logs\. For more information, see [AWS CodeBuild Pricing](http://aws.amazon.com/codebuild/pricing), [Amazon S3 Pricing](http://aws.amazon.com/s3/pricing), [AWS Key Management Service Pricing](http://aws.amazon.com/kms/pricing), and [Amazon CloudWatch Pricing](http://aws.amazon.com/cloudwatch/pricing)\.
 
-
+**Topics**
 + [Running the Sample](#sample-scala-hw-running)
 + [Directory Structure](#sample-scala-hw-dir)
 + [Files](#sample-scala-hw-files)
@@ -186,9 +186,6 @@ sbt.version=0.13.7
 ```
 
 ## Related Resources<a name="w3ab1b9c50c37c15"></a>
-
 + For more information about getting started with AWS CodeBuild, see [Getting Started with AWS CodeBuild](getting-started.md)\.
-
 + For more information about troubleshooting problems with AWS CodeBuild, see [Troubleshooting AWS CodeBuild](troubleshooting.md)\.
-
 + For more information about limits in AWS CodeBuild, see [Limits for AWS CodeBuild](limits.md)\.

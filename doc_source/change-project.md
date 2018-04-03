@@ -2,7 +2,7 @@
 
 To change a build project's settings in AWS CodeBuild, you can use the AWS CodeBuild console, AWS CLI, or AWS SDKs\.
 
-
+**Topics**
 + [Change a Build Project's Settings \(Console\)](#change-project-console)
 + [Change a Build Project's Settings \(AWS CLI\)](#change-project-cli)
 + [Change a Build Project's Settings \(AWS SDKs\)](#change-project-sdks)
@@ -14,9 +14,7 @@ To change a build project's settings in AWS CodeBuild, you can use the AWS CodeB
 1. In the navigation pane, choose **Build projects**\.
 
 1. Do one of the following:
-
    + Choose the radio button next to the build project you want to change, choose **Actions**, and then choose **Update**\.
-
    + Choose the link for the build project you want to change, and then choose **Edit project**\.
 **Note**  
 By default, only the 10 most recent build projects are displayed\. To view more build projects, choose a different value for **Projects per page** or choose the back and forward arrows for **Viewing projects**\.
@@ -25,54 +23,37 @@ By default, only the 10 most recent build projects are displayed\. To view more 
 
    For more information about settings referred to in this procedure, see [Create a Build Project \(Console\)](create-project.md#create-project-console)\.
 
-1. To change information about the source code location, in the **Source: What to build** area, choose **Update source**\. Change the displayed fields depending on the source provider type \(for example, **Source provider**, **Bucket**, **S3 object**, or **Repository**\)\.
-
-   + If your Source provider is AWS CodeCommit, BitBucket, GitHub, or GitHub Enterprise, you can change the value for **Git clone depth**\. This creates a shallow clone with a history truncated to the specified number of commits\. If you want a full clone, choose **Full**\.
-
-   + If your source code is stored in a GitHub or GitHub Enterprise repository, and you want AWS CodeBuild to rebuild the source code every time a code change is pushed to the repository, select **Webhook**\.
-
-   + If your **Source provider** is AWS CodeCommit, BitBucket, GitHub, or GitHub Enterprise, a **Build Badge** check box is available\. Select **Build Badge** to make your project's build status visible and embeddable\. For more information, see [Build Badges Sample](sample-build-badges.md)\.
-**Important**  
-Updating your project source might affect the accuracy of the project's build badges\.
+1. To change information about the source code location, in the **Source: What to build** area, choose **Update source**\. Use the following table to make selections appopropriate for your source provider:  
+****    
+[\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/codebuild/latest/userguide/change-project.html)
 
 1. To change information about the build environment, in **Environment: How to build**, choose **Update image**\. Make changes appropriate for the build environment type \(for example, **Environment image**, **Operating system**, **Runtime**, **Version**, **Custom image type**, **Custom image ID**, **Amazon ECR repository**, or **Amazon ECR image**\)\.
 
 1. Do one of the following:
-
    + If your source code previously did not include a buildspec\.yml file but does now, choose **Update build specification**, and then choose **Use buildspec\.yml from source code**\. 
-
    + If your source code previously included a buildspec\.yml file but now does not, choose **Update build specification**, then choose **Insert build commands**, and then type the commands in **Build commands**\.
 
 1. To change information about the build output artifact location and name, in **Artifacts: Where to put the artifacts from this build project**, change the values of **Artifacts type**, **Artifact name**, **Bucket name**, or **Output files**\.
 
 1. To change information about the cache, in **Cache**, do one of the following:
-
    + If you previously chose a cache but now you do not want to use a cache, choose **No cache**\.
-
    + If you previously chose **No cache** but now you want to use a cache, choose **Amazon S3**, and then do the following:
-
      + For **Bucket**, choose the name of the Amazon S3 bucket where the cache is stored\.
-
      + \(Optional\) For **Path prefix**, type an Amazon S3 path prefix\. The **Path prefix** value is similar to a directory name that enables you to store the cache under the same directory in a bucket\. 
 **Important**  
 Do not append "/" to the end of **Path prefix**\.
 
-   Using a cache saves considerable build time because reusable pieces of the build environment are stored in the cache and used across builds\.
+   Using a cache saves considerable build time because reusable pieces of the build environment are stored in the cache and used across builds\. For information about specifying a cache in the build spec file, see [Build Spec Syntax](build-spec-ref.md#build-spec-ref-syntax)\.
 
 1. To change information about the AWS CodeBuild service role, in **Service role**, change the values of **Create a role**, **Choose an existing service role from your account**, or **Role name**\.
 **Note**  
 When you use the console to create or update a build project, you can create an AWS CodeBuild service role at the same time\. By default, the role works with that build project only\. If you use the console to associate this service role with another build project, the role is updated to work with the other build project\. A service role can work with up to 10 build projects\.
 
 1. In **VPC**, do one of the following:
-
    + If you are not using a VPC for your project, choose **No VPC**\.
-
    + If you want AWS CodeBuild to work with your VPC:
-
      + For **VPC**, choose the VPC ID that AWS CodeBuild uses\.
-
      + For **Subnets**, choose the subnets that include resources that AWS CodeBuild uses\.
-
      + For **Security Groups**, choose the security groups that AWS CodeBuild uses to allow access to resources in the VPCs\.
 
    For more information, see [Use AWS CodeBuild with Amazon Virtual Private Cloud](vpc-support.md)\.
@@ -86,7 +67,7 @@ If you leave **Encryption key** blank, AWS CodeBuild uses the AWS\-managed CMK f
 1. If you plan to use this build project to build Docker images and the specified build environment is not provided by AWS CodeBuild with Docker support, in **Show advanced settings**, select **Privileged**\. Otherwise, all associated builds that attempt to interact with the Docker daemon fail\. You must also start the Docker daemon so that your builds can interact with it as needed\. One way to do this is to initialize the Docker daemon in the `install` phase of your build spec by running the following build commands\. \(Do not run the following build commands if the specified build environment image is provided by AWS CodeBuild with Docker support\.\)
 
    ```
-   - nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375 --storage-driver=overlay&
+   - nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://127.0.0.1:2375 --storage-driver=overlay&
    - timeout -t 15 sh -c "until docker info; do echo .; sleep 1; done"
    ```
 

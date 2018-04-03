@@ -2,7 +2,7 @@
 
 To view the details of a build project in AWS CodeBuild, you can use the AWS CodeBuild console, AWS CLI, or AWS SDKs\.
 
-
+**Topics**
 + [View a Build Project's Details \(Console\)](#view-project-details-console)
 + [View a Build Project's Details \(AWS CLI\)](#view-project-details-cli)
 + [View a Build Project's Details \(AWS SDKs\)](#view-project-details-sdks)
@@ -30,7 +30,6 @@ aws codebuild batch-get-projects --names names
 ```
 
 In the preceding command, replace the following placeholder:
-
 + *names*: Required string\. One or more build project names to view details about\. To specify more than one build project, separate each build project's name with a space\. You can specify up to 100 build project names\. To get a list of build projects, see [View a List of Build Project Names \(AWS CLI\)](view-project-list.md#view-project-list-cli)\.
 
 For example, if you run this command:

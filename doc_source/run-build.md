@@ -2,7 +2,7 @@
 
 You can use the AWS CodeBuild console, AWS CLI, or AWS SDKs to run a build in AWS CodeBuild\.
 
-
+**Topics**
 + [Run a Build \(Console\)](#run-build-console)
 + [Run a Build \(AWS CLI\)](#run-build-cli)
 + [Start Running Builds Automatically \(AWS CLI\)](#run-build-cli-auto-start)
@@ -16,31 +16,20 @@ To use AWS CodePipeline to run a build with AWS CodeBuild, skip these steps and 
 1. Open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codebuild/](https://console.aws.amazon.com/codebuild/)\.
 
 1. Do one of the following:
-
    + If you just finished creating a build project, the **Build project: *project\-name*** page should be displayed\. Choose **Start build**\.
-
    + If you created a build project earlier, in the navigation pane, choose **Build projects**\. Choose the build project, and then choose **Start build**\.
 
 1. On the **Start new build** page, do one of the following:
-
    + For Amazon S3, for the optional **Source version** value, type the version ID that corresponds to the version of the input artifact you want to build\. If **Source version** is left blank, the latest version will be used\.
-
    + For AWS CodeCommit, for the optional **Source version** value, for **Branch**, choose the name of the branch that contains the version of the source code you want to build\. For **Source version**, accept the displayed HEAD commit ID or type a different one\. If **Source version** is blank, the default branch's HEAD commit ID is used\. You cannot type a tag name for **Source version**\. To specify a tag, type the tag's commit ID\. Change the value for **Git clone depth**\. This will create a shallow clone with a history truncated to the specified number of commits\. If you want a full clone, choose **Full**\.
-
    + For GitHub or GitHub Enterprise, for the optional **Source version** value, type a commit ID, a pull request ID, a branch name, or a tag name that corresponds to the version of the source code you want to build\. If you specify a pull request ID, it must use the format `pr/pull-request-ID` \(for example, `pr/25`\)\. If you specify a branch name, the branch's HEAD commit ID is used\. If **Source version** is blank, the default branch's HEAD commit ID is used\. Change the value for **Git clone depth**\. This creates a shallow clone with a history truncated to the specified number of commits\. If you want a full clone, choose **Full**\.
-
    + For Bitbucket, for the optional **Source version** value, type a commit ID, a branch name, or a tag name that corresponds to the version of the source code you want to build\. If you specify a branch name, the branch's HEAD commit ID is used\. If **Source version** is blank, the default branch's HEAD commit ID is used\. Change the value for **Git clone depth**\. This creates a shallow clone with a history truncated to the specified number of commits\. If you want a full clone, choose **Full**\.
 
 1. Expand **Show advanced options**\.
-
    + If you want to change the output artifacts type for this build only, choose the replacement type in **Artifacts type**\.
-
    + If you want to change the name of the output artifact for this build only, type the replacement name in **Artifacts name**\.
-
    + If you want to change the name of the output bucket for this build only, choose the replacement name in **Bucket name**\.
-
    + If you want to change the way output artifacts are packaged for this build only, choose the replacement packaging type in **Artifacts packaging**\.
-
    + If you want to change the build timeout for this build only, specify the new value in **Timeout**\.
 
 1. Expand **Environment variables**\. 
@@ -115,35 +104,20 @@ For more information about using the AWS CLI with AWS CodeBuild, see the [Comman
    ```
 
    Replace the following placeholders:
-
    + *projectName*: Required string\. The name of the build project to use for this build\. 
-
    + *sourceVersion*: Optional string\. A version of the source code to be built, as follows:
-
      + For Amazon S3, the version ID that corresponds to the version of the input ZIP file you want to build\. If *sourceVersion* is not specified, then the latest version is used\.
-
      + For AWS CodeCommit, the commit ID that corresponds to the version of the source code you want to build\. If *sourceVersion* is not specified, the default branch's HEAD commit ID is used\. \(You cannot specify a tag name for *sourceVersion*, but you can specify the tag's commit ID\.\)
-
      + For GitHub, the commit ID, pull request ID, branch name, or tag name that corresponds to the version of the source code you want to build\. If a pull request ID is specified, it must use the format `pr/pull-request-ID` \(for example, `pr/25`\)\. If a branch name is specified, the branch's HEAD commit ID is used\. If *sourceVersion* is not specified, the default branch's HEAD commit ID is used\. 
-
      + For Bitbucket, the commit ID, branch name, or tag name that corresponds to the version of the source code you want to build\. If a branch name is specified, the branch's HEAD commit ID is used\. If *sourceVersion* is not specified, the default branch's HEAD commit ID is used\. 
-
    + *type*: Optional string\. The build output artifact type that overrides for this build the one defined in the build project\.
-
    + *location*: Optional string\. The build output artifact location that overrides for this build the one defined in the build project\.
-
    + *path*: Optional string\. The build output artifact path that overrides for this build the one defined in the build project\.
-
    + *namespaceType*: Optional string\. The build output artifact path type that overrides for this build the one defined in the build project\.
-
    + *name*: Optional string\. The build output artifact name that overrides for this build the one defined in the build project\.
-
    + *packaging*: Optional string\. The build output artifact packaging type that overrides for this build the one defined in the build project\.
-
    + *environmentVariablesOverride\-name*: Optional string\. The name of an environment variable in the build project whose value you want to override for this build\.
-
    + *value*: Optional string\. The value of the environment variable defined in the build project that you want to override for this build\.
-
    + *environmentVariablesOverride\-type*: Optional string\. The type of environment variable in the build project whose value you want to override for this build\.
 **Important**  
 We recommend you store an environment variable with a sensitive value, such as an AWS access key ID, an AWS secret access key, or a password as a parameter in Amazon EC2 Systems Manager Parameter Store\. AWS CodeBuild can use a parameter stored in Amazon EC2 Systems Manager Parameter Store only if that parameter's name starts with `/CodeBuild/` \(for example, `/CodeBuild/dockerLoginPassword`\)\. You can use the AWS CodeBuild console to create a parameter in Amazon EC2 Systems Manager\. Choose **Create a parameter**, and then follow the instructions in the dialog box\. \(In that dialog box, for **KMS key**, you can optionally specify the ARN of an AWS KMS key in your account\. Amazon EC2 Systems Manager uses this key to encrypt the parameter's value during storage and decrypt during retrieval\.\) If you use the AWS CodeBuild console to create a parameter, the console starts the parameter with `/CodeBuild/` as it is being stored\. However, if you use the Amazon EC2 Systems Manager Parameter Store console to create a parameter, you must start the parameter's name with `/CodeBuild/`, and you must set **Type** to **Secure String**\. For more information, see [Systems Manager Parameter Store](http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-paramstore.html) and [Systems Manager Parameter Store Console Walkthrough](http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-walk.html#sysman-paramstore-console) in the *Amazon EC2 Systems Manager User Guide*\.  
@@ -154,11 +128,8 @@ If an environment variable with the same name is defined in multiple places, the
 The value in the start build operation call takes highest precedence\.
 The value in the build project definition takes next precedence\.
 The value in the build spec declaration takes lowest precedence\.
-
    + *buildspecOverride*: Optional string\. A build spec declaration that overrides for this build the one defined in the build project\. If this value is set, it can be either an inline build spec definition or the path to an alternate build spec file relative to the value of the built\-in `CODEBUILD_SRC_DIR` environment variable\.
-
    + *gitCloneDepthOverride*: Optional string\. The value of the **Git clone depth** in the build project whose value you want to override for this build\. If your source type is Amazon S3, this value is not supported\.
-
    + *timeoutInMinutesOverride*: Optional number\. The number of build timeout minutes that overrides for this build the one defined in the build project\. 
 
    For information about valid values for these placeholders, see [Create a Build Project \(AWS CLI\)](create-project.md#create-project-cli)\. For a list of the latest settings for a build project, see [View a Build Project's Details](view-project-details.md)\.
@@ -182,7 +153,6 @@ Run the `create-webhook` command as follows:
 ```
 aws codebuild create-webhook --project-name 
 ```
-
 + where *project\-name* is the name of the build project that contains the source code to be rebuilt\.
 
 For GitHub, information similar to the following appears in the output:
@@ -194,7 +164,6 @@ For GitHub, information similar to the following appears in the output:
   }
 }
 ```
-
 + where *url* is the URL to the GitHub webhook\.
 
 For GitHub Enterprise, information similar to the following appears in the output:
@@ -212,7 +181,6 @@ If you have enabled this behavior, you can turn it off by running the `delete-we
 ```
 aws codebuild delete-webhook --project-name  
 ```
-
 + where *project\-name* is the name of the build project that contains the source code to be rebuilt\.
 
 If this command is successful, no information and no errors appear in the output\.

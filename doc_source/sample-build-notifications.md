@@ -142,15 +142,10 @@ For more information, see [Editing Customer Managed Policies](http://docs.aws.am
    ```
 
    In the preceding rule, make the following code changes as needed\.
-
    + To trigger an event whenever a build starts or completes, either leave all of the values as shown in the `build-status` array, or remove the `build-status` array altogether\. 
-
    + To trigger an event only when a build completes, remove `IN_PROGRESS` from the `build-status` array\. 
-
    + To trigger an event only when a build starts, remove all of the values except `IN_PROGRESS` from the `build-status` array\.
-
    + To trigger events for all build projects, remove the `project-name` array altogether\.
-
    + To trigger events only for individual build projects, specify the name of each build project in the `project-name` array\. 
 
    This second rule pattern triggers an event whenever a build moves from one build phase to another, for the specified build projects in AWS CodeBuild\.
@@ -192,17 +187,11 @@ For more information, see [Editing Customer Managed Policies](http://docs.aws.am
    ```
 
    In the preceding rule, make the following code changes as needed\.
-
    + To trigger an event for every build phase change \(which may send up to 9 notifications for each build\), either leave all of the values as shown in the `completed-phase` array, or remove the `completed-phase` array altogether\.
-
    + To trigger events only for individual build phase changes, remove the name of each build phase in the `completed-phase` array that you do not want to trigger an event for\.
-
    + To trigger an event for every build phase status change, either leave all of the values as shown in the `completed-phase-status` array, or remove the `completed-phase-status` array altogether\.
-
    + To trigger events only for individual build phase status changes, remove the name of each build phase status in the `completed-phase-status` array that you do not want to trigger an event for\.
-
    + To trigger events for all build projects, remove the `project-name` array\.
-
    + To trigger events for individual build projects, specify the name of each build project in the `project-name` array\. 
 **Note**  
 If you want to trigger events for both build state changes and build phase changes, you must create two separate rules, one for build state changes and another for build phase changes\. If you try to combine both rules into a single rule, the combined rule may produce unexpected results or stop working altogether\.
@@ -270,11 +259,8 @@ To stop using a rule to send build notifications, in the CloudWatch console, cho
 To delete a rule altogether, in the CloudWatch console, choose the rule you want to delete, and then choose **Actions**, **Delete**\.
 
 ### Related Resources<a name="w3ab1b9c47c23b9c12"></a>
-
 + For more information about getting started with AWS CodeBuild, see [Getting Started with AWS CodeBuild](getting-started.md)\.
-
 + For more information about troubleshooting problems with AWS CodeBuild, see [Troubleshooting AWS CodeBuild](troubleshooting.md)\.
-
 + For more information about limits in AWS CodeBuild, see [Limits for AWS CodeBuild](limits.md)\.
 
 ## Build Notifications Input Format Reference<a name="sample-build-notifications-ref"></a>

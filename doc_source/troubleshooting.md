@@ -2,7 +2,7 @@
 
 Use the information in this topic to help you identify, diagnose, and address issues\.
 
-
+**Topics**
 + [Error: "CodeBuild is not authorized to perform: sts:AssumeRole" When Creating or Updating a Build Project](#troubleshooting-assume-role)
 + [Error: "The bucket you are attempting to access must be addressed using the specified endpoint\.\.\." When Running a Build](#troubleshooting-input-bucket-different-region)
 + [Error: "Failed to upload artifacts: Invalid arn" When Running a Build](#troubleshooting-output-bucket-different-region)
@@ -26,17 +26,12 @@ Use the information in this topic to help you identify, diagnose, and address is
 **Issue:** When you try to create or update a build project, you receive the following error: "Code:InvalidInputException, Message:CodeBuild is not authorized to perform: sts:AssumeRole on arn:aws:iam::*account\-ID*:role/*service\-role\-name*"\.
 
  **Possible causes:** 
-
 + The AWS Security Token Service \(AWS STS\) has been deactivated for the AWS region where you are attempting to create or update the build project\.
-
 + The AWS CodeBuild service role associated with the build project does not exist or does not have sufficient permissions to trust AWS CodeBuild\.
 
  **Recommended solutions:** 
-
 + Make sure AWS STS is activated for the AWS region where you are attempting to create or update the build project\. For more information, see [Activating and Deactivating AWS STS in an AWS Region](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html) in the *IAM User Guide*\.
-
 + Make sure the target AWS CodeBuild service role exists in your AWS account\. If you are not using the console, make sure you did not misspell the Amazon Resource Name \(ARN\) of the service role when you created or updated the build project\.
-
 + Make sure the target AWS CodeBuild service role has sufficient permissions to trust AWS CodeBuild\. For more information, see the trust relationship policy statement in [Create an AWS CodeBuild Service Role](setting-up.md#setting-up-service-role)\.
 
 ## Error: "The bucket you are attempting to access must be addressed using the specified endpoint\.\.\." When Running a Build<a name="troubleshooting-input-bucket-different-region"></a>
@@ -60,43 +55,27 @@ Use the information in this topic to help you identify, diagnose, and address is
 **Issue:** When you try to run the AWS CLI, use an AWS SDK, or call another similar component as part of a build, you get build errors that are directly related to the AWS CLI, AWS SDK, or component\. For example, you may get a build error such as "unable to locate credentials\."
 
  **Possible causes:** 
-
 + The version of the AWS CLI, AWS SDK, or component in the build environment is incompatible with AWS CodeBuild\.
-
 + You are running a Docker container within a build environment that uses Docker, and that Docker container does not have access to the necessary AWS credentials by default\.
 
  **Recommended solutions:** 
-
 + Make sure your build environment has the following version or higher of the AWS CLI, AWS SDK, or component\.
-
   + AWS CLI: 1\.10\.47
-
   + AWS SDK for C\+\+: 0\.2\.19
-
   + AWS SDK for Go: 1\.2\.5
-
   + AWS SDK for Java: 1\.11\.16
-
   + AWS SDK for JavaScript: 2\.4\.7
-
   + AWS SDK for PHP: 3\.18\.28
-
   + AWS SDK for Python \(Boto3\): 1\.4\.0
-
   + AWS SDK for Ruby: 2\.3\.22
-
   + Botocore: 1\.4\.37
-
   + CoreCLR: 3\.2\.6\-beta
-
   + Node\.js: 2\.4\.7
-
 + If you need to run a Docker container in a build environment and that container requires AWS credentials, you must pass through the credentials from the build environment to the container\. In your build spec, include a Docker `run` command such as the following, which in this example uses the `aws s3 ls` command to list your available Amazon S3 buckets\. The `-e` option passes through the necessary environment variables for your container to access AWS credentials\.
 
   ```
   docker run -e AWS_DEFAULT_REGION -e AWS_CONTAINER_CREDENTIALS_RELATIVE_URI your-image-tag aws s3 ls
   ```
-
 + If you are building a Docker image and the build requires AWS credentials \(for example, to download a file from Amazon S3\), you must pass through the credentials from the build environment to the Docker build process as follows\.
 
   1. In your source code's Dockerfile for the Docker image, specify the following `ARG` instructions\.
@@ -203,15 +182,11 @@ Use the information in this topic to help you identify, diagnose, and address is
 **Issue:** When you try to run a build that uses a custom build image, the build fails with the error `BUILD_CONTAINER_UNABLE_TO_PULL_IMAGE`\.
 
  **Possible causes:** 
-
 + The build image's overall uncompressed size is larger than the build environment compute type's available disk space\. To check your build image's size, use Docker to run the `docker images REPOSITORY:TAG` command\. For a list of available disk space by compute type, see [Build Environment Compute Types](build-env-ref-compute-types.md)\.
-
 + AWS CodeBuild does not have permission to pull the build image from your Amazon Elastic Container Registry \(Amazon ECR\)\.
 
  **Recommended solutions:** 
-
 + Use a larger compute type with more available disk space, or reduce the size of your custom build image\.
-
 + Update the permissions in your repository in Amazon ECR so that AWS CodeBuild can pull your custom build image into the build environment\. For more information, see the [Amazon ECR Sample](sample-ecr.md)\.
 
 ## Builds May Fail When File Names Have Non\-US English Characters<a name="troubleshooting-utf-8"></a>
@@ -247,7 +222,6 @@ pre_build:
 **Possible causes:** The service role the build project relies on does not have permission to call the `ssm:GetParameters` action or the build project uses a service role that is generated by AWS CodeBuild and allows calling the `ssm:GetParameters` action, but the parameters have names that do not start with `/CodeBuild/`\.
 
  **Recommended solutions:** 
-
 + If the service role was not generated by AWS CodeBuild, update its definition to allow AWS CodeBuild to call the `ssm:GetParameters` action\. For example, the following policy statement allows calling the `ssm:GetParameters` action to get parameters with names starting with `/CodeBuild/`:
 
   ```
@@ -262,7 +236,6 @@ pre_build:
     ]
   }
   ```
-
 +  If the service role was generated by AWS CodeBuild, update its definition to allow AWS CodeBuild to access parameters in Amazon EC2 Parameter Store with names other than those starting with `/CodeBuild/`\. For example, the following policy statement allows calling the `ssm:GetParameters` action to get parameters with the specified name:
 
   ```
@@ -283,11 +256,8 @@ pre_build:
 **Issue:** When attempting to download the cache on a build project that has cache enabled, you receive the following generic error: "Access denied"\.
 
  **Possible causes:** 
-
 + You have just configured caching as part of your build project\.
-
 + The cache has recently been invalidated via the `InvalidateProjectCache` API\.
-
 + The service role being used by CodeBuild does not have `s3:GetObject` and `s3:PutObject` permissions to the Amazon S3 bucket that is holding the cache\.
 
 **Recommended solutions:** For first time use, it's normal to see this immediately after updating the cache configuration\. If this error persists, then you should check to see if your service role has `s3:GetObject` and `s3:PutObject` permissions to the Amazon S3 bucket that is holding the cache\. For more information, see [Specifying S3 permissions\.](http://docs.aws.amazon.com/AmazonS3/latest/dev//using-with-s3-actions.html) 
@@ -297,11 +267,9 @@ pre_build:
 **Issue:** When you try to run a build project, the build fails with the error: "RequestError: send request failed caused by: x509: failed to load system roots and no roots provided\."
 
  **Possible causes:** 
-
 + You have configured caching as part of your build project and are using an older Docker image that includes an expired root certificate\. 
 
  **Recommended solutions:** 
-
 + Update the Docker image that is being used in your AWS CodeBuild the project\. For more information, see [Docker Images Provided by AWS CodeBuild](build-env-ref-available.md)\.
 
 ## Error: "Unable to download certificate from S3\. AccessDenied"<a name="troubleshooting-certificate-in-S3"></a>
@@ -309,15 +277,11 @@ pre_build:
 **Issue:** When you try to run a build project, the build fails with the error "Unable to download certificate from S3\. AccessDenied"\.
 
  **Possible causes:** 
-
 + You have chosen the wrong S3 bucket for your certificate\.
-
 + You have entered the wrong object key for your certificate\.
 
  **Recommended solutions:** 
-
 + Edit your project\. For **Bucket of certificate**, choose the S3 bucket where your SSL certificate is stored\.
-
 + Edit your project\. For **Object key of certificate**, type the name of your S3 object key\.
 
 ## Error: "Git Clone Failed: unable to access `'your-repository-URL'`: SSL certificate problem: self signed certificate"<a name="troubleshooting-self-signed-certificate"></a>
@@ -325,13 +289,10 @@ pre_build:
 **Issue:** When you try to run a build project, the build fails with the error "Git Clone Failed: unable to access `'your-repository-URL'`: SSL certificate problem: self signed certificate\."
 
  **Possible causes:** 
-
 + Your source repository has a self\-signed certificate, but you have not chosen to install the certificate from your S3 bucket as part of your build project\.
 
  **Recommended solutions:** 
-
 + Edit your project\. For **Certificate**, choose **Install certificate from S3**\. For **Bucket of certificate**, choose the S3 bucket where your SSL certificate is stored\. For **Object key of certificate**, type the name of your S3 object key\.
-
 + Edit your project\. Select **Insecure SSL** to ignore SSL warnings while connecting to your GitHub Enterprise project repository\.
 **Note**  
 We recommend that you use **Insecure SSL** for testing only\. It should not be used in a production environment\.
@@ -341,13 +302,9 @@ We recommend that you use **Insecure SSL** for testing only\. It should not be u
 **Issue:** When you try to update a project in the console, the update failed with the error: "The policy's default version was not created by enhanced zero click role creation or was not the most recent version created by enhanced zero click role creation\."
 
  **Possible causes:** 
-
 + You have manually updated the policies attached to the target AWS CodeBuild service role\.
-
 + You have selected a previous version of a policy attached to the target AWS CodeBuild service role\.
 
  **Recommended solutions:** 
-
 + Edit your AWS CodeBuild project, and deselect **Allow AWS CodeBuild to modify this service role so it can be used with this build project**\. Manually update the target AWS CodeBuild service role to have sufficient permissions\. For more information, see [Create an AWS CodeBuild Service Role](setting-up.md#setting-up-service-role)\.
-
 + Edit your AWS CodeBuild project, and select **Create a role**\.
