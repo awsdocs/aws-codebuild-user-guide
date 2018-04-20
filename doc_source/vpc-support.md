@@ -34,7 +34,7 @@ For information about creating a build project, see [Create a Build Project \(Co
 
 **Create a build project \(AWS CLI\)**
 
-For information about creating a build project, see [Create a Build Project \(AWS CLI\)](create-project.md#create-project-cli)\. If you are using the AWS CLI with AWS CodeBuild, the service role used by AWS CodeBuild to interact with services on behalf of the IAM user must have the following policy attached: [Allow a User to Create a VPC Network Interface](auth-and-access-control-iam-identity-based-access-control.md#customer-managed-policies-example-create-vpc-network-interface)\.
+For information about creating a build project, see [Create a Build Project \(AWS CLI\)](create-project.md#create-project-cli)\. If you are using the AWS CLI with AWS CodeBuild, the service role used by AWS CodeBuild to interact with services on behalf of the IAM user must have the following policy attached: [Allow AWS CodeBuild Access to AWS Services Required to Create a VPC Network Interface](auth-and-access-control-iam-identity-based-access-control.md#customer-managed-policies-example-create-vpc-network-interface)\.
 
 The *vpcConfig* object should include your *vpcId*, *securityGroupIds*, and *subnets*\.
 + *vpcId*: Required value\. The VPC ID that AWS CodeBuild uses\. To get a list of all Amazon VPC IDs in your region, run this command:
@@ -90,4 +90,6 @@ The following are some guidelines to assist you when troubleshooting a common AW
 
 1. [Make sure that the route table for private subnets points to the NAT gateway](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide//VPC_Route_Tables.html#route-tables-nat)\.
 
-1. Make sure that the service role used by AWS CodeBuild to interact with services on behalf of the IAM user has the following policy attached to it: [Allow a User to Create a VPC Network Interface](auth-and-access-control-iam-identity-based-access-control.md#customer-managed-policies-example-create-vpc-network-interface)\.
+1. Make sure that the service role used by AWS CodeBuild to interact with services on behalf of the IAM user has the permissions in [ this policy](http://docs.aws.amazon.com/codebuild/latest/userguide/auth-and-access-control-iam-identity-based-access-control.html#customer-managed-policies-example-create-vpc-network-interface)\. For more information, see [Create an AWS CodeBuild Service Role](setting-up.md#setting-up-service-role)\. 
+
+   If AWS CodeBuild is missing permissions, you might receive an error that says, "Unexpected EC2 error: UnauthorizedOperation\." This error can occur if AWS CodeBuild does not have the Amazon EC2 permissions required to work with an Amazon VPC\.

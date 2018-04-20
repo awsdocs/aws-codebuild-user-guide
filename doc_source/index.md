@@ -71,6 +71,7 @@ Amazon's trademarks and trade dress may not be used in
    + [Advanced Setup](setting-up.md)
    + [Command Line Reference for AWS CodeBuild](cmd-ref.md)
    + [AWS SDKs and Tools Reference for AWS CodeBuild](sdk-ref.md)
+   + [Specify the AWS CodeBuild Endpoint](endpoint-specify.md)
    + [Authentication and Access Control for AWS CodeBuild](auth-and-access-control.md)
       + [Overview of Managing Access Permissions to Your AWS CodeBuild Resources](auth-and-access-control-iam-access-control-identity-based.md)
       + [Using Identity-Based Policies (IAM Policies) for AWS CodeBuild](auth-and-access-control-iam-identity-based-access-control.md)

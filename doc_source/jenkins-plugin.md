@@ -1,23 +1,10 @@
 # Use AWS CodeBuild with Jenkins<a name="jenkins-plugin"></a>
 
-Jenkins is a continuous integration and continuous delivery application that you can use to continuously build and test your software projects\. For more information, see [Meet Jenkins](https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins) on the Jenkins website\.
-
-At a functional level, there are two components to Jenkins: 
-+ A scheduler that creates and runs your build jobs\.
-+ A build platform, namely, a set of distributed build nodes\.
-
-For more information, see [Distributed builds](https://wiki.jenkins-ci.org/display/JENKINS/Distributed+builds) on the Jenkins website\.
-
 The Jenkins plugin for AWS CodeBuild enables you to integrate AWS CodeBuild with your Jenkins build jobs\. Instead of sending your build jobs to Jenkins build nodes, you use the plugin to send your build jobs to AWS CodeBuild\. This eliminates the need for you to provision, configure, and manage Jenkins build nodes\.
-
-**Topics**
-+ [Setting Up Jenkins](#setup-jenkins)
-+ [Installing the Plugin](#plugin-installation)
-+ [Using the Plugin](#plugin-usage)
 
 ## Setting Up Jenkins<a name="setup-jenkins"></a>
 
-For information about setting up Jenkins with the AWS CodeBuild plugin, see the [Simplify Your Jenkins Builds with AWS CodeBuild](https://aws.amazon.com/blogs/devops/simplify-your-jenkins-builds-with-aws-codebuild/) blog post on the AWS DevOps Blog\.
+For information about setting up Jenkins with the AWS CodeBuild plugin, see the [ Simplify Your Jenkins Builds with AWS CodeBuild](https://aws.amazon.com/blogs/devops/simplify-your-jenkins-builds-with-aws-codebuild/) blog post on the AWS DevOps Blog\. You can download the AWS CodeBuild Jenkins from [ https://github\.com/awslabs/aws\-codebuild\-jenkins\-plugin](https://github.com/awslabs/aws-codebuild-jenkins-plugin)\.
 
 ## Installing the Plugin<a name="plugin-installation"></a>
 

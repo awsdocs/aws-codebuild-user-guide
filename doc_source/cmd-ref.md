@@ -6,21 +6,7 @@ Not what you're looking for? If you want to use the AWS SDKs to call AWS CodeBui
 
 To use the information in this topic, you should have already installed the AWS CLI and configured it for use with AWS CodeBuild, as described in [Install and Configure the AWS CLI](setting-up.md#setting-up-cli)\.
 
-**Topics**
-+ [Specify the AWS CodeBuild Endpoint](#acb-cli-endpoints)
-+ [AWS CLI Commands for AWS CodeBuild](#acb-cli-commands)
-
-## Specify the AWS CodeBuild Endpoint<a name="acb-cli-endpoints"></a>
-
-You can use the AWS CLI to specify the endpoint through which AWS CodeBuild is accessed by using the `--endpoint-url` argument on any AWS CodeBuild command\. For example, to get a list of project build names using a the Federal Information Processing Standards \(FIPS\) endpoint in the US East \(N\. Virginia\) Region, run this command\.
-
-```
-aws codebuild list-projects --endpoint-url https://codebuild-fips.us-east-1.amazonaws.com
-```
-
-To see the endpoints that can be used with AWS CodeBuild, see [AWS CodeBuild Regions and Endpoints](http://docs.aws.amazon.com/general/latest/gr/rande.html#codebuild_region)\.
-
-## AWS CLI Commands for AWS CodeBuild<a name="acb-cli-commands"></a>
+ To use the AWS CLI to specify the endpoint for AWS CodeBuild, see [Specify the AWS CodeBuild Endpoint \(AWS CLI\)](endpoint-specify.md#endpoint-specify-cli)\. 
 
 Run this command to get a list of AWS CodeBuild commands\.
 

@@ -205,7 +205,10 @@ You need an AWS CodeBuild service role so that AWS CodeBuild can interact with d
 + [Add an AWS CodeBuild Build Action to a Pipeline \(AWS CodePipeline Console\)](how-to-create-pipeline.md#how-to-create-pipeline-add)
 + [Change a Build Project's Settings \(Console\)](change-project.md#change-project-console)
 
-If you do not plan to use these consoles, this section describes how to create an AWS CodeBuild service role with the IAM console or the AWS CLI\. <a name="setting-up-service-role-console"></a>
+If you do not plan to use these consoles, this section describes how to create an AWS CodeBuild service role with the IAM console or the AWS CLI\. 
+
+**Note**  
+The service role described on this page contains a policy that grants the minimum permissions required to use AWS CodeBuild\. You might need to add additional permissions depending on your use case\. For example, if you want to use AWS CodeBuild with Amazon Virtual Private Cloud, then the service role you create requires the permissions in the following policy: [Create an AWS CodeBuild Service Role](#setting-up-service-role)\.<a name="setting-up-service-role-console"></a>
 
 **To create an AWS CodeBuild service role \(console\)**
 

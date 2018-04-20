@@ -85,7 +85,7 @@ You can use the following sample IAM policies to limit AWS CodeBuild access for 
 + [Allow a User to Attempt to Stop Builds](#customer-managed-policies-example-stop-build)
 + [Allow a User to Attempt to Delete Builds](#customer-managed-policies-example-delete-builds)
 + [Allow a User to Get Information About Docker Images that Are Managed by AWS CodeBuild](#customer-managed-policies-example-list-curated-environment-images)
-+ [Allow a User to Create a VPC Network Interface](#customer-managed-policies-example-create-vpc-network-interface)
++ [Allow AWS CodeBuild Access to AWS Services Required to Create a VPC Network Interface](#customer-managed-policies-example-create-vpc-network-interface)
 
 ### Allow a User to Get Information About Build Projects<a name="customer-managed-policies-example-batch-get-projects"></a>
 
@@ -307,9 +307,9 @@ The following example policy statement allows a user to get information about al
 }
 ```
 
-### Allow a User to Create a VPC Network Interface<a name="customer-managed-policies-example-create-vpc-network-interface"></a>
+### Allow AWS CodeBuild Access to AWS Services Required to Create a VPC Network Interface<a name="customer-managed-policies-example-create-vpc-network-interface"></a>
 
-The following example policy statement allows a user to create a network interface in an Amazon VPC:
+The following example policy statement grants AWS CodeBuild permission to create a network interface in an Amazon VPC:
 
 ```
 {
