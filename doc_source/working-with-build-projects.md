@@ -8,5 +8,7 @@ You can perform these tasks when working with build projects:
 + [Create a Build Project in AWS CodeBuild](create-project.md)
 + [View a List of Build Project Names in AWS CodeBuild](view-project-list.md)
 + [View a Build Project's Details in AWS CodeBuild](view-project-details.md)
++ [Create AWS CodeBuild Triggers](trigger-create.md)
++ [Edit AWS CodeBuild Triggers](triggers-edit.md)
 + [Change a Build Project's Settings in AWS CodeBuild](change-project.md)
 + [Delete a Build Project in AWS CodeBuild](delete-project.md)

@@ -17,7 +17,7 @@ To change a build project's settings in AWS CodeBuild, you can use the AWS CodeB
    + Choose the radio button next to the build project you want to change, choose **Actions**, and then choose **Update**\.
    + Choose the link for the build project you want to change, and then choose **Edit project**\.
 **Note**  
-By default, only the 10 most recent build projects are displayed\. To view more build projects, choose a different value for **Projects per page** or choose the back and forward arrows for **Viewing projects**\.
+By default, the 100 most recent build projects are displayed\. To view more build projects, choose a different value for **Projects per page** or choose the back and forward arrows for **Viewing projects**\.
 
 1. On the project details page, type a description in **Description**\.
 
