@@ -2,6 +2,24 @@
 
 These use case\-based samples can be used to experiment with AWS CodeBuild:
 
+**Note**  
+ You can test and debug builds on a local machine with the AWS CodeBuild agent\. To use the agent:   
+
+```
+docker run -it -v /var/run/docker.sock:/var/run/docker.sock -e \
+        "IMAGE_NAME=your-image-name" -e \
+        "ARTIFACTS=absolute-path-to-your-artifact-output-directory" -e \
+        "SOURCE=absolute-path-to-your-source-directory" name-of-the-agent
+```
+ For *name\-of\-the\-agent*, use the name of the agent you downloaded as it appears in the table:   
+
+
+****  
+
+| Name | Location | SHA | 
+| --- | --- | --- | 
+| amazon/aws\-codebuild\-local  | [https://hub\.docker\.com/r/amazon/aws\-codebuild\-local/](https://hub.docker.com/r/amazon/aws-codebuild-local/)  | 004d34c4e908d074edb205b2299cead4ecf30adf284ea7a50912da817e32150f  | 
+
 
 ****  
 

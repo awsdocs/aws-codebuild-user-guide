@@ -11,20 +11,22 @@ If you do not find your image on this page, it most likely contains components t
 | Platform | Programming language or framework | Runtime version | Image identifier | Definition | 
 | --- | --- | --- | --- | --- | 
 | Ubuntu 14\.04 | \(Base image\) |  | aws/codebuild/ubuntu\-base:14\.04 | [ubuntu/ubuntu\-base/14\.04](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/ubuntu-base/14.04) | 
+| Ubuntu 14\.04 | Android | 26\.1\.1 | aws/codebuild/android\-java\-8:26\.1\.1 | [ubuntu/android\-java\-8/26\.1\.1](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/android-java-8/26.1.1) | 
 | Ubuntu 14\.04 | Android | 24\.4\.1 | aws/codebuild/android\-java\-8:24\.4\.1 | [ubuntu/android\-java\-8/24\.4\.1](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/android-java-8/24.4.1) | 
 | Ubuntu 14\.04 | Docker | 17\.09\.0 | aws/codebuild/docker:17\.09\.0 | [ubuntu/docker/17\.09\.0](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/docker/17.09.0) | 
 | Ubuntu 14\.04 | Golang | 1\.10 | aws/codebuild/golang:1\.10 | [ubuntu/golang/1\.10](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/golang/1.10) | 
 | Ubuntu 14\.04 | Java | 8 | aws/codebuild/java:openjdk\-8 | [ubuntu/java/openjdk\-8](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/java/openjdk-8) | 
 | Ubuntu 14\.04 | Java | 9 | aws/codebuild/java:openjdk\-9 | [ubuntu/java/openjdk\-9](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/java/openjdk-9) | 
+| Ubuntu 14\.04 | Node\.js | 8\.11\.0 | aws/codebuild/nodejs:8\.11\.0 | [ubuntu/nodejs/8\.11\.0](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/nodejs/8.11.0) | 
 | Ubuntu 14\.04 | Node\.js | 6\.3\.1 | aws/codebuild/nodejs:6\.3\.1 | [ubuntu/nodejs/6\.3\.1](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/nodejs/6.3.1) | 
-| Ubuntu 14\.04 | Node\.js | 4\.4\.7 | aws/codebuild/nodejs:4\.4\.7 | [ubuntu/nodejs/4\.4\.7](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/nodejs/4.4.7) | 
-| Ubuntu 14\.04 | Node\.js | 4\.3\.2 | aws/codebuild/nodejs:4\.3\.2 | [ubuntu/nodejs/4\.3\.2](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/nodejs/4.3.2) | 
 | Ubuntu 14\.04 | PHP | 5\.6 | aws/codebuild/php:5\.6 | [ubuntu/php/5\.6](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/php/5.6) | 
 | Ubuntu 14\.04 | PHP | 7\.0 | aws/codebuild/php:7\.0 | [ubuntu/php/7\.0](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/php/7.0) | 
+| Ubuntu 14\.04 | Python | 3\.6\.5 | aws/codebuild/python:3\.6\.5 | [ubuntu/python/3\.6\.5](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/python/3.6.5) | 
 | Ubuntu 14\.04 | Python | 3\.5\.2 | aws/codebuild/python:3\.5\.2 | [ubuntu/python/3\.5\.2](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/python/3.5.2) | 
 | Ubuntu 14\.04 | Python | 3\.4\.5 | aws/codebuild/python:3\.4\.5 | [ubuntu/python/3\.4\.5](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/python/3.4.5) | 
 | Ubuntu 14\.04 | Python | 3\.3\.6 | aws/codebuild/python:3\.3\.6 | [ubuntu/python/3\.3\.6](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/python/3.3.6) | 
 | Ubuntu 14\.04 | Python | 2\.7\.12 | aws/codebuild/python:2\.7\.12 | [ubuntu/python/2\.7\.12](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/python/2.7.12) | 
+| Ubuntu 14\.04 | Ruby | 2\.5\.1 | aws/codebuild/ruby:2\.5\.1 | [ubuntu/ruby/2\.5\.1](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/ruby/2.5.1) | 
 | Ubuntu 14\.04 | Ruby | 2\.3\.1 | aws/codebuild/ruby:2\.3\.1 | [ubuntu/ruby/2\.3\.1](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/ruby/2.3.1) | 
 | Ubuntu 14\.04 | Ruby | 2\.2\.5 | aws/codebuild/ruby:2\.2\.5 | [ubuntu/ruby/2\.2\.5](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/ruby/2.2.5) | 
 | Ubuntu 14\.04 | \.NET Core | 1\.1 | aws/codebuild/dot\-net:core\-1 | [ubuntu/dot\-net/core\-1](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/dot-net/core-1) | 

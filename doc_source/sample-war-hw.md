@@ -113,7 +113,7 @@ If you are using an Amazon S3 input bucket, be sure to create a ZIP file that co
 
 1. Download the `WebArchiveHelloWorldOutputArtifact.zip` file to your local computer or instance, and then extract the contents of the file\. In the extracted contents, open the `target` folder to get the `my-web-app.war` file\. 
 
-## Related Resources<a name="w3ab1b9c50c39b9"></a>
+## Related Resources<a name="w3ab1b9c52c39b9"></a>
 + For more information about getting started with AWS CodeBuild, see [Getting Started with AWS CodeBuild](getting-started.md)\.
 + For more information about troubleshooting problems with AWS CodeBuild, see [Troubleshooting AWS CodeBuild](troubleshooting.md)\.
 + For more information about limits in AWS CodeBuild, see [Limits for AWS CodeBuild](limits.md)\.

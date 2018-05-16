@@ -50,6 +50,7 @@ Amazon's trademarks and trade dress may not be used in
       + [Background Tasks in Build Environments](build-env-ref-background-tasks.md)
 + [Run AWS CodeBuild Directly](how-to-run.md)
 + [Use AWS CodeBuild with Amazon Virtual Private Cloud](vpc-support.md)
+   + [Use VPC Endpoints](use-vpc-endpoints-with-codebuild.md)
    + [AWS CloudFormation VPC Template](cloudformation-vpc-template.md)
 + [Use AWS CodePipeline with AWS CodeBuild to Test Code and Run Builds](how-to-create-pipeline.md)
 + [Use AWS CodeBuild with Jenkins](jenkins-plugin.md)
