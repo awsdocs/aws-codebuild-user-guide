@@ -12,7 +12,7 @@ Running this sample may result in charges to your AWS account\. These include po
 + [Running the Sample](#sample-go-hw-running)
 + [Directory Structure](#sample-go-hw-dir)
 + [Files](#sample-go-hw-files)
-+ [Related Resources](#w3ab1b9c52c27c17)
++ [Related Resources](#w3ab1b9c54c27c17)
 
 ## Running the Sample<a name="sample-go-hw-running"></a>
 
@@ -103,7 +103,7 @@ func main() {
 }
 ```
 
-## Related Resources<a name="w3ab1b9c52c27c17"></a>
+## Related Resources<a name="w3ab1b9c54c27c17"></a>
 + For more information about getting started with AWS CodeBuild, see [Getting Started with AWS CodeBuild](getting-started.md)\.
 + For more information about troubleshooting problems with AWS CodeBuild, see [Troubleshooting AWS CodeBuild](troubleshooting.md)\.
 + For more information about limits in AWS CodeBuild, see [Limits for AWS CodeBuild](limits.md)\.

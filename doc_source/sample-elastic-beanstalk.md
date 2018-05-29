@@ -304,7 +304,7 @@ In this step, you will add an Elastic Beanstalk configuration file and a build s
 
 If you want, you can make changes to the source code and then run the eb deploy command from the same directory\. The EB CLI performs the same steps as the eb create command, but it deploys the build output to the existing environment instead of creating a new environment\.
 
-## Related Resources<a name="w3ab1b9c49c35c15"></a>
+## Related Resources<a name="w3ab1b9c51c35c15"></a>
 + For more information about getting started with AWS CodeBuild, see [Getting Started with AWS CodeBuild](getting-started.md)\.
 + For more information about troubleshooting problems with AWS CodeBuild, see [Troubleshooting AWS CodeBuild](troubleshooting.md)\.
 + For more information about limits in AWS CodeBuild, see [Limits for AWS CodeBuild](limits.md)\.

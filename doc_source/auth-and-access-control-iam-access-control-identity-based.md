@@ -65,7 +65,7 @@ A permissions policy describes who has access to which resources\.
 **Note**  
 This section discusses the use of IAM in AWS CodeBuild\. It doesn't provide detailed information about the IAM service\. For complete IAM documentation, see [What Is IAM?](http://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html) in the *IAM User Guide Guide*\. For information about IAM policy syntax and descriptions, see [AWS IAM Policy Reference](http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html) in the *IAM User Guide Guide*\.
 
-Policies attached to an IAM identity are referred to as identity\-based policies \(IAM polices\)\. Policies attached to a resource are referred to as resource\-based policies\. AWS CodeBuild supports identity\-based \(IAM policies\) only\.
+Policies attached to an IAM identity are referred to as identity\-based policies \(IAM policies\)\. Policies attached to a resource are referred to as resource\-based policies\. AWS CodeBuild supports identity\-based \(IAM policies\) only\.
 
 ### Identity\-Based Policies \(IAM Policies\)<a name="identity-based-policies"></a>
 

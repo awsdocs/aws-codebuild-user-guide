@@ -76,6 +76,8 @@ For more information about using the AWS CLI with AWS CodeBuild, see the [Comman
 
 1. If you run the `start-build` command with the `--project-name` option, replace *project\-name* with the name of the build project, and then skip to step 6 of this procedure\. To get a list of build projects, see [View a List of Build Project Names](view-project-list.md)\.
 
+1. If you run the `start-build` command with the `--idempotency-token` option, a unique case sensitive identifier, or token, is included with the `start-build` request\. The token is valid for 12 hours after the request\. If you repeat the `start-build` request with the same token, but change a parameter, AWS CodeBuild returns a parameter mismatch error\.
+
 1. If you run the `start-build` command with the `--generate-cli-skeleton` option, JSON\-formatted data appears in the output\. Copy the data to a file \(for example, `start-build.json`\) in a location on the local computer or instance where the AWS CLI is installed\. Modify the copied data to match the following format, and save your results:
 
    ```
@@ -88,18 +90,31 @@ For more information about using the AWS CLI with AWS CodeBuild, see the [Comman
        "path": "path",
        "namespaceType": "namespaceType",
        "name": "artifactsOverride-name",
-       "packaging": "packaging"
+       "packaging": "packaging"    
      },
-     "environmentVariablesOverride": [
-       {
-         "name": "environmentVariablesOverride-name",
-         "value": "value",
-         "type": "environmentVariablesOverride-type"
-       }
-     ],
      "buildspecOverride": "buildspecOverride",
+     "cacheOverride": {
+         "location": "cacheOverride-location",
+         "type": "cacheOverride-type",
+    },
+     "certificateOverride": "certificateOverride",
+     "computeTypeOverride": "computeTypeOverride",
+     "environmentTypeOverride": "environmentTypeOverride",
+     "environmentVariablesOverride": {
+         "name": "environmentVariablesOverride-name",
+         "value": "environmentVariablesValue",
+         "type": "environmentVariablesOverride-type"
+     },  
      "gitCloneDepthOverride": "gitCloneDepthOverride",
-     "timeoutInMinutesOverride": timeoutInMinutesOverride
+     "imageOverride": "imageOverride",
+     "idempotencyToken": "idempotencyToken",
+     "insecureSslOverride": "insecureSslOverride",
+     "privilegedModeOverride": "privilegedModeOverride",
+     "timeoutInMinutesOverride": timeoutInMinutesOverride",
+     "sourceAuthOverride": "sourceAuthOverride",
+     "sourceLocationOverride": "sourceLocationOverride",
+     "serviceRoleOverride": "serviceRoleOverride",
+     "sourceTypeOverride": "sourceTypeOverride"
    }
    ```
 
@@ -110,17 +125,35 @@ For more information about using the AWS CLI with AWS CodeBuild, see the [Comman
      + For AWS CodeCommit, the commit ID that corresponds to the version of the source code you want to build\. If *sourceVersion* is not specified, the default branch's HEAD commit ID is used\. \(You cannot specify a tag name for *sourceVersion*, but you can specify the tag's commit ID\.\)
      + For GitHub, the commit ID, pull request ID, branch name, or tag name that corresponds to the version of the source code you want to build\. If a pull request ID is specified, it must use the format `pr/pull-request-ID` \(for example, `pr/25`\)\. If a branch name is specified, the branch's HEAD commit ID is used\. If *sourceVersion* is not specified, the default branch's HEAD commit ID is used\. 
      + For Bitbucket, the commit ID, branch name, or tag name that corresponds to the version of the source code you want to build\. If a branch name is specified, the branch's HEAD commit ID is used\. If *sourceVersion* is not specified, the default branch's HEAD commit ID is used\. 
-   + *type*: Optional string\. The build output artifact type that overrides for this build the one defined in the build project\.
-   + *location*: Optional string\. The build output artifact location that overrides for this build the one defined in the build project\.
-   + *path*: Optional string\. The build output artifact path that overrides for this build the one defined in the build project\.
-   + *namespaceType*: Optional string\. The build output artifact path type that overrides for this build the one defined in the build project\.
-   + *name*: Optional string\. The build output artifact name that overrides for this build the one defined in the build project\.
-   + *packaging*: Optional string\. The build output artifact packaging type that overrides for this build the one defined in the build project\.
-   + *environmentVariablesOverride\-name*: Optional string\. The name of an environment variable in the build project whose value you want to override for this build\.
-   + *value*: Optional string\. The value of the environment variable defined in the build project that you want to override for this build\.
-   + *environmentVariablesOverride\-type*: Optional string\. The type of environment variable in the build project whose value you want to override for this build\.
+   + The following placeholders are for `artifactsOveride`\.
+     + *type*: Optional string\. The build output artifact type that overrides for this build the one defined in the build project\.
+     + *location*: Optional string\. The build output artifact location that overrides for this build the one defined in the build project\.
+     + *path*: Optional string\. The build output artifact path that overrides for this build the one defined in the build project\.
+     + *namespaceType*: Optional string\. The build output artifact path type that overrides for this build the one defined in the build project\.
+     + *name*: Optional string\. The build output artifact name that overrides for this build the one defined in the build project\.
+     + *packaging*: Optional string\. The build output artifact packaging type that overrides for this build the one defined in the build project\.
+   + *buildspecOverride*: Optional string\. A build spec declaration that overrides for this build the one defined in the build project\. If this value is set, it can be either an inline build spec definition or the path to an alternate build spec file relative to the value of the built\-in `CODEBUILD_SRC_DIR` environment variable\.
+   + The following placeholders are for `cacheOveride`\.
+     + *cacheOverride\-location*: Optional string\. The location of a `ProjectCache` object for this build that overrides the `ProjectCache` object specified in the build project\. `cacheOverride` is optional and takes a `ProjectCache` object\. `location` is required in a `ProjectCache` object\.
+     + *cacheOverride\-type*: Optional string\. The type of a `ProjectCache` object for this build that overrides the `ProjectCache` object specified in the build project\. `cacheOverride` is optional and takes a `ProjectCache` object\. `type` is required in a `ProjectCache` object\.
+   + *certificateOverride*: Optional string\. The name of a certificate for this build that overrides the one specified in the build project\.
+   + *environmentTypeOverride*: Optional string\. A container type for this build that overrides the one specified in the build project\. The current valid string is `LINUX_CONTAINER`\.
+   + The following placeholders are for `environmentVariablesOveride`\.
+     + *environmentVariablesOverride\-name*: Optional string\. The name of an environment variable in the build project whose value you want to override for this build\.
+     + *environmentVariablesOverride\-type*: Optional string\. The type of environment variable in the build project whose value you want to override for this build\.
+     + *environmentVariablesValue*: Optional string\. The value of the environment variable defined in the build project that you want to override for this build\.
+   + *gitCloneDepthOverride*: Optional string\. The value of the **Git clone depth** in the build project whose value you want to override for this build\. If your source type is Amazon S3, this value is not supported\.
+   + *imageOverride*: Optional string\. The name of an image for this build that overrides the one specified in the build project\.
+   + *idempotencyToken*: Optional string\. A string that serves as a token to specify that the build request is idempotent\. You can choose any string that is 64 characters or less\. The token is valid for 12 hours after the start\-build request\. If you repeat the start\-build request with the same token, but change a parameter, AWS CodeBuild returns a parameter mismatch error\. 
+   + *insecureSslOverride*: Optional boolean that specifies whether to override the insecure SSL setting specified in the build project\. The insecure SSL setting determines whether to ignore SSL warnings while connecting to the project source code\. This override applies only if the build's source is GitHub Enterprise\.
+   + *privilegedModeOverride*: Optional boolean\. If set to true, the build overrides privileged mode in the build project\.
+   + *sourceAuthOverride*: Optional string\. An authorization type for this build that overrides the one defined in the build project\. This override applies only if the build project's source is BitBucket or GitHub\.
+   + *sourceLocationOverride*: Optional string\. A location that overrides for this build the source location for the one defined in the build project\.
+   + *serviceRoleOverride*: Optional string\. The name of a service role for this build that overrides the one specified in the build project\.
+   + *sourceTypeOverride*: Optional string\. A source input type for this build that overrides the source input defined in the build project\. Valid strings are `NO_SOURCE`, `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `S3`, `BITBUCKET`, and `GITHUB_ENTERPRISE`\.
+   + *timeoutInMinutesOverride*: Optional number\. The number of build timeout minutes that overrides for this build the one defined in the build project\. 
 **Important**  
-We recommend you store an environment variable with a sensitive value, such as an AWS access key ID, an AWS secret access key, or a password as a parameter in Amazon EC2 Systems Manager Parameter Store\. AWS CodeBuild can use a parameter stored in Amazon EC2 Systems Manager Parameter Store only if that parameter's name starts with `/CodeBuild/` \(for example, `/CodeBuild/dockerLoginPassword`\)\. You can use the AWS CodeBuild console to create a parameter in Amazon EC2 Systems Manager\. Choose **Create a parameter**, and then follow the instructions in the dialog box\. \(In that dialog box, for **KMS key**, you can optionally specify the ARN of an AWS KMS key in your account\. Amazon EC2 Systems Manager uses this key to encrypt the parameter's value during storage and decrypt during retrieval\.\) If you use the AWS CodeBuild console to create a parameter, the console starts the parameter with `/CodeBuild/` as it is being stored\. However, if you use the Amazon EC2 Systems Manager Parameter Store console to create a parameter, you must start the parameter's name with `/CodeBuild/`, and you must set **Type** to **Secure String**\. For more information, see [Systems Manager Parameter Store](http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-paramstore.html) and [Systems Manager Parameter Store Console Walkthrough](http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-walk.html#sysman-paramstore-console) in the *Amazon EC2 Systems Manager User Guide*\.  
+We recommend that you store an environment variable with a sensitive value, such as an AWS access key ID, an AWS secret access key, or a password as a parameter in Amazon EC2 Systems Manager Parameter Store\. AWS CodeBuild can use a parameter stored in Amazon EC2 Systems Manager Parameter Store only if that parameter's name starts with `/CodeBuild/` \(for example, `/CodeBuild/dockerLoginPassword`\)\. You can use the AWS CodeBuild console to create a parameter in Amazon EC2 Systems Manager\. Choose **Create a parameter**, and then follow the instructions in the dialog box\. \(In that dialog box, for **KMS key**, you can optionally specify the ARN of an AWS KMS key in your account\. Amazon EC2 Systems Manager uses this key to encrypt the parameter's value during storage and decrypt during retrieval\.\) If you use the AWS CodeBuild console to create a parameter, the console starts the parameter with `/CodeBuild/` as it is being stored\. However, if you use the Amazon EC2 Systems Manager Parameter Store console to create a parameter, you must start the parameter's name with `/CodeBuild/`, and you must set **Type** to **Secure String**\. For more information, see [Systems Manager Parameter Store](http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-paramstore.html) and [Systems Manager Parameter Store Console Walkthrough](http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-walk.html#sysman-paramstore-console) in the *Amazon EC2 Systems Manager User Guide*\.  
 If your build project refers to parameters stored in Amazon EC2 Systems Manager Parameter Store, the build project's service role must allow the `ssm:GetParameters` action\. If you chose **Create a new service role in your account** earlier, then AWS CodeBuild includes this action in the default service role for your build project automatically\. However, if you chose **Choose an existing service role from your account**, then you must include this action in your service role separately\.  
 Environment variables you set replace existing environment variables\. For example, if the Docker image already contains an environment variable named `MY_VAR` with a value of `my_value`, and you set an environment variable named `MY_VAR` with a value of `other_value`, then `my_value` is replaced by `other_value`\. Similarly, if the Docker image already contains an environment variable named `PATH` with a value of `/usr/local/sbin:/usr/local/bin`, and you set an environment variable named `PATH` with a value of `$PATH:/usr/share/ant/bin`, then `/usr/local/sbin:/usr/local/bin` is replaced by the literal value `$PATH:/usr/share/ant/bin`\.   
 Do not set any environment variable with a name that begins with `CODEBUILD_`\. This prefix is reserved for internal use\.  
@@ -128,9 +161,6 @@ If an environment variable with the same name is defined in multiple places, the
 The value in the start build operation call takes highest precedence\.
 The value in the build project definition takes next precedence\.
 The value in the build spec declaration takes lowest precedence\.
-   + *buildspecOverride*: Optional string\. A build spec declaration that overrides for this build the one defined in the build project\. If this value is set, it can be either an inline build spec definition or the path to an alternate build spec file relative to the value of the built\-in `CODEBUILD_SRC_DIR` environment variable\.
-   + *gitCloneDepthOverride*: Optional string\. The value of the **Git clone depth** in the build project whose value you want to override for this build\. If your source type is Amazon S3, this value is not supported\.
-   + *timeoutInMinutesOverride*: Optional number\. The number of build timeout minutes that overrides for this build the one defined in the build project\. 
 
    For information about valid values for these placeholders, see [Create a Build Project \(AWS CLI\)](create-project.md#create-project-cli)\. For a list of the latest settings for a build project, see [View a Build Project's Details](view-project-details.md)\.
 

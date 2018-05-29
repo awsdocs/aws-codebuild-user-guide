@@ -4,8 +4,6 @@ AWS CodeBuild now supports the use of build badges, which provide an embeddable,
 
 ## Create a Build Project with Build Badges Enabled \(Console\)<a name="sample-build-badges-request-running"></a>
 
-\.
-
 1. Open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codebuild/](https://console.aws.amazon.com/codebuild/)\.
 
 1. If a welcome page is displayed, choose **Get started**\. If a welcome page is not displayed, on the navigation pane, choose **Build projects**, and then choose **Create project**\.

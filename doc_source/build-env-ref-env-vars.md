@@ -21,8 +21,8 @@ You can also provide build environments with your own environment variables\. Fo
 + [Run a Build](run-build.md)
 + [Build Spec Reference](build-spec-ref.md)
 
+To list all of the available environment variables in a build environment, you can run the `printenv` command \(for Linux\-based build environment\) or `"Get-ChildItem Env:"` \(for Windows\-based build environments\) during a build\. With the exception of those previously listed, environment variables that start with `CODEBUILD_` are for AWS CodeBuild internal use\. They should not be used in your build commands\.
+
 **Important**  
 We strongly discourage using environment variables to store sensitive values, especially AWS access key IDs and secret access keys\. Environment variables can be displayed in plain text using tools such as the AWS CodeBuild console and the AWS CLI\.  
 For sensitive values, we recommend you store them in the Amazon EC2 Systems Manager Parameter Store and then retrieve them from your build spec\. To store sensitive values, see [Systems Manager Parameter Store](http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-paramstore.html) and [Systems Manager Parameter Store Console Walkthrough](http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-walk.html#sysman-paramstore-console) in the *Amazon EC2 Systems Manager User Guide*\. To retrieve them, see the `parameter-store` mapping in [Build Spec Syntax](build-spec-ref.md#build-spec-ref-syntax)\.
-
-To list all of the available environment variables in a build environment, you can run the `printenv` command during a build\. With the exception of those previously listed, environment variables that start with `CODEBUILD_` are for AWS CodeBuild internal use\. They should not be used in your build commands\.

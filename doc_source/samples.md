@@ -7,18 +7,12 @@ These use case\-based samples can be used to experiment with AWS CodeBuild:
 
 ```
 docker run -it -v /var/run/docker.sock:/var/run/docker.sock -e \
-        "IMAGE_NAME=your-image-name" -e \
+        "IMAGE_NAME=amazon/aws-codebuild-local" -e \
         "ARTIFACTS=absolute-path-to-your-artifact-output-directory" -e \
-        "SOURCE=absolute-path-to-your-source-directory" name-of-the-agent
+        "SOURCE=absolute-path-to-your-source-directory" name-of-the-agent -e \
+        "BUILDSPEC=absolute-or-relative-path-to-your-buildspec-file"
 ```
- For *name\-of\-the\-agent*, use the name of the agent you downloaded as it appears in the table:   
-
-
-****  
-
-| Name | Location | SHA | 
-| --- | --- | --- | 
-| amazon/aws\-codebuild\-local  | [https://hub\.docker\.com/r/amazon/aws\-codebuild\-local/](https://hub.docker.com/r/amazon/aws-codebuild-local/)  | 004d34c4e908d074edb205b2299cead4ecf30adf284ea7a50912da817e32150f  | 
+ The agent is available from [https://hub\.docker\.com/r/amazon/aws\-codebuild\-local/](https://hub.docker.com/r/amazon/aws-codebuild-local/) and its current SHA is `2fe3f77c8b580b82709e7f5f576313418eac2e5217a1da130ab1a8fb396f3ab2`\. You can use the SHA to identify the version of the agent\. 
 
 
 ****  
@@ -52,4 +46,5 @@ You can use these code\-based samples to experiment with AWS CodeBuild:
 | [Ruby Sample](sample-ruby-hw.md) | Uses RSpec to test whether an internal variable in code is set to a specific string value\. Produces a single \.rb file\. | 
 | [Scala Sample](sample-scala-hw.md) | Uses sbt to produce a single JAR file\. | 
 | [Java Sample](sample-war-hw.md) | Uses Apache Maven to produce a single WAR file\. | 
+| [Windows Samples](sample-windows.md) | Uses the Microsoft \.NET Framework or \.NET Core to build an executable file from C\#, F\#, or Visual Basic code\. | 
 | [\.NET Core in Linux Sample](sample-net-core-linux.md) | Uses \.NET Core to build an executable file out of code written in C\#\. | 

@@ -31,6 +31,7 @@ If you do not find your image on this page, it most likely contains components t
 | Ubuntu 14\.04 | Ruby | 2\.2\.5 | aws/codebuild/ruby:2\.2\.5 | [ubuntu/ruby/2\.2\.5](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/ruby/2.2.5) | 
 | Ubuntu 14\.04 | \.NET Core | 1\.1 | aws/codebuild/dot\-net:core\-1 | [ubuntu/dot\-net/core\-1](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/dot-net/core-1) | 
 | Ubuntu 14\.04 | \.NET Core | 2\.0 | aws/codebuild/dot\-net:core\-2\.0 | [ubuntu/dot\-net/core\-2](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/dot-net/core-2) | 
+| Windows Server Core 2016 | \(Base Image\) |  | aws/codebuild/windows\-base:1\.0 |  | 
 
 AWS CodeBuild also manages the following Docker images that are not in the AWS CodeBuild and AWS CodePipeline consoles\.
 
@@ -89,6 +90,8 @@ AWS CodeBuild frequently updates the list of Docker images\. To get the most cur
 + For the AWS SDKs, call the `ListCuratedEnvironmentImages` operation for your target programming language\. For more information, see the [AWS SDKs and Tools Reference](sdk-ref.md)\.
 
 To confirm the version of a component installed on a Docker image, you can run a command during a build\. The version number for the component will appear in the output\. For example, include one or more of the following commands in your build specification:
++ For the Microsoft \.NET Framework, run `reg query "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP"`\.
++ For \.NET Core, run `dotnet --version`\.
 + For Apache Ant, run `ant -version`\.
 + For Apache Maven, run `mvn -version`\.
 + For the AWS CLI, run `aws --version`\.

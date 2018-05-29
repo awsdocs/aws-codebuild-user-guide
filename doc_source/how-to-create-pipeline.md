@@ -134,7 +134,7 @@ If you enable webhooks for an AWS CodeBuild project, and the project is used as 
 
 1. For **Build specification**, do one of the following:
    + If your source code includes a build spec file, choose **Use the buildspec\.yml in the source code root directory**\. 
-   + If your source code does not include a build spec file, choose **Insert build commands**\. For **Build command**, type the commands you want to run during the build phase in the build environment; for multiple commands, separate each command with `&&`\. For **Output files**, type the paths to the build output files in the build environment that you want to send to AWS CodePipeline; for multiple files, separate each file path with a comma\. For more information, see the tooltips in the console\.
+   + If your source code does not include a build spec file, choose **Insert build commands**\. For **Build command**, type the commands you want to run during the build phase in the build environment; for multiple commands, separate each command with `&&` for Linux\-based build environments or `;` for Windows\-based build environments\. For **Output files**, type the paths to the build output files in the build environment that you want to send to AWS CodePipeline; for multiple files, separate each file path with a comma\. For more information, see the tooltips in the console\.
 
 1. For **AWS CodeBuild service role**, do one of the following:
    + If you do not have an AWS CodeBuild service role in your AWS account, choose **Create a service role in your account**\. In the **Role name** box, type a name for the service role or leave the suggested name\. \(Service role names must be unique across your AWS account\.\) 
@@ -434,7 +434,7 @@ If you enable webhooks for an AWS CodeBuild project, and the project is used as 
 
 1. For **Build specification**, do one of the following:
    + If your source code includes a build spec file, choose **Use the buildspec\.yml in the source code root directory**\. 
-   + If your source code does not include a build spec file, choose **Insert build commands**\. For **Build command**, type the commands you want to run during the build phase in the build environment; for multiple commands, separate each command with `&&`\. For **Output files**, type the paths to the build output files in the build environment that you want to send to AWS CodePipeline; for multiple files, separate each file path with a comma\. For more information, see the tooltips in the console\.
+   + If your source code does not include a build spec file, choose **Insert build commands**\. For **Build command**, type the commands you want to run during the build phase in the build environment; for multiple commands, separate each command with `&&` for Linux\-based build environments or `;` for Windows\-based build environments\. For **Output files**, type the paths to the build output files in the build environment that you want to send to AWS CodePipeline; for multiple files, separate each file path with a comma\. For more information, see the tooltips in the console\.
 
 1. For **AWS CodeBuild service role**, do one of the following:
    + If you do not have an AWS CodeBuild service role in your AWS account, choose **Create a service role in your account**\. In the **Role name** box, type a name for the service role or leave the suggested name\. \(Service role names must be unique across your AWS account\.\) 
@@ -573,7 +573,7 @@ If you enable webhooks for an AWS CodeBuild project, and the project is used as 
 
 1. For **Build specification**, do one of the following:
    + If your source code includes a build spec file, choose **Use the buildspec\.yml in the source code root directory**\. 
-   + If your source code does not include a build spec file, choose **Insert build commands**\. For **Build command**, type the commands you want to run during the build phase in the build environment\. For multiple commands, separate each command with `&&`\. For **Output files**, type the paths to the build output files in the build environment that you want to send to AWS CodePipeline\. For multiple files, separate each file path with a comma\. For more information, see the tooltips in the console\.
+   + If your source code does not include a build spec file, choose **Insert build commands**\. For **Build command**, type the commands you want to run during the build phase in the build environment\. For multiple commands, separate each command with `&&` for Linux\-based build environments or `;` for Windows\-based build environments\. For **Output files**, type the paths to the build output files in the build environment that you want to send to AWS CodePipeline\. For multiple files, separate each file path with a comma\. For more information, see the tooltips in the console\.
 
 1. For **AWS CodeBuild service role**, do one of the following:
    + If you do not have an AWS CodeBuild service role in your AWS account, choose **Create a service role in your account**\. In the **Role name** box, type a name for the service role or leave the suggested name\. \(Service role names must be unique across your AWS account\.\) 
