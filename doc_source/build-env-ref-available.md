@@ -17,6 +17,7 @@ If you do not find your image on this page, it most likely contains components t
 | Ubuntu 14\.04 | Golang | 1\.10 | aws/codebuild/golang:1\.10 | [ubuntu/golang/1\.10](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/golang/1.10) | 
 | Ubuntu 14\.04 | Java | 8 | aws/codebuild/java:openjdk\-8 | [ubuntu/java/openjdk\-8](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/java/openjdk-8) | 
 | Ubuntu 14\.04 | Java | 9 | aws/codebuild/java:openjdk\-9 | [ubuntu/java/openjdk\-9](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/java/openjdk-9) | 
+| Ubuntu 14\.04 | Node\.js | 10\.1\.0 | aws/codebuild/nodejs:10\.1\.0 | [ubuntu/nodejs/10\.1\.0](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/nodejs/10.1.0) | 
 | Ubuntu 14\.04 | Node\.js | 8\.11\.0 | aws/codebuild/nodejs:8\.11\.0 | [ubuntu/nodejs/8\.11\.0](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/nodejs/8.11.0) | 
 | Ubuntu 14\.04 | Node\.js | 6\.3\.1 | aws/codebuild/nodejs:6\.3\.1 | [ubuntu/nodejs/6\.3\.1](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/nodejs/6.3.1) | 
 | Ubuntu 14\.04 | PHP | 5\.6 | aws/codebuild/php:5\.6 | [ubuntu/php/5\.6](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/php/5.6) | 

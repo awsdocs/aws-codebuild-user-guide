@@ -573,7 +573,7 @@ You can complete this step with the [AWS CodeBuild console](#getting-started-bui
 
 **To view detailed build information \(console\)**
 
-1. With the build details page still displayed from the previous step, the last 20 lines of the build log are displayed in **Build logs**\. To see the entire build log in CloudWatch Logs, choose the **View entire log** link\. 
+1. With the build details page still displayed from the previous step, the last 10,000 lines of the build log are displayed in **Build logs**\. To see the entire build log in CloudWatch Logs, choose the **View entire log** link\. 
 
 1. In the CloudWatch Logs log stream, you can browse the log events\. By default, only the last set of log events is displayed\. To see earlier log events, scroll to the beginning of the list\.
 

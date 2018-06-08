@@ -61,7 +61,7 @@ This sample assumes this directory structure\.
 
 ## Files<a name="sample-docker-custom-image-files"></a>
 
-This sample uses these files\.
+The base image of the operating system used in this sample is Ubuntu\. The sample uses these files\.
 
 `buildspec.yml` \(in `(root directory name)`\)
 
@@ -72,7 +72,7 @@ phases:
   install:
     commands:
       - nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://127.0.0.1:2375 --storage-driver=overlay&
-      - timeout -t 15 sh -c "until docker info; do echo .; sleep 1; done"
+      - timeout 15 sh -c "until docker info; do echo .; sleep 1; done"
   pre_build:
     commands:
       - docker build -t helloworld .
@@ -82,12 +82,19 @@ phases:
       - docker run helloworld echo "Hello, World!"
 ```
 
+**Note**  
+ If the base operating system is Alpine Linux, in the `buildspec.yml` add the `-t` argument to `timeout`:   
+
+```
+- timeout -t 15 sh -c "until docker info; do echo .; sleep 1; done"
+```
+
 `Dockerfile` \(in `(root directory name)`\)
 
 ```
-FROM alpine
+FROM maven:3.3.9-jdk-8
  
-RUN ls
+RUN echo "Hello World"
 ```
 
 ## Related Resources<a name="w3ab1b9c51c25c17"></a>
