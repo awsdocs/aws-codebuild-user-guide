@@ -9,7 +9,7 @@ Running this sample may result in charges to your AWS account\. These include po
 + [Running the Sample](#sample-scala-hw-running)
 + [Directory Structure](#sample-scala-hw-dir)
 + [Files](#sample-scala-hw-files)
-+ [Related Resources](#w3ab1b9c54c37c15)
++ [Related Resources](#w3ab1b9c52c37c15)
 
 ## Running the Sample<a name="sample-scala-hw-running"></a>
 
@@ -185,7 +185,7 @@ object MyBuild extends Build {
 sbt.version=0.13.7
 ```
 
-## Related Resources<a name="w3ab1b9c54c37c15"></a>
+## Related Resources<a name="w3ab1b9c52c37c15"></a>
 + For more information about getting started with AWS CodeBuild, see [Getting Started with AWS CodeBuild](getting-started.md)\.
 + For more information about troubleshooting problems with AWS CodeBuild, see [Troubleshooting AWS CodeBuild](troubleshooting.md)\.
 + For more information about limits in AWS CodeBuild, see [Limits for AWS CodeBuild](limits.md)\.

@@ -242,7 +242,7 @@ For information about using the AWS CLI with AWS CodeBuild, see the [Command Lin
        + If you specified `NO_ARTIFACTS` for *artifacts\-type*, do not specify a `packaging` for `artifacts`\.
        + If you specified `S3` for *artifacts\-type*, valid values include `ZIP` and `NONE`\. To create a ZIP file that contains the build output, use `ZIP`\. To create a folder that contains the build output, use `NONE`\. The default value is `NONE`\.
    + For the required *cache* object, information about this build project's cache settings\. These settings include the following:
-     + *CacheType*: Required value\. Valid values are `S3` or `NONE`\.
+     + *CacheType*: Required value\. Valid values are `S3` or `NO_CACHE`\.
      + *CacheLocation*: Required value unless you set *CacheType* to `NONE`\. If you specified S3 for *CacheType*, then this is the ARN of the S3 bucket and the path prefix\. For example, if your Amazon S3 bucket name is `my-bucket`, and your path prefix is `build-cache`, then acceptable formats for your *CacheLocation* are `my-bucket/build-cache` or `aws:s3:::my-bucket/build-cache`\.
    + *serviceRole*: Required value\. The ARN of the service role AWS CodeBuild uses to interact with services on behalf of the IAM user \(for example, `arn:aws:iam::account-id:role/role-name`\)\.
    + For the optional *vpcConfig* object, information about your VPC configuration\. These settings include: 
@@ -266,7 +266,7 @@ If you are using a region other than us\-east\-1, be sure to use it when you run
 **Note**  
 If you are using a region other than us\-east\-1, be sure to use it when you run the command\.
    + For the required `environment` object, information about this project's build environment settings\. These settings include: 
-     + *environment\-type*: Required value\. The type of build environment\. The only allowed value is `LINUX_CONTAINER`\.
+     + *environment\-type*: Required value\. The type of build environment\. Valid values are `LINUX_CONTAINER` and `WINDOWS_CONTAINER`\.
      + *image*: Required value\. The Docker image identifier used by this build environment\. Typically, this identifier is expressed as *image\-name*:*tag*\. For example, in the Docker repository that AWS CodeBuild uses to manage its Docker images, this could be `aws/codebuild/java:openjdk-8`\. In Docker Hub, `maven:3.3.9-jdk-8`\. In Amazon ECR, `account-id.dkr.ecr.region-id.amazonaws.com/your-Amazon-ECR-repo-name:tag`\. For more information, see [Docker Images Provided by AWS CodeBuild](build-env-ref-available.md)\. 
      + *computeType*: Required value\. A category corresponding to the number of CPU cores and memory used by this build environment\. Allowed values include `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, and `BUILD_GENERAL1_LARGE`\.
      + *certificate*: Optional value\. The ARN of the AWS S3 bucket, path prefix and object key containing the PEM encoded certificate\. The object key can be either just the \.pem file or a \.zip file containing the pem encoded certificate\. For example, if your Amazon S3 bucket name is my\-bucket, your path prefix is cert, and your object key name is certificate\.pem, then acceptable formats for your *certificate* are my\-bucket/cert/certificate\.pem or arn:aws:s3:::my\-bucket/cert/certificate\.pem\.

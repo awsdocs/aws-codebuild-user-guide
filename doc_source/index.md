@@ -49,6 +49,7 @@ Amazon's trademarks and trade dress may not be used in
       + [Shells and Commands in Build Environments](build-env-ref-cmd.md)
       + [Environment Variables in Build Environments](build-env-ref-env-vars.md)
       + [Background Tasks in Build Environments](build-env-ref-background-tasks.md)
+   + [Test and Debug Locally with the AWS CodeBuild Agent](use-codebuild-agent.md)
 + [Run AWS CodeBuild Directly](how-to-run.md)
 + [Use AWS CodeBuild with Amazon Virtual Private Cloud](vpc-support.md)
    + [Use VPC Endpoints](use-vpc-endpoints-with-codebuild.md)
