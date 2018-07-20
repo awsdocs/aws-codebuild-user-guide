@@ -24,13 +24,33 @@ To use AWS CodePipeline to run a build with AWS CodeBuild, skip these steps and 
    + For AWS CodeCommit, for the optional **Source version** value, for **Branch**, choose the name of the branch that contains the version of the source code you want to build\. For **Source version**, accept the displayed HEAD commit ID or type a different one\. If **Source version** is blank, the default branch's HEAD commit ID is used\. You cannot type a tag name for **Source version**\. To specify a tag, type the tag's commit ID\. Change the value for **Git clone depth**\. This will create a shallow clone with a history truncated to the specified number of commits\. If you want a full clone, choose **Full**\.
    + For GitHub or GitHub Enterprise, for the optional **Source version** value, type a commit ID, a pull request ID, a branch name, or a tag name that corresponds to the version of the source code you want to build\. If you specify a pull request ID, it must use the format `pr/pull-request-ID` \(for example, `pr/25`\)\. If you specify a branch name, the branch's HEAD commit ID is used\. If **Source version** is blank, the default branch's HEAD commit ID is used\. Change the value for **Git clone depth**\. This creates a shallow clone with a history truncated to the specified number of commits\. If you want a full clone, choose **Full**\.
    + For Bitbucket, for the optional **Source version** value, type a commit ID, a branch name, or a tag name that corresponds to the version of the source code you want to build\. If you specify a branch name, the branch's HEAD commit ID is used\. If **Source version** is blank, the default branch's HEAD commit ID is used\. Change the value for **Git clone depth**\. This creates a shallow clone with a history truncated to the specified number of commits\. If you want a full clone, choose **Full**\.
+   + Choose **Override source** to use a different source provider for this build only\. For more information about source provider options and settings, see [Choose source provider](create-project.md#create-project-source-provider)\.
+
+1.  Expand **Override build project settings**\. 
+
+    Here you can change settings for this build only\. The settings in this section are optional\. 
+
+    Under **Environment: How to build**, you can: 
+   +  Choose **Override image** to select a different image\. 
+   +  Select or clear **Privileged** to change the privileged setting\. 
+   +  Choose **Override build specification** to select a different build specification\. 
+   +  From **Certificate** choose a different setting\.
+
+    Under **Artifacts: Where to put the artifacts from this build project**, you can: 
+   + From **Type**, choose a different artifacts type\.
+   + In **Name**, type a different output artifact name\. 
+   + In **Path**, type a different output artifact path\. 
+   + In **Namespace type**, choose a different type\. Choose **Build ID** to insert the build ID into the path of the build output file \(for example, `My-Path/Build-ID/My-Artifact.zip`\)\. Otherwise, choose **None**\. 
+   + From **Bucket name** choose a different Amazon S3 bucket for your output artifacts\. 
+   + From **Artifacts packaging**, choose **Zip** to put the build artifact files in a compressed file\. To put the build artifact files in the specified Amazon S3 bucket individually \(not compressed\), choose **None**\.
+
+   Under **Cache**, from **Type**, choose a different cache setting\.
+
+    Under **Service role**, you can change the service role that AWS CodeBuild uses to call dependent AWS services for you\. Choose **Create a role** to have AWS CodeBuild create a service role for you\.
 
 1. Expand **Show advanced options**\.
-   + If you want to change the output artifacts type for this build only, choose the replacement type in **Artifacts type**\.
-   + If you want to change the name of the output artifact for this build only, type the replacement name in **Artifacts name**\.
-   + If you want to change the name of the output bucket for this build only, choose the replacement name in **Bucket name**\.
-   + If you want to change the way output artifacts are packaged for this build only, choose the replacement packaging type in **Artifacts packaging**\.
-   + If you want to change the build timeout for this build only, specify the new value in **Timeout**\.
+   + If you want to change the build timeout for this build only, change the value in **Timeout**\.
+   + If you want to change the **Compute type**, choose one of the available options\. 
 
 1. Expand **Environment variables**\. 
 
@@ -110,6 +130,7 @@ For more information about using the AWS CLI with AWS CodeBuild, see the [Comman
      "idempotencyToken": "idempotencyToken",
      "insecureSslOverride": "insecureSslOverride",
      "privilegedModeOverride": "privilegedModeOverride",
+     "reportBuildStatusOverride": "reportBuildStatusOverride",
      "timeoutInMinutesOverride": timeoutInMinutesOverride",
      "sourceAuthOverride": "sourceAuthOverride",
      "sourceLocationOverride": "sourceLocationOverride",
@@ -147,6 +168,7 @@ For more information about using the AWS CLI with AWS CodeBuild, see the [Comman
    + *idempotencyToken*: Optional string\. A string that serves as a token to specify that the build request is idempotent\. You can choose any string that is 64 characters or less\. The token is valid for 12 hours after the start\-build request\. If you repeat the start\-build request with the same token, but change a parameter, AWS CodeBuild returns a parameter mismatch error\. 
    + *insecureSslOverride*: Optional boolean that specifies whether to override the insecure SSL setting specified in the build project\. The insecure SSL setting determines whether to ignore SSL warnings while connecting to the project source code\. This override applies only if the build's source is GitHub Enterprise\.
    + *privilegedModeOverride*: Optional boolean\. If set to true, the build overrides privileged mode in the build project\.
+   + *reportBuildStatusOverride*: Optional boolean that specifies whether to send your source provider the status of a build's start and completion\. If you set this with a source provider other than GitHub, an invalidInputException is thrown\.
    + *sourceAuthOverride*: Optional string\. An authorization type for this build that overrides the one defined in the build project\. This override applies only if the build project's source is BitBucket or GitHub\.
    + *sourceLocationOverride*: Optional string\. A location that overrides for this build the source location for the one defined in the build project\.
    + *serviceRoleOverride*: Optional string\. The name of a service role for this build that overrides the one specified in the build project\.

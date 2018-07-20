@@ -25,7 +25,9 @@ If you see an expand arrow \(**↗**\) in the upper\-right corner of the table, 
 | BatchGetBuilds |  `codebuild:BatchGetBuilds` Required to get information about builds\.  |  `arn:aws:codebuild:region-ID:account-ID:project/project-name`  | 
 | BatchGetProjects |  `codebuild:BatchGetProjects` Required to get information about build projects\.  |  `arn:aws:codebuild:region-ID:account-ID:project/project-name`  | 
 | CreateProject |  `codebuild:CreateProject` `iam:PassRole` Required to create build projects\.  |  `arn:aws:codebuild:region-ID:account-ID:project/project-name` `arn:aws:iam:account-ID:role/role-name`  | 
+| CreateWebhook |  `codebuild:CreateWebhook` Required to create a webhook\.  |  `arn:aws:codebuild:region-ID:account-ID:project/project-name`  | 
 | DeleteProject |  `codebuild:DeleteProject` Required to delete build projects\.  |  `arn:aws:codebuild:region-ID:account-ID:project/project-name`  | 
+| DeleteWebhook |  `codebuild:DeleteWebhook` Required to delete a webhook\.  |  `arn:aws:codebuild:region-ID:account-ID:project/project-name`  | 
 | ListBuilds | codebuild:ListBuildsRequired to get a list of build IDs\. |  `*`  | 
 | ListBuildsForProject |  `codebuild:ListBuildsForProject` Required to get a list of build IDs for a build project\.  |  `arn:aws:codebuild:region-ID:account-ID:project/project-name`  | 
 | ListCuratedEnvironmentImages |  `codebuild:ListCuratedEnvironmentImages` Required to get information about all Docker images that are managed by AWS CodeBuild\.  |  `*` \(required, but does not refer to an addressable AWS resource\)  | 
@@ -33,3 +35,4 @@ If you see an expand arrow \(**↗**\) in the upper\-right corner of the table, 
 | StartBuild |  `codebuild:StartBuild` Required to start running builds\.  |  `arn:aws:codebuild:region-ID:account-ID:project/project-name`  | 
 | StopBuild |  `codebuild:StopBuild` Required to attempt to stop running builds\.  |  `arn:aws:codebuild:region-ID:account-ID:project/project-name`  | 
 | UpdateProject |  `codebuild:UpdateProject` `iam:PassRole` Required to change information about builds\.  |  `arn:aws:codebuild:region-ID:account-ID:project/project-name` `arn:aws:iam:account-ID:role/role-name`  | 
+| UpdateWebhook |  `codebuild:UpdateWebhook` Required to update a webhook\.  |  `arn:aws:codebuild:region-ID:account-ID:project/project-name`  | 

@@ -32,6 +32,7 @@ If you do not find your image on this page, it most likely contains components t
 | Ubuntu 14\.04 | Ruby | 2\.2\.5 | aws/codebuild/ruby:2\.2\.5 | [ubuntu/ruby/2\.2\.5](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/ruby/2.2.5) | 
 | Ubuntu 14\.04 | \.NET Core | 1\.1 | aws/codebuild/dot\-net:core\-1 | [ubuntu/dot\-net/core\-1](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/dot-net/core-1) | 
 | Ubuntu 14\.04 | \.NET Core | 2\.0 | aws/codebuild/dot\-net:core\-2\.0 | [ubuntu/dot\-net/core\-2](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/dot-net/core-2) | 
+| Ubuntu 14\.04 | \.NET Core | 2\.1 | aws/codebuild/dot\-net:core\-2\.1 | [ubuntu/dot\-net/core\-2\.1](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/dot-net/core-2.1) | 
 | Windows Server Core 2016 | \(Base Image\) |  | aws/codebuild/windows\-base:1\.0 |  | 
 
 AWS CodeBuild also manages the following Docker images that are not in the AWS CodeBuild and AWS CodePipeline consoles\.

@@ -14,7 +14,7 @@ docker run -it -v /var/run/docker.sock:/var/run/docker.sock -e \
         "BUILDSPEC=absolute-or-relative-path-to-your-buildspec-file"
 ```
 
- The AWS CodeBuild agent is available from [https://hub\.docker\.com/r/amazon/aws\-codebuild\-local/](https://hub.docker.com/r/amazon/aws-codebuild-local/)\. Its Secure Hash Algorithm \(SHA\) signature is `ceb83dccf6febea461317457279bc66b9fa88a707da15bcd720bcb7d339e55ba`\. You can use this to identify the version of the agent\. To see the agent's SHA signature, run the following command: 
+ The AWS CodeBuild agent is available from [https://hub\.docker\.com/r/amazon/aws\-codebuild\-local/](https://hub.docker.com/r/amazon/aws-codebuild-local/)\. Its Secure Hash Algorithm \(SHA\) signature is `f030a118a72c67e263c5d252c2484664ab91bdc7e221c10f6a725dd67eaed710`\. You can use this to identify the version of the agent\. To see the agent's SHA signature, run the following command: 
 
 ```
 docker inspect amazon/aws-codebuild-local

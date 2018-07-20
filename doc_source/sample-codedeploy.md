@@ -117,7 +117,7 @@ Do not add `(root directory name)` or `(root directory name)/my-app` to the ZIP 
                                             ` -- AppTest.java
    ```
 
-1. Create a build project by following the steps in [Create a Build Project](create-project.md)\.
+1. Create a build project by following the steps in [Monitoring AWS CodeBuildCreate a Build Project](create-project.md)\.
 
    If you use the AWS CLI to create the build project, the JSON\-formatted input to the `create-project` command might look similar to this\. \(Replace the placeholders with your own values\.\)
 

@@ -206,7 +206,7 @@ To use the AWS CLI to create a pipeline that deploys your built source code or t
 
 1. Complete the steps in [Prerequisites](#how-to-create-pipeline-prerequisites)\.
 
-1. Create or identify a build project in AWS CodeBuild\. For more information, see [Create a Build Project](create-project.md)\.
+1. Create or identify a build project in AWS CodeBuild\. For more information, see [Monitoring AWS CodeBuildCreate a Build Project](create-project.md)\.
 **Important**  
 The build project must define build output artifact settings \(even though AWS CodePipeline will override them\)\. For more information, see the description of `artifacts` in [Create a Build Project \(AWS CLI\)](create-project.md#create-project-cli)\.
 

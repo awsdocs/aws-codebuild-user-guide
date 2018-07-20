@@ -19,7 +19,7 @@ You can also override the default build spec file name and location\. For exampl
 You can specify only one build spec for a build project, regardless of the build spec file's name\.
 
 To override the default build spec file name, location, or both, do one of the following:
-+ Run the AWS CLI `create-project` or `update-project` command, setting the `buildspec` value to the path to the alternate build spec file relative to the value of the built\-in environment variable `CODEBUILD_SRC_DIR`\. You can also do the equivalent with the create project operation in the AWS SDKs\. For more information, see [Create a Build Project](create-project.md) or [Change a Build Project's Settings](change-project.md)\.
++ Run the AWS CLI `create-project` or `update-project` command, setting the `buildspec` value to the path to the alternate build spec file relative to the value of the built\-in environment variable `CODEBUILD_SRC_DIR`\. You can also do the equivalent with the create project operation in the AWS SDKs\. For more information, see [Monitoring AWS CodeBuildCreate a Build Project](create-project.md) or [Change a Build Project's Settings](change-project.md)\.
 + Run the AWS CLI `start-build` command, setting the `buildspecOverride` value to the path to the alternate build spec file relative to the value of the built\-in environment variable `CODEBUILD_SRC_DIR`\. You can also do the equivalent with the start build operation in the AWS SDKs\. For more information, see [Run a Build](run-build.md)\.
 + In an AWS CloudFormation template, set the `BuildSpec` property of `Source` in a resource of type `AWS::CodeBuild::Project` to the path to the alternate build spec file relative to the value of the built\-in environment variable `CODEBUILD_SRC_DIR`\. For more information, see the "BuildSpec" property in [AWS CodeBuild Project Source](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-source.html) in the *AWS CloudFormation User Guide*\.
 
@@ -45,16 +45,28 @@ phases:
     commands:
       - command
       - command
+    finally:
+      - command
+      - command
   pre_build:
     commands:
+      - command
+      - command
+    finally:
       - command
       - command
   build:
     commands:
       - command
       - command
+    finally:
+      - command
+      - command
   post_build:
     commands:
+      - command
+      - command
+    finally:
       - command
       - command
 artifacts:
@@ -107,6 +119,7 @@ In build spec version 0\.1, AWS CodeBuild runs each command in a separate instan
     + `commands`: Required if `post_build` is specified\. Contains a sequence of scalars, where each scalar represents a single command that AWS CodeBuild will run after the build\. AWS CodeBuild runs each command, one at a time, in the order listed, from beginning to end\.
 **Important**  
 Commands in some build phases might not be run if commands in earlier build phases fail\. For example, if a command fails during the `install` phase, none of the commands in the `pre_build`, `build`, and `post_build` phases will be run for that build's lifecycle\. For more information, see [Build Phase Transitions](view-build-details.md#view-build-details-phases)\.
++ `finally`: Optional block\. Commands specified in a `finally` block are executed after commands in the `commands` block\. The commands in a `finally` block are executed even if a command in the `commands` block fails\. For example, if the `commands` block contains three commands and the first fails, AWS CodeBuild skips the remaining two commands and runs any commands in the `finally` block\. The phase is successful when all commands in the `commands` and the `finally` blocks run succeessfully\. If any command in a phase fails, the phase fails\.
 + `artifacts`: Optional sequence\. Represents information about where AWS CodeBuild can find the build output and how AWS CodeBuild will prepare it for uploading to the Amazon S3 output bucket\. This sequence is not required if, for example, you are building and pushing a Docker image to Amazon ECR, or you are running unit tests on your source code but not building it\.
   + `files`: Required sequence\. Represents the locations containing the build output artifacts in the build environment\. Contains a sequence of scalars, with each scalar representing a separate location where AWS CodeBuild can find build output artifacts, relative to the original build location or, if set, the base directory\. Locations can include the following:
     + A single file \(for example, `my-file.jar`\)\.
@@ -200,15 +213,21 @@ phases:
       - echo Entered the install phase...
       - apt-get update -y
       - apt-get install -y maven
+    finally:
+      - echo This always runs even if the update or install command fails 
   pre_build:
     commands:
       - echo Entered the pre_build phase...
       - docker login –u User –p $LOGIN_PASSWORD
+    finally:
+      - echo This always runs even if the login command fails 
   build:
     commands:
       - echo Entered the build phase...
       - echo Build started on `date`
       - mvn install
+    finally:
+      - echo This always runs even if the install command fails
   post_build:
     commands:
       - echo Entered the post_build phase...
