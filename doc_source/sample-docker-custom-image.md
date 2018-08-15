@@ -11,7 +11,7 @@ Running this sample may result in charges to your AWS account\. These include po
 + [Running the Sample](#sample-docker-custom-image-running)
 + [Directory Structure](#sample-docker-custom-image-dir)
 + [Files](#sample-docker-custom-image-files)
-+ [Related Resources](#w3ab1b9c49c25c17)
++ [Related Resources](#w4ab1b9c49c25c17)
 
 ## Running the Sample<a name="sample-docker-custom-image-running"></a>
 
@@ -97,7 +97,7 @@ FROM maven:3.3.9-jdk-8
 RUN echo "Hello World"
 ```
 
-## Related Resources<a name="w3ab1b9c49c25c17"></a>
+## Related Resources<a name="w4ab1b9c49c25c17"></a>
 + For more information about getting started with AWS CodeBuild, see [Getting Started with AWS CodeBuild](getting-started.md)\.
 + For more information about troubleshooting problems with AWS CodeBuild, see [Troubleshooting AWS CodeBuild](troubleshooting.md)\.
 + For more information about limits in AWS CodeBuild, see [Limits for AWS CodeBuild](limits.md)\.

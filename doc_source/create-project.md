@@ -44,9 +44,11 @@ Answer the questions in [Plan a Build](planning.md)\.
 1. In **Artifacts: Where to put the artifacts from this build project**, for **Artifacts type**, do one of the following:
    + If you do not want to create any build output artifacts, choose **No artifacts**\. You might want to do this if you're only running build tests or you want to push a Docker image to an Amazon ECR repository\.
    + To store the build output in an Amazon S3 bucket, choose **Amazon S3**, and then do the following:
-     + If you want to use your project name for the build output ZIP file or folder, leave **Artifacts name** blank\. Otherwise, type the name in **Artifacts name**\. \(If you want to output a ZIP file, and you want the ZIP file to have a file extension, be sure to include it after the ZIP file name\.\)
+     + If you want to use your project name for the build output ZIP file or folder, leave **Name** blank\. Otherwise, type the name in **Name**\. \(If you want to output a ZIP file, and you want the ZIP file to have a file extension, be sure to include it after the ZIP file name\.\)
+     + Select **Use the name specified in the buildspec file** if you want a name specified in the buildspec file to override any name that is specified in the console\. The name in a buildspec file is calculated at build time and uses the Shell command language\. For example, you can append a date and time to your artifact name so that it is always unique\. Unique artifact names prevent artifacts from being overwritten\. For more information, see [Build Spec Syntax](build-spec-ref.md#build-spec-ref-syntax)\.
      + For **Bucket name**, choose the name of the output bucket\.
      + If you chose **Insert build commands** earlier in this procedure, then for **Output files**, type the locations of the files from the build that you want to put into the build output ZIP file or folder\. For multiple locations, separate each location with a comma \(for example, `appspec.yml, target/my-app.jar`\)\. For more information, see the description of `files` in [Build Spec Syntax](build-spec-ref.md#build-spec-ref-syntax)\.
+     + If you do not want your build artifacts encrypted, select **Disable artifacts encryption**\.
 
 1. In **Cache**, do one of the following:
    + If you do not want to use a cache, choose **No cache**\.
@@ -159,6 +161,7 @@ For information about using the AWS CLI with AWS CodeBuild, see the [Command Lin
        "path": "path",
        "namespaceType": "namespaceType",
        "name": "artifacts-name",
+       "overrideArtifactName": "override-artifact-name",
        "packaging": "packaging"    
      },
      "cache": {
@@ -217,9 +220,9 @@ For information about using the AWS CLI with AWS CodeBuild, see the [Command Lin
        + For AWS CodePipeline, do not specify a `location` value for `source`\. It is ignored by AWS CodePipeline because when you create a pipeline in AWS CodePipeline, you specify the source code location in the Source stage of the pipeline\.
      + *gitCloneDepth*: Optional value\. The depth of history to download\. Minimum value is 0\. If this value is 0, greater than 25, or not provided, then the full history is downloaded with each build project\. If your source type is Amazon S3, this value is not supported\.
      + *buildspec*: Optional value\. The build specification definition or file to use\. If this value is set, it can be either an inline buildspec definition or the path to an alternate buildspec file relative to the value of the built\-in `CODEBUILD_SRC_DIR` environment variable\. If this value is not provided or is set to an empty string, then the source code must contain a `buildspec.yml` file in its root directory\. For more information, see [Build Spec File Name and Storage Location](build-spec-ref.md#build-spec-ref-name-storage)\.
-     + *auth*: This object is used only by the AWS CodeBuild console\. Do not specify values for *auth\-type* \(unless *source\-type* is set to `GITHUB`\) or *resource*\.
-     + *reportBuildStatus*: Optional value\. This specifies whether to send your source provider the status of a build's start and completion\. If you set this with a source provider other than GitHub, an invalidInputException is thrown\.
-     + *InsecureSsl*: Optional value\. This is used with GitHub Enterprise only\. Set this value to `true` to ignore SSL warnings while connecting to your GitHub Enterprise project repository\. The default value is `false`\. *InsecureSsl* should be used for testing purposes only\. It should not be used in a production environment\.
+     + *auth*: This object is used by the AWS CodeBuild console only\. Do not specify values for *auth\-type* \(unless *source\-type* is set to `GITHUB`\) or *resource*\.
+     + *reportBuildStatus*: Optional value\. Specifies whether to send your source provider the status of a build's start and completion\. If you set this with a source provider other than GitHub, an invalidInputException is thrown\.
+     + *InsecureSsl*: Optional value\. Used with GitHub Enterprise only\. Set this value to `true` to ignore SSL warnings while connecting to your GitHub Enterprise project repository\. The default value is `false`\. *InsecureSsl* should be used for testing purposes only\. It should not be used in a production environment\.
    + For the required `artifacts` object, information about this build project's output artifact settings\. These settings include the following: 
      + *artifacts\-type*: Required value\. The type of build output artifact\. Valid values include `CODEPIPELINE`, `NO_ARTIFACTS`, and `S3`\.
      + *artifacts\-location*: Required value \(unless you set *artifacts\-type* to `CODEPIPELINE` or `NO_ARTIFACTS`\)\. The location of the build output artifact:
@@ -238,6 +241,7 @@ For information about using the AWS CLI with AWS CodeBuild, see the [Command Lin
        + If you specified `CODEPIPELINE` for *artifacts\-type*, do not specify a `name` for `artifacts`\.
        + If you specified `NO_ARTIFACTS` for *artifacts\-type*, do not specify a `name` for `artifacts`\.
        + If you specified `S3` for *artifacts\-type*, then this is the name of the build output ZIP file or folder inside of *artifacts\-location*\. For example, if you specify `MyPath` for *path* and `MyArtifact.zip` for *artifacts\-name*, then the path and name would be `MyPath/MyArtifact.zip`\.
+     + *override\-artifact\-name*: Optional boolean value\. If set to `true` then the name specified in the `artifacts` block of the buildspec file overrides *artifacts\-name*\. For more information, see [Build Specification Reference for AWS CodeBuild](build-spec-ref.md)\.
      + *packaging*: Optional value\. The type of build output artifact to create:
        + If you specified `CODEPIPELINE` for *artifacts\-type*, do not specify a `packaging` for `artifacts`\.
        + If you specified `NO_ARTIFACTS` for *artifacts\-type*, do not specify a `packaging` for `artifacts`\.

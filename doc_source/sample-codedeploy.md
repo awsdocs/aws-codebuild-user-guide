@@ -117,7 +117,7 @@ Do not add `(root directory name)` or `(root directory name)/my-app` to the ZIP 
                                             ` -- AppTest.java
    ```
 
-1. Create a build project by following the steps in [Monitoring AWS CodeBuildCreate a Build Project](create-project.md)\.
+1. Create a build project by following the steps in [Create a Build Project](create-project.md)\.
 
    If you use the AWS CLI to create the build project, the JSON\-formatted input to the `create-project` command might look similar to this\. \(Replace the placeholders with your own values\.\)
 
@@ -163,7 +163,7 @@ Do not add `(root directory name)` or `(root directory name)/my-app` to the ZIP 
 
 1. To find the build output artifact after the deployment is complete, sign in to the instance and look in the `/tmp` directory for the file named `my-app-1.0-SNAPSHOT.jar`\.
 
-## Related Resources<a name="w3ab1b9c49c31b9"></a>
+## Related Resources<a name="w4ab1b9c49c37b9"></a>
 + For more information about getting started with AWS CodeBuild, see [Getting Started with AWS CodeBuild](getting-started.md)\.
 + For more information about troubleshooting problems with AWS CodeBuild, see [Troubleshooting AWS CodeBuild](troubleshooting.md)\.
 + For more information about limits in AWS CodeBuild, see [Limits for AWS CodeBuild](limits.md)\.

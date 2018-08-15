@@ -24,7 +24,7 @@ To use AWS CodePipeline to run a build with AWS CodeBuild, skip these steps and 
    + For AWS CodeCommit, for the optional **Source version** value, for **Branch**, choose the name of the branch that contains the version of the source code you want to build\. For **Source version**, accept the displayed HEAD commit ID or type a different one\. If **Source version** is blank, the default branch's HEAD commit ID is used\. You cannot type a tag name for **Source version**\. To specify a tag, type the tag's commit ID\. Change the value for **Git clone depth**\. This will create a shallow clone with a history truncated to the specified number of commits\. If you want a full clone, choose **Full**\.
    + For GitHub or GitHub Enterprise, for the optional **Source version** value, type a commit ID, a pull request ID, a branch name, or a tag name that corresponds to the version of the source code you want to build\. If you specify a pull request ID, it must use the format `pr/pull-request-ID` \(for example, `pr/25`\)\. If you specify a branch name, the branch's HEAD commit ID is used\. If **Source version** is blank, the default branch's HEAD commit ID is used\. Change the value for **Git clone depth**\. This creates a shallow clone with a history truncated to the specified number of commits\. If you want a full clone, choose **Full**\.
    + For Bitbucket, for the optional **Source version** value, type a commit ID, a branch name, or a tag name that corresponds to the version of the source code you want to build\. If you specify a branch name, the branch's HEAD commit ID is used\. If **Source version** is blank, the default branch's HEAD commit ID is used\. Change the value for **Git clone depth**\. This creates a shallow clone with a history truncated to the specified number of commits\. If you want a full clone, choose **Full**\.
-   + Choose **Override source** to use a different source provider for this build only\. For more information about source provider options and settings, see [Choose source provider](create-project.md#create-project-source-provider)\.
+   + To use a different source provider for this build only, choose **Override source**\. For more information about source provider options and settings, see [Choose source provider](create-project.md#create-project-source-provider)\.
 
 1.  Expand **Override build project settings**\. 
 
@@ -39,10 +39,12 @@ To use AWS CodePipeline to run a build with AWS CodeBuild, skip these steps and 
     Under **Artifacts: Where to put the artifacts from this build project**, you can: 
    + From **Type**, choose a different artifacts type\.
    + In **Name**, type a different output artifact name\. 
+   + If you want a name specified in the buildspec file to override any name specified in the console, select **Use the name specified in the buildspec file**\. The name in a buildspec file uses the Shell command language\. For example, you can append a date and time to your artifact name so that it is always unique\. Unique artifact names prevent artifacts from being overwritten\. For more information, see [Build Spec Syntax](build-spec-ref.md#build-spec-ref-syntax)\.
    + In **Path**, type a different output artifact path\. 
    + In **Namespace type**, choose a different type\. Choose **Build ID** to insert the build ID into the path of the build output file \(for example, `My-Path/Build-ID/My-Artifact.zip`\)\. Otherwise, choose **None**\. 
    + From **Bucket name** choose a different Amazon S3 bucket for your output artifacts\. 
-   + From **Artifacts packaging**, choose **Zip** to put the build artifact files in a compressed file\. To put the build artifact files in the specified Amazon S3 bucket individually \(not compressed\), choose **None**\.
+   +  If you do not want your build artifacts encrypted, select **Disable artifacts encryption**\.
+   + Select **Artifacts packaging**, choose **Zip** to put the build artifact files in a compressed file\. To put the build artifact files in the specified Amazon S3 bucket individually \(not compressed\), choose **None**\.
 
    Under **Cache**, from **Type**, choose a different cache setting\.
 

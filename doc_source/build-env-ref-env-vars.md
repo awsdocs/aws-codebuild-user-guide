@@ -11,15 +11,17 @@ AWS CodeBuild provides several environment variables that you can use in your bu
 + `CODEBUILD_KMS_KEY_ID`: The identifier of the AWS KMS key that AWS CodeBuild is using to encrypt the build output artifact \(for example, `arn:aws:kms:region-ID:account-ID:key/key-ID` or `alias/key-alias`\)\.
 + `CODEBUILD_LOG_PATH`: The log stream name in CloudWatch Logs for the build\.
 + `CODEBUILD_RESOLVED_SOURCE_VERSION`: For builds run by AWS CodePipeline, the commit ID or Amazon S3 version ID of the source code to be built\. Note that this value is available only if the pipeline's related Source action is based on an Amazon S3, AWS CodeCommit, or GitHub repository\.
-+ `CODEBUILD_SOURCE_REPO_URL`: The URL to the input artifact or source code repository\. For Amazon S3, this is `s3://` followed by the bucket name and path to the input artifact\. For AWS CodeCommit and GitHub, this is the repository's clone URL\.
-+ `CODEBUILD_SOURCE_VERSION`: For Amazon S3, the version ID associated with the input artifact\. For AWS CodeCommit, the commit ID or branch name associated with the version of the source code to be built\. For GitHub, the commit ID, branch name, or tag name associated with the version of the source code to be built\.
+**Note**  
+ The CODEBUILD\_RESOLVED\_SOURCE\_VERSION environment variable may not always be available\. 
++ `CODEBUILD_SOURCE_REPO_URL`: The URL to the input artifact or source code repository\. For Amazon S3, this is `s3://` followed by the bucket name and path to the input artifact\. For AWS CodeCommit and GitHub, this is the repository's clone URL\. If a build originates from AWS CodePipeline then this may be empty\.
++ `CODEBUILD_SOURCE_VERSION`: For Amazon S3, the version ID associated with the input artifact\. For AWS CodeCommit, the commit ID or branch name associated with the version of the source code to be built\. For CODEBUILD\_RESOLVED\_SOURCE\_VERSIONGitHub, the commit ID, branch name, or tag name associated with the version of the source code to be built\.
 + `CODEBUILD_SRC_DIR`: The directory path that AWS CodeBuild uses for the build \(for example, `/tmp/src123456789/src`\)\.
 + `CODEBUILD_START_TIME`: The start time of the build\.
 + `HOME`: This environment variable is always set to `/root`\.
 
 You can also provide build environments with your own environment variables\. For more information, see the following topics:
 + [Use AWS CodePipeline with AWS CodeBuild](how-to-create-pipeline.md)
-+ [Monitoring AWS CodeBuildCreate a Build Project](create-project.md)
++ [Create a Build Project](create-project.md)
 + [Change a Build Project's Settings](change-project.md)
 + [Run a Build](run-build.md)
 + [Build Spec Reference](build-spec-ref.md)

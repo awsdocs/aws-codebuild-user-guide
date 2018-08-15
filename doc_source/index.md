@@ -28,6 +28,8 @@ Amazon's trademarks and trade dress may not be used in
       + [Build Badges Sample with AWS CodeBuild](sample-build-badges.md)
       + [Build Notifications Sample for AWS CodeBuild](sample-build-notifications.md)
       + [Docker in Custom Image Sample for AWS CodeBuild](sample-docker-custom-image.md)
+      + [Using Semantic Versioning to Name Build Artifacts Sample](sample-buildspec-artifact-naming.md)
+      + [Create a Static Website with Build Output Hosted in an Amazon S3 Bucket.](sample-disable-artifact-encryption.md)
       + [AWS CodeDeploy Sample for AWS CodeBuild](sample-codedeploy.md)
       + [AWS Lambda Sample for AWS CodeBuild](sample-lambda.md)
       + [AWS Elastic Beanstalk Sample for AWS CodeBuild](sample-elastic-beanstalk.md)

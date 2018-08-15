@@ -18,7 +18,7 @@ The procedures in this topic show you how to set up AWS Config and look up and v
 
 ## Prerequisites<a name="how-to-create-a-build-project"></a>
 
-Create your AWS CodeBuild project\(s\)\. For more information, see [Monitoring AWS CodeBuildCreate a Build Project](create-project.md)\.
+Create your AWS CodeBuild project\(s\)\. For more information, see [Create a Build Project](create-project.md)\.
 
 ## Set Up AWS Config<a name="setup-config"></a>
 + [Setting up AWS Config \(Console\)](http://docs.aws.amazon.com/config/latest/developerguide/gs-console.html)

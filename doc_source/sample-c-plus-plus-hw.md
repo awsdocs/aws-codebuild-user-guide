@@ -9,7 +9,7 @@ Running this sample may result in charges to your AWS account\. These include po
 + [Running the Sample](#sample-c-plus-plus-hw-running)
 + [Directory Structure](#sample-c-plus-plus-hw-dir)
 + [Files](#sample-c-plus-plus-hw-files)
-+ [Related Resources](#w3ab1b9c52c11c15)
++ [Related Resources](#w4ab1b9c52c11c15)
 
 ## Running the Sample<a name="sample-c-plus-plus-hw-running"></a>
 
@@ -99,7 +99,7 @@ int main()
 }
 ```
 
-## Related Resources<a name="w3ab1b9c52c11c15"></a>
+## Related Resources<a name="w4ab1b9c52c11c15"></a>
 + For more information about getting started with AWS CodeBuild, see [Getting Started with AWS CodeBuild](getting-started.md)\.
 + For more information about troubleshooting problems with AWS CodeBuild, see [Troubleshooting AWS CodeBuild](troubleshooting.md)\.
 + For more information about limits in AWS CodeBuild, see [Limits for AWS CodeBuild](limits.md)\.

@@ -37,8 +37,6 @@ The graphs in the AWS CodeBuild console show three days of metrics\. You cannot 
 1.  On the **All metrics** tab, choose **CodeBuild**\.   
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/codebuild-metrics-in-cw.png)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)
 
-1.  Choose the **All metrics** tab\. 
-
 1.  Choose the **Account Metrics**\. 
 
 1.  Choose one or more projects and metrics\. For each project, you can choose the **SucceededBuilds**, **FailedBuilds**, **Builds**, and **Duration** metrics\. All selected project and metric combinations are displayed in the graph on the page\. <a name="cw-project-cloudwatch-console"></a>
@@ -51,8 +49,6 @@ The graphs in the AWS CodeBuild console show three days of metrics\. You cannot 
 
 1.  On the **All metrics** tab, choose **CodeBuild**\.   
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/codebuild-metrics-in-cw.png)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)
-
-1.  Choose the **All metrics** tab\. 
 
 1.  Choose **By Project**\. 
 

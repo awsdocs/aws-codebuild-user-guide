@@ -23,7 +23,7 @@ By default, the 100 most recent build projects are displayed\. To view more buil
 
    For more information about settings referred to in this procedure, see [Create a Build Project \(Console\)](create-project.md#create-project-console)\.
 
-1. To change information about the source code location, in the **Source: What to build** area, choose **Update source**\. Use the following table to make selections appopropriate for your source provider:  
+1. To change information about the source code location, in the **Source: What to build** area, choose **Update source**\. Use the following table to make selections appropriate for your source provider:  
 ****    
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/codebuild/latest/userguide/change-project.html)
 
@@ -33,7 +33,7 @@ By default, the 100 most recent build projects are displayed\. To view more buil
    + If your source code previously did not include a buildspec\.yml file but does now, choose **Update build specification**, and then choose **Use buildspec\.yml from source code**\. 
    + If your source code previously included a buildspec\.yml file but now does not, choose **Update build specification**, then choose **Insert build commands**, and then type the commands in **Build commands**\.
 
-1. To change information about the build output artifact location and name, in **Artifacts: Where to put the artifacts from this build project**, change the values of **Artifacts type**, **Artifact name**, **Bucket name**, or **Output files**\.
+1. To change information about the build output artifact location and name, in **Artifacts: Where to put the artifacts from this build project**, change the values of **Type**, **Name**, **Use the name specified in the buildspec file**, **Path**, **Namespace type**, or **Bucket name**\. 
 
 1. To change information about the cache, in **Cache**, do one of the following:
    + If you previously chose a cache but now you do not want to use a cache, choose **No cache**\.
@@ -72,6 +72,8 @@ If you leave **Encryption key** blank, AWS CodeBuild uses the AWS\-managed CMK f
    ```
 
 1. To change information about the way build output artifacts are stored, in **Show advanced settings**, change the value of **Artifacts packaging**\.
+
+1. To change whether build artifacts are encrypted, use **Disable artifacts encryption**\.
 
 1. To change the amount of memory and vCPUs that are used to run builds, in **Show advanced settings**, change the value of **Compute type**\.
 

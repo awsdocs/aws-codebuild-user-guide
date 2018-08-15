@@ -13,7 +13,7 @@ The following diagram shows what happens when you run a build with AWS CodeBuild
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/arch.png)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)
 
 1. As input, you must provide AWS CodeBuild with a build project\. A *build project* defines how AWS CodeBuild will run a build\. It includes information such as where to get the source code, the build environment to use, the build commands to run, and where to store the build output\. A *build environment* represents a combination of operating system, programming language runtime, and tools that AWS CodeBuild uses to run a build\. For more information, see:
-   + [Monitoring AWS CodeBuildCreate a Build Project](create-project.md)
+   + [Create a Build Project](create-project.md)
    + [Build Environment Reference](build-env-ref.md)
 
 1. AWS CodeBuild uses the build project to create the build environment\.
