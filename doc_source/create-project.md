@@ -29,6 +29,16 @@ Answer the questions in [Plan a Build](planning.md)\.
 ****    
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/codebuild/latest/userguide/create-project.html)
 
+1. For each secondary source you want:
+
+   1.  Choose **Add source**\. 
+
+   1.  For **Source identifier**,enter a value that is fewer than 128 characters and contains only alphanumeric characters and underscores\.
+
+   1.  For **Source provider**, choose the source code provider type\. Use the table in step 5 to make selections appopropriate for your secondary source provider\. 
+
+   1.  Choose **Save source**\. 
+
 1. In **Environment: How to build**:
 
    For **Environment image**, do one of the following:
@@ -49,6 +59,16 @@ Answer the questions in [Plan a Build](planning.md)\.
      + For **Bucket name**, choose the name of the output bucket\.
      + If you chose **Insert build commands** earlier in this procedure, then for **Output files**, type the locations of the files from the build that you want to put into the build output ZIP file or folder\. For multiple locations, separate each location with a comma \(for example, `appspec.yml, target/my-app.jar`\)\. For more information, see the description of `files` in [Build Spec Syntax](build-spec-ref.md#build-spec-ref-syntax)\.
      + If you do not want your build artifacts encrypted, select **Disable artifacts encryption**\.
+
+1. For each secondary set of artifacts you want:
+
+   1. For **Artifact identifier**, enter a value that is fewer than 128 characters and contains only alphanumeric characters and underscores\.
+
+   1. Choose **Add artifact**\.
+
+   1. Follow step 8 to configure your secondary artifacts\.
+
+   1. Choose **Save artifact**\.
 
 1. In **Cache**, do one of the following:
    + If you do not want to use a cache, choose **No cache**\.
@@ -138,6 +158,8 @@ For information about using the AWS CLI with AWS CodeBuild, see the [Command Lin
    ```
 
    JSON\-formatted data appears in the output\. Copy the data to a file \(for example, `create-project.json`\) in a location on the local computer or instance where the AWS CLI is installed\. Modify the copied data as follows, and save your results\.
+**Note**  
+ Multiple source and artifacts projects are only available for the Linux enviornment type\. 
 
    ```
    {
@@ -168,6 +190,34 @@ For information about using the AWS CLI with AWS CodeBuild, see the [Command Lin
        "type": "cache-type",
        "location": "cache-location"
      },
+     "secondaryArtifacts": [
+       {
+           "type": "artifacts-type",
+           "location": "artifacts-location",
+           "path": "path",
+           "namespaceType": "namespaceType",
+           "name": "artifacts-name",
+           "packaging": "packaging",
+           "artifactIdentifier": "artifact-identifier"
+       
+       }
+     ]
+     ,
+     "secondarySources": [
+       {
+           "type": "source-type",
+           "location": "source-location",
+           "gitCloneDepth": "gitCloneDepth",
+           "buildspec": "buildspec",
+           "InsecureSsl": "InsecureSsl",
+           "reportBuildStatus": "reportBuildStatus", 
+           "auth": {
+             "type": "auth-type",
+             "resource": "resource"
+           },
+           "sourceIdentifier": "source-identifier"
+       }
+     ],
      "serviceRole": "serviceRole",
      "vpcConfig": {
        "securityGroupIds": [
@@ -207,9 +257,9 @@ For information about using the AWS CLI with AWS CodeBuild, see the [Command Lin
    Replace the following:
    + *project\-name*: Required value\. The name for this build project\. This name must be unique across all of the build projects in your AWS account\.
    + *description*: Optional value\. The description for this build project\.
-   + For the required `source` object, information about this build project's source code settings\. These settings include the following:
-     + *source\-type*: Required value\. The type of repository that contains the source code to build\. Valid values include `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, and `S3`\.
-     + *source\-location*: Required value \(unless you set *source\-type* to `CODEPIPELINE`\)\. The location of the source code for the specified repository type\.
+   + <a name="cli-sources"></a>For the required `source` object, information about this build project's source code settings\. After you add a `source` object, you can add up to 12 more sources using the [CodeBuild secondarySources object](#cli-secondary-sources)\. These settings include the following:
+     + <a name="cli-sources-type"></a>*source\-type*: Required value\. The type of repository that contains the source code to build\. Valid values include `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, and `S3`\.
+     + <a name="cli-sources-location"></a>*source\-location*: Required value \(unless you set *source\-type* to `CODEPIPELINE`\)\. The location of the source code for the specified repository type\.
        + For AWS CodeCommit, the HTTPS clone URL to the repository that contains the source code and the build spec \(for example, `https://git-codecommit.region-id.amazonaws.com/v1/repos/repo-name`\)\.
        + For Amazon S3, the build input bucket name, followed by a forward slash \(`/`\), followed by the name of the ZIP file that contains the source code and the build spec \(for example, `bucket-name/object-name.zip`\)\. This assumes that the ZIP file is in the root of the build input bucket\. \(If the ZIP file is in a folder inside of the bucket, use `bucket-name/path/to/object-name.zip` instead\.\)
        + For GitHub, the HTTPS clone URL to the repository that contains the source code and the build spec\. You must connect your AWS account to your GitHub account\. To do this, use the AWS CodeBuild console to create a build project\. When you use the console to connect \(or reconnect\) with GitHub, on the GitHub **Authorize application** page, for **Organization access**, choose **Request access** next to each repository you want AWS CodeBuild to be able to access\. Choose **Authorize application**\. \(After you have connected to your GitHub account, you do not need to finish creating the build project\. You can close the AWS CodeBuild console\.\) To instruct AWS CodeBuild to use this connection, in the `source` object, set the `auth` object's `type` value to `OAUTH`\.
@@ -218,37 +268,54 @@ For information about using the AWS CLI with AWS CodeBuild, see the [Command Lin
          First, create a personal access token in GitHub Enterprise\. Copy this token to your clipboard so you can use it when you create your AWS CodeBuild project\. For more information, see [Creating a Personal Access Token in GitHub Enterprise](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/) on the GitHub Help website\. When you use the console to create your AWS CodeBuild project, in **Source: What to build**, for **Source provider**, choose **GitHub Enterprise**\. For **Personal Access Token**, paste the token that was copied to your clipboard\. Choose **Save Token**\. Your AWS CodeBuild account is now connected to your GitHub Enterprise account\.
        + For Bitbucket, the HTTPS clone URL to the repository that contains the source code and the build spec\. You must also connect your AWS account to your Bitbucket account\. To do this, use the AWS CodeBuild console to create a build project\. When you use the console to connect \(or reconnect\) with Bitbucket, on the Bitbucket **Confirm access to your account** page, choose **Grant access**\. \(After you have connected to your Bitbucket account, you do not need to finish creating the build project\. You can close the AWS CodeBuild console\.\) To instruct AWS CodeBuild to use this connection, in the `source` object, set the `auth` object's `type` value to `OAUTH`\.
        + For AWS CodePipeline, do not specify a `location` value for `source`\. It is ignored by AWS CodePipeline because when you create a pipeline in AWS CodePipeline, you specify the source code location in the Source stage of the pipeline\.
-     + *gitCloneDepth*: Optional value\. The depth of history to download\. Minimum value is 0\. If this value is 0, greater than 25, or not provided, then the full history is downloaded with each build project\. If your source type is Amazon S3, this value is not supported\.
-     + *buildspec*: Optional value\. The build specification definition or file to use\. If this value is set, it can be either an inline buildspec definition or the path to an alternate buildspec file relative to the value of the built\-in `CODEBUILD_SRC_DIR` environment variable\. If this value is not provided or is set to an empty string, then the source code must contain a `buildspec.yml` file in its root directory\. For more information, see [Build Spec File Name and Storage Location](build-spec-ref.md#build-spec-ref-name-storage)\.
-     + *auth*: This object is used by the AWS CodeBuild console only\. Do not specify values for *auth\-type* \(unless *source\-type* is set to `GITHUB`\) or *resource*\.
-     + *reportBuildStatus*: Optional value\. Specifies whether to send your source provider the status of a build's start and completion\. If you set this with a source provider other than GitHub, an invalidInputException is thrown\.
-     + *InsecureSsl*: Optional value\. Used with GitHub Enterprise only\. Set this value to `true` to ignore SSL warnings while connecting to your GitHub Enterprise project repository\. The default value is `false`\. *InsecureSsl* should be used for testing purposes only\. It should not be used in a production environment\.
-   + For the required `artifacts` object, information about this build project's output artifact settings\. These settings include the following: 
+     + <a name="cli-sources-gitclonedepth"></a>*gitCloneDepth*: Optional value\. The depth of history to download\. Minimum value is 0\. If this value is 0, greater than 25, or not provided, then the full history is downloaded with each build project\. If your source type is Amazon S3, this value is not supported\.
+     + <a name="cli-sources-buildspec"></a>*buildspec*: Optional value\. The build specification definition or file to use\. If this value is set, it can be either an inline buildspec definition or the path to an alternate buildspec file relative to the value of the built\-in `CODEBUILD_SRC_DIR` environment variable\. If this value is not provided or is set to an empty string, then the source code must contain a `buildspec.yml` file in its root directory\. For more information, see [Build Spec File Name and Storage Location](build-spec-ref.md#build-spec-ref-name-storage)\.
+     + <a name="cli-sources-auth"></a>*auth*: This object is used by the AWS CodeBuild console only\. Do not specify values for *auth\-type* \(unless *source\-type* is set to `GITHUB`\) or *resource*\.
+     + <a name="cli-sources-reportbuildstatus"></a>*reportBuildStatus*: Optional value\. Specifies whether to send your source provider the status of a build's start and completion\. If you set this with a source provider other than GitHub, an invalidInputException is thrown\.
+     + <a name="cli-sources-insecuressl"></a>*InsecureSsl*: Optional value\. Used with GitHub Enterprise only\. Set this value to `true` to ignore SSL warnings while connecting to your GitHub Enterprise project repository\. The default value is `false`\. *InsecureSsl* should be used for testing purposes only\. It should not be used in a production environment\.
+   + <a name="cli-artifacts"></a>For the required `artifacts` object, information about this build project's output artifact settings\. After you add an `artifacts` object, you can add up to 12 more artifacts using the [CodeBuild secondaryArtifacts object](#cli-secondary-artifacts)\. These settings include the following: <a name="cli-artifacts-type"></a>
      + *artifacts\-type*: Required value\. The type of build output artifact\. Valid values include `CODEPIPELINE`, `NO_ARTIFACTS`, and `S3`\.
-     + *artifacts\-location*: Required value \(unless you set *artifacts\-type* to `CODEPIPELINE` or `NO_ARTIFACTS`\)\. The location of the build output artifact:
+     + <a name="cli-artifacts-location"></a>*artifacts\-location*: Required value \(unless you set *artifacts\-type* to `CODEPIPELINE` or `NO_ARTIFACTS`\)\. The location of the build output artifact:
        + If you specified `CODEPIPELINE` for *artifacts\-type*, do not specify a `location` for `artifacts`\.
        + If you specified `NO_ARTIFACTS` for *artifacts\-type*, do not specify a `location` for `artifacts`\.
        + If you specified `S3` for *artifacts\-type*, then this is the name of the output bucket you created or identified in the prerequisites\. 
-     + *path*: Optional value\. The path and name of the build output ZIP file or folder:
+     + <a name="cli-artifacts-path"></a>*path*: Optional value\. The path and name of the build output ZIP file or folder:
        + If you specified `CODEPIPELINE` for *artifacts\-type*, then do not specify a `path` for `artifacts`\.
        + If you specified `NO_ARTIFACTS` for *artifacts\-type*, do not specify a `path` for `artifacts`\.
        + If you specified `S3` for *artifacts\-type*, then this is the path inside of *artifacts\-location* to the build output ZIP file or folder\. If you do not specify a value for *path*, then AWS CodeBuild uses *namespaceType* \(if specified\) and *artifacts\-name* to determine the path and name of the build output ZIP file or folder\. For example, if you specify `MyPath` for *path* and `MyArtifact.zip` for *artifacts\-name*, then the path and name would be `MyPath/MyArtifact.zip`\.
-     + *namespaceType*: Optional value\. The path and name of the build output ZIP file or folder:
+     + <a name="cli-artifacts-namespacetype"></a>*namespaceType*: Optional value\. The path and name of the build output ZIP file or folder:
        + If you specified `CODEPIPELINE` for *artifacts\-type*, do not specify a `namespaceType` for `artifacts`\. 
        + If you specified `NO_ARTIFACTS` for *artifacts\-type*, do not specify a `namespaceType` for `artifacts`\.
        + If you specified `S3` for *artifacts\-type*, valid values include `BUILD_ID` and `NONE`\. Use `BUILD_ID` to insert the build ID into the path of the build output ZIP file or folder\. Otherwise, use `NONE`\. If you do not specify a value for *namespaceType*, AWS CodeBuild uses *path* \(if specified\) and *artifacts\-name* to determine the path and name of the build output ZIP file or folder\. For example, if you specify `MyPath` for *path*, `BUILD_ID` for *namespaceType*, and `MyArtifact.zip` for *artifacts\-name*, then the path and name would be `MyPath/build-ID/MyArtifact.zip`\.
-     + *artifacts\-name*: Required value \(unless you set *artifacts\-type* to `CODEPIPELINE` or `NO_ARTIFACTS`\)\. The path and name of the build output ZIP file or folder:
+     + <a name="cli-artifacts-name"></a>*artifacts\-name*: Required value \(unless you set *artifacts\-type* to `CODEPIPELINE` or `NO_ARTIFACTS`\)\. The path and name of the build output ZIP file or folder:
        + If you specified `CODEPIPELINE` for *artifacts\-type*, do not specify a `name` for `artifacts`\.
        + If you specified `NO_ARTIFACTS` for *artifacts\-type*, do not specify a `name` for `artifacts`\.
        + If you specified `S3` for *artifacts\-type*, then this is the name of the build output ZIP file or folder inside of *artifacts\-location*\. For example, if you specify `MyPath` for *path* and `MyArtifact.zip` for *artifacts\-name*, then the path and name would be `MyPath/MyArtifact.zip`\.
-     + *override\-artifact\-name*: Optional boolean value\. If set to `true` then the name specified in the `artifacts` block of the buildspec file overrides *artifacts\-name*\. For more information, see [Build Specification Reference for AWS CodeBuild](build-spec-ref.md)\.
-     + *packaging*: Optional value\. The type of build output artifact to create:
+     + *override\-artifact\-name*: Optional boolean value\. If set to `true`, the name specified in the `artifacts` block of the buildspec file overrides *artifacts\-name*\. For more information, see [Build Specification Reference for AWS CodeBuild](build-spec-ref.md)\.
+     + <a name="cli-artifacts-packaging"></a>*packaging*: Optional value\. The type of build output artifact to create:
        + If you specified `CODEPIPELINE` for *artifacts\-type*, do not specify a `packaging` for `artifacts`\.
        + If you specified `NO_ARTIFACTS` for *artifacts\-type*, do not specify a `packaging` for `artifacts`\.
        + If you specified `S3` for *artifacts\-type*, valid values include `ZIP` and `NONE`\. To create a ZIP file that contains the build output, use `ZIP`\. To create a folder that contains the build output, use `NONE`\. The default value is `NONE`\.
    + For the required *cache* object, information about this build project's cache settings\. These settings include the following:
      + *CacheType*: Required value\. Valid values are `S3` or `NO_CACHE`\.
      + *CacheLocation*: Required value unless you set *CacheType* to `NONE`\. If you specified S3 for *CacheType*, then this is the ARN of the S3 bucket and the path prefix\. For example, if your Amazon S3 bucket name is `my-bucket`, and your path prefix is `build-cache`, then acceptable formats for your *CacheLocation* are `my-bucket/build-cache` or `aws:s3:::my-bucket/build-cache`\.
+   + <a name="cli-secondary-artifacts"></a>For the optional `secondaryArtifacts` object, information about the settings of a secondary artifiact for a build project\. You can add up to 12 secondary artifacts\. The `secondaryArtifacts` uses many of the same settings used by the [CodeBuild artifacts object](#cli-artifacts) object\. The settings are: 
+     + *artifacts\-type*: Required value\. This setting is also used by the `artifacts` object\. See [CodeBuild artifact object's type property](#cli-artifacts-type)\.
+     + *artifacts\-location*: Required value\. This setting is also used by the `artifacts` object\. See [CodeBuild artifact object's location property](#cli-artifacts-location)\.
+     + *path*: Optional value\. This setting is also used by the `artifacts` object\. See [CodeBuild artifact object's path property](#cli-artifacts-path)\.
+     + *namespaceType*: Optional value\. This setting is also used by the `artifacts` object\. See [CodeBuild artifact object's namespaceType property](#cli-artifacts-namespacetype)\.
+     + *artifacts\-name*: Required value\. This setting is also used by the `artifacts` object\. See [CodeBuild artifact object's name property](#cli-artifacts-name)\.
+     + *packaging*: Optional value\. This setting is also used by the `artifacts` object\. See [CodeBuild artifact object's packaging property](#cli-artifacts-packaging)\.
+     + *artifact\-identifier*: Required value\. A unique string identifier for a secondary artifact\.
+   + <a name="cli-secondary-sources"></a>For the optional `secondarySources` object, information about the settings of a secondary source for a build project\. You can add up to 12 `secondarySources`\. The `secondarySources` object uses many of the same settings used by the [CodeBuild source object](#cli-sources)\. They include the following:
+     + *source\-type*: Required value\. This setting is also used by the `sources` object\. See [CodeBuild source object's type property](#cli-sources-type)\.
+     + *source\-location*: Required value\. This setting is also used by the `sources` object\. See [CodeBuild source object's location property](#cli-sources-location)\.
+     + *gitCloneDepth*: Optional value\. This setting is also used by the `sources` object\. See [CodeBuild source object's gitCloneDepth property](#cli-sources-gitclonedepth)\.
+     + *buildspec*: Optional value\. This setting is also used by the `sources` object\. See [CodeBuild source object's buildspec property](#cli-sources-buildspec)\.
+     + *auth*: This setting is also used by the `sources` object\. See [CodeBuild source object's auth property](#cli-sources-auth)\.
+     + *reportBuildStatus*: Optional value\. This setting is also used by the `sources` object\. See [CodeBuild source object's reportBuildStatus property](#cli-sources-reportbuildstatus)\.
+     + *InsecureSsl*: Optional value\. This setting is also used by the `sources` object\. See [CodeBuild source object's insecureSsl property](#cli-sources-insecuressl)\.
+     + *source\-identifier*: Required value\. A unique string identifier for a secondary source\.
    + *serviceRole*: Required value\. The ARN of the service role AWS CodeBuild uses to interact with services on behalf of the IAM user \(for example, `arn:aws:iam::account-id:role/role-name`\)\.
    + For the optional *vpcConfig* object, information about your VPC configuration\. These settings include: 
      + *vpcId*: Required value\. The VPC ID that AWS CodeBuild uses\. Run this command to get a list of all Amazon VPC IDs in your region:

@@ -26,6 +26,14 @@ To use AWS CodePipeline to run a build with AWS CodeBuild, skip these steps and 
    + For Bitbucket, for the optional **Source version** value, type a commit ID, a branch name, or a tag name that corresponds to the version of the source code you want to build\. If you specify a branch name, the branch's HEAD commit ID is used\. If **Source version** is blank, the default branch's HEAD commit ID is used\. Change the value for **Git clone depth**\. This creates a shallow clone with a history truncated to the specified number of commits\. If you want a full clone, choose **Full**\.
    + To use a different source provider for this build only, choose **Override source**\. For more information about source provider options and settings, see [Choose source provider](create-project.md#create-project-source-provider)\.
 
+1. To override secondary sources for this build only:
+   + To remove a secondary source, in **Secondary sources**,choose the **X** in its row\.
+   + To add a secondary source, choose **Add source**\. Enter a **Source identifier** and use the table in step 5 in [Create a Build Project \(Console\)](create-project.md#create-project-console) to make selections appropriate for your secondary source provider\.
+
+1. To override secondary source versions for this build only:
+   + To remove a secondary source version, in **Secondary source versions**, choose the **X** in its row\.
+   + To add a secondary source version, choose **Add row**, and enter values in **Source identifier** and **Source version**\.
+
 1.  Expand **Override build project settings**\. 
 
     Here you can change settings for this build only\. The settings in this section are optional\. 
@@ -45,6 +53,9 @@ To use AWS CodePipeline to run a build with AWS CodeBuild, skip these steps and 
    + From **Bucket name** choose a different Amazon S3 bucket for your output artifacts\. 
    +  If you do not want your build artifacts encrypted, select **Disable artifacts encryption**\.
    + Select **Artifacts packaging**, choose **Zip** to put the build artifact files in a compressed file\. To put the build artifact files in the specified Amazon S3 bucket individually \(not compressed\), choose **None**\.
+   + To override secondary artifacts for this build only:
+     + To remove a secondary artifact, in **Secondary artifacts**, choose the **X** in its row\.
+     + To add a secondary artifact, choose **Add artifact**, and then enter the information for your secondary artifact\. For more information, see step 8 in [Create a Build Project \(Console\)](create-project.md#create-project-console)\.
 
    Under **Cache**, from **Type**, choose a different cache setting\.
 

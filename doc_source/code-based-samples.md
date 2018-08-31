@@ -13,6 +13,4 @@ Refer to these code\-based samples to experiment with AWS CodeBuild:
 | [Node\.js Sample](sample-nodejs-hw.md) | Uses Mocha to test whether an internal variable in code contains a specific string value\. Produces a single \.js file\. | 
 | [Python Sample](sample-python-hw.md) | Uses Python to test whether an internal variable in code is set to a specific string value\. Produces a single \.py file\. | 
 | [Ruby Sample](sample-ruby-hw.md) | Uses RSpec to test whether an internal variable in code is set to a specific string value\. Produces a single \.rb file\. | 
-| [Scala Sample](sample-scala-hw.md) | Uses sbt to produce a single JAR file\. | 
-| [Java Sample](sample-war-hw.md) | Uses Apache Maven to produce a single WAR file\. | 
 | [\.NET Core in Linux Sample](sample-net-core-linux.md) | Uses \.NET Core to build an executable file out of code written in C\#\. | 

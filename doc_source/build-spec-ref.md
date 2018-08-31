@@ -19,8 +19,8 @@ You can override the default build spec file name and location\. For example, yo
 You can specify only one build spec for a build project, regardless of the build spec file's name\.
 
 To override the default build spec file name, location, or both, do one of the following:
-+ Run the AWS CLI `create-project` or `update-project` command, setting the `buildspec` value to the path to the alternate build spec file relative to the value of the built\-in environment variable `CODEBUILD_SRC_DIR`\. You can also do the equivalent with the create project operation in the AWS SDKs\. For more information, see [Create a Build Project](create-project.md) or [Change a Build Project's Settings](change-project.md)\.
-+ Run the AWS CLI `start-build` command, setting the `buildspecOverride` value to the path to the alternate build spec file relative to the value of the built\-in environment variable `CODEBUILD_SRC_DIR`\. You can also do the equivalent with the start build operation in the AWS SDKs\. For more information, see [Run a Build](run-build.md)\.
++ Run the AWS CLI `create-project` or `update-project` command, setting the `buildspec` value to the path to the alternate build spec file relative to the value of the built\-in environment variable `CODEBUILD_SRC_DIR`\. You can also do the equivalent with the `create project` operation in the AWS SDKs\. For more information, see [Create a Build Project](create-project.md) or [Change a Build Project's Settings](change-project.md)\.
++ Run the AWS CLI `start-build` command, setting the `buildspecOverride` value to the path to the alternate build spec file relative to the value of the built\-in environment variable `CODEBUILD_SRC_DIR`\. You can also do the equivalent with the `start build` operation in the AWS SDKs\. For more information, see [Run a Build](run-build.md)\.
 + In an AWS CloudFormation template, set the `BuildSpec` property of `Source` in a resource of type `AWS::CodeBuild::Project` to the path to the alternate build spec file relative to the value of the built\-in environment variable `CODEBUILD_SRC_DIR`\. For more information, see the BuildSpec property in [AWS CodeBuild Project Source](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-source.html) in the *AWS CloudFormation User Guide*\.
 
 ## Build Spec Syntax<a name="build-spec-ref-syntax"></a>
@@ -76,6 +76,19 @@ artifacts:
     - name
   discard-paths: yes
   base-directory: location
+  secondary-artifacts:
+    artifactIdentifier:
+      files:
+        - location
+        - location
+      discard-paths: yes
+      base-directory: location
+    artifactIdentifier:
+      files:
+        - location
+        - location
+      discard-paths: yes
+      base-directory: location
 cache:
   paths:
     - path
@@ -228,6 +241,44 @@ Commands in some build phases might not be run if commands in earlier build phas
     |-- my-file2.txt
     `-- my-file3.txt
     ```
+  + `secondary-artifacts`: Optional sequence\. Represents one or more artifact definitions as a mapping between an artifact identifier and an artifact definition\. Each artifact identifiers in this block must match an artifact defined in the `secondaryArtifacts` attribute of your project\. Each separate definition has the same syntax as the `artifacts:` block above\. For example, if your project has the following structure:
+
+    ```
+      {
+        "name": "sample-project",
+        "secondaryArtifacts": [
+          {
+            "type": "S3",
+            "location": "output-bucket1",
+            "artifactIdentifier": "artifact1"
+          },
+          {
+            "type": "S3",
+            "location": "output-bucket2",
+            "artifactIdentifier": "artifact2"
+          }
+        ]
+      }
+    ```
+
+    Then your buildpec looks like the following:
+
+    ```
+    version: 0.2
+    
+    phases:
+    build:
+      commands:
+        - echo Building...
+    artifacts:
+      secondary-artifacts:
+        artifact1:
+          files:
+            - directory/file
+        artifact2:
+          files:
+            - directory/file2
+    ```
 + `cache`: Optional sequence\. Represents information about where AWS CodeBuild can prepare the files for uploading cache to an Amazon S3 cache bucket\. This sequence is not required if the cache type of the project is `No Cache`\. 
   + `paths`: Required sequence\. Represents the locations of the cache\. Contains a sequence of scalars, with each scalar representing a separate location where AWS CodeBuild can find build output artifacts, relative to the original build location or, if set, the base directory\. Locations can include the following:
     + A single file \(for example, `my-file.jar`\)\.
@@ -284,6 +335,15 @@ artifacts:
   files:
     - target/messageUtil-1.0.jar
   discard-paths: yes
+secondary-artifacts:
+  artifact1:
+    files:
+      - target/messageUtil-1.0.jar
+    discard-paths: yes
+  artifact2:
+    files:
+      - target/messageUtil-1.0.jar
+    discard-paths: yes
 cache:
   paths:
     - '/root/.m2/**/*'
@@ -302,7 +362,7 @@ echo Build started on `date` && mvn install
 ```
 
 In these examples:
-+ A custom environment variable in plain text with the key of `JAVA_HOME` and the value of `/usr/lib/jvm/java-8-openjdk-amd64` is set\.
++ A custom environment variable, in plain text, with the key of `JAVA_HOME` and the value of `/usr/lib/jvm/java-8-openjdk-amd64`, is set\.
 + A custom environment variable named `dockerLoginPassword` you stored in Amazon EC2 Systems Manager Parameter Store is referenced later in build commands by using the key `LOGIN_PASSWORD`\.
 + You cannot change these build phase names\. The commands that are run in this example are `apt-get update -y` and `apt-get install -y maven` \(to install Apache Maven\), `mvn install` \(to compile, test, and package the source code into a build output artifact and to install the build output artifact in its internal repository\), `docker login` \(to sign in to Docker with the password that corresponds to the value of the custom environment variable `dockerLoginPassword` you set in Amazon EC2 Systems Manager Parameter Store\), and several `echo` commands\. The `echo` commands are included here to show how AWS CodeBuild runs commands and the order in which it runs them\. 
 + `files` represents the files to upload to the build output location\. In this example, AWS CodeBuild uploads the single file `messageUtil-1.0.jar`\. The `messageUtil-1.0.jar` file can be found in the relative directory named `target` in the build environment\. Because `discard-paths: yes` is specified, `messageUtil-1.0.jar` is uploaded directly \(and not to an intermediate `target` directory\)\. The file name `messageUtil-1.0.jar` and the relative directory name of `target` is based on the way Apache Maven creates and stores build output artifacts for this example only\. In your own scenarios, these file names and directories will be different\. 

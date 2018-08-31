@@ -4,15 +4,15 @@
 
 ## Test and Debug on a Local Machine with the AWS CodeBuild Agent<a name="use-codebuild-agent"></a>
 
- You can use the AWS CodeBuild agent to test and debug builds on a local machine\. To use the agent, run the following command: 
+ You can use the AWS CodeBuild agent to test and debug builds on a local machine\. To use the agent: 
 
-```
-docker run -it -v /var/run/docker.sock:/var/run/docker.sock -e \
-        "IMAGE_NAME=amazon/aws-codebuild-local" -e \
-        "ARTIFACTS=absolute-path-to-your-artifact-output-directory" -e \
-        "SOURCE=absolute-path-to-your-source-directory" name-of-the-agent -e \
-        "BUILDSPEC=absolute-or-relative-path-to-your-buildspec-file"
-```
+1.  Download the [codebuild\.sh](https://github.com/aws/aws-codebuild-docker-images/blob/master/local_builds/codebuild_build.sh) script\. 
+
+1.  Run the script and specify your container images and output directory: 
+
+   ```
+   codebuild_build.sh [-i image_name] [-a artifact_output_directory] [options]
+   ```
 
  The AWS CodeBuild agent is available from [https://hub\.docker\.com/r/amazon/aws\-codebuild\-local/](https://hub.docker.com/r/amazon/aws-codebuild-local/)\. Its Secure Hash Algorithm \(SHA\) signature is `f030a118a72c67e263c5d252c2484664ab91bdc7e221c10f6a725dd67eaed710`\. You can use this to identify the version of the agent\. To see the agent's SHA signature, run the following command: 
 

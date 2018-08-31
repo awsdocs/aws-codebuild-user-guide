@@ -21,6 +21,7 @@ Use the information in this topic to help you identify, diagnose, and address is
 + [Error: "Git Clone Failed: unable to access `'your-repository-URL'`: SSL certificate problem: self signed certificate"](#troubleshooting-self-signed-certificate)
 + [Error: "The policy's default version was not created by enhanced zero click role creation or was not the most recent version created by enhanced zero click role creation\."](#enhanced-zero-click-role-creation)
 + [Error: "Build container found dead before completing the build\. Build container died because it was out of memory, or the Docker image is not supported\. ErrorCode: 500"](#windows-server-core-version)
++ [Cannot view build success or failure](#no-status-when-build-triggered)
 
 ## Error: "CodeBuild is not authorized to perform: sts:AssumeRole" When Creating or Updating a Build Project<a name="troubleshooting-assume-role"></a>
 
@@ -307,7 +308,7 @@ We recommend that you use **Insecure SSL** for testing only\. It should not be u
 + You have selected a previous version of a policy attached to the target AWS CodeBuild service role\.
 
  **Recommended solutions:** 
-+ Edit your AWS CodeBuild project, and deselect **Allow AWS CodeBuild to modify this service role so it can be used with this build project**\. Manually update the target AWS CodeBuild service role to have sufficient permissions\. For more information, see [Create an AWS CodeBuild Service Role](setting-up.md#setting-up-service-role)\.
++ Edit your AWS CodeBuild project, and clear **Allow AWS CodeBuild to modify this service role so it can be used with this build project**\. Manually update the target AWS CodeBuild service role to have sufficient permissions\. For more information, see [Create an AWS CodeBuild Service Role](setting-up.md#setting-up-service-role)\.
 + Edit your AWS CodeBuild project, and select **Create a role**\.
 
 ## Error: "Build container found dead before completing the build\. Build container died because it was out of memory, or the Docker image is not supported\. ErrorCode: 500"<a name="windows-server-core-version"></a>
@@ -317,3 +318,11 @@ We recommend that you use **Insecure SSL** for testing only\. It should not be u
  **Possible causes:** The Container OS version is not supported by AWS CodeBuild\. 
 
  **Recommended solutions:** Use a Windows container with a Container OS that is version microsoft/windowsservercore:10\.0\.x\. For example, microsoft/windowsservercore:10\.0\.14393\.2125\. 
+
+## Cannot view build success or failure<a name="no-status-when-build-triggered"></a>
+
+**Issue:** You cannot see the success or failure of a retried build\.
+
+**Possible causes:** The option to report your build's status is not enabled\. 
+
+**Recommended solutions:** Enable **Report build status** when you create or update an AWS CodeBuild project\. This option tells AWS CodeBuild to report back the status when you trigger a build\. For more information, see [reportBuildStatus](http://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSource.html#CodeBuild-Type-ProjectSource-reportBuildStatus)\. 

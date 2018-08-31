@@ -13,6 +13,8 @@ You can use these use case\-based samples to experiment with AWS CodeBuild:
 | [GitHub Pull Request Sample](sample-github-pull-request.md) | Uses AWS CodeBuild with GitHub as the source repository and webhooks enabled, to rebuild the source code every time a code change is pushed to the repository\. | 
 | [Use AWS Config with AWS CodeBuild Sample](how-to-integrate-config.md) | Shows how to set up AWS Config\. Lists which AWS CodeBuild resources are tracked and describes how to look up AWS CodeBuild projects in AWS Config\. | 
 | [ Host Build Output in an Amazon S3 Bucket ](sample-disable-artifact-encryption.md) | Shows how to create a static website in an Amazon S3 bucket using unencrypted build artifacts\. | 
+| [ Multiple Input Sources and Output Artifacts Sample ](sample-multi-in-out.md) |  Shows how to use multiple input sources and multiple output artifacts in a build project\.  | 
+| [ AWS CodePipeline Integration with AWS CodeBuild and Multiple Input Sources and Output Artifacts Sample ](sample-pipeline-multi-input-output.md) |  Shows how to use AWS CodePipeline to create a build with multiple input sources and multiple output artifacts\.  | 
 | [Build Badges Sample](sample-build-badges.md) | Shows how to set up AWS CodeBuild with build badges\. | 
 | [Using Semantic Versioning to Name Build Artifacts Sample](sample-buildspec-artifact-naming.md) | Shows how to use semantic versioning to create an artifact name at build time\. | 
 | [Build Notifications Sample](sample-build-notifications.md) | Uses Apache Maven to produce a single JAR file\. Sends a build notification to subscribers of an Amazon SNS topic\. | 
