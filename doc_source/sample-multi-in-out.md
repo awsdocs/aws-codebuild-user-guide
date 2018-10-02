@@ -5,7 +5,7 @@ You can create an AWS CodeBuild build project with more than one input source an
 + Publishes build artifacts to multiple Amazon S3 buckets in a single build\.
 
 **Note**  
- Multiple source and artifacts projects are only available for the Linux enviornment type\. 
+ Multiple source and artifacts projects are only available for the Linux environment type\. 
 
  In this sample, you create a build project and use it to run a build\. The sample uses the build project's buildspec file to show you how to incorporate more than one source and create more than one set of artifacts\. 
 
@@ -67,7 +67,7 @@ You can create an AWS CodeBuild build project with more than one input source an
  Secondary artifacts in the buildspec file have the same structure as artifacts and are separated by their artifact identifier\. 
 
 **Note**  
- In the [AWS CodeBuild API](http://docs.aws.amazon.com/codebuild/latest/APIReference/), the `artifactIdentifier` on a secondary artifact is a required attribute in `CreateProject` and `UpdateProject`\. It must be used to reference a secondary artifact\. 
+ In the [AWS CodeBuild API](https://docs.aws.amazon.com/codebuild/latest/APIReference/), the `artifactIdentifier` on a secondary artifact is a required attribute in `CreateProject` and `UpdateProject`\. It must be used to reference a secondary artifact\. 
 
  Using the preceding JSON\-formatted input, the buildspec file for the project might look like: 
 

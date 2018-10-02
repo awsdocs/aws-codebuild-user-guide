@@ -38,7 +38,7 @@ Save the certificate as a \.pem file\.
 **Important**  
 Save the certificate as a \.pem file\.
 
-1. Upload your certificate file to an Amazon S3 bucket\. For information about how to create an Amazon S3 bucket, see [How Do I Create an Amazon S3 Bucket?](http://docs.aws.amazon.com/AmazonS3/latest/user-guide/create-bucket.html) For information about how to upload objects to an Amazon S3 bucket, see [How Do I Upload Files and Folders to a Bucket?](http://docs.aws.amazon.com/AmazonS3/latest/user-guide/upload-objects.html)
+1. Upload your certificate file to an Amazon S3 bucket\. For information about how to create an Amazon S3 bucket, see [How Do I Create an Amazon S3 Bucket?](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/create-bucket.html) For information about how to upload objects to an Amazon S3 bucket, see [How Do I Upload Files and Folders to a Bucket?](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/upload-objects.html)
 **Note**  
 This bucket must be in the same AWS region as your builds\. For example, if you instruct AWS CodeBuild to run a build in the US East \(Ohio\) region, the bucket must be in the US East \(Ohio\) region\.
 

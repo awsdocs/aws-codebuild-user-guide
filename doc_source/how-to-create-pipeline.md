@@ -23,9 +23,9 @@ The following table lists tasks and the methods available for performing them\. 
 
 1. Answer the questions in [Plan a Build](planning.md)\.
 
-1. If you are using an IAM user to access AWS CodePipeline instead of an AWS root account or an administrator IAM user, attach the managed policy named `AWSCodePipelineFullAccess` to the user \(or to the IAM group to which the user belongs\)\. \(Using an AWS root account is not recommended\.\) This enables the user to create the pipeline in AWS CodePipeline\. For more information, see [Attaching Managed Policies](http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-using.html#attach-managed-policy-console) in the *IAM User Guide*\.
+1. If you are using an IAM user to access AWS CodePipeline instead of an AWS root account or an administrator IAM user, attach the managed policy named `AWSCodePipelineFullAccess` to the user \(or to the IAM group to which the user belongs\)\. \(Using an AWS root account is not recommended\.\) This enables the user to create the pipeline in AWS CodePipeline\. For more information, see [Attaching Managed Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-using.html#attach-managed-policy-console) in the *IAM User Guide*\.
 **Note**  
-The IAM entity that attaches the policy to the user \(or to the IAM group to which the user belongs\) must have permission in IAM to attach policies\. For more information, see [Delegating Permissions to Administer IAM Users, Groups, and Credentials](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_delegate-permissions.html) in the *IAM User Guide*\.
+The IAM entity that attaches the policy to the user \(or to the IAM group to which the user belongs\) must have permission in IAM to attach policies\. For more information, see [Delegating Permissions to Administer IAM Users, Groups, and Credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_delegate-permissions.html) in the *IAM User Guide*\.
 
 1. Create an AWS CodePipeline service role, if you do not already have one available in your AWS account\. This service role enables AWS CodePipeline to interact with other AWS services, including AWS CodeBuild, on your behalf\. For example, to create an AWS CodePipeline service role by using the AWS CLI, run the IAM `create-role` command:
 
@@ -43,16 +43,16 @@ The IAM entity that attaches the policy to the user \(or to the IAM group to whi
 **Note**  
 The IAM entity that creates this AWS CodePipeline service role must have permission in IAM to create service roles\.
 
-1. After you create an AWS CodePipeline service role or identify an existing one, you must add a policy statement to it\. Add the default AWS CodePipeline service role policy to the service role as described in [Review the Default AWS CodePipeline Service Role Policy](http://docs.aws.amazon.com/codepipeline/latest/userguide/iam-identity-based-access-control.html#how-to-custom-role) in the *AWS CodePipeline User Guide*\.
+1. After you create an AWS CodePipeline service role or identify an existing one, you must add a policy statement to it\. Add the default AWS CodePipeline service role policy to the service role as described in [Review the Default AWS CodePipeline Service Role Policy](https://docs.aws.amazon.com/codepipeline/latest/userguide/iam-identity-based-access-control.html#how-to-custom-role) in the *AWS CodePipeline User Guide*\.
 **Note**  
 The IAM entity that adds this AWS CodePipeline service role policy must have permission in IAM to add service role policies to service roles\.
 
 1. Create and upload the source code to a repository type supported by AWS CodeBuild and AWS CodePipeline, such as AWS CodeCommit, Amazon S3, or GitHub\. \(AWS CodePipeline does not currently support Bitbucket\.\) Make sure the source code contains a build spec file \(or you can declare a build spec when you define a build project later in this topic\), which provides instructions for building the source code\. For more information, see the [Build Spec Reference](build-spec-ref.md)\.
 **Important**  
 If you plan to use the pipeline to deploy built source code, then the build output artifact must be compatible with the deployment system you will use\.   
-For AWS CodeDeploy, see the [AWS CodeDeploy Sample](sample-codedeploy.md) in this guide and see [Prepare a Revision for AWS CodeDeploy](http://docs.aws.amazon.com/codedeploy/latest/userguide/how-to-prepare-revision.html) in the *AWS CodeDeploy User Guide*\.
-For AWS Elastic Beanstalk, see the [Elastic Beanstalk Sample](sample-elastic-beanstalk.md) in this guide and see [Create an Application Source Bundle](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.deployment.source.html) in the *AWS Elastic Beanstalk Developer Guide*\.
-For AWS OpsWorks, see [Application Source](http://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-source) and [Using AWS CodePipeline with AWS OpsWorks](http://docs.aws.amazon.com/opsworks/latest/userguide/other-services-cp.html) in the *AWS OpsWorks User Guide*\.
+For AWS CodeDeploy, see the [AWS CodeDeploy Sample](sample-codedeploy.md) in this guide and see [Prepare a Revision for AWS CodeDeploy](https://docs.aws.amazon.com/codedeploy/latest/userguide/how-to-prepare-revision.html) in the *AWS CodeDeploy User Guide*\.
+For AWS Elastic Beanstalk, see the [Elastic Beanstalk Sample](sample-elastic-beanstalk.md) in this guide and see [Create an Application Source Bundle](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.deployment.source.html) in the *AWS Elastic Beanstalk Developer Guide*\.
+For AWS OpsWorks, see [Application Source](https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-source) and [Using AWS CodePipeline with AWS OpsWorks](https://docs.aws.amazon.com/opsworks/latest/userguide/other-services-cp.html) in the *AWS OpsWorks User Guide*\.
 
 ## Create a Pipeline that Uses AWS CodeBuild \(AWS CodePipeline Console\)<a name="how-to-create-pipeline-console"></a>
 
@@ -69,8 +69,8 @@ To create a pipeline that only tests your source code, your options are to:
 1. Open the AWS CodePipeline console, at [https://console\.aws\.amazon\.com/codepipeline](https://console.aws.amazon.com/codepipeline)\.
 
    You need to have already signed in to the AWS Management Console by using one of the following:
-   + Your AWS root account\. This is not recommended\. For more information, see [The Account Root User](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html) in the *IAM User Guide*\.
-   + An administrator IAM user in your AWS account\. For more information, see [Creating Your First IAM Admin User and Group](http://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html) in the *IAM User Guide*\.
+   + Your AWS root account\. This is not recommended\. For more information, see [The Account Root User](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html) in the *IAM User Guide*\.
+   + An administrator IAM user in your AWS account\. For more information, see [Creating Your First IAM Admin User and Group](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html) in the *IAM User Guide*\.
    + An IAM user in your AWS account with permission to use the following minimum set of actions:
 
      ```
@@ -98,7 +98,7 @@ To create a pipeline that only tests your source code, your options are to:
      opsworks:DescribeLayers
      ```
 
-1. In the AWS region selector, choose the region where your pipeline and related AWS resources are located\. This region must also support AWS CodeBuild\. For more information, see [AWS CodeBuild](http://docs.aws.amazon.com/general/latest/gr/rande.html#codebuild_region) in the "Regions and Endpoints" topic in the *Amazon Web Services General Reference*\.
+1. In the AWS region selector, choose the region where your pipeline and related AWS resources are located\. This region must also support AWS CodeBuild\. For more information, see [AWS CodeBuild](https://docs.aws.amazon.com/general/latest/gr/rande.html#codebuild_region) in the "Regions and Endpoints" topic in the *Amazon Web Services General Reference*\.
 
 1. Create a pipeline as follows:
 
@@ -158,7 +158,7 @@ If you use the console to create an AWS CodeBuild service role, by default this 
    For **Environment variables**, use **Name** and **Value** to specify any optional environment variables for the build environment to use\. To add more environment variables, choose **Add row**\.
 **Important**  
 We strongly discourage using environment variables to store sensitive values, especially AWS access key IDs and secret access keys\. Environment variables can be displayed in plain text using tools such as the AWS CodeBuild console and the AWS CLI\.  
-To store and retrieve sensitive values, we recommend your build commands use the AWS CLI to interact with the Amazon EC2 Systems Manager Parameter Store\. The AWS CLI comes preinstalled and preconfigured on all build environments provided by AWS CodeBuild\. For more information, see [Systems Manager Parameter Store](http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-paramstore.html) and [Systems Manager Parameter Store CLI Walkthrough](http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-walk.html#sysman-paramstore-cli) in the *Amazon EC2 Systems Manager User Guide*
+To store and retrieve sensitive values, we recommend your build commands use the AWS CLI to interact with the Amazon EC2 Systems Manager Parameter Store\. The AWS CLI comes preinstalled and preconfigured on all build environments provided by AWS CodeBuild\. For more information, see [Systems Manager Parameter Store](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-paramstore.html) and [Systems Manager Parameter Store CLI Walkthrough](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-walk.html#sysman-paramstore-cli) in the *Amazon EC2 Systems Manager User Guide*
 
 1. Choose **Save build project**\.
 
@@ -202,7 +202,7 @@ You can also get the build output artifact by choosing the **Build artifacts** l
 
 Use the following procedure to create a pipeline that uses AWS CodeBuild to build your source code\.
 
-To use the AWS CLI to create a pipeline that deploys your built source code or that only tests your source code, you can adapt the instructions in [Edit a Pipeline \(AWS CLI\)](http://docs.aws.amazon.com/codepipeline/latest/userguide/how-to-edit-pipelines.html#how-to-edit-pipelines-cli) and the [AWS CodePipeline Pipeline Structure Reference](http://docs.aws.amazon.com/codepipeline/latest/userguide/pipeline-structure.html) in the *AWS CodePipeline User Guide*\.
+To use the AWS CLI to create a pipeline that deploys your built source code or that only tests your source code, you can adapt the instructions in [Edit a Pipeline \(AWS CLI\)](https://docs.aws.amazon.com/codepipeline/latest/userguide/how-to-edit-pipelines.html#how-to-edit-pipelines-cli) and the [AWS CodePipeline Pipeline Structure Reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/pipeline-structure.html) in the *AWS CodePipeline User Guide*\.
 
 1. Complete the steps in [Prerequisites](#how-to-create-pipeline-prerequisites)\.
 
@@ -210,7 +210,7 @@ To use the AWS CLI to create a pipeline that deploys your built source code or t
 **Important**  
 The build project must define build output artifact settings \(even though AWS CodePipeline will override them\)\. For more information, see the description of `artifacts` in [Create a Build Project \(AWS CLI\)](create-project.md#create-project-cli)\.
 
-1. Make sure you have configured the AWS CLI with the AWS access key and AWS secret access key that correspond to one of the IAM entities described in this topic\. For more information, see [Getting Set Up with the AWS Command Line Interface](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-set-up.html) in the *AWS Command Line Interface User Guide*\.
+1. Make sure you have configured the AWS CLI with the AWS access key and AWS secret access key that correspond to one of the IAM entities described in this topic\. For more information, see [Getting Set Up with the AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-set-up.html) in the *AWS Command Line Interface User Guide*\.
 
 1. Create a JSON\-formatted file that represents the structure of the pipeline\. Name the file `create-pipeline.json` or similar\. For example, this JSON\-formatted structure creates a pipeline with a source action that references an Amazon S3 input bucket and a build action that uses AWS CodeBuild:
 
@@ -285,24 +285,24 @@ The build project must define build output artifact settings \(even though AWS C
 
    In this JSON\-formatted data:
    + The value of `roleArn` must match the ARN of the AWS CodePipeline service role you created or identified as part of the prerequisites\.
-   + The values of `S3Bucket` and `S3ObjectKey` in `configuration` assume the source code is stored in an Amazon S3 bucket\. For settings for other source code repository types, see the [AWS CodePipeline Pipeline Structure Reference](http://docs.aws.amazon.com/codepipeline/latest/userguide/pipeline-structure.html) in the *AWS CodePipeline User Guide*\.
+   + The values of `S3Bucket` and `S3ObjectKey` in `configuration` assume the source code is stored in an Amazon S3 bucket\. For settings for other source code repository types, see the [AWS CodePipeline Pipeline Structure Reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/pipeline-structure.html) in the *AWS CodePipeline User Guide*\.
    + The value of `ProjectName` is the name of the AWS CodeBuild build project you created earlier in this procedure\.
-   + The value of `location` is the name of the Amazon S3 bucket used by this pipeline\. For more information, see [Create a Policy for an Amazon S3 Bucket to Use as the Artifact Store for AWS CodePipeline](http://docs.aws.amazon.com/codepipeline/latest/userguide/access-permissions.html#how-to-create-bucket-policy) in the *AWS CodePipeline User Guide*\.
+   + The value of `location` is the name of the Amazon S3 bucket used by this pipeline\. For more information, see [Create a Policy for an Amazon S3 Bucket to Use as the Artifact Store for AWS CodePipeline](https://docs.aws.amazon.com/codepipeline/latest/userguide/access-permissions.html#how-to-create-bucket-policy) in the *AWS CodePipeline User Guide*\.
    + The value of `name` is the name of this pipeline\. All pipeline names must be unique to your account\.
 
-   Although this data describes only a source action and a build action, you can add actions for activities related to testing, deploying the build output artifact, invoking AWS Lambda functions, and more\. For more information, see the [AWS CodePipeline Pipeline Structure Reference](http://docs.aws.amazon.com/codepipeline/latest/userguide/pipeline-structure.html) in the *AWS CodePipeline User Guide*\.
+   Although this data describes only a source action and a build action, you can add actions for activities related to testing, deploying the build output artifact, invoking AWS Lambda functions, and more\. For more information, see the [AWS CodePipeline Pipeline Structure Reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/pipeline-structure.html) in the *AWS CodePipeline User Guide*\.
 
-1. Switch to the folder that contains the JSON file, and then run the AWS CodePipeline `[create\-pipeline](http://docs.aws.amazon.com/cli/latest/reference/codepipeline/create-pipeline.html)` command, specifying the file name:
+1. Switch to the folder that contains the JSON file, and then run the AWS CodePipeline `[create\-pipeline](https://docs.aws.amazon.com/cli/latest/reference/codepipeline/create-pipeline.html)` command, specifying the file name:
 
    ```
    aws codepipeline create-pipeline --cli-input-json file://create-pipeline.json
    ```
 **Note**  
-You must create the pipeline in an AWS region that supports AWS CodeBuild\. For more information, see [AWS CodeBuild](http://docs.aws.amazon.com/general/latest/gr/rande.html#codebuild_region) in the "Regions and Endpoints" topic in the *Amazon Web Services General Reference*\.
+You must create the pipeline in an AWS region that supports AWS CodeBuild\. For more information, see [AWS CodeBuild](https://docs.aws.amazon.com/general/latest/gr/rande.html#codebuild_region) in the "Regions and Endpoints" topic in the *Amazon Web Services General Reference*\.
 
    The JSON\-formatted data appears in the output, and AWS CodePipeline creates the pipeline\.
 
-1. To get information about the pipeline's status, run the AWS CodePipeline `[get\-pipeline\-state](http://docs.aws.amazon.com/cli/latest/reference/codepipeline/get-pipeline-state.html)` command, specifying the name of the pipeline:
+1. To get information about the pipeline's status, run the AWS CodePipeline `[get\-pipeline\-state](https://docs.aws.amazon.com/cli/latest/reference/codepipeline/get-pipeline-state.html)` command, specifying the name of the pipeline:
 
    ```
    aws codepipeline get-pipeline-state --name my-pipeline-name
@@ -356,8 +356,8 @@ You can also get the build output artifact by choosing the **Build artifacts** l
 1. Open the AWS CodePipeline console at [https://console\.aws\.amazon\.com/codepipeline](https://console.aws.amazon.com/codepipeline)\.
 
    You should have already signed in to the AWS Management Console by using one of the following:
-   + Your AWS root account\. This is not recommended\. For more information, see [The Account Root User](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html) in the *IAM User Guide*\.
-   + An administrator IAM user in your AWS account\. For more information, see [Creating Your First IAM Admin User and Group](http://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html) in the *IAM User Guide*\.
+   + Your AWS root account\. This is not recommended\. For more information, see [The Account Root User](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html) in the *IAM User Guide*\.
+   + An administrator IAM user in your AWS account\. For more information, see [Creating Your First IAM Admin User and Group](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html) in the *IAM User Guide*\.
    + An IAM user in your AWS account with permission to perform the following minimum set of actions:
 
      ```
@@ -385,7 +385,7 @@ You can also get the build output artifact by choosing the **Build artifacts** l
      opsworks:DescribeLayers
      ```
 
-1. In the AWS region selector, choose the region where your pipeline is located\. This region must also support AWS CodeBuild\. For more information, see [AWS CodeBuild](http://docs.aws.amazon.com/general/latest/gr/rande.html#codebuild_region) in the "Regions and Endpoints" topic in the *Amazon Web Services General Reference*\.
+1. In the AWS region selector, choose the region where your pipeline is located\. This region must also support AWS CodeBuild\. For more information, see [AWS CodeBuild](https://docs.aws.amazon.com/general/latest/gr/rande.html#codebuild_region) in the "Regions and Endpoints" topic in the *Amazon Web Services General Reference*\.
 
 1. On the **All Pipelines** page, choose the name of the pipeline\.
 
@@ -458,7 +458,7 @@ If you use the console to create an AWS CodeBuild service role, by default this 
    For **Environment variables**, use **Name** and **Value** to specify any optional environment variables for the build environment to use\. To add more environment variables, choose **Add row**\. 
 **Important**  
 We strongly discourage using environment variables to store sensitive values, especially AWS access key IDs and secret access keys\. Environment variables can be displayed in plain text using tools such as the AWS CodeBuild console and the AWS CLI\.  
-To store and retrieve sensitive values, we recommend your build commands use the AWS CLI to interact with the Amazon EC2 Systems Manager Parameter Store\. The AWS CLI comes preinstalled and preconfigured on all build environments provided by AWS CodeBuild\. For more information, see [Systems Manager Parameter Store](http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-paramstore.html) and [Systems Manager Parameter Store CLI Walkthrough](http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-walk.html#sysman-paramstore-cli) in the *Amazon EC2 Systems Manager User Guide*
+To store and retrieve sensitive values, we recommend your build commands use the AWS CLI to interact with the Amazon EC2 Systems Manager Parameter Store\. The AWS CLI comes preinstalled and preconfigured on all build environments provided by AWS CodeBuild\. For more information, see [Systems Manager Parameter Store](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-paramstore.html) and [Systems Manager Parameter Store CLI Walkthrough](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-walk.html#sysman-paramstore-cli) in the *Amazon EC2 Systems Manager User Guide*
 
 1. Choose **Save build project**\.
 
@@ -497,8 +497,8 @@ You can also get the build output artifact by choosing the **Build artifacts** l
 1. Open the AWS CodePipeline console at [https://console\.aws\.amazon\.com/codepipeline](https://console.aws.amazon.com/codepipeline)\.
 
    You should have already signed in to the AWS Management Console by using one of the following:
-   + Your AWS root account\. This is not recommended\. For more information, see [The Account Root User](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html) in the *IAM User Guide*\.
-   + An administrator IAM user in your AWS account\. For more information, see [Creating Your First IAM Admin User and Group](http://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html) in the *IAM User Guide*\.
+   + Your AWS root account\. This is not recommended\. For more information, see [The Account Root User](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html) in the *IAM User Guide*\.
+   + An administrator IAM user in your AWS account\. For more information, see [Creating Your First IAM Admin User and Group](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html) in the *IAM User Guide*\.
    + An IAM user in your AWS account with permission to perform the following minimum set of actions:
 
      ```
@@ -526,7 +526,7 @@ You can also get the build output artifact by choosing the **Build artifacts** l
      opsworks:DescribeLayers
      ```
 
-1. In the AWS region selector, choose the region where your pipeline is located\. This region must also support AWS CodeBuild\. For more information, see [AWS CodeBuild](http://docs.aws.amazon.com/general/latest/gr/rande.html#codebuild_region) in the "Regions and Endpoints" topic in the *Amazon Web Services General Reference*\.
+1. In the AWS region selector, choose the region where your pipeline is located\. This region must also support AWS CodeBuild\. For more information, see [AWS CodeBuild](https://docs.aws.amazon.com/general/latest/gr/rande.html#codebuild_region) in the "Regions and Endpoints" topic in the *Amazon Web Services General Reference*\.
 
 1. On the **All Pipelines** page, choose the name of the pipeline\.
 
@@ -597,7 +597,7 @@ If you use the console to create an AWS CodeBuild service role, by default, this
    For **Environment variables**, use **Name** and **Value** to specify any optional environment variables for the build environment to use\. To add more environment variables, choose **Add row**\. 
 **Important**  
 We strongly discourage using environment variables to store sensitive values, especially AWS access key IDs and secret access keys\. Environment variables can be displayed in plain text using tools such as the AWS CodeBuild console and the AWS CLI\.  
-To store and retrieve sensitive values, we recommend your build commands use the AWS CLI to interact with the Amazon EC2 Systems Manager Parameter Store\. The AWS CLI comes preinstalled and preconfigured on all build environments provided by AWS CodeBuild\. For more information, see [Systems Manager Parameter Store](http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-paramstore.html) and [Systems Manager Parameter Store CLI Walkthrough](http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-walk.html#sysman-paramstore-cli) in the *Amazon EC2 Systems Manager User Guide*
+To store and retrieve sensitive values, we recommend your build commands use the AWS CLI to interact with the Amazon EC2 Systems Manager Parameter Store\. The AWS CLI comes preinstalled and preconfigured on all build environments provided by AWS CodeBuild\. For more information, see [Systems Manager Parameter Store](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-paramstore.html) and [Systems Manager Parameter Store CLI Walkthrough](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-walk.html#sysman-paramstore-cli) in the *Amazon EC2 Systems Manager User Guide*
 
 1. Choose **Save build project**\.
 

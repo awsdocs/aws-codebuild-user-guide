@@ -27,7 +27,7 @@ As the following diagram shows, you can add AWS CodeBuild as a build or test act
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/pipeline.png)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)
 
-To use AWS CodePipeline to create a pipeline and then add an AWS CodeBuild build or test action, see [Use AWS CodePipeline with AWS CodeBuild](how-to-create-pipeline.md)\. For more information about AWS CodePipeline, see the [AWS CodePipeline User Guide](http://docs.aws.amazon.com/codepipeline/latest/userguide/)\.
+To use AWS CodePipeline to create a pipeline and then add an AWS CodeBuild build or test action, see [Use AWS CodePipeline with AWS CodeBuild](how-to-create-pipeline.md)\. For more information about AWS CodePipeline, see the [AWS CodePipeline User Guide](https://docs.aws.amazon.com/codepipeline/latest/userguide/)\.
 
 ## Pricing for AWS CodeBuild<a name="welcome-pricing"></a>
 

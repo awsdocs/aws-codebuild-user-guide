@@ -3,9 +3,9 @@
 An AWS CodeBuild project can take more than one input source\. It can also create more than one output artifact\. This sample demonstrates how to use AWS CodePipeline to create a build project that uses multiple input sources to create multiple output artifacts\. For more information, see [Multiple Input Sources and Output Artifacts Sample](sample-multi-in-out.md)\.
 
 **Note**  
- Multiple source and artifacts projects are only available for the Linux enviornment type\. 
+ Multiple source and artifacts projects are only available for the Linux environment type\. 
 
- You can use a JSON\-formatted file that defines the structure of your pipeline, and then use it with the AWS CLI to create the pipeline\. Use the following JSON file as an example of a pipeline structure that creates a build with more than one input source and more than one output artifcact\. Later in this sample you see how this file specifies the mulitiple inputs and outputs\. For more information, see [AWS CodePipeline Pipeline Structure Reference](http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html)\. 
+ You can use a JSON\-formatted file that defines the structure of your pipeline, and then use it with the AWS CLI to create the pipeline\. Use the following JSON file as an example of a pipeline structure that creates a build with more than one input source and more than one output artifcact\. Later in this sample you see how this file specifies the mulitiple inputs and outputs\. For more information, see [AWS CodePipeline Pipeline Structure Reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html)\. 
 
 ```
 {
@@ -26,7 +26,7 @@ An AWS CodeBuild project can take more than one input source\. It can also creat
           },
           "outputArtifacts": [
             {
-              "name": "source1"
+              "name": "artifact1"
             }
           ],
           "configuration": {
@@ -46,7 +46,7 @@ An AWS CodeBuild project can take more than one input source\. It can also creat
           },
           "outputArtifacts": [
             {
-              "name": "source2"
+              "name": "artifact2"
             }
           ],
           "configuration": {
@@ -82,7 +82,7 @@ An AWS CodeBuild project can take more than one input source\. It can also creat
             },
             {
               "name": "artifact2"
-            },
+            }
           ],
           "configuration": {
             "ProjectName": "my-build-project-name",
@@ -129,4 +129,4 @@ An AWS CodeBuild project can take more than one input source\. It can also creat
           - file
   ```
 
- After you create the JSON file, you can create your pipeline\. Use the AWS CLI to run the **create\-pipeline** command and pass the file to the `--cli-input-json` parameter\. For more information, see [Create a Pipeline \(CLI\)](http://docs.aws.amazon.com/codepipeline/latest/userguide/pipelines-create-cli)\. 
+ After you create the JSON file, you can create your pipeline\. Use the AWS CLI to run the **create\-pipeline** command and pass the file to the `--cli-input-json` parameter\. For more information, see [Create a Pipeline \(CLI\)](https://docs.aws.amazon.com/codepipeline/latest/userguide/pipelines-create.html#pipelines-create-cli)\. 

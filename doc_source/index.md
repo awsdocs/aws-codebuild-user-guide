@@ -24,6 +24,7 @@ Amazon's trademarks and trade dress may not be used in
       + [Docker Sample for AWS CodeBuild](sample-docker.md)
       + [GitHub Enterprise Sample for AWS CodeBuild](sample-github-enterprise.md)
       + [GitHub Pull Request Sample for AWS CodeBuild](sample-github-pull-request.md)
+      + [Bitbucket Pull Request Sample for AWS CodeBuild](sample-bitbucket-pull-request.md)
       + [Use AWS Config with AWS CodeBuild Sample](how-to-integrate-config.md)
       + [Build Badges Sample with AWS CodeBuild](sample-build-badges.md)
       + [Build Notifications Sample for AWS CodeBuild](sample-build-notifications.md)

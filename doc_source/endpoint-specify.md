@@ -7,7 +7,7 @@
 **Note**  
  You can use an alias or region name to specify an endpoint using an AWS SDK\. If you use the AWS CLI, then you must use the full endpoint name\. 
 
- For endpoints that can be used with AWS CodeBuild, see [AWS CodeBuild Regions and Endpoints](http://docs.aws.amazon.com/general/latest/gr/rande.html#codebuild_region)\. 
+ For endpoints that can be used with AWS CodeBuild, see [AWS CodeBuild Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#codebuild_region)\. 
 
 **Topics**
 + [Specify the AWS CodeBuild Endpoint \(AWS CLI\)](#endpoint-specify-cli)
@@ -23,7 +23,7 @@ aws codebuild list-projects --endpoint-url https://codebuild-fips.us-east-1.amaz
 
 Include the `https://` at the begining of the endpoint\.
 
- The `--endpoint-url` AWS CLI argument is available to all AWS services\. For more information about this and other AWS CLI arguments, see [AWS CLI Command Reference](http://docs.aws.amazon.com/cli/latest/reference/)\. 
+ The `--endpoint-url` AWS CLI argument is available to all AWS services\. For more information about this and other AWS CLI arguments, see [AWS CLI Command Reference](https://docs.aws.amazon.com/cli/latest/reference/)\. 
 
 ## Specify the AWS CodeBuild Endpoint \(AWS SDK\)<a name="endpoint-specify-sdk"></a>
 
@@ -38,9 +38,9 @@ AWSCodeBuild awsCodeBuild = AWSCodeBuildClientBuilder.standard().
     build();
 ```
 
- For information about `AWSCodeBuildClientBuilder`, see [Class AWSCodeBuildClientBuilder](http://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/services/codebuild/AWSCodeBuildClientBuilder.html)\. 
+ For information about `AWSCodeBuildClientBuilder`, see [Class AWSCodeBuildClientBuilder](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/services/codebuild/AWSCodeBuildClientBuilder.html)\. 
 
- The credentials used in `withCredentials` must be of type `AWSCredentialsProvider`\. For more information, see [Working with AWS Credentials](http://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/credentials.html)\. 
+ The credentials used in `withCredentials` must be of type `AWSCredentialsProvider`\. For more information, see [Working with AWS Credentials](https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/credentials.html)\. 
 
  Do not include `https://` at the begining of the endpoint\.
 

@@ -1,6 +1,6 @@
 # Command Line Reference for AWS CodeBuild<a name="cmd-ref"></a>
 
-The AWS CLI provides commands for automating AWS CodeBuild\. Use the information in this topic as a supplement to the [AWS Command Line Interface User Guide](http://docs.aws.amazon.com/cli/latest/userguide/) and the [AWS CLI Reference for AWS CodeBuild](http://docs.aws.amazon.com/cli/latest/reference/codebuild/)\.
+The AWS CLI provides commands for automating AWS CodeBuild\. Use the information in this topic as a supplement to the [AWS Command Line Interface User Guide](https://docs.aws.amazon.com/cli/latest/userguide/) and the [AWS CLI Reference for AWS CodeBuild](https://docs.aws.amazon.com/cli/latest/reference/codebuild/)\.
 
 Not what you're looking for? If you want to use the AWS SDKs to call AWS CodeBuild, see the [AWS SDKs and Tools Reference](sdk-ref.md)\.
 

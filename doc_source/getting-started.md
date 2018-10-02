@@ -28,7 +28,7 @@ If you chose a different name for either of these buckets, substitute it through
 
 These two buckets must be in the same AWS region as your builds\. For example, if you instruct AWS CodeBuild to run a build in the US East \(Ohio\) region, then these buckets must also be in the US East \(Ohio\) region\.
 
-To create a bucket, see [Creating a Bucket](http://docs.aws.amazon.com/AmazonS3/latest/user-guide/CreatingaBucket.html) in the *Amazon Simple Storage Service User Guide*\. 
+To create a bucket, see [Creating a Bucket](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/CreatingaBucket.html) in the *Amazon Simple Storage Service User Guide*\. 
 
 **Note**  
 You could use a single bucket for this walkthrough\. However, using two buckets can make it easier to see where the build input is coming from and where the build output is going\.  
@@ -244,7 +244,7 @@ You can work with AWS CodeBuild in several ways: through the AWS CodeBuild conso
 
 1. Sign in to the AWS Management Console and open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codebuild/](https://console.aws.amazon.com/codebuild/)\.
 
-1. In the AWS region selector, choose a region that supports AWS CodeBuild\. For more information, see [AWS CodeBuild](http://docs.aws.amazon.com/general/latest/gr/rande.html#codebuild_region) in the "Regions and Endpoints" topic in the *Amazon Web Services General Reference*\.
+1. In the AWS region selector, choose a region that supports AWS CodeBuild\. For more information, see [AWS CodeBuild](https://docs.aws.amazon.com/general/latest/gr/rande.html#codebuild_region) in the "Regions and Endpoints" topic in the *Amazon Web Services General Reference*\.
 
 1. If a welcome page is displayed, choose **Get started**\. 
 
@@ -253,8 +253,8 @@ You can work with AWS CodeBuild in several ways: through the AWS CodeBuild conso
 1. On the **Configure your project** page, for **Project name**, type a name for this build project \(in this example, `codebuild-demo-project`\)\. Build project names must be unique across each AWS account\. If you use a different name, substitute it throughout this walkthrough\.
 **Note**  
 On the **Configure project** page, you may see an error message similar to the following: **User: *user\-ARN* is not authorized to perform: codebuild:ListProjects**\. This is most likely because you signed in to the AWS Management Console as an IAM user that does not have sufficient permissions to use AWS CodeBuild in the console\. To fix this, sign out of the AWS Management Console, and then sign back in with credentials belonging to one of the following IAM entities:   
-Your AWS root account\. This is not recommended\. For more information, see [The Account Root User](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html) in the *IAM User Guide*\.
-An administrator IAM user in your AWS account\. For more information, see [Creating Your First IAM Admin User and Group](http://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html) in the *IAM User Guide*\.
+Your AWS root account\. This is not recommended\. For more information, see [The Account Root User](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html) in the *IAM User Guide*\.
+An administrator IAM user in your AWS account\. For more information, see [Creating Your First IAM Admin User and Group](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html) in the *IAM User Guide*\.
 An IAM user in your AWS account with the AWS managed policies named **AWSCodeBuildAdminAccess**, **AmazonS3ReadOnlyAccess**, and **IAMFullAccess** attached to that IAM user or to an IAM group that the IAM user belongs to\. If you do not have an IAM user or group in your AWS account with these permission, and you are not able to add these permissions to your IAM user or group, contact your AWS account administrator for assistance\. For more information, see [AWS Managed \(Predefined\) Policies for AWS CodeBuild](auth-and-access-control-iam-identity-based-access-control.md#managed-policies)\.
 
 1. In **Source: What to build**, for **Source provider**, choose **Amazon S3**\.
@@ -385,8 +385,8 @@ Other available values in the original JSON\-formatted data, such as `descriptio
 
 **Note**  
 After you run the create\-project command, an error message similar to the following may be output: **User: *user\-ARN* is not authorized to perform: codebuild:CreateProject**\. This is most likely because you configured the AWS CLI with the credentials of an IAM user that does not have sufficient permissions to use AWS CodeBuild to create build projects\. To fix this, configure the AWS CLI with credentials belonging to one of the following IAM entities:   
-Your AWS root account\. This is not recommended\. For more information, see [The Account Root User](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html) in the *IAM User Guide*\.
-An administrator IAM user in your AWS account\. For more information, see [Creating Your First IAM Admin User and Group](http://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html) in the *IAM User Guide*\.
+Your AWS root account\. This is not recommended\. For more information, see [The Account Root User](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html) in the *IAM User Guide*\.
+An administrator IAM user in your AWS account\. For more information, see [Creating Your First IAM Admin User and Group](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html) in the *IAM User Guide*\.
 An IAM user in your AWS account with the AWS managed policies named **AWSCodeBuildAdminAccess**, **AmazonS3ReadOnlyAccess**, and **IAMFullAccess** attached to that IAM user or to an IAM group that the IAM user belongs to\. If you do not have an IAM user or group in your AWS account with these permission, and you are not able to add these permissions to your IAM user or group, contact your AWS account administrator for assistance\. For more information, see [AWS Managed \(Predefined\) Policies for AWS CodeBuild](auth-and-access-control-iam-identity-based-access-control.md#managed-policies)\.
 
 ## Step 6: Run the Build<a name="getting-started-run-build"></a>
@@ -577,7 +577,7 @@ You can complete this step with the [AWS CodeBuild console](#getting-started-bui
 
 1. In the CloudWatch Logs log stream, you can browse the log events\. By default, only the last set of log events is displayed\. To see earlier log events, scroll to the beginning of the list\.
 
-1. In this walkthrough, most of the log events contain verbose information about AWS CodeBuild downloading and installing build dependency files into its build environment, which you probably don't care about\. You can use the **Filter events** box to reduce the information displayed\. For example, if you type `"[INFO]"` in the **Filter events** box and then press Enter, only those events containing the characters `[INFO]` will be displayed\. For more information, see [Filter and Pattern Syntax](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/FilterAndPatternSyntax.html) in the *Amazon CloudWatch User Guide*\.
+1. In this walkthrough, most of the log events contain verbose information about AWS CodeBuild downloading and installing build dependency files into its build environment, which you probably don't care about\. You can use the **Filter events** box to reduce the information displayed\. For example, if you type `"[INFO]"` in the **Filter events** box and then press Enter, only those events containing the characters `[INFO]` will be displayed\. For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/FilterAndPatternSyntax.html) in the *Amazon CloudWatch User Guide*\.
 
 Skip ahead to [Step 9: Get the Build Output Artifact](#getting-started-output)\.<a name="getting-started-build-log-cli"></a>
 
@@ -587,7 +587,7 @@ Skip ahead to [Step 9: Get the Build Output Artifact](#getting-started-output)\.
 
 1. In the CloudWatch Logs log stream, you can browse the log events\. By default, only the last set of log events is displayed\. To see earlier log events, scroll to the beginning of the list\.
 
-1. In this walkthrough, most of the log events contain verbose information about AWS CodeBuild downloading and installing build dependency files into its build environment, which you probably don't care about\. You can use the **Filter events** box to reduce the information displayed\. For example, if you type `"[INFO]"` in the **Filter events** box and then press Enter, only those events containing the characters `[INFO]` will be displayed\. For more information, see [Filter and Pattern Syntax](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/FilterAndPatternSyntax.html) in the *Amazon CloudWatch User Guide*\.
+1. In this walkthrough, most of the log events contain verbose information about AWS CodeBuild downloading and installing build dependency files into its build environment, which you probably don't care about\. You can use the **Filter events** box to reduce the information displayed\. For example, if you type `"[INFO]"` in the **Filter events** box and then press Enter, only those events containing the characters `[INFO]` will be displayed\. For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/FilterAndPatternSyntax.html) in the *Amazon CloudWatch User Guide*\.
 
 These portions of a CloudWatch Logs log stream pertain to this walkthrough\.
 
@@ -668,7 +668,7 @@ You can complete this step with the [AWS CodeBuild console](#getting-started-out
 
 ## Step 10: Clean Up<a name="getting-started-clean-up"></a>
 
-To prevent ongoing charges to your AWS account, you can delete the input bucket used in this walkthrough\. For instructions, see [Deleting or Emptying a Bucket](http://docs.aws.amazon.com/AmazonS3/latest/dev/delete-or-empty-bucket.html) in the *Amazon Simple Storage Service Developer Guide*\.
+To prevent ongoing charges to your AWS account, you can delete the input bucket used in this walkthrough\. For instructions, see [Deleting or Emptying a Bucket](https://docs.aws.amazon.com/AmazonS3/latest/dev/delete-or-empty-bucket.html) in the *Amazon Simple Storage Service Developer Guide*\.
 
 If you are using the IAM user to delete this bucket instead of an AWS root account or an administrator IAM user, then the user must have additional access permissions\. \(Using an AWS root account is not recommended\.\) Add the statement between the markers \(*\#\#\# BEGIN ADDING STATEMENT HERE \#\#\#* and *\#\#\# END ADDING STATEMENTS HERE \#\#\#*\) to an existing access policy for the user\. Ellipses \(`...`\) are used for brevity and to help you locate where to add the statement\. Do not remove any statements in the existing access policy, and do not type these ellipses into the existing policy\.
 

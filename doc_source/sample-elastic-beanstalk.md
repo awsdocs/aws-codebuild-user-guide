@@ -121,9 +121,9 @@ In this step, you will use the Elastic Beanstalk console to create an applicatio
 
    Use the AWS region selector to choose the region that matches the one where your Amazon S3 output bucket is stored\.
 
-1. Create an Elastic Beanstalk application\. For more information, see [Managing and Configuring AWS Elastic Beanstalk Applications](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/applications.html)\.
+1. Create an Elastic Beanstalk application\. For more information, see [Managing and Configuring AWS Elastic Beanstalk Applications](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/applications.html)\.
 
-1. Create an Elastic Beanstalk environment for this application\. For more information, see [The Create New Environment Wizard](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environments-create-wizard.html)\. Leave all settings at their default values, except for these settings\.
+1. Create an Elastic Beanstalk environment for this application\. For more information, see [The Create New Environment Wizard](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environments-create-wizard.html)\. Leave all settings at their default values, except for these settings\.
    + For **Platform**, choose **Tomcat**\.
    + For **Application code**, choose **Upload your code**, and then choose **Upload**\. For **Source code origin**, choose **Public S3 URL**, and then type the full URL to the build output ZIP file in the output bucket\. Then choose **Upload**\.
 
@@ -190,8 +190,8 @@ In this step, you will use the AWS CodePipeline and Elastic Beanstalk consoles t
      + For **Runtime**, choose **Java**\.
      + For **Version**, choose **aws/codebuild/java:openjdk\-8**\.
    + For **Step 4: Beta**, for **Deployment provider**, choose **AWS Elastic Beanstalk**\.
-     + For the application, choose the **create a new one in Elastic Beanstalk** link\. This opens the Elastic Beanstalk console\. For more information, see [Managing and Configuring AWS Elastic Beanstalk Applications](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/applications.html)\. After you create the application, return to the AWS CodePipeline console, and then select the application you just created\.
-     + For the environment, choose the **create a new one in Elastic Beanstalk** link\. This opens the Elastic Beanstalk console\. For more information, see [The Create New Environment Wizard](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environments-create-wizard.html)\. Leave all but one setting at their default values: for **Platform**, choose **Tomcat**\. After you create the environment, return to the AWS CodePipeline console, and then select the environment you just created\.
+     + For the application, choose the **create a new one in Elastic Beanstalk** link\. This opens the Elastic Beanstalk console\. For more information, see [Managing and Configuring AWS Elastic Beanstalk Applications](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/applications.html)\. After you create the application, return to the AWS CodePipeline console, and then select the application you just created\.
+     + For the environment, choose the **create a new one in Elastic Beanstalk** link\. This opens the Elastic Beanstalk console\. For more information, see [The Create New Environment Wizard](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environments-create-wizard.html)\. Leave all but one setting at their default values: for **Platform**, choose **Tomcat**\. After you create the environment, return to the AWS CodePipeline console, and then select the environment you just created\.
 
 1. After the pipeline has run successfully, you can see the results in a web browser\. Go to the environment URL for the instance \(for example, `http://my-environment-name.random-string.region-ID.elasticbeanstalk.com`\)\. The web browser should display the text `Hello World!`\.
 
@@ -199,7 +199,7 @@ Now, whenever you make changes to the source code and upload those changes to th
 
 ## Scenario C: Use the Elastic Beanstalk Command Line Interface \(EB CLI\) to Run AWS CodeBuild and Deploy to an Elastic Beanstalk Environment<a name="sample-elastic-beanstalk-eb-cli"></a>
 
-In this scenario, you will finish manually preparing and uploading the source code to be built\. You will then run the EB CLI to create an Elastic Beanstalk application and environment, use AWS CodeBuild to build the source code, and then deploy the build output to the environment\. For more information, see [Using the EB CLI with AWS CodeBuild](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli-codebuild.html) in the *AWS Elastic Beanstalk Developer Guide*\.
+In this scenario, you will finish manually preparing and uploading the source code to be built\. You will then run the EB CLI to create an Elastic Beanstalk application and environment, use AWS CodeBuild to build the source code, and then deploy the build output to the environment\. For more information, see [Using the EB CLI with AWS CodeBuild](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli-codebuild.html) in the *AWS Elastic Beanstalk Developer Guide*\.
 
 ### Step C1: Add Files to the Source Code<a name="sample-elastic-beanstalk-eb-cli-prepare"></a>
 
@@ -258,7 +258,7 @@ In this step, you will add an Elastic Beanstalk configuration file and a build s
 
 ### Step C2: Install and Run the EB CLI<a name="sample-elastic-beanstalk-eb-cli-run"></a>
 
-1. If you have not already done so, install and configure the EB CLI on the same computer or instance where you created the source code\. For information, see [Install the Elastic Beanstalk Command Line Interface \(EB CLI\)](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli3-install.html) and [Configure the EB CLI](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli3-configuration.html)\.
+1. If you have not already done so, install and configure the EB CLI on the same computer or instance where you created the source code\. For information, see [Install the Elastic Beanstalk Command Line Interface \(EB CLI\)](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli3-install.html) and [Configure the EB CLI](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli3-configuration.html)\.
 
 1. From your computer's or instance's command line or terminal, run the cd command or similar to switch to your `(root directory name)/my-web-app` directory\. Run the eb init command to configure the EB CLI\.
 
@@ -304,7 +304,7 @@ In this step, you will add an Elastic Beanstalk configuration file and a build s
 
 If you want, you can make changes to the source code and then run the eb deploy command from the same directory\. The EB CLI performs the same steps as the eb create command, but it deploys the build output to the existing environment instead of creating a new environment\.
 
-## Related Resources<a name="w4aab9c45c47c15"></a>
+## Related Resources<a name="w4aab9c45c50c15"></a>
 + For more information about getting started with AWS CodeBuild, see [Getting Started with AWS CodeBuild](getting-started.md)\.
 + For more information about troubleshooting problems with AWS CodeBuild, see [Troubleshooting AWS CodeBuild](troubleshooting.md)\.
 + For more information about limits in AWS CodeBuild, see [Limits for AWS CodeBuild](limits.md)\.

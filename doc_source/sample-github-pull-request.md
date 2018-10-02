@@ -1,6 +1,6 @@
 # GitHub Pull Request Sample for AWS CodeBuild<a name="sample-github-pull-request"></a>
 
-AWS CodeBuild now supports webhooks, when the source repository is GitHub\. This means that for an AWS CodeBuild build project that has its source code stored in a private GitHub repository, webhooks enables AWS CodeBuild to begin automatically rebuilding the source code every time a code change is pushed to the private repository\.
+AWS CodeBuild supports webhooks when the source repository is GitHub\. This means that for an AWS CodeBuild build project that has its source code stored in a private GitHub repository, the use of webhooks enables AWS CodeBuild to begin rebuilding the source code every time a code change is pushed to the private repository\.
 
 ## Create a Build Project with GitHub as the Source Repository and Enable Webhooks \(Console\)<a name="sample-github-pull-request-running"></a>
 
@@ -8,11 +8,11 @@ AWS CodeBuild now supports webhooks, when the source repository is GitHub\. This
 
 1. If a welcome page is displayed, choose **Get started**\. If a welcome page is not displayed, on the navigation pane, choose **Build projects**, and then choose **Create project**\.
 
-1. On the **Configure your project** page, for **Project name**, type a name for this build project\. Build project names must be unique across each AWS account\.
+1. On the **Configure your project** page, for **Project name**, enter a name for this build project\. Build project names must be unique across each AWS account\.
 
 1. In **Source: What to build**, for **Source provider**, choose **GitHub**\. Follow the instructions to connect \(or reconnect\) with GitHub and choose **Authorize**\.
 
-   For **Webhook**, select the **Rebuild every time a code change is pushed to this repository** check box\. You can select this check box only if, under** Repository**, you chose **Use a repository in my account**\.  
+   For **Webhook**, select **Rebuild every time a code change is pushed to this repository**\. You can select this check box only if you chose **Use a repository in my account**\.  
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/webhook.png)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)
 
 1. In **Environment: How to build**:

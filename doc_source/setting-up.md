@@ -16,15 +16,15 @@ To access AWS CodeBuild with an IAM group or IAM user, you must add access permi
 
 If you will access AWS CodeBuild with your AWS root account \(not recommended\) or an administrator IAM user in your AWS account, then you do not need to follow these instructions\.
 
-For information about AWS root accounts and administrator IAM users, see [The Account Root User](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html) and [Creating Your First IAM Admin User and Group](http://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html) in the *IAM User Guide*\.<a name="setting-up-service-permissions-group-console"></a>
+For information about AWS root accounts and administrator IAM users, see [The Account Root User](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html) and [Creating Your First IAM Admin User and Group](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html) in the *IAM User Guide*\.<a name="setting-up-service-permissions-group-console"></a>
 
 **To add AWS CodeBuild access permissions to an IAM group or IAM user \(console\)**
 
 1. Open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
 
    You should have already signed in to the AWS Management Console by using one of the following:
-   + Your AWS root account\. This is not recommended\. For more information, see [The Account Root User](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html) in the *IAM User Guide*\.
-   + An administrator IAM user in your AWS account\. For more information, see [Creating Your First IAM Admin User and Group](http://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html) in the *IAM User Guide*\.
+   + Your AWS root account\. This is not recommended\. For more information, see [The Account Root User](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html) in the *IAM User Guide*\.
+   + An administrator IAM user in your AWS account\. For more information, see [Creating Your First IAM Admin User and Group](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html) in the *IAM User Guide*\.
    + An IAM user in your AWS account with permission to perform the following minimum set of actions:
 
      ```
@@ -38,7 +38,7 @@ For information about AWS root accounts and administrator IAM users, see [The Ac
      iam:ListUsers
      ```
 
-     For more information, see [Overview of IAM Policies](http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html) in the *IAM User Guide*\.
+     For more information, see [Overview of IAM Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html) in the *IAM User Guide*\.
 
 1. In the navigation pane, choose **Policies**\.
 
@@ -112,7 +112,7 @@ This policy allows access to all AWS CodeBuild actions and to a potentially larg
 
 **To add AWS CodeBuild access permissions to an IAM group or IAM user \(AWS CLI\)**
 
-1. Make sure you have configured the AWS CLI with the AWS access key and AWS secret access key that correspond to one of the IAM entities, as described in the previous procedure\. For more information, see [Getting Set Up with the AWS Command Line Interface](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-set-up.html) in the *AWS Command Line Interface User Guide*\.
+1. Make sure you have configured the AWS CLI with the AWS access key and AWS secret access key that correspond to one of the IAM entities, as described in the previous procedure\. For more information, see [Getting Set Up with the AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-set-up.html) in the *AWS Command Line Interface User Guide*\.
 
 1. To add a custom set of AWS CodeBuild access permissions to an IAM group or IAM user, skip ahead to step 3 in this procedure\.
 
@@ -215,8 +215,8 @@ The service role described on this page contains a policy that grants the minimu
 1. Open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
 
    You should have already signed in to the console by using one of the following:
-   + Your AWS root account\. This is not recommended\. For more information, see [The Account Root User](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html) in the *IAM User Guide*\.
-   + An administrator IAM user in your AWS account\. For more information, see [Creating Your First IAM Admin User and Group](http://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html) in the *IAM User Guide*\.
+   + Your AWS root account\. This is not recommended\. For more information, see [The Account Root User](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html) in the *IAM User Guide*\.
+   + An administrator IAM user in your AWS account\. For more information, see [Creating Your First IAM Admin User and Group](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html) in the *IAM User Guide*\.
    + An IAM user in your AWS account with permission to perform the following minimum set of actions:
 
      ```
@@ -234,7 +234,7 @@ The service role described on this page contains a policy that grants the minimu
      iam:UpdateAssumeRolePolicy
      ```
 
-     For more information, see [Overview of IAM Policies](http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html) in the *IAM User Guide*\.
+     For more information, see [Overview of IAM Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html) in the *IAM User Guide*\.
 
 1. In the navigation pane, choose **Policies**\.
 
@@ -313,7 +313,7 @@ If you use a different name, substitute it throughout this procedure\.
 
 **To create an AWS CodeBuild service role \(AWS CLI\)**
 
-1. Make sure you have configured the AWS CLI with the AWS access key and AWS secret access key that correspond to one of the IAM entities, as described in the previous procedure\. For more information, see [Getting Set Up with the AWS Command Line Interface](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-set-up.html) in the *AWS Command Line Interface User Guide*\.
+1. Make sure you have configured the AWS CLI with the AWS access key and AWS secret access key that correspond to one of the IAM entities, as described in the previous procedure\. For more information, see [Getting Set Up with the AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-set-up.html) in the *AWS Command Line Interface User Guide*\.
 
 1. In an empty directory on the local workstation or instance where the AWS CLI is installed, create two files named `create-role.json` and `put-role-policy.json`\. If you choose different file names, substitute them throughout this procedure\.
 
@@ -405,9 +405,9 @@ For AWS CodeBuild to encrypt its build output artifacts, it needs access to an A
 
 If you do not want to use this CMK, you must create and configure a customer\-managed CMK yourself\. This section describes how to do this with the IAM console\.
 
-For information about CMKs, see [AWS Key Management Service Concepts](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html) and [Creating Keys](http://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html) in the *AWS KMS Developer Guide*\.
+For information about CMKs, see [AWS Key Management Service Concepts](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html) and [Creating Keys](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html) in the *AWS KMS Developer Guide*\.
 
-To configure a CMK for use by AWS CodeBuild, follow the instructions in the "How to Modify a Key Policy" section of [Modifying a Key Policy](http://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying.html) in the *AWS KMS Developer Guide*\. Then add the following statements \(between *\#\#\# BEGIN ADDING STATEMENTS HERE \#\#\#* and *\#\#\# END ADDING STATEMENTS HERE \#\#\#*\) to the key policy\. Ellipses \(`...`\) are used for brevity and to help you locate where to add the statements\. Do not remove any statements, and do not type these ellipses into the key policy\.
+To configure a CMK for use by AWS CodeBuild, follow the instructions in the "How to Modify a Key Policy" section of [Modifying a Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying.html) in the *AWS KMS Developer Guide*\. Then add the following statements \(between *\#\#\# BEGIN ADDING STATEMENTS HERE \#\#\#* and *\#\#\# END ADDING STATEMENTS HERE \#\#\#*\) to the key policy\. Ellipses \(`...`\) are used for brevity and to help you locate where to add the statements\. Do not remove any statements, and do not type these ellipses into the key policy\.
 
 ```
 {
@@ -476,13 +476,13 @@ To configure a CMK for use by AWS CodeBuild, follow the instructions in the "How
 
 **Note**  
 To create or configure a CMK through the IAM console, you must first sign in to the AWS Management Console by using one of the following:  
-Your AWS root account\. This is not recommended\. For more information, see [The Account Root User](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html) in the *IAM User Guide*\.
-An administrator IAM user in your AWS account\. For more information, see [Creating Your First IAM Admin User and Group](http://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html) in the *IAM User Guide*\.
-An IAM user in your AWS account with permission to create or modify the CMK\. For more information, see [Permissions Required to Use the AWS KMS Console](http://docs.aws.amazon.com/kms/latest/developerguide/iam-policies.html#console-permissions) in the *AWS KMS Developer Guide*\.
+Your AWS root account\. This is not recommended\. For more information, see [The Account Root User](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html) in the *IAM User Guide*\.
+An administrator IAM user in your AWS account\. For more information, see [Creating Your First IAM Admin User and Group](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html) in the *IAM User Guide*\.
+An IAM user in your AWS account with permission to create or modify the CMK\. For more information, see [Permissions Required to Use the AWS KMS Console](https://docs.aws.amazon.com/kms/latest/developerguide/iam-policies.html#console-permissions) in the *AWS KMS Developer Guide*\.
 
 ## Install and Configure the AWS CLI<a name="setting-up-cli"></a>
 
-To access AWS CodeBuild, you can use the AWS CLI with—or instead of—the AWS CodeBuild console, the AWS CodePipeline console, or the AWS SDKs\. To install and configure the AWS CLI, see [Getting Set Up with the AWS Command Line Interface](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-set-up.html) in the *AWS Command Line Interface User Guide*\.
+To access AWS CodeBuild, you can use the AWS CLI with—or instead of—the AWS CodeBuild console, the AWS CodePipeline console, or the AWS SDKs\. To install and configure the AWS CLI, see [Getting Set Up with the AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-set-up.html) in the *AWS Command Line Interface User Guide*\.
 
 1. Run the following command to confirm whether your installation of the AWS CLI supports AWS CodeBuild:
 
@@ -500,4 +500,4 @@ To access AWS CodeBuild, you can use the AWS CLI with—or instead of—the AWS 
 
    The empty square brackets indicate that you have not yet run any builds\.
 
-1. If an error is output, you must uninstall your current version of the AWS CLI and then install the latest version\. For more information, see [Uninstalling the AWS CLI](http://docs.aws.amazon.com/cli/latest/userguide/cli-uninstall.html) and [Installing the AWS Command Line Interface](http://docs.aws.amazon.com/cli/latest/userguide/installing.html) in the *AWS Command Line Interface User Guide*\.
+1. If an error is output, you must uninstall your current version of the AWS CLI and then install the latest version\. For more information, see [Uninstalling the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-uninstall.html) and [Installing the AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/installing.html) in the *AWS Command Line Interface User Guide*\.

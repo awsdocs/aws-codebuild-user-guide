@@ -3,7 +3,7 @@
 Every AWS resource is owned by an AWS account, and permissions to create or access a resource are governed by permissions policies\. An account administrator can attach permissions policies to IAM identities \(that is, users, groups, and roles\)\. 
 
 **Note**  
-An account administrator \(or administrator user\) is a user with administrator privileges\. For more information, see [IAM Best Practices](http://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html) in the *IAM User Guide Guide*\.
+An account administrator \(or administrator user\) is a user with administrator privileges\. For more information, see [IAM Best Practices](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html) in the *IAM User Guide Guide*\.
 
 When you grant permissions, you decide who is getting the permissions, the resources they can access, and the actions that can be performed on those resources\.
 
@@ -15,7 +15,7 @@ When you grant permissions, you decide who is getting the permissions, the resou
 
 ## AWS CodeBuild Resources and Operations<a name="arn-formats"></a>
 
-In AWS CodeBuild, the primary resource is a build project\. In a policy, you use an Amazon Resource Name \(ARN\) to identify the resource the policy applies to\. Builds are also resources and have ARNs associated with them\. For more information, see [Amazon Resource Names \(ARN\) and AWS Service Namespaces](http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *Amazon Web Services General Reference*\.
+In AWS CodeBuild, the primary resource is a build project\. In a policy, you use an Amazon Resource Name \(ARN\) to identify the resource the policy applies to\. Builds are also resources and have ARNs associated with them\. For more information, see [Amazon Resource Names \(ARN\) and AWS Service Namespaces](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *Amazon Web Services General Reference*\.
 
 
 | Resource type | ARN format | 
@@ -53,7 +53,7 @@ AWS CodeBuild provides a set of operations to work with the AWS CodeBuild resour
 
 ## Understanding Resource Ownership<a name="understanding-resource-ownership"></a>
 
-The AWS account owns the resources that are created in the account, regardless of who created the resources\. Specifically, the resource owner is the AWS account of the [principal entity](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html) \(that is, the root account, an IAM user, or an IAM role\) that authenticates the resource creation request\. The following examples illustrate how this works:
+The AWS account owns the resources that are created in the account, regardless of who created the resources\. Specifically, the resource owner is the AWS account of the [principal entity](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html) \(that is, the root account, an IAM user, or an IAM role\) that authenticates the resource creation request\. The following examples illustrate how this works:
 + If you use the root account credentials of your AWS account to create a rule, your AWS account is the owner of the AWS CodeBuild resource\.
 + If you create an IAM user in your AWS account and grant permissions to create AWS CodeBuild resources to that user, the user can create AWS CodeBuild resources\. However, your AWS account, to which the user belongs, owns the AWS CodeBuild resources\.
 + If you create an IAM role in your AWS account with permissions to create AWS CodeBuild resources, anyone who can assume the role can create AWS CodeBuild resources\. Your AWS account, to which the role belongs, owns the AWS CodeBuild resources\.
@@ -63,7 +63,7 @@ The AWS account owns the resources that are created in the account, regardless o
 A permissions policy describes who has access to which resources\. 
 
 **Note**  
-This section discusses the use of IAM in AWS CodeBuild\. It doesn't provide detailed information about the IAM service\. For complete IAM documentation, see [What Is IAM?](http://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html) in the *IAM User Guide Guide*\. For information about IAM policy syntax and descriptions, see [AWS IAM Policy Reference](http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html) in the *IAM User Guide Guide*\.
+This section discusses the use of IAM in AWS CodeBuild\. It doesn't provide detailed information about the IAM service\. For complete IAM documentation, see [What Is IAM?](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html) in the *IAM User Guide Guide*\. For information about IAM policy syntax and descriptions, see [AWS IAM Policy Reference](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html) in the *IAM User Guide Guide*\.
 
 Policies attached to an IAM identity are referred to as identity\-based policies \(IAM policies\)\. Policies attached to a resource are referred to as resource\-based policies\. AWS CodeBuild supports identity\-based \(IAM policies\) only\.
 
@@ -79,7 +79,7 @@ You can attach policies to IAM identities\.
 
   1. Account B administrator can then delegate permissions to assume the role to any users in Account B\. Doing this allows users in Account B to create or access resources in Account A\. The principal in the trust policy must also be an AWS service principal if you want to grant an AWS service permissions to assume the role\.
 
-  For more information about using IAM to delegate permissions, see [Access Management](http://docs.aws.amazon.com/IAM/latest/UserGuide/access.html) in the *IAM User Guide Guide*\.
+  For more information about using IAM to delegate permissions, see [Access Management](https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html) in the *IAM User Guide Guide*\.
 
 In AWS CodeBuild, identity\-based policies are used to manage permissions to the resources related to the deployment process\. For example, you can control access to build projects\.
 
@@ -95,6 +95,6 @@ The following are the basic policy elements:
 + **Effect** – You specify the effect, either allow or deny, when the user requests the action\. If you don't explicitly grant access to \(allow\) a resource, access is implicitly denied\. You can also explicitly deny access to a resource\. You might do this to make sure a user cannot access a resource, even if a different policy grants access\.
 + **Principal** – In identity\-based policies \(IAM policies\), the user the policy is attached to is the implicit principal\. For resource\-based policies, you specify the user, account, service, or other entity that you want to receive permissions\.
 
-To learn more about IAM policy syntax and descriptions, see [AWS IAM Policy Reference](http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html) in the *IAM User Guide Guide*\.
+To learn more about IAM policy syntax and descriptions, see [AWS IAM Policy Reference](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html) in the *IAM User Guide Guide*\.
 
 For a table showing all of the AWS CodeBuild API actions and the resources they apply to, see the [AWS CodeBuild Permissions Reference](auth-and-access-control-permissions-reference.md)\.

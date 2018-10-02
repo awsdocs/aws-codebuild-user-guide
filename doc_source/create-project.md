@@ -21,9 +21,9 @@ Answer the questions in [Plan a Build](planning.md)\.
 
    If a welcome page is not displayed, on the navigation pane, choose **Build projects**, and then choose **Create project**\.
 
-1. On the **Configure your project** page, for **Project name**, type a name for this build project\. Build project names must be unique across each AWS account\.
+1. On the **Configure your project** page, for **Project name**, enter a name for this build project\. Build project names must be unique across each AWS account\.
 
-1. \(Optional\) Choose **Add description**, and type a description in the **Description** box\.
+1. \(Optional\) Choose **Add description**, and then enter a description\.
 
 1.  **Source: What to build**, for **Source provider**, choose the source code provider type\. Use the following table to make selections appropriate for your source provider:  
 ****    
@@ -43,11 +43,11 @@ Answer the questions in [Plan a Build](planning.md)\.
 
    For **Environment image**, do one of the following:
    + To use a Docker image managed by AWS CodeBuild, choose **Use an image managed by AWS CodeBuild**, and then make selections from **Operating system**, **Runtime**, and **Version**\.
-   + To use another Docker image, choose **Specify a Docker image**\. For **Custom image type**, choose **Other** or **Amazon ECR**\. If you choose **Other**, then for **Custom image ID**, type the name and tag of the Docker image in Docker Hub\. Use this format: `repository-name/image-name:image-tag`\. If you choose **Amazon ECR**, then use **Amazon ECR repository** and **Amazon ECR image** to choose the Docker image in your AWS account\. 
+   + To use another Docker image, choose **Specify a Docker image**\. For **Custom image type**, choose **Other** or **Amazon ECR**\. If you choose **Other**, then for **Custom image ID**, enter the name and tag of the Docker image in Docker Hub\. Use this format: `repository-name/image-name:image-tag`\. If you choose **Amazon ECR**, then use **Amazon ECR repository** and **Amazon ECR image** to choose the Docker image in your AWS account\. 
 
    For **Build specification**, do one of the following:
    + If your source code includes a buildspec file, choose **Use the buildspec\.yml in the source code root directory**\.
-   + If your source code does not include a buildspec file, or if you want to run build commands different from the ones specified for the `build` phase in the `buildspec.yml` file in the source code's root directory, choose **Insert build commands**\. For **Build command**, type the commands you want to run in the `build` phase\. For multiple commands, separate each command by `&&` \(for example, `mvn test && mvn package`\)\. To run commands in other phases, or if you have a long list of commands for the `build` phase, add a `buildspec.yml` file to the source code root directory, add the commands to the file, and then choose **Use the buildspec\.yml in the source code root directory**\.
+   + If your source code does not include a buildspec file, or if you want to run build commands different from the ones specified for the `build` phase in the `buildspec.yml` file in the source code's root directory, choose **Insert build commands**\. For **Build command**, enter the commands you want to run in the `build` phase\. For multiple commands, separate each command by `&&` \(for example, `mvn test && mvn package`\)\. To run commands in other phases, or if you have a long list of commands for the `build` phase, add a `buildspec.yml` file to the source code root directory, add the commands to the file, and then choose **Use the buildspec\.yml in the source code root directory**\.
 
    For more information, see the [Build Spec Reference](build-spec-ref.md)\.
 
@@ -74,11 +74,23 @@ Answer the questions in [Plan a Build](planning.md)\.
    + If you do not want to use a cache, choose **No cache**\.
    + To use a cache, choose **Amazon S3**, and then do the following:
      + For **Bucket**, choose the name of the Amazon S3 bucket where the cache is stored\.
-     + \(Optional\) For **Path prefix**, type an Amazon S3 path prefix\. The **Path prefix** value is similar to a directory name\. It makes it possible for you to store the cache under the same directory in a bucket\. 
+     + \(Optional\) For **Path prefix**, enter an Amazon S3 path prefix\. The **Path prefix** value is similar to a directory name\. It makes it possible for you to store the cache under the same directory in a bucket\. 
 **Important**  
 Do not append "/" to the end of the path prefix\.
 
    Using a cache saves considerable build time because reusable pieces of the build environment are stored in the cache and used across builds\. For information about specifying a cache in the buildspec file, see [Build Spec Syntax](build-spec-ref.md#build-spec-ref-syntax)\. 
+
+1. In **Logs**, choose the logs you want to create\. You can create Amazon CloudWatch Logs, Amazon S3 logs, or both\. 
+
+   If you want Amazon CloudWatch Logs logs:
+   +  Select **CloudWatch logs**\. 
+   +  In **Group name**, enter the name of your Amazon CloudWatch Logs log group\. 
+   +  In **Stream name**, enter your Amazon CloudWatch Logs log stream name\. 
+
+    If you want Amazon S3 logs: 
+   +  Select **S3 logs**\. 
+   +  From **Bucket**, choose the name of the S3 bucket for your logs\. 
+   +  In **Path prefix**, enter the prefix for your logs\. 
 
 1. In **Service role**, do one of the following:
    + If you do not have an AWS CodeBuild service role, choose **Create a service role in your account**\. In **Role name**, accept the default name or type your own\.
@@ -103,7 +115,7 @@ If you arrived at this page by choosing **Get started** from a welcome page, the
 
 1. \(Optional\) For **Encryption key**, do one of the following:
    + To use the AWS\-managed customer master key \(CMK\) for Amazon S3 in your account to encrypt the build output artifacts, leave **Encryption key** blank\. This is the default\.
-   + To use a customer\-managed CMK to encrypt the build output artifacts, in **Encryption key**, type the ARN of the CMK\. Use the format `arn:aws:kms:region-ID:account-ID:key/key-ID`\.
+   + To use a customer\-managed CMK to encrypt the build output artifacts, in **Encryption key**, enter the ARN of the CMK\. Use the format `arn:aws:kms:region-ID:account-ID:key/key-ID`\.
 
 1. \(Optional\) Select **Privileged** only if you plan to use this build project to build Docker images, and the build environment image you chose is not provided by AWS CodeBuild with Docker support\. Otherwise, all associated builds that attempt to interact with the Docker daemon fail\. You must also start the Docker daemon so that your builds can interact with it\. One way to do this is to initialize the Docker daemon in the `install` phase of your build spec by running the following build commands\. Do not run these commands if you chose a build environment image provided by AWS CodeBuild with Docker support\.
 
@@ -129,7 +141,7 @@ IMAGE\_TAG
 
    We recommend that you store an environment variable with a sensitive value, such as an AWS access key ID, an AWS secret access key, or a password as a parameter in Amazon EC2 Systems Manager Parameter Store\. For **Type**, choose **Parameter Store**\. For **Name**, type an identifier for AWS CodeBuild to reference\. For **Value**, type the parameter's name as stored in Amazon EC2 Systems Manager Parameter Store\. Using a parameter named `/CodeBuild/dockerLoginPassword` as an example, for **Type**, choose **Parameter Store**\. For **Name**, type `LOGIN_PASSWORD`\. For **Value**, type `/CodeBuild/dockerLoginPassword`\. 
 **Important**  
-We recommend that you store parameters in Amazon EC2 Systems Manager Parameter Store with parameter names that start with `/CodeBuild/` \(for example, `/CodeBuild/dockerLoginPassword`\)\. You can use the AWS CodeBuild console to create a parameter in Amazon EC2 Systems Manager\. Choose **Create a parameter**, and then follow the instructions in the dialog box\. \(In that dialog box, for **KMS key**, you can optionally specify the ARN of an AWS KMS key in your account\. Amazon EC2 Systems Manager uses this key to encrypt the parameter's value during storage and decrypt during retrieval\.\) If you use the AWS CodeBuild console to create a parameter, the console starts the parameter name with `/CodeBuild/` as it is being stored\. For more information, see [Systems Manager Parameter Store](http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-paramstore.html) and [Systems Manager Parameter Store Console Walkthrough](http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-walk.html#sysman-paramstore-console) in the *Amazon EC2 Systems Manager User Guide*\.  
+We recommend that you store parameters in Amazon EC2 Systems Manager Parameter Store with parameter names that start with `/CodeBuild/` \(for example, `/CodeBuild/dockerLoginPassword`\)\. You can use the AWS CodeBuild console to create a parameter in Amazon EC2 Systems Manager\. Choose **Create a parameter**, and then follow the instructions in the dialog box\. \(In that dialog box, for **KMS key**, you can optionally specify the ARN of an AWS KMS key in your account\. Amazon EC2 Systems Manager uses this key to encrypt the parameter's value during storage and decrypt during retrieval\.\) If you use the AWS CodeBuild console to create a parameter, the console starts the parameter name with `/CodeBuild/` as it is being stored\. For more information, see [Systems Manager Parameter Store](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-paramstore.html) and [Systems Manager Parameter Store Console Walkthrough](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-walk.html#sysman-paramstore-console) in the *Amazon EC2 Systems Manager User Guide*\.  
 If your build project refers to parameters stored in Amazon EC2 Systems Manager Parameter Store, the build project's service role must allow the `ssm:GetParameters` action\. If you chose **Create a service role in your account** earlier, then AWS CodeBuild includes this action in the default service role for your build project automatically\. However, if you chose **Choose an existing service role from your account**, then you must include this action to your service role separately\.  
 If your build project refers to parameters stored in Amazon EC2 Systems Manager Parameter Store with parameter names that do not start with `/CodeBuild/`, and you chose **Create a service role in your account**, then you must update that service role to allow access to parameter names that do not start with `/CodeBuild/`\. This is because that service role allows access only to parameter names that start with `/CodeBuild/`\.  
 Environment variables you set replace existing environment variables\. For example, if the Docker image already contains an environment variable named `MY_VAR` with a value of `my_value`, and you set an environment variable named `MY_VAR` with a value of `other_value`, then `my_value` is replaced by `other_value`\. Similarly, if the Docker image already contains an environment variable named `PATH` with a value of `/usr/local/sbin:/usr/local/bin`, and you set an environment variable named `PATH` with a value of `$PATH:/usr/share/ant/bin`, then `/usr/local/sbin:/usr/local/bin` is replaced by the literal value `$PATH:/usr/share/ant/bin`\.  
@@ -159,7 +171,7 @@ For information about using the AWS CLI with AWS CodeBuild, see the [Command Lin
 
    JSON\-formatted data appears in the output\. Copy the data to a file \(for example, `create-project.json`\) in a location on the local computer or instance where the AWS CLI is installed\. Modify the copied data as follows, and save your results\.
 **Note**  
- Multiple source and artifacts projects are only available for the Linux enviornment type\. 
+ Multiple source and artifacts projects are only available for the Linux environment type\. 
 
    ```
    {
@@ -190,6 +202,17 @@ For information about using the AWS CLI with AWS CodeBuild, see the [Command Lin
        "type": "cache-type",
        "location": "cache-location"
      },
+     "logsConfig": {
+       "cloudWatchLogs": {
+         "status": "cloudwatch-logs-status",
+         "groupName": "group-name",
+         "streamName": "stream-name"      
+       }
+       "s3Logs": {
+         "status": "s3-logs-status",
+         "location": "s3-logs-location"
+       }
+     }
      "secondaryArtifacts": [
        {
            "type": "artifacts-type",
@@ -199,7 +222,6 @@ For information about using the AWS CLI with AWS CodeBuild, see the [Command Lin
            "name": "artifacts-name",
            "packaging": "packaging",
            "artifactIdentifier": "artifact-identifier"
-       
        }
      ]
      ,
@@ -271,7 +293,7 @@ For information about using the AWS CLI with AWS CodeBuild, see the [Command Lin
      + <a name="cli-sources-gitclonedepth"></a>*gitCloneDepth*: Optional value\. The depth of history to download\. Minimum value is 0\. If this value is 0, greater than 25, or not provided, then the full history is downloaded with each build project\. If your source type is Amazon S3, this value is not supported\.
      + <a name="cli-sources-buildspec"></a>*buildspec*: Optional value\. The build specification definition or file to use\. If this value is set, it can be either an inline buildspec definition or the path to an alternate buildspec file relative to the value of the built\-in `CODEBUILD_SRC_DIR` environment variable\. If this value is not provided or is set to an empty string, then the source code must contain a `buildspec.yml` file in its root directory\. For more information, see [Build Spec File Name and Storage Location](build-spec-ref.md#build-spec-ref-name-storage)\.
      + <a name="cli-sources-auth"></a>*auth*: This object is used by the AWS CodeBuild console only\. Do not specify values for *auth\-type* \(unless *source\-type* is set to `GITHUB`\) or *resource*\.
-     + <a name="cli-sources-reportbuildstatus"></a>*reportBuildStatus*: Optional value\. Specifies whether to send your source provider the status of a build's start and completion\. If you set this with a source provider other than GitHub, an invalidInputException is thrown\.
+     + <a name="cli-sources-reportbuildstatus"></a>*reportBuildStatus*: Optional value\. Specifies whether to send your source provider the status of a build's start and completion\. If you set this with a source provider other than GitHub or Bitbucket, an invalidInputException is thrown\.
      + <a name="cli-sources-insecuressl"></a>*InsecureSsl*: Optional value\. Used with GitHub Enterprise only\. Set this value to `true` to ignore SSL warnings while connecting to your GitHub Enterprise project repository\. The default value is `false`\. *InsecureSsl* should be used for testing purposes only\. It should not be used in a production environment\.
    + <a name="cli-artifacts"></a>For the required `artifacts` object, information about this build project's output artifact settings\. After you add an `artifacts` object, you can add up to 12 more artifacts using the [CodeBuild secondaryArtifacts object](#cli-secondary-artifacts)\. These settings include the following: <a name="cli-artifacts-type"></a>
      + *artifacts\-type*: Required value\. The type of build output artifact\. Valid values include `CODEPIPELINE`, `NO_ARTIFACTS`, and `S3`\.
@@ -296,9 +318,15 @@ For information about using the AWS CLI with AWS CodeBuild, see the [Command Lin
        + If you specified `CODEPIPELINE` for *artifacts\-type*, do not specify a `packaging` for `artifacts`\.
        + If you specified `NO_ARTIFACTS` for *artifacts\-type*, do not specify a `packaging` for `artifacts`\.
        + If you specified `S3` for *artifacts\-type*, valid values include `ZIP` and `NONE`\. To create a ZIP file that contains the build output, use `ZIP`\. To create a folder that contains the build output, use `NONE`\. The default value is `NONE`\.
-   + For the required *cache* object, information about this build project's cache settings\. These settings include the following:
-     + *CacheType*: Required value\. Valid values are `S3` or `NO_CACHE`\.
-     + *CacheLocation*: Required value unless you set *CacheType* to `NONE`\. If you specified S3 for *CacheType*, then this is the ARN of the S3 bucket and the path prefix\. For example, if your Amazon S3 bucket name is `my-bucket`, and your path prefix is `build-cache`, then acceptable formats for your *CacheLocation* are `my-bucket/build-cache` or `aws:s3:::my-bucket/build-cache`\.
+   + For the required `cache` object, information about this build project's cache settings\. These settings include the following:
+     + *cache\-type*: Required value\. Valid values are `S3` or `NO_CACHE`\.
+     + *cache\-location*: Required value unless you set *CacheType* to `NONE`\. If you specified S3 for *CacheType*, then this is the ARN of the S3 bucket and the path prefix\. For example, if your Amazon S3 bucket name is `my-bucket`, and your path prefix is `build-cache`, then acceptable formats for your *CacheLocation* are `my-bucket/build-cache` or `arn:aws:s3:::my-bucket/build-cache`\.
+   + For the `logsConfig` object, information about where this build's logs are located:
+     +  *cloudwatch\-logs\-status*: Required value\. Valid values are `ENABLED` or `DISABLED`\. If its value is `ENABLED` then the following values are required\. For more information, see [Working with Log Groups and Log Streams](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html)\. 
+     +  *group\-name*: The name of the CloudWatch Logs group\. 
+     +  *stream\-name*: The name of the CloudWatch Logs stream\. 
+     +  *s3\-logs\-status*: Required value\. Valid values are `ENABLED` or `DISABLED`\. 
+     +  *s3\-logs\-location*: Required if *s3\-logs\-status* is `ENABLED`\. This is the ARN of an S3 bucket and the path prefix\. For example, if your Amazon S3 bucket name is `my-bucket`, and your path prefix is `build-log`, then acceptable formats for your *s3\-logs\-location* are `my-bucket/build-log` or `arn:aws:s3:::my-bucket/build-log`\. 
    + <a name="cli-secondary-artifacts"></a>For the optional `secondaryArtifacts` object, information about the settings of a secondary artifiact for a build project\. You can add up to 12 secondary artifacts\. The `secondaryArtifacts` uses many of the same settings used by the [CodeBuild artifacts object](#cli-artifacts) object\. The settings are: 
      + *artifacts\-type*: Required value\. This setting is also used by the `artifacts` object\. See [CodeBuild artifact object's type property](#cli-artifacts-type)\.
      + *artifacts\-location*: Required value\. This setting is also used by the `artifacts` object\. See [CodeBuild artifact object's location property](#cli-artifacts-location)\.
@@ -444,4 +472,4 @@ For information about using AWS CodeBuild with the AWS SDKs, see the [AWS SDKs a
 
 ## Create a Build Project \(AWS CloudFormation\)<a name="create-project-cloud-formation"></a>
 
-For information about using AWS CodeBuild with AWS CloudFormation, see [the AWS CloudFormation template for AWS CodeBuild](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html) in the *AWS CloudFormation User Guide*\.
+For information about using AWS CodeBuild with AWS CloudFormation, see [the AWS CloudFormation template for AWS CodeBuild](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html) in the *AWS CloudFormation User Guide*\.

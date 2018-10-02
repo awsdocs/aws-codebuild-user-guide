@@ -32,7 +32,7 @@ Use the information in this topic to help you identify, diagnose, and address is
 + The AWS CodeBuild service role associated with the build project does not exist or does not have sufficient permissions to trust AWS CodeBuild\.
 
  **Recommended solutions:** 
-+ Make sure AWS STS is activated for the AWS region where you are attempting to create or update the build project\. For more information, see [Activating and Deactivating AWS STS in an AWS Region](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html) in the *IAM User Guide*\.
++ Make sure AWS STS is activated for the AWS region where you are attempting to create or update the build project\. For more information, see [Activating and Deactivating AWS STS in an AWS Region](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html) in the *IAM User Guide*\.
 + Make sure the target AWS CodeBuild service role exists in your AWS account\. If you are not using the console, make sure you did not misspell the Amazon Resource Name \(ARN\) of the service role when you created or updated the build project\.
 + Make sure the target AWS CodeBuild service role has sufficient permissions to trust AWS CodeBuild\. For more information, see the trust relationship policy statement in [Create an AWS CodeBuild Service Role](setting-up.md#setting-up-service-role)\.
 
@@ -177,7 +177,7 @@ Use the information in this topic to help you identify, diagnose, and address is
 
 **Possible cause:** Your build is using environment variables that are too large for AWS CodeBuild\. AWS CodeBuild can raise errors once the length of all environment variables \(all names and values added together\) reach a combined maximum of around 5,500 characters\.
 
-**Recommended solution:** Use Amazon EC2 Systems Manager Parameter Store to store large environment variables and then retrieve them from your build spec\. Amazon EC2 Systems Manager Parameter Store can store an individual environment variable \(name and value added together\) that is a combined 4,096 characters or less\. To store large environment variables, see [Systems Manager Parameter Store](http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-paramstore.html) and [Systems Manager Parameter Store Console Walkthrough](http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-walk.html#sysman-paramstore-console) in the *Amazon EC2 Systems Manager User Guide*\. To retrieve them, see the `parameter-store` mapping in [Build Spec Syntax](build-spec-ref.md#build-spec-ref-syntax)\.
+**Recommended solution:** Use Amazon EC2 Systems Manager Parameter Store to store large environment variables and then retrieve them from your build spec\. Amazon EC2 Systems Manager Parameter Store can store an individual environment variable \(name and value added together\) that is a combined 4,096 characters or less\. To store large environment variables, see [Systems Manager Parameter Store](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-paramstore.html) and [Systems Manager Parameter Store Console Walkthrough](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-walk.html#sysman-paramstore-console) in the *Amazon EC2 Systems Manager User Guide*\. To retrieve them, see the `parameter-store` mapping in [Build Spec Syntax](build-spec-ref.md#build-spec-ref-syntax)\.
 
 ## Error: "BUILD\_CONTAINER\_UNABLE\_TO\_PULL\_IMAGE" When Using a Custom Build Image<a name="troubleshooting-unable-to-pull-image"></a>
 
@@ -262,7 +262,7 @@ pre_build:
 + The cache has recently been invalidated via the `InvalidateProjectCache` API\.
 + The service role being used by CodeBuild does not have `s3:GetObject` and `s3:PutObject` permissions to the Amazon S3 bucket that is holding the cache\.
 
-**Recommended solutions:** For first time use, it's normal to see this immediately after updating the cache configuration\. If this error persists, then you should check to see if your service role has `s3:GetObject` and `s3:PutObject` permissions to the Amazon S3 bucket that is holding the cache\. For more information, see [Specifying S3 permissions\.](http://docs.aws.amazon.com/AmazonS3/latest/dev//using-with-s3-actions.html) 
+**Recommended solutions:** For first time use, it's normal to see this immediately after updating the cache configuration\. If this error persists, then you should check to see if your service role has `s3:GetObject` and `s3:PutObject` permissions to the Amazon S3 bucket that is holding the cache\. For more information, see [Specifying S3 permissions\.](https://docs.aws.amazon.com/AmazonS3/latest/dev//using-with-s3-actions.html) 
 
 ## Error: "Unable to download cache: RequestError: send request failed caused by: x509: failed to load system roots and no roots provided"<a name="troubleshooting-cache-image"></a>
 
@@ -325,4 +325,4 @@ We recommend that you use **Insecure SSL** for testing only\. It should not be u
 
 **Possible causes:** The option to report your build's status is not enabled\. 
 
-**Recommended solutions:** Enable **Report build status** when you create or update an AWS CodeBuild project\. This option tells AWS CodeBuild to report back the status when you trigger a build\. For more information, see [reportBuildStatus](http://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSource.html#CodeBuild-Type-ProjectSource-reportBuildStatus)\. 
+**Recommended solutions:** Enable **Report build status** when you create or update an AWS CodeBuild project\. This option tells AWS CodeBuild to report back the status when you trigger a build\. For more information, see [reportBuildStatus](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSource.html#CodeBuild-Type-ProjectSource-reportBuildStatus)\. 

@@ -2,7 +2,7 @@
 
 You can use the following table as a reference when you are setting up [Access Control](auth-and-access-control.md#access-control) and writing permissions policies that you can attach to an IAM identity \(identity\-based policies\)\. 
 
-You can use AWS\-wide condition keys in your AWS CodeBuild policies to express conditions\. For a list, see [Available Keys](http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html#AvailableKeys) in the *IAM User Guide*\.
+You can use AWS\-wide condition keys in your AWS CodeBuild policies to express conditions\. For a list, see [Available Keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html#AvailableKeys) in the *IAM User Guide*\.
 
 You specify the actions in the policy's `Action` field\. To specify an action, use the `codebuild:` prefix followed by the API operation name \(for example, `codebuild:CreateProject` and `codebuild:StartBuild`\)\. To specify multiple actions in a single statement, separate them with commas \(for example, `"Action": [ "codebuild:CreateProject", "codebuild:StartBuild" ]`\)\.
 
