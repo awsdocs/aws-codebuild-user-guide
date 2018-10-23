@@ -170,8 +170,6 @@ For information about using the AWS CLI with AWS CodeBuild, see the [Command Lin
    ```
 
    JSON\-formatted data appears in the output\. Copy the data to a file \(for example, `create-project.json`\) in a location on the local computer or instance where the AWS CLI is installed\. Modify the copied data as follows, and save your results\.
-**Note**  
- Multiple source and artifacts projects are only available for the Linux environment type\. 
 
    ```
    {
