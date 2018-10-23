@@ -26,7 +26,7 @@ Your builds can access any resource that's hosted in your VPC\.
 
 Include these settings in your VPC configuration:
 + For **VPC ID**, choose the VPC ID that AWS CodeBuild uses\.
-+ For **Subnets**, choose the subnets that include resources that AWS CodeBuild uses\.
++ For **Subnets**, choose a private subnet with NAT translation that includes or has routes to the resources used AWS CodeBuild\.
 + For **Security Groups**, choose the security groups that AWS CodeBuild uses to allow access to resources in the VPCs\.
 
 **Create a build project \(console\)**

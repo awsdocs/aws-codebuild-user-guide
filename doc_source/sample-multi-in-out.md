@@ -4,9 +4,6 @@ You can create an AWS CodeBuild build project with more than one input source an
 + Uses multiple sources and repositories of varying types\.
 + Publishes build artifacts to multiple Amazon S3 buckets in a single build\.
 
-**Note**  
- Multiple source and artifacts projects are only available for the Linux environment type\. 
-
  In this sample, you create a build project and use it to run a build\. The sample uses the build project's buildspec file to show you how to incorporate more than one source and create more than one set of artifacts\. 
 
 1.  Upload your sources to one or more Amazon S3 buckets, AWS CodeCommit, GitHub, GitHub Enterprise, or Bitbucket repositories\. 
