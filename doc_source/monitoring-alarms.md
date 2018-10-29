@@ -1,3 +1,9 @@
+--------
+
+A new console design is available for this service\. Although the procedures in this guide were written for the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\.
+
+--------
+
 # Monitoring Builds with CloudWatch Alarms<a name="monitoring-alarms"></a>
 
  You can create a CloudWatch alarm for your builds\. An alarm watches a single metric over a period of time that you specify and performs one or more actions based on the value of the metric relative to a specified threshold over a number of time periods\. Using native CloudWatch alarm functionality, you can specify any of the actions supported by CloudWatch when a threshold is exceeded\. For example, you can specify that an Amazon SNS notification is sent when more than three builds in your account fail within fifteen minutes\. 

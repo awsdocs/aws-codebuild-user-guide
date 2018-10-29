@@ -29,6 +29,7 @@ Amazon's trademarks and trade dress may not be used in
       + [Build Badges Sample with AWS CodeBuild](sample-build-badges.md)
       + [Build Notifications Sample for AWS CodeBuild](sample-build-notifications.md)
       + [Docker in Custom Image Sample for AWS CodeBuild](sample-docker-custom-image.md)
+      + [Amazon Elastic File System Sample for AWS CodeBuild](sample-efs.md)
       + [Multiple Input Sources and Output Artifacts Sample](sample-multi-in-out.md)
       + [AWS CodePipeline Integration with AWS CodeBuild and Multiple Input Sources and Output Artifacts Sample](sample-pipeline-multi-input-output.md)
       + [Using Semantic Versioning to Name Build Artifacts Sample](sample-buildspec-artifact-naming.md)

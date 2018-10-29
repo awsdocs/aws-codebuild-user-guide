@@ -1,3 +1,9 @@
+--------
+
+A new console design is available for this service\. Although the procedures in this guide were written for the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\.
+
+--------
+
 # \.NET Core in Linux Sample for AWS CodeBuild<a name="sample-net-core-linux"></a>
 
 This sample uses a AWS CodeBuild build environment running \.NET Core to build an executable file out of code written in C\#\. 
@@ -98,7 +104,7 @@ namespace HelloWorldSample {
 }
 ```
 
-## Related Resources<a name="w4aab9c48c37c13"></a>
+## Related Resources<a name="w4aac11c48c37c13"></a>
 + For more information about getting started with AWS CodeBuild, see [Getting Started with AWS CodeBuild](getting-started.md)\.
 + For more information about troubleshooting problems with AWS CodeBuild, see [Troubleshooting AWS CodeBuild](troubleshooting.md)\.
 + For more information about limits in AWS CodeBuild, see [Limits for AWS CodeBuild](limits.md)\.

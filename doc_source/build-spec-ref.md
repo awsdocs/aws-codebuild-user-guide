@@ -1,3 +1,9 @@
+--------
+
+A new console design is available for this service\. Although the procedures in this guide were written for the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\.
+
+--------
+
 # Build Specification Reference for AWS CodeBuild<a name="build-spec-ref"></a>
 
 This topic provides important reference information about build specification \(build spec\) files\. A *build spec* is a collection of build commands and related settings, in YAML format, that AWS CodeBuild uses to run a build\. You can include a build spec as part of the source code or you can define a build spec when you create a build project\. For information about how a build spec works, see [How AWS CodeBuild Works](concepts.md#concepts-how-it-works)\.

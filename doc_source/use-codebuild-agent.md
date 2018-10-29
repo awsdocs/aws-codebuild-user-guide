@@ -1,3 +1,9 @@
+--------
+
+A new console design is available for this service\. Although the procedures in this guide were written for the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\.
+
+--------
+
 # Test and Debug Locally with the AWS CodeBuild Agent<a name="use-codebuild-agent"></a>
 
  This topic provides information about how to run the AWS CodeBuild agent and subscribe to notifications about new versions of the agent\. 

@@ -1,3 +1,9 @@
+--------
+
+A new console design is available for this service\. Although the procedures in this guide were written for the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\.
+
+--------
+
 # Docker Images Provided by AWS CodeBuild<a name="build-env-ref-available"></a>
 
 AWS CodeBuild manages the following Docker images that are available in the AWS CodeBuild and AWS CodePipeline consoles\.

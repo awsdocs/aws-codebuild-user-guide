@@ -1,11 +1,18 @@
+--------
+
+A new console design is available for this service\. Although the procedures in this guide were written for the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\.
+
+--------
+
 # AWS CodeBuild User Guide Document History<a name="history"></a>
 
 The following table describes the important changes to the documentation since the last release of AWS CodeBuild\. For notification about updates to this documentation, you can subscribe to an RSS feed\.
 + **Latest API version:** 2016\-10\-06
-+ **Latest documentation update:** October 22, 2018
++ **Latest documentation update:** October 26, 2018
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Amazon EFS sample](#history) |  AWS CodeBuild can mount an Amazon EFS file system during a build using commands in a project's buildspec file\. For more information, see [Amazon EFS Sample for AWS CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/sample-efs.html)\.  | October 26, 2018 | 
 | [BitBucket webhooks](#history) |  AWS CodeBuild now supports webhooks when you use BitBucket for your repository\. For more information, see [Bitbucket Pull Request Sample for AWS CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/sample-bitbucket-pull-request.html)\.  | October 2, 2018 | 
 | [S3 logs](#history) |  AWS CodeBuild now supports build logs in an S3 bucket\. Previously, you could only build logs using CloudWatch Logs\. For more information, see [Create Project](https://docs.aws.amazon.com/codebuild/latest/userguide/create-project.html)\.  | September 17, 2018 | 
 | [Multiple inpout sources and mulitple output artifacts](#history) |  AWS CodeBuild now supports projects that use more than one input source and publish more than one set of artifacts\. For more information, see [ Multiple Input Sources and Output Artifacts Sample](https://docs.aws.amazon.com/codebuild/latest/userguide/sample-multi-in-out.html) and [AWS CodePipeline Integration with AWS CodeBuild and Multiple Input Sources and Output Artifacts Sample](https://docs.aws.amazon.com/codebuild/latest/userguide/sample-pipeline-multi-input-output.html)\.  | August 30, 2018 | 

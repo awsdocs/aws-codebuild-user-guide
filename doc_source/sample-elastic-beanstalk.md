@@ -1,3 +1,9 @@
+--------
+
+A new console design is available for this service\. Although the procedures in this guide were written for the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\.
+
+--------
+
 # AWS Elastic Beanstalk Sample for AWS CodeBuild<a name="sample-elastic-beanstalk"></a>
 
 This sample instructs AWS CodeBuild to use Maven to produce as build output a single WAR file named `my-web-app.war`\. This sample then deploys the WAR file to the instances in an Elastic Beanstalk environment\.
@@ -304,7 +310,7 @@ In this step, you will add an Elastic Beanstalk configuration file and a build s
 
 If you want, you can make changes to the source code and then run the eb deploy command from the same directory\. The EB CLI performs the same steps as the eb create command, but it deploys the build output to the existing environment instead of creating a new environment\.
 
-## Related Resources<a name="w4aab9c45c50c15"></a>
+## Related Resources<a name="w4aac11c45c53c15"></a>
 + For more information about getting started with AWS CodeBuild, see [Getting Started with AWS CodeBuild](getting-started.md)\.
 + For more information about troubleshooting problems with AWS CodeBuild, see [Troubleshooting AWS CodeBuild](troubleshooting.md)\.
 + For more information about limits in AWS CodeBuild, see [Limits for AWS CodeBuild](limits.md)\.

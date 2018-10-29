@@ -1,3 +1,9 @@
+--------
+
+A new console design is available for this service\. Although the procedures in this guide were written for the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\.
+
+--------
+
 # Go Hello World Sample for AWS CodeBuild<a name="sample-go-hw"></a>
 
 This Go sample produces as build output a single binary file named `hello`\.
@@ -12,7 +18,7 @@ Running this sample may result in charges to your AWS account\. These include po
 + [Running the Sample](#sample-go-hw-running)
 + [Directory Structure](#sample-go-hw-dir)
 + [Files](#sample-go-hw-files)
-+ [Related Resources](#w4aab9c48c27c17)
++ [Related Resources](#w4aac11c48c27c17)
 
 ## Running the Sample<a name="sample-go-hw-running"></a>
 
@@ -103,7 +109,7 @@ func main() {
 }
 ```
 
-## Related Resources<a name="w4aab9c48c27c17"></a>
+## Related Resources<a name="w4aac11c48c27c17"></a>
 + For more information about getting started with AWS CodeBuild, see [Getting Started with AWS CodeBuild](getting-started.md)\.
 + For more information about troubleshooting problems with AWS CodeBuild, see [Troubleshooting AWS CodeBuild](troubleshooting.md)\.
 + For more information about limits in AWS CodeBuild, see [Limits for AWS CodeBuild](limits.md)\.

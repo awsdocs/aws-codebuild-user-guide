@@ -1,3 +1,9 @@
+--------
+
+A new console design is available for this service\. Although the procedures in this guide were written for the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\.
+
+--------
+
 # AWS CodePipeline Integration with AWS CodeBuild and Multiple Input Sources and Output Artifacts Sample<a name="sample-pipeline-multi-input-output"></a>
 
 An AWS CodeBuild project can take more than one input source\. It can also create more than one output artifact\. This sample demonstrates how to use AWS CodePipeline to create a build project that uses multiple input sources to create multiple output artifacts\. For more information, see [Multiple Input Sources and Output Artifacts Sample](sample-multi-in-out.md)\.

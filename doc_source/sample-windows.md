@@ -1,3 +1,9 @@
+--------
+
+A new console design is available for this service\. Although the procedures in this guide were written for the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\.
+
+--------
+
 # Microsoft Windows Samples for AWS CodeBuild<a name="sample-windows"></a>
 
 These samples use an AWS CodeBuild build environment running Microsoft Windows Server 2016, the Microsoft \.NET Framework, and the \.NET Core SDK to build executables file out of code written in C\#, F\#, and Visual Basic\. 

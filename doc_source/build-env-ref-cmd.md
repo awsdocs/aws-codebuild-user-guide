@@ -1,3 +1,9 @@
+--------
+
+A new console design is available for this service\. Although the procedures in this guide were written for the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\.
+
+--------
+
 # Shells and Commands in Build Environments<a name="build-env-ref-cmd"></a>
 
 You provide a set of commands for AWS CodeBuild to run in a build environment during the lifecycle of a build \(for example, installing build dependencies and testing and compiling your source code\)\. There are several ways to specify these commands:

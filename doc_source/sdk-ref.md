@@ -1,3 +1,9 @@
+--------
+
+A new console design is available for this service\. Although the procedures in this guide were written for the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\.
+
+--------
+
 # AWS SDKs and Tools Reference for AWS CodeBuild<a name="sdk-ref"></a>
 
 To use one the AWS SDKs or tools to automate AWS CodeBuild, see the following resources\.

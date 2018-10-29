@@ -1,3 +1,9 @@
+--------
+
+A new console design is available for this service\. Although the procedures in this guide were written for the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\.
+
+--------
+
 # Amazon ECR Sample for AWS CodeBuild<a name="sample-ecr"></a>
 
 This sample uses a Docker image in an Amazon Elastic Container Registry \(Amazon ECR\) image repository to build the [Go Sample](sample-go-hw.md) for AWS CodeBuild\.
@@ -113,7 +119,7 @@ The IAM entity that modifies this policy must have permission in IAM to modify p
 
 1. Download the `GoOutputArtifact.zip` file to your local computer or instance, and then extract the contents of the `GoOutputArtifact.zip` file\. In the extracted contents, get the `hello` file\.
 
-## Related Resources<a name="w4aab9c45b7b9"></a>
+## Related Resources<a name="w4aac11c45b7b9"></a>
 + For more information about getting started with AWS CodeBuild, see [Getting Started with AWS CodeBuild](getting-started.md)\.
 + For more information about troubleshooting problems with AWS CodeBuild, see [Troubleshooting AWS CodeBuild](troubleshooting.md)\.
 + For more information about limits in AWS CodeBuild, see [Limits for AWS CodeBuild](limits.md)\.

@@ -1,3 +1,9 @@
+--------
+
+A new console design is available for this service\. Although the procedures in this guide were written for the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\.
+
+--------
+
 # Getting Started with AWS CodeBuild<a name="getting-started"></a>
 
 In this walkthrough, you will use AWS CodeBuild to build a collection of sample source code input files \(which we call *build input artifacts* or *build input*\) into a deployable version of the source code \(which we call *build output artifact* or *build output*\)\. Specifically, you will instruct AWS CodeBuild to use Apache Maven, a common build tool, to build a set of Java class files into a Java Archive \(JAR\) file\. You do not need to be familiar with Apache Maven or Java to complete this walkthrough\.

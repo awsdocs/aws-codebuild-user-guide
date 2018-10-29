@@ -1,3 +1,9 @@
+--------
+
+A new console design is available for this service\. Although the procedures in this guide were written for the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\.
+
+--------
+
 # Build Badges Sample with AWS CodeBuild<a name="sample-build-badges"></a>
 
 AWS CodeBuild now supports the use of build badges, which provide an embeddable, dynamically generated image \(*badge*\) that displays the status of the latest build for a project\. This image is accessible through a publicly available URL generated for your AWS CodeBuild project\. This allows anyone to view the status of an AWS CodeBuild project\. Build badges do not contain any security information, so they do not require authentication\.

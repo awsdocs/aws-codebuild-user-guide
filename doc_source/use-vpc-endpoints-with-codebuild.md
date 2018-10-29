@@ -1,3 +1,9 @@
+--------
+
+A new console design is available for this service\. Although the procedures in this guide were written for the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\.
+
+--------
+
 # Use VPC Endpoints<a name="use-vpc-endpoints-with-codebuild"></a>
 
  You can improve the security of your builds by configuring AWS CodeBuild to use an interface VPC endpoint\. Interface endpoints are powered by PrivateLink, a technology that enables you to privately access Amazon EC2 and AWS CodeBuild by using private IP addresses\. PrivateLink restricts all network traffic between your managed instances, AWS CodeBuild, and Amazon EC2 to the Amazon network \(managed instances don't have access to the internet\)\. Also, you don't need an Internet gateway, a NAT device, or a virtual private gateway\. You are not required to configure PrivateLink, but it's recommended\. For more information about Private Link and VPC endpoints, see [ Accessing AWS Services Through PrivateLink ](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Introduction.html#what-is-privatelink)\. 

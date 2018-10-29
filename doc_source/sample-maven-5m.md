@@ -1,3 +1,9 @@
+--------
+
+A new console design is available for this service\. Although the procedures in this guide were written for the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\.
+
+--------
+
 # Maven in 5 Minutes Sample for AWS CodeBuild<a name="sample-maven-5m"></a>
 
 This Maven sample produces as build output a single JAR file named `my-app-1.0-SNAPSHOT.jar`\. This sample is based on the [Maven in 5 Minutes](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html) topic on the Apache Maven website\.
@@ -115,7 +121,7 @@ If you are using an Amazon S3 input bucket, be sure to create a ZIP file that co
 
 1. Download the `MavenIn5MinutesOutputArtifact.zip` file to your local computer or instance, and then extract the contents of the `MavenIn5MinutesOutputArtifact.zip` file\. In the extracted contents, open the `target` folder to get the `my-app-1.0-SNAPSHOT.jar` file\. 
 
-## Related Resources<a name="w4aab9c48c29b9"></a>
+## Related Resources<a name="w4aac11c48c29b9"></a>
 + For more information about getting started with AWS CodeBuild, see [Getting Started with AWS CodeBuild](getting-started.md)\.
 + For more information about troubleshooting problems with AWS CodeBuild, see [Troubleshooting AWS CodeBuild](troubleshooting.md)\.
 + For more information about limits in AWS CodeBuild, see [Limits for AWS CodeBuild](limits.md)\.

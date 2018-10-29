@@ -1,3 +1,9 @@
+--------
+
+A new console design is available for this service\. Although the procedures in this guide were written for the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\.
+
+--------
+
 # AWS CodeBuild Use Case\-Based Samples<a name="use-case-based-samples"></a>
 
 You can use these use case\-based samples to experiment with AWS CodeBuild:
@@ -9,6 +15,7 @@ You can use these use case\-based samples to experiment with AWS CodeBuild:
 | --- | --- | 
 | [Amazon ECR Sample](sample-ecr.md) | Uses a Docker image in an Amazon ECR repository to use Apache Maven to produce a single JAR file\. | 
 | [Docker Sample](sample-docker.md) | Uses a build image provided by AWS CodeBuild with Docker support to produce a Docker image with Apache Maven\. Pushes the Docker image to a repository in Amazon ECR\. You can also adapt this sample to push the Docker image to Docker Hub\. | 
+| [Amazon EFS Sample](sample-efs.md) | Shows how to configure a buildspec file so that an AWS CodeBuild project mounts and builds on an Amazon EFS file system\. | 
 | [GitHub Enterprise Sample](sample-github-enterprise.md) | Uses AWS CodeBuild with GitHub Enterprise as the source repository, with certificates installed and webhooks enabled, to rebuild the source code every time a code change is pushed to the repository\. | 
 | [GitHub Pull Request Sample](sample-github-pull-request.md) | Uses AWS CodeBuild with GitHub as the source repository and webhooks enabled, to rebuild the source code every time a code change is pushed to the repository\. | 
 | [Bitbucket Pull Request Sample](sample-bitbucket-pull-request.md) | Uses AWS CodeBuild with Bitbucket as the source repository and webhooks enabled, to rebuild the source code every time a code change is pushed to the repository\. | 

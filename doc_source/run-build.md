@@ -1,3 +1,9 @@
+--------
+
+A new console design is available for this service\. Although the procedures in this guide were written for the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\.
+
+--------
+
 # Run a Build in AWS CodeBuild<a name="run-build"></a>
 
 You can use the AWS CodeBuild console, AWS CLI, or AWS SDKs to run a build in AWS CodeBuild\.

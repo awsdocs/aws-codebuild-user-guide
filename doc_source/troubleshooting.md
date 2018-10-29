@@ -1,3 +1,9 @@
+--------
+
+A new console design is available for this service\. Although the procedures in this guide were written for the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\.
+
+--------
+
 # Troubleshooting AWS CodeBuild<a name="troubleshooting"></a>
 
 Use the information in this topic to help you identify, diagnose, and address issues\.

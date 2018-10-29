@@ -1,3 +1,9 @@
+--------
+
+A new console design is available for this service\. Although the procedures in this guide were written for the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\.
+
+--------
+
 # Plan a Build for AWS CodeBuild<a name="planning"></a>
 
 Before you run your build with AWS CodeBuild, you must answer these questions:

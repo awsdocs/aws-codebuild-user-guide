@@ -1,3 +1,9 @@
+--------
+
+A new console design is available for this service\. Although the procedures in this guide were written for the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\.
+
+--------
+
 # GitHub Enterprise Sample for AWS CodeBuild<a name="sample-github-enterprise"></a>
 
 AWS CodeBuild now supports GitHub Enterprise as a source repository\. This sample describes how to set up your AWS CodeBuild projects when your GitHub Enterprise repository has a certificate installed\. It also explains how to enable webhooks so that AWS CodeBuild rebuilds the source code every time a code change is pushed to your private GitHub Enterprise repository\.

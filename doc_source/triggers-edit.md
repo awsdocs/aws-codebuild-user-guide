@@ -1,3 +1,9 @@
+--------
+
+A new console design is available for this service\. Although the procedures in this guide were written for the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\.
+
+--------
+
 # Edit AWS CodeBuild Triggers<a name="triggers-edit"></a>
 
  You can edit a trigger on a project to schedule a build once every hour, day, or week\. You can also edit a trigger to use a custom rule with an Amazon CloudWatch cron expression\. For example, using a cron expression, you can schedule a build at a specific time on every weekday\. For information about creating a trigger, see [Create AWS CodeBuild Triggers](trigger-create.md)\.

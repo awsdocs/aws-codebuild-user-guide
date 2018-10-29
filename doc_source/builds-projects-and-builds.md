@@ -1,3 +1,9 @@
+--------
+
+A new console design is available for this service\. Although the procedures in this guide were written for the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\.
+
+--------
+
 # Working with Build Projects and Builds in AWS CodeBuild<a name="builds-projects-and-builds"></a>
 
  To get started, follow the steps in [Create a Build Project](create-project.md), and then follow the steps in [Run a Build](run-build.md)\. For more information about build projects and builds, see the following topics\.

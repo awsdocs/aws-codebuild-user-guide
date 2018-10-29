@@ -1,3 +1,9 @@
+--------
+
+A new console design is available for this service\. Although the procedures in this guide were written for the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\.
+
+--------
+
 # Delete Builds in AWS CodeBuild<a name="delete-builds"></a>
 
 To delete builds in AWS CodeBuild, you can use the AWS CLI, or the AWS SDKs\.

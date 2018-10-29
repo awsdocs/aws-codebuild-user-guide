@@ -1,3 +1,9 @@
+--------
+
+A new console design is available for this service\. Although the procedures in this guide were written for the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\.
+
+--------
+
 # GitHub Pull Request Sample for AWS CodeBuild<a name="sample-github-pull-request"></a>
 
 AWS CodeBuild supports webhooks when the source repository is GitHub\. This means that for an AWS CodeBuild build project that has its source code stored in a private GitHub repository, the use of webhooks enables AWS CodeBuild to begin rebuilding the source code every time a code change is pushed to the private repository\.

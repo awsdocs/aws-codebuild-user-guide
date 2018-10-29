@@ -1,3 +1,9 @@
+--------
+
+A new console design is available for this service\. Although the procedures in this guide were written for the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\.
+
+--------
+
 # Logging AWS CodeBuild API Calls with AWS CloudTrail<a name="cloudtrail"></a>
 
 AWS CodeBuild is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in AWS CodeBuild\. CloudTrail captures all API calls for AWS CodeBuild as events, including calls from the AWS CodeBuild console and from code calls to the AWS CodeBuild APIs\. If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for AWS CodeBuild\. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**\. Using the information collected by CloudTrail, you can determine the request that was made to AWS CodeBuild, the IP address from which the request was made, who made the request, when it was made, and additional details\. 

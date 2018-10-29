@@ -1,3 +1,9 @@
+--------
+
+A new console design is available for this service\. Although the procedures in this guide were written for the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\.
+
+--------
+
 # Command Line Reference for AWS CodeBuild<a name="cmd-ref"></a>
 
 The AWS CLI provides commands for automating AWS CodeBuild\. Use the information in this topic as a supplement to the [AWS Command Line Interface User Guide](https://docs.aws.amazon.com/cli/latest/userguide/) and the [AWS CLI Reference for AWS CodeBuild](https://docs.aws.amazon.com/cli/latest/reference/codebuild/)\.

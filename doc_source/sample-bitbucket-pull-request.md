@@ -1,3 +1,9 @@
+--------
+
+A new console design is available for this service\. Although the procedures in this guide were written for the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\.
+
+--------
+
 # Bitbucket Pull Request Sample for AWS CodeBuild<a name="sample-bitbucket-pull-request"></a>
 
 This sample shows you how to create a pull request using a Bitbucket repository\. It also shows you how to use a Bitbucket webhook to trigger AWS CodeBuild to create a build of a project\.

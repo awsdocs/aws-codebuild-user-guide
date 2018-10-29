@@ -1,3 +1,9 @@
+--------
+
+A new console design is available for this service\. Although the procedures in this guide were written for the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\.
+
+--------
+
 # AWS CodeDeploy Sample for AWS CodeBuild<a name="sample-codedeploy"></a>
 
 This sample instructs AWS CodeBuild to use Maven to produce as build output a single JAR file named `my-app-1.0-SNAPSHOT.jar`\. This sample then uses AWS CodeDeploy to deploy the JAR file to an Amazon Linux instance\. \(Alternatively, you can use AWS CodePipeline to automate the use of AWS CodeDeploy to deploy the JAR file to an Amazon Linux instance\.\) This sample is based on the [Maven in 5 Minutes](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html) topic on the Apache Maven website\.
@@ -163,7 +169,7 @@ Do not add `(root directory name)` or `(root directory name)/my-app` to the ZIP 
 
 1. To find the build output artifact after the deployment is complete, sign in to the instance and look in the `/tmp` directory for the file named `my-app-1.0-SNAPSHOT.jar`\.
 
-## Related Resources<a name="w4aab9c45c46b9"></a>
+## Related Resources<a name="w4aac11c45c49b9"></a>
 + For more information about getting started with AWS CodeBuild, see [Getting Started with AWS CodeBuild](getting-started.md)\.
 + For more information about troubleshooting problems with AWS CodeBuild, see [Troubleshooting AWS CodeBuild](troubleshooting.md)\.
 + For more information about limits in AWS CodeBuild, see [Limits for AWS CodeBuild](limits.md)\.

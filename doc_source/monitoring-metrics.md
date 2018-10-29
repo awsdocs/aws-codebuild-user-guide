@@ -1,3 +1,9 @@
+--------
+
+A new console design is available for this service\. Although the procedures in this guide were written for the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\.
+
+--------
+
 # Monitoring Builds with CloudWatch Metrics<a name="monitoring-metrics"></a>
 
  AWS CodeBuild monitors functions on your behalf and reports metrics through Amazon CloudWatch\. These metrics include the number of total builds, failed builds, successful builds, and the duration of builds\. 

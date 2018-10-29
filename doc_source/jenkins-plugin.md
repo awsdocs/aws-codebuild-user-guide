@@ -1,3 +1,9 @@
+--------
+
+A new console design is available for this service\. Although the procedures in this guide were written for the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\.
+
+--------
+
 # Use AWS CodeBuild with Jenkins<a name="jenkins-plugin"></a>
 
 The Jenkins plugin for AWS CodeBuild enables you to integrate AWS CodeBuild with your Jenkins build jobs\. Instead of sending your build jobs to Jenkins build nodes, you use the plugin to send your build jobs to AWS CodeBuild\. This eliminates the need for you to provision, configure, and manage Jenkins build nodes\.
