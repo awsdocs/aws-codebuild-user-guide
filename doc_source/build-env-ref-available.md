@@ -1,6 +1,6 @@
 --------
 
-A new console design is available for this service\. Although the procedures in this guide were written for the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\.
+ The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
 
 --------
 
@@ -9,7 +9,7 @@ A new console design is available for this service\. Although the procedures in 
 AWS CodeBuild manages the following Docker images that are available in the AWS CodeBuild and AWS CodePipeline consoles\.
 
 **Note**  
-If you do not find your image on this page, it most likely contains components that are no longer supported by a vendor\. Images with one or more unsupported components are not available from the AWS CodeBuild console or the AWS CodeBuild SDK\. The images might still be available in the CLI, but they are not supported and will not be updated\.
+If you do not find your image on this page, it most likely contains components that are no longer supported by a vendor\. Images with one or more unsupported components are not available from the AWS CodeBuild console or the AWS CodeBuild SDK\. The images might still be available in the CLI, but they are not supported and are not updated\.
 
 
 ****  
@@ -83,13 +83,12 @@ AWS CodeBuild also manages the following Docker images that are not in the AWS C
 | Amazon Linux 2016\.03, 64\-bit v2\.1\.6 | Ruby | 1\.9\.3 | Bundler, RubyGems | aws/codebuild/eb\-ruby\-1\.9\-amazonlinux\-64:2\.1\.6 | 
 | Amazon Linux 2016\.03, 64\-bit v2\.1\.3 | Ruby | 1\.9\.3 | Bundler, RubyGems | aws/codebuild/eb\-ruby\-1\.9\-amazonlinux\-64:2\.1\.3 | 
 | Amazon Linux 2016\.03, 64\-bit v2\.3\.2 | Ruby | 1\.9 | Bundler, RubyGems | aws/codebuild/eb\-ruby\-1\.9\-amazonlinux\-64:2\.3\.2 | 
-|  For more information about the Docker images that contain `eb-` in their identifier, see [Supported Platforms](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html) and [Platform History](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/platform-history.html) in the *AWS Elastic Beanstalk Developer Guide*\. Docker images that contain `eb-` in their identifier are available for use in Elastic Beanstalk; but are not available in the AWS CodeBuild and AWS CodePipeline consoles\.  | 
+|  For more information about the Docker images that contain `eb-` in their identifier, see [Supported Platforms](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html) and [Platform History](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/platform-history.html) in the *AWS Elastic Beanstalk Developer Guide*\. Docker images that contain `eb-` in their identifier are available for use in Elastic Beanstalk, but are not available in the AWS CodeBuild and AWS CodePipeline consoles\.  | 
 
 You can use a build specification to install other components \(for example, the AWS CLI, Apache Maven, Apache Ant, Mocha, RSpec, or similar\) during the `install` build phase\. For more information, see [Build Spec Example](build-spec-ref.md#build-spec-ref-example)\.
 
 AWS CodeBuild frequently updates the list of Docker images\. To get the most current list, do one of the following:
-+ In the AWS CodeBuild console, in the **Create project** wizard or **Update project** page, for **Environment image**, choose **Use an image managed by AWS CodeBuild**\. Choose from the **Operating system**, **Runtime**, and **Version** drop\-down lists\. For more information, see [Create a Build Project \(Console\)](create-project.md#create-project-console) or [Change a Build Project's Settings \(Console\)](change-project.md#change-project-console)\.
-+ In the AWS CodePipeline console, in the **Create pipeline** wizard on the **Step 3: Build** page, or in the **AWS CodeBuild** section of the **Add action** or **Edit action** pane, choose **Create a new build project**\. In **Environment: How to build**, for **Environment image**, choose **Use an image managed by AWS CodeBuild**\. Choose from the **Operating system**, **Runtime**, and **Version** drop\-down lists\. For more information, see [Create a Pipeline that Uses AWS CodeBuild \(AWS CodePipeline Console\)](how-to-create-pipeline.md#how-to-create-pipeline-console) or [Add an AWS CodeBuild Build Action to a Pipeline \(AWS CodePipeline Console\)](how-to-create-pipeline.md#how-to-create-pipeline-add)\.
++ In the AWS CodeBuild console, in the **Create build project** wizard or **Edit Build Project** page, for **Environment image**, choose **Managed image**\. Choose from the **Operating system**, **Runtime**, and **Runtime version** drop\-down lists\. For more information, see [Create a Build Project \(Console\)](create-project.md#create-project-console) or [Change a Build Project's Settings \(Console\)](change-project.md#change-project-console)\.
 + For the AWS CLI, run the `list-curated-environment-images` command:
 
   ```
@@ -97,7 +96,7 @@ AWS CodeBuild frequently updates the list of Docker images\. To get the most cur
   ```
 + For the AWS SDKs, call the `ListCuratedEnvironmentImages` operation for your target programming language\. For more information, see the [AWS SDKs and Tools Reference](sdk-ref.md)\.
 
-To confirm the version of a component installed on a Docker image, you can run a command during a build\. The version number for the component will appear in the output\. For example, include one or more of the following commands in your build specification:
+To confirm the version of a component installed on a Docker image, you can run a command during a build\. The version number for the component appears in the output\. For example, include one or more of the following commands in your build specification:
 + For the Microsoft \.NET Framework, run `reg query "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP"`\.
 + For \.NET Core, run `dotnet --version`\.
 + For Apache Ant, run `ant -version`\.

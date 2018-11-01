@@ -1,6 +1,6 @@
 --------
 
-A new console design is available for this service\. Although the procedures in this guide were written for the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\.
+ The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
 
 --------
 
@@ -38,6 +38,8 @@ The build spec has the following syntax:
 ```
 version: 0.2
 
+run-as: Linux-user-name
+
 env:
   variables:
     key: "value"
@@ -48,6 +50,7 @@ env:
             
 phases:
   install:
+    run-as: Linux-user-name
     commands:
       - command
       - command
@@ -55,6 +58,7 @@ phases:
       - command
       - command
   pre_build:
+    run-as: Linux-user-name
     commands:
       - command
       - command
@@ -62,6 +66,7 @@ phases:
       - command
       - command
   build:
+    run-as: Linux-user-name
     commands:
       - command
       - command
@@ -69,6 +74,7 @@ phases:
       - command
       - command
   post_build:
+    run-as: Linux-user-name
     commands:
       - command
       - command
@@ -105,6 +111,7 @@ The build spec contains the following:
 + `version`: Required mapping\. Represents the build spec version\. We recommend that you use `0.2`\.
 **Note**  
 Although version 0\.1 is still supported, we recommend that you use version 0\.2 whenever possible\. For more information, see [Build Spec Versions](#build-spec-ref-versions)\.
++ `run-as`: Optional sequence\. Available to Linux users only\. Specifies a Linux user that runs commands in this buildspec file\. `run-as` grants the specified user read and execute perimissions\. When you specify `run-as` at the top of the buildspec file, it applies globally to all commands\. If you don't want to specify a user for all buildspec file commands, you can specify one for commands in a phase by using `run-as` in one of the `phases` blocks\. If `run-as` is not specified, then all commands run as the root\.
 + `env`: Optional sequence\. Represents information for one or more custom environment variables\.
   + `variables`: Required if `env` is specified, and you want to define custom environment variables in plain text\. Contains a mapping of *key*/*value* scalars, where each mapping represents a single custom environment variable in plain text\. *key* is the name of the custom environment variable, and *value* is that variable's value\.
 **Important**  
@@ -127,6 +134,7 @@ The value in the build spec declaration takes lowest precedence\.
 + `phases`: Required sequence\. Represents the commands AWS CodeBuild runs during each phase of the build\. 
 **Note**  
 In build spec version 0\.1, AWS CodeBuild runs each command in a separate instance of the default shell in the build environment\. This means that each command runs in isolation from all other commands\. Therefore, by default, you cannot run a single command that relies on the state of any previous commands \(for example, changing directories or setting environment variables\)\. To get around this limitation, we recommend that you use version 0\.2, which solves this issue\. If you must use build spec version 0\.1, we recommend the approaches in [Shells and Commands in Build Environments](build-env-ref-cmd.md)\.
+  + `run-as`: Optional sequence\. Use in a build phase to specify a Linux user that runs its commands\. If `run-as` is also specified globally for all commands at the top of the buildspec file, then the phase\-level user takes precedence\. For example, if globally `run-as` specifies User\-1, and for the `install` phase only a `run-as` statement specifies User\-2, then all commands in then buildspec file are run as User\-1 *except* commands in the `install` phase, which are run as User\-2\.
 
   The allowed build phase names are:
   + `install`: Optional sequence\. Represents the commands, if any, that AWS CodeBuild runs during installation\. We recommend that you use the `install` phase only for installing packages in the build environment\. For example, you might use this phase to install a code testing framework such as Mocha or RSpec\.
@@ -297,7 +305,7 @@ Commands in some build phases might not be run if commands in earlier build phas
 Because a build spec declaration must be valid YAML, the spacing in a build spec declaration is important\. If the number of spaces in your build spec declaration is invalid, builds might fail immediately\. You can use a YAML validator to test whether your build spec declarations are valid YAML\.   
 If you use the AWS CLI, or the AWS SDKs to declare a build spec when you create or update a build project, the build spec must be a single string expressed in YAML format, along with required whitespace and newline escape characters\. There is an example in the next section\.  
 If you use the AWS CodeBuild or AWS CodePipeline consoles instead of a buildspec\.yml file, you can insert commands for the `build` phase only\. Instead of using the preceding syntax, you list, in a single line, all of the commands that you want to run during the build phase\. For multiple commands, separate each command by `&&` \(for example, `mvn test && mvn package`\)\.  
-You can use the AWS CodeBuild or AWS CodePipeline consoles instead of a buildspec\.yml file to specify the locations of the build output artifacts in the build environment\. Instead of using the preceding syntax, you list, in a single line, all of the locations\. For multiple locations, separate each location with a comma \(for example, `appspec.yml, target/my-app.jar`\)\. 
+You can use the AWS CodeBuild or AWS CodePipeline consoles instead of a buildspec\.yml file to specify the locations of the build output artifacts in the build environment\. Instead of using the preceding syntax, you list, in a single line, all of the locations\. For multiple locations, separate each location with a comma \(for example, `buildspec.yml, target/my-app.jar`\)\. 
 
 ## Build Spec Example<a name="build-spec-ref-example"></a>
 

@@ -1,6 +1,6 @@
 --------
 
-A new console design is available for this service\. Although the procedures in this guide were written for the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\.
+ The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
 
 --------
 
@@ -264,7 +264,7 @@ To stop using a rule to send build notifications, in the CloudWatch console, cho
 
 To delete a rule altogether, in the CloudWatch console, choose the rule you want to delete, and then choose **Actions**, **Delete**\.
 
-### Related Resources<a name="w4aac11c45c26b9c12"></a>
+### Related Resources<a name="w4aac11c45c21b9c12"></a>
 + For more information about getting started with AWS CodeBuild, see [Getting Started with AWS CodeBuild](getting-started.md)\.
 + For more information about troubleshooting problems with AWS CodeBuild, see [Troubleshooting AWS CodeBuild](troubleshooting.md)\.
 + For more information about limits in AWS CodeBuild, see [Limits for AWS CodeBuild](limits.md)\.

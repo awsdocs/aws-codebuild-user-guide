@@ -1,6 +1,6 @@
 --------
 
-A new console design is available for this service\. Although the procedures in this guide were written for the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\.
+ The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
 
 --------
 
@@ -17,25 +17,25 @@ You can use the AWS CodeBuild console, AWS CLI, or AWS SDKs to view a list of bu
 
 1. Open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codebuild/](https://console.aws.amazon.com/codebuild/)\.
 
-1. In the navigation pane, choose **Build projects**\. In the list of build projects, in the **Project** column, choose the build project\. 
+1. In the navigation pane, choose **Build projects**\. In the list of build projects, in the **Name** column, choose the build project\. 
 
 **Note**  
-By default, only the ten most recent builds or build projects are displayed\. To view more builds or build projects, select a different value for **Builds per page** or **Projects per page** or select the back and forward arrows for **Viewing builds** or **Viewing projects**\.
+By default, only the most recent 100 builds or build projects are displayed\. To view more builds or build projects, choose the gear icon, and then choose a different value for **Builds per page** or **Projects per page** or use the back and forward arrows\.
 
 ## View a List of Build IDs for a Build Project \(AWS CLI\)<a name="view-builds-for-project-cli"></a>
 
 For more information about using the AWS CLI with AWS CodeBuild, see the [Command Line Reference](cmd-ref.md)\.
 
-Run the `list-builds-for-project` command, as follows:
+Run the list\-builds\-for\-project command, as follows:
 
 ```
 aws codebuild list-builds-for-project --project-name project-name --sort-order sort-order --next-token next-token
 ```
 
 In the preceding command, replace the following placeholders:
-+ *project\-name*: Required string\. The name of the build project to list builds IDs for\. To get a list of build projects, see [View a List of Build Project Names \(AWS CLI\)](view-project-list.md#view-project-list-cli)\.
-+ *sort\-order*: Optional string\. How to list the build IDs\. Valid values include `ASCENDING` and `DESCENDING`\.
-+ *next\-token*: Optional string\. During a previous run, if there were more than 100 items in the list, only the first 100 items are returned, along with a unique string called a *next token*\. To get the next batch of items in the list, run this command again, adding the next token to the call\. To get all of the items in the list, keep running this command with each subsequent next token that is returned, until no more next tokens are returned\.
++ *project\-name*: Required string used to indicate the name of the build project to list builds IDs for\. To get a list of build projects, see [View a List of Build Project Names \(AWS CLI\)](view-project-list.md#view-project-list-cli)\.
++ *sort\-order*: Optional string used to indicate how to list the build IDs\. Valid values include `ASCENDING` and `DESCENDING`\.
++ *next\-token*: Optional string\. During a previous run, if there were more than 100 items in the list, only the first 100 items are returned, along with a unique string called *next token*\. To get the next batch of items in the list, run this command again, adding the next token to the call\. To get all of the items in the list, keep running this command with each subsequent next token that is returned, until no more next tokens are returned\.
 
 For example, if you run this command similar to this:
 
@@ -63,7 +63,7 @@ If you run this command again:
 aws codebuild list-builds-for-project --project-name codebuild-demo-project --sort-order ASCENDING --next-token 4AEA6u7J...The full token has been omitted for brevity...MzY2OA==
 ```
 
-A result like the following might be output:
+You might see a result like the following in the output:
 
 ```
 {

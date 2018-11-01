@@ -1,6 +1,6 @@
 --------
 
-A new console design is available for this service\. Although the procedures in this guide were written for the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\.
+ The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
 
 --------
 
@@ -207,7 +207,7 @@ This policy allows access to all AWS CodeBuild actions and to a potentially larg
 
 You need an AWS CodeBuild service role so that AWS CodeBuild can interact with dependent AWS services on your behalf\. You can create an AWS CodeBuild service role by using the AWS CodeBuild or AWS CodePipeline consoles\. For information, see:
 + [Create a Build Project \(Console\)](create-project.md#create-project-console)
-+ [Create a Pipeline that Uses AWS CodeBuild \(AWS CodePipeline Console\)](how-to-create-pipeline.md#how-to-create-pipeline-console)
++ [Create a Pipeline That Uses AWS CodeBuild \(AWS CodePipeline Console\)](how-to-create-pipeline.md#how-to-create-pipeline-console)
 + [Add an AWS CodeBuild Build Action to a Pipeline \(AWS CodePipeline Console\)](how-to-create-pipeline.md#how-to-create-pipeline-add)
 + [Change a Build Project's Settings \(Console\)](change-project.md#change-project-console)
 

@@ -1,6 +1,6 @@
 --------
 
-A new console design is available for this service\. Although the procedures in this guide were written for the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\.
+ The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
 
 --------
 
@@ -17,7 +17,7 @@ Running this sample may result in charges to your AWS account\. These include po
 + [Running the Sample](#sample-docker-custom-image-running)
 + [Directory Structure](#sample-docker-custom-image-dir)
 + [Files](#sample-docker-custom-image-files)
-+ [Related Resources](#w4aac11c45c28c17)
++ [Related Resources](#w4aac11c45c23c17)
 
 ## Running the Sample<a name="sample-docker-custom-image-running"></a>
 
@@ -103,7 +103,7 @@ FROM maven:3.3.9-jdk-8
 RUN echo "Hello World"
 ```
 
-## Related Resources<a name="w4aac11c45c28c17"></a>
+## Related Resources<a name="w4aac11c45c23c17"></a>
 + For more information about getting started with AWS CodeBuild, see [Getting Started with AWS CodeBuild](getting-started.md)\.
 + For more information about troubleshooting problems with AWS CodeBuild, see [Troubleshooting AWS CodeBuild](troubleshooting.md)\.
 + For more information about limits in AWS CodeBuild, see [Limits for AWS CodeBuild](limits.md)\.

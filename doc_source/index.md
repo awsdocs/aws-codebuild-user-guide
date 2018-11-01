@@ -33,7 +33,7 @@ Amazon's trademarks and trade dress may not be used in
       + [Multiple Input Sources and Output Artifacts Sample](sample-multi-in-out.md)
       + [AWS CodePipeline Integration with AWS CodeBuild and Multiple Input Sources and Output Artifacts Sample](sample-pipeline-multi-input-output.md)
       + [Using Semantic Versioning to Name Build Artifacts Sample](sample-buildspec-artifact-naming.md)
-      + [Create a Static Website with Build Output Hosted in an Amazon S3 Bucket.](sample-disable-artifact-encryption.md)
+      + [Create a Static Website with Build Output Hosted in an Amazon S3 Bucket](sample-disable-artifact-encryption.md)
       + [AWS CodeDeploy Sample for AWS CodeBuild](sample-codedeploy.md)
       + [AWS Lambda Sample for AWS CodeBuild](sample-lambda.md)
       + [AWS Elastic Beanstalk Sample for AWS CodeBuild](sample-elastic-beanstalk.md)

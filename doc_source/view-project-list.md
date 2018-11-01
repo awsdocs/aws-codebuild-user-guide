@@ -1,12 +1,12 @@
 --------
 
-A new console design is available for this service\. Although the procedures in this guide were written for the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\.
+ The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
 
 --------
 
 # View a List of Build Project Names in AWS CodeBuild<a name="view-project-list"></a>
 
-To view a list of build projects in AWS CodeBuild, you can use the AWS CodeBuild console, AWS CLI, or AWS SDKs\.
+You can use the AWS CodeBuild console, AWS CLI, or AWS SDKs to view a list of build projects in AWS CodeBuild\.
 
 **Topics**
 + [View a List of Build Project Names \(Console\)](#view-project-list-console)
@@ -15,27 +15,27 @@ To view a list of build projects in AWS CodeBuild, you can use the AWS CodeBuild
 
 ## View a List of Build Project Names \(Console\)<a name="view-project-list-console"></a>
 
-1. Open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codebuild/](https://console.aws.amazon.com/codebuild/)\.
+1. Open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codesuite/codebuild/](https://console.aws.amazon.com/codesuite/codebuild/)\.
 
 1. In the navigation pane, choose **Build projects**\.
 **Note**  
-By default, only the ten most recent build projects are displayed\. To view more build projects, select a different value for **Projects per page** or select the back and forward arrows for **Viewing projects**\.
+By default, only the 10 most recent build projects are displayed\. To view more build projects, choose the gear icon, and then choose a different value for **Projects per page** or use the back and forward arrows\.
 
 ## View a List of Build Project Names \(AWS CLI\)<a name="view-project-list-cli"></a>
 
-Run the `list-projects` command:
+Run the list\-projects command:
 
 ```
 aws codebuild list-projects --sort-by sort-by --sort-order sort-order --next-token next-token
 ```
 
 In the preceding command, replace the following placeholders:
-+ *sort\-by*: Optional string\. The criterion to be used to list build project names\. Valid values include:
++ *sort\-by*: Optional string used to indicate the criterion to be used to list build project names\. Valid values include:
   + `CREATED_TIME`: List the build project names based on when each build project was created\. 
   + `LAST_MODIFIED_TIME`: List the build project names based on when information about each build project was last changed\. 
   + `NAME`: List the build project names based on each build project's name\.
-+ *sort\-order*: Optional string\. The order in which to list build projects, based on *sort\-by*\. Valid values include `ASCENDING` and `DESCENDING`\.
-+ *next\-token*: Optional string\. During a previous run, if there were more than 100 items in the list, only the first 100 items are returned, along with a unique string called a *next token*\. To get the next batch of items in the list, run this command again, adding the next token to the call\. To get all of the items in the list, keep running this command with each subsequent next token, until no more next tokens are returned\.
++ *sort\-order*: Optional string used to indicate the order in which to list build projects, based on *sort\-by*\. Valid values include `ASCENDING` and `DESCENDING`\.
++ *next\-token*: Optional string\. During a previous run, if there were more than 100 items in the list, only the first 100 items are returned, along with a unique string called *next token*\. To get the next batch of items in the list, run this command again, adding the next token to the call\. To get all of the items in the list, keep running this command with each subsequent next token, until no more next tokens are returned\.
 
 For example, if you run this command:
 

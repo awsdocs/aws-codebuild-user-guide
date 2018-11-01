@@ -1,6 +1,6 @@
 --------
 
-A new console design is available for this service\. Although the procedures in this guide were written for the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\.
+ The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
 
 --------
 
@@ -12,17 +12,17 @@ A new console design is available for this service\. Although the procedures in 
 
 **To create a trigger** 
 
-1. Open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codebuild/](https://console.aws.amazon.com/codebuild/)\.
+1. Open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codesuite/codebuild/](https://console.aws.amazon.com/codesuite/codebuild/)\.
 
 1. In the navigation pane, choose **Build projects**\.
 
 1. Choose the link for the build project to which you want to add a trigger, and then choose the **Build triggers** tab\.
 **Note**  
-By default, the 100 most recent build projects are displayed\. To view more build projects, choose a different value for **Projects per page** or choose the back and forward arrows for **Viewing projects**\.
+By default, the 100 most recent build projects are displayed\. To view more build projects, choose the gear icon, and then choose a different value for **Projects per page** or use the back and forward arrows\.
 
 1. Choose **Create trigger**\.
 
-1. Type a name in **Trigger name**\.
+1. Enter a name in **Trigger name**\.
 
 1. From the **Frequency** drop\-down list, choose the frequency for your trigger\. If you want to create a frequency using a cron expression, choose **Custom**\.
 
@@ -34,10 +34,12 @@ By default, the 100 most recent build projects are displayed\. To view more buil
 
 1.  Select **Enable this trigger** to enable the trigger\. 
 
-1.  \(Optional\) In **Source version**, type a version of your source\. 
+1.  \(Optional\) Expand **Advanced section**\. In **Source version**, type a version of your source\. 
    +  For Amazon S3, type the version ID that corresponds to the version of the input artifact you want to build\. If **Source version** is left blank, the latest version is used\. 
    +  For AWS CodeCommit, type a commit ID\. If **Source version** is left blank, the default branch's HEAD commit ID is used\. 
    + For GitHub or GitHub Enterprise, type a commit ID, a pull request ID, a branch name, or a tag name that corresponds to the version of the source code you want to build\. If you specify a pull request ID, it must use the format `pr/pull-request-ID` \(for example, `pr/25`\)\. If you specify a branch name, the branch's HEAD commit ID is used\. If **Source version** is blank, the default branch's HEAD commit ID is used\.
    + For Bitbucket, type a commit ID, a branch name, or a tag name that corresponds to the version of the source code you want to build\. If you specify a branch name, the branch's HEAD commit ID is used\. If **Source version** is blank, the default branch's HEAD commit ID is used\.
 
-1.  \(Optional\) Specify a timeout between 5 minutes and 480 minutes \(8 hours\)\. This value specifies how long AWS CodeBuild attempts a build before it stops\. If **hours** and **minutes** is left blank, the default timeout value specified in the project is used\. 
+1. \(Optional\) Specify a timeout between 5 minutes and 480 minutes \(8 hours\)\. This value specifies how long AWS CodeBuild attempts a build before it stops\. If **Hours** and **Minutes** are left blank, the default timeout value specified in the project is used\. 
+
+1. Choose **Create trigger**\.

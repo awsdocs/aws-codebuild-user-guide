@@ -1,6 +1,6 @@
 --------
 
-A new console design is available for this service\. Although the procedures in this guide were written for the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\.
+ The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
 
 --------
 
@@ -92,6 +92,7 @@ You can use the following sample IAM policies to limit AWS CodeBuild access for 
 + [Allow a User to Attempt to Delete Builds](#customer-managed-policies-example-delete-builds)
 + [Allow a User to Get Information About Docker Images that Are Managed by AWS CodeBuild](#customer-managed-policies-example-list-curated-environment-images)
 + [Allow AWS CodeBuild Access to AWS Services Required to Create a VPC Network Interface](#customer-managed-policies-example-create-vpc-network-interface)
++ [Use a Deny Statement to Prevent AWS CodeBuild from Disconnecting OAuth Accounts](#customer-managed-policies-example-deny-disconnect)
 
 ### Allow a User to Get Information About Build Projects<a name="customer-managed-policies-example-batch-get-projects"></a>
 
@@ -350,5 +351,22 @@ The following example policy statement grants AWS CodeBuild permission to create
             }
         }
     ]
+}
+```
+
+### Use a Deny Statement to Prevent AWS CodeBuild from Disconnecting OAuth Accounts<a name="customer-managed-policies-example-deny-disconnect"></a>
+
+ The following example policy statement uses a deny statement to prevent AWS CodeBuild from disconnecting OAuth accounts\. It uses `codebuild:DeleteOAuthToken`, which is the inverse of `codebuild:PersistOAuthToken` used to connect a new OAuth account\. For more information, see [Permissions Required for the AWS CodeBuild Console to Connect to Source Providers Using OAuth](#console-policies)\. 
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Deny",
+      "Action": "codebuild:DeleteOAuthToken",
+      "Resource": "*"
+    }
+  ]
 }
 ```

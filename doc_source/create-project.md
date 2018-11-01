@@ -1,6 +1,6 @@
 --------
 
-A new console design is available for this service\. Although the procedures in this guide were written for the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\.
+ The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
 
 --------
 
@@ -21,17 +21,13 @@ Answer the questions in [Plan a Build](planning.md)\.
 
 ## Create a Build Project \(Console\)<a name="create-project-console"></a>
 
-1. Open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codebuild/](https://console.aws.amazon.com/codebuild/)\.
+1. Open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codesuite/codebuild/](https://console.aws.amazon.com/codesuite/codebuild/)\.
 
-1. If a welcome page is displayed, choose **Get started** 
+1.  If an AWS CodeBuild information page is displayed, choose **Create project**\. Otherwise, on the navigation pane, choose **Build projects**, and then choose **Create build project**\. 
 
-   If a welcome page is not displayed, on the navigation pane, choose **Build projects**, and then choose **Create project**\.
+1. On the **Create build project** page, in **Project configuration**, for **Project name**, enter a name for this build project\. Build project names must be unique across each AWS account\. You can also include an optional description of the build project to help other users understand what this project is used for\.
 
-1. On the **Configure your project** page, for **Project name**, enter a name for this build project\. Build project names must be unique across each AWS account\.
-
-1. \(Optional\) Choose **Add description**, and then enter a description\.
-
-1.  **Source: What to build**, for **Source provider**, choose the source code provider type\. Use the following table to make selections appropriate for your source provider:  
+1. In **Source**, for **Source provider**, choose the source code provider type\. Use the following table to make selections appropriate for your source provider:  
 ****    
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/codebuild/latest/userguide/create-project.html)
 
@@ -39,31 +35,44 @@ Answer the questions in [Plan a Build](planning.md)\.
 
    1.  Choose **Add source**\. 
 
-   1.  For **Source identifier**,enter a value that is fewer than 128 characters and contains only alphanumeric characters and underscores\.
+   1.  For **Source identifier**, enter a value that is fewer than 128 characters and contains only alphanumeric characters and underscores\.
 
-   1.  For **Source provider**, choose the source code provider type\. Use the table in step 5 to make selections appopropriate for your secondary source provider\. 
+   1.  For **Source provider**, choose the source code provider type\. Use the table in step 5 to make selections appropriate for your secondary source provider\. 
 
-   1.  Choose **Save source**\. 
-
-1. In **Environment: How to build**:
+1. In **Environment**:
 
    For **Environment image**, do one of the following:
-   + To use a Docker image managed by AWS CodeBuild, choose **Use an image managed by AWS CodeBuild**, and then make selections from **Operating system**, **Runtime**, and **Version**\.
-   + To use another Docker image, choose **Specify a Docker image**\. For **Custom image type**, choose **Other** or **Amazon ECR**\. If you choose **Other**, then for **Custom image ID**, enter the name and tag of the Docker image in Docker Hub\. Use this format: `repository-name/image-name:image-tag`\. If you choose **Amazon ECR**, then use **Amazon ECR repository** and **Amazon ECR image** to choose the Docker image in your AWS account\. 
+   + To use a Docker image managed by AWS CodeBuild, choose **Managed image**, and then make selections from **Operating system**, **Runtime**, and **Runtime version**\.
+   + To use another Docker image, choose **Custom image**\. For **Environment type**, choose **Linux** or **Windows**\. For **Custom image type**, choose **Amazon ECR** or **Other location**\. If you choose **Other location**, enter the name and tag of the Docker image in Docker Hub, using the format `docker repository/docker image name`\. If you choose **Amazon ECR**, then use **Amazon ECR repository** and **Amazon ECR image** to choose the Docker image in your AWS account\. 
 
-   For **Build specification**, do one of the following:
-   + If your source code includes a buildspec file, choose **Use the buildspec\.yml in the source code root directory**\.
-   + If your source code does not include a buildspec file, or if you want to run build commands different from the ones specified for the `build` phase in the `buildspec.yml` file in the source code's root directory, choose **Insert build commands**\. For **Build command**, enter the commands you want to run in the `build` phase\. For multiple commands, separate each command by `&&` \(for example, `mvn test && mvn package`\)\. To run commands in other phases, or if you have a long list of commands for the `build` phase, add a `buildspec.yml` file to the source code root directory, add the commands to the file, and then choose **Use the buildspec\.yml in the source code root directory**\.
+1. In **Service role**, do one of the following:
+   + If you do not have an AWS CodeBuild service role, choose **New service role**\. In **Role name**, accept the default name or enter your own\.
+   + If you have an AWS CodeBuild service role, choose **Existing service role**\. In **Role name**, choose the service role\.
+**Note**  
+When you use the console to create or update a build project, you can create an AWS CodeBuild service role at the same time\. By default, the role works with that build project only\. If you use the console to associate this service role with another build project, the role is updated to work with the other build project\. A service role can work with up to 10 build projects\.
+
+1. Expand **Additional configuration**\. In **VPC**, do one of the following:
+   + If you are not using a VPC for your project, choose **No VPC**\.
+   + If you want AWS CodeBuild to work with your VPC:
+     + For **VPC**, choose the VPC ID that AWS CodeBuild uses\.
+     + For **VPC Subnets**, choose the subnets that include resources that AWS CodeBuild uses\.
+     + For **VPC Security groups**, choose the security groups that AWS CodeBuild uses to allow access to resources in the VPCs\.
+
+   For more information, see [Use AWS CodeBuild with Amazon Virtual Private Cloud](vpc-support.md)\.
+
+1. For **Buildspec**, do one of the following:
+   + If your source code includes a buildspec file, choose **Use a buildspec file**\.
+   + If your source code does not include a buildspec file, or if you want to run build commands different from the ones specified for the `build` phase in the `buildspec.yml` file in the source code's root directory, choose **Insert build commands**\. For **Build commands**, enter the commands you want to run in the `build` phase\. For multiple commands, separate each command by `&&` \(for example, `mvn test && mvn package`\)\. To run commands in other phases, or if you have a long list of commands for the `build` phase, add a `buildspec.yml` file to the source code root directory, add the commands to the file, and then choose **Use the buildspec\.yml in the source code root directory**\.
 
    For more information, see the [Build Spec Reference](build-spec-ref.md)\.
 
-1. In **Artifacts: Where to put the artifacts from this build project**, for **Artifacts type**, do one of the following:
+1. In **Artifacts**, for **Artifacts type**, do one of the following:
    + If you do not want to create any build output artifacts, choose **No artifacts**\. You might want to do this if you're only running build tests or you want to push a Docker image to an Amazon ECR repository\.
    + To store the build output in an Amazon S3 bucket, choose **Amazon S3**, and then do the following:
-     + If you want to use your project name for the build output ZIP file or folder, leave **Name** blank\. Otherwise, type the name in **Name**\. \(If you want to output a ZIP file, and you want the ZIP file to have a file extension, be sure to include it after the ZIP file name\.\)
+     + If you want to use your project name for the build output ZIP file or folder, leave **Name** blank\. Otherwise, type enter the name\. \(If you want to output a ZIP file, and you want the ZIP file to have a file extension, be sure to include it after the ZIP file name\.\)
      + Select **Use the name specified in the buildspec file** if you want a name specified in the buildspec file to override any name that is specified in the console\. The name in a buildspec file is calculated at build time and uses the Shell command language\. For example, you can append a date and time to your artifact name so that it is always unique\. Unique artifact names prevent artifacts from being overwritten\. For more information, see [Build Spec Syntax](build-spec-ref.md#build-spec-ref-syntax)\.
      + For **Bucket name**, choose the name of the output bucket\.
-     + If you chose **Insert build commands** earlier in this procedure, then for **Output files**, type the locations of the files from the build that you want to put into the build output ZIP file or folder\. For multiple locations, separate each location with a comma \(for example, `appspec.yml, target/my-app.jar`\)\. For more information, see the description of `files` in [Build Spec Syntax](build-spec-ref.md#build-spec-ref-syntax)\.
+     + If you chose **Insert build commands** earlier in this procedure, then for **Output files**, enter the locations of the files from the build that you want to put into the build output ZIP file or folder\. For multiple locations, separate each location with a comma \(for example, `appspec.yml, target/my-app.jar`\)\. For more information, see the description of `files` in [Build Spec Syntax](build-spec-ref.md#build-spec-ref-syntax)\.
      + If you do not want your build artifacts encrypted, select **Disable artifacts encryption**\.
 
 1. For each secondary set of artifacts you want:
@@ -76,11 +85,13 @@ Answer the questions in [Plan a Build](planning.md)\.
 
    1. Choose **Save artifact**\.
 
+1. Expand **Additional configuration**\.
+
 1. In **Cache**, do one of the following:
    + If you do not want to use a cache, choose **No cache**\.
    + To use a cache, choose **Amazon S3**, and then do the following:
      + For **Bucket**, choose the name of the Amazon S3 bucket where the cache is stored\.
-     + \(Optional\) For **Path prefix**, enter an Amazon S3 path prefix\. The **Path prefix** value is similar to a directory name\. It makes it possible for you to store the cache under the same directory in a bucket\. 
+     + \(Optional\) For **Cache path prefix**, enter an Amazon S3 path prefix\. The **Cache path prefix** value is similar to a directory name\. It makes it possible for you to store the cache under the same directory in a bucket\. 
 **Important**  
 Do not append "/" to the end of the path prefix\.
 
@@ -97,25 +108,6 @@ Do not append "/" to the end of the path prefix\.
    +  Select **S3 logs**\. 
    +  From **Bucket**, choose the name of the S3 bucket for your logs\. 
    +  In **Path prefix**, enter the prefix for your logs\. 
-
-1. In **Service role**, do one of the following:
-   + If you do not have an AWS CodeBuild service role, choose **Create a service role in your account**\. In **Role name**, accept the default name or type your own\.
-   + If you have an AWS CodeBuild service role, choose **Choose an service existing role from your account**\. In **Role name**, choose the service role\.
-**Note**  
-When you use the console to create or update a build project, you can create an AWS CodeBuild service role at the same time\. By default, the role works with that build project only\. If you use the console to associate this service role with another build project, the role is updated to work with the other build project\. A service role can work with up to 10 build projects\.
-
-1. In **VPC**, do one of the following:
-   + If you are not using a VPC for your project, choose **No VPC**\.
-   + If you want AWS CodeBuild to work with your VPC:
-     + For **VPC**, choose the VPC ID that AWS CodeBuild uses\.
-     + For **Subnets**, choose the subnets that include resources that AWS CodeBuild uses\.
-     + For **Security Groups**, choose the security groups that AWS CodeBuild uses to allow access to resources in the VPCs\.
-
-   For more information, see [Use AWS CodeBuild with Amazon Virtual Private Cloud](vpc-support.md)\.
-
-1. Expand **Show advanced settings**\.
-**Note**  
-If you arrived at this page by choosing **Get started** from a welcome page, then the **Show advanced settings** section is not displayed\. Skip to step 20 of this procedure\. For information about changing default settings, see [Change a Build Project's Settings \(Console\)](change-project.md#change-project-console)\.
 
 1. \(Optional\) For **Timeout**, specify a value between 5 minutes and 480 minutes \(8 hours\) after which AWS CodeBuild stops the build if it is not complete\. If **hours** and **minutes** are left blank, the default value of 60 minutes is used\.
 
@@ -136,16 +128,16 @@ If you arrived at this page by choosing **Get started** from a welcome page, the
 
 1. For **Compute type**, choose one of the available options\.
 
-1. For **Environment variables**, type the name, value, and type of each environment variable for builds to use\. Use **Add row** to add an environment variable\.
+1. For **Environment variables**, type the name, value, and type of each environment variable for builds to use\. Use **Create additional variable** to add an environment variable\.
 **Note**  
-AWS CodeBuild sets the environment variable for your AWS region automatically\. If you do not add them to your buildspec\.yml, then the following environment variables must be set:  
+AWS CodeBuild sets the environment variable for your AWS Region automatically\. If you do not add them to your buildspec\.yml, then the following environment variables must be set:  
 AWS\_ACCOUNT\_ID
 IMAGE\_REPO\_NAME
 IMAGE\_TAG
 
    Others can see environment variables by using the AWS CodeBuild console and the AWS CLI\. If you have no concerns about the visibility of your environment variable, set the **Name** and **Value** fields, and then set **Type** to **Plaintext**\.
 
-   We recommend that you store an environment variable with a sensitive value, such as an AWS access key ID, an AWS secret access key, or a password as a parameter in Amazon EC2 Systems Manager Parameter Store\. For **Type**, choose **Parameter Store**\. For **Name**, type an identifier for AWS CodeBuild to reference\. For **Value**, type the parameter's name as stored in Amazon EC2 Systems Manager Parameter Store\. Using a parameter named `/CodeBuild/dockerLoginPassword` as an example, for **Type**, choose **Parameter Store**\. For **Name**, type `LOGIN_PASSWORD`\. For **Value**, type `/CodeBuild/dockerLoginPassword`\. 
+   We recommend that you store an environment variable with a sensitive value, such as an AWS access key ID, an AWS secret access key, or a password as a parameter in Amazon EC2 Systems Manager Parameter Store\. For **Type**, choose **Parameter Store**\. For **Name**, enter an identifier for AWS CodeBuild to reference\. For **Value**, enter the parameter's name as stored in Amazon EC2 Systems Manager Parameter Store\. Using a parameter named `/CodeBuild/dockerLoginPassword` as an example, for **Type**, choose **Parameter Store**\. For **Name**, enter `LOGIN_PASSWORD`\. For **Value**, type `/CodeBuild/dockerLoginPassword`\. 
 **Important**  
 We recommend that you store parameters in Amazon EC2 Systems Manager Parameter Store with parameter names that start with `/CodeBuild/` \(for example, `/CodeBuild/dockerLoginPassword`\)\. You can use the AWS CodeBuild console to create a parameter in Amazon EC2 Systems Manager\. Choose **Create a parameter**, and then follow the instructions in the dialog box\. \(In that dialog box, for **KMS key**, you can optionally specify the ARN of an AWS KMS key in your account\. Amazon EC2 Systems Manager uses this key to encrypt the parameter's value during storage and decrypt during retrieval\.\) If you use the AWS CodeBuild console to create a parameter, the console starts the parameter name with `/CodeBuild/` as it is being stored\. For more information, see [Systems Manager Parameter Store](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-paramstore.html) and [Systems Manager Parameter Store Console Walkthrough](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-walk.html#sysman-paramstore-console) in the *Amazon EC2 Systems Manager User Guide*\.  
 If your build project refers to parameters stored in Amazon EC2 Systems Manager Parameter Store, the build project's service role must allow the `ssm:GetParameters` action\. If you chose **Create a service role in your account** earlier, then AWS CodeBuild includes this action in the default service role for your build project automatically\. However, if you chose **Choose an existing service role from your account**, then you must include this action to your service role separately\.  
@@ -157,19 +149,17 @@ The value in the start build operation call takes highest precedence\.
 The value in the build project definition takes next precedence\.
 The value in the build spec declaration takes lowest precedence\.
 
-1. \(Optional\) For **Tags**, type the name and value of any tags that you want supporting AWS services to use\. Use **Add row** to add a tag\. You can add up to 50 tags\.
+1. \(Optional\) For **Tags**, enter the name and value of any tags that you want supporting AWS services to use\. Use **Add row** to add a tag\. You can add up to 50 tags\.
 
-1. Choose **Continue**\.
+1. Choose **Create build project**\.
 
-1. On the **Review** page, do one of the following:
-   + To run a build, choose **Save and build**\. 
-   + To finish creating the build project without running a build, choose **Save**\. 
+1. On the **Review** page, choose **Start build**\.
 
 ## Create a Build Project \(AWS CLI\)<a name="create-project-cli"></a>
 
 For information about using the AWS CLI with AWS CodeBuild, see the [Command Line Reference](cmd-ref.md)\.
 
-1. Run the `create-project` command:
+1. Run the create\-project command:
 
    ```
    aws codebuild create-project --generate-cli-skeleton
@@ -288,14 +278,30 @@ For information about using the AWS CLI with AWS CodeBuild, see the [Command Lin
      + <a name="cli-sources-location"></a>*source\-location*: Required value \(unless you set *source\-type* to `CODEPIPELINE`\)\. The location of the source code for the specified repository type\.
        + For AWS CodeCommit, the HTTPS clone URL to the repository that contains the source code and the build spec \(for example, `https://git-codecommit.region-id.amazonaws.com/v1/repos/repo-name`\)\.
        + For Amazon S3, the build input bucket name, followed by a forward slash \(`/`\), followed by the name of the ZIP file that contains the source code and the build spec \(for example, `bucket-name/object-name.zip`\)\. This assumes that the ZIP file is in the root of the build input bucket\. \(If the ZIP file is in a folder inside of the bucket, use `bucket-name/path/to/object-name.zip` instead\.\)
-       + For GitHub, the HTTPS clone URL to the repository that contains the source code and the build spec\. You must connect your AWS account to your GitHub account\. To do this, use the AWS CodeBuild console to create a build project\. When you use the console to connect \(or reconnect\) with GitHub, on the GitHub **Authorize application** page, for **Organization access**, choose **Request access** next to each repository you want AWS CodeBuild to be able to access\. Choose **Authorize application**\. \(After you have connected to your GitHub account, you do not need to finish creating the build project\. You can close the AWS CodeBuild console\.\) To instruct AWS CodeBuild to use this connection, in the `source` object, set the `auth` object's `type` value to `OAUTH`\.
-       + For GitHub Enterprise, the HTTP or HTTPS clone URL to the repository that contains the source code and the buildspec\. You must also connect your AWS account to your GitHub Enterprise account\. To do this, use the AWS CodeBuild console to create a build project\.
+       + For GitHub, the HTTPS clone URL to the repository that contains the source code and the build spec\. You must connect your AWS account to your GitHub account\. To do this, use the AWS CodeBuild console to create a build project\.
 
-         First, create a personal access token in GitHub Enterprise\. Copy this token to your clipboard so you can use it when you create your AWS CodeBuild project\. For more information, see [Creating a Personal Access Token in GitHub Enterprise](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/) on the GitHub Help website\. When you use the console to create your AWS CodeBuild project, in **Source: What to build**, for **Source provider**, choose **GitHub Enterprise**\. For **Personal Access Token**, paste the token that was copied to your clipboard\. Choose **Save Token**\. Your AWS CodeBuild account is now connected to your GitHub Enterprise account\.
-       + For Bitbucket, the HTTPS clone URL to the repository that contains the source code and the build spec\. You must also connect your AWS account to your Bitbucket account\. To do this, use the AWS CodeBuild console to create a build project\. When you use the console to connect \(or reconnect\) with Bitbucket, on the Bitbucket **Confirm access to your account** page, choose **Grant access**\. \(After you have connected to your Bitbucket account, you do not need to finish creating the build project\. You can close the AWS CodeBuild console\.\) To instruct AWS CodeBuild to use this connection, in the `source` object, set the `auth` object's `type` value to `OAUTH`\.
+         1. When you use the console to connect \(or reconnect\) with GitHub, on the GitHub **Authorize application** page, for **Organization access**, choose **Request access** next to each repository you want AWS CodeBuild to be able to access\.
+
+         1.  Choose **Authorize application**\. \(After you have connected to your GitHub account, you do not need to finish creating the build project\. You can close the AWS CodeBuild console\.\) 
+
+         1.  To instruct AWS CodeBuild to use this connection, in the `source` object, set the `auth` object's `type` value to `OAUTH`\. 
+       + For GitHub Enterprise, the HTTP or HTTPS clone URL to the repository that contains the source code and the build spec\. You must also connect your AWS account to your GitHub Enterprise account\. To do this, use the AWS CodeBuild console to create a build project\.
+
+         1. Create a personal access token in GitHub Enterprise\.
+
+         1. Copy this token to your clipboard so you can use it when you create your AWS CodeBuild project\. For more information, see [Creating a Personal Access Token in GitHub Enterprise](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/) on the GitHub Help website\. 
+
+         1. When you use the console to create your AWS CodeBuild project, in **Source**, for **Source provider**, choose **GitHub Enterprise**\.
+
+         1. For **Personal Access Token**, paste the token that was copied to your clipboard\. Choose **Save Token**\. Your AWS CodeBuild account is now connected to your GitHub Enterprise account\.
+       + For Bitbucket, the HTTPS clone URL to the repository that contains the source code and the build spec\. You must also connect your AWS account to your Bitbucket account\. To do this, use the AWS CodeBuild console to create a build project\. 
+
+         1. When you use the console to connect \(or reconnect\) with Bitbucket, on the Bitbucket **Confirm access to your account** page, choose **Grant access**\. \(After you have connected to your Bitbucket account, you do not need to finish creating the build project\. You can close the AWS CodeBuild console\.\) 
+
+         1. To instruct AWS CodeBuild to use this connection, in the `source` object, set the `auth` object's `type` value to `OAUTH`\.
        + For AWS CodePipeline, do not specify a `location` value for `source`\. It is ignored by AWS CodePipeline because when you create a pipeline in AWS CodePipeline, you specify the source code location in the Source stage of the pipeline\.
      + <a name="cli-sources-gitclonedepth"></a>*gitCloneDepth*: Optional value\. The depth of history to download\. Minimum value is 0\. If this value is 0, greater than 25, or not provided, then the full history is downloaded with each build project\. If your source type is Amazon S3, this value is not supported\.
-     + <a name="cli-sources-buildspec"></a>*buildspec*: Optional value\. The build specification definition or file to use\. If this value is set, it can be either an inline buildspec definition or the path to an alternate buildspec file relative to the value of the built\-in `CODEBUILD_SRC_DIR` environment variable\. If this value is not provided or is set to an empty string, then the source code must contain a `buildspec.yml` file in its root directory\. For more information, see [Build Spec File Name and Storage Location](build-spec-ref.md#build-spec-ref-name-storage)\.
+     + <a name="cli-sources-buildspec"></a>*buildspec*: Optional value\. The build specification definition or file to use\. If this value is set, it can be either an inline build spec definition or the path to an alternate build spec file relative to the value of the built\-in `CODEBUILD_SRC_DIR` environment variable\. If this value is not provided or is set to an empty string, then the source code must contain a `buildspec.yml` file in its root directory\. For more information, see [Build Spec File Name and Storage Location](build-spec-ref.md#build-spec-ref-name-storage)\.
      + <a name="cli-sources-auth"></a>*auth*: This object is used by the AWS CodeBuild console only\. Do not specify values for *auth\-type* \(unless *source\-type* is set to `GITHUB`\) or *resource*\.
      + <a name="cli-sources-reportbuildstatus"></a>*reportBuildStatus*: Optional value\. Specifies whether to send your source provider the status of a build's start and completion\. If you set this with a source provider other than GitHub or Bitbucket, an invalidInputException is thrown\.
      + <a name="cli-sources-insecuressl"></a>*InsecureSsl*: Optional value\. Used with GitHub Enterprise only\. Set this value to `true` to ignore SSL warnings while connecting to your GitHub Enterprise project repository\. The default value is `false`\. *InsecureSsl* should be used for testing purposes only\. It should not be used in a production environment\.
@@ -401,7 +407,7 @@ The value in the build spec declaration takes lowest precedence\.
 
    For an example, see [To create the build project \(AWS CLI\)](getting-started.md#getting-started-create-build-project-cli)\.
 
-1. Switch to the directory that contains the file you just saved, and run the `create-project` command again:
+1. Switch to the directory that contains the file you just saved, and run the create\-projectcommand again:
 
    ```
    aws codebuild create-project --cli-input-json file://create-project.json

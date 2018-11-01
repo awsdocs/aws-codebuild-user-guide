@@ -1,6 +1,6 @@
 --------
 
-A new console design is available for this service\. Although the procedures in this guide were written for the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\.
+ The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
 
 --------
 
@@ -10,17 +10,15 @@ A new console design is available for this service\. Although the procedures in 
 
  To edit a trigger: 
 
-1. Open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codebuild/](https://console.aws.amazon.com/codebuild/)\.
+1. Open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codesuite/codebuild/](https://console.aws.amazon.com/codesuite/codebuild/)\.
 
 1. In the navigation pane, choose **Build projects**\.
 
-1. Choose the link for the build project you want to change, and then choose **Edit project**\.
+1. Choose the link for the build project you want to change, and then choose the **Build triggers** tab\.
 **Note**  
-By default, the 100 most recent build projects are displayed\. To view more build projects, choose a different value for **Projects per page** or choose the back and forward arrows for **Viewing projects**\.
+By default, the 100 most recent build projects are displayed\. To view more build projects, choose the gear icon, and then choose a different value for **Projects per page** or use the back and forward arrows\.
 
-1. Do one of the following:
-   + Choose the radio button next to the trigger you want to change, choose **Actions**, and then choose **Edit**\.
-   + Choose the link for the trigger you want to change\.
+1. Choose the radio button next to the trigger you want to change, and then choose **Edit**\.
 
 1. From the **Frequency** drop\-down list, choose the frequency for your trigger\. If you want to create a frequency using a cron expression, choose **Custom**\.
 

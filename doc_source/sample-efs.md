@@ -1,6 +1,6 @@
 --------
 
-A new console design is available for this service\. Although the procedures in this guide were written for the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\.
+ The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
 
 --------
 
@@ -63,9 +63,9 @@ A new console design is available for this service\. Although the procedures in 
 
  Create an AWS CodeBuild project that uses the Amazon VPC you created earlier in this sample\. This AWS CodeBuild project does not use a source and does not create an artifact\. When the build is run, it mounts the Amazon EFS file system created earlier in this sample and caches the Maven dependency to it\. 
 
-1. Sign in to the AWS Management Console and open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codebuild/](https://console.aws.amazon.com/codebuild/)\.
+1. Open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codesuite/codebuild/](https://console.aws.amazon.com/codesuite/codebuild/)\.
 
-1.  From the navigation pane, choose **Build projects**, and then choose **Create project**\. 
+1.  From the navigation pane, choose **Build projects**, and then choose **Create build project**\. 
 
 1.  In **Project name**, enter a name for your project\. 
 
@@ -73,7 +73,7 @@ A new console design is available for this service\. Although the procedures in 
 
 1.  Enter information, such as a repository URL, that AWS CodeBuild uses to locate your application\. The options are different for each source provider\. For more information, see [Choose source provider](create-project.md#create-project-source-provider)\. 
 
-1.  From **Environment image**, choose **Use an image managed by AWS CodeBuild**\. 
+1.  From **Environment image**, choose **Managed image**\. 
 
 1.  From **Operating system**, choose **Ubuntu**\. 
 
@@ -82,6 +82,8 @@ A new console design is available for this service\. Although the procedures in 
 1.  From **Runtime version** choose **aws/codebuild/java:openjdk\-8**\. 
 
 1.  Select **Privileged**\. 
+
+1.  Under **Service role**, choose **New service role**\. In **Role name**, enter a name for the role AWS CodeBuild creates for you\. 
 
 1.  For **Build specification**, choose **Insert build commands** and then choose **Switch to editor**\. 
 
@@ -110,7 +112,7 @@ A new console design is available for this service\. Although the procedures in 
          - mvn compile -Dgpg.skip=true -Dmaven.repo.local=$EFS_DIR/$M3_HOME/
    ```
 
-1.  Under **Service role**, choose **Create a service role in your account**\. In **Role name**, enter a name for the role AWS CodeBuild creates for you\. 
+1. Expand **Additional configuration**
 
 1.  From **VPC**, choose the VPC ID\. 
 
@@ -118,9 +120,9 @@ A new console design is available for this service\. Although the procedures in 
 
 1.  From **Security Groups**, choose the security group that works with your Amazon VPC\. 
 
-1.  Use the default values for all other settings, and then choose **Continue**\. 
+1.  Use the default values for all other settings, and then choose **Create build project**\. When your build is complete, you are on the console page for your project\. 
 
-1.  Choose **Save and Build**\. 
+1.  Choose **Start build**\. 
 
 ## AWS CodeBuild and Amazon EFS Sample Summary<a name="sample-efs-summary"></a>
 

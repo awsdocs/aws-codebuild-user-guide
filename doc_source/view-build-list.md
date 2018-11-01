@@ -1,12 +1,12 @@
 --------
 
-A new console design is available for this service\. Although the procedures in this guide were written for the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\.
+ The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
 
 --------
 
 # View a List of Build IDs in AWS CodeBuild<a name="view-build-list"></a>
 
-To view a list of build IDs for builds managed by AWS CodeBuild, you can use the AWS CodeBuild console, AWS CLI, or AWS SDKs\.
+You can use the AWS CodeBuild console, AWS CLI, or AWS SDKs to view a list of build IDs for builds managed by AWS CodeBuild\.
 
 **Topics**
 + [View a List of Build IDs \(Console\)](#view-build-list-console)
@@ -15,24 +15,24 @@ To view a list of build IDs for builds managed by AWS CodeBuild, you can use the
 
 ## View a List of Build IDs \(Console\)<a name="view-build-list-console"></a>
 
-1. Open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codebuild/](https://console.aws.amazon.com/codebuild/)\.
+1. Open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codesuite/codebuild/](https://console.aws.amazon.com/codesuite/codebuild/)\.
 
 1. In the navigation pane, choose **Build history**\. 
 **Note**  
-By default, only the ten most recent builds are displayed\. To view more builds, select a different value for **Builds per page** or select the back and forward arrows for **Viewing builds**\.
+By default, only the 10 most recent builds are displayed\. To view more builds, choose the gear icon, and then choose a different value for **Builds per page** or use the back and forward arrows\.
 
 ## View a List of Build IDs \(AWS CLI\)<a name="view-build-list-cli"></a>
 
 For more information about using the AWS CLI with AWS CodeBuild, see the [Command Line Reference](cmd-ref.md)\.
-+ Run the `list-builds` command:
++ Run the list\-builds command:
 
   ```
   aws codebuild list-builds --sort-order sort-order --next-token next-token
   ```
 
   In the preceding command, replace the following placeholders:
-  + *sort\-order*: Optional string\. How to list the build IDs\. Valid values include `ASCENDING` and `DESCENDING`\.
-  + *next\-token*: Optional string\. During a previous run, if there were more than 100 items in the list, only the first 100 items would be returned, along with a unique string called a *next token*\. To get the next batch of items in the list, run this command again, adding the next token to the call\. To get all of the items in the list, keep running this command with each subsequent next token, until no more next tokens are returned\.
+  + *sort\-order*: Optional string used to indicate how to list the build IDs\. Valid values include `ASCENDING` and `DESCENDING`\.
+  + *next\-token*: Optional string\. During a previous run, if there were more than 100 items in the list, only the first 100 items are returned, along with a unique string called *next token*\. To get the next batch of items in the list, run this command again, adding the next token to the call\. To get all of the items in the list, keep running this command with each subsequent next token, until no more next tokens are returned\.
 
   For example, if you run this command:
 
