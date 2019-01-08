@@ -18,7 +18,7 @@ If you delete a build project, it cannot be recovered\. All information about bu
 
 ## Delete a Build Project \(Console\)<a name="delete-project-console"></a>
 
-1. Open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codesuite/codebuild/](https://console.aws.amazon.com/codesuite/codebuild/)\.
+1. Open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codesuite/codebuild/home](https://console.aws.amazon.com/codesuite/codebuild/home)\.
 
 1. In the navigation pane, choose **Build projects**\.
 

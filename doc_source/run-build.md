@@ -19,7 +19,7 @@ You can use the AWS CodeBuild console, AWS CLI, or AWS SDKs to run a build in AW
 
 To use AWS CodePipeline to run a build with AWS CodeBuild, skip these steps and follow the instructions in [Use AWS CodePipeline with AWS CodeBuild](how-to-create-pipeline.md)\.
 
-1. Open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codesuite/codebuild/](https://console.aws.amazon.com/codesuite/codebuild/)\.
+1. Open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codesuite/codebuild/home](https://console.aws.amazon.com/codesuite/codebuild/home)\.
 
 1. Do one of the following:
    + If you just finished creating a build project, the **Build project: *project\-name*** page should be displayed\. Choose **Start build**\.
@@ -156,6 +156,7 @@ For more information about using the AWS CLI with AWS CodeBuild, see the [Comman
      "idempotencyToken": "idempotencyToken",
      "insecureSslOverride": "insecureSslOverride",
      "privilegedModeOverride": "privilegedModeOverride",
+     "queuedTimeoutInMinutesOverride": "queuedTimeoutInMinutesOverride",           
      "reportBuildStatusOverride": "reportBuildStatusOverride",
      "timeoutInMinutesOverride": timeoutInMinutesOverride",
      "sourceAuthOverride": "sourceAuthOverride",
@@ -194,7 +195,8 @@ For more information about using the AWS CLI with AWS CodeBuild, see the [Comman
    + *idempotencyToken*: Optional string\. A string that serves as a token to specify that the build request is idempotent\. You can choose any string that is 64 characters or less\. The token is valid for 12 hours after the start\-build request\. If you repeat the start\-build request with the same token, but change a parameter, AWS CodeBuild returns a parameter mismatch error\. 
    + *insecureSslOverride*: Optional boolean that specifies whether to override the insecure SSL setting specified in the build project\. The insecure SSL setting determines whether to ignore SSL warnings while connecting to the project source code\. This override applies only if the build's source is GitHub Enterprise\.
    + *privilegedModeOverride*: Optional boolean\. If set to true, the build overrides privileged mode in the build project\.
-   + *reportBuildStatusOverride*: Optional boolean that specifies whether to send your source provider the status of a build's start and completion\. If you set this with a source provider other than GitHub or Bitbucket, an invalidInputException is thrown\.
+   +  *queuedTimeoutInMinutesOverride*: Optional integer that specifies the number of minutes a build is allowed to be queued before it times out\. Its minimum value is five minutes and its maximum value is 480 minutes \(eight hours\)\. 
+   + *reportBuildStatusOverride*: Optional boolean that specifies whether to send your source provider the status of a build's start and completion\. If you set this with a source provider other than GitHub, GitHub Enterprise, or Bitbucket, an invalidInputException is thrown\.
    + *sourceAuthOverride*: Optional string\. An authorization type for this build that overrides the one defined in the build project\. This override applies only if the build project's source is BitBucket or GitHub\.
    + *sourceLocationOverride*: Optional string\. A location that overrides for this build the source location for the one defined in the build project\.
    + *serviceRoleOverride*: Optional string\. The name of a service role for this build that overrides the one specified in the build project\.

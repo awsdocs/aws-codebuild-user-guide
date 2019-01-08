@@ -16,13 +16,13 @@ The graphs in the AWS CodeBuild console show three days of metrics\. You cannot 
 
 **To access AWS account level metrics**
 
-1. Sign in to the AWS Management Console and open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codesuite/codebuild/](https://console.aws.amazon.com/codesuite/codebuild/)\.
+1. Sign in to the AWS Management Console and open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codesuite/codebuild/home](https://console.aws.amazon.com/codesuite/codebuild/home)\.
 
 1.  In the navigation pane, choose **Account metrics**\. <a name="cw-project-codebuild-console"></a>
 
 **To access project\-level metrics**
 
-1. Sign in to the AWS Management Console and open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codesuite/codebuild/](https://console.aws.amazon.com/codesuite/codebuild/)\.
+1. Sign in to the AWS Management Console and open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codesuite/codebuild/home](https://console.aws.amazon.com/codesuite/codebuild/home)\.
 
 1.  In the navigation pane, choose **Build projects**\. 
 

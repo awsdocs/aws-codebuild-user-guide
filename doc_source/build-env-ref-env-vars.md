@@ -16,14 +16,17 @@ AWS CodeBuild provides several environment variables that you can use in your bu
 + `CODEBUILD_INITIATOR`: The entity that started the build\. If AWS CodePipeline started the build, this is the pipeline's name \(for example, `codepipeline/my-demo-pipeline`\)\. If an IAM user started the build, this is the user's name \(for example, `MyUserName`\)\. If the Jenkins plugin for AWS CodeBuild started the build, this is the string `CodeBuild-Jenkins-Plugin`\.
 + `CODEBUILD_KMS_KEY_ID`: The identifier of the AWS KMS key that AWS CodeBuild is using to encrypt the build output artifact \(for example, `arn:aws:kms:region-ID:account-ID:key/key-ID` or `alias/key-alias`\)\.
 + `CODEBUILD_LOG_PATH`: The log stream name in CloudWatch Logs for the build\.
-+ `CODEBUILD_RESOLVED_SOURCE_VERSION`: An identifier for the version of a build's source code\. 
-  +  For AWS CodeCommit, GitHub, GitHub Enterprise, and Bitbucket, the commit ID\. 
-  +  For AWS CodePipeline, the source revision provided by AWS CodePipeline\. 
-  +  For Amazon S3, this does not apply 
-**Note**  
- For AWS CodeCommit, GitHub, GitHub Enterprise, the Bitbucket, the `CODEBUILD_RESOLVED_SOURCE_VERSION` environment variable is only available after the `DOWNLOAD_SOURCE` phase\. For AWS CodePipeline, the `CODEBUILD_RESOLVED_SOURCE_VERSION` environment variable may not always be available\. 
++ `CODEBUILD_RESOLVED_SOURCE_VERSION`: An identifier for the version of a build's source code\. Its format depends on the source code repository:
+  +  For AWS CodeCommit, GitHub, GitHub Enterprise, and Bitbucket, it is the commit ID\. For these repositories, `CODEBUILD_RESOLVED_SOURCE_VERSION` is only available after the `DOWNLOAD_SOURCE` phase\. 
+  +  For AWS CodePipeline, it is the source revision is provided by AWS CodePipeline\. For AWS CodePipeline, the `CODEBUILD_RESOLVED_SOURCE_VERSION` environment variable may not always be available\. 
+  +  For Amazon S3, this does not apply\. 
 + `CODEBUILD_SOURCE_REPO_URL`: The URL to the input artifact or source code repository\. For Amazon S3, this is `s3://` followed by the bucket name and path to the input artifact\. For AWS CodeCommit and GitHub, this is the repository's clone URL\. If a build originates from AWS CodePipeline, then this might be empty\.
-+ `CODEBUILD_SOURCE_VERSION`: For Amazon S3, the version ID associated with the input artifact\. For AWS CodeCommit, the commit ID or branch name associated with the version of the source code to be built\. For GitHub, the commit ID, branch name, or tag name associated with the version of the source code to be built\.
++ `CODEBUILD_SOURCE_VERSION`: The value's format depends on the source repository\.
+  + For Amazon S3,it is the version ID associated with the input artifact\.
+  + For AWS CodeCommit, it is the commit ID or branch name associated with the version of the source code to be built\.
+  + For GitHub, GitHub Enterprise, and Bitbucket it is the commit ID, branch name, or tag name associated with the version of the source code to be built\.
+**Note**  
+For a GitHub or GitHub Enterprise build that is triggered by a webhook pull request event, it is `pr/pull-request-number`\.
 + `CODEBUILD_SRC_DIR`: The directory path that AWS CodeBuild uses for the build \(for example, `/tmp/src123456789/src`\)\.
 + `CODEBUILD_START_TIME`: The start time of the build\.
 + `CODEBUILD_WEBHOOK_TRIGGER`: Shows the webhook event that triggered the build\. This variable is available only for builds triggered by a webhook\. The value is parsed from the payload sent to AWS CodeBuild by Github, Github Enterprise, or Bitbucket\. The value's format depends on what type of event triggered the build\.

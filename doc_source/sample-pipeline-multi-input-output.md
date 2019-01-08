@@ -29,7 +29,7 @@ An AWS CodeBuild project can take more than one input source\. It can also creat
           },
           "outputArtifacts": [
             {
-              "name": "artifact1"
+              "name": "source1"
             }
           ],
           "configuration": {
@@ -49,7 +49,7 @@ An AWS CodeBuild project can take more than one input source\. It can also creat
           },
           "outputArtifacts": [
             {
-              "name": "artifact2"
+              "name": "source2"
             }
           ],
           "configuration": {
@@ -126,7 +126,7 @@ An AWS CodeBuild project can take more than one input source\. It can also creat
         base-directory: $CODEBUILD_SRC_DIR_source1
         files:
           - file
-      artifact1:
+      artifact2:
         base-directory: $CODEBUILD_SRC_DIR_source1
         files:
           - file

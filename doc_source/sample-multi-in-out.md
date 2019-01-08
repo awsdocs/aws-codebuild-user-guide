@@ -119,7 +119,7 @@ artifacts:
 
 ## Project Without a Source Sample<a name="no-source"></a>
 
- You can configure a AWS CodeBuild project by choosing the **NO\_SOURCE** source type when you configure your source\. When your source type is **NO\_SOURCE**, you must explicitly specify this in the buildspec file\. If you use the AWS CLI to create your build project, then the JSON\-formatted input to the `create-project` command might look like this: 
+ You can configure a AWS CodeBuild project by choosing the **NO\_SOURCE** source type when you configure your source\. When your source type is **NO\_SOURCE**, you cannot specify a buildspec file because your project does not have a source\. Instead, you must specify a YAML\-formatted buildspec string in the `buildspec` attribute of the JSON\-formatted input to the `create-project` CLI command\. It might look like this: 
 
 ```
 {
@@ -137,5 +137,7 @@ artifacts:
   "encryptionKey": "arn:aws:kms:region-ID:account-ID:key/key-ID"
 }
 ```
+
+For more information, see [Create a Build Project \(AWS CLI\)](create-project.md#create-project-cli)\.
 
 To learn how to to create a pipleline that uses multiple source inputs to AWS CodeBuild to create multiple output artifacts, see [ AWS CodePipeline Integration with AWS CodeBuild and Multiple Input Sources and Output Artifacts Sample ](sample-pipeline-multi-input-output.md)\.

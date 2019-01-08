@@ -70,7 +70,7 @@ To create a pipeline that only tests your source code:
 
 **To use the Create Pipeline wizard in AWS CodePipeline to create a pipeline that uses AWS CodeBuild**
 
-1. Open the AWS CodePipeline console at [https://console\.aws\.amazon\.com/codesuite/codepipeline](https://console.aws.amazon.com/codesuite/codepipeline)\.
+1. Open the AWS CodePipeline console at [https://console\.aws\.amazon\.com/codesuite/codepipeline/home](https://console.aws.amazon.com/codesuite/codepipeline/home)\.
 
    You need to have already signed in to the AWS Management Console by using:
    + Your AWS root account\. This is not recommended\. For more information, see [The Account Root User](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html) in the *IAM User Guide*\.
@@ -137,9 +137,9 @@ If you choose an existing build project, it must have build output artifact sett
 **Important**  
 If you enable webhooks for an AWS CodeBuild project, and the project is used as a build step in AWS CodePipeline, then two identical builds are created for each commit\. One build is triggered through webhooks, and one through AWS CodePipeline\. Because billing is on a per\-build basis, you are billed for both builds\. Therefore, if you are using AWS CodePipeline, we recommend that you disable webhooks in AWS CodeBuild \. In the AWS CodeBuild console, clear the **Webhook** box\. For more information, see [Change a Build Project's Settings \(Console\)](change-project.md#change-project-console)\.
 
-1. Open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codesuite/codebuild/](https://console.aws.amazon.com/codesuite/codebuild/)\.
+1. Open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codesuite/codebuild/home](https://console.aws.amazon.com/codesuite/codebuild/home)\.
 
-1.  If an AWS CodeBuild information page is displayed, choose **Create project**\. Otherwise, on the navigation pane, choose **Build projects**, and then choose **Create build project**\. 
+1.  If an AWS CodeBuild information page is displayed, choose **Create project**\. Otherwise, on the navigation pane, expand **Build**, and then choose **Build projects**\. 
 
 1. For **Project name**, enter a name for this build project\. Build project names must be unique across each AWS account\.
 
@@ -363,7 +363,7 @@ You can also get the build output artifact by choosing the **Build artifacts** l
 
 ## Add an AWS CodeBuild Build Action to a Pipeline \(AWS CodePipeline Console\)<a name="how-to-create-pipeline-add"></a>
 
-1. Open the AWS CodePipeline console at [https://console\.aws\.amazon\.com/codesuite/codepipeline](https://console.aws.amazon.com/codesuite/codepipeline)\.
+1. Open the AWS CodePipeline console at [https://console\.aws\.amazon\.com/codesuite/codepipeline/home](https://console.aws.amazon.com/codesuite/codepipeline/home)\.
 
    You should have already signed in to the AWS Management Console by using:
    + Your AWS root account\. This is not recommended\. For more information, see [The Account Root User](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html) in the *IAM User Guide*\.
@@ -427,9 +427,9 @@ If you choose an existing build project, it must have build output artifact sett
 **Important**  
 If you enable webhooks for an AWS CodeBuild project, and the project is used as a build step in AWS CodePipeline, then two identical builds are created for each commit\. One build is triggered through webhooks and one through AWS CodePipeline\. Because billing is on a per\-build basis, you are billed for both builds\. Therefore, if you are using AWS CodePipeline, we recommend that you disable webhooks in AWS CodeBuild\. In the AWS CodeBuild console, clear the **Webhook** box\. For more information, see [Change a Build Project's Settings \(Console\)](change-project.md#change-project-console)
 
-1. Open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codesuite/codebuild/](https://console.aws.amazon.com/codesuite/codebuild/)\.
+1. Open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codesuite/codebuild/home](https://console.aws.amazon.com/codesuite/codebuild/home)\.
 
-1.  If an AWS CodeBuild information page is displayed, choose **Create project**\. Otherwise, on the navigation pane, choose **Build projects**, and then choose **Create build project**\. 
+1.  If an AWS CodeBuild information page is displayed, choose **Create project**\. Otherwise, on the navigation pane, expand **Build**, and then choose **Build projects**\. 
 
 1. For **Project name**, enter a name for this build project\. Build project names must be unique across each AWS account\.
 
@@ -504,7 +504,7 @@ You can also get the build output artifact by choosing the **Build artifacts** l
 
 ## Add an AWS CodeBuild Test Action to a Pipeline \(AWS CodePipeline Console\)<a name="how-to-create-pipeline-add-test"></a>
 
-1. Open the AWS CodePipeline console at [https://console\.aws\.amazon\.com/codesuite/codepipeline](https://console.aws.amazon.com/codesuite/codepipeline)\.
+1. Open the AWS CodePipeline console at [https://console\.aws\.amazon\.com/codesuite/codepipeline/home](https://console.aws.amazon.com/codesuite/codepipeline/home)\.
 
    You should have already signed in to the AWS Management Console by using:
    + Your AWS root account\. This is not recommended\. For more information, see [The Account Root User](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html) in the *IAM User Guide*\.
@@ -566,9 +566,9 @@ This procedure shows you how to add the test action in a test stage\. To add the
 **Important**  
 If you enable webhooks for an AWS CodeBuild project, and the project is used as a build step in AWS CodePipeline, then two identical builds are created for each commit\. One build is triggered through webhooks and one through AWS CodePipeline\. Because billing is on a per\-build basis, you are billed for both builds\. Therefore, if you are using AWS CodePipeline, we recommend that you disable webhooks in AWS CodeBuild\. In the AWS CodeBuild console, clear the **Webhook**box\. For more information, see [Change a Build Project's Settings \(Console\)](change-project.md#change-project-console)
 
-1. Open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codesuite/codebuild/](https://console.aws.amazon.com/codesuite/codebuild/)\.
+1. Open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codesuite/codebuild/home](https://console.aws.amazon.com/codesuite/codebuild/home)\.
 
-1.  If an AWS CodeBuild information page is displayed, choose **Create project**\. Otherwise, on the navigation pane, choose **Build projects**, and then choose **Create build project**\. 
+1.  If an AWS CodeBuild information page is displayed, choose **Create project**\. Otherwise, on the navigation pane, expand **Build**, and then choose **Build projects**\. 
 
 1. For **Project name**, enter a name for this build project\. Build project names must be unique across each AWS account\.
 

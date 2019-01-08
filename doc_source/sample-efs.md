@@ -63,7 +63,7 @@
 
  Create an AWS CodeBuild project that uses the Amazon VPC you created earlier in this sample\. This AWS CodeBuild project does not use a source and does not create an artifact\. When the build is run, it mounts the Amazon EFS file system created earlier in this sample and caches the Maven dependency to it\. 
 
-1. Open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codesuite/codebuild/](https://console.aws.amazon.com/codesuite/codebuild/)\.
+1. Open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codesuite/codebuild/home](https://console.aws.amazon.com/codesuite/codebuild/home)\.
 
 1.  From the navigation pane, choose **Build projects**, and then choose **Create build project**\. 
 
@@ -112,7 +112,7 @@
          - mvn compile -Dgpg.skip=true -Dmaven.repo.local=$EFS_DIR/$M3_HOME/
    ```
 
-1. Expand **Additional configuration**
+1. Expand **Additional configuration**\.
 
 1.  From **VPC**, choose the VPC ID\. 
 

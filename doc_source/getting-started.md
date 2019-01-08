@@ -248,11 +248,11 @@ You can work with AWS CodeBuild in several ways: through the AWS CodeBuild conso
 
 **To create the build project \(console\)**
 
-1. Sign in to the AWS Management Console and open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codesuite/codebuild/](https://console.aws.amazon.com/codesuite/codebuild/)\.
+1. Sign in to the AWS Management Console and open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codesuite/codebuild/home](https://console.aws.amazon.com/codesuite/codebuild/home)\.
 
 1. In the AWS region selector, choose a region that supports AWS CodeBuild\. For more information, see [AWS CodeBuild](https://docs.aws.amazon.com/general/latest/gr/rande.html#codebuild_region) in the "Regions and Endpoints" topic in the *Amazon Web Services General Reference*\.
 
-1.  If an AWS CodeBuild information page is displayed, choose **Create project**\. Otherwise, on the navigation pane, choose **Build projects**, and then choose **Create build project**\. 
+1.  If an AWS CodeBuild information page is displayed, choose **Create project**\. Otherwise, on the navigation pane, expand **Build**, and then choose **Build projects**\. 
 
 1. On the **Create build project** page, in **Project configuration**, for **Project name**, enter a name for this build project \(in this example, `codebuild-demo-project`\)\. Build project names must be unique across each AWS account\. If you use a different name, be sure to use it throughout this walkthrough\.
 **Note**  
@@ -281,9 +281,9 @@ An IAM user in your AWS account with the AWS managed policies named **AWSCodeBui
 
 1. In **Artifacts**, for **Type**, choose **Amazon S3**\.
 
-1. Leave **Name** and **Path** blank\.
-
 1. For **Bucket name**, choose **codebuild\-*region\-ID*\-*account\-ID*\-output\-bucket**\.
+
+1. Leave **Name** and **Path** blank\.
 
 1. Choose **Create build project**\.
 
@@ -399,7 +399,7 @@ You can use the [AWS CodeBuild console](#getting-started-run-build-console) or [
 
 **To run the build \(console\)**
 
-1. Open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codesuite/codebuild/](https://console.aws.amazon.com/codesuite/codebuild/)\.
+1. Open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codesuite/codebuild/home](https://console.aws.amazon.com/codesuite/codebuild/home)\.
 
 1. In the navigation pane, choose **Build projects**\.
 

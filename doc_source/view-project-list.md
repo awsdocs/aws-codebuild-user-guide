@@ -15,7 +15,7 @@ You can use the AWS CodeBuild console, AWS CLI, or AWS SDKs to view a list of bu
 
 ## View a List of Build Project Names \(Console\)<a name="view-project-list-console"></a>
 
-1. Open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codesuite/codebuild/](https://console.aws.amazon.com/codesuite/codebuild/)\.
+1. Open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codesuite/codebuild/home](https://console.aws.amazon.com/codesuite/codebuild/home)\.
 
 1. In the navigation pane, choose **Build projects**\.
 **Note**  

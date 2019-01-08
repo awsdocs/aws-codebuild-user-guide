@@ -17,7 +17,7 @@ Running this sample may result in charges to your AWS account\. These include po
 + [Running the Sample](#sample-docker-custom-image-running)
 + [Directory Structure](#sample-docker-custom-image-dir)
 + [Files](#sample-docker-custom-image-files)
-+ [Related Resources](#w4aac11c45c23c17)
++ [Related Resources](#w4aac11c45c26c17)
 
 ## Running the Sample<a name="sample-docker-custom-image-running"></a>
 
@@ -67,7 +67,7 @@ This sample assumes this directory structure\.
 
 ## Files<a name="sample-docker-custom-image-files"></a>
 
-The base image of the operating system used in this sample is Ubuntu\. The sample uses these files\.
+The base image of the operating system used in this sample is Ubuntu\. The sample uses these files\. For more information about the OverlayFS storage driver referenced in the buildspec file, see [Use the OverlayFS storage driver](https://docs.docker.com/storage/storagedriver/overlayfs-driver/)\.
 
 `buildspec.yml` \(in `(root directory name)`\)
 
@@ -77,7 +77,7 @@ version: 0.2
 phases:
   install:
     commands:
-      - nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://127.0.0.1:2375 --storage-driver=overlay&
+      - nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://127.0.0.1:2375 --storage-driver=overlay2&
       - timeout 15 sh -c "until docker info; do echo .; sleep 1; done"
   pre_build:
     commands:
@@ -103,7 +103,7 @@ FROM maven:3.3.9-jdk-8
 RUN echo "Hello World"
 ```
 
-## Related Resources<a name="w4aac11c45c23c17"></a>
+## Related Resources<a name="w4aac11c45c26c17"></a>
 + For more information about getting started with AWS CodeBuild, see [Getting Started with AWS CodeBuild](getting-started.md)\.
 + For more information about troubleshooting problems with AWS CodeBuild, see [Troubleshooting AWS CodeBuild](troubleshooting.md)\.
 + For more information about limits in AWS CodeBuild, see [Limits for AWS CodeBuild](limits.md)\.

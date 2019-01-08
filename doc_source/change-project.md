@@ -15,7 +15,7 @@ You can use the AWS CodeBuild console, AWS CLI, or AWS SDKs to change a build pr
 
 ## Change a Build Project's Settings \(Console\)<a name="change-project-console"></a>
 
-1. Open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codesuite/codebuild/](https://console.aws.amazon.com/codesuite/codebuild/)\.
+1. Open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codesuite/codebuild/home](https://console.aws.amazon.com/codesuite/codebuild/home)\.
 
 1. In the navigation pane, choose **Build projects**\.
 
@@ -25,7 +25,7 @@ You can use the AWS CodeBuild console, AWS CLI, or AWS SDKs to change a build pr
 **Note**  
 By default, the 100 most recent build projects are displayed\. To view more build projects, choose the gear icon, and then choose a different value for **Projects per page** or use the back and forward arrows\.
 
-1. The change the project's description, in **Project configuration**, choose **Edit**, and then enter a description in **Description**\.
+1. To change the project's description, in **Project configuration**, choose **Edit**, and then enter a description in **Description**\.
 
    Choose **Update configuration**\.
 

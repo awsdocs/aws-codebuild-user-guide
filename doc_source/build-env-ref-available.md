@@ -18,26 +18,19 @@ If you do not find your image on this page, it most likely contains components t
 | --- | --- | --- | --- | --- | 
 | Ubuntu 14\.04 | \(Base image\) |  | aws/codebuild/ubuntu\-base:14\.04 | [ubuntu/ubuntu\-base/14\.04](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/ubuntu-base/14.04) | 
 | Ubuntu 14\.04 | Android | 26\.1\.1 | aws/codebuild/android\-java\-8:26\.1\.1 | [ubuntu/android\-java\-8/26\.1\.1](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/android-java-8/26.1.1) | 
-| Ubuntu 14\.04 | Android | 24\.4\.1 | aws/codebuild/android\-java\-8:24\.4\.1 | [ubuntu/android\-java\-8/24\.4\.1](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/android-java-8/24.4.1) | 
+| Ubuntu 14\.04 | Docker | 18\.09\.0 | aws/codebuild/docker:18\.09\.0 | [ubuntu/docker/18\.09\.0](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/docker/18.09.0) | 
 | Ubuntu 14\.04 | Docker | 17\.09\.0 | aws/codebuild/docker:17\.09\.0 | [ubuntu/docker/17\.09\.0](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/docker/17.09.0) | 
+| Ubuntu 14\.04 | Golang | 1\.11 | aws/codebuild/golang:1\.11 | [ubuntu/golang/1\.11](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/golang/1.11) | 
 | Ubuntu 14\.04 | Golang | 1\.10 | aws/codebuild/golang:1\.10 | [ubuntu/golang/1\.10](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/golang/1.10) | 
-| Ubuntu 14\.04 | Java | 8 | aws/codebuild/java:openjdk\-8 | [ubuntu/java/openjdk\-8](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/java/openjdk-8) | 
+| Ubuntu 14\.04 | Java | 11 | aws/codebuild/java:openjdk\-11 | [ubuntu/java/openjdk\-11](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/java/openjdk-11) | 
 | Ubuntu 14\.04 | Java | 9 | aws/codebuild/java:openjdk\-9 | [ubuntu/java/openjdk\-9](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/java/openjdk-9) | 
-| Ubuntu 14\.04 | Node\.js | 10\.1\.0 | aws/codebuild/nodejs:10\.1\.0 | [ubuntu/nodejs/10\.1\.0](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/nodejs/10.1.0) | 
+| Ubuntu 14\.04 | Java | 8 | aws/codebuild/java:openjdk\-8 | [ubuntu/java/openjdk\-8](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/java/openjdk-8) | 
+| Ubuntu 14\.04 | Node\.js | 10\.14\.1 | aws/codebuild/nodejs:10\.14\.1 | [ubuntu/nodejs/10\.14\.1](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/nodejs/10.14.1) | 
 | Ubuntu 14\.04 | Node\.js | 8\.11\.0 | aws/codebuild/nodejs:8\.11\.0 | [ubuntu/nodejs/8\.11\.0](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/nodejs/8.11.0) | 
-| Ubuntu 14\.04 | Node\.js | 6\.3\.1 | aws/codebuild/nodejs:6\.3\.1 | [ubuntu/nodejs/6\.3\.1](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/nodejs/6.3.1) | 
-| Ubuntu 14\.04 | PHP | 5\.6 | aws/codebuild/php:5\.6 | [ubuntu/php/5\.6](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/php/5.6) | 
-| Ubuntu 14\.04 | PHP | 7\.0 | aws/codebuild/php:7\.0 | [ubuntu/php/7\.0](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/php/7.0) | 
+| Ubuntu 14\.04 | PHP | 7\.1 | aws/codebuild/php:7\.1 | [ubuntu/php/7\.1](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/php/7.1) | 
+| Ubuntu 14\.04 | Python | 3\.7\.1 | aws/codebuild/python:3\.7\.1 | [ubuntu/python/3\.7\.1](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/python/3.7.1) | 
 | Ubuntu 14\.04 | Python | 3\.6\.5 | aws/codebuild/python:3\.6\.5 | [ubuntu/python/3\.6\.5](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/python/3.6.5) | 
-| Ubuntu 14\.04 | Python | 3\.5\.2 | aws/codebuild/python:3\.5\.2 | [ubuntu/python/3\.5\.2](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/python/3.5.2) | 
-| Ubuntu 14\.04 | Python | 3\.4\.5 | aws/codebuild/python:3\.4\.5 | [ubuntu/python/3\.4\.5](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/python/3.4.5) | 
-| Ubuntu 14\.04 | Python | 3\.3\.6 | aws/codebuild/python:3\.3\.6 | [ubuntu/python/3\.3\.6](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/python/3.3.6) | 
-| Ubuntu 14\.04 | Python | 2\.7\.12 | aws/codebuild/python:2\.7\.12 | [ubuntu/python/2\.7\.12](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/python/2.7.12) | 
-| Ubuntu 14\.04 | Ruby | 2\.5\.1 | aws/codebuild/ruby:2\.5\.1 | [ubuntu/ruby/2\.5\.1](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/ruby/2.5.1) | 
-| Ubuntu 14\.04 | Ruby | 2\.3\.1 | aws/codebuild/ruby:2\.3\.1 | [ubuntu/ruby/2\.3\.1](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/ruby/2.3.1) | 
-| Ubuntu 14\.04 | Ruby | 2\.2\.5 | aws/codebuild/ruby:2\.2\.5 | [ubuntu/ruby/2\.2\.5](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/ruby/2.2.5) | 
-| Ubuntu 14\.04 | \.NET Core | 1\.1 | aws/codebuild/dot\-net:core\-1 | [ubuntu/dot\-net/core\-1](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/dot-net/core-1) | 
-| Ubuntu 14\.04 | \.NET Core | 2\.0 | aws/codebuild/dot\-net:core\-2\.0 | [ubuntu/dot\-net/core\-2](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/dot-net/core-2) | 
+| Ubuntu 14\.04 | Ruby | 2\.5\.3 | aws/codebuild/ruby:2\.5\.3 | [ubuntu/ruby/2\.5\.3](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/ruby/2.5.3) | 
 | Ubuntu 14\.04 | \.NET Core | 2\.1 | aws/codebuild/dot\-net:core\-2\.1 | [ubuntu/dot\-net/core\-2\.1](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/dot-net/core-2.1) | 
 | Windows Server Core 2016 | \(Base Image\) |  | aws/codebuild/windows\-base:1\.0 |  | 
 
@@ -83,7 +76,7 @@ AWS CodeBuild also manages the following Docker images that are not in the AWS C
 | Amazon Linux 2016\.03, 64\-bit v2\.1\.6 | Ruby | 1\.9\.3 | Bundler, RubyGems | aws/codebuild/eb\-ruby\-1\.9\-amazonlinux\-64:2\.1\.6 | 
 | Amazon Linux 2016\.03, 64\-bit v2\.1\.3 | Ruby | 1\.9\.3 | Bundler, RubyGems | aws/codebuild/eb\-ruby\-1\.9\-amazonlinux\-64:2\.1\.3 | 
 | Amazon Linux 2016\.03, 64\-bit v2\.3\.2 | Ruby | 1\.9 | Bundler, RubyGems | aws/codebuild/eb\-ruby\-1\.9\-amazonlinux\-64:2\.3\.2 | 
-|  For more information about the Docker images that contain `eb-` in their identifier, see [Supported Platforms](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html) and [Platform History](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/platform-history.html) in the *AWS Elastic Beanstalk Developer Guide*\. Docker images that contain `eb-` in their identifier are available for use in Elastic Beanstalk, but are not available in the AWS CodeBuild and AWS CodePipeline consoles\.  | 
+|  For more information about the Docker images that contain `eb-` in their identifier, see [Using the EB CLI with AWS CodeBuild](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli-codebuild.html) in the *AWS Elastic Beanstalk Developer Guide*\. Docker images that contain `eb-` in their identifier are available for use in Elastic Beanstalk, but are not available in the AWS CodeBuild and AWS CodePipeline consoles\.  | 
 
 You can use a build specification to install other components \(for example, the AWS CLI, Apache Maven, Apache Ant, Mocha, RSpec, or similar\) during the `install` build phase\. For more information, see [Build Spec Example](build-spec-ref.md#build-spec-ref-example)\.
 

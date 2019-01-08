@@ -16,7 +16,7 @@ You can use the AWS CodeBuild console, AWS CLI, or AWS SDKs to view details abou
 
 ## View Build Details \(Console\)<a name="view-build-details-console"></a>
 
-1. Open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codesuite/codebuild/](https://console.aws.amazon.com/codesuite/codebuild/)\.
+1. Open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codesuite/codebuild/home](https://console.aws.amazon.com/codesuite/codebuild/home)\.
 
 1. Do one of the following:
    + In the navigation pane, choose **Build history**\. In the list of builds, in the **Build run** column, choose the link for the build\. 

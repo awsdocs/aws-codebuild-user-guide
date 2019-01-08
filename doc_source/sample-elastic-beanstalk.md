@@ -104,7 +104,7 @@ In this step, you use the AWS CodeBuild console to create a build project and th
 
 1. Create or identify an Amazon S3 output bucket to store the build output\. If you're storing the source code in an Amazon S3 input bucket, the output bucket must be in the same AWS region as the input bucket\.
 
-1. Open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codesuite/codebuild/](https://console.aws.amazon.com/codesuite/codebuild/)\.
+1. Open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codesuite/codebuild/home](https://console.aws.amazon.com/codesuite/codebuild/home)\.
 
    Use the AWS region selector to choose a region that supports AWS CodeBuild and matches the region where your Amazon S3 output bucket is stored\.
 
@@ -182,7 +182,7 @@ If you are using an Amazon S3 input bucket, be sure to create a ZIP file that co
 
 In this step, you create an AWS CodeBuild build project to use with your pipeline\.
 
-1. Open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codesuite/codebuild/](https://console.aws.amazon.com/codesuite/codebuild/)\.
+1. Open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codesuite/codebuild/home](https://console.aws.amazon.com/codesuite/codebuild/home)\.
 
 1. Create a build project\. For more information, see [Create a Build Project \(Console\)](create-project.md#create-project-console) and [Run a Build \(Console\)](run-build.md#run-build-console)\. Leave all settings at their default values, except for these settings\.
    + For **Environment**:
@@ -210,7 +210,7 @@ In this step, you use the AWS CodePipeline console to create a pipeline\. After 
 
 1. Create or identify a service role that AWS CodePipeline, AWS CodeBuild, and Elastic Beanstalk can use to do their work on your behalf\. For more information, see [Prerequisites](how-to-create-pipeline.md#how-to-create-pipeline-prerequisites)\.
 
-1. Open the AWS CodePipeline console at [https://console\.aws\.amazon\.com/codesuite/codepipeline](https://console.aws.amazon.com/codesuite/codepipeline)\.
+1. Open the AWS CodePipeline console at [https://console\.aws\.amazon\.com/codesuite/codepipeline/home](https://console.aws.amazon.com/codesuite/codepipeline/home)\.
 
    Use the AWS region selector to choose a region that supports AWS CodeBuild and, if you're storing the source code in an Amazon S3 input bucket, choose the region where your input bucket is stored\.
 
@@ -331,7 +331,7 @@ In this step, you add an Elastic Beanstalk configuration file and a build spec f
 
 If you want, you can make changes to the source code and then run the eb deploy command from the same directory\. The EB CLI performs the same steps as the eb create command, but it deploys the build output to the existing environment instead of creating a new environment\.
 
-## Related Resources<a name="w4aac11c45c43c15"></a>
+## Related Resources<a name="w4aac11c45c47c15"></a>
 + For more information about getting started with AWS CodeBuild, see [Getting Started with AWS CodeBuild](getting-started.md)\.
 + For more information about troubleshooting problems with AWS CodeBuild, see [Troubleshooting AWS CodeBuild](troubleshooting.md)\.
 + For more information about limits in AWS CodeBuild, see [Limits for AWS CodeBuild](limits.md)\.

@@ -15,7 +15,7 @@ You can use the AWS CodeBuild console, AWS CLI,or AWS SDKs to stop a build in AW
 
 ## Stop a Build \(Console\)<a name="stop-build-console"></a>
 
-1. Open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codesuite/codebuild/](https://console.aws.amazon.com/codesuite/codebuild/)\.
+1. Open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codesuite/codebuild/home](https://console.aws.amazon.com/codesuite/codebuild/home)\.
 
 1. Do one of the following:
    + If the ***build\-project\-name*:*build\-ID*** page is displayed, choose **Stop build**\.

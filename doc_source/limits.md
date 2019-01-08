@@ -8,7 +8,7 @@
 
 The following tables list the current limits in AWS CodeBuild\. These limits are for each supported AWS region for each AWS account, unless otherwise specified\. 
 
-## Build Projects<a name="limits-build-projects"></a>
+## Build Project Limits<a name="limits-build-projects"></a>
 
 
 ****  
@@ -26,7 +26,7 @@ The following tables list the current limits in AWS CodeBuild\. These limits are
 | Number of subnets you can add under VPC configuration | 1 to 16 | 
 | Number of security groups you can add under VPC configuration | 1 to 5 | 
 
-## Builds<a name="limits-builds"></a>
+## Build Limits<a name="limits-builds"></a>
 
 
 ****  

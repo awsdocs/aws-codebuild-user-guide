@@ -29,10 +29,20 @@
 
 |   Metric   |   Description   | 
 | --- | --- | 
-|   Builds   |   Measures the number of builds triggered\.   Units: Count   Valid CloudWatch statistics: Sum   | 
-|   Duration   |   Measures the duration of all builds over time\.   Units: Seconds   Valid CloudWatch statistics: Average \(recommended\), Maximum, Minimum   | 
-|   SucceededBuilds   |   Measures the number of successful builds\.   Units: Count   Valid CloudWatch statistics: Sum   | 
-|   FailedBuilds   |   Measures the number of builds that failed because of client error or because of a timeout\.   Units: Count   Valid CloudWatch statistics: Sum   | 
+| BuildDuration |  Measures the duration of the build's BUILD phase\. Units:Seconds Valid CloudWatch statistics: Average \(recommended\), Maximum, Minimum  | 
+|  Builds  |   Measures the number of builds triggered\.   Units: Count   Valid CloudWatch statistics: Sum   | 
+| DownloadSourceDuration |  Measures the duration of the build's DOWNLOAD\_SOURCE phase\. Units:Seconds Valid CloudWatch statistics: Average \(recommended\), Maximum, Minimum  | 
+|  Duration  |   Measures the duration of all builds over time\.   Units: Seconds   Valid CloudWatch statistics: Average \(recommended\), Maximum, Minimum   | 
+|  FailedBuilds  |   Measures the number of builds that failed because of client error or because of a timeout\.   Units: Count   Valid CloudWatch statistics: Sum   | 
+| FinalizingDuration |  Measures the duration of the build's FINALIZING phase\. Units:Seconds Valid CloudWatch statistics: Average \(recommended\), Maximum, Minimum  | 
+| InstallDuration |  Measures the duration of the build's INSTALL phase\. Units:Seconds Valid CloudWatch statistics: Average \(recommended\), Maximum, Minimum  | 
+| PostBuildDuration |  Measures the duration of the build's POST\_BUILD phase Units:Seconds Valid CloudWatch statistics: Average \(recommended\), Maximum, Minimum  | 
+| PreBuildDuration |  Measures the duration of the build's PRE\_BUILD phase\. Units:Seconds Valid CloudWatch statistics: Average \(recommended\), Maximum, Minimum  | 
+| ProvisioningDuration |  Measures the duration of the build's PROVISIONING phase\. Units:Seconds Valid CloudWatch statistics: Average \(recommended\), Maximum, Minimum  | 
+| QueuedDuration |  Measures the duration of the build's QUEUED phase\. Units:Seconds Valid CloudWatch statistics: Average \(recommended\), Maximum, Minimum  | 
+| SubmittedDuration |  Measures the duration of the build's SUBMITTED phase\. Units:Seconds Valid CloudWatch statistics: Average \(recommended\), Maximum, Minimum  | 
+|  SucceededBuilds  |   Measures the number of successful builds\.   Units: Count   Valid CloudWatch statistics: Sum   | 
+| UploadArtifactsDuration |  Measures the duration of the build's UPLOAD\_ARTIFACTS phase\. Units:Seconds Valid CloudWatch statistics: Average \(recommended\), Maximum, Minimum  | 
 
 ## AWS CodeBuild CloudWatch Dimensions<a name="codebuild-cloudwatch-dimensions"></a>
 

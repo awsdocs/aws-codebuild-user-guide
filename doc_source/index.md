@@ -1,7 +1,7 @@
 # AWS CodeBuild User Guide
 
 -----
-*****Copyright &copy; 2018 Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
+*****Copyright &copy; 2019 Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
 
 -----
 Amazon's trademarks and trade dress may not be used in 
@@ -20,6 +20,7 @@ Amazon's trademarks and trade dress may not be used in
 + [AWS CodeBuild Samples](samples.md)
    + [Microsoft Windows Samples for AWS CodeBuild](sample-windows.md)
    + [AWS CodeBuild Use Case-Based Samples](use-case-based-samples.md)
+      + [Using Access Tokens with Your Source Provider in AWS CodeBuild](sample-access-tokens.md)
       + [Amazon ECR Sample for AWS CodeBuild](sample-ecr.md)
       + [Docker Sample for AWS CodeBuild](sample-docker.md)
       + [GitHub Enterprise Sample for AWS CodeBuild](sample-github-enterprise.md)
