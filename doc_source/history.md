@@ -8,7 +8,7 @@
 
 The following table describes the important changes to the documentation since the last release of AWS CodeBuild\. For notification about updates to this documentation, you can subscribe to an RSS feed\.
 + **Latest API version:** 2016\-10\-06
-+ **Latest documentation update:** January 7, 2019
++ **Latest documentation update:** January 17, 2019
 
 | Change | Description | Date | 
 | --- |--- |--- |

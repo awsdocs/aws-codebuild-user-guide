@@ -44,7 +44,7 @@ phases:
 artifacts:
   files:
     - '**/*'
-  name: myname-$(AWS_REGION)
+  name: myname-$AWS_REGION
 ```
 
  This Windows example shows you how to specify an artifact name that includes the date and time the build is created: 
