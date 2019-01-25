@@ -8,10 +8,12 @@
 
 The following table describes the important changes to the documentation since the last release of AWS CodeBuild\. For notification about updates to this documentation, you can subscribe to an RSS feed\.
 + **Latest API version:** 2016\-10\-06
-+ **Latest documentation update:** January 17, 2019
++ **Latest documentation update:** January 24, 2019
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Updated topics\.](#history) |  AWS CodeBuild now supports using an Amazon ECR image that is in another AWS account\. Several topics have been updated to reflect this change, including [Amazon ECR Sample for AWS CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/sample-ecr.html), [Create a Build Project](https://docs.aws.amazon.com/codebuild/latest/userguide/create-project.html), and [Create an AWS CodeBuild Service Role](https://docs.aws.amazon.com/codebuild/latest/userguide/setting-up.html#setting-up-service-role)\.  | January 24, 2019 | 
+| [Support for private Docker registries\.](#history) |  AWS CodeBuild now supports using a Docker image that is stored in a private registry as your runtime environment\. For more information, see [Private Registry with AWS Secrets Manager Sample](https://docs.aws.amazon.com/codebuild/latest/userguide/sample-private-registry.html)\.  | January 24, 2019 | 
 | [Updated topic](#history) |  AWS CodeBuild now supports using an access token to connect to GitHub \(with a personal access token\) and Bitbucket \(with an app password\) repositories\. For more information, see [Create a Build Project \(Console\)](https://docs.aws.amazon.com/codebuild/latest/userguide/create-project.html#create-project-console) and [Using Access Tokens with Your Source Provider](https://docs.aws.amazon.com/codebuild/latest/userguide/sample-access-tokens.html)\.  | December 6, 2018 | 
 | [Updated topic](#history) |  AWS CodeBuild now supports new build metrics that measure the duration of each phase in a build\. For more information, see [ AWS CodeBuild CloudWatch Metrics](https://docs.aws.amazon.com/codebuild/latest/userguide/monitoring-builds.html#cloudwatch_metrics-codebuild)\.  | November 15, 2018 | 
 | [VPC Endpoint Policy Topic](#history) |  Amazon VPC endpoints for AWS CodeBuild now support policies\. For more information, see [ Create a VPC Endpoint Policy for AWS CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/use-vpc-endpoints-with-codebuild.html#creating-vpc-endpoint-policy)\.  | November 9, 2018 | 

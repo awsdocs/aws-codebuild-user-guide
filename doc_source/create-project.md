@@ -56,6 +56,7 @@ Answer the questions in [Plan a Build](planning.md)\.
    For **Environment image**, do one of the following:
    + To use a Docker image managed by AWS CodeBuild, choose **Managed image**, and then make selections from **Operating system**, **Runtime**, and **Runtime version**\.
    + To use another Docker image, choose **Custom image**\. For **Environment type**, choose **Linux** or **Windows**\. For **Custom image type**, choose **Amazon ECR** or **Other location**\. If you choose **Other location**, enter the name and tag of the Docker image in Docker Hub, using the format `docker repository/docker image name`\. If you choose **Amazon ECR**, then use **Amazon ECR repository** and **Amazon ECR image** to choose the Docker image in your AWS account\.
+   + To use private Docker image, choose **Custom image**\. For **Environment type**, choose **Linux** or **Windows**\. For **Custom image type**, choose **Other location**, and then enter the Amazon Resource Name \(ARN\) of the credentials for your private Docker image\. The credentials must be created by AWS Secrets Manager\. For more information, see [What Is AWS Secrets Manager?](https://docs.aws.amazon.com/secretsmanager/latest/userguide/)
 
    \(Optional\) Select **Privileged** only if you plan to use this build project to build Docker images, and the build environment image you chose is not provided by AWS CodeBuild with Docker support\. Otherwise, all associated builds that attempt to interact with the Docker daemon fail\. You must also start the Docker daemon so that your builds can interact with it\. One way to do this is to initialize the Docker daemon in the `install` phase of your build spec by running the following build commands\. Do not run these commands if you chose a build environment image provided by AWS CodeBuild with Docker support\.
 
@@ -268,6 +269,13 @@ For information about using the AWS CLI with AWS CodeBuild, see the [Command Lin
            "type": "environmentVariable-type"
          }
        ],
+       "registryCredential": [
+         {
+           "credential": "credential-arn-or-name",
+           "credentialProvider": "credential-provider"
+         }
+       ],
+       "imagePullCredentialsType": "imagePullCredentialsType-value,
        "privilegedMode": "privilegedMode"
      },
      "badgeEnabled": "badgeEnabled"
@@ -394,6 +402,18 @@ If an environment variable with the same name is defined in multiple places, the
 The value in the start build operation call takes highest precedence\.
 The value in the build project definition takes next precedence\.
 The value in the build spec declaration takes lowest precedence\.
+     + Use the optional `registryCredential` to specify information about credentials that provide access to a private Docker registry\. 
+       + *credential\-arn\-or\-name*: Specifies the ARN or name of credentials created using AWS Managed Services \. You can use the name of the credentials only if they exist in your current region
+       + *credential\-provider*: the only valid value is `SECRETS_MANAGER`\.
+
+       When this is set: 
+       + `imagePullCredentials` must be set to `SERVICE_ROLE`\.
+       + images cannot be curated or an Amazon ECR image\.
+     + *imagePullCredentialsType\-value*: Optional value\. The type of credentials AWS CodeBuild uses to pull images in your build\. There are two valid values:
+       +  `CODEBUILD` specifies that AWS CodeBuild uses its own credentials\. This requires that you modify your Amazon ECR repository policy to trust the AWS CodeBuild service principal\. 
+       +  `SERVICE_ROLE` specifies that AWS CodeBuild uses your build project's service role\. 
+
+        When you use a cross\-account or private registry image, you must use `SERVICE_ROLE` credentials\. When you use an AWS CodeBuild curated image, you must use `CODEBUILD` credentials\. 
      + You must specify *privilegedMode* with a value of `true` only if you plan to use this build project to build Docker images, and the build environment image you specified is not provided by AWS CodeBuild with Docker support\. Otherwise, all associated builds that attempt to interact with the Docker daemon fail\. You must also start the Docker daemon so that your builds can interact with it\. One way to do this is to initialize the Docker daemon in the `install` phase of your build spec by running the following build commands\. Do not run these commands if you specified a build environment image provided by AWS CodeBuild with Docker support\.
 
        ```

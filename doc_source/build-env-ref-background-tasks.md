@@ -6,7 +6,7 @@
 
 # Background Tasks in Build Environments<a name="build-env-ref-background-tasks"></a>
 
-You can run background tasks in build environments\. To do this, in your build spec, use the `nohup` command to run a command as a task in the background, even if the build process exits the shell\. Use the disown command to forcibly stop a running background task\.
+You can run background tasks in build environments\. To do this, in your buildspec, use the `nohup` command to run a command as a task in the background, even if the build process exits the shell\. Use the disown command to forcibly stop a running background task\.
 
 **Examples:**
 + Start a background process and wait for it to complete later:

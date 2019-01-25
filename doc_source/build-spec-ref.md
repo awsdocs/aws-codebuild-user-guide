@@ -349,15 +349,15 @@ artifacts:
   files:
     - target/messageUtil-1.0.jar
   discard-paths: yes
-secondary-artifacts:
-  artifact1:
-    files:
-      - target/messageUtil-1.0.jar
-    discard-paths: yes
-  artifact2:
-    files:
-      - target/messageUtil-1.0.jar
-    discard-paths: yes
+  secondary-artifacts:
+    artifact1:
+      files:
+        - target/messageUtil-1.0.jar
+      discard-paths: yes
+    artifact2:
+      files:
+        - target/messageUtil-1.0.jar
+      discard-paths: yes
 cache:
   paths:
     - '/root/.m2/**/*'

@@ -9,7 +9,7 @@
 AWS CodeBuild manages the following Docker images that are available in the AWS CodeBuild and AWS CodePipeline consoles\.
 
 **Note**  
-If you do not find your image on this page, it most likely contains components that are no longer supported by a vendor\. Images with one or more unsupported components are not available from the AWS CodeBuild console or the AWS CodeBuild SDK\. The images might still be available in the CLI, but they are not supported and are not updated\.
+If you do not find your image on this page, it most likely contains components that are no longer supported by a vendor\. Images with one or more unsupported components are not available from the AWS CodeBuild console or the AWS CodeBuild SDK\. The images might still be available in the CLI, but they are not supported or updated\.
 
 
 ****  

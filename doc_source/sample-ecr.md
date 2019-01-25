@@ -19,30 +19,9 @@ To run this sample:
 
 1. To create and upload the source code to be built, complete steps 1 through 4 of the Running the Sample section of the [Go Sample](sample-go-hw.md)\. 
 
-1. Assign permissions to your image repository in Amazon ECR so that AWS CodeBuild can pull the repository's Docker image into the build environment:
-
-   1. If you are using an IAM user instead of an AWS root account or an administrator IAM user to work with Amazon ECR, add the statement \(between *\#\#\# BEGIN ADDING STATEMENT HERE \#\#\#* and *\#\#\# END ADDING STATEMENT HERE \#\#\#*\) to the user \(or IAM group the user is associated with\)\. \(Using an AWS root account is not recommended\.\) This statement enables access to managing permissions for Amazon ECR repositories\. Ellipses \(`...`\) are used for brevity and to help you locate where to add the statement\. Do not remove any statements, and do not type these ellipses into the policy\. For more information, see [Working with Inline Policies Using the AWS Management Console](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_inline-using.html#AddingPermissions_Console) in the *IAM User Guide*\. 
-
-      ```
-      {
-        "Statement": [
-          ### BEGIN ADDING STATEMENT HERE ###
-          {
-            "Action": [
-              "ecr:GetRepositoryPolicy",
-              "ecr:SetRepositoryPolicy"
-            ],
-            "Resource": "*",
-            "Effect": "Allow"
-          },
-          ### END ADDING STATEMENT HERE ###
-          ...
-        ],
-        "Version": "2012-10-17"
-      }
-      ```
-**Note**  
-The IAM entity that modifies this policy must have permission in IAM to modify policies\.
+1.  If one of the following is true, you must add permissions to your image repository in Amazon ECR so that AWS CodeBuild can pull its Docker image into the build environment\. 
+   +  Your project uses AWS CodeBuild credentials to pull Amazon ECR images\. This is denoted by a value of `CODEBUILD` in the `imagePullCredentialsType` attribute of your ProjectEnvironment\. 
+   +  Your project uses a cross\-account Amazon ECR image\. In this case, your project must use its service role to pull Amazon ECR images\. To enable this behavior, set the `imagePullCredentialsType` attribute of your ProjectEnvironment to `SERVICE_ROLE`\. 
 
    1. Open the Amazon ECS console at [https://console\.aws\.amazon\.com/ecs/](https://console.aws.amazon.com/ecs/)\.
 
@@ -54,9 +33,11 @@ The IAM entity that modifies this policy must have permission in IAM to modify p
 
    1. For **Sid**, type an identifier \(for example, **CodeBuildAccess**\)\.
 
-   1. For **Effect**, leave **Allow** selected because you want to allow access to AWS CodeBuild\.
+   1. For **Effect**, leave **Allow** selected\. This indicates that you want to allow access to another AWS account\.
 
-   1. For **Principal**, type **codebuild\.amazonaws\.com**\. Leave **Everybody** cleared because you want to allow access to AWS CodeBuild only\.
+   1. For **Principal**, do one of the following:
+      +  If your project uses AWS CodeBuild credentials to pull an Amazon ECR image, type `codebuld.amazonaws.com`\. 
+      + If your project uses a cross\-acocunt Amazon ECR image, type `arn:aws:iam::AWS-account-ID):root`, where `AWS-account-ID` is the account that you want to give access\.
 
    1. Skip the **All IAM entities** list\.
 
@@ -76,7 +57,7 @@ The IAM entity that modifies this policy must have permission in IAM to modify p
             "Sid": "CodeBuildAccess",
             "Effect": "Allow",
             "Principal": {
-              "Service": "codebuild.amazonaws.com"  
+              "AWS": "arn:aws:iam::AWS-account-ID:root"  
             },
             "Action": [
               "ecr:GetDownloadUrlForLayer",

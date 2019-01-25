@@ -296,7 +296,29 @@ The service role described on this page contains a policy that grants the minimu
          "Resource": [
            "*"
          ]
-       }
+       },
+       {
+         "Sid": "ECRPullPolicy",
+         "Effect": "Allow",
+         "Action": [
+           "ecr:BatchCheckLayerAvailability",
+           "ecr:GetDownloadUrlForLayer",
+           "ecr:BatchGetImage"
+         ],
+         "Resource": [
+           "*"
+         ]
+       },
+       {
+         "Sid": "ECRAuthPolicy",
+         "Effect": "Allow",
+         "Action": [
+           "ecr:GetAuthorizationToken"
+         ],
+         "Resource": [
+           "*"
+         ]
+       }    
      ]
    }
    ```

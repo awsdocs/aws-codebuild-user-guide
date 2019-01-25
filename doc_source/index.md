@@ -22,6 +22,7 @@ Amazon's trademarks and trade dress may not be used in
    + [AWS CodeBuild Use Case-Based Samples](use-case-based-samples.md)
       + [Using Access Tokens with Your Source Provider in AWS CodeBuild](sample-access-tokens.md)
       + [Amazon ECR Sample for AWS CodeBuild](sample-ecr.md)
+      + [Private Registry with AWS Secrets Manager Sample for AWS CodeBuild](sample-private-registry.md)
       + [Docker Sample for AWS CodeBuild](sample-docker.md)
       + [GitHub Enterprise Sample for AWS CodeBuild](sample-github-enterprise.md)
       + [GitHub Pull Request Sample for AWS CodeBuild](sample-github-pull-request.md)

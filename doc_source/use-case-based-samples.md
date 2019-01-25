@@ -14,6 +14,7 @@ You can use these use case\-based samples to experiment with AWS CodeBuild:
 | Name | Description | 
 | --- | --- | 
 | [Amazon ECR Sample](sample-ecr.md) | Uses a Docker image in an Amazon ECR repository to use Apache Maven to produce a single JAR file\. | 
+| [ Private Registry with AWS Secrets Manager Sample ](sample-private-registry.md) | Shows how to use a Docker image in a private registry as the runtime environment when building with AWS CodeBuild The private registry credentials are stored in AWS Secrets Manager\. | 
 | [Docker Sample](sample-docker.md) | Uses a build image provided by AWS CodeBuild with Docker support to produce a Docker image with Apache Maven\. Pushes the Docker image to a repository in Amazon ECR\. You can also adapt this sample to push the Docker image to Docker Hub\. | 
 | [Amazon EFS Sample](sample-efs.md) | Shows how to configure a buildspec file so that an AWS CodeBuild project mounts and builds on an Amazon EFS file system\. | 
 | [GitHub Enterprise Sample](sample-github-enterprise.md) | Uses AWS CodeBuild with GitHub Enterprise as the source repository, with certificates installed and webhooks enabled, to rebuild the source code every time a code change is pushed to the repository\. | 
