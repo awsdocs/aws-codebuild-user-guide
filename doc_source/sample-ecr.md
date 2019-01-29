@@ -37,7 +37,7 @@ To run this sample:
 
    1. For **Principal**, do one of the following:
       +  If your project uses AWS CodeBuild credentials to pull an Amazon ECR image, type `codebuld.amazonaws.com`\. 
-      + If your project uses a cross\-acocunt Amazon ECR image, type `arn:aws:iam::AWS-account-ID):root`, where `AWS-account-ID` is the account that you want to give access\.
+      + If your project uses a cross\-account Amazon ECR image, type `arn:aws:iam::AWS-account-ID):root`, where `AWS-account-ID` is the account that you want to give access\.
 
    1. Skip the **All IAM entities** list\.
 
