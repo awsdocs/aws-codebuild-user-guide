@@ -15,7 +15,7 @@ This sample shows you how to create a pull request using a Bitbucket repository\
 
 ## Bitbucket Pull Request Prerequisites<a name="sample-bitbucket-pull-request-prerequisites"></a>
 
- To run this sample you must connect your AWS CodeBuild project with your Bitbucket account\. 
+ To run this sample you must connect your AWS CodeBuild project with your Bitbucket account Note, that at this time CodeBuild does not support Enterprise BitBucket integration\. 
 
 **Note**  
  AWS CodeBuild has updated its permissions with Bitbucket\. If you previously connected your project to Bitbucket and now receive a Bitbucket connection error, you must reconnect to grant AWS CodeBuild permission to manage your webhooks\. 
