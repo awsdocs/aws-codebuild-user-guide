@@ -33,7 +33,7 @@ The following tables list the current limits in AWS CodeBuild\. These limits are
 
 | Resource | Default limit | 
 | --- | --- | 
-| Maximum number of concurrent running builds \* | 20 | 
+| Maximum number of concurrent running builds \* | 60 | 
 | Maximum number of builds you can request information about at any one time by using the AWS CLI, AWS SDKs | 100 | 
 | Number of minutes you can specify for the build timeout of a single build | 5 to 480 \(8 hours\) | 
 
