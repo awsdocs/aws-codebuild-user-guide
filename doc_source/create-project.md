@@ -162,7 +162,7 @@ Do not append "/" to the end of the path prefix\.
 
 ## Create a Build Project \(AWS CLI\)<a name="create-project-cli"></a>
 
-For information about using the AWS CLI with AWS CodeBuild, see the [Command Line Reference](cmd-ref.md)\.
+For information about using the AWS CLI with AWS CodeBuild, see the [Use a Proxy ServerCommand Line Reference](cmd-ref.md)\.
 
 1. Run the create\-project command:
 

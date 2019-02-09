@@ -15,6 +15,7 @@ Typically, resources in an VPC are not accessible by AWS CodeBuild\. To enable a
 + [Troubleshooting Your VPC Setup](#troubleshooting-vpc)
 + [Use VPC Endpoints](use-vpc-endpoints-with-codebuild.md)
 + [AWS CloudFormation VPC Template](cloudformation-vpc-template.md)
++ [Use AWS CodeBuild with a Proxy Server](use-proxy-server.md)
 
 ## Use Cases<a name="use-cases"></a>
 

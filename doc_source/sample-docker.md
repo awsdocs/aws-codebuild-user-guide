@@ -22,7 +22,7 @@ Running this sample may result in charges to your AWS account\. These include po
 + [Directory Structure](#sample-docker-dir)
 + [Files](#sample-docker-files)
 + [Adapting the Sample to Push the Image to Docker Hub](#sample-docker-docker-hub)
-+ [Related Resources](#w4aac11c45c16c23)
++ [Related Resources](#w4aac11c41c15c23)
 
 ## Running the Sample<a name="sample-docker-running"></a>
 
@@ -291,7 +291,7 @@ If you are using an Amazon S3 input bucket, be sure to create a ZIP file that co
 
 1. Confirm that AWS CodeBuild successfully pushed the Docker image to the repository\. Sign in to Docker Hub, go to the repository, and choose the **Tags** tab\. The `latest` tag should contain a very recent **Last Updated** value\.
 
-## Related Resources<a name="w4aac11c45c16c23"></a>
+## Related Resources<a name="w4aac11c41c15c23"></a>
 + For more information about getting started with AWS CodeBuild, see [Getting Started with AWS CodeBuild](getting-started.md)\.
 + For more information about troubleshooting problems with AWS CodeBuild, see [Troubleshooting AWS CodeBuild](troubleshooting.md)\.
 + For more information about limits in AWS CodeBuild, see [Limits for AWS CodeBuild](limits.md)\.

@@ -15,7 +15,7 @@ If you want to override the artifact name you entered in the console with a name
 1.  Set your build project to override the artifact name with a name in the buildspec file\. 
    +  If you use the console to create your build project, select **Use the name specified in the buildspec file**\. For more information, see [Create a Build Project \(Console\)](create-project.md#create-project-console)\. 
    +  If you use the AWS CLI, set the `overrideArtifactName` to true in the JSON\-formatted file passed to `create-project`\. For more information, see [Create a Build Project \(AWS CLI\)](create-project.md#create-project-cli)\. 
-   +  If use the AWS CodeBuild API, set the `overrideArtifactName` flag on the `ProjectArtifacts` object when a project is created or updated or a build is started\. 
+   +  If you use the AWS CodeBuild API, set the `overrideArtifactName` flag on the `ProjectArtifacts` object when a project is created or updated or a build is started\. 
 
 1.  Specify a name in the buildspec file\. Use the following sample buildspec files as a guide\. 
 
@@ -62,7 +62,7 @@ phases:
       - dotnet run
 artifacts:
   files:
-    - '**/*
+    - '**/*'
   name: $Env:TEST_ENV_VARIABLE-$(Get-Date -UFormat "%Y%m%d-%H%M%S")
 ```
 

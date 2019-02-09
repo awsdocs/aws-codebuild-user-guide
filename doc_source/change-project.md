@@ -114,7 +114,7 @@ Do not append "/" to the end of **Path prefix**\.
 
 ## Change a Build Project's Settings \(AWS CLI\)<a name="change-project-cli"></a>
 
-For more information about using the AWS CLI with AWS CodeBuild, see the [Command Line Reference](cmd-ref.md)\.
+For more information about using the AWS CLI with AWS CodeBuild, see the [Use a Proxy ServerCommand Line Reference](cmd-ref.md)\.
 
 1. Run the `update-project` command as follows:
 

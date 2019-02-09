@@ -6,7 +6,7 @@
 
 # Amazon ECR Sample for AWS CodeBuild<a name="sample-ecr"></a>
 
-This sample uses a Docker image in an Amazon Elastic Container Registry \(Amazon ECR\) image repository to build the [Go Sample](sample-go-hw.md) for AWS CodeBuild\.
+This sample uses a Docker image in an Amazon Elastic Container Registry \(Amazon ECR\) image repository to build a sample Go project\.
 
 **Important**  
 Running this sample may result in charges to your AWS account\. These include possible charges for AWS CodeBuild and for AWS resources and actions related to Amazon S3, AWS KMS, CloudWatch Logs, and Amazon ECR\. For more information, see [AWS CodeBuild Pricing](http://aws.amazon.com/codebuild/pricing), [Amazon S3 Pricing](http://aws.amazon.com/s3/pricing), [AWS Key Management Service Pricing](http://aws.amazon.com/kms/pricing), [Amazon CloudWatch Pricing](http://aws.amazon.com/cloudwatch/pricing), and [Amazon Elastic Container Registry Pricing](http://aws.amazon.com/ecr/pricing)\.
@@ -17,7 +17,43 @@ To run this sample:
 
 1. To create and push the Docker image to your image repository in Amazon ECR, complete the steps in the Running the Sample section of the [Docker Sample](sample-docker.md)\.
 
-1. To create and upload the source code to be built, complete steps 1 through 4 of the Running the Sample section of the [Go Sample](sample-go-hw.md)\. 
+1. Create a Go project: 
+
+   1. Create the files as described in the [Go Project Structure](#ecr-sample-go-project-file-structure) and [Go Project Files](#sample-ecr-go-project-files) sections of this topic, and then upload them to an Amazon S3 input bucket or an AWS CodeCommit, GitHub, or Bitbucket repository\. 
+**Important**  
+Do not upload `(root directory name)`, just the files inside of `(root directory name)`\.   
+If you are using an Amazon S3 input bucket, be sure to create a ZIP file that contains the files, and then upload it to the input bucket\. Do not add `(root directory name)` to the ZIP file, just the files inside of `(root directory name)`\.
+
+   1. Create a build project, run the build, and view related build information by following the steps in [Run AWS CodeBuild Directly](how-to-run.md)\.
+
+      If you use the AWS CLI to create the build project, the JSON\-formatted input to the`create-project` command might look similar to this\. \(Replace the placeholders with your own values\.\)
+
+      ```
+      {
+        "name": "sample-go-project",
+        "source": {
+          "type": "S3",
+          "location": "codebuild-region-ID-account-ID-input-bucket/GoSample.zip"
+        },
+        "artifacts": {
+          "type": "S3",
+          "location": "codebuild-region-ID-account-ID-output-bucket",
+          "packaging": "ZIP",
+          "name": "GoOutputArtifact.zip"
+        },
+        "environment": {
+          "type": "LINUX_CONTAINER",
+          "image": "aws/codebuild/golang:1.7.3",
+          "computeType": "BUILD_GENERAL1_SMALL"
+        },
+        "serviceRole": "arn:aws:iam::account-ID:role/role-name",
+        "encryptionKey": "arn:aws:kms:region-ID:account-ID:key/key-ID"
+      }
+      ```
+
+   1. To get the build output artifact, open your Amazon S3 output bucket\.
+
+   1. Download the `GoOutputArtifact.zip` file to your local computer or instance, and then extract the contents of the file\. In the extracted contents, get the `hello` file\. 
 
 1.  If one of the following is true, you must add permissions to your image repository in Amazon ECR so that AWS CodeBuild can pull its Docker image into the build environment\. 
    +  Your project uses AWS CodeBuild credentials to pull Amazon ECR images\. This is denoted by a value of `CODEBUILD` in the `imagePullCredentialsType` attribute of your ProjectEnvironment\. 
@@ -36,7 +72,7 @@ To run this sample:
    1. For **Effect**, leave **Allow** selected\. This indicates that you want to allow access to another AWS account\.
 
    1. For **Principal**, do one of the following:
-      +  If your project uses AWS CodeBuild credentials to pull an Amazon ECR image, type `codebuld.amazonaws.com`\. 
+      +  If your project uses AWS CodeBuild credentials to pull an Amazon ECR image, type `codebuild.amazonaws.com`\. 
       + If your project uses a cross\-account Amazon ECR image, type `arn:aws:iam::AWS-account-ID):root`, where `AWS-account-ID` is the account that you want to give access\.
 
    1. Skip the **All IAM entities** list\.
@@ -100,7 +136,56 @@ To run this sample:
 
 1. Download the `GoOutputArtifact.zip` file to your local computer or instance, and then extract the contents of the `GoOutputArtifact.zip` file\. In the extracted contents, get the `hello` file\.
 
-## Related Resources<a name="w4aac11c45c10b9"></a>
+## Go Project Structure<a name="ecr-sample-go-project-file-structure"></a>
+
+This sample assumes this directory structure\.
+
+```
+(root directory name)
+    |-- buildspec.yml
+    `-- hello.go
+```
+
+## Go Project Files<a name="sample-ecr-go-project-files"></a>
+
+This sample uses these files\.
+
+`buildspec.yml` \(in `(root directory name)`\)
+
+```
+version: 0.2
+
+phases:
+  build:
+    commands:
+      - echo Build started on `date`
+      - echo Compiling the Go code...
+      - go build hello.go 
+  post_build:
+    commands:
+      - echo Build completed on `date`
+artifacts:
+  files:
+    - hello
+```
+
+`hello.go` \(in `(root directory name)`\)
+
+```
+package main
+import "fmt"
+
+func main() {
+  fmt.Println("hello world")
+  fmt.Println("1+1 =", 1+1)
+  fmt.Println("7.0/3.0 =", 7.0/3.0)
+  fmt.Println(true && false)
+  fmt.Println(true || false)
+  fmt.Println(!true)
+}
+```
+
+## Related Resources<a name="w4aac11c41c10c13"></a>
 + For more information about getting started with AWS CodeBuild, see [Getting Started with AWS CodeBuild](getting-started.md)\.
 + For more information about troubleshooting problems with AWS CodeBuild, see [Troubleshooting AWS CodeBuild](troubleshooting.md)\.
 + For more information about limits in AWS CodeBuild, see [Limits for AWS CodeBuild](limits.md)\.

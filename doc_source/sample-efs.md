@@ -8,10 +8,7 @@
 
  You might want to create your AWS CodeBuild builds on Amazon EFS\. Amazon EFS is a scalable, shared file service for Amazon EC2 instances\. The storage capacity with Amazon EFS is elastic, so it grows or shrinks as files are added and removed\. It has a simple web services interface that you can use to create and configure file systems\. It also manages all of the file storage infrastructure for you, so you do not need to worry about deploying, patching, or maintaining file system configurations\. For more information, see [What Is Amazon Elastic File System](https://docs.aws.amazon.com/efs/latest/ug/whatisefs.html)\. 
 
- This sample shows you how to configure an AWS CodeBuild project so that it mounts and then builds a Java application to an Amazon EFS file system\. Before you begin, you must have a Java application ready to build that is uploaded to an Amazon S3 input bucket or an AWS CodeCommit, GitHub, GitHub Enterprise, or Bitbucket repository\. You can use the instructions in [Maven in 5 Minutes Sample for AWS CodeBuild ](sample-maven-5m.md) to create a Java application\. 
-
-**Note**  
- If you use [Maven in 5 Minutes Sample for AWS CodeBuild ](sample-maven-5m.md) to create a sample Java application, you can skip the step 3 \(the step that creates the file `buildspec.yml`\)\. In this sample you do not need a buildspec file because you use the buildspec editor to enter build commands required to mount your Amazon EFS file system\. 
+ This sample shows you how to configure an AWS CodeBuild project so that it mounts and then builds a Java application to an Amazon EFS file system\. Before you begin, you must have a Java application ready to build that is uploaded to an Amazon S3 input bucket or an AWS CodeCommit, GitHub, GitHub Enterprise, or Bitbucket repository\. 
 
 ## Amazon Elastic File System and AWS CodeBuild Sample High\-Level Steps<a name="sample-efs-high-level-steps"></a>
 

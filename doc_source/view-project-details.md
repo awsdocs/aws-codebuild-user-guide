@@ -27,7 +27,7 @@ By default, only the 10 most recent build projects are displayed\. To view more 
 
 ## View a Build Project's Details \(AWS CLI\)<a name="view-project-details-cli"></a>
 
-For more information about using the AWS CLI with AWS CodeBuild, see the [Command Line Reference](cmd-ref.md)\.
+For more information about using the AWS CLI with AWS CodeBuild, see the [Use a Proxy ServerCommand Line Reference](cmd-ref.md)\.
 
 Run the batch\-get\-projects command:
 

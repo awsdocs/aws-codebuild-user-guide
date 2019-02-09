@@ -36,6 +36,7 @@ If you see an expand arrow \(**↗**\) in the upper\-right corner of the table, 
 | DeleteSourceCredentials |  `codebuild:DeleteSourceCredentials` Required to delete a set of `SourceCredentialsInfo` objects that contain information about credentials for a GitHub, GitHub Enterprise, or Bitbucket repository\.  |  `*`  | 
 | DeleteWebhook |  `codebuild:DeleteWebhook` Required to delete a webhook\.  |  `arn:aws:codebuild:region-ID:account-ID:project/project-name`  | 
 | ImportSourceCredentials |  `codebuild:ImportSourceCredentials` Required to import a set of `SourceCredentialsInfo` objects that contain information about credentials for a GitHub, GitHub Enterprise, or Bitbucket repository\.  |  `*`  | 
+| InvalidateProjectCache |  `codebuild:InvalidateProjectCache` Required to reset the cache for a project\.  |  `arn:aws:codebuild:region-ID:account-ID:project/project-name`  | 
 | ListBuilds | codebuild:ListBuildsRequired to get a list of build IDs\. |  `*`  | 
 | ListBuildsForProject |  `codebuild:ListBuildsForProject` Required to get a list of build IDs for a build project\.  |  `arn:aws:codebuild:region-ID:account-ID:project/project-name`  | 
 | ListCuratedEnvironmentImages |  `codebuild:ListCuratedEnvironmentImages` Required to get information about all Docker images that are managed by AWS CodeBuild\.  |  `*` \(required, but does not refer to an addressable AWS resource\)  | 

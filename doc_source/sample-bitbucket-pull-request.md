@@ -4,7 +4,7 @@
 
 --------
 
-# Bitbucket Pull Request Sample for AWS CodeBuild<a name="sample-bitbucket-pull-request"></a>
+# Bitbucket Pull Request and Webhook Filter Sample for AWS CodeBuild<a name="sample-bitbucket-pull-request"></a>
 
 This sample shows you how to create a pull request using a Bitbucket repository\. It also shows you how to use a Bitbucket webhook to trigger AWS CodeBuild to create a build of a project\.
 
@@ -12,6 +12,7 @@ This sample shows you how to create a pull request using a Bitbucket repository\
 + [Bitbucket Pull Request Prerequisites](#sample-bitbucket-pull-request-prerequisites)
 + [Create a Build Project with Bitbucket as the Source Repository and Enable Webhooks](#sample-bitbucket-pull-request-create)
 + [Trigger a Build with a Bitbucket Webhook](#sample-bitbucket-pull-request-trigger)
++ [Filter Bitbucket Webhook Events](#sample-bitbucket-pull-request-filter-webhook-events)
 
 ## Bitbucket Pull Request Prerequisites<a name="sample-bitbucket-pull-request-prerequisites"></a>
 
@@ -35,7 +36,7 @@ This sample shows you how to create a pull request using a Bitbucket repository\
 
 1.  Choose **Use a repository in my account**\. You cannot use a webhook if you use a public Bitbucket repository\. 
 
-1.  For **Webhook**, select **Rebuild every time a code change is pushed to this repository** 
+1.  For **Webhook**, select **Rebuild every time a code change is pushed to this repository**\. 
 **Note**  
  If a build is triggered by a Bitbucket webhook, the **Report build status** setting is ignored\. The build status is always sent to Bitbucket\.   
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/source-what-to-build-bitbucket.png)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)
@@ -56,9 +57,9 @@ This sample shows you how to create a pull request using a Bitbucket repository\
 
 1.  Create a pull request on your Bitbucket repository\. For more information, see [Making a Pull Request](https://www.atlassian.com/git/tutorials/making-a-pull-request)\. 
 
-1.  In the Bitbucket webhooks page, choose **View request** to see a list of recent events\. 
+1.  On the Bitbucket webhooks page, choose **View request** to see a list of recent events\. 
 
-1.  In the Bitbucket webhooks page, choose **View details** to see details about the response returned by AWS CodeBuild\. It might look something like this: 
+1.  Choose **View details** to see details about the response returned by AWS CodeBuild\. It might look something like this: 
 
    ```
    "response":"Webhook received and buld started: https://us-east-1.console.aws.amazon.com/codebuild/home..."
@@ -66,3 +67,182 @@ This sample shows you how to create a pull request using a Bitbucket repository\
    ```
 
 1.  Navigate to the Bitbucket pull request page to see the status of the build\. 
+
+## Filter Bitbucket Webhook Events<a name="sample-bitbucket-pull-request-filter-webhook-events"></a>
+
+ You can use webhook filter groups to specify which Bitbucket webhook events trigger a build\. For example, you can specify that a build is triggered for specified branches only\. 
+
+ You can specify more than one webhook filter group\. A build is triggered if the filters on one or more filter groups evaluate to true\. When you create a filter group, you specify: 
++  An event\. For Bitbucket, you can choose one or more of the following events: `PUSH`, `PULL_REQUEST_CREATED`, and `PULL_REQUEST_UPDATED`\. 
++  One or more optional filters\. Use a regular expression to specify a filter\. For an event to trigger a build, every filter associated with it must evaluate to true\. 
+  +  `ACTOR_ACCOUNT_ID` \(`ACTOR_ID` in the console\): A webhook event triggers a build when a Bitbucket account ID matches the regular expression pattern\. 
+  +  `HEAD_REF`: A webhook event triggers a build when the head reference matches the regular expression pattern\. For example, `refs/heads/branch-name` and `refs/tags/tag-name`\.
+  +  `BASE_REF`: A webhook event triggers a build when the base reference matches the regular expression pattern\. A `BASE_REF` filter works with pull request events only\. For example, `refs/heads/branch-name`\. 
+
+**Topics**
++ [Filter BitBucket Webhook Events \(Console\)](#sample-bitbucket-pull-request-filter-webhook-events-console)
++ [Filter BitBucket Webhook Events \(SDK\)](#sample-bitbucket-pull-request-filter-webhook-events-sdk)
++ [Filter Bitbucket Webhook Events \(AWS CloudFormation\)](#sample-bitbucket-pull-request-filter-webhook-events-cfn)
+
+### Filter BitBucket Webhook Events \(Console\)<a name="sample-bitbucket-pull-request-filter-webhook-events-console"></a>
+
+ To use the AWS Management Console to filter webhook events: 
+
+1.  Select **Rebuild every time a code change is pushed to this repository** when you create your project\. 
+
+1.  From **Event type**, choose one or more events\. 
+
+1.  To filter when an event triggers a build, under **Start a build under these conditions**, add one or more optional filters\. 
+
+1.  To filter when an event is not triggered, under **Don't start a build under these conditions**, add one or more optional filters\. 
+
+1.  Choose **Add filter group** to add another filter group\. 
+
+ For more information, see [Create a Build Project \(Console\)](create-project.md#create-project-console) and [WebhookFilter](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_WebhookFilter.html) in the *AWS CodeBuild API Reference*\. 
+
+In this example, a webhook filter group triggers a build for pull requests only:
+
+![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/pull-request-webhook-filter-bitbucket.png)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)
+
+Using an example of two filter groups, a build is triggered when one or both evaluate to true:
++ The first filter group specifies pull requests that are created or updated on branches with Git reference names that match the regular expression `^refs/heads/master$` and head references that matches `^refs/heads/branch1!`\. 
++ The second filter group specifies push requests on branches with Git reference names that match the regular expression `^refs/heads/branch1$`\. 
+
+![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/pull-request-webhook-filter-head-base-regexes-bitbucket.png)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)
+
+In this example, a webhook filter group triggers a build for all requests except tag events\. 
+
+![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/pull-request-webhook-filter-exclude-bitbucket.png)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)
+
+In this example, a webhook filter group triggers a build only when a change is made by a Bitbucket user that does not have an account ID that matches the regular expression `actor-account-id`\. 
+
+**Note**  
+ For information about how to find your Bitbucket account ID, see https://api\.bitbucket\.org/2\.0/users/*user\-name*, where *user\-name* is your Bitbucket user name\. 
+
+![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/pull-request-webhook-filter-actor-bitbucket.png)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)
+
+### Filter BitBucket Webhook Events \(SDK\)<a name="sample-bitbucket-pull-request-filter-webhook-events-sdk"></a>
+
+ To use the AWS CodeBuild SDK to filter webhook events, use the `filterGroups` field in the request syntax of the `CreateWebhook` or `UpdateWebhook` API methods\. For more information, see [WebhookFilter](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_WebhookFilter.html) in the *AWS CodeBuild API Reference*\. 
+
+ To create a webhook filter that triggers a build for pull requests only, insert the following into the request syntax: 
+
+```
+"filterGroups": [
+   [
+        {
+            "type": "EVENT", 
+            "pattern": "PULL_REQUEST_CREATED, PULL_REQUEST_UPDATED"
+        }
+    ]
+]
+```
+
+ To create a webhook filter that triggers a build for specified branches only, use the `pattern` parameter to specify a regular expression to filter branch names\. Using an example of two filter groups, a build is triggered when one or both are evaluate to true:
++ The first filter group specifies pull requests that are created or updated on branches with Git reference names that match the regular expression `^refs/heads/master$` and head references that match `^refs/heads/myBranch$`\. 
++ The second filter group specifies push requests on branches with Git reference names that match the regular expression `^refs/heads/myBranch$` and \. 
+
+```
+"filterGroups": [
+    [
+        {
+            "type": "EVENT", 
+            "pattern": "PULL_REQUEST_CREATED, PULL_REQUEST_UPDATED"
+        },
+        {
+            "type": "HEAD_REF", 
+            "pattern": "^refs/heads/myBranch$"
+        },
+        {
+            "type": "BASE_REF", 
+            "pattern": "^refs/heads/master$"
+        }
+    ],
+    [
+        {
+            "type": "EVENT", 
+            "pattern": "PUSH"
+        },
+        {
+            "type": "HEAD_REF", 
+            "pattern": "^refs/heads/myBranch$"
+        }
+    ]
+]
+```
+
+ You can use the `excludeMatchedPattern` parameter to specify which events do not trigger a build\. In this example, a build is triggered for all requests except tag events\. 
+
+```
+"filterGroups": [
+    [
+        {
+            "type": "EVENT", 
+            "pattern": "PUSH, PULL_REQUEST_CREATED, PULL_REQUEST_UPDATED"
+        },
+        {
+            "type": "HEAD_REF", 
+            "pattern": "^refs/tags/.*", 
+            "excludeMatchedPattern": true
+        }
+    ]
+]
+```
+
+You can create a filter that triggers a build only when a change is made by a Bitbucket user with account ID `actor-account-id`\. 
+
+**Note**  
+ For information about how to find your Bitbucket account ID, see https://api\.bitbucket\.org/2\.0/users/*user\-name*, where *user\-name* is your Bitbucket user name\. 
+
+```
+"filterGroups": [
+    [
+        {
+            "type": "EVENT", 
+            "pattern": "PUSH, PULL_REQUEST_CREATED, PULL_REQUEST_UPDATED"
+        },
+        {
+            "type": "ACTOR_ACCOUNT_ID", 
+            "pattern": "actor-account-id"
+        }
+    ]
+]
+```
+
+### Filter Bitbucket Webhook Events \(AWS CloudFormation\)<a name="sample-bitbucket-pull-request-filter-webhook-events-cfn"></a>
+
+ To use an AWS CloudFormation template to filter webhook events, use the AWS CodeBuild project's `FilterGroups` property\. The following YAML\-formatted portion of a AWS CloudFormation template creates two filter groups\. Together, they trigger a build when one or both evaluate to true: 
++  The first filter group specifies pull requests are created or updated on branches with Git reference names that match the regular expression `^refs/heads/master$` by a Bitbucket user that does not have account ID `12345`\. 
++  The second filter group specifies push requests are created on branches with Git reference names that match the regular expression `^refs/heads/.*`\. 
+
+```
+CodeBuildProject:
+  Type: AWS::CodeBuild::Project
+  Properties:
+    Name: MyProject
+    ServiceRole: service-role
+    Artifacts:
+      Type: NO_ARTIFACTS
+    Environment:
+      Type: LINUX_CONTAINER
+      ComputeType: BUILD_GENERAL1_SMALL
+      Image: aws/codebuild/java:openjdk-8
+    Source:
+      Type: BITBUCKET
+      Location: source-location
+    Triggers:
+      Webhook: true
+      FilterGroups:
+        - - Type: EVENT
+            Pattern: PULL_REQUEST_CREATED,PULL_REQUEST_UPDATED
+          - Type: BASE_REF
+            Pattern: ^refs/heads/master$
+            ExcludeMatchedPattern: false
+          - Type: ACTOR_ACCOUNT_ID
+            Pattern: 12345
+            ExcludeMatchedPattern: true
+        - - Type: EVENT
+            Pattern: PUSH
+          - Type: HEAD_REF
+            Pattern: ^refs/heads/.*
+```

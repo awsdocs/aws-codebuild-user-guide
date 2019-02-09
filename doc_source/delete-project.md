@@ -30,7 +30,7 @@ By default, only the most recent 10 build projects are displayed\. To view more 
 
 ## Delete a Build Project \(AWS CLI\)<a name="delete-project-cli"></a>
 
-For more information about using the AWS CLI with AWS CodeBuild, see the [Command Line Reference](cmd-ref.md)\.
+For more information about using the AWS CLI with AWS CodeBuild, see the [Use a Proxy ServerCommand Line Reference](cmd-ref.md)\.
 
 1. Run the `delete-project` command:
 

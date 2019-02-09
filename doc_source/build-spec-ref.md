@@ -85,7 +85,7 @@ artifacts:
   files:
     - location
     - location
-    - name
+  name: artifact-name
   discard-paths: yes
   base-directory: location
   secondary-artifacts:
@@ -93,6 +93,7 @@ artifacts:
       files:
         - location
         - location
+      name: secondary-artifact-name
       discard-paths: yes
       base-directory: location
     artifactIdentifier:
@@ -111,7 +112,7 @@ The build spec contains the following:
 + `version`: Required mapping\. Represents the build spec version\. We recommend that you use `0.2`\.
 **Note**  
 Although version 0\.1 is still supported, we recommend that you use version 0\.2 whenever possible\. For more information, see [Build Spec Versions](#build-spec-ref-versions)\.
-+ `run-as`: Optional sequence\. Available to Linux users only\. Specifies a Linux user that runs commands in this buildspec file\. `run-as` grants the specified user read and execute perimissions\. When you specify `run-as` at the top of the buildspec file, it applies globally to all commands\. If you don't want to specify a user for all buildspec file commands, you can specify one for commands in a phase by using `run-as` in one of the `phases` blocks\. If `run-as` is not specified, then all commands run as the root\.
++ `run-as`: Optional sequence\. Available to Linux users only\. Specifies a Linux user that runs commands in this buildspec file\. `run-as` grants the specified user read and execute permissions\. When you specify `run-as` at the top of the buildspec file, it applies globally to all commands\. If you don't want to specify a user for all buildspec file commands, you can specify one for commands in a phase by using `run-as` in one of the `phases` blocks\. If `run-as` is not specified, then all commands run as the root\.
 + `env`: Optional sequence\. Represents information for one or more custom environment variables\.
   + `variables`: Required if `env` is specified, and you want to define custom environment variables in plain text\. Contains a mapping of *key*/*value* scalars, where each mapping represents a single custom environment variable in plain text\. *key* is the name of the custom environment variable, and *value* is that variable's value\.
 **Important**  
@@ -264,18 +265,20 @@ Commands in some build phases might not be run if commands in earlier build phas
           {
             "type": "S3",
             "location": "output-bucket1",
-            "artifactIdentifier": "artifact1"
+            "artifactIdentifier": "artifact1",
+            "name": "secondary-artifact-name-1"
           },
           {
             "type": "S3",
             "location": "output-bucket2",
-            "artifactIdentifier": "artifact2"
+            "artifactIdentifier": "artifact2",
+            "name": "secondary-artifact-name-2"
           }
         ]
       }
     ```
 
-    Then your build spec looks like the following:
+    Then your buildpec looks like the following:
 
     ```
     version: 0.2
@@ -289,9 +292,11 @@ Commands in some build phases might not be run if commands in earlier build phas
         artifact1:
           files:
             - directory/file
+          name: secondary-artifact-name-1        
         artifact2:
           files:
             - directory/file2
+          name: name: secondary-artifact-name-2
     ```
 + `cache`: Optional sequence\. Represents information about where AWS CodeBuild can prepare the files for uploading cache to an Amazon S3 cache bucket\. This sequence is not required if the cache type of the project is `No Cache`\. 
   + `paths`: Required sequence\. Represents the locations of the cache\. Contains a sequence of scalars, with each scalar representing a separate location where AWS CodeBuild can find build output artifacts, relative to the original build location or, if set, the base directory\. Locations can include the following:
