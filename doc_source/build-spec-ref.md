@@ -278,7 +278,7 @@ Commands in some build phases might not be run if commands in earlier build phas
       }
     ```
 
-    Then your buildpec looks like the following:
+    Then your buildspec looks like the following:
 
     ```
     version: 0.2
