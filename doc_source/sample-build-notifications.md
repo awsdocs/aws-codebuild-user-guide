@@ -1,15 +1,9 @@
---------
-
- The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
-
---------
-
-# Build Notifications Sample for AWS CodeBuild<a name="sample-build-notifications"></a>
+# Build Notifications Sample for CodeBuild<a name="sample-build-notifications"></a>
 
 Amazon CloudWatch Events has built\-in support for AWS CodeBuild\. CloudWatch Events is a stream of system events describing changes in your AWS resources\. With CloudWatch Events, you write declarative rules to associate events of interest with automated actions to be taken\. This sample uses Amazon CloudWatch Events and Amazon Simple Notification Service \(Amazon SNS\) to send build notifications to subscribers whenever builds succeed, fail, go from one build phase to another, or any combination of these events\.
 
 **Important**  
-Running this sample may result in charges to your AWS account\. These include possible charges for AWS CodeBuild and for AWS resources and actions related to Amazon CloudWatch and Amazon SNS\. For more information, see [AWS CodeBuild Pricing](http://aws.amazon.com/codebuild/pricing), [Amazon CloudWatch Pricing](http://aws.amazon.com/cloudwatch/pricing), and [Amazon SNS Pricing](http://aws.amazon.com/sns/pricing)\.
+Running this sample may result in charges to your AWS account\. These include possible charges for CodeBuild and for AWS resources and actions related to Amazon CloudWatch and Amazon SNS\. For more information, see [CodeBuild Pricing](http://aws.amazon.com/codebuild/pricing), [Amazon CloudWatch Pricing](http://aws.amazon.com/cloudwatch/pricing), and [Amazon SNS Pricing](http://aws.amazon.com/sns/pricing)\.
 
 ## Running the Sample<a name="sample-build-notifications-running"></a>
 
@@ -256,7 +250,7 @@ To get other types of information, see the [Build Notifications Input Format Ref
 
 1. Create build projects, run the builds, and view build information, for example by following the steps in [Run AWS CodeBuild Directly](how-to-run.md)\.
 
-1. Confirm that AWS CodeBuild is now successfully sending build notifications\. For example, check to see if the build notification emails are now in your inbox\.
+1. Confirm that CodeBuild is now successfully sending build notifications\. For example, check to see if the build notification emails are now in your inbox\.
 
 To change a rule's behavior, in the CloudWatch console, choose the rule you want to change, and then choose **Actions**, **Edit**\. Make changes to the rule, and then choose **Configure details**, followed by choosing **Update rule**\.
 
@@ -265,9 +259,9 @@ To stop using a rule to send build notifications, in the CloudWatch console, cho
 To delete a rule altogether, in the CloudWatch console, choose the rule you want to delete, and then choose **Actions**, **Delete**\.
 
 ### Related Resources<a name="w4aac11c41c27b9c12"></a>
-+ For more information about getting started with AWS CodeBuild, see [Getting Started with AWS CodeBuild](getting-started.md)\.
-+ For more information about troubleshooting problems with AWS CodeBuild, see [Troubleshooting AWS CodeBuild](troubleshooting.md)\.
-+ For more information about limits in AWS CodeBuild, see [Limits for AWS CodeBuild](limits.md)\.
++ For more information about getting started with AWS CodeBuild, see [Getting Started with CodeBuild](getting-started.md)\.
++ For more information about troubleshooting problems with CodeBuild, see [Troubleshooting CodeBuild](troubleshooting.md)\.
++ For more information about limits in CodeBuild, see [Limits for CodeBuild](limits.md)\.
 
 ## Build Notifications Input Format Reference<a name="sample-build-notifications-ref"></a>
 

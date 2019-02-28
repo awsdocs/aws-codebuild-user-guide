@@ -1,9 +1,3 @@
---------
-
- The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
-
---------
-
 # Multiple Input Sources and Output Artifacts Sample<a name="sample-multi-in-out"></a>
 
 You can create an AWS CodeBuild build project with more than one input source and more than one set of output artifacts\. This sample shows you how to set up a build project that: 
@@ -12,11 +6,11 @@ You can create an AWS CodeBuild build project with more than one input source an
 
  In this sample, you create a build project and use it to run a build\. The sample uses the build project's buildspec file to show you how to incorporate more than one source and create more than one set of artifacts\. 
 
-1.  Upload your sources to one or more Amazon S3 buckets, AWS CodeCommit, GitHub, GitHub Enterprise, or Bitbucket repositories\. 
+1.  Upload your sources to one or more Amazon S3 buckets, CodeCommit, GitHub, GitHub Enterprise, or Bitbucket repositories\. 
 
-1.  Choose which source is the primary source\. This is the source in which AWS CodeBuild looks for and executes your buildspec file\. 
+1.  Choose which source is the primary source\. This is the source in which CodeBuild looks for and executes your buildspec file\. 
 
-1.  Create a build project\. For more information, see [Create a Build Project in AWS CodeBuild ](create-project.md) 
+1.  Create a build project\. For more information, see [Create a Build Project in CodeBuild ](create-project.md) 
 
 1.  Follow the instructions in [Run AWS CodeBuild Directly](how-to-run.md) to create your build project, run the build, and get information about the build\. 
 
@@ -70,7 +64,7 @@ You can create an AWS CodeBuild build project with more than one input source an
  Secondary artifacts in the buildspec file have the same structure as artifacts and are separated by their artifact identifier\. 
 
 **Note**  
- In the [AWS CodeBuild API](https://docs.aws.amazon.com/codebuild/latest/APIReference/), the `artifactIdentifier` on a secondary artifact is a required attribute in `CreateProject` and `UpdateProject`\. It must be used to reference a secondary artifact\. 
+ In the [CodeBuild API](https://docs.aws.amazon.com/codebuild/latest/APIReference/), the `artifactIdentifier` on a secondary artifact is a required attribute in `CreateProject` and `UpdateProject`\. It must be used to reference a secondary artifact\. 
 
  Using the preceding JSON\-formatted input, the buildspec file for the project might look like: 
 
@@ -140,4 +134,4 @@ artifacts:
 
 For more information, see [Create a Build Project \(AWS CLI\)](create-project.md#create-project-cli)\.
 
-To learn how to to create a pipleline that uses multiple source inputs to AWS CodeBuild to create multiple output artifacts, see [ AWS CodePipeline Integration with AWS CodeBuild and Multiple Input Sources and Output Artifacts Sample ](sample-pipeline-multi-input-output.md)\.
+To learn how to to create a pipleline that uses multiple source inputs to CodeBuild to create multiple output artifacts, see [ CodePipeline Integration with CodeBuild and Multiple Input Sources and Output Artifacts Sample ](sample-pipeline-multi-input-output.md)\.

@@ -1,12 +1,6 @@
---------
+# View Build Details in CodeBuild<a name="view-build-details"></a>
 
- The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
-
---------
-
-# View Build Details in AWS CodeBuild<a name="view-build-details"></a>
-
-You can use the AWS CodeBuild console, AWS CLI, or AWS SDKs to view details about builds managed by AWS CodeBuild\.
+You can use the AWS CodeBuild console, AWS CLI, or AWS SDKs to view details about builds managed by CodeBuild\.
 
 **Topics**
 + [View Build Details \(Console\)](#view-build-details-console)

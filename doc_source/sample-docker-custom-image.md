@@ -1,17 +1,11 @@
---------
-
- The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
-
---------
-
-# Docker in Custom Image Sample for AWS CodeBuild<a name="sample-docker-custom-image"></a>
+# Docker in Custom Image Sample for CodeBuild<a name="sample-docker-custom-image"></a>
 
 This sample builds and runs a Docker image by using AWS CodeBuild and a custom Docker build image \(`docker:dind` in Docker Hub\)\. 
 
-To learn how to build a Docker image by using a build image provided by AWS CodeBuild with Docker support instead, see our [Docker Sample](sample-docker.md)\.
+To learn how to build a Docker image by using a build image provided by CodeBuild with Docker support instead, see our [Docker Sample](sample-docker.md)\.
 
 **Important**  
-Running this sample may result in charges to your AWS account\. These include possible charges for AWS CodeBuild and for AWS resources and actions related to Amazon S3, AWS KMS, and CloudWatch Logs\. For more information, see [AWS CodeBuild Pricing](http://aws.amazon.com/codebuild/pricing), [Amazon S3 Pricing](http://aws.amazon.com/s3/pricing), [AWS Key Management Service Pricing](http://aws.amazon.com/kms/pricing), and [Amazon CloudWatch Pricing](http://aws.amazon.com/cloudwatch/pricing)\.
+Running this sample may result in charges to your AWS account\. These include possible charges for CodeBuild and for AWS resources and actions related to Amazon S3, AWS KMS, and CloudWatch Logs\. For more information, see [CodeBuild Pricing](http://aws.amazon.com/codebuild/pricing), [Amazon S3 Pricing](http://aws.amazon.com/s3/pricing), [AWS Key Management Service Pricing](http://aws.amazon.com/kms/pricing), and [Amazon CloudWatch Pricing](http://aws.amazon.com/cloudwatch/pricing)\.
 
 **Topics**
 + [Running the Sample](#sample-docker-custom-image-running)
@@ -104,6 +98,6 @@ RUN echo "Hello World"
 ```
 
 ## Related Resources<a name="w4aac11c41c29c17"></a>
-+ For more information about getting started with AWS CodeBuild, see [Getting Started with AWS CodeBuild](getting-started.md)\.
-+ For more information about troubleshooting problems with AWS CodeBuild, see [Troubleshooting AWS CodeBuild](troubleshooting.md)\.
-+ For more information about limits in AWS CodeBuild, see [Limits for AWS CodeBuild](limits.md)\.
++ For more information about getting started with AWS CodeBuild, see [Getting Started with CodeBuild](getting-started.md)\.
++ For more information about troubleshooting problems with CodeBuild, see [Troubleshooting CodeBuild](troubleshooting.md)\.
++ For more information about limits in CodeBuild, see [Limits for CodeBuild](limits.md)\.

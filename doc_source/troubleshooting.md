@@ -1,10 +1,4 @@
---------
-
- The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
-
---------
-
-# Troubleshooting AWS CodeBuild<a name="troubleshooting"></a>
+# Troubleshooting CodeBuild<a name="troubleshooting"></a>
 
 Use the information in this topic to help you identify, diagnose, and address issues\.
 
@@ -17,10 +11,12 @@ Use the information in this topic to help you identify, diagnose, and address is
 + [Apache Maven Builds Reference Artifacts from the Wrong Repository](#troubleshooting-maven-repos)
 + [Build Commands Run as root by Default](#troubleshooting-root-build-commands)
 + [The Bourne Shell \(sh\) Must Exist in Build Images](#troubleshooting-sh-build-images)
-+ [Error: "AWS CodeBuild is experiencing an issue" When Running a Build](#troubleshooting-large-env-vars)
++ [Error: "CodeBuild is experiencing an issue" When Running a Build](#troubleshooting-large-env-vars)
 + [Error: "BUILD\_CONTAINER\_UNABLE\_TO\_PULL\_IMAGE" When Using a Custom Build Image](#troubleshooting-unable-to-pull-image)
 + [Builds May Fail When File Names Have Non\-US English Characters](#troubleshooting-utf-8)
 + [Builds May Fail When Getting Parameters from Amazon EC2 Parameter Store](#troubleshooting-parameter-store)
++ [Cannot Access Branch Filter in the CodeBuild Console](#troubleshooting-webhook-filter)
++ [Procedures in This Guide Do Not Match the CodeBuild Console](#troubleshooting-old-console)
 + ["Access denied" Error Message When Attempting to Download Cache](#troubleshooting-dependency-caching)
 + [Error: "Unable to download cache: RequestError: send request failed caused by: x509: failed to load system roots and no roots provided"](#troubleshooting-cache-image)
 + [Error: "Unable to download certificate from S3\. AccessDenied"](#troubleshooting-certificate-in-S3)
@@ -35,12 +31,12 @@ Use the information in this topic to help you identify, diagnose, and address is
 
  **Possible causes:** 
 + The AWS Security Token Service \(AWS STS\) has been deactivated for the AWS region where you are attempting to create or update the build project\.
-+ The AWS CodeBuild service role associated with the build project does not exist or does not have sufficient permissions to trust AWS CodeBuild\.
++ The AWS CodeBuild service role associated with the build project does not exist or does not have sufficient permissions to trust CodeBuild\.
 
  **Recommended solutions:** 
 + Make sure AWS STS is activated for the AWS region where you are attempting to create or update the build project\. For more information, see [Activating and Deactivating AWS STS in an AWS Region](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html) in the *IAM User Guide*\.
-+ Make sure the target AWS CodeBuild service role exists in your AWS account\. If you are not using the console, make sure you did not misspell the Amazon Resource Name \(ARN\) of the service role when you created or updated the build project\.
-+ Make sure the target AWS CodeBuild service role has sufficient permissions to trust AWS CodeBuild\. For more information, see the trust relationship policy statement in [Create an AWS CodeBuild Service Role](setting-up.md#setting-up-service-role)\.
++ Make sure the target CodeBuild service role exists in your AWS account\. If you are not using the console, make sure you did not misspell the Amazon Resource Name \(ARN\) of the service role when you created or updated the build project\.
++ Make sure the target CodeBuild service role has sufficient permissions to trust CodeBuild\. For more information, see the trust relationship policy statement in [Create a CodeBuild Service Role](setting-up.md#setting-up-service-role)\.
 
 ## Error: "The bucket you are attempting to access must be addressed using the specified endpoint\.\.\." When Running a Build<a name="troubleshooting-input-bucket-different-region"></a>
 
@@ -54,7 +50,7 @@ Use the information in this topic to help you identify, diagnose, and address is
 
 **Issue:** When you run a build, the `UPLOAD_ARTIFACTS` build phase fails with the error "Failed to upload artifacts: Invalid arn"\.
 
-**Possible cause:** Your Amazon S3 output bucket \(the bucket where AWS CodeBuild stores its output from the build\) is in a different AWS region than the AWS CodeBuild build project\.
+**Possible cause:** Your Amazon S3 output bucket \(the bucket where AWS CodeBuild stores its output from the build\) is in a different AWS region than the CodeBuild build project\.
 
 **Recommended solution:** Update the build project's settings to point to an output bucket that is in the same region as the build project\.
 
@@ -111,7 +107,7 @@ Use the information in this topic to help you identify, diagnose, and address is
 
 **Issue:** When you use Maven with an AWS CodeBuild provided Java build environment, Maven pulls build and plugin dependencies from the secure central Maven repository at [https://repo1\.maven\.org/maven2](https://repo1.maven.org/maven2)\. This happens even if your build project's `pom.xml` file explicitly declares other locations to use instead\.
 
-**Possible cause:** AWS CodeBuild provided Java build environments include a file named `settings.xml` that is preinstalled in the build environment's `/root/.m2` directory\. This `settings.xml` file contains the following declarations, which instruct Maven to always pull build and plugin dependencies from the secure central Maven repository at [https://repo1\.maven\.org/maven2](https://repo1.maven.org/maven2)\.
+**Possible cause:** CodeBuild provided Java build environments include a file named `settings.xml` that is preinstalled in the build environment's `/root/.m2` directory\. This `settings.xml` file contains the following declarations, which instruct Maven to always pull build and plugin dependencies from the secure central Maven repository at [https://repo1\.maven\.org/maven2](https://repo1.maven.org/maven2)\.
 
 ```
 <settings>
@@ -150,7 +146,7 @@ Use the information in this topic to help you identify, diagnose, and address is
 
 1. In this `settings.xml` file, use the preceding `settings.xml` format as a guide to declare the repositories you want Maven to pull the build and plugin dependencies from instead\.
 
-1. In the `install` phase of your build project, instruct AWS CodeBuild to copy your `settings.xml` file to the build environment's `/root/.m2` directory\. For example, consider the following snippet from a `buildspec.yml` file that demonstrates this behavior\. 
+1. In the `install` phase of your build project, instruct CodeBuild to copy your `settings.xml` file to the build environment's `/root/.m2` directory\. For example, consider the following snippet from a `buildspec.yml` file that demonstrates this behavior\. 
 
    ```
    version 0.2
@@ -165,7 +161,7 @@ Use the information in this topic to help you identify, diagnose, and address is
 
 **Issue:** AWS CodeBuild runs your build commands as the root user\. This happens even if your related build image's Dockerfile sets the `USER` instruction to a different user\.
 
-**Cause:** AWS CodeBuild runs all build commands as the root user by default\.
+**Cause:** CodeBuild runs all build commands as the root user by default\.
 
 **Recommended solution:** None\.
 
@@ -173,15 +169,15 @@ Use the information in this topic to help you identify, diagnose, and address is
 
 **Issue:** You are using a build image that is not provided by AWS CodeBuild, and your builds fail with the message "build container found dead before completing the build\." 
 
-**Possible cause:**The Bourne shell \(`sh`\) is not included in your build image\. AWS CodeBuild needs `sh` to run build commands and scripts\.
+**Possible cause:**The Bourne shell \(`sh`\) is not included in your build image\. CodeBuild needs `sh` to run build commands and scripts\.
 
-**Recommended solution:** If `sh` in not present in your build image, be sure to include it before you start any more builds that use your image\. \(AWS CodeBuild already includes `sh` in its build images\.\)
+**Recommended solution:** If `sh` in not present in your build image, be sure to include it before you start any more builds that use your image\. \(CodeBuild already includes `sh` in its build images\.\)
 
-## Error: "AWS CodeBuild is experiencing an issue" When Running a Build<a name="troubleshooting-large-env-vars"></a>
+## Error: "CodeBuild is experiencing an issue" When Running a Build<a name="troubleshooting-large-env-vars"></a>
 
-**Issue:** When you try to run a build project, you receive the following error during the build's `PROVISIONING` phase: "AWS CodeBuild is experiencing an issue\."
+**Issue:** When you try to run a build project, you receive the following error during the build's `PROVISIONING` phase: "CodeBuild is experiencing an issue\."
 
-**Possible cause:** Your build is using environment variables that are too large for AWS CodeBuild\. AWS CodeBuild can raise errors once the length of all environment variables \(all names and values added together\) reach a combined maximum of around 5,500 characters\.
+**Possible cause:** Your build is using environment variables that are too large for AWS CodeBuild\. CodeBuild can raise errors once the length of all environment variables \(all names and values added together\) reach a combined maximum of around 5,500 characters\.
 
 **Recommended solution:** Use Amazon EC2 Systems Manager Parameter Store to store large environment variables and then retrieve them from your build spec\. Amazon EC2 Systems Manager Parameter Store can store an individual environment variable \(name and value added together\) that is a combined 4,096 characters or less\. To store large environment variables, see [Systems Manager Parameter Store](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-paramstore.html) and [Systems Manager Parameter Store Console Walkthrough](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-walk.html#sysman-paramstore-console) in the *Amazon EC2 Systems Manager User Guide*\. To retrieve them, see the `parameter-store` mapping in [Build Spec Syntax](build-spec-ref.md#build-spec-ref-syntax)\.
 
@@ -195,15 +191,15 @@ Use the information in this topic to help you identify, diagnose, and address is
 
  **Recommended solutions:** 
 + Use a larger compute type with more available disk space, or reduce the size of your custom build image\.
-+ Update the permissions in your repository in Amazon ECR so that AWS CodeBuild can pull your custom build image into the build environment\. For more information, see the [Amazon ECR Sample](sample-ecr.md)\.
++ Update the permissions in your repository in Amazon ECR so that CodeBuild can pull your custom build image into the build environment\. For more information, see the [Amazon ECR Sample](sample-ecr.md)\.
 
 ## Builds May Fail When File Names Have Non\-US English Characters<a name="troubleshooting-utf-8"></a>
 
 **Issue:** When you run a build that uses files with file names containing non\-US English characters \(for example, Chinese characters\), the build fails\. 
 
-**Possible cause:** : Build environments provided by AWS CodeBuild have their default locale set to `POSIX`\. `POSIX` localization settings are less compatible with AWS CodeBuild and file names that contain non\-US English characters and can cause related builds to fail\.
+**Possible cause:** : Build environments provided by AWS CodeBuild have their default locale set to `POSIX`\. `POSIX` localization settings are less compatible with CodeBuild and file names that contain non\-US English characters and can cause related builds to fail\.
 
-**Recommended solution:** Add the following commands to the `pre_build` section of your build specification\. These commands make the build environment use US English UTF\-8 for its localization settings, which is more compatible with AWS CodeBuild and file names that contain non\-US English characters\.
+**Recommended solution:** Add the following commands to the `pre_build` section of your build specification\. These commands make the build environment use US English UTF\-8 for its localization settings, which is more compatible with CodeBuild and file names that contain non\-US English characters\.
 
 For build environments based on Ubuntu:
 
@@ -227,10 +223,10 @@ pre_build:
 
 **Issue:** When a build tries to get the value of one or more parameters stored in Amazon EC2 Parameter Store, the build fails in the `DOWNLOAD_SOURCE` phase with the following error: "Parameter does not exist\."
 
-**Possible causes:** The service role the build project relies on does not have permission to call the `ssm:GetParameters` action or the build project uses a service role that is generated by AWS CodeBuild and allows calling the `ssm:GetParameters` action, but the parameters have names that do not start with `/CodeBuild/`\.
+**Possible cause:** The service role the build project relies on does not have permission to call the `ssm:GetParameters` action or the build project uses a service role that is generated by AWS CodeBuild and allows calling the `ssm:GetParameters` action, but the parameters have names that do not start with `/CodeBuild/`\.
 
  **Recommended solutions:** 
-+ If the service role was not generated by AWS CodeBuild, update its definition to allow AWS CodeBuild to call the `ssm:GetParameters` action\. For example, the following policy statement allows calling the `ssm:GetParameters` action to get parameters with names starting with `/CodeBuild/`:
++ If the service role was not generated by CodeBuild, update its definition to allow CodeBuild to call the `ssm:GetParameters` action\. For example, the following policy statement allows calling the `ssm:GetParameters` action to get parameters with names starting with `/CodeBuild/`:
 
   ```
   {
@@ -244,7 +240,7 @@ pre_build:
     ]
   }
   ```
-+  If the service role was generated by AWS CodeBuild, update its definition to allow AWS CodeBuild to access parameters in Amazon EC2 Parameter Store with names other than those starting with `/CodeBuild/`\. For example, the following policy statement allows calling the `ssm:GetParameters` action to get parameters with the specified name:
++  If the service role was generated by CodeBuild, update its definition to allow CodeBuild to access parameters in Amazon EC2 Parameter Store with names other than those starting with `/CodeBuild/`\. For example, the following policy statement allows calling the `ssm:GetParameters` action to get parameters with the specified name:
 
   ```
   {
@@ -259,6 +255,22 @@ pre_build:
   }
   ```
 
+## Cannot Access Branch Filter in the CodeBuild Console<a name="troubleshooting-webhook-filter"></a>
+
+**Issue:** The branch filter option is not available in the console when you create or update an AWS CodeBuild project\.
+
+ **Possible cause:** The branch filter option is deprecated\. It has been replaced by webhook filter groups, which provide more control over the webhook events that trigger a new CodeBuild build\. 
+
+**Recommended solution:** To migrate a branch filter created prior to the introduction of webhook filters, create a webhook filter groups with a `HEAD_REF` filter with the regular expression `^refs/heads/branchName$`\. For example, if your branch filter regular expression was `^branchName$`, then the updated regular expression you put in the `HEAD_REF` filter is `^refs/heads/branchName$`\. For more information, see [Filter BitBucket Webhook Events \(Console\)](sample-bitbucket-pull-request.md#sample-bitbucket-pull-request-filter-webhook-events-console) and [Filter GitHub Webhook Events \(Console\)](sample-github-pull-request.md#sample-github-pull-request-filter-webhook-events-console)\. 
+
+## Procedures in This Guide Do Not Match the CodeBuild Console<a name="troubleshooting-old-console"></a>
+
+**Issue:** This guide supports procedures in the new console design\.
+
+ **Possible cause:** You are using the old console design\. This guide supports the new consolde design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\. 
+
+**Recommended solution:** Use the latest console design\. 
+
 ## "Access denied" Error Message When Attempting to Download Cache<a name="troubleshooting-dependency-caching"></a>
 
 **Issue:** When attempting to download the cache on a build project that has cache enabled, you receive the following generic error: "Access denied"\.
@@ -268,17 +280,15 @@ pre_build:
 + The cache has recently been invalidated via the `InvalidateProjectCache` API\.
 + The service role being used by CodeBuild does not have `s3:GetObject` and `s3:PutObject` permissions to the Amazon S3 bucket that is holding the cache\.
 
-**Recommended solutions:** For first time use, it's normal to see this immediately after updating the cache configuration\. If this error persists, then you should check to see if your service role has `s3:GetObject` and `s3:PutObject` permissions to the Amazon S3 bucket that is holding the cache\. For more information, see [Specifying S3 permissions\.](https://docs.aws.amazon.com/AmazonS3/latest/dev//using-with-s3-actions.html) 
+**Recommended solution:** For first time use, it's normal to see this immediately after updating the cache configuration\. If this error persists, then you should check to see if your service role has `s3:GetObject` and `s3:PutObject` permissions to the Amazon S3 bucket that is holding the cache\. For more information, see [Specifying S3 permissions\.](https://docs.aws.amazon.com/AmazonS3/latest/dev//using-with-s3-actions.html) 
 
 ## Error: "Unable to download cache: RequestError: send request failed caused by: x509: failed to load system roots and no roots provided"<a name="troubleshooting-cache-image"></a>
 
 **Issue:** When you try to run a build project, the build fails with the error: "RequestError: send request failed caused by: x509: failed to load system roots and no roots provided\."
 
- **Possible causes:** 
-+ You have configured caching as part of your build project and are using an older Docker image that includes an expired root certificate\. 
+ **Possible cause:** You configured caching as part of your build project and are using an older Docker image that includes an expired root certificate\. 
 
- **Recommended solutions:** 
-+ Update the Docker image that is being used in your AWS CodeBuild the project\. For more information, see [Docker Images Provided by AWS CodeBuild](build-env-ref-available.md)\.
+ **Recommended solution:** Update the Docker image that is being used in your AWS CodeBuild the project\. For more information, see [Docker Images Provided by CodeBuild](build-env-ref-available.md)\. 
 
 ## Error: "Unable to download certificate from S3\. AccessDenied"<a name="troubleshooting-certificate-in-S3"></a>
 
@@ -296,8 +306,7 @@ pre_build:
 
 **Issue:** When you try to run a build project, the build fails with the error "Git Clone Failed: unable to access `'your-repository-URL'`: SSL certificate problem: self signed certificate\."
 
- **Possible causes:** 
-+ Your source repository has a self\-signed certificate, but you have not chosen to install the certificate from your S3 bucket as part of your build project\.
+ **Possible cause:** Your source repository has a self\-signed certificate, but you have not chosen to install the certificate from your S3 bucket as part of your build project\. 
 
  **Recommended solutions:** 
 + Edit your project\. For **Certificate**, choose **Install certificate from S3**\. For **Bucket of certificate**, choose the S3 bucket where your SSL certificate is stored\. For **Object key of certificate**, type the name of your S3 object key\.
@@ -311,24 +320,24 @@ We recommend that you use **Insecure SSL** for testing only\. It should not be u
 
  **Possible causes:** 
 + You have manually updated the policies attached to the target AWS CodeBuild service role\.
-+ You have selected a previous version of a policy attached to the target AWS CodeBuild service role\.
++ You have selected a previous version of a policy attached to the target CodeBuild service role\.
 
  **Recommended solutions:** 
-+ Edit your AWS CodeBuild project, and clear **Allow AWS CodeBuild to modify this service role so it can be used with this build project**\. Manually update the target AWS CodeBuild service role to have sufficient permissions\. For more information, see [Create an AWS CodeBuild Service Role](setting-up.md#setting-up-service-role)\.
-+ Edit your AWS CodeBuild project, and select **Create a role**\.
++ Edit your CodeBuild project, and clear **Allow CodeBuild to modify this service role so it can be used with this build project**\. Manually update the target CodeBuild service role to have sufficient permissions\. For more information, see [Create a CodeBuild Service Role](setting-up.md#setting-up-service-role)\.
++ Edit your CodeBuild project, and select **Create a role**\.
 
 ## Error: "Build container found dead before completing the build\. Build container died because it was out of memory, or the Docker image is not supported\. ErrorCode: 500"<a name="windows-server-core-version"></a>
 
  **Issue:** When you try to use a Microsoft Windows container in AWS CodeBuild an error occurs during the PROVISIONING phase\. 
 
- **Possible causes:** The Container OS version is not supported by AWS CodeBuild\. 
+ **Possible cause:** The Container OS version is not supported by CodeBuild\. 
 
- **Recommended solutions:** Use a Windows container with a Container OS that is version microsoft/windowsservercore:10\.0\.x\. For example, microsoft/windowsservercore:10\.0\.14393\.2125\. 
+ **Recommended solution:** Use a Windows container with a Container OS that is version microsoft/windowsservercore:10\.0\.x\. For example, microsoft/windowsservercore:10\.0\.14393\.2125\. 
 
 ## Cannot view build success or failure<a name="no-status-when-build-triggered"></a>
 
 **Issue:** You cannot see the success or failure of a retried build\.
 
-**Possible causes:** The option to report your build's status is not enabled\. 
+**Possible cause:** The option to report your build's status is not enabled\. 
 
-**Recommended solutions:** Enable **Report build status** when you create or update an AWS CodeBuild project\. This option tells AWS CodeBuild to report back the status when you trigger a build\. For more information, see [reportBuildStatus](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSource.html#CodeBuild-Type-ProjectSource-reportBuildStatus)\. 
+**Recommended solutions:** Enable **Report build status** when you create or update a CodeBuild project\. This option tells CodeBuild to report back the status when you trigger a build\. For more information, see [reportBuildStatus](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSource.html#CodeBuild-Type-ProjectSource-reportBuildStatus)\. 

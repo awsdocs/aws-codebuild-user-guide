@@ -1,12 +1,6 @@
---------
+# Bitbucket Pull Request and Webhook Filter Sample for CodeBuild<a name="sample-bitbucket-pull-request"></a>
 
- The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
-
---------
-
-# Bitbucket Pull Request and Webhook Filter Sample for AWS CodeBuild<a name="sample-bitbucket-pull-request"></a>
-
-This sample shows you how to create a pull request using a Bitbucket repository\. It also shows you how to use a Bitbucket webhook to trigger AWS CodeBuild to create a build of a project\.
+This sample shows you how to create a pull request using a Bitbucket repository\. It also shows you how to use a Bitbucket webhook to trigger CodeBuild to create a build of a project\.
 
 **Topics**
 + [Bitbucket Pull Request Prerequisites](#sample-bitbucket-pull-request-prerequisites)
@@ -19,7 +13,7 @@ This sample shows you how to create a pull request using a Bitbucket repository\
  To run this sample you must connect your AWS CodeBuild project with your Bitbucket account\. 
 
 **Note**  
- AWS CodeBuild has updated its permissions with Bitbucket\. If you previously connected your project to Bitbucket and now receive a Bitbucket connection error, you must reconnect to grant AWS CodeBuild permission to manage your webhooks\. 
+ CodeBuild has updated its permissions with Bitbucket\. If you previously connected your project to Bitbucket and now receive a Bitbucket connection error, you must reconnect to grant CodeBuild permission to manage your webhooks\. 
 
 ## Create a Build Project with Bitbucket as the Source Repository and Enable Webhooks<a name="sample-bitbucket-pull-request-create"></a>
 
@@ -27,7 +21,7 @@ This sample shows you how to create a pull request using a Bitbucket repository\
 
 1. Open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codesuite/codebuild/home](https://console.aws.amazon.com/codesuite/codebuild/home)\.
 
-1.  If an AWS CodeBuild information page is displayed, choose **Create project**\. Otherwise, on the navigation pane, expand **Build**, and then choose **Build projects**\. 
+1.  If a CodeBuild information page is displayed, choose **Create project**\. Otherwise, on the navigation pane, expand **Build**, and then choose **Build projects**\. 
 
 1. On the **Create build project** page, in **Project configuration**, for **Project name**, enter a name for this build project\. Build project names must be unique across each AWS account\. You can also include an optional description of the build project to help other users understand what this project is used for\.
 
@@ -59,7 +53,7 @@ This sample shows you how to create a pull request using a Bitbucket repository\
 
 1.  On the Bitbucket webhooks page, choose **View request** to see a list of recent events\. 
 
-1.  Choose **View details** to see details about the response returned by AWS CodeBuild\. It might look something like this: 
+1.  Choose **View details** to see details about the response returned by CodeBuild\. It might look something like this: 
 
    ```
    "response":"Webhook received and buld started: https://us-east-1.console.aws.amazon.com/codebuild/home..."
@@ -123,7 +117,7 @@ In this example, a webhook filter group triggers a build only when a change is m
 
 ### Filter BitBucket Webhook Events \(SDK\)<a name="sample-bitbucket-pull-request-filter-webhook-events-sdk"></a>
 
- To use the AWS CodeBuild SDK to filter webhook events, use the `filterGroups` field in the request syntax of the `CreateWebhook` or `UpdateWebhook` API methods\. For more information, see [WebhookFilter](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_WebhookFilter.html) in the *AWS CodeBuild API Reference*\. 
+ To use the AWS CodeBuild SDK to filter webhook events, use the `filterGroups` field in the request syntax of the `CreateWebhook` or `UpdateWebhook` API methods\. For more information, see [WebhookFilter](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_WebhookFilter.html) in the *CodeBuild API Reference*\. 
 
  To create a webhook filter that triggers a build for pull requests only, insert the following into the request syntax: 
 

@@ -1,21 +1,15 @@
---------
+# GitHub Enterprise Sample for CodeBuild<a name="sample-github-enterprise"></a>
 
- The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
-
---------
-
-# GitHub Enterprise Sample for AWS CodeBuild<a name="sample-github-enterprise"></a>
-
-AWS CodeBuild supports GitHub Enterprise as a source repository\. This sample shows how to set up your AWS CodeBuild projects when your GitHub Enterprise repository has a certificate installed\. It also shows how to enable webhooks so that AWS CodeBuild rebuilds the source code every time a code change is pushed to your private GitHub Enterprise repository\.
+AWS CodeBuild supports GitHub Enterprise as a source repository\. This sample shows how to set up your CodeBuild projects when your GitHub Enterprise repository has a certificate installed\. It also shows how to enable webhooks so that CodeBuild rebuilds the source code every time a code change is pushed to your private GitHub Enterprise repository\.
 
 ## Prerequisites<a name="sample-github-enterprise-prerequisites"></a>
 
-1. Generate a personal access token for your AWS CodeBuild project\. We recommend that you create a GitHub Enterprise user and generate a personal access token for this user\. Copy it to your clipboard so that it can be used when you create your AWS CodeBuild project\. For more information, see [Creating a Personal Access Token in GitHub Enterprise](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/) on the GitHub Help website\.
+1. Generate a personal access token for your CodeBuild project\. We recommend that you create a GitHub Enterprise user and generate a personal access token for this user\. Copy it to your clipboard so that it can be used when you create your CodeBuild project\. For more information, see [Creating a Personal Access Token in GitHub Enterprise](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/) on the GitHub Help website\.
 
    When you create the personal access token, include the **repo** scope in the definition\.  
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/scopes.png)
 
-1. Download your certificate from GitHub Enterprise\. AWS CodeBuild uses the certificate to make a trusted SSL connection to the repository\.
+1. Download your certificate from GitHub Enterprise\. CodeBuild uses the certificate to make a trusted SSL connection to the repository\.
 
    **Linux/macOS clients:**
 
@@ -46,13 +40,13 @@ Save the certificate as a \.pem file\.
 
 1. Upload your certificate file to an Amazon S3 bucket\. For information about how to create an Amazon S3 bucket, see [How Do I Create an Amazon S3 Bucket?](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/create-bucket.html) For information about how to upload objects to an Amazon S3 bucket, see [How Do I Upload Files and Folders to a Bucket?](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/upload-objects.html)
 **Note**  
-This bucket must be in the same AWS region as your builds\. For example, if you instruct AWS CodeBuild to run a build in the US East \(Ohio\) Region, the bucket must be in the US East \(Ohio\) Region\.
+This bucket must be in the same AWS region as your builds\. For example, if you instruct CodeBuild to run a build in the US East \(Ohio\) Region, the bucket must be in the US East \(Ohio\) Region\.
 
 ## Create a Build Project with GitHub Enterprise as the Source Repository and Enable Webhooks \(Console\)<a name="sample-github-enterprise-running"></a>
 
 1. Open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codesuite/codebuild/home](https://console.aws.amazon.com/codesuite/codebuild/home)\.
 
-1.  If an AWS CodeBuild information page is displayed, choose **Create project**\. Otherwise, on the navigation pane, expand **Build**, and then choose **Build projects**\. 
+1.  If a CodeBuild information page is displayed, choose **Create project**\. Otherwise, on the navigation pane, expand **Build**, and then choose **Build projects**\. 
 
 1. On the **Create build project** page, in **Project configuration**, for **Project name**, enter a name for this build project\. Build project names must be unique across each AWS account\. You can also include an optional description of the build project to help other users understand what this project is used for\.
 
@@ -76,21 +70,21 @@ We recommend that you use **Enable insecure SSL** for testing only\. It should n
    + To use private Docker image, choose **Custom image**\. For **Environment type**, choose **Linux** or **Windows**\. For **Custom image type**, choose **Other location**, and then enter the Amazon Resource Name \(ARN\) of the credentials for your private Docker image\. The credentials must be created by AWS Secrets Manager\. For more information, see [What Is AWS Secrets Manager?](https://docs.aws.amazon.com/secretsmanager/latest/userguide/)
 
 1. In **Service role**, do one of the following:
-   + If you do not have an AWS CodeBuild service role, choose **New service role**\. In **Role name**, accept the default name or enter your own\.
-   + If you have an AWS CodeBuild service role, choose **Existing service role**\. In **Role name**, choose the service role\.
+   + If you do not have a CodeBuild service role, choose **New service role**\. In **Role name**, accept the default name or enter your own\.
+   + If you have a CodeBuild service role, choose **Existing service role**\. In **Role name**, choose the service role\.
 **Note**  
-When you use the console to create or update a build project, you can create an AWS CodeBuild service role at the same time\. By default, the role works with that build project only\. If you use the console to associate this service role with another build project, the role is updated to work with the other build project\. A service role can work with up to 10 build projects\.
+When you use the console to create or update a build project, you can create a CodeBuild service role at the same time\. By default, the role works with that build project only\. If you use the console to associate this service role with another build project, the role is updated to work with the other build project\. A service role can work with up to 10 build projects\.
 
 1. Expand **Additional configuration**\.
 
    In **VPC**, do one of the following:
    + If you are not using a VPC for your project, choose **No VPC**\.
-   + If you want AWS CodeBuild to work with your VPC:
-     + For **VPC**, choose the VPC ID that AWS CodeBuild uses\.
-     + For **VPC Subnets**, choose the subnets that include resources that AWS CodeBuild uses\.
-     + For **VPC Security groups**, choose the security groups that AWS CodeBuild uses to allow access to resources in the VPCs\.
+   + If you want CodeBuild to work with your VPC:
+     + For **VPC**, choose the VPC ID that CodeBuild uses\.
+     + For **VPC Subnets**, choose the subnets that include resources that CodeBuild uses\.
+     + For **VPC Security groups**, choose the security groups that CodeBuild uses to allow access to resources in the VPCs\.
 
-   For more information, see [Use AWS CodeBuild with Amazon Virtual Private Cloud](vpc-support.md)\.
+   For more information, see [Use CodeBuild with Amazon Virtual Private Cloud](vpc-support.md)\.
 
 1. For **Buildspec**, do one of the following:
    + Choose **Use a buildspec file** to use the buildspec\.yml file in the source code root directory\.
@@ -109,9 +103,9 @@ When you use the console to create or update a build project, you can create an 
    + If you do not want to use a cache, choose **No cache**\.
    + To use a cache, choose **Amazon S3**, and then do the following:
      + For **Cache bucket**, choose the name of the Amazon S3 bucket where the cache is stored\.
-     + \(Optional\) For **Cache path prefix**, enter an Amazon S3 path prefix\. The **Cache path prefix** value is similar to a directory name\. It enables you to store the cache under the same directory in a bucket\. 
+     + \(Optional\) For **Cache path prefix**, enter an Amazon S3 path prefix\. The **Cache path prefix** value is similar to a directory name\. It makes it possible for you to store the cache under the same directory in a bucket\. 
 **Important**  
-Do not append "/" to the end of **Path prefix**\.
+Do not append a trailing slash \(/\) to the end of the path prefix\.
 
    Using a cache saves considerable build time because reusable pieces of the build environment are stored in the cache and used across builds\.
 
@@ -120,13 +114,13 @@ Do not append "/" to the end of **Path prefix**\.
 1. If you enabled webhooks in **Source**, then a **Create webhook** dialog box is displayed with values for **Payload URL** and **Secret**\. 
 **Important**  
 The **Create webhook** dialog box appears only once\. Copy the payload URL and secret key\. You need them when you add a webhook in GitHub Enterprise\.   
-If you need to generate a payload URL and secret key again, you must first delete the webhook from your GitHub Enterprise repository\. In your AWS CodeBuild project, clear the **Webhook** check box and then choose **Save**\. You can then create or update an AWS CodeBuild project with the **Webhook** check box selected\. The **Create webhook** dialog box appears again\.
+If you need to generate a payload URL and secret key again, you must first delete the webhook from your GitHub Enterprise repository\. In your CodeBuild project, clear the **Webhook** check box and then choose **Save**\. You can then create or update a CodeBuild project with the **Webhook** check box selected\. The **Create webhook** dialog box appears again\.
 
-1. In GitHub Enterprise, choose the repository where your AWS CodeBuild project is stored\.
+1. In GitHub Enterprise, choose the repository where your CodeBuild project is stored\.
 
 1.  Choose **Settings**, choose **Hooks & services**, and then choose **Add webhook**\.
 
 1. Enter the payload URL and secret key, accept the defaults for the other fields, and then choose **Add webhook**\.  
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/ghe-webhook.png)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)
 
-1. Return to your AWS CodeBuild project\. Close the **Create webhook** dialog box and choose **Start build**\.
+1. Return to your CodeBuild project\. Close the **Create webhook** dialog box and choose **Start build**\.

@@ -1,10 +1,4 @@
---------
-
- The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
-
---------
-
-# AWS CodeBuild Permissions Reference<a name="auth-and-access-control-permissions-reference"></a>
+# CodeBuild Permissions Reference<a name="auth-and-access-control-permissions-reference"></a>
 
 You can use the following table as a reference when you are setting up [Access Control](auth-and-access-control.md#access-control) and writing permissions policies that you can attach to an IAM identity \(identity\-based policies\)\. 
 
@@ -14,7 +8,7 @@ You specify the actions in the policy's `Action` field\. To specify an action, u
 
 **Using Wildcard Characters**
 
-You specify an ARN, with or without a wildcard character \(\*\), as the resource value in the policy's `Resource` field\. You can use a wildcard to specify multiple actions or resources\. For example, `codebuild:*` specifies all AWS CodeBuild actions and `codebuild:Batch*` specifies all AWS CodeBuild actions that begin with the word `Batch`\. The following example grants access to all build project with names that begin with `my`: 
+You specify an ARN, with or without a wildcard character \(\*\), as the resource value in the policy's `Resource` field\. You can use a wildcard to specify multiple actions or resources\. For example, `codebuild:*` specifies all CodeBuild actions and `codebuild:Batch*` specifies all CodeBuild actions that begin with the word `Batch`\. The following example grants access to all build project with names that begin with `my`: 
 
 ```
 arn:aws:codebuild:us-east-2:123456789012:project/my*
@@ -23,7 +17,7 @@ arn:aws:codebuild:us-east-2:123456789012:project/my*
 If you see an expand arrow \(**↗**\) in the upper\-right corner of the table, you can open the table in a new window\. To close the window, choose the close button \(**X**\) in the lower\-right corner\.
 
 
-**AWS CodeBuild API Operations and Required Permissions for Actions**  
+**CodeBuild API Operations and Required Permissions for Actions**  
 
 | AWS CodeBuild API operations | Required permissions \(API actions\) | Resources | 
 | --- | --- | --- | 
@@ -39,7 +33,7 @@ If you see an expand arrow \(**↗**\) in the upper\-right corner of the table, 
 | InvalidateProjectCache |  `codebuild:InvalidateProjectCache` Required to reset the cache for a project\.  |  `arn:aws:codebuild:region-ID:account-ID:project/project-name`  | 
 | ListBuilds | codebuild:ListBuildsRequired to get a list of build IDs\. |  `*`  | 
 | ListBuildsForProject |  `codebuild:ListBuildsForProject` Required to get a list of build IDs for a build project\.  |  `arn:aws:codebuild:region-ID:account-ID:project/project-name`  | 
-| ListCuratedEnvironmentImages |  `codebuild:ListCuratedEnvironmentImages` Required to get information about all Docker images that are managed by AWS CodeBuild\.  |  `*` \(required, but does not refer to an addressable AWS resource\)  | 
+| ListCuratedEnvironmentImages |  `codebuild:ListCuratedEnvironmentImages` Required to get information about all Docker images that are managed by CodeBuild\.  |  `*` \(required, but does not refer to an addressable AWS resource\)  | 
 | ListSourceCredentials |  `codebuild:ListSourceCredentials` Required to get a list of `SourceCredentialsInfo` objects that contain information about credentials for a GitHub, GitHub Enterprise, or Bitbucket repository\.  |  `*`  | 
 | ListProjects |  `codebuild:ListProjects` Required to get a list of build project names\.  |  `*`  | 
 | StartBuild |  `codebuild:StartBuild` Required to start running builds\.  |  `arn:aws:codebuild:region-ID:account-ID:project/project-name`  | 

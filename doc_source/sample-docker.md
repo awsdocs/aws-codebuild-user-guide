@@ -1,10 +1,4 @@
---------
-
- The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
-
---------
-
-# Docker Sample for AWS CodeBuild<a name="sample-docker"></a>
+# Docker Sample for CodeBuild<a name="sample-docker"></a>
 
 This sample produces as build output a Docker image and then pushes the Docker image to an Amazon Elastic Container Registry \(Amazon ECR\) image repository\. You can adapt this sample to push the Docker image to Docker Hub\. For more information, see [Adapting the Sample to Push the Image to Docker Hub](#sample-docker-docker-hub)\.
 
@@ -15,7 +9,7 @@ This sample was tested referencing `golang:1.9`
 This sample uses the new multi\-stage Docker builds feature, which produces a Docker image as build output\. It then pushes the Docker image to an Amazon ECR image repository\. Multi\-stage Docker image builds help to reduce the size of the final Docker image\. For more information, see [Use multi\-stage builds with Docker](https://docs.docker.com/engine/userguide/eng-image/multistage-build/)\.
 
 **Important**  
-Running this sample may result in charges to your AWS account\. These include possible charges for AWS CodeBuild and for AWS resources and actions related to Amazon S3, AWS KMS, CloudWatch Logs, and Amazon ECR\. For more information, see [AWS CodeBuild Pricing](http://aws.amazon.com/codebuild/pricing), [Amazon S3 Pricing](http://aws.amazon.com/s3/pricing), [AWS Key Management Service Pricing](http://aws.amazon.com/kms/pricing), [Amazon CloudWatch Pricing](http://aws.amazon.com/cloudwatch/pricing), and [Amazon Elastic Container Registry Pricing](http://aws.amazon.com/ecr/pricing)\.
+Running this sample may result in charges to your AWS account\. These include possible charges for AWS CodeBuild and for AWS resources and actions related to Amazon S3, AWS KMS, CloudWatch Logs, and Amazon ECR\. For more information, see [CodeBuild Pricing](http://aws.amazon.com/codebuild/pricing), [Amazon S3 Pricing](http://aws.amazon.com/s3/pricing), [AWS Key Management Service Pricing](http://aws.amazon.com/kms/pricing), [Amazon CloudWatch Pricing](http://aws.amazon.com/cloudwatch/pricing), and [Amazon Elastic Container Registry Pricing](http://aws.amazon.com/ecr/pricing)\.
 
 **Topics**
 + [Running the Sample](#sample-docker-running)
@@ -52,7 +46,7 @@ The IAM entity that modifies this policy must have permission in IAM to modify p
 
 1. Create an image repository in Amazon ECR\. Be sure to create the repository in the same AWS region where you will be creating your build environment and running your build\. For more information, see [Creating a Repository](https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-create.html) in the *Amazon ECR User Guide*\. This repository's name must match the repository name you will specify later in this procedure, represented by the `IMAGE_REPO_NAME` environment variable\.
 
-1. Add this statement \(between *\#\#\# BEGIN ADDING STATEMENT HERE \#\#\#* and *\#\#\# END ADDING STATEMENT HERE \#\#\#*\) to the policy you attached to your AWS CodeBuild service role\. This statement enables AWS CodeBuild to upload Docker images to Amazon ECR repositories\. Ellipses \(`...`\) are used for brevity and to help you locate where to add the statement\. Do not remove any statements, and do not type these ellipses into the policy\. 
+1. Add this statement \(between *\#\#\# BEGIN ADDING STATEMENT HERE \#\#\#* and *\#\#\# END ADDING STATEMENT HERE \#\#\#*\) to the policy you attached to your AWS CodeBuild service role\. This statement enables CodeBuild to upload Docker images to Amazon ECR repositories\. Ellipses \(`...`\) are used for brevity and to help you locate where to add the statement\. Do not remove any statements, and do not type these ellipses into the policy\. 
 
    ```
    {
@@ -126,7 +120,7 @@ If you are using an Amazon S3 input bucket, be sure to create a ZIP file that co
    }
    ```
 
-1. Confirm that AWS CodeBuild successfully pushed the Docker image to the repository:
+1. Confirm that CodeBuild successfully pushed the Docker image to the repository:
 
    1. Open the Amazon ECS console at [https://console\.aws\.amazon\.com/ecs/](https://console.aws.amazon.com/ecs/)\.
 
@@ -292,6 +286,6 @@ If you are using an Amazon S3 input bucket, be sure to create a ZIP file that co
 1. Confirm that AWS CodeBuild successfully pushed the Docker image to the repository\. Sign in to Docker Hub, go to the repository, and choose the **Tags** tab\. The `latest` tag should contain a very recent **Last Updated** value\.
 
 ## Related Resources<a name="w4aac11c41c15c23"></a>
-+ For more information about getting started with AWS CodeBuild, see [Getting Started with AWS CodeBuild](getting-started.md)\.
-+ For more information about troubleshooting problems with AWS CodeBuild, see [Troubleshooting AWS CodeBuild](troubleshooting.md)\.
-+ For more information about limits in AWS CodeBuild, see [Limits for AWS CodeBuild](limits.md)\.
++ For more information about getting started with AWS CodeBuild, see [Getting Started with CodeBuild](getting-started.md)\.
++ For more information about troubleshooting problems with CodeBuild, see [Troubleshooting CodeBuild](troubleshooting.md)\.
++ For more information about limits in CodeBuild, see [Limits for CodeBuild](limits.md)\.

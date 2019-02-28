@@ -1,10 +1,4 @@
---------
-
- The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
-
---------
-
-# Stop a Build in AWS CodeBuild<a name="stop-build"></a>
+# Stop a Build in CodeBuild<a name="stop-build"></a>
 
 You can use the AWS CodeBuild console, AWS CLI,or AWS SDKs to stop a build in AWS CodeBuild\.
 
@@ -40,7 +34,7 @@ If AWS CodeBuild cannot successfully stop a build \(for example, if the build pr
 
   If AWS CodeBuild successfully stops the build, the `buildStatus` value in the `build` object in the output is `STOPPED`\.
 
-  If AWS CodeBuild cannot successfully stop the build \(for example, if the build is already complete\), the `buildStatus` value in the `build` object in the output is the final build status \(for example, `SUCCEEDED`\)\.
+  If CodeBuild cannot successfully stop the build \(for example, if the build is already complete\), the `buildStatus` value in the `build` object in the output is the final build status \(for example, `SUCCEEDED`\)\.
 
 ## Stop a Build \(AWS SDKs\)<a name="stop-build-sdks"></a>
 

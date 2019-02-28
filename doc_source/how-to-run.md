@@ -1,14 +1,8 @@
---------
-
- The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
-
---------
-
 # Run AWS CodeBuild Directly<a name="how-to-run"></a>
 
-To set up, run, and monitor builds directly with AWS CodeBuild, you can use the AWS CodeBuild console, AWS CLI, or AWS SDK\.
+To set up, run, and monitor builds directly with CodeBuild, you can use the CodeBuild console, AWS CLI, or AWS SDK\.
 
-Not what you're looking for? To use AWS CodePipeline to run AWS CodeBuild, see [Use AWS CodePipeline with AWS CodeBuild](how-to-create-pipeline.md)\.
+Not what you're looking for? To use AWS CodePipeline to run CodeBuild, see [Use AWS CodePipeline with AWS CodeBuild](how-to-create-pipeline.md)\.
 
 **Topics**
 + [Prerequisites](#how-to-run-prerequisites)
@@ -29,7 +23,7 @@ Answer the questions in [Plan a Build](planning.md)\.
 
 ## Run AWS CodeBuild Directly \(AWS CLI\)<a name="how-to-run-cli"></a>
 
-For more information about using the AWS CLI with AWS CodeBuild, see the [Use a Proxy ServerCommand Line Reference](cmd-ref.md)\.
+For more information about using the AWS CLI with CodeBuild, see the [Use a Proxy ServerCommand Line Reference](cmd-ref.md)\.
 
 1. Create the build project\. For information, see [Create a Build Project \(AWS CLI\)](create-project.md#create-project-cli)\.
 

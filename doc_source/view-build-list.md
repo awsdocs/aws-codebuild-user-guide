@@ -1,12 +1,6 @@
---------
+# View a List of Build IDs in CodeBuild<a name="view-build-list"></a>
 
- The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
-
---------
-
-# View a List of Build IDs in AWS CodeBuild<a name="view-build-list"></a>
-
-You can use the AWS CodeBuild console, AWS CLI, or AWS SDKs to view a list of build IDs for builds managed by AWS CodeBuild\.
+You can use the AWS CodeBuild console, AWS CLI, or AWS SDKs to view a list of build IDs for builds managed by CodeBuild\.
 
 **Topics**
 + [View a List of Build IDs \(Console\)](#view-build-list-console)
@@ -23,7 +17,7 @@ By default, only the 10 most recent builds are displayed\. To view more builds, 
 
 ## View a List of Build IDs \(AWS CLI\)<a name="view-build-list-cli"></a>
 
-For more information about using the AWS CLI with AWS CodeBuild, see the [Use a Proxy ServerCommand Line Reference](cmd-ref.md)\.
+For more information about using the AWS CLI with CodeBuild, see the [Use a Proxy ServerCommand Line Reference](cmd-ref.md)\.
 + Run the list\-builds command:
 
   ```
@@ -75,4 +69,4 @@ For more information about using the AWS CLI with AWS CodeBuild, see the [Use a 
 
 ## View a List of Build IDs \(AWS SDKs\)<a name="view-build-list-sdks"></a>
 
-For more information about using AWS CodeBuild with the AWS SDKs, see the [AWS SDKs and Tools Reference](sdk-ref.md)\.
+For more information about using CodeBuild with the AWS SDKs, see the [AWS SDKs and Tools Reference](sdk-ref.md)\.

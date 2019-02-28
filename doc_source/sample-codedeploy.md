@@ -1,15 +1,9 @@
---------
+# CodeDeploy Sample for CodeBuild<a name="sample-codedeploy"></a>
 
- The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
-
---------
-
-# AWS CodeDeploy Sample for AWS CodeBuild<a name="sample-codedeploy"></a>
-
-This sample instructs AWS CodeBuild to use Maven to produce as build output a single JAR file named `my-app-1.0-SNAPSHOT.jar`\. This sample then uses AWS CodeDeploy to deploy the JAR file to an Amazon Linux instance\. \(Alternatively, you can use AWS CodePipeline to automate the use of AWS CodeDeploy to deploy the JAR file to an Amazon Linux instance\.\) This sample is based on the [Maven in 5 Minutes](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html) topic on the Apache Maven website\.
+This sample instructs AWS CodeBuild to use Maven to produce as build output a single JAR file named `my-app-1.0-SNAPSHOT.jar`\. This sample then uses CodeDeploy to deploy the JAR file to an Amazon Linux instance\. \(Alternatively, you can use AWS CodePipeline to automate the use of CodeDeploy to deploy the JAR file to an Amazon Linux instance\.\) This sample is based on the [Maven in 5 Minutes](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html) topic on the Apache Maven website\.
 
 **Important**  
-Running this sample may result in charges to your AWS account\. These include possible charges for AWS CodeBuild and for AWS resources and actions related to Amazon S3, AWS KMS, CloudWatch Logs, and Amazon EC2\. For more information, see [AWS CodeBuild Pricing](http://aws.amazon.com/codebuild/pricing), [Amazon S3 Pricing](http://aws.amazon.com/s3/pricing), [AWS Key Management Service Pricing](http://aws.amazon.com/kms/pricing), [Amazon CloudWatch Pricing](http://aws.amazon.com/cloudwatch/pricing), and [Amazon EC2 Pricing](http://aws.amazon.com/ec2/pricing)\.
+Running this sample may result in charges to your AWS account\. These include possible charges for CodeBuild and for AWS resources and actions related to Amazon S3, AWS KMS, CloudWatch Logs, and Amazon EC2\. For more information, see [CodeBuild Pricing](http://aws.amazon.com/codebuild/pricing), [Amazon S3 Pricing](http://aws.amazon.com/s3/pricing), [AWS Key Management Service Pricing](http://aws.amazon.com/kms/pricing), [Amazon CloudWatch Pricing](http://aws.amazon.com/cloudwatch/pricing), and [Amazon EC2 Pricing](http://aws.amazon.com/ec2/pricing)\.
 
 ## Running the Sample<a name="sample-codedeploy-running"></a>
 
@@ -98,9 +92,9 @@ To run this sample:
                                                   ` -- AppTest.java
    ```
 
-1. Create a ZIP file that contains the directory structure and files inside of `(root directory name)/my-app`, and then upload the ZIP file to a source code repository type supported by AWS CodeBuild and AWS CodeDeploy, such as an Amazon S3 input bucket or a GitHub or Bitbucket repository\. 
+1. Create a ZIP file that contains the directory structure and files inside of `(root directory name)/my-app`, and then upload the ZIP file to a source code repository type supported by AWS CodeBuild and CodeDeploy, such as an Amazon S3 input bucket or a GitHub or Bitbucket repository\. 
 **Important**  
-If you want to use AWS CodePipeline to deploy the resulting build output artifact, you cannot upload the source code to a Bitbucket repository\.  
+If you want to use CodePipeline to deploy the resulting build output artifact, you cannot upload the source code to a Bitbucket repository\.  
 Do not add `(root directory name)` or `(root directory name)/my-app` to the ZIP file, just the directories and files inside of `(root directory name)/my-app`\. The ZIP file should contain these directories and files:  
 
    ```
@@ -150,26 +144,26 @@ Do not add `(root directory name)` or `(root directory name)/my-app` to the ZIP 
    }
    ```
 
-1. If you plan to deploy the build output artifact with AWS CodeDeploy, then follow the steps in [Run a Build](run-build.md)\. Otherwise, skip this step\. \(This is because if you plan to deploy the build output artifact with AWS CodePipeline, then AWS CodePipeline will use AWS CodeBuild to run the build automatically\.\)
+1. If you plan to deploy the build output artifact with CodeDeploy, then follow the steps in [Run a Build](run-build.md)\. Otherwise, skip this step\. \(This is because if you plan to deploy the build output artifact with CodePipeline, then CodePipeline will use CodeBuild to run the build automatically\.\)
 
-1. Complete the setup steps for using AWS CodeDeploy, including:
-   +  Grant the IAM user access to AWS CodeDeploy and the AWS services and actions AWS CodeDeploy depends on\. For more information, see [Provision an IAM User](https://docs.aws.amazon.com/codedeploy/latest/userguide/getting-started-setup.html#getting-started-user) in the *AWS CodeDeploy User Guide*\.
-   +  Create or identify a service role to enable AWS CodeDeploy to identify the instances where it will deploy the build output artifact\. For more information, see [Creating a Service Role for AWS CodeDeploy](https://docs.aws.amazon.com/codedeploy/latest/userguide/how-to-create-service-role.html) in the *AWS CodeDeploy User Guide*\.
-   +  Create or identify an IAM instance profile to enable your instances to access the Amazon S3 input bucket or GitHub repository that contains the build output artifact\. For more information, see [Creating an IAM Instance Profile for Your Amazon EC2 Instances](https://docs.aws.amazon.com/codedeploy/latest/userguide/how-to-create-iam-instance-profile.html) in the *AWS CodeDeploy User Guide*\.
+1. Complete the setup steps for using CodeDeploy, including:
+   +  Grant the IAM user access to CodeDeploy and the AWS services and actions CodeDeploy depends on\. For more information, see [Provision an IAM User](https://docs.aws.amazon.com/codedeploy/latest/userguide/getting-started-setup.html#getting-started-user) in the *CodeDeploy User Guide*\.
+   +  Create or identify a service role to enable CodeDeploy to identify the instances where it will deploy the build output artifact\. For more information, see [Creating a Service Role for CodeDeploy](https://docs.aws.amazon.com/codedeploy/latest/userguide/how-to-create-service-role.html) in the *CodeDeploy User Guide*\.
+   +  Create or identify an IAM instance profile to enable your instances to access the Amazon S3 input bucket or GitHub repository that contains the build output artifact\. For more information, see [Creating an IAM Instance Profile for Your Amazon EC2 Instances](https://docs.aws.amazon.com/codedeploy/latest/userguide/how-to-create-iam-instance-profile.html) in the *CodeDeploy User Guide*\.
 
-1. Create or identify an Amazon Linux instance compatible with AWS CodeDeploy where the build output artifact will be deployed\. For more information, see [Working with Instances for AWS CodeDeploy](https://docs.aws.amazon.com/codedeploy/latest/userguide/how-to-prepare-instances.html) in the *AWS CodeDeploy User Guide*\.
+1. Create or identify an Amazon Linux instance compatible with CodeDeploy where the build output artifact will be deployed\. For more information, see [Working with Instances for CodeDeploy](https://docs.aws.amazon.com/codedeploy/latest/userguide/how-to-prepare-instances.html) in the *CodeDeploy User Guide*\.
 
-1. Create or identify an AWS CodeDeploy application and deployment group\. For more information, see [Creating an Application with AWS CodeDeploy](https://docs.aws.amazon.com/codedeploy/latest/userguide/how-to-create-application.html) in the *AWS CodeDeploy User Guide*\.
+1. Create or identify a CodeDeploy application and deployment group\. For more information, see [Creating an Application with CodeDeploy](https://docs.aws.amazon.com/codedeploy/latest/userguide/how-to-create-application.html) in the *CodeDeploy User Guide*\.
 
 1. Deploy the build output artifact to the instance\.
 
-   To deploy with AWS CodeDeploy, see [Deploying a Revision with AWS CodeDeploy](https://docs.aws.amazon.com/codedeploy/latest/userguide/how-to-deploy-revision.html) in the *AWS CodeDeploy User Guide*\.
+   To deploy with CodeDeploy, see [Deploying a Revision with CodeDeploy](https://docs.aws.amazon.com/codedeploy/latest/userguide/how-to-deploy-revision.html) in the *CodeDeploy User Guide*\.
 
-   To deploy with AWS CodePipeline, see [Use AWS CodePipeline with AWS CodeBuild](how-to-create-pipeline.md)\.
+   To deploy with CodePipeline, see [Use AWS CodePipeline with AWS CodeBuild](how-to-create-pipeline.md)\.
 
 1. To find the build output artifact after the deployment is complete, sign in to the instance and look in the `/tmp` directory for the file named `my-app-1.0-SNAPSHOT.jar`\.
 
 ## Related Resources<a name="w4aac11c41c46b9"></a>
-+ For more information about getting started with AWS CodeBuild, see [Getting Started with AWS CodeBuild](getting-started.md)\.
-+ For more information about troubleshooting problems with AWS CodeBuild, see [Troubleshooting AWS CodeBuild](troubleshooting.md)\.
-+ For more information about limits in AWS CodeBuild, see [Limits for AWS CodeBuild](limits.md)\.
++ For more information about getting started with AWS CodeBuild, see [Getting Started with CodeBuild](getting-started.md)\.
++ For more information about troubleshooting problems with CodeBuild, see [Troubleshooting CodeBuild](troubleshooting.md)\.
++ For more information about limits in CodeBuild, see [Limits for CodeBuild](limits.md)\.

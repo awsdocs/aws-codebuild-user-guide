@@ -1,12 +1,6 @@
---------
+# Limits for CodeBuild<a name="limits"></a>
 
- The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
-
---------
-
-# Limits for AWS CodeBuild<a name="limits"></a>
-
-The following tables list the current limits in AWS CodeBuild\. These limits are for each supported AWS region for each AWS account, unless otherwise specified\. 
+The following tables list the current limits in CodeBuild\. These limits are for each supported AWS region for each AWS account, unless otherwise specified\. 
 
 ## Build Project Limits<a name="limits-build-projects"></a>
 

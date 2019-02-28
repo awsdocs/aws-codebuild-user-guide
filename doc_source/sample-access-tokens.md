@@ -1,10 +1,4 @@
---------
-
- The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
-
---------
-
-# Using Access Tokens with Your Source Provider in AWS CodeBuild<a name="sample-access-tokens"></a>
+# Using Access Tokens with Your Source Provider in CodeBuild<a name="sample-access-tokens"></a>
 
  This sample shows you how to connect to GitHub or Bitbucket with an access token\. For GitHub or GitHub Enterprise, you use a personal access token\. For Bitbucket, you use an app password\. 
 
@@ -77,7 +71,7 @@ Follow these steps to use the AWS CLI to connect your project to GitHub or Bitbu
 
     Replace the following: 
    +  *server\-type*: Required value\. The source provider used for this credential\. Valid values are GITHUB, GITHUB\_ENTERPRISE, and BITBUCKET\. 
-   +  *auth\-type*: Required value\. The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket repository\. Valid values include PERSONAL\_ACCESS\_TOKEN and BASIC\_AUTH\. You cannot use the AWS CodeBuild API to create an OAUTH connection\. You must use the AWS CodeBuild console instead\. 
+   +  *auth\-type*: Required value\. The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket repository\. Valid values include PERSONAL\_ACCESS\_TOKEN and BASIC\_AUTH\. You cannot use the CodeBuild API to create an OAUTH connection\. You must use the CodeBuild console instead\. 
    +  *token*: Required value\. For GitHub or GitHub Enterprise, this is the personal access token\. For Bitbucket, this is the app password\. 
    +  *username*: Optional value\. The Bitbucket user name when authType is BASIC\_AUTH\. This parameter is ignored for other types of source providers or connections\. 
 
@@ -97,7 +91,7 @@ Follow these steps to use the AWS CLI to connect your project to GitHub or Bitbu
 **Note**  
  If you run the import\-source\-credentials command with the same server type and auth type a second time, the stored access token is updated\. 
 
-    After your account is connected with an access token, you can use `create-project` to create your AWS CodeBuild project\. For more information, see [Create a Build Project \(AWS CLI\)](create-project.md#create-project-cli)\. 
+    After your account is connected with an access token, you can use `create-project` to create your CodeBuild project\. For more information, see [Create a Build Project \(AWS CLI\)](create-project.md#create-project-cli)\. 
 
 1.  To view the connected access tokens, run the list\-source\-credentials command\. 
 

@@ -1,10 +1,4 @@
---------
-
- The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
-
---------
-
-# AWS CodePipeline Integration with AWS CodeBuild and Multiple Input Sources and Output Artifacts Sample<a name="sample-pipeline-multi-input-output"></a>
+# CodePipeline Integration with CodeBuild and Multiple Input Sources and Output Artifacts Sample<a name="sample-pipeline-multi-input-output"></a>
 
 An AWS CodeBuild project can take more than one input source\. It can also create more than one output artifact\. This sample demonstrates how to use AWS CodePipeline to create a build project that uses multiple input sources to create multiple output artifacts\. For more information, see [Multiple Input Sources and Output Artifacts Sample](sample-multi-in-out.md)\.
 
@@ -107,7 +101,7 @@ An AWS CodeBuild project can take more than one input source\. It can also creat
 ```
 
  In this JSON file: 
-+  One of your input sources must be designated the `PrimarySource`\. This source is the directory where AWS CodeBuild looks for and runs your buildspec file\. The keyword `PrimarySource` is used to specify the primary source in the `configuration` section of the CodeBuild stage in the JSON file\. 
++  One of your input sources must be designated the `PrimarySource`\. This source is the directory where CodeBuild looks for and runs your buildspec file\. The keyword `PrimarySource` is used to specify the primary source in the `configuration` section of the CodeBuild stage in the JSON file\. 
 +  Each input source is installed in its own directory\. This directory is stored in the built\-in environment variable `$CODEBUILD_SRC_DIR_yourInputArtifactName`\. For the pipeline in this sample, the two input source directories are `$CODEBUILD_SRC_DIR_source1` and `$CODEBUILD_SRC_DIR_source2`\. For more information, see [Environment Variables in Build Environments](build-env-ref-env-vars.md)\. 
 +  The names of the output artifacts specified in the pipeline's JSON file must match the names of the secondary artifacts defined in your buildspec file\. This pipeline uses the following buildspec file\. For more information, see [Build Spec Syntax](build-spec-ref.md#build-spec-ref-syntax)\. 
 

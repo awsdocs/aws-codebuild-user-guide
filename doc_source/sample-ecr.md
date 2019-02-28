@@ -1,15 +1,9 @@
---------
-
- The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
-
---------
-
-# Amazon ECR Sample for AWS CodeBuild<a name="sample-ecr"></a>
+# Amazon ECR Sample for CodeBuild<a name="sample-ecr"></a>
 
 This sample uses a Docker image in an Amazon Elastic Container Registry \(Amazon ECR\) image repository to build a sample Go project\.
 
 **Important**  
-Running this sample may result in charges to your AWS account\. These include possible charges for AWS CodeBuild and for AWS resources and actions related to Amazon S3, AWS KMS, CloudWatch Logs, and Amazon ECR\. For more information, see [AWS CodeBuild Pricing](http://aws.amazon.com/codebuild/pricing), [Amazon S3 Pricing](http://aws.amazon.com/s3/pricing), [AWS Key Management Service Pricing](http://aws.amazon.com/kms/pricing), [Amazon CloudWatch Pricing](http://aws.amazon.com/cloudwatch/pricing), and [Amazon Elastic Container Registry Pricing](http://aws.amazon.com/ecr/pricing)\.
+Running this sample may result in charges to your AWS account\. These include possible charges for AWS CodeBuild and for AWS resources and actions related to Amazon S3, AWS KMS, CloudWatch Logs, and Amazon ECR\. For more information, see [CodeBuild Pricing](http://aws.amazon.com/codebuild/pricing), [Amazon S3 Pricing](http://aws.amazon.com/s3/pricing), [AWS Key Management Service Pricing](http://aws.amazon.com/kms/pricing), [Amazon CloudWatch Pricing](http://aws.amazon.com/cloudwatch/pricing), and [Amazon Elastic Container Registry Pricing](http://aws.amazon.com/ecr/pricing)\.
 
 ## Running the Sample<a name="sample-ecr-running"></a>
 
@@ -72,7 +66,7 @@ If you are using an Amazon S3 input bucket, be sure to create a ZIP file that co
    1. For **Effect**, leave **Allow** selected\. This indicates that you want to allow access to another AWS account\.
 
    1. For **Principal**, do one of the following:
-      +  If your project uses AWS CodeBuild credentials to pull an Amazon ECR image, type `codebuild.amazonaws.com`\. 
+      +  If your project uses CodeBuild credentials to pull an Amazon ECR image, type `codebuild.amazonaws.com`\. 
       + If your project uses a cross\-account Amazon ECR image, type `arn:aws:iam::AWS-account-ID):root`, where `AWS-account-ID` is the account that you want to give access\.
 
    1. Skip the **All IAM entities** list\.
@@ -186,6 +180,6 @@ func main() {
 ```
 
 ## Related Resources<a name="w4aac11c41c10c13"></a>
-+ For more information about getting started with AWS CodeBuild, see [Getting Started with AWS CodeBuild](getting-started.md)\.
-+ For more information about troubleshooting problems with AWS CodeBuild, see [Troubleshooting AWS CodeBuild](troubleshooting.md)\.
-+ For more information about limits in AWS CodeBuild, see [Limits for AWS CodeBuild](limits.md)\.
++ For more information about getting started with AWS CodeBuild, see [Getting Started with CodeBuild](getting-started.md)\.
++ For more information about troubleshooting problems with CodeBuild, see [Troubleshooting CodeBuild](troubleshooting.md)\.
++ For more information about limits in CodeBuild, see [Limits for CodeBuild](limits.md)\.

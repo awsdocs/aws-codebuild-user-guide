@@ -1,20 +1,14 @@
---------
-
- The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
-
---------
-
 # Use AWS Config with AWS CodeBuild Sample<a name="how-to-integrate-config"></a>
 
-AWS Config provides an inventory of your AWS resources and a history of configuration changes to these resources\. AWS Config now supports AWS CodeBuild as an AWS resource, which means the service can track your AWS CodeBuild projects\. For more information about AWS Config, see [What Is AWS Config?](https://docs.aws.amazon.com/config/latest/developerguide/WhatIsConfig.html) in the *AWS Config Developer Guide*\.
+AWS Config provides an inventory of your AWS resources and a history of configuration changes to these resources\. AWS Config now supports AWS CodeBuild as an AWS resource, which means the service can track your CodeBuild projects\. For more information about AWS Config, see [What Is AWS Config?](https://docs.aws.amazon.com/config/latest/developerguide/WhatIsConfig.html) in the *AWS Config Developer Guide*\.
 
-You can see the following information about AWS CodeBuild resources on the **Resource Inventory** page in the AWS Config console:
-+ A timeline of your AWS CodeBuild configuration changes\.
-+ Configuration details for each AWS CodeBuild project\.
+You can see the following information about CodeBuild resources on the **Resource Inventory** page in the AWS Config console:
++ A timeline of your CodeBuild configuration changes\.
++ Configuration details for each CodeBuild project\.
 + Relationships with other AWS resources\.
-+ A list of changes to your AWS CodeBuild projects\.
++ A list of changes to your CodeBuild projects\.
 
-The procedures in this topic show you how to set up AWS Config and look up and view AWS CodeBuild projects\.
+The procedures in this topic show you how to set up AWS Config and look up and view CodeBuild projects\.
 
 **Topics**
 + [Prerequisites](#how-to-create-a-build-project)
@@ -42,16 +36,16 @@ It can take up to 10 minutes before a user is able to see AWS CodeBuild projects
 
 1. Choose **Look up**\.
 
-1. After the list of AWS CodeBuild projects is added, choose the AWS CodeBuild project name link in the **Config timeline** column\.
+1. After the list of CodeBuild projects is added, choose the CodeBuild project name link in the **Config timeline** column\.
 
 ## Viewing AWS CodeBuild Configuration Details in the AWS Config Console<a name="viewing-config-details"></a>
 
-When you look up resources on the **Resource inventory** page, you can choose the AWS Config timeline to view details about your AWS CodeBuild project\. The details page for a resource provides information about the configuration, relationships, and number of changes made to that resource\. 
+When you look up resources on the **Resource inventory** page, you can choose the AWS Config timeline to view details about your CodeBuild project\. The details page for a resource provides information about the configuration, relationships, and number of changes made to that resource\. 
 
 The blocks at the top of the page are collectively called the timeline\. The timeline shows the date and time that the recording was made\.
 
 For more information, see [Viewing Configuration Details in the AWS Config Console](https://docs.aws.amazon.com/config/latest/developerguide/view-manage-resource-console.html) in the *AWS Config Developer Guide*\.
 
-**Example of a AWS CodeBuild Project in AWS Config:**
+**Example of a CodeBuild Project in AWS Config:**
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/config-resources.png)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)

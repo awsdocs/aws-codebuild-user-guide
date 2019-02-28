@@ -1,15 +1,9 @@
---------
+# Docker Images Provided by CodeBuild<a name="build-env-ref-available"></a>
 
- The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
-
---------
-
-# Docker Images Provided by AWS CodeBuild<a name="build-env-ref-available"></a>
-
-AWS CodeBuild manages the following Docker images that are available in the AWS CodeBuild and AWS CodePipeline consoles\.
+AWS CodeBuild manages the following Docker images that are available in the CodeBuild and AWS CodePipeline consoles\.
 
 **Note**  
-If you do not find your image on this page, it most likely contains components that are no longer supported by a vendor\. Images with one or more unsupported components are not available from the AWS CodeBuild console or the AWS CodeBuild SDK\. The images might still be available in the CLI, but they are not supported or updated\.
+If you do not find your image on this page, it most likely contains components that are no longer supported by a vendor\. Images with one or more unsupported components are not available from the CodeBuild console or the CodeBuild SDK\. The images might still be available in the CLI, but they are not supported or updated\.
 
 
 ****  
@@ -34,7 +28,7 @@ If you do not find your image on this page, it most likely contains components t
 | Ubuntu 14\.04 | \.NET Core | 2\.1 | aws/codebuild/dot\-net:core\-2\.1 | [ubuntu/dot\-net/core\-2\.1](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/dot-net/core-2.1) | 
 | Windows Server Core 2016 | \(Base Image\) |  | aws/codebuild/windows\-base:1\.0 |  | 
 
-AWS CodeBuild also manages the following Docker images that are not in the AWS CodeBuild and AWS CodePipeline consoles\.
+CodeBuild also manages the following Docker images that are not in the CodeBuild and CodePipeline consoles\.
 
 
 ****  
@@ -76,12 +70,12 @@ AWS CodeBuild also manages the following Docker images that are not in the AWS C
 | Amazon Linux 2016\.03, 64\-bit v2\.1\.6 | Ruby | 1\.9\.3 | Bundler, RubyGems | aws/codebuild/eb\-ruby\-1\.9\-amazonlinux\-64:2\.1\.6 | 
 | Amazon Linux 2016\.03, 64\-bit v2\.1\.3 | Ruby | 1\.9\.3 | Bundler, RubyGems | aws/codebuild/eb\-ruby\-1\.9\-amazonlinux\-64:2\.1\.3 | 
 | Amazon Linux 2016\.03, 64\-bit v2\.3\.2 | Ruby | 1\.9 | Bundler, RubyGems | aws/codebuild/eb\-ruby\-1\.9\-amazonlinux\-64:2\.3\.2 | 
-|  For more information about the Docker images that contain `eb-` in their identifier, see [Using the EB CLI with AWS CodeBuild](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli-codebuild.html) in the *AWS Elastic Beanstalk Developer Guide*\. Docker images that contain `eb-` in their identifier are available for use in Elastic Beanstalk, but are not available in the AWS CodeBuild and AWS CodePipeline consoles\.  | 
+|  For more information about the Docker images that contain `eb-` in their identifier, see [Using the EB CLI with AWS CodeBuild](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli-codebuild.html) in the *AWS Elastic Beanstalk Developer Guide*\. Docker images that contain `eb-` in their identifier are available for use in Elastic Beanstalk, but are not available in the CodeBuild and CodePipeline consoles\.  | 
 
 You can use a build specification to install other components \(for example, the AWS CLI, Apache Maven, Apache Ant, Mocha, RSpec, or similar\) during the `install` build phase\. For more information, see [Build Spec Example](build-spec-ref.md#build-spec-ref-example)\.
 
-AWS CodeBuild frequently updates the list of Docker images\. To get the most current list, do one of the following:
-+ In the AWS CodeBuild console, in the **Create build project** wizard or **Edit Build Project** page, for **Environment image**, choose **Managed image**\. Choose from the **Operating system**, **Runtime**, and **Runtime version** drop\-down lists\. For more information, see [Create a Build Project \(Console\)](create-project.md#create-project-console) or [Change a Build Project's Settings \(Console\)](change-project.md#change-project-console)\.
+CodeBuild frequently updates the list of Docker images\. To get the most current list, do one of the following:
++ In the CodeBuild console, in the **Create build project** wizard or **Edit Build Project** page, for **Environment image**, choose **Managed image**\. Choose from the **Operating system**, **Runtime**, and **Runtime version** drop\-down lists\. For more information, see [Create a Build Project \(Console\)](create-project.md#create-project-console) or [Change a Build Project's Settings \(Console\)](change-project.md#change-project-console)\.
 + For the AWS CLI, run the `list-curated-environment-images` command:
 
   ```
@@ -106,4 +100,4 @@ To confirm the version of a component installed on a Docker image, you can run a
 + For RubyGems, run `gem --version`\.
 + For setuptools, run `easy_install --version`\.
 
-The following build command \(entered through the AWS CodeBuild or AWS CodePipeline console as part of a build project's settings\) returns the versions of the AWS CLI, Git, pip, and Python on a Docker image that has these components installed: `aws --version && git --version && pip --version && python --version`\.
+The following build command \(entered through the CodeBuild or CodePipeline console as part of a build project's settings\) returns the versions of the AWS CLI, Git, pip, and Python on a Docker image that has these components installed: `aws --version && git --version && pip --version && python --version`\.

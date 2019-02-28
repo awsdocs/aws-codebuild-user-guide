@@ -1,10 +1,4 @@
---------
-
- The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
-
---------
-
-# GitHub Pull Request and Webhook Filter Sample for AWS CodeBuild<a name="sample-github-pull-request"></a>
+# GitHub Pull Request and Webhook Filter Sample for CodeBuild<a name="sample-github-pull-request"></a>
 
 AWS CodeBuild now supports webhooks, when the source repository is GitHub\. This means that for an AWS CodeBuild build project that has its source code stored in a private GitHub repository, webhooks enable AWS CodeBuild to rebuild the source code every time a code change is pushed to the private repository\.
 
@@ -12,7 +6,7 @@ AWS CodeBuild now supports webhooks, when the source repository is GitHub\. This
 
 1. Open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codesuite/codebuild/home](https://console.aws.amazon.com/codesuite/codebuild/home)\.
 
-1.  If an AWS CodeBuild information page is displayed, choose **Create project**\. Otherwise, on the navigation pane, expand **Build**, and then choose **Build projects**\. 
+1.  If a CodeBuild information page is displayed, choose **Create project**\. Otherwise, on the navigation pane, expand **Build**, and then choose **Build projects**\. 
 
 1.  Choose **Create build project**\. 
 
@@ -39,10 +33,10 @@ AWS CodeBuild now supports webhooks, when the source repository is GitHub\. This
    + To use private Docker image, choose **Custom image**\. For **Environment type**, choose **Linux** or **Windows**\. For **Custom image type**, choose **Other location**, and then enter the Amazon Resource Name \(ARN\) of the credentials for your private Docker image\. The credentials must be created by AWS Secrets Manager\. For more information, see [What Is AWS Secrets Manager?](https://docs.aws.amazon.com/secretsmanager/latest/userguide/)
 
 1. In **Service role**, do one of the following:
-   + If you do not have an AWS CodeBuild service role, choose **New service role**\. In **Role name**, accept the default name or enter your own\.
-   + If you have an AWS CodeBuild service role, choose **Existing service role**\. In **Role name**, choose the service role\.
+   + If you do not have a CodeBuild service role, choose **New service role**\. In **Role name**, accept the default name or enter your own\.
+   + If you have a CodeBuild service role, choose **Existing service role**\. In **Role name**, choose the service role\.
 **Note**  
-When you use the console to create or update a build project, you can create an AWS CodeBuild service role at the same time\. By default, the role works with that build project only\. If you use the console to associate this service role with another build project, the role is updated to work with the other build project\. A service role can work with up to 10 build projects\.
+When you use the console to create or update a build project, you can create a CodeBuild service role at the same time\. By default, the role works with that build project only\. If you use the console to associate this service role with another build project, the role is updated to work with the other build project\. A service role can work with up to 10 build projects\.
 
 1. For **Buildspec**, do one of the following:
    + Choose **Use a buildspec file** to use the buildspec\.yml file in the source code root directory\.
@@ -143,7 +137,7 @@ In this example, a webhook filter group triggers a build only when a change is m
 
 ### Filter GitHub Webhook Events \(SDK\)<a name="sample-github-pull-request-filter-webhook-events-sdk"></a>
 
-To use the AWS CodeBuild SDK to filter webhook events, use the `filterGroups` field in the request syntax of the `CreateWebhook` or `UpdateWebhook` API methods\. For more information, see [WebhookFilter](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_WebhookFilter.html) in the *AWS CodeBuild API Reference*\. 
+To use the AWS CodeBuild SDK to filter webhook events, use the `filterGroups` field in the request syntax of the `CreateWebhook` or `UpdateWebhook` API methods\. For more information, see [WebhookFilter](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_WebhookFilter.html) in the *CodeBuild API Reference*\. 
 
  To create a webhook filter that triggers a build for pull requests only, insert the following into the request syntax: 
 

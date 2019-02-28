@@ -1,9 +1,3 @@
---------
-
- The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
-
---------
-
 # Using Semantic Versioning to Name Build Artifacts Sample<a name="sample-buildspec-artifact-naming"></a>
 
  This sample contains example buildspec files that demonstrate how to specify an artifact name that is created at build time\. A name specified in a buildspec file can incorporate Shell commands and environment variables to make it unique\. A name you specify in a buildspec file overrides a name you enter in the console when you create your project\.
@@ -33,7 +27,7 @@ artifacts:
   name: myname-$(date +%Y-%m-%d)
 ```
 
- This Linux example shows you how to specify an artifact name that uses an AWS CodeBuild environment variable\. For more information, see [Environment Variables in Build Environments](build-env-ref-env-vars.md)\. 
+ This Linux example shows you how to specify an artifact name that uses a CodeBuild environment variable\. For more information, see [Environment Variables in Build Environments](build-env-ref-env-vars.md)\. 
 
 ```
 version: 0.2         
@@ -66,7 +60,7 @@ artifacts:
   name: $Env:TEST_ENV_VARIABLE-$(Get-Date -UFormat "%Y%m%d-%H%M%S")
 ```
 
- This Windows example shows you how to specify an artifact name that uses a variable declared in the buildspec file and an AWS CodeBuild environment variable\. For more information, see [Environment Variables in Build Environments](build-env-ref-env-vars.md)\. 
+ This Windows example shows you how to specify an artifact name that uses a variable declared in the buildspec file and a CodeBuild environment variable\. For more information, see [Environment Variables in Build Environments](build-env-ref-env-vars.md)\. 
 
 ```
 version: 0.2
@@ -85,4 +79,4 @@ artifacts:
   name: $Env:TEST_ENV_VARIABLE-$Env:AWS_REGION
 ```
 
- For more information, see [Build Specification Reference for AWS CodeBuild](build-spec-ref.md)\. 
+ For more information, see [Build Specification Reference for CodeBuild](build-spec-ref.md)\. 

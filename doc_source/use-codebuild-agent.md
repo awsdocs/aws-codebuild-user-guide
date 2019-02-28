@@ -1,14 +1,8 @@
---------
-
- The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
-
---------
-
-# Test and Debug Locally with the AWS CodeBuild Agent<a name="use-codebuild-agent"></a>
+# Test and Debug Locally with the CodeBuild Agent<a name="use-codebuild-agent"></a>
 
  This topic provides information about how to run the AWS CodeBuild agent and subscribe to notifications about new versions of the agent\. 
 
-## Test and Debug on a Local Machine with the AWS CodeBuild Agent<a name="use-codebuild-agent"></a>
+## Test and Debug on a Local Machine with the CodeBuild Agent<a name="use-codebuild-agent"></a>
 
  You can use the AWS CodeBuild agent to test and debug builds on a local machine\. To use the agent: 
 
@@ -20,17 +14,17 @@
    codebuild_build.sh [-i image_name] [-a artifact_output_directory] [options]
    ```
 
- The AWS CodeBuild agent is available from [https://hub\.docker\.com/r/amazon/aws\-codebuild\-local/](https://hub.docker.com/r/amazon/aws-codebuild-local/)\. Its Secure Hash Algorithm \(SHA\) signature is `7cae4f31566fc8a0411b79af5c5dbab144b53e30e25d20bff0320e0f68053678`\. You can use this to identify the version of the agent\. To see the agent's SHA signature, run the following command: 
+ The CodeBuild agent is available from [https://hub\.docker\.com/r/amazon/aws\-codebuild\-local/](https://hub.docker.com/r/amazon/aws-codebuild-local/)\. Its Secure Hash Algorithm \(SHA\) signature is `7cae4f31566fc8a0411b79af5c5dbab144b53e30e25d20bff0320e0f68053678`\. You can use this to identify the version of the agent\. To see the agent's SHA signature, run the following command: 
 
 ```
 docker inspect amazon/aws-codebuild-local
 ```
 
-## Receive Notifications for New AWS CodeBuild Agent Versions<a name="receive-codebuild-agent-notifications"></a>
+## Receive Notifications for New CodeBuild Agent Versions<a name="receive-codebuild-agent-notifications"></a>
 
  Amazon SNS can notify you when new versions of the AWS CodeBuild Agent are released\. Use the following procedure to subscribe to these notifications\. 
 
- ** To subscribe to the AWS CodeBuild Agent notifications:** 
+ ** To subscribe to the CodeBuild Agent notifications:** 
 
 1.  Open the Amazon SNS console at [https://console\.aws\.amazon\.com/sns/v2/home](https://console.aws.amazon.com/sns/v2/home)\. 
 
@@ -58,9 +52,9 @@ docker inspect amazon/aws-codebuild-local
 
 1.  If you choose **Email**, you'll receive an email asking you to confirm your subscription\. Follow the directions in the email to complete your subscription\. 
 
- When a new version of the AWS CodeBuild agent is released, subscribers receive notifications\. If you no longer want to receive these notifications, use the following procedure to unsubscribe\. 
+ When a new version of the CodeBuild agent is released, subscribers receive notifications\. If you no longer want to receive these notifications, use the following procedure to unsubscribe\. 
 
- ** To unsubscribe from AWS CodeBuild agent notifications:** 
+ ** To unsubscribe from CodeBuild agent notifications:** 
 
 1.  Open the Amazon SNS console at [https://console\.aws\.amazon\.com/sns/v2/home](https://console.aws.amazon.com/sns/v2/home)\. 
 

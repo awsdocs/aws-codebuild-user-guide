@@ -1,12 +1,6 @@
---------
+# CodeBuild for Windows—Third Party Notices<a name="notice"></a>
 
- The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
-
---------
-
-# AWS CodeBuild for Windows—Third Party Notices<a name="notice"></a>
-
-When you use AWS CodeBuild for Windows builds, you have the option to use some third party packages/modules to enable your built application to run on Microsoft Windows operating systems and to interoperate with some third party products\. The following list contains the applicable third\-party legal terms that govern your use of the specified third\-party packages/modules\.
+When you use CodeBuild for Windows builds, you have the option to use some third party packages/modules to enable your built application to run on Microsoft Windows operating systems and to interoperate with some third party products\. The following list contains the applicable third\-party legal terms that govern your use of the specified third\-party packages/modules\.
 
 **Topics**
 + [1\) Base Docker Image—windowsservercore](#base-docker-image)

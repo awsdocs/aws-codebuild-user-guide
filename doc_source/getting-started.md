@@ -1,15 +1,9 @@
---------
+# Getting Started with CodeBuild<a name="getting-started"></a>
 
- The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
-
---------
-
-# Getting Started with AWS CodeBuild<a name="getting-started"></a>
-
-In this walkthrough, you use AWS CodeBuild to build a collection of sample source code input files \(called *build input artifacts* or *build input*\) into a deployable version of the source code \(called *build output artifact* or *build output*\)\. Specifically, you instruct AWS CodeBuild to use Apache Maven, a common build tool, to build a set of Java class files into a Java Archive \(JAR\) file\. You do not need to be familiar with Apache Maven or Java to complete this walkthrough\.
+In this walkthrough, you use AWS CodeBuild to build a collection of sample source code input files \(called *build input artifacts* or *build input*\) into a deployable version of the source code \(called *build output artifact* or *build output*\)\. Specifically, you instruct CodeBuild to use Apache Maven, a common build tool, to build a set of Java class files into a Java Archive \(JAR\) file\. You do not need to be familiar with Apache Maven or Java to complete this walkthrough\.
 
 **Important**  
-Completing this walkthrough may result in charges to your AWS account\. These include possible charges for AWS CodeBuild and for AWS resources and actions related to Amazon S3, AWS KMS, and CloudWatch Logs\. For more information, see [AWS CodeBuild Pricing](http://aws.amazon.com/codebuild/pricing), [Amazon S3 Pricing](http://aws.amazon.com/s3/pricing), [AWS Key Management Service Pricing](http://aws.amazon.com/kms/pricing), and [Amazon CloudWatch Pricing](http://aws.amazon.com/cloudwatch/pricing)\.
+Completing this walkthrough may result in charges to your AWS account\. These include possible charges for CodeBuild and for AWS resources and actions related to Amazon S3, AWS KMS, and CloudWatch Logs\. For more information, see [CodeBuild Pricing](http://aws.amazon.com/codebuild/pricing), [Amazon S3 Pricing](http://aws.amazon.com/s3/pricing), [AWS Key Management Service Pricing](http://aws.amazon.com/kms/pricing), and [Amazon CloudWatch Pricing](http://aws.amazon.com/cloudwatch/pricing)\.
 
 **Topics**
 + [Step 1: Create or Use Amazon S3 Buckets to Store the Build Input and Output](#getting-started-input-bucket)
@@ -32,17 +26,17 @@ To complete this walkthrough, you need two Amazon S3 buckets:
 
 If you chose a different name for either of these buckets, be sure to use it throughout this walkthrough\.
 
-These two buckets must be in the same AWS Region as your builds\. For example, if you instruct AWS CodeBuild to run a build in the US East \(Ohio\) Region, then these buckets must also be in the US East \(Ohio\) Region\.
+These two buckets must be in the same AWS Region as your builds\. For example, if you instruct CodeBuild to run a build in the US East \(Ohio\) Region, then these buckets must also be in the US East \(Ohio\) Region\.
 
 To create a bucket, see [Creating a Bucket](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/CreatingaBucket.html) in the *Amazon Simple Storage Service User Guide*\. 
 
 **Note**  
 You can use a single bucket for this walkthrough, but using two buckets makes it easier to see where the build input is coming from and where the build output is going\.  
-Although AWS CodeBuild also supports build input stored in AWS CodeCommit, GitHub, and Bitbucket repositories, this walkthrough does not show you how to use them\. For more information, see [Plan a Build](planning.md)\.
+Although CodeBuild also supports build input stored in CodeCommit, GitHub, and Bitbucket repositories, this walkthrough does not show you how to use them\. For more information, see [Plan a Build](planning.md)\.
 
 ## Step 2: Create the Source Code to Build<a name="getting-started-create-source-code"></a>
 
-In this step, you create the source code that you want AWS CodeBuild to build to the output bucket\. This source code consists of two Java class files and an Apache Maven Project Object Model \(POM\) file\.
+In this step, you create the source code that you want CodeBuild to build to the output bucket\. This source code consists of two Java class files and an Apache Maven Project Object Model \(POM\) file\.
 
 1. In an empty directory on your local computer or instance, create this directory structure\.
 
@@ -150,7 +144,7 @@ At this point, your directory structure should look like this\.
 
 ## Step 3: Create the Build Spec<a name="getting-started-create-build-spec"></a>
 
-In this step, you create a build specification \(build spec\) file\. A *build spec* is a collection of build commands and related settings, in YAML format, that AWS CodeBuild uses to run a build\. Without a build spec, AWS CodeBuild cannot successfully convert your build input into build output or locate the build output artifact in the build environment to upload to your output bucket\.
+In this step, you create a build specification \(build spec\) file\. A *build spec* is a collection of build commands and related settings, in YAML format, that CodeBuild uses to run a build\. Without a build spec, CodeBuild cannot successfully convert your build input into build output or locate the build output artifact in the build environment to upload to your output bucket\.
 
 Create this file, name it `buildspec.yml`, and then save it in the root \(top level\) directory\.
 
@@ -184,10 +178,10 @@ Instead of including a build spec file in your source code, you can declare buil
 
 In this build spec declaration:
 + `version` represents the version of the build spec standard being used\. This build spec declaration uses the latest version, `0.2`\.
-+ `phases` represents the build phases during which you can instruct AWS CodeBuild to run commands\. These build phases are listed here as `install`, `pre_build`, `build`, and `post_build`\. You cannot change the spelling of these build phase names, and you cannot create more build phase names\. 
++ `phases` represents the build phases during which you can instruct CodeBuild to run commands\. These build phases are listed here as `install`, `pre_build`, `build`, and `post_build`\. You cannot change the spelling of these build phase names, and you cannot create more build phase names\. 
 
-  In this example, during the `build` phase, AWS CodeBuild runs the `mvn install` command\. This command instructs Apache Maven to compile, test, and package the compiled Java class files into a build output artifact\. For completeness, a few `echo` commands are placed in each build phase in this example\. When you view detailed build information later in this walkthrough, the output of these `echo` commands can help you better understand how AWS CodeBuild runs commands and in which order\. \(Although all build phases are included in this example, you are not required to include a build phase if you do not plan to run any commands during that phase\.\) For each build phase, AWS CodeBuild runs each specified command, one at a time, in the order listed, from beginning to end\. 
-+ `artifacts` represents the set of build output artifacts that AWS CodeBuild uploads to the output bucket\. `files` represents the files to include in the build output\. AWS CodeBuild uploads the single `messageUtil-1.0.jar` file found in the `target` relative directory in the build environment\. The file name `messageUtil-1.0.jar` and the directory name `target` are based on the way Apache Maven creates and stores build output artifacts for this example only\. In your own builds, these file names and directories are different\. 
+  In this example, during the `build` phase, CodeBuild runs the `mvn install` command\. This command instructs Apache Maven to compile, test, and package the compiled Java class files into a build output artifact\. For completeness, a few `echo` commands are placed in each build phase in this example\. When you view detailed build information later in this walkthrough, the output of these `echo` commands can help you better understand how CodeBuild runs commands and in which order\. \(Although all build phases are included in this example, you are not required to include a build phase if you do not plan to run any commands during that phase\.\) For each build phase, CodeBuild runs each specified command, one at a time, in the order listed, from beginning to end\. 
++ `artifacts` represents the set of build output artifacts that CodeBuild uploads to the output bucket\. `files` represents the files to include in the build output\. CodeBuild uploads the single `messageUtil-1.0.jar` file found in the `target` relative directory in the build environment\. The file name `messageUtil-1.0.jar` and the directory name `target` are based on the way Apache Maven creates and stores build output artifacts for this example only\. In your own builds, these file names and directories are different\. 
 
 For more information, see the [Build Spec Reference](build-spec-ref.md)\.
 
@@ -233,33 +227,33 @@ Do not include the `(root directory name)` directory, only the directories and f
 Upload the `MessageUtil.zip` file to the input bucket named `codebuild-region-ID-account-ID-input-bucket`\. 
 
 **Important**  
-For AWS CodeCommit, GitHub, and Bitbucket repositories, by convention, you must store a build spec file named `buildspec.yml` in the root \(top level\) of each repository or include the build spec declaration as part of the build project definition\. Do not create a ZIP file that contains the repository's source code and build spec file\.   
+For CodeCommit, GitHub, and Bitbucket repositories, by convention, you must store a build spec file named `buildspec.yml` in the root \(top level\) of each repository or include the build spec declaration as part of the build project definition\. Do not create a ZIP file that contains the repository's source code and build spec file\.   
 For build input stored in Amazon S3 buckets only, you must create a ZIP file that contains the source code and, by convention, a build spec file named `buildspec.yml` at the root \(top level\) or include the build spec declaration as part of the build project definition\.  
 If you want to use a different name for your build spec file, or you want to reference a build spec in a location other than the root, you can specify a build spec override as part of the build project definition\. For more information, see [Build Spec File Name and Storage Location](build-spec-ref.md#build-spec-ref-name-storage)\.
 
 ## Step 5: Create the Build Project<a name="getting-started-create-build-project"></a>
 
-In this step, you create a build project that AWS CodeBuild uses to run the build\. A *build project* defines how AWS CodeBuild runs a build\. It includes information such as where to get the source code, the build environment to use, the build commands to run, and where to store the build output\. A *build environment* represents a combination of operating system, programming language runtime, and tools that AWS CodeBuild uses to run a build\. The build environment is expressed as a Docker image\. \(For more information, see the [Docker Overview](https://docs.docker.com/engine/docker-overview/) topic on the Docker Docs website\.\) For this build environment, you instruct AWS CodeBuild to use a Docker image that contains a version of the Java Development Kit \(JDK\) and Apache Maven\.
+In this step, you create a build project that AWS CodeBuild uses to run the build\. A *build project* defines how CodeBuild runs a build\. It includes information such as where to get the source code, the build environment to use, the build commands to run, and where to store the build output\. A *build environment* represents a combination of operating system, programming language runtime, and tools that CodeBuild uses to run a build\. The build environment is expressed as a Docker image\. \(For more information, see the [Docker Overview](https://docs.docker.com/engine/docker-overview/) topic on the Docker Docs website\.\) For this build environment, you instruct CodeBuild to use a Docker image that contains a version of the Java Development Kit \(JDK\) and Apache Maven\.
 
-You can use the [AWS CodeBuild console](#getting-started-create-build-project-console) or [AWS CLI](#getting-started-create-build-project-cli) to complete this step\.
+You can use the [CodeBuild console](#getting-started-create-build-project-console) or [AWS CLI](#getting-started-create-build-project-cli) to complete this step\.
 
 **Note**  
-You can work with AWS CodeBuild in several ways: through the AWS CodeBuild console, AWS CodePipeline, the AWS CLI, or the AWS SDKs\. This walkthrough demonstrates how to use the AWS CodeBuild console and the AWS CLI\. To learn how to use AWS CodePipeline, see [Use AWS CodePipeline with AWS CodeBuild](how-to-create-pipeline.md)\. To learn how to use the AWS SDKs, see [Run AWS CodeBuild Directly](how-to-run.md)\. <a name="getting-started-create-build-project-console"></a>
+You can work with CodeBuild in several ways: through the CodeBuild console, AWS CodePipeline, the AWS CLI, or the AWS SDKs\. This walkthrough demonstrates how to use the CodeBuild console and the AWS CLI\. To learn how to use CodePipeline, see [Use AWS CodePipeline with AWS CodeBuild](how-to-create-pipeline.md)\. To learn how to use the AWS SDKs, see [Run AWS CodeBuild Directly](how-to-run.md)\. <a name="getting-started-create-build-project-console"></a>
 
 **To create the build project \(console\)**
 
 1. Sign in to the AWS Management Console and open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codesuite/codebuild/home](https://console.aws.amazon.com/codesuite/codebuild/home)\.
 
-1. In the AWS region selector, choose a region that supports AWS CodeBuild\. For more information, see [AWS CodeBuild](https://docs.aws.amazon.com/general/latest/gr/rande.html#codebuild_region) in the "Regions and Endpoints" topic in the *Amazon Web Services General Reference*\.
+1. In the AWS region selector, choose a region that supports CodeBuild\. For more information, see [CodeBuild](https://docs.aws.amazon.com/general/latest/gr/rande.html#codebuild_region) in the "Regions and Endpoints" topic in the *Amazon Web Services General Reference*\.
 
-1.  If an AWS CodeBuild information page is displayed, choose **Create project**\. Otherwise, on the navigation pane, expand **Build**, and then choose **Build projects**\. 
+1.  If a CodeBuild information page is displayed, choose **Create project**\. Otherwise, on the navigation pane, expand **Build**, and then choose **Build projects**\. 
 
 1. On the **Create build project** page, in **Project configuration**, for **Project name**, enter a name for this build project \(in this example, `codebuild-demo-project`\)\. Build project names must be unique across each AWS account\. If you use a different name, be sure to use it throughout this walkthrough\.
 **Note**  
-On the **Create build project** page, you might see an error message similar to the following: **User: *user\-ARN* is not authorized to perform: codebuild:ListProjects**\. This is most likely because you signed in to the AWS Management Console as an IAM user that does not have sufficient permissions to use AWS CodeBuild in the console\. To fix this, sign out of the AWS Management Console, and then sign back in with credentials belonging to one of the following IAM entities:   
+On the **Create build project** page, you might see an error message similar to the following: **User: *user\-ARN* is not authorized to perform: codebuild:ListProjects**\. This is most likely because you signed in to the AWS Management Console as an IAM user that does not have sufficient permissions to use CodeBuild in the console\. To fix this, sign out of the AWS Management Console, and then sign back in with credentials belonging to one of the following IAM entities:   
 Your AWS root account\. This is not recommended\. For more information, see [The Account Root User](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html) in the *IAM User Guide*\.
 An administrator IAM user in your AWS account\. For more information, see [Creating Your First IAM Admin User and Group](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html) in the *IAM User Guide*\.
-An IAM user in your AWS account with the AWS managed policies named **AWSCodeBuildAdminAccess**, **AmazonS3ReadOnlyAccess**, and **IAMFullAccess** attached to that IAM user or to an IAM group that the IAM user belongs to\. If you do not have an IAM user or group in your AWS account with these permissions, and you cannot add these permissions to your IAM user or group, contact your AWS account administrator for assistance\. For more information, see [AWS Managed \(Predefined\) Policies for AWS CodeBuild](auth-and-access-control-iam-identity-based-access-control.md#managed-policies)\.
+An IAM user in your AWS account with the AWS managed policies named **AWSCodeBuildAdminAccess**, **AmazonS3ReadOnlyAccess**, and **IAMFullAccess** attached to that IAM user or to an IAM group that the IAM user belongs to\. If you do not have an IAM user or group in your AWS account with these permissions, and you cannot add these permissions to your IAM user or group, contact your AWS account administrator for assistance\. For more information, see [AWS Managed \(Predefined\) Policies for CodeBuild](auth-and-access-control-iam-identity-based-access-control.md#managed-policies)\.
 
 1. In **Source**, for **Source provider**, choose **Amazon S3**\.
 
@@ -321,7 +315,7 @@ An IAM user in your AWS account with the AWS managed policies named **AWSCodeBui
    }
    ```
 
-   Replace *serviceIAMRole* with the Amazon Resource Name \(ARN\) of an AWS CodeBuild service role \(for example, `arn:aws:iam::account-ID:role/role-name`\)\. To create one, see [Create an AWS CodeBuild Service Role](setting-up.md#setting-up-service-role)\.
+   Replace *serviceIAMRole* with the Amazon Resource Name \(ARN\) of a CodeBuild service role \(for example, `arn:aws:iam::account-ID:role/role-name`\)\. To create one, see [Create a CodeBuild Service Role](setting-up.md#setting-up-service-role)\.
 
    In this data:
    + `name` represents a required identifier for this build project \(in this example, `codebuild-demo-project`\)\. Build project names must be unique across all build projects in your account\. 
@@ -330,10 +324,10 @@ An IAM user in your AWS account with the AWS managed policies named **AWSCodeBui
    + For `artifacts`, `type` is a required value that represents the build output artifact's repository type \(in this example, `S3` for an Amazon S3 bucket\)\.
    + For `artifacts`, `location` represents the name of the output bucket you created or identified earlier \(in this example, `codebuild-region-ID-account-ID-output-bucket`\)\.
    + For `environment`, `type` is a required value that represents the type of build environment \(`LINUX_CONTAINER` is currently the only allowed value\)\.
-   + For `environment`, `image` is a required value that represents the Docker image name and tag combination this build project uses, as specified by the Docker image repository type \(in this example, `aws/codebuild/java:openjdk-8` for a Docker image in the AWS CodeBuild Docker images repository\)\. `aws/codebuild/java` is the name of the Docker image\. `openjdk-8` is the tag of the Docker image\. 
+   + For `environment`, `image` is a required value that represents the Docker image name and tag combination this build project uses, as specified by the Docker image repository type \(in this example, `aws/codebuild/java:openjdk-8` for a Docker image in the CodeBuild Docker images repository\)\. `aws/codebuild/java` is the name of the Docker image\. `openjdk-8` is the tag of the Docker image\. 
 
      To find more Docker images you can use in your scenarios, see the [Build Environment Reference](build-env-ref.md)\.
-   + For `environment`, `computeType` is a required value that represents the computing resources AWS CodeBuild uses \(in this example, `BUILD_GENERAL1_SMALL`\)\.
+   + For `environment`, `computeType` is a required value that represents the computing resources CodeBuild uses \(in this example, `BUILD_GENERAL1_SMALL`\)\.
 **Note**  
 Other available values in the original JSON\-formatted data, such as `description`, `buildspec`, `auth` \(including `type` and `resource`\), `path`, `namespaceType`, `name` \(for `artifacts`\), `packaging`, `environmentVariables` \(including `name` and `value`\), `timeoutInMinutes`, `encryptionKey`, and `tags` \(including `key` and `value`\) are optional\. They are not used in this walkthrough, so they are not shown here\. For more information, see [Create a Build Project \(AWS CLI\)](create-project.md#create-project-cli)\.
 
@@ -379,23 +373,23 @@ Other available values in the original JSON\-formatted data, such as `descriptio
      + `tags` represents any tags that were declared\.
      + `packaging` represents how the build output artifact is stored in the output bucket\. `NONE` means that a folder is created in the output bucket\. The build output artifact is stored in that folder\.
      + `lastModified` represents the time, in Unix time format, when information about the build project was last changed\.
-     + `timeoutInMinutes` represents the number of minutes after which AWS CodeBuild stops the build if the build has not been completed\. \(The default is 60 minutes\.\)
+     + `timeoutInMinutes` represents the number of minutes after which CodeBuild stops the build if the build has not been completed\. \(The default is 60 minutes\.\)
      + `created` represents the time, in Unix time format, when the build project was created\.
-     + `environmentVariables` represents any environment variables that were declared and are available for AWS CodeBuild to use during the build\.
-     + `encryptionKey` represents the ARN of the AWS KMS customer master key \(CMK\) that AWS CodeBuild used to encrypt the build output artifact\.
+     + `environmentVariables` represents any environment variables that were declared and are available for CodeBuild to use during the build\.
+     + `encryptionKey` represents the ARN of the AWS KMS customer master key \(CMK\) that CodeBuild used to encrypt the build output artifact\.
      + `arn` represents the ARN of the build project\.
 
 **Note**  
-After you run the create\-project command, an error message similar to the following might be output: **User: *user\-ARN* is not authorized to perform: codebuild:CreateProject**\. This is most likely because you configured the AWS CLI with the credentials of an IAM user that does not have sufficient permissions to use AWS CodeBuild to create build projects\. To fix this, configure the AWS CLI with credentials belonging to one of the following IAM entities:   
+After you run the create\-project command, an error message similar to the following might be output: **User: *user\-ARN* is not authorized to perform: codebuild:CreateProject**\. This is most likely because you configured the AWS CLI with the credentials of an IAM user that does not have sufficient permissions to use CodeBuild to create build projects\. To fix this, configure the AWS CLI with credentials belonging to one of the following IAM entities:   
 Your AWS root account\. This is not recommended\. For more information, see [The Account Root User](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html) in the *IAM User Guide*\.
 An administrator IAM user in your AWS account\. For more information, see [Creating Your First IAM Admin User and Group](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html) in the *IAM User Guide*\.
-An IAM user in your AWS account with the AWS managed policies named **AWSCodeBuildAdminAccess**, **AmazonS3ReadOnlyAccess**, and **IAMFullAccess** attached to that IAM user or to an IAM group that the IAM user belongs to\. If you do not have an IAM user or group in your AWS account with these permissions, and you cannot add these permissions to your IAM user or group, contact your AWS account administrator for assistance\. For more information, see [AWS Managed \(Predefined\) Policies for AWS CodeBuild](auth-and-access-control-iam-identity-based-access-control.md#managed-policies)\.
+An IAM user in your AWS account with the AWS managed policies named **AWSCodeBuildAdminAccess**, **AmazonS3ReadOnlyAccess**, and **IAMFullAccess** attached to that IAM user or to an IAM group that the IAM user belongs to\. If you do not have an IAM user or group in your AWS account with these permissions, and you cannot add these permissions to your IAM user or group, contact your AWS account administrator for assistance\. For more information, see [AWS Managed \(Predefined\) Policies for CodeBuild](auth-and-access-control-iam-identity-based-access-control.md#managed-policies)\.
 
 ## Step 6: Run the Build<a name="getting-started-run-build"></a>
 
 In this step, you instruct AWS CodeBuild to run the build with the settings in the build project\.
 
-You can use the [AWS CodeBuild console](#getting-started-run-build-console) or [AWS CLI](#getting-started-run-build-cli) to complete this step\.<a name="getting-started-run-build-console"></a>
+You can use the [CodeBuild console](#getting-started-run-build-console) or [AWS CLI](#getting-started-run-build-cli) to complete this step\.<a name="getting-started-run-build-console"></a>
 
 **To run the build \(console\)**
 
@@ -559,7 +553,7 @@ If successful, data similar to this appears in the output\.
 ```
 + `buildsNotFound` represents the build IDs for any builds where information is not available\. In this example, it should be empty\.
 + `builds` represents information about each build where information is available\. In this example, information about only one build appears in the output\.
-  + `phases` represents the set of build phases AWS CodeBuild runs during the build process\. Information about each build phase is listed separately as `startTime`, `endTime`, and `durationInSeconds` \(when the build phase started and ended, expressed in Unix time format, and how long it lasted, in seconds\), and `phaseType` such as \(`SUBMITTED`, `PROVISIONING`, `DOWNLOAD_SOURCE`, `INSTALL`, `PRE_BUILD`, `BUILD`, `POST_BUILD`, `UPLOAD_ARTIFACTS`, `FINALIZING`, or `COMPLETED`\) and `phaseStatus` \(such as `SUCCEEDED`, `FAILED`, `FAULT`, `TIMED_OUT`, `IN_PROGRESS`, or `STOPPED`\)\. The first time you run the batch\-get\-builds command, there might not be many \(or any\) phases\. After subsequent runs of the batch\-get\-builds command with the same build ID, more build phases should appear in the output\.
+  + `phases` represents the set of build phases CodeBuild runs during the build process\. Information about each build phase is listed separately as `startTime`, `endTime`, and `durationInSeconds` \(when the build phase started and ended, expressed in Unix time format, and how long it lasted, in seconds\), and `phaseType` such as \(`SUBMITTED`, `PROVISIONING`, `DOWNLOAD_SOURCE`, `INSTALL`, `PRE_BUILD`, `BUILD`, `POST_BUILD`, `UPLOAD_ARTIFACTS`, `FINALIZING`, or `COMPLETED`\) and `phaseStatus` \(such as `SUCCEEDED`, `FAILED`, `FAULT`, `TIMED_OUT`, `IN_PROGRESS`, or `STOPPED`\)\. The first time you run the batch\-get\-builds command, there might not be many \(or any\) phases\. After subsequent runs of the batch\-get\-builds command with the same build ID, more build phases should appear in the output\.
   + `logs` represents information in Amazon CloudWatch Logs about the build's logs\.
   + `md5sum` and `sha256sum` represent MD5 and SHA\-256 hashes of the build's output artifact\. These appear in the output only if the build project's `packaging` value is set to `ZIP`\. \(You did not set this value in this walkthrough\.\) You can use these hashes along with a checksum tool to confirm file integrity and authenticity\.
 **Note**  
@@ -571,7 +565,7 @@ If you use the AWS SDKs to get these hashes, the values are named `codebuild-con
 
 In this step, you view detailed information about your build in CloudWatch Logs\.
 
-You can use the [AWS CodeBuild console](#getting-started-build-log-console) or [AWS CLI](#getting-started-build-log-cli) to complete this step\.<a name="getting-started-build-log-console"></a>
+You can use the [CodeBuild console](#getting-started-build-log-console) or [AWS CLI](#getting-started-build-log-cli) to complete this step\.<a name="getting-started-build-log-console"></a>
 
 **To view detailed build information \(console\)**
 
@@ -579,7 +573,7 @@ You can use the [AWS CodeBuild console](#getting-started-build-log-console) or [
 
 1. In the CloudWatch Logs log stream, you can browse the log events\. By default, only the last set of log events is displayed\. To see earlier log events, scroll to the beginning of the list\.
 
-1. In this walkthrough, most of the log events contain verbose information about AWS CodeBuild downloading and installing build dependency files into its build environment, which you probably don't care about\. You can use the **Filter events** box to reduce the information displayed\. For example, if you enter `"[INFO]"` in the **Filter events** box, only those events that contain `[INFO]` are displayed\. For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/FilterAndPatternSyntax.html) in the *Amazon CloudWatch User Guide*\.
+1. In this walkthrough, most of the log events contain verbose information about CodeBuild downloading and installing build dependency files into its build environment, which you probably don't care about\. You can use the **Filter events** box to reduce the information displayed\. For example, if you enter `"[INFO]"` in the **Filter events** box, only those events that contain `[INFO]` are displayed\. For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/FilterAndPatternSyntax.html) in the *Amazon CloudWatch User Guide*\.
 
 Skip ahead to [Step 9: Get the Build Output Artifact](#getting-started-output)\.<a name="getting-started-build-log-cli"></a>
 
@@ -589,7 +583,7 @@ Skip ahead to [Step 9: Get the Build Output Artifact](#getting-started-output)\.
 
 1. In the CloudWatch Logs log stream, you can browse the log events\. By default, only the last set of log events is displayed\. To see earlier log events, scroll to the beginning of the list\.
 
-1. In this walkthrough, most of the log events contain verbose information about AWS CodeBuild downloading and installing build dependency files into its build environment, which you probably don't care about\. You can use the **Filter events** box to reduce the information displayed\. For example, if you enter `"[INFO]"` in the **Filter events** box, only those events that contain `[INFO]` are displayed\. For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/FilterAndPatternSyntax.html) in the *Amazon CloudWatch User Guide*\.
+1. In this walkthrough, most of the log events contain verbose information about CodeBuild downloading and installing build dependency files into its build environment, which you probably don't care about\. You can use the **Filter events** box to reduce the information displayed\. For example, if you enter `"[INFO]"` in the **Filter events** box, only those events that contain `[INFO]` are displayed\. For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/FilterAndPatternSyntax.html) in the *Amazon CloudWatch User Guide*\.
 
 These portions of a CloudWatch Logs log stream pertain to this walkthrough\.
 
@@ -642,17 +636,17 @@ These portions of a CloudWatch Logs log stream pertain to this walkthrough\.
 [Container] 2016/04/15 17:49:57 Creating zip artifact
 ```
 
-In this example, AWS CodeBuild successfully completed the pre\-build, build, and post\-build build phases\. It ran the unit tests and successfully built the `messageUtil-1.0.jar` file\.
+In this example, CodeBuild successfully completed the pre\-build, build, and post\-build build phases\. It ran the unit tests and successfully built the `messageUtil-1.0.jar` file\.
 
 ## Step 9: Get the Build Output Artifact<a name="getting-started-output"></a>
 
-In this step, you get the `messageUtil-1.0.jar` file that AWS CodeBuild built and uploaded to the output bucket\.
+In this step, you get the `messageUtil-1.0.jar` file that CodeBuild built and uploaded to the output bucket\.
 
-You can use the [AWS CodeBuild console](#getting-started-output-console) or [Amazon S3 console](#getting-started-output-s3) to complete this step\.<a name="getting-started-output-console"></a>
+You can use the [CodeBuild console](#getting-started-output-console) or [Amazon S3 console](#getting-started-output-s3) to complete this step\.<a name="getting-started-output-console"></a>
 
-**To get the build output artifact \(AWS CodeBuild console\)**
+**To get the build output artifact \(CodeBuild console\)**
 
-1. With the AWS CodeBuild console still open and the build details page still displayed from the previous step, in **Build Status**, choose the **View artifacts** link\. This opens the folder in Amazon S3 for the build output artifact\. \(If the build details page is not displayed, in the navigation bar, choose **Build history**, and then choose the **Build run** link\.\)
+1. With the CodeBuild console still open and the build details page still displayed from the previous step, in **Build Status**, choose the **View artifacts** link\. This opens the folder in Amazon S3 for the build output artifact\. \(If the build details page is not displayed, in the navigation bar, choose **Build history**, and then choose the **Build run** link\.\)
 
 1. Open the folder named `target`, where you find the build output artifact file named `messageUtil-1.0.jar`\.
 
@@ -697,4 +691,4 @@ If you are using the IAM user to delete this bucket instead of an AWS root accou
 
 In this walkthrough, you used AWS CodeBuild to build a set of Java class files into a JAR file\. You then viewed the build's results\.
 
-You can now try using AWS CodeBuild in your own scenarios by following the instructions in [Plan a Build](planning.md)\. If you don't feel ready yet, you might want to try building some of the samples\. For more information, see [Samples](samples.md)\. 
+You can now try using CodeBuild in your own scenarios by following the instructions in [Plan a Build](planning.md)\. If you don't feel ready yet, you might want to try building some of the samples\. For more information, see [Samples](samples.md)\. 

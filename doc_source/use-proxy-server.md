@@ -1,32 +1,26 @@
---------
+# Use CodeBuild with a Proxy Server<a name="use-proxy-server"></a>
 
- The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
+ You can use AWS CodeBuild with a proxy server to regulate HTTP and HTTPS traffic to and from the internet\. To run CodeBuild with a proxy server, you install a proxy server in a public subnet and CodeBuild in a private subnet in an Amazon Virtual Private Cloud \(Amazon VPC\)\. 
 
---------
-
-# Use AWS CodeBuild with a Proxy Server<a name="use-proxy-server"></a>
-
- You can use AWS CodeBuild with a proxy server to regulate HTTP and HTTPS traffic to and from the internet\. To run AWS CodeBuild with a proxy server, you install a proxy server in a public subnet and AWS CodeBuild in a private subnet in an Amazon Virtual Private Cloud \(Amazon VPC\)\. 
-
-There are two primary use cases for running AWS CodeBuild in a proxy server: 
+There are two primary use cases for running CodeBuild in a proxy server: 
 +  It eliminates the use of a NAT gateway or NAT instance in your Amazon VPC\. 
 +  It lets you specify the URLs that instances in the proxy server can access and the URLs to which the proxy server denies access\.
 
- You can use AWS CodeBuild with two two types of proxy servers\. For both, the proxy server runs in a public subnet and AWS CodeBuild runs in a private subnet\. 
-+  **Transparent proxy**: If you use a transparent proxy server, AWS CodeBuild does not know that it is communicating with a proxy server, so it does not require special configuration\. 
-+  **Explicit proxy**: If you use an explicit proxy server, AWS CodeBuild is aware of the proxy server and you must configure `HTTP_PROXY` and `HTTPS_PROXY` environment variables in AWS CodeBuild\. 
+ You can use CodeBuild with two two types of proxy servers\. For both, the proxy server runs in a public subnet and CodeBuild runs in a private subnet\. 
++  **Transparent proxy**: If you use a transparent proxy server, CodeBuild does not know that it is communicating with a proxy server, so it does not require special configuration\. 
++  **Explicit proxy**: If you use an explicit proxy server, CodeBuild is aware of the proxy server and you must configure `HTTP_PROXY` and `HTTPS_PROXY` environment variables in CodeBuild\. 
 
 **Topics**
-+ [Components Required to Run AWS CodeBuild in a Proxy Server](#use-proxy-server-transparent-components)
-+ [Run AWS CodeBuild in a Transparent Proxy Server](#run-codebuild-in-transparent-proxy-server)
-+ [Run AWS CodeBuild in an Explicit Proxy Server](#run-codebuild-in-explicit-proxy-server)
++ [Components Required to Run CodeBuild in a Proxy Server](#use-proxy-server-transparent-components)
++ [Run CodeBuild in a Transparent Proxy Server](#run-codebuild-in-transparent-proxy-server)
++ [Run CodeBuild in an Explicit Proxy Server](#run-codebuild-in-explicit-proxy-server)
 
-## Components Required to Run AWS CodeBuild in a Proxy Server<a name="use-proxy-server-transparent-components"></a>
+## Components Required to Run CodeBuild in a Proxy Server<a name="use-proxy-server-transparent-components"></a>
 
  You need these components to run AWS CodeBuild in a transparent or explicit proxy server: 
 +  An Amazon VPC\. 
 +  One public subnet in your Amazon VPC for the proxy server\. 
-+  One private subnet in your Amazon VPC for AWS CodeBuild\. 
++  One private subnet in your Amazon VPC for CodeBuild\. 
 +  An internet gateway that allows communcation between the VPC and the internet\. 
 
  The following diagram shows how the components interact\. 
@@ -39,7 +33,7 @@ There are two primary use cases for running AWS CodeBuild in a proxy server:
 
 1. Create a VPC\. For information, see [Creating a VPC](https://docs.aws.amazon.com/vpc/latest/userguide/working-with-vpcs.html#Create-VPC)\.
 
-1. Create two subnets in your VPC\. One is a public subnet named Public Subnet in which your proxy server runs\. The other is a private subnet named Private Subnet in which AWS CodeBuild runs\. 
+1. Create two subnets in your VPC\. One is a public subnet named Public Subnet in which your proxy server runs\. The other is a private subnet named Private Subnet in which CodeBuild runs\. 
 
    For information, see [Creating a Subnet in Your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/working-with-vpcs.html#AddaSubnet)\.
 
@@ -60,7 +54,7 @@ There are two primary use cases for running AWS CodeBuild in a proxy server:
 
 1.  After your Amazon EC2 instance is running, disable source/destination checks\. For information, see [Disabling Source/Destination Checks](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_NAT_Instance.html#EIP_Disable_SrcDestCheck)\. 
 
-1.  Create a route table in your VPC\. Add a rule to the route table that routes traffic destined for the internet to your proxy server\. Associate this route table with your private subnet\. This is required so that outbound requests from instances in your private subnet, where AWS CodeBuild runs, is always routed through the proxy server\. 
+1.  Create a route table in your VPC\. Add a rule to the route table that routes traffic destined for the internet to your proxy server\. Associate this route table with your private subnet\. This is required so that outbound requests from instances in your private subnet, where CodeBuild runs, is always routed through the proxy server\. 
 
 ### Install and Configure a Proxy Server<a name="use-proxy-server-squid-install"></a>
 
@@ -91,13 +85,13 @@ sudo cat squid.key squid.crt | sudo tee squid.pem
 **Note**  
  For HTTP, Squid does not require configuration\. From all HTTP/1\.1 request messages, it can retrieve the host header field, which specifies the internet host that is being requested\. 
 
-## Run AWS CodeBuild in a Transparent Proxy Server<a name="run-codebuild-in-transparent-proxy-server"></a>
+## Run CodeBuild in a Transparent Proxy Server<a name="run-codebuild-in-transparent-proxy-server"></a>
 
  To run AWS CodeBuild in a transparent proxy server, you must configure the proxy server with access to the websites and domains it interacts with\. 
 
 ### Configure Squid as a Transparent Proxy Server<a name="use-proxy-server-transparent-squid-configure"></a>
 
- To configure a proxy server to be transparent, you must grant it access to the domains and websites you want it to access\. To run AWS CodeBuild with a transparent proxy server, you must grant it access to amazonaws\.com\. You must also grant access to other websites AWS CodeBuild uses\. These vary depending on how you create your AWS CodeBuild projects\. Example websites are those for repositories such as GitHub, Bitbucket, Yum, and Maven\. To grant Squid access to specific domains and websites, use a command similar to the following to update the `squid.conf` file\. This sample command grants access to amazonaws\.com, github\.com, and bitbucket\.com\. You can edit this sample to grant access to other websites\. 
+ To configure a proxy server to be transparent, you must grant it access to the domains and websites you want it to access\. To run AWS CodeBuild with a transparent proxy server, you must grant it access to amazonaws\.com\. You must also grant access to other websites CodeBuild uses\. These vary depending on how you create your CodeBuild projects\. Example websites are those for repositories such as GitHub, Bitbucket, Yum, and Maven\. To grant Squid access to specific domains and websites, use a command similar to the following to update the `squid.conf` file\. This sample command grants access to amazonaws\.com, github\.com, and bitbucket\.com\. You can edit this sample to grant access to other websites\. 
 
 ```
 cat | sudo tee /etc/squid/squid.conf ≪EOF
@@ -135,7 +129,7 @@ sudo service iptables save
 sudo service squid start
 ```
 
-### Create an AWS CodeBuild Project<a name="use-proxy-server-transparent-create-acb-project"></a>
+### Create a CodeBuild Project<a name="use-proxy-server-transparent-create-acb-project"></a>
 
  After you configure your proxy server, you can use it with AWS CodeBuild in a private subnet without additional configuration\. Every HTTP and HTTPS request goes through the public proxy server\. Use the following command to view the Squid proxy access log: 
 
@@ -143,7 +137,7 @@ sudo service squid start
 sudo tail -f /var/log/squid/access.log
 ```
 
-## Run AWS CodeBuild in an Explicit Proxy Server<a name="run-codebuild-in-explicit-proxy-server"></a>
+## Run CodeBuild in an Explicit Proxy Server<a name="run-codebuild-in-explicit-proxy-server"></a>
 
  To run AWS CodeBuild with in an explicit proxy server, you must configure the proxy server to allow or deny traffic to and from external sites, and then configure the `HTTP_PROXY` and `HTTPS_PROXY` environment variables\. 
 
@@ -160,18 +154,19 @@ sudo tail -f /var/log/squid/access.log
   acl localnet src fe80::/10
   ```
 
-   Add the following in place of the default ACL rules you removed\. The first line allows requests from your Amazon VPC\. The next two lines grant your proxy server access to destination URLs that might be used by AWS CodeBuild\. Modify the regular expression in the last line to specify Amazon S3 buckets in a specifc region\. For example, use the command `acl allowed_sites dstdom_regex .*s3\.us-west-1\.amazonaws\.com` to grant access to Amazon S3 buckets in the `us-west-1` region\.
+   Add the following in place of the default ACL rules you removed\. The first line allows requests from your Amazon VPC\. The next two lines grant your proxy server access to destination URLs that might be used by AWS CodeBuild\. Modify the regular expression in the last line to specify Amazon S3 buckets in a specifc region\. For example, use the command `acl download_src dstdom_regex .*s3\.us-west-1\.amazonaws\.com` to grant access to Amazon S3 buckets in the `us-west-1` region\.
 
   ```
   acl localnet src 10.1.0.0/16 #Only allow requests from within the VPC
   acl allowed_sites dstdomain .github.com
   acl allowed_sites dstdomain .bitbucket.com
-  acl allowed_sites dstdom_regex .*\.amazonaws\.com
+  acl download_src dstdom_regex .*\.amazonaws\.com
   ```
 +  Replace `http_access allow localnet` with the following: 
 
   ```
   http_access allow localnet allowed_sites
+  http_access allow localnet download_src
   ```
 +  Insert the following in the `squid.conf` file before the `http_access deny all` statement: 
 
@@ -195,7 +190,7 @@ sudo tail -f /var/log/squid/access.log
   sudo service squid restart
   ```
 
-### Create an AWS CodeBuild Project<a name="use-proxy-server-explicit-create-acb-project"></a>
+### Create a CodeBuild Project<a name="use-proxy-server-explicit-create-acb-project"></a>
 
  To run AWS CodeBuild with your explicit proxy server, set its `HTTP_PROXY` and `HTTPS_PROXY` environment variables with the private IP address of the Amazon EC2 instance you created for your proxy server and port 3128: 
 

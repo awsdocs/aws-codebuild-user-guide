@@ -1,12 +1,6 @@
---------
+# View a List of Build IDs for a Build Project in CodeBuild<a name="view-builds-for-project"></a>
 
- The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
-
---------
-
-# View a List of Build IDs for a Build Project in AWS CodeBuild<a name="view-builds-for-project"></a>
-
-You can use the AWS CodeBuild console, AWS CLI, or AWS SDKs to view a list of build IDs for a build project in AWS CodeBuild\.
+You can use the AWS CodeBuild console, AWS CLI, or AWS SDKs to view a list of build IDs for a build project in CodeBuild\.
 
 **Topics**
 + [View a List of Build IDs for a Build Project \(Console\)](#view-builds-for-project-console)
@@ -15,7 +9,7 @@ You can use the AWS CodeBuild console, AWS CLI, or AWS SDKs to view a list of bu
 
 ## View a List of Build IDs for a Build Project \(Console\)<a name="view-builds-for-project-console"></a>
 
-1. Open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codebuild/](https://console.aws.amazon.com/codebuild/)\.
+1. Open the CodeBuild console at [https://console\.aws\.amazon\.com/codebuild/](https://console.aws.amazon.com/codebuild/)\.
 
 1. In the navigation pane, choose **Build projects**\. In the list of build projects, in the **Name** column, choose the build project\. 
 
