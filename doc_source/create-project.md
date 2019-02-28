@@ -33,7 +33,9 @@ Answer the questions in [Plan a Build](planning.md)\.
 
 1. In **Source**:
 
-   For **Source provider**, choose the source code provider type\. Use the following table to make selections appropriate for your source provider:  
+   For **Source provider**, choose the source code provider type\. Use the following table to make selections appropriate for your source provider:
+**Note**  
+CodeBuild does not support Bitbucket Server\.  
 ****    
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/codebuild/latest/userguide/create-project.html)
 

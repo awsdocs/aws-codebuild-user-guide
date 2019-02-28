@@ -50,7 +50,7 @@ If you are using an Amazon S3 input bucket, be sure to create a ZIP file that co
    1. Download the `GoOutputArtifact.zip` file to your local computer or instance, and then extract the contents of the file\. In the extracted contents, get the `hello` file\. 
 
 1.  If one of the following is true, you must add permissions to your image repository in Amazon ECR so that AWS CodeBuild can pull its Docker image into the build environment\. 
-   +  Your project uses AWS CodeBuild credentials to pull Amazon ECR images\. This is denoted by a value of `CODEBUILD` in the `imagePullCredentialsType` attribute of your ProjectEnvironment\. 
+   +  Your project uses CodeBuild credentials to pull Amazon ECR images\. This is denoted by a value of `CODEBUILD` in the `imagePullCredentialsType` attribute of your ProjectEnvironment\. 
    +  Your project uses a cross\-account Amazon ECR image\. In this case, your project must use its service role to pull Amazon ECR images\. To enable this behavior, set the `imagePullCredentialsType` attribute of your ProjectEnvironment to `SERVICE_ROLE`\. 
 
    1. Open the Amazon ECS console at [https://console\.aws\.amazon\.com/ecs/](https://console.aws.amazon.com/ecs/)\.
@@ -61,13 +61,13 @@ If you are using an Amazon S3 input bucket, be sure to create a ZIP file that co
 
    1. Choose the **Permissions** tab, choose **Add**, and then create a statement\.
 
-   1. For **Sid**, type an identifier \(for example, **CodeBuildAccess**\)\.
+   1. For **Sid**, enter an identifier \(for example, **CodeBuildAccess**\)\.
 
    1. For **Effect**, leave **Allow** selected\. This indicates that you want to allow access to another AWS account\.
 
    1. For **Principal**, do one of the following:
-      +  If your project uses CodeBuild credentials to pull an Amazon ECR image, type `codebuild.amazonaws.com`\. 
-      + If your project uses a cross\-account Amazon ECR image, type `arn:aws:iam::AWS-account-ID):root`, where `AWS-account-ID` is the account that you want to give access\.
+      + If your project uses CodeBuild credentials to pull an Amazon ECR image, enter `codebuild.amazonaws.com`\. 
+      + If your project uses a cross\-account Amazon ECR image, enter `arn:aws:iam::AWS-account-ID):root`, where `AWS-account-ID` is the account that you want to give access\.
 
    1. Skip the **All IAM entities** list\.
 
@@ -77,7 +77,11 @@ If you are using an Amazon S3 input bucket, be sure to create a ZIP file that co
 
    1. Choose **Save all**\.
 
-      This policy will be displayed in **Policy document**\.
+      This policy is displayed in **Policy document**\. The principal is what you entered for **Principal** in step 3g of this procedure:
+      + If your project uses CodeBuild credentials to pull an Amazon ECR image, it is `"Service": "codebuild.amazonaws.com"`\.
+      + If your project uses a cross\-account Amazon ECR image, it is `"AWS": "arn:aws:iam::AWS-account-ID):root"`, where `AWS-account-ID` is the account that you want to give access\.
+
+        The following sample policy uses a cross\-account Amazon ECR image\.
 
       ```
       {

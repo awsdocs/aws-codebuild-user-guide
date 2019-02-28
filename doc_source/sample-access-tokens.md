@@ -38,6 +38,8 @@ For GitHub:
 For Bitbucket:
 
 1.  For **Source provider**, choose **Bitbucket**\. 
+**Note**  
+CodeBuild does not support Bitbucket Server\.
 
 1.  For **Repository**, choose **Connect with a Bitbucket app password**\.   
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/bitbucket-access-token-console.png)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)

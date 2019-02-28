@@ -25,7 +25,9 @@ This sample shows you how to create a pull request using a Bitbucket repository\
 
 1. On the **Create build project** page, in **Project configuration**, for **Project name**, enter a name for this build project\. Build project names must be unique across each AWS account\. You can also include an optional description of the build project to help other users understand what this project is used for\.
 
-1.  In **Source**, for **Source provider**, choose **Bitbucket**\. Follow the instructions to connect or reconnect, and then choose **Grant access**\.   
+1.  In **Source**, for **Source provider**, choose **Bitbucket**\. Follow the instructions to connect or reconnect, and then choose **Grant access**\. 
+**Note**  
+CodeBuild does not support Bitbucket Server\.  
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/bitbucket-webhook-prerequisite.png)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)
 
 1.  Choose **Use a repository in my account**\. You cannot use a webhook if you use a public Bitbucket repository\. 
