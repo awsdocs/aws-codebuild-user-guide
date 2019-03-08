@@ -19,7 +19,7 @@ Docker layer cache mode is available for the Linux environment only\. If you cho
 +  Source cache mode caches Git metadata for primary and secondary sources\. After the cache is created, subsequent builds pull only the change between commits\. This mode is a good choice for projects with a clean working directory and a source that is a large Git repository\. If you choose this option and your project does not use a Git repository \(GitHub, GitHub Enterprise, or Bitbucket\), the option is ignored\. 
 +  Docker layer cache mode caches existing Docker layers\. This mode is a good choice for projects that build or pull large Docker images\. It can prevent the performance issues caused by pulling large Docker images down from the network\. 
 **Note**  
- You can use a Docker layer cache in the Linux enviornment only\. 
+ You can use a Docker layer cache in the Linux environment only\. 
  The `privileged` flag must be set so that your project has the required Docker permissions\. 
  You should consider the security implications before you use a Docker layer cache\. 
 +  Custom cache mode caches directories you specify in the buildspec file\. This mode is a good choice if your build scenario is not suited to one of the other two local cache modes\. If you use a custom cache: 
