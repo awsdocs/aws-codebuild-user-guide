@@ -152,7 +152,7 @@ For more information about using the AWS CLI with CodeBuild, see the [Use a Prox
      "privilegedModeOverride": "privilegedModeOverride",
      "queuedTimeoutInMinutesOverride": "queuedTimeoutInMinutesOverride",           
      "reportBuildStatusOverride": "reportBuildStatusOverride",
-     "timeoutInMinutesOverride": timeoutInMinutesOverride",
+     "timeoutInMinutesOverride": "timeoutInMinutesOverride",
      "sourceAuthOverride": "sourceAuthOverride",
      "sourceLocationOverride": "sourceLocationOverride",
      "serviceRoleOverride": "serviceRoleOverride",
