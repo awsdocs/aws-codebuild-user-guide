@@ -135,7 +135,7 @@ For more information about using the AWS CLI with CodeBuild, see the [Use a Prox
      "buildspecOverride": "buildspecOverride",
      "cacheOverride": {
          "location": "cacheOverride-location",
-         "type": "cacheOverride-type",
+         "type": "cacheOverride-type"
     },
      "certificateOverride": "certificateOverride",
      "computeTypeOverride": "computeTypeOverride",
