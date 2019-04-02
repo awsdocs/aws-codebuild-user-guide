@@ -328,11 +328,15 @@ We recommend that you use **Insecure SSL** for testing only\. It should not be u
 
 ## Error: "Build container found dead before completing the build\. Build container died because it was out of memory, or the Docker image is not supported\. ErrorCode: 500"<a name="windows-server-core-version"></a>
 
- **Issue:** When you try to use a Microsoft Windows container in AWS CodeBuild an error occurs during the PROVISIONING phase\. 
+ **Issue:** When you try to use a Microsoft Windows container in AWS CodeBuild an error occurs during the PROVISIONING phase\. This error can also appear when using a Linux Container.
 
- **Possible cause:** The Container OS version is not supported by CodeBuild\. 
+ **Possible cause:** 
++ The Container OS version is not supported by CodeBuild\. 
++ The Container has specified "HTTP_PROXY" and/or "HTTPS_PROXY"
 
- **Recommended solution:** Use a Windows container with a Container OS that is version microsoft/windowsservercore:10\.0\.x\. For example, microsoft/windowsservercore:10\.0\.14393\.2125\. 
+ **Recommended solution:** 
++ Use a Windows container with a Container OS that is version microsoft/windowsservercore:10\.0\.x\. For example, microsoft/windowsservercore:10\.0\.14393\.2125\. 
++ Unset the  "HTTP_PROXY" and/or "HTTPS_PROXY" in your Docker image or specify the VPC Configuration in Build Project.
 
 ## Cannot view build success or failure<a name="no-status-when-build-triggered"></a>
 
