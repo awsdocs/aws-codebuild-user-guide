@@ -120,7 +120,7 @@ artifacts:
   "name": "project-name",
   "source": {
     "type": "NO_SOURCE",
-    "buildspec": "version: 0.2\n\nphases:\n\tbuild:\n\t\tcommands:\n\t\t\t- command"
+    "buildspec": "version: 0.2\n\nphases:\n  build:\n    commands:\n      - command"
    },
   "environment": {
     "type": "LINUX_CONTAINER",
