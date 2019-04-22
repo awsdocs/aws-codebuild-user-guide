@@ -5,7 +5,7 @@ AWS CodeBuild provides several environment variables that you can use in your bu
 + `AWS_REGION`: The AWS Region where the build is running \(for example, `us-east-1`\)\. This environment variable is used primarily by the AWS SDKs\.
 + `CODEBUILD_BUILD_ARN`: The Amazon Resource Name \(ARN\) of the build \(for example, `arn:aws:codebuild:region-ID:account-ID:build/codebuild-demo-project:b1e6661e-e4f2-4156-9ab9-82a19EXAMPLE`\)\.
 + `CODEBUILD_BUILD_ID`: The CodeBuild ID of the build \(for example, `codebuild-demo-project:b1e6661e-e4f2-4156-9ab9-82a19EXAMPLE`\)\.
-+ `CODEBUILD_BUILD_IMAGE`: The CodeBuild build image identifier \(for example, `aws/codebuild/java:openjdk-8`\)\.
++ `CODEBUILD_BUILD_IMAGE`: The CodeBuild build image identifier \(for example, `aws/codebuild/standard:1.0`\)\.
 + `CODEBUILD_BUILD_SUCCEEDING`: Whether the current build is succeeding\. Set to `0` if the build is failing, or `1` if the build is succeeding\.
 + `CODEBUILD_INITIATOR`: The entity that started the build\. If CodePipeline started the build, this is the pipeline's name \(for example, `codepipeline/my-demo-pipeline`\)\. If an IAM user started the build, this is the user's name \(for example, `MyUserName`\)\. If the Jenkins plugin for CodeBuild started the build, this is the string `CodeBuild-Jenkins-Plugin`\.
 + `CODEBUILD_KMS_KEY_ID`: The identifier of the AWS KMS key that CodeBuild is using to encrypt the build output artifact \(for example, `arn:aws:kms:region-ID:account-ID:key/key-ID` or `alias/key-alias`\)\.
@@ -36,7 +36,7 @@ If you use a secondary source, the environment variable for its directory path i
 + `HOME`: This environment variable is always set to `/root`\.
 
 You can also provide build environments with your own environment variables\. For more information, see the following topics:
-+ [Use AWS CodePipeline with AWS CodeBuild](how-to-create-pipeline.md)
++ [Use AWS CodePipeline with CodeBuild](how-to-create-pipeline.md)
 + [Create a Build Project](create-project.md)
 + [Change a Build Project's Settings](change-project.md)
 + [Run a Build](run-build.md)

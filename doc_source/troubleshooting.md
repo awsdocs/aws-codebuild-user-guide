@@ -3,29 +3,31 @@
 Use the information in this topic to help you identify, diagnose, and address issues\.
 
 **Topics**
-+ [Error: "CodeBuild is not authorized to perform: sts:AssumeRole" When Creating or Updating a Build Project](#troubleshooting-assume-role)
-+ [Error: "The bucket you are attempting to access must be addressed using the specified endpoint\.\.\." When Running a Build](#troubleshooting-input-bucket-different-region)
-+ [Error: "Failed to upload artifacts: Invalid arn" When Running a Build](#troubleshooting-output-bucket-different-region)
++ [Error: "CodeBuild is not authorized to perform: sts:AssumeRole" when creating or updating a build project](#troubleshooting-assume-role)
++ [Error: "The bucket you are attempting to access must be addressed using the specified endpoint" when running a build](#troubleshooting-input-bucket-different-region)
++ [Error: "Failed to upload artifacts: Invalid arn" when running a build](#troubleshooting-output-bucket-different-region)
 + [Error: "Unable to Locate Credentials"](#troubleshooting-versions)
 + [Earlier Commands in Build Specs Are Not Recognized by Later Commands](#troubleshooting-build-spec-commands)
 + [Apache Maven Builds Reference Artifacts from the Wrong Repository](#troubleshooting-maven-repos)
 + [Build Commands Run as root by Default](#troubleshooting-root-build-commands)
 + [The Bourne Shell \(sh\) Must Exist in Build Images](#troubleshooting-sh-build-images)
-+ [Error: "CodeBuild is experiencing an issue" When Running a Build](#troubleshooting-large-env-vars)
-+ [Error: "BUILD\_CONTAINER\_UNABLE\_TO\_PULL\_IMAGE" When Using a Custom Build Image](#troubleshooting-unable-to-pull-image)
-+ [Builds May Fail When File Names Have Non\-US English Characters](#troubleshooting-utf-8)
-+ [Builds May Fail When Getting Parameters from Amazon EC2 Parameter Store](#troubleshooting-parameter-store)
++ [Error: "CodeBuild is experiencing an issue" when running a build](#troubleshooting-large-env-vars)
++ [Error: "BUILD\_CONTAINER\_UNABLE\_TO\_PULL\_IMAGE" when using a custom build image](#troubleshooting-unable-to-pull-image)
++ [Builds Might Fail When File Names Have Non\-U\.S\. English Characters](#troubleshooting-utf-8)
++ [Builds Might Fail When Getting Parameters from Amazon EC2 Parameter Store](#troubleshooting-parameter-store)
 + [Cannot Access Branch Filter in the CodeBuild Console](#troubleshooting-webhook-filter)
 + [Procedures in This Guide Do Not Match the CodeBuild Console](#troubleshooting-old-console)
-+ ["Access denied" Error Message When Attempting to Download Cache](#troubleshooting-dependency-caching)
++ ["Access denied" error message when attempting to download cache](#troubleshooting-dependency-caching)
 + [Error: "Unable to download cache: RequestError: send request failed caused by: x509: failed to load system roots and no roots provided"](#troubleshooting-cache-image)
 + [Error: "Unable to download certificate from S3\. AccessDenied"](#troubleshooting-certificate-in-S3)
 + [Error: "Git Clone Failed: unable to access `'your-repository-URL'`: SSL certificate problem: self signed certificate"](#troubleshooting-self-signed-certificate)
 + [Error: "The policy's default version was not created by enhanced zero click role creation or was not the most recent version created by enhanced zero click role creation\."](#enhanced-zero-click-role-creation)
 + [Error: "Build container found dead before completing the build\. Build container died because it was out of memory, or the Docker image is not supported\. ErrorCode: 500"](#windows-server-core-version)
 + [Cannot view build success or failure](#no-status-when-build-triggered)
++ [Cannot find and select the base image of the Windows Server Core 2016 platform](#windows-image-not-available)
++ [RequestError timeout error when running CodeBuild in a proxy server](#code-request-timeout-error)
 
-## Error: "CodeBuild is not authorized to perform: sts:AssumeRole" When Creating or Updating a Build Project<a name="troubleshooting-assume-role"></a>
+## Error: "CodeBuild is not authorized to perform: sts:AssumeRole" when creating or updating a build project<a name="troubleshooting-assume-role"></a>
 
 **Issue:** When you try to create or update a build project, you receive the following error: "Code:InvalidInputException, Message:CodeBuild is not authorized to perform: sts:AssumeRole on arn:aws:iam::*account\-ID*:role/*service\-role\-name*"\.
 
@@ -38,7 +40,7 @@ Use the information in this topic to help you identify, diagnose, and address is
 + Make sure the target CodeBuild service role exists in your AWS account\. If you are not using the console, make sure you did not misspell the Amazon Resource Name \(ARN\) of the service role when you created or updated the build project\.
 + Make sure the target CodeBuild service role has sufficient permissions to trust CodeBuild\. For more information, see the trust relationship policy statement in [Create a CodeBuild Service Role](setting-up.md#setting-up-service-role)\.
 
-## Error: "The bucket you are attempting to access must be addressed using the specified endpoint\.\.\." When Running a Build<a name="troubleshooting-input-bucket-different-region"></a>
+## Error: "The bucket you are attempting to access must be addressed using the specified endpoint" when running a build<a name="troubleshooting-input-bucket-different-region"></a>
 
 **Issue:** When you run a build, the `DOWNLOAD_SOURCE` build phase fails with the error "The bucket you are attempting to access must be addressed using the specified endpoint\. Please send all future requests to this endpoint\."
 
@@ -46,7 +48,7 @@ Use the information in this topic to help you identify, diagnose, and address is
 
 **Recommended solution:** Update the build project's settings to point to a bucket that contains your pre\-built source code, and that bucket is in the same region as the build project\.
 
-## Error: "Failed to upload artifacts: Invalid arn" When Running a Build<a name="troubleshooting-output-bucket-different-region"></a>
+## Error: "Failed to upload artifacts: Invalid arn" when running a build<a name="troubleshooting-output-bucket-different-region"></a>
 
 **Issue:** When you run a build, the `UPLOAD_ARTIFACTS` build phase fails with the error "Failed to upload artifacts: Invalid arn"\.
 
@@ -173,7 +175,7 @@ Use the information in this topic to help you identify, diagnose, and address is
 
 **Recommended solution:** If `sh` in not present in your build image, be sure to include it before you start any more builds that use your image\. \(CodeBuild already includes `sh` in its build images\.\)
 
-## Error: "CodeBuild is experiencing an issue" When Running a Build<a name="troubleshooting-large-env-vars"></a>
+## Error: "CodeBuild is experiencing an issue" when running a build<a name="troubleshooting-large-env-vars"></a>
 
 **Issue:** When you try to run a build project, you receive the following error during the build's `PROVISIONING` phase: "CodeBuild is experiencing an issue\."
 
@@ -181,7 +183,7 @@ Use the information in this topic to help you identify, diagnose, and address is
 
 **Recommended solution:** Use Amazon EC2 Systems Manager Parameter Store to store large environment variables and then retrieve them from your build spec\. Amazon EC2 Systems Manager Parameter Store can store an individual environment variable \(name and value added together\) that is a combined 4,096 characters or less\. To store large environment variables, see [Systems Manager Parameter Store](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-paramstore.html) and [Systems Manager Parameter Store Console Walkthrough](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-walk.html#sysman-paramstore-console) in the *Amazon EC2 Systems Manager User Guide*\. To retrieve them, see the `parameter-store` mapping in [Build Spec Syntax](build-spec-ref.md#build-spec-ref-syntax)\.
 
-## Error: "BUILD\_CONTAINER\_UNABLE\_TO\_PULL\_IMAGE" When Using a Custom Build Image<a name="troubleshooting-unable-to-pull-image"></a>
+## Error: "BUILD\_CONTAINER\_UNABLE\_TO\_PULL\_IMAGE" when using a custom build image<a name="troubleshooting-unable-to-pull-image"></a>
 
 **Issue:** When you try to run a build that uses a custom build image, the build fails with the error `BUILD_CONTAINER_UNABLE_TO_PULL_IMAGE`\.
 
@@ -193,7 +195,7 @@ Use the information in this topic to help you identify, diagnose, and address is
 + Use a larger compute type with more available disk space, or reduce the size of your custom build image\.
 + Update the permissions in your repository in Amazon ECR so that CodeBuild can pull your custom build image into the build environment\. For more information, see the [Amazon ECR Sample](sample-ecr.md)\.
 
-## Builds May Fail When File Names Have Non\-US English Characters<a name="troubleshooting-utf-8"></a>
+## Builds Might Fail When File Names Have Non\-U\.S\. English Characters<a name="troubleshooting-utf-8"></a>
 
 **Issue:** When you run a build that uses files with file names containing non\-US English characters \(for example, Chinese characters\), the build fails\. 
 
@@ -219,7 +221,7 @@ pre_build:
     - export LC_ALL="en_US.utf8"
 ```
 
-## Builds May Fail When Getting Parameters from Amazon EC2 Parameter Store<a name="troubleshooting-parameter-store"></a>
+## Builds Might Fail When Getting Parameters from Amazon EC2 Parameter Store<a name="troubleshooting-parameter-store"></a>
 
 **Issue:** When a build tries to get the value of one or more parameters stored in Amazon EC2 Parameter Store, the build fails in the `DOWNLOAD_SOURCE` phase with the following error: "Parameter does not exist\."
 
@@ -271,7 +273,7 @@ pre_build:
 
 **Recommended solution:** Use the latest console design\. 
 
-## "Access denied" Error Message When Attempting to Download Cache<a name="troubleshooting-dependency-caching"></a>
+## "Access denied" error message when attempting to download cache<a name="troubleshooting-dependency-caching"></a>
 
 **Issue:** When attempting to download the cache on a build project that has cache enabled, you receive the following generic error: "Access denied"\.
 
@@ -328,11 +330,15 @@ We recommend that you use **Insecure SSL** for testing only\. It should not be u
 
 ## Error: "Build container found dead before completing the build\. Build container died because it was out of memory, or the Docker image is not supported\. ErrorCode: 500"<a name="windows-server-core-version"></a>
 
- **Issue:** When you try to use a Microsoft Windows container in AWS CodeBuild an error occurs during the PROVISIONING phase\. 
+ **Issue:** When you try to use a Microsoft Windows or Linux container in AWS CodeBuild an error occurs during the PROVISIONING phase\. 
 
- **Possible cause:** The Container OS version is not supported by CodeBuild\. 
+ **Possible causes:** 
++  The Container OS version is not supported by CodeBuild\. 
++  `HTTP_PROXY`, `HTTPS_PROXY`, or both are specified in the container\.
 
- **Recommended solution:** Use a Windows container with a Container OS that is version microsoft/windowsservercore:10\.0\.x\. For example, microsoft/windowsservercore:10\.0\.14393\.2125\. 
+ **Recommended solutions:**  
++ For Microsoft Windows, use a Windows container with a Container OS that is version microsoft/windowsservercore:10\.0\.x\. For example, microsoft/windowsservercore:10\.0\.14393\.2125\.
++ For Linux, clear the `HTTP_PROXY` and `HTTPS_PROXY` settings in your Docker image, or specify the VPC configuration in you build project\.
 
 ## Cannot view build success or failure<a name="no-status-when-build-triggered"></a>
 
@@ -341,3 +347,33 @@ We recommend that you use **Insecure SSL** for testing only\. It should not be u
 **Possible cause:** The option to report your build's status is not enabled\. 
 
 **Recommended solutions:** Enable **Report build status** when you create or update a CodeBuild project\. This option tells CodeBuild to report back the status when you trigger a build\. For more information, see [reportBuildStatus](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSource.html#CodeBuild-Type-ProjectSource-reportBuildStatus)\. 
+
+## Cannot find and select the base image of the Windows Server Core 2016 platform<a name="windows-image-not-available"></a>
+
+**Issue:** You cannot find or select the base image of the Windows Server Core 2016 platform\.
+
+**Possible cause:** You are using a region that does not support this image\. 
+
+**Recommended solutions:** Use one of the regions that supports the base image of the Windows Server Core 2016 platform:
++  US East \(N\. Virginia\) 
++  US East \(Ohio\) 
++  US East \(Ohio\) 
++  US West \(N\. California\) 
+
+## RequestError timeout error when running CodeBuild in a proxy server<a name="code-request-timeout-error"></a>
+
+ **Issue:** You receive an error similar to `RequestError: send request failed caused by: Post https://logs.<your-region>.amazonaws.com/: dial tcp 52.46.158.105:443: i/o timeout` from CloudWatch Logs\. 
+
+ **Possible causes:** 
++ `ssl-bump` is not configured properly\. 
++ Your organization's security policy does not allow you to use `ssl_bump`\. 
+
+**Recommended solutions:** 
++ Make sure `ssl-bump` is configured properly\. If you use Squid for your proxy server, see [ Configure Squid as an Explicit Proxy Server](use-proxy-server.md#use-proxy-server-explicit-squid-configure)\. 
++ Use private endpoints for Amazon S3 and CloudWatch Logs by doing the following: 
+
+  1.  In your private subnet routing table, remove the rule you added that routes traffic destined for the internet to your proxy server\. For information, see [Creating a Subnet in Your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/working-with-vpcs.html#AddaSubnet)\. 
+
+  1.  Create a private Amazon S3 endpoint and CloudWatch Logs endpoint and associate them with the private subnet of your Amazon VPC\. For information, see [VPC Endpoint Services \(AWS PrivateLink\)](https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-service.html)\. 
+
+  1.  Confirm **Enable Private DNS Name** in your Amazon VPC is selected\. For more information, see [Creating an Interface Endpoint ](https://docs.aws.amazon.com/vpc/latest/userguide/vpce-interface.html#create-interface-endpoint)\. 

@@ -68,9 +68,9 @@
 
 1.  From **Operating system**, choose **Ubuntu**\. 
 
-1.  From **Runtime**, choose **Java**\. 
+1.  From **Runtime**, choose **Standard**\. 
 
-1.  From **Runtime version** choose **aws/codebuild/java:openjdk\-8**\. 
+1.  From **Runtime version** choose **aws/codebuild/standard:1\.0** \. 
 
 1.  Select **Privileged**\. 
 

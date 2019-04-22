@@ -1,4 +1,4 @@
-# Use CodePipeline with AWS CodeBuild to Test Code and Run Builds<a name="how-to-create-pipeline"></a>
+# Use CodePipeline with CodeBuild to Test Code and Run Builds<a name="how-to-create-pipeline"></a>
 
 You can automate your release process by using AWS CodePipeline to test your code and run your builds with CodeBuild\.
 
@@ -14,10 +14,10 @@ The following table lists tasks and the methods available for performing them\. 
 
 **Topics**
 + [Prerequisites](#how-to-create-pipeline-prerequisites)
-+ [Create a Pipeline That Uses AWS CodeBuild \(CodePipeline Console\)](#how-to-create-pipeline-console)
-+ [Create a Pipeline That Uses AWS CodeBuild \(AWS CLI\)](#how-to-create-pipeline-cli)
-+ [Add an AWS CodeBuild Build Action to a Pipeline \(CodePipeline Console\)](#how-to-create-pipeline-add)
-+ [Add an AWS CodeBuild Test Action to a Pipeline \(CodePipeline Console\)](#how-to-create-pipeline-add-test)
++ [Create a Pipeline That Uses CodeBuild \(CodePipeline Console\)](#how-to-create-pipeline-console)
++ [Create a Pipeline That Uses CodeBuild \(AWS CLI\)](#how-to-create-pipeline-cli)
++ [Add an CodeBuild Build Action to a Pipeline \(CodePipeline Console\)](#how-to-create-pipeline-add)
++ [Add an CodeBuild Test Action to a Pipeline \(CodePipeline Console\)](#how-to-create-pipeline-add-test)
 
 ## Prerequisites<a name="how-to-create-pipeline-prerequisites"></a>
 
@@ -54,13 +54,13 @@ For CodeDeploy, see the [CodeDeploy Sample](sample-codedeploy.md) in this guide 
 For AWS Elastic Beanstalk, see the [Elastic Beanstalk Sample](sample-elastic-beanstalk.md) in this guide and see [Create an Application Source Bundle](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.deployment.source.html) in the *AWS Elastic Beanstalk Developer Guide*\.
 For AWS OpsWorks, see [Application Source](https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-source) and [Using CodePipeline with AWS OpsWorks](https://docs.aws.amazon.com/opsworks/latest/userguide/other-services-cp.html) in the *AWS OpsWorks User Guide*\.
 
-## Create a Pipeline That Uses AWS CodeBuild \(CodePipeline Console\)<a name="how-to-create-pipeline-console"></a>
+## Create a Pipeline That Uses CodeBuild \(CodePipeline Console\)<a name="how-to-create-pipeline-console"></a>
 
 Use the following procedure to create a pipeline that uses CodeBuild to build and deploy your source code\.
 
 To create a pipeline that only tests your source code:
-+ Use the following procedure to create the pipeline, and then delete the Build and Beta stages from the pipeline\. Then use the [Add an AWS CodeBuild Test Action to a Pipeline \(CodePipeline Console\)](#how-to-create-pipeline-add-test) procedure in this topic to add to the pipeline a test action that uses CodeBuild\.
-+ Use one of the other procedures in this topic to create the pipeline, and then use the [Add an AWS CodeBuild Test Action to a Pipeline \(CodePipeline Console\)](#how-to-create-pipeline-add-test) procedure in this topic to add to the pipeline a test action that uses CodeBuild\.
++ Use the following procedure to create the pipeline, and then delete the Build and Beta stages from the pipeline\. Then use the [Add an CodeBuild Test Action to a Pipeline \(CodePipeline Console\)](#how-to-create-pipeline-add-test) procedure in this topic to add to the pipeline a test action that uses CodeBuild\.
++ Use one of the other procedures in this topic to create the pipeline, and then use the [Add an CodeBuild Test Action to a Pipeline \(CodePipeline Console\)](#how-to-create-pipeline-add-test) procedure in this topic to add to the pipeline a test action that uses CodeBuild\.
 
 **To use the Create Pipeline wizard in CodePipeline to create a pipeline that uses CodeBuild**
 
@@ -204,9 +204,9 @@ You can also get the build output artifact by choosing the **Build artifacts** l
 
 1. If you instructed CodePipeline to deploy the build output artifact, use the deployment provider's instructions to get to the build output artifact on the deployment targets\.
 
-## Create a Pipeline That Uses AWS CodeBuild \(AWS CLI\)<a name="how-to-create-pipeline-cli"></a>
+## Create a Pipeline That Uses CodeBuild \(AWS CLI\)<a name="how-to-create-pipeline-cli"></a>
 
-Use the following procedure to create a pipeline that uses AWS CodeBuild to build your source code\.
+Use the following procedure to create a pipeline that uses CodeBuild to build your source code\.
 
 To use the AWS CLI to create a pipeline that deploys your built source code or that only tests your source code, you can adapt the instructions in [Edit a Pipeline \(AWS CLI\)](https://docs.aws.amazon.com/codepipeline/latest/userguide/how-to-edit-pipelines.html#how-to-edit-pipelines-cli) and the [CodePipeline Pipeline Structure Reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/pipeline-structure.html) in the *AWS CodePipeline User Guide*\.
 
@@ -262,7 +262,7 @@ The build project must define build output artifact settings \(even though CodeP
                "category": "Build",
                "owner": "AWS",
                "version": "1",
-               "provider": "AWS CodeBuild"
+               "provider": "CodeBuild"
              },
              "outputArtifacts": [
    	     {
@@ -355,7 +355,7 @@ You can also get the build output artifact by choosing the **Build artifacts** l
 
 1. Extract the contents of the file\. If there are multiple files in that folder, extract the contents of the file with the latest **Last Modified** timestamp\. \(You might need to give the file a `.zip` extension so that you can work with it in your system's ZIP utility\.\) The build output artifact is in the extracted contents of the file\.
 
-## Add an AWS CodeBuild Build Action to a Pipeline \(CodePipeline Console\)<a name="how-to-create-pipeline-add"></a>
+## Add an CodeBuild Build Action to a Pipeline \(CodePipeline Console\)<a name="how-to-create-pipeline-add"></a>
 
 1. Open the CodePipeline console at [https://console\.aws\.amazon\.com/codesuite/codepipeline/home](https://console.aws.amazon.com/codesuite/codepipeline/home)\.
 
@@ -496,7 +496,7 @@ You can also get the build output artifact by choosing the **Build artifacts** l
 
 1. If you instructed CodePipeline to deploy the build output artifact, use the deployment provider's instructions to get to the build output artifact on the deployment targets\.
 
-## Add an AWS CodeBuild Test Action to a Pipeline \(CodePipeline Console\)<a name="how-to-create-pipeline-add-test"></a>
+## Add an CodeBuild Test Action to a Pipeline \(CodePipeline Console\)<a name="how-to-create-pipeline-add-test"></a>
 
 1. Open the CodePipeline console at [https://console\.aws\.amazon\.com/codesuite/codepipeline/home](https://console.aws.amazon.com/codesuite/codepipeline/home)\.
 

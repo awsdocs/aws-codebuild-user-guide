@@ -114,8 +114,8 @@ We strongly discourage the storing of sensitive values, especially AWS access ke
 Any environment variables you set replace existing environment variables\. For example, if the Docker image already contains an environment variable named `MY_VAR` with a value of `my_value`, and you set an environment variable named `MY_VAR` with a value of `other_value`, then `my_value` is replaced by `other_value`\. Similarly, if the Docker image already contains an environment variable named `PATH` with a value of `/usr/local/sbin:/usr/local/bin`, and you set an environment variable named `PATH` with a value of `$PATH:/usr/share/ant/bin`, then `/usr/local/sbin:/usr/local/bin` is replaced by the literal value `$PATH:/usr/share/ant/bin`\.  
 Do not set any environment variable with a name that starts with `CODEBUILD_`\. This prefix is reserved for internal use\.  
 If an environment variable with the same name is defined in multiple places, the value is determined as follows:  
-The value in the start build operation call takes highest precedence\.
-The value in the build project definition takes next precedence\.
+The value in the start build operation call takes highest precedence\. You can add or override environment variables when you create a build\. For more information, see [Run a Build in CodeBuild](run-build.md)\. 
+The value in the build project definition takes next precedence\. You can add environment variables at the project level when you create or edit a project\. For more information, see [Create a Build Project in CodeBuild](create-project.md) and [Change a Build Project's Settings in CodeBuild ](change-project.md)\.
 The value in the build spec declaration takes lowest precedence\.
   + `parameter-store`: Required if `env` is specified, and you want to retrieve custom environment variables stored in Amazon EC2 Systems Manager Parameter Store\. Contains a mapping of *key*/*value* scalars, where each mapping represents a single custom environment variable stored in Amazon EC2 Systems Manager Parameter Store\. *key* is the name you use later in your build commands to refer to this custom environment variable, and *value* is the name of the custom environment variable stored in Amazon EC2 Systems Manager Parameter Store\. To store sensitive values, see [Systems Manager Parameter Store](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-paramstore.html) and [Systems Manager Parameter Store Console Walkthrough](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-walk.html#sysman-paramstore-console) in the *Amazon EC2 Systems Manager User Guide*\. 
 **Important**  
@@ -123,8 +123,8 @@ To allow CodeBuild to retrieve custom environment variables stored in Amazon EC2
 Any environment variables you retrieve from Amazon EC2 Systems Manager Parameter Store replace existing environment variables\. For example, if the Docker image already contains an environment variable named `MY_VAR` with a value of `my_value`, and you retrieve an environment variable named `MY_VAR` with a value of `other_value`, then `my_value` is replaced by `other_value`\. Similarly, if the Docker image already contains an environment variable named `PATH` with a value of `/usr/local/sbin:/usr/local/bin`, and you retrieve an environment variable named `PATH` with a value of `$PATH:/usr/share/ant/bin`, then `/usr/local/sbin:/usr/local/bin` is replaced by the literal value `$PATH:/usr/share/ant/bin`\.  
 Do not store any environment variable with a name that starts with `CODEBUILD_`\. This prefix is reserved for internal use\.  
 If an environment variable with the same name is defined in multiple places, the value is determined as follows:  
-The value in the start build operation call takes highest precedence\.
-The value in the build project definition takes next precedence\.
+The value in the start build operation call takes highest precedence\. You can add or override environment variables when you create a build\. For more information, see [Run a Build in CodeBuild](run-build.md)\. 
+The value in the build project definition takes next precedence\. You can add environment variables at the project level when you create or edit a project\. For more information, see [Create a Build Project in CodeBuild](create-project.md) and [Change a Build Project's Settings in CodeBuild ](change-project.md)\.
 The value in the build spec declaration takes lowest precedence\.
 + `phases`: Required sequence\. Represents the commands CodeBuild runs during each phase of the build\. 
 **Note**  
@@ -317,7 +317,7 @@ env:
   variables:
     JAVA_HOME: "/usr/lib/jvm/java-8-openjdk-amd64"
   parameter-store:
-    LOGIN_PASSWORD: "dockerLoginPassword"
+    LOGIN_PASSWORD: /CodeBuild/dockerLoginPassword
 
 phases:
   install:
@@ -365,7 +365,7 @@ cache:
 Here is an example of the preceding build spec, expressed as a single string, for use with the AWS CLI, or the AWS SDKs\.
 
 ```
-"version: 0.2\n\nenv:\n  variables:\n    JAVA_HOME: "/usr/lib/jvm/java-8-openjdk-amd64"\n  parameter-store:\n    LOGIN_PASSWORD: "dockerLoginPassword"\n\nphases:\n  install:\n    commands:\n      - apt-get update -y\n      - apt-get install -y maven\n  pre_build:\n    commands:\n      - echo Entered the pre_build phase...\n  build:\n    commands:\n      - echo Build started on `date`\n      - mvn install\n  post_build:\n    commands:\n      - echo Build completed on `date`\nartifacts:\n  files:\n    - target/messageUtil-1.0.jar\n  discard-paths: yes"
+"version: 0.2\n\nenv:\n  variables:\n    JAVA_HOME: "/usr/lib/jvm/java-8-openjdk-amd64"\n  parameter-store:\n    LOGIN_PASSWORD: /CodeBuild/dockerLoginPassword\n\nphases:\n  install:\n    commands:\n      - apt-get update -y\n      - apt-get install -y maven\n  pre_build:\n    commands:\n      - echo Entered the pre_build phase...\n  build:\n    commands:\n      - echo Build started on `date`\n      - mvn install\n  post_build:\n    commands:\n      - echo Build completed on `date`\nartifacts:\n  files:\n    - target/messageUtil-1.0.jar\n  discard-paths: yes"
 ```
 
 Here is an example of the commands in the `build` phase, for use with the CodeBuild or CodePipeline consoles\.
@@ -389,5 +389,5 @@ The following table lists the build spec versions and the changes between versio
 
 | Version | Changes | 
 | --- | --- | 
-| 0\.2 |  `environment_variables` has been renamed to `env`\. `plaintext` has been renamed to `variables`\. In version 0\.1, AWS CodeBuild runs each build command in a separate instance of the default shell in the build environment\. In version 0\.2, CodeBuild runs all build commands in the same instance of the default shell in the build environment\.  | 
+| 0\.2 |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html)  | 
 | 0\.1 | This is the initial definition of the build specification format\. | 

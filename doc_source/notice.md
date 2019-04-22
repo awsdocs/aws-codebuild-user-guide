@@ -4,12 +4,12 @@ When you use CodeBuild for Windows builds, you have the option to use some third
 
 **Topics**
 + [1\) Base Docker Image—windowsservercore](#base-docker-image)
-+ [2\) windows\-base Docker Image—Choco](#windows-base-docker-image)
-+ [3\) windows\-base Docker Image—git \-\-version 2\.16\.2](#windows-base-docker-image)
-+ [4\) windows\-base Docker Image—microsoft\-build\-tools \-\-version 15\.0\.26320\.2](#windows-base-docker-image)
-+ [5\) windows\-base Docker Image—nuget\.commandline \-\-version 4\.5\.1](#windows-base-docker-image)
-+ [7\) windows\-base Docker Image—netfx\-4\.6\.2\-devpack](#windows-base-docker-image)
-+ [8\) windows\-base Docker Image—visualfsharptools, v 4\.0](#windows-base-docker-image)
++ [2\) windows\-base Docker Image—Choco](#3-windows-base-docker-image)
++ [3\) windows\-base Docker Image—git \-\-version 2\.16\.2](#4-windows-base-docker-image-2-16-2)
++ [4\) windows\-base Docker Image—microsoft\-build\-tools \-\-version 15\.0\.26320\.2](#5-windows-base-docker-image-15-x)
++ [5\) windows\-base Docker Image—nuget\.commandline \-\-version 4\.5\.1](#6-windows-base-docker-image-4-5-1)
++ [7\) windows\-base Docker Image—netfx\-4\.6\.2\-devpack](#7-windows-base-docker-image-4-6-2)
++ [8\) windows\-base Docker Image—visualfsharptools, v 4\.0](#8-windows-base-docker-image-visualfsharptools)
 + [9\) windows\-base Docker Image—netfx\-pcl\-reference\-assemblies\-4\.6](#9-windows-base-docker-image)
 + [10\) windows\-base Docker Image—visualcppbuildtools v 14\.0\.25420\.1](#10-windows-base-docker-image)
 + [11\) windows\-base Docker Image—microsoft\-windows\-netfx3\-ondemand\-package\.cab](#11-windows-base-docker-image)
@@ -43,7 +43,7 @@ By using this Supplement, you accept these terms\. If you do not accept them, do
 
 As part of the Supplemental License Terms for this Container OS Image for Windows containers, you are also subject to the underlying Windows Server host software license terms, which are located at: [https://www\.microsoft\.com/en\-us/useterms\.](https://www.microsoft.com/en-us/useterms)
 
-## 2\) windows\-base Docker Image—Choco<a name="windows-base-docker-image"></a>
+## 2\) windows\-base Docker Image—Choco<a name="3-windows-base-docker-image"></a>
 
 \(license terms available at: [https://github\.com/chocolatey/chocolatey\.org/blob/master/LICENSE\.txt\)](https://github.com/chocolatey/chocolatey.org/blob/master/LICENSE.txt)
 
@@ -55,13 +55,13 @@ Licensed under the Apache License, version 2\.0 \(the "License"\); you may not u
 
 Unless required by applicable law or as agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\. See the License for the specific language governing permissions and limitations under the License\.
 
-## 3\) windows\-base Docker Image—git \-\-version 2\.16\.2<a name="windows-base-docker-image"></a>
+## 3\) windows\-base Docker Image—git \-\-version 2\.16\.2<a name="4-windows-base-docker-image-2-16-2"></a>
 
 \(license terms available at: [https://chocolatey\.org/packages/git/2\.16\.2](https://chocolatey.org/packages/git/2.16.2)\)
 
 **Licensed under GNU General Public License, version 2, available at**: [https://www\.gnu\.org/licenses/old\-licenses/gpl\-2\.0\.html](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html)
 
-## 4\) windows\-base Docker Image—microsoft\-build\-tools \-\-version 15\.0\.26320\.2<a name="windows-base-docker-image"></a>
+## 4\) windows\-base Docker Image—microsoft\-build\-tools \-\-version 15\.0\.26320\.2<a name="5-windows-base-docker-image-15-x"></a>
 
 \(license terms available at: [https://www\.visualstudio\.com/license\-terms/mt171552/](https://www.visualstudio.com/license-terms/mt171552/)\)
 
@@ -79,7 +79,7 @@ IF YOU COMPLY WITH THESE LICENSE TERMS, YOU HAVE THE RIGHTS BELOW\.
 
 1. **TERMS FOR SPECIFIC COMPONENTS**\.
 
-   1. **Utilities**\. The software may contain some items on the Utilities List at [http://go\.microsoft\.com/fwlink/?LinkId=523763&clcid=0x409](http://go.microsoft.com/fwlink/?LinkId=523763&clcid=0x409)\. You may copy and install those items, if included with the software, on to yours or other third party machines, to debug and deploy your applications and databases you developed with the software\. Please note that Utilities are designed for temporary use, that Microsoft may not be able to patch or update Utilities separately from the rest of the software, and that some Utilities by their nature may make it possible for others to access machines on which they are installed\. As a result, you should delete all Utilities you have installed after you finish debugging or deploying your applications and databases\. Microsoft is not responsible for any third party use or access of Utilities you install on any machine\.
+   1. **Utilities**\. The software may contain some items on the Utilities List at [https://docs\.microsoft\.com/en\-us/visualstudio/productinfo/2015\-redistribution\-vs](https://docs.microsoft.com/en-us/visualstudio/productinfo/2015-redistribution-vs)\. You may copy and install those items, if included with the software, on to yours or other third party machines, to debug and deploy your applications and databases you developed with the software\. Please note that Utilities are designed for temporary use, that Microsoft may not be able to patch or update Utilities separately from the rest of the software, and that some Utilities by their nature may make it possible for others to access machines on which they are installed\. As a result, you should delete all Utilities you have installed after you finish debugging or deploying your applications and databases\. Microsoft is not responsible for any third party use or access of Utilities you install on any machine\.
 
    1. **Microsoft Platforms**\. The software may include components from Microsoft Windows; Microsoft Windows Server; Microsoft SQL Server; Microsoft Exchange; Microsoft Office; and Microsoft SharePoint\. These components are governed by separate agreements and their own product support policies, as described in the license terms found in the installation directory for that component or in the "Licenses" folder accompanying the software\.
 
@@ -96,7 +96,7 @@ IF YOU COMPLY WITH THESE LICENSE TERMS, YOU HAVE THE RIGHTS BELOW\.
 
       We may also make a copy of the source code available at [http://thirdpartysource\.microsoft\.com](http://thirdpartysource.microsoft.com)\.
 
-1. **DATA**\. The software may collect information about you and your use of the software, and send that to Microsoft\. Microsoft may use this information to provide services and improve our products and services\. You may opt\-out of many of these scenarios, but not all, as described in the product documentation\. There are also some features in the software that may enable you to collect data from users of your applications\. If you use these features to enable data collection in your applications, you must comply with applicable law, including providing appropriate notices to users of your applications\. You can learn more about data collection and use in the help documentation and the privacy statement at [http://go\.microsoft\.com/fwlink/?LinkId=528096&clcid=0x409](http://go.microsoft.com/fwlink/?LinkId=528096&clcid=0x409)\. Your use of the software operates as your consent to these practices\.
+1. **DATA**\. The software may collect information about you and your use of the software, and send that to Microsoft\. Microsoft may use this information to provide services and improve our products and services\. You may opt\-out of many of these scenarios, but not all, as described in the product documentation\. There are also some features in the software that may enable you to collect data from users of your applications\. If you use these features to enable data collection in your applications, you must comply with applicable law, including providing appropriate notices to users of your applications\. You can learn more about data collection and use in the help documentation and the privacy statement at [https://privacy\.microsoft\.com/en\-us/privacystatement](https://privacy.microsoft.com/en-us/privacystatement)\. Your use of the software operates as your consent to these practices\.
 
 1. **SCOPE OF LICENSE**\. The software is licensed, not sold\. This agreement only gives you some rights to use the software\. Microsoft reserves all other rights\. Unless applicable law gives you more rights despite this limitation, you may use the software only as expressly permitted in this agreement\. In doing so, you must comply with any technical limitations in the software that only allow you to use it in certain ways\. You may not
    + work around any technical limitations in the software;
@@ -133,7 +133,7 @@ IF YOU COMPLY WITH THESE LICENSE TERMS, YOU HAVE THE RIGHTS BELOW\.
 
 EULA ID: VS2015\_Update3\_ShellsRedist\_<ENU>
 
-## 5\) windows\-base Docker Image—nuget\.commandline \-\-version 4\.5\.1<a name="windows-base-docker-image"></a>
+## 5\) windows\-base Docker Image—nuget\.commandline \-\-version 4\.5\.1<a name="6-windows-base-docker-image-4-5-1"></a>
 
 \(license terms available at: [https://github\.com/NuGet/Home/blob/dev/LICENSE\.txt](https://github.com/NuGet/Home/blob/dev/LICENSE.txt)\)
 
@@ -145,7 +145,7 @@ Licensed under the Apache License, version 2\.0 \(the "License"\); you may not u
 
 Unless required by applicable law or as agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\. See the License for the specific language governing permissions and limitations under the License\.
 
-## 7\) windows\-base Docker Image—netfx\-4\.6\.2\-devpack<a name="windows-base-docker-image"></a>
+## 7\) windows\-base Docker Image—netfx\-4\.6\.2\-devpack<a name="7-windows-base-docker-image-4-6-2"></a>
 
 **MICROSOFT SOFTWARE SUPPLEMENTAL LICENSE TERMS**
 
@@ -188,7 +188,7 @@ The following license terms describe additional use terms for this supplement\. 
 
 1. **SUPPORT SERVICES FOR SUPPLEMENT**\. Microsoft provides support services for this software as described at [www\.support\.microsoft\.com/common/international\.aspx](http://www.support.microsoft.com/common/international.aspx)\.
 
-## 8\) windows\-base Docker Image—visualfsharptools, v 4\.0<a name="windows-base-docker-image"></a>
+## 8\) windows\-base Docker Image—visualfsharptools, v 4\.0<a name="8-windows-base-docker-image-visualfsharptools"></a>
 
 \(license terms available at: [https://raw\.githubusercontent\.com/Microsoft/visualfsharp/master/License\.txt](https://raw.githubusercontent.com/Microsoft/visualfsharp/master/License.txt)\)
 
@@ -316,7 +316,7 @@ These license terms are an agreement between Microsoft Corporation \(or based on
 
    1. **Package Managers**\. The software may include package managers, like Nuget, that give you the option to download other Microsoft and third party software packages to use with your application\. Those packages are under their own licenses, and not this agreement\. Microsoft does not distribute, license or provide any warranties for any of the third party packages\.
 
-1. **SCOPE OF LICENSE**\. The software is licensed, not sold\. This agreement only gives you some rights to use the software\. Microsoft reserves all other rights\. Unless applicable law gives you more rights despite this limitation, you may use the software only as expressly permitted in this agreement\. In doing so, you must comply with any technical limitations in the software that only allow you to use it in certain ways\. For more information, see [http://www\.microsoft\.com/licensing/userights](http://www.microsoft.com/licensing/userights)\. You may not
+1. **SCOPE OF LICENSE**\. The software is licensed, not sold\. This agreement only gives you some rights to use the software\. Microsoft reserves all other rights\. Unless applicable law gives you more rights despite this limitation, you may use the software only as expressly permitted in this agreement\. In doing so, you must comply with any technical limitations in the software that only allow you to use it in certain ways\. For more information, see [https://docs\.microsoft\.com/en\-us/legal/information\-protection/software\-license\-terms\#1\-installation\-and\-use\-rights](https://docs.microsoft.com/en-us/legal/information-protection/software-license-terms#1-installation-and-use-rights)\. You may not
    + work around any technical limitations in the software;
    + reverse engineer, decompile or disassemble the software, or attempt to do so, except and only to the extent required by third party licensing terms governing use of certain open source components that may be included with the software;
    + remove, minimize, block or modify any notices of Microsoft or its suppliers;
@@ -376,7 +376,7 @@ The following license terms describe additional use terms for this supplement\. 
 
 ## 12\) windows\-base Docker Image—dotnet\-sdk<a name="12-windows-base-docker-image"></a>
 
-\(available at [https://github\.com/dotnet/core/blob/master/LICENSE](https://github.com/dotnet/core/blob/master/LICENSE)\) 
+\(available at [https://github\.com/dotnet/core/blob/master/LICENSE\.TXT](https://github.com/dotnet/core/blob/master/LICENSE.TXT)\) 
 
 The MIT License \(MIT\)
 

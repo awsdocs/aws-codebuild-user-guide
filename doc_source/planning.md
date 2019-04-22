@@ -18,4 +18,4 @@ Before you run your build with CodeBuild, you must answer these questions:
 
 After you have answered these questions, you should have the settings and resources you need to run a build successfully\. To run your build, you can:
 + Use the CodeBuild console, AWS CLI, or AWS SDKs\. For more information, see [Run AWS CodeBuild Directly](how-to-run.md)\.
-+ Create or identify a pipeline in AWS CodePipeline, and then add a build or test action that instructs CodeBuild to automatically test your code, run your build, or both\. For more information, see [Use AWS CodePipeline with AWS CodeBuild](how-to-create-pipeline.md)\.
++ Create or identify a pipeline in AWS CodePipeline, and then add a build or test action that instructs CodeBuild to automatically test your code, run your build, or both\. For more information, see [Use AWS CodePipeline with CodeBuild](how-to-create-pipeline.md)\.

@@ -94,7 +94,7 @@ If you are using an Amazon S3 input bucket, be sure to create a ZIP file that co
      },
      "environment": {
        "type": "LINUX_CONTAINER",
-       "image": "aws/codebuild/docker:17.09.0",
+       "image": "aws/codebuild/standard:1.0",
        "computeType": "BUILD_GENERAL1_SMALL",
        "environmentVariables": [
          {

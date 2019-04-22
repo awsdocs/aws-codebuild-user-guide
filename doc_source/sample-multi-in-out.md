@@ -10,7 +10,7 @@ You can create an AWS CodeBuild build project with more than one input source an
 
 1.  Choose which source is the primary source\. This is the source in which CodeBuild looks for and executes your buildspec file\. 
 
-1.  Create a build project\. For more information, see [Create a Build Project in CodeBuild ](create-project.md) 
+1.  Create a build project\. For more information, see [Create a Build Project in CodeBuild](create-project.md) 
 
 1.  Follow the instructions in [Run AWS CodeBuild Directly](how-to-run.md) to create your build project, run the build, and get information about the build\. 
 
@@ -49,7 +49,7 @@ You can create an AWS CodeBuild build project with more than one input source an
        ],
        "environment": {
          "type": "LINUX_CONTAINER",
-         "image": "aws/codebuild/java:openjdk-8",
+         "image": "aws/codebuild/standard:1.0",
          "computeType": "BUILD_GENERAL1_SMALL"
        },
        "serviceRole": "arn:aws:iam::account-ID:role/role-name",
@@ -124,7 +124,7 @@ artifacts:
    },
   "environment": {
     "type": "LINUX_CONTAINER",
-    "image": "aws/codebuild/java:openjdk-8",
+    "image": "aws/codebuild/standard:1.0",
     "computeType": "BUILD_GENERAL1_SMALL",    
   },
   "serviceRole": "arn:aws:iam::account-ID:role/role-name",

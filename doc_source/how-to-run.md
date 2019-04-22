@@ -2,7 +2,7 @@
 
 To set up, run, and monitor builds directly with CodeBuild, you can use the CodeBuild console, AWS CLI, or AWS SDK\.
 
-Not what you're looking for? To use AWS CodePipeline to run CodeBuild, see [Use AWS CodePipeline with AWS CodeBuild](how-to-create-pipeline.md)\.
+Not what you're looking for? To use AWS CodePipeline to run CodeBuild, see [Use AWS CodePipeline with CodeBuild](how-to-create-pipeline.md)\.
 
 **Topics**
 + [Prerequisites](#how-to-run-prerequisites)

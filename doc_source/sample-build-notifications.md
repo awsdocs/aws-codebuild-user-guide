@@ -292,7 +292,7 @@ Build state change notifications use the following format:
         "location": "arn:aws:s3:::codebuild-123456789012-output-bucket/my-output-artifact.zip"
       },
       "environment": {
-        "image": "aws/codebuild/dot-net:1.1",
+        "image": "aws/codebuild/standard:1.0",
         "privileged-mode": false,
         "compute-type": "BUILD_GENERAL1_SMALL",
         "type": "LINUX_CONTAINER",
@@ -423,7 +423,7 @@ Build phase change notifications use the following format:
         "location": "arn:aws:s3:::codebuild-123456789012-output-bucket/my-output-artifact.zip"
       },
       "environment": {
-        "image": "aws/codebuild/dot-net:1.1",
+        "image": "aws/codebuild/standard:1.0",
         "privileged-mode": false,
         "compute-type": "BUILD_GENERAL1_SMALL",
         "type": "LINUX_CONTAINER",

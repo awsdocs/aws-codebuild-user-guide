@@ -53,7 +53,7 @@ Amazon's trademarks and trade dress may not be used in
    + [Use VPC Endpoints](use-vpc-endpoints-with-codebuild.md)
    + [AWS CloudFormation VPC Template](cloudformation-vpc-template.md)
    + [Use CodeBuild with a Proxy Server](use-proxy-server.md)
-+ [Use CodePipeline with AWS CodeBuild to Test Code and Run Builds](how-to-create-pipeline.md)
++ [Use CodePipeline with CodeBuild to Test Code and Run Builds](how-to-create-pipeline.md)
 + [Monitoring CodeBuild](monitoring-builds.md)
    + [Monitoring Builds with CloudWatch Metrics](monitoring-metrics.md)
    + [Monitoring Builds with CloudWatch Alarms](monitoring-alarms.md)

@@ -16,8 +16,6 @@ You can use the AWS CodeBuild console, AWS CLI, or AWS SDKs to change a build pr
 1. Do one of the following:
    + Choose the link for the build project you want to change, and then choose **Build details**\.
    + Choose the button next to the build project you want to change, choose **View details**, and then choose **Build details**\.
-**Note**  
-By default, the 100 most recent build projects are displayed\. To view more build projects, choose the gear icon, and then choose a different value for **Projects per page** or use the back and forward arrows\.
 
 1. To change the project's description, in **Project configuration**, choose **Edit**, and then enter a description in **Description**\.
 
@@ -30,6 +28,8 @@ By default, the 100 most recent build projects are displayed\. To view more buil
 CodeBuild does not support Bitbucket Server\.  
 ****    
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/codebuild/latest/userguide/change-project.html)
+
+   To change whether CodeBuild can modify the service role you use for this project, select or clear **Allow AWS CodeBuild to modify this service role so it can be used with this build project**\. If you clear it, you must use a service role with CodeBuild permissions attached to it\. For more information, see [Add CodeBuild Access Permissions to an IAM Group or IAM User](setting-up.md#setting-up-service-permissions-group) and [Create a CodeBuild Service Role](setting-up.md#setting-up-service-role)\. 
 
 1. To change information about the build environment, in **Environment**, choose **Edit**\. Make changes appropriate for the build environment type \(for example, **Environment image**, **Operating system**, **Runtime**, **Runtime version**, **Custom image**, **Other location**, **Amazon ECR repository**, or **Amazon ECR image**\)\.
 
@@ -101,6 +101,7 @@ Do not append "/" to the end of **Path prefix**\.
    If you enable **S3 logs**:
    +  From **Bucket**, choose the name of the S3 bucket for your logs\. 
    +  In **Path prefix**, enter the prefix for your logs\. 
+   +  Select **Remove S3 log encryption** if you do not want your S3 logs encrypted\. 
 
 1. To change information about the way build output artifacts are stored, in **Additional configuration**, change the value of **Artifacts packaging**\.
 

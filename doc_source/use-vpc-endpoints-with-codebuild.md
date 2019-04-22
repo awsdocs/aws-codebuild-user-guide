@@ -8,10 +8,8 @@
 
 **Note**  
  The following services must communicate with the internet\. You can use VPC endpoints with CodeBuild and these services with an [Amazon VPC NAT Gateway](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_NAT_Instance.html)\.   
- CodeCommit, which might be a source repository\. 
  Amazon ECR, which might be used with a custom Docker image\. 
  Active Directory\. 
- Amazon CloudWatch Events and Amazon CloudWatch Logs\. 
 +  VPC endpoints support Amazon\-provided DNS through Amazon Route 53 only\. If you want to use your own DNS, you can use conditional DNS forwarding\. For more information, see [DHCP Option Sets](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html) in the *Amazon VPC User Guide*\. 
 +  VPC endpoints currently do not support cross\-region requests\. Make sure that you create your endpoint in the same region as any Amazon S3 buckets that store your build input and output\. You can use the Amazon S3 console or the [ get\-bucket\-location](https://docs.aws.amazon.com/cli/latest/reference/s3api/get-bucket-location.html) command to find the location of your bucket\. Use a region\-specific Amazon S3 endpoint to access your bucket \(for example, `mybucket.s3-us-west-2.amazonaws.com`\)\. For more information about region\-specific endpoints for Amazon S3, see [Amazon Simple Storage Service](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) in Amazon Web Services General Reference*Amazon Web Services General Reference*\. If you use the AWS CLI to make requests to Amazon S3, set your default region to the same region as your bucket, or use the `--region` parameter in your requests\.
 

@@ -106,8 +106,8 @@ In this step, you use the AWS CodeBuild console to create a build project and th
    + For **Environment**:
      + For **Environment image**, choose **Managed image**\.
      + For **Operating system**, choose **Ubuntu**\.
-     + For **Runtime**, choose **Java**\.
-     + For **Runtime version**, choose **aws/codebuild/java:openjdk\-8**\.
+     + For **Runtime**, choose **Standard**\.
+     + For **Runtime version**, choose **aws/codebuild/standard:1\.0**\.
    + For **Artifacts**:
      + For **Name**, enter a build output file name that's easy for you to remember\. Include the `.zip` extension\.
      + For **Artifacts packaging**, choose **Zip**\.
@@ -182,8 +182,8 @@ In this step, you create an AWS CodeBuild build project to use with your pipelin
    + For **Environment**:
      + For **Environment image**, choose **Managed image**\.
      + For **Operating system**, choose **Ubuntu**\.
-     + For **Runtime**, choose **Java**\.
-     + For **Runtime version**, choose **aws/codebuild/java:openjdk\-8**\.
+     + For **Runtime**, choose **Standard**\.
+     + For **Runtime version**, choose **aws/codebuild/standard:1\.0**\.
    + For **Artifacts**:
      + For **Name**, enter a build output file name that's easy for you to remember\. Include the `.zip` extension\.
      + For **Artifacts packaging**, choose **Zip**\.
@@ -208,7 +208,7 @@ In this step, you use the CodePipeline console to create a pipeline\. After you 
 
    Use the AWS region selector to choose a region that supports CodeBuild and, if you're storing the source code in an Amazon S3 input bucket, choose the region where your input bucket is stored\.
 
-1. Create a pipeline\. For information, see [Create a Pipeline That Uses AWS CodeBuild \(CodePipeline Console\)](how-to-create-pipeline.md#how-to-create-pipeline-console)\. Leave all settings at their default values, except for these settings\.
+1. Create a pipeline\. For information, see [Create a Pipeline That Uses CodeBuild \(CodePipeline Console\)](how-to-create-pipeline.md#how-to-create-pipeline-console)\. Leave all settings at their default values, except for these settings\.
    + For **Step 3: Add build stage**, for **Build provider**, choose CodeBuild\. For **Project name**, choose the build project you just created\.
    + For **Step 4: Add deploy stage**, for **Deployment provider**, choose **AWS Elastic Beanstalk**\.
      + For **Application name**, choose the Elastic Beanstalk application you just created\.
@@ -253,7 +253,7 @@ In this step, you add an Elastic Beanstalk configuration file and a build spec f
    eb_codebuild_settings:
      CodeBuildServiceRole: my-service-role-name
      ComputeType: BUILD_GENERAL1_SMALL
-     Image: aws/codebuild/java:openjdk-8
+     Image: aws/codebuild/standard:1.0
      Timeout: 60
    ```
 
@@ -325,7 +325,7 @@ In this step, you add an Elastic Beanstalk configuration file and a build spec f
 
 If you want, you can make changes to the source code and then run the eb deploy command from the same directory\. The EB CLI performs the same steps as the eb create command, but it deploys the build output to the existing environment instead of creating a new environment\.
 
-## Related Resources<a name="w4aac11c41c50c15"></a>
+## Related Resources<a name="w4aac11c41c49c15"></a>
 + For more information about getting started with AWS CodeBuild, see [Getting Started with CodeBuild](getting-started.md)\.
 + For more information about troubleshooting problems with CodeBuild, see [Troubleshooting CodeBuild](troubleshooting.md)\.
 + For more information about limits in CodeBuild, see [Limits for CodeBuild](limits.md)\.

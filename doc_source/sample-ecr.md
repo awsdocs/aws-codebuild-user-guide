@@ -37,7 +37,7 @@ If you are using an Amazon S3 input bucket, be sure to create a ZIP file that co
         },
         "environment": {
           "type": "LINUX_CONTAINER",
-          "image": "aws/codebuild/golang:1.7.3",
+          "image": "aws/codebuild/standard:1.0",
           "computeType": "BUILD_GENERAL1_SMALL"
         },
         "serviceRole": "arn:aws:iam::account-ID:role/role-name",

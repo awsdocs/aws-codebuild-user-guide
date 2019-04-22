@@ -38,7 +38,7 @@ AWSCodeBuild awsCodeBuild = AWSCodeBuildClientBuilder.standard().
     build();
 ```
 
- For information about `AWSCodeBuildClientBuilder`, see [Class AWSCodeBuildClientBuilder](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/services/codebuild/AWSCodeBuildClientBuilder.html)\. 
+ For information about `AWSCodeBuildClientBuilder`, see [Class AWSCodeBuildClientBuilder](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/codebuild/AWSCodeBuildClientBuilder.html)\. 
 
  The credentials used in `withCredentials` must be of type `AWSCredentialsProvider`\. For more information, see [Working with AWS Credentials](https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/credentials.html)\. 
 

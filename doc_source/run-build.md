@@ -11,7 +11,7 @@ You can use the AWS CodeBuild console, AWS CLI, or AWS SDKs to run a build in Co
 
 ## Run a Build \(Console\)<a name="run-build-console"></a>
 
-To use AWS CodePipeline to run a build with CodeBuild, skip these steps and follow the instructions in [Use AWS CodePipeline with AWS CodeBuild](how-to-create-pipeline.md)\.
+To use AWS CodePipeline to run a build with CodeBuild, skip these steps and follow the instructions in [Use AWS CodePipeline with CodeBuild](how-to-create-pipeline.md)\.
 
 1. Open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codesuite/codebuild/home](https://console.aws.amazon.com/codesuite/codebuild/home)\.
 
@@ -97,7 +97,7 @@ The value in the build spec declaration takes lowest precedence\.
 ## Run a Build \(AWS CLI\)<a name="run-build-cli"></a>
 
 **Note**  
-To use CodePipeline to run a build with AWS CodeBuild, skip these steps and follow the instructions in [Create a Pipeline That Uses AWS CodeBuild \(AWS CLI\)](how-to-create-pipeline.md#how-to-create-pipeline-cli)\.  
+To use CodePipeline to run a build with AWS CodeBuild, skip these steps and follow the instructions in [Create a Pipeline That Uses CodeBuild \(AWS CLI\)](how-to-create-pipeline.md#how-to-create-pipeline-cli)\.  
 For more information about using the AWS CLI with CodeBuild, see the [Use a Proxy ServerCommand Line Reference](cmd-ref.md)\.
 
 1. Run the `start-build` command in one of the following ways:
@@ -268,6 +268,6 @@ This deletes the webhook from your CodeBuild project only\. You should also dele
 
 ## Run a Build \(AWS SDKs\)<a name="run-build-sdks"></a>
 
-To use CodePipeline to run a build with AWS CodeBuild, skip these steps and follow the instructions in [Use CodePipeline with AWS CodeBuild to Test Code and Run Builds](how-to-create-pipeline.md) instead\.
+To use CodePipeline to run a build with AWS CodeBuild, skip these steps and follow the instructions in [Use CodePipeline with CodeBuild to Test Code and Run Builds](how-to-create-pipeline.md) instead\.
 
 For information about using CodeBuild with the AWS SDKs, see the [AWS SDKs and Tools Reference](sdk-ref.md)\.

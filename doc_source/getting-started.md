@@ -238,7 +238,7 @@ In this step, you create a build project that AWS CodeBuild uses to run the buil
 You can use the [CodeBuild console](#getting-started-create-build-project-console) or [AWS CLI](#getting-started-create-build-project-cli) to complete this step\.
 
 **Note**  
-You can work with CodeBuild in several ways: through the CodeBuild console, AWS CodePipeline, the AWS CLI, or the AWS SDKs\. This walkthrough demonstrates how to use the CodeBuild console and the AWS CLI\. To learn how to use CodePipeline, see [Use AWS CodePipeline with AWS CodeBuild](how-to-create-pipeline.md)\. To learn how to use the AWS SDKs, see [Run AWS CodeBuild Directly](how-to-run.md)\. <a name="getting-started-create-build-project-console"></a>
+You can work with CodeBuild in several ways: through the CodeBuild console, AWS CodePipeline, the AWS CLI, or the AWS SDKs\. This walkthrough demonstrates how to use the CodeBuild console and the AWS CLI\. To learn how to use CodePipeline, see [Use AWS CodePipeline with CodeBuild](how-to-create-pipeline.md)\. To learn how to use the AWS SDKs, see [Run AWS CodeBuild Directly](how-to-run.md)\. <a name="getting-started-create-build-project-console"></a>
 
 **To create the build project \(console\)**
 
@@ -265,9 +265,9 @@ An IAM user in your AWS account with the AWS managed policies named **AWSCodeBui
 
 1. For **Operating system**, choose **Ubuntu**\.
 
-1. For **Runtime**, choose **Java**\.
+1. For **Runtime**, choose **Standard**\.
 
-1. For **Runtime version**, choose **aws/codebuild/java:openjdk\-8**\.
+1. For **Runtime version**, choose **aws/codebuild/standard:1\.0**\.
 
 1. In **Service role**, leave **New service role** selected, and leave **Role name** unchanged\.
 
@@ -308,7 +308,7 @@ An IAM user in your AWS account with the AWS managed policies named **AWSCodeBui
      },
      "environment": {
        "type": "LINUX_CONTAINER",
-       "image": "aws/codebuild/java:openjdk-8",
+       "image": "aws/codebuild/standard:1.0",
        "computeType": "BUILD_GENERAL1_SMALL"
      },
      "serviceRole": "serviceIAMRole"
@@ -324,7 +324,7 @@ An IAM user in your AWS account with the AWS managed policies named **AWSCodeBui
    + For `artifacts`, `type` is a required value that represents the build output artifact's repository type \(in this example, `S3` for an Amazon S3 bucket\)\.
    + For `artifacts`, `location` represents the name of the output bucket you created or identified earlier \(in this example, `codebuild-region-ID-account-ID-output-bucket`\)\.
    + For `environment`, `type` is a required value that represents the type of build environment \(`LINUX_CONTAINER` is currently the only allowed value\)\.
-   + For `environment`, `image` is a required value that represents the Docker image name and tag combination this build project uses, as specified by the Docker image repository type \(in this example, `aws/codebuild/java:openjdk-8` for a Docker image in the CodeBuild Docker images repository\)\. `aws/codebuild/java` is the name of the Docker image\. `openjdk-8` is the tag of the Docker image\. 
+   + For `environment`, `image` is a required value that represents the Docker image name and tag combination this build project uses, as specified by the Docker image repository type \(in this example, `aws/codebuild/standard:1.0` for a Docker image in the CodeBuild Docker images repository\)\. `aws/codebuild/standard` is the name of the Docker image\. `1.0` is the tag of the Docker image\. 
 
      To find more Docker images you can use in your scenarios, see the [Build Environment Reference](build-env-ref.md)\.
    + For `environment`, `computeType` is a required value that represents the computing resources CodeBuild uses \(in this example, `BUILD_GENERAL1_SMALL`\)\.
@@ -356,7 +356,7 @@ Other available values in the original JSON\-formatted data, such as `descriptio
        "created": 1472661575.244,
        "environment": {
          "computeType": "BUILD_GENERAL1_SMALL",
-         "image": "aws/codebuild/java:openjdk-8",
+         "image": "aws/codebuild/standard:1.0",
          "type": "LINUX_CONTAINER",
          "environmentVariables": []
        },
@@ -428,7 +428,7 @@ You can use the [CodeBuild console](#getting-started-run-build-console) or [AWS 
        "buildStatus": "IN_PROGRESS",
        "environment": {
          "computeType": "BUILD_GENERAL1_SMALL",
-         "image": "aws/codebuild/java:openjdk-8",
+         "image": "aws/codebuild/standard:1.0",
          "type": "LINUX_CONTAINER",
          "environmentVariables": []
        },
@@ -534,7 +534,7 @@ If successful, data similar to this appears in the output\.
       "buildStatus": "SUCCEEDED",
       "environment": {
         "computeType": "BUILD_GENERAL1_SMALL",
-        "image": "aws/codebuild/java:openjdk-8",
+        "image": "aws/codebuild/standard:1.0",
         "type": "LINUX_CONTAINER",
         "environmentVariables": []
       },
@@ -583,7 +583,7 @@ Skip ahead to [Step 9: Get the Build Output Artifact](#getting-started-output)\.
 
 1. In the CloudWatch Logs log stream, you can browse the log events\. By default, only the last set of log events is displayed\. To see earlier log events, scroll to the beginning of the list\.
 
-1. In this walkthrough, most of the log events contain verbose information about CodeBuild downloading and installing build dependency files into its build environment, which you probably don't care about\. You can use the **Filter events** box to reduce the information displayed\. For example, if you enter `"[INFO]"` in the **Filter events** box, only those events that contain `[INFO]` are displayed\. For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/FilterAndPatternSyntax.html) in the *Amazon CloudWatch User Guide*\.
+1. In this walkthrough, most of the log events contain verbose information about CodeBuild downloading and installing build dependency files into its build environment, which you probably don't care about\. You can use the **Filter events** box to reduce the information displayed\. For example, if you enter `"[INFO]"` in the **Filter events** box, only those events that contain `[INFO]` are displayed\. For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html) in the *Amazon CloudWatch User Guide*\.
 
 These portions of a CloudWatch Logs log stream pertain to this walkthrough\.
 

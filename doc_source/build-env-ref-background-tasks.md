@@ -6,19 +6,19 @@ You can run background tasks in build environments\. To do this, in your buildsp
 + Start a background process and wait for it to complete later:
 
   ```
-  nohup sleep 30 & ; echo $! > pidfile
+  nohup sleep 30 & echo $! > pidfile
   …
   wait $(cat pidfile)
   ```
 +  Start a background process and do not wait for it to ever complete:
 
   ```
-  nohup sleep 30 & ; disown $!
+  nohup sleep 30 & disown $!
   ```
 +  Start a background process and kill it later:
 
   ```
-  nohup sleep 30 & ; echo $! > pidfile
+  nohup sleep 30 & echo $! > pidfile
   …
   kill $(cat pidfile)
   ```

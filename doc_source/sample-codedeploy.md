@@ -136,7 +136,7 @@ Do not add `(root directory name)` or `(root directory name)/my-app` to the ZIP 
      },
      "environment": {
        "type": "LINUX_CONTAINER",
-       "image": "aws/codebuild/java:openjdk-8",
+       "image": "aws/codebuild/standard:1.0",
        "computeType": "BUILD_GENERAL1_SMALL"
      },
      "serviceRole": "arn:aws:iam::account-ID:role/role-name",
@@ -159,11 +159,11 @@ Do not add `(root directory name)` or `(root directory name)/my-app` to the ZIP 
 
    To deploy with CodeDeploy, see [Deploying a Revision with CodeDeploy](https://docs.aws.amazon.com/codedeploy/latest/userguide/how-to-deploy-revision.html) in the *CodeDeploy User Guide*\.
 
-   To deploy with CodePipeline, see [Use AWS CodePipeline with AWS CodeBuild](how-to-create-pipeline.md)\.
+   To deploy with CodePipeline, see [Use AWS CodePipeline with CodeBuild](how-to-create-pipeline.md)\.
 
 1. To find the build output artifact after the deployment is complete, sign in to the instance and look in the `/tmp` directory for the file named `my-app-1.0-SNAPSHOT.jar`\.
 
-## Related Resources<a name="w4aac11c41c46b9"></a>
+## Related Resources<a name="w4aac11c41c45b9"></a>
 + For more information about getting started with AWS CodeBuild, see [Getting Started with CodeBuild](getting-started.md)\.
 + For more information about troubleshooting problems with CodeBuild, see [Troubleshooting CodeBuild](troubleshooting.md)\.
 + For more information about limits in CodeBuild, see [Limits for CodeBuild](limits.md)\.

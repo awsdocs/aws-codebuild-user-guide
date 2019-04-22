@@ -18,12 +18,11 @@ AWS CodeBuild now supports webhooks, when the source repository is GitHub\. This
 
    Choose **Repository in my GitHub account**\.
 
-   In **GitHub repository**, enter the URL for your GitHub repository\.
+   In **GitHub repository**, enter the URL for your GitHub repository\.  
+![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/github-pr-sample-source.png)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)
 
-   Expand **Additional configuration**\.
-
-   For **Webhook**, select **Rebuild every time a code change is pushed to this repository**\. You can select this check box only if you chose **Repository in my GitHub account**\.  
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/webhook.png)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)
+1. In **Primary source webhook events** select **Rebuild every time a code change is pushed to this repository**\. You can select this check box only if you chose **Repository in my GitHub account**\.  
+![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/github-pr-webhook.png)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)
 
 1. In **Environment**:
 
@@ -80,14 +79,18 @@ When you use the console to create or update a build project, you can create a C
 Filter groups work the same way in GitHub and GitHub Enterprise\.
 
  You can create one or more webhook filter groups to specify which webhook events trigger a build\. A build is triggered if all the filters on one or more filter groups evaluate to true\. When you create a filter group, you specify: 
-+  An event\. For GitHub, you can choose one or more of the following events: `PUSH`, `PULL_REQUEST_CREATED`, `PULL_REQUEST_UPDATED`, and `PULL_REQUEST_REOPENED`\. 
++  An event\. For GitHub, you can choose one or more of the following events: `PUSH`, `PULL_REQUEST_CREATED`, `PULL_REQUEST_UPDATED`, and `PULL_REQUEST_REOPENED`\. The webhook event type is in the `X-GitHub-Event` header in the webhook payload\. In the `X-GitHub-Event` header, you might see `pull_request` or `push`\. For a pull request event, the type is in the `action` field of the webhook event payload\. The following table shows how `X-GitHub-Event` header values and webhook pull request payload `action` field values map to the available event types\.    
+[\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/codebuild/latest/userguide/sample-github-pull-request.html)
 **Note**  
- `PULL_REQUEST_REOPENED` works with GitHub and GitHub Enterprise only\. 
+ The `PULL_REQUEST_REOPENED` event type can be used with GitHub and GitHub Enterprise only\. 
 +  One or more optional filters\. Use a regular expression to specify a filter\. For an event to trigger a build, every filter associated with it must evaluate to true\. 
-  +  `ACTOR_ACCOUNT_ID` \(`ACTOR_ID` in the console\): A webhook event triggers a build when a GitHub or GitHub Enterprise account ID matches the regular expression pattern\. 
-  +  `HEAD_REF`: A webhook event triggers a build when the head reference matches the regular expression pattern\. For example, `refs/heads/branch-name` and `refs/tags/tag-name`\.
-  +  `BASE_REF`: A webhook event triggers a build when the base reference matches the regular expression pattern\. A `BASE_REF` filter works with pull request events only\. For example, `refs/heads/branch-name`\. 
-  +  `FILE_PATH`: A webhook triggers a build when the path of a changed file matches the regular expressions pattern\. A `FILE_PATH` filter works with GitHub and GitHub Enterprise push events only\. 
+  +  `ACTOR_ACCOUNT_ID` \(`ACTOR_ID` in the console\): A webhook event triggers a build when a GitHub or GitHub Enterprise account ID matches the regular expression pattern\. This value is found in the `id` property of the `sender` object in the webhook payload\.
+  +  `HEAD_REF`: A webhook event triggers a build when the head reference matches the regular expression pattern \(for example, `refs/heads/branch-name` or `refs/tags/tag-name`\)\. For a push event, the reference name is found in the `ref` property in the webhook payload\. For pull requests events, the branch name is found in the `ref` property of the `head` object in the webhook payload\. 
+  +  `BASE_REF`: A webhook event triggers a build when the base reference matches the regular expression pattern \(for example, `refs/heads/branch-name`\)\. A `BASE_REF` filter can be used with pull request events only\. The branch name is found in the `ref` property of the `base` object in the webhook payload\.
+  +  `FILE_PATH`: A webhook triggers a build when the path of a changed file matches the regular expressions pattern\. A `FILE_PATH` filter can be used with GitHub and GitHub Enterprise push events only\.  
+
+**Note**  
+ You can find the webhook payload in the webhook settings of your GitHub repository\. 
 
 **Topics**
 + [Filter GitHub Webhook Events \(Console\)](#sample-github-pull-request-filter-webhook-events-console)
@@ -106,7 +109,7 @@ Filter groups work the same way in GitHub and GitHub Enterprise\.
 
 1.  To filter when an event is not triggered, under **Don't start a build under these conditions**, add one or more optional filters\. 
 
-1.  Choose **Add filter group**to add another filter group\. 
+1.  Choose **Add filter group** to add another filter group\. 
 
  For more information, see [Create a Build Project \(Console\)](create-project.md#create-project-console) and [WebhookFilter](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_WebhookFilter.html) in the *AWS CodeBuild API Reference*\. 
 
@@ -257,7 +260,7 @@ CodeBuildProject:
     Environment:
       Type: LINUX_CONTAINER
       ComputeType: BUILD_GENERAL1_SMALL
-      Image: aws/codebuild/java:openjdk-8
+      Image: aws/codebuild/standard:1.0
     Source:
       Type: GITHUB
       Location: source-location
