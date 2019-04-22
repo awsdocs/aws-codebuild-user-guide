@@ -290,7 +290,7 @@ Commands in some build phases might not be run if commands in earlier build phas
         artifact2:
           files:
             - directory/file2
-          name: name: secondary-artifact-name-2
+          name: secondary-artifact-name-2
     ```
 + `cache`: Optional sequence\. Represents information about where CodeBuild can prepare the files for uploading cache to an Amazon S3 cache bucket\. This sequence is not required if the cache type of the project is `No Cache`\. 
   + `paths`: Required sequence\. Represents the locations of the cache\. Contains a sequence of scalars, with each scalar representing a separate location where CodeBuild can find build output artifacts, relative to the original build location or, if set, the base directory\. Locations can include the following:
