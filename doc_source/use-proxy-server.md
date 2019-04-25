@@ -94,6 +94,8 @@ sudo cat squid.key squid.crt | sudo tee squid.pem
 + [Explicit Proxy Server Sample `Squid.conf` File](#use-proxy-server-explicit-sample-squid-conf)
 
  To run AWS CodeBuild with in an explicit proxy server, you must configure the proxy server to allow or deny traffic to and from external sites, and then configure the `HTTP_PROXY` and `HTTPS_PROXY` environment variables\. 
+ 
+ You must also specify `NO_PROXY` environment variable as `169.254.170.2` in the codebuild project so that the traffic to [Task metadata endpoint](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-metadata-endpoint-v2.html) does not uses proxy.
 
 ### Configure Squid as an Explicit Proxy Server<a name="use-proxy-server-explicit-squid-configure"></a>
 
