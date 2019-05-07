@@ -258,7 +258,7 @@ To stop using a rule to send build notifications, in the CloudWatch console, cho
 
 To delete a rule altogether, in the CloudWatch console, choose the rule you want to delete, and then choose **Actions**, **Delete**\.
 
-### Related Resources<a name="w4aac11c41c27b9c12"></a>
+### Related Resources<a name="w6aac11c41c27b9c12"></a>
 + For more information about getting started with AWS CodeBuild, see [Getting Started with CodeBuild](getting-started.md)\.
 + For more information about troubleshooting problems with CodeBuild, see [Troubleshooting CodeBuild](troubleshooting.md)\.
 + For more information about limits in CodeBuild, see [Limits for CodeBuild](limits.md)\.
@@ -292,7 +292,7 @@ Build state change notifications use the following format:
         "location": "arn:aws:s3:::codebuild-123456789012-output-bucket/my-output-artifact.zip"
       },
       "environment": {
-        "image": "aws/codebuild/standard:1.0",
+        "image": "aws/codebuild/standard:2.0",
         "privileged-mode": false,
         "compute-type": "BUILD_GENERAL1_SMALL",
         "type": "LINUX_CONTAINER",
@@ -423,7 +423,7 @@ Build phase change notifications use the following format:
         "location": "arn:aws:s3:::codebuild-123456789012-output-bucket/my-output-artifact.zip"
       },
       "environment": {
-        "image": "aws/codebuild/standard:1.0",
+        "image": "aws/codebuild/standard:2.0",
         "privileged-mode": false,
         "compute-type": "BUILD_GENERAL1_SMALL",
         "type": "LINUX_CONTAINER",

@@ -44,6 +44,9 @@ To run this sample:
    version: 0.2
    
    phases:
+     install:
+       runtime-versions:
+         java: openjdk8
      build:
        commands:
          - echo Build started on `date`
@@ -136,7 +139,7 @@ Do not add `(root directory name)` or `(root directory name)/my-app` to the ZIP 
      },
      "environment": {
        "type": "LINUX_CONTAINER",
-       "image": "aws/codebuild/standard:1.0",
+       "image": "aws/codebuild/standard:2.0",
        "computeType": "BUILD_GENERAL1_SMALL"
      },
      "serviceRole": "arn:aws:iam::account-ID:role/role-name",
@@ -163,7 +166,7 @@ Do not add `(root directory name)` or `(root directory name)/my-app` to the ZIP 
 
 1. To find the build output artifact after the deployment is complete, sign in to the instance and look in the `/tmp` directory for the file named `my-app-1.0-SNAPSHOT.jar`\.
 
-## Related Resources<a name="w4aac11c41c45b9"></a>
+## Related Resources<a name="w6aac11c41c45b9"></a>
 + For more information about getting started with AWS CodeBuild, see [Getting Started with CodeBuild](getting-started.md)\.
 + For more information about troubleshooting problems with CodeBuild, see [Troubleshooting CodeBuild](troubleshooting.md)\.
 + For more information about limits in CodeBuild, see [Limits for CodeBuild](limits.md)\.

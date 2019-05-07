@@ -14,7 +14,7 @@
    codebuild_build.sh [-i image_name] [-a artifact_output_directory] [options]
    ```
 
- The CodeBuild agent is available from [https://hub\.docker\.com/r/amazon/aws\-codebuild\-local/](https://hub.docker.com/r/amazon/aws-codebuild-local/)\. Its Secure Hash Algorithm \(SHA\) signature is `8e5443ad2aaae0a8e6c005bbf44446ab1fb4601588192413579df16913aba725`\. You can use this to identify the version of the agent\. To see the agent's SHA signature, run the following command: 
+ The CodeBuild agent is available from [https://hub\.docker\.com/r/amazon/aws\-codebuild\-local/](https://hub.docker.com/r/amazon/aws-codebuild-local/)\. Its Secure Hash Algorithm \(SHA\) signature is `7dbfe6f7ac84331dcb314d609f6e6655c062dc7d99e4df4d0b7f4114a87286eb`\. You can use this to identify the version of the agent\. To see the agent's SHA signature, run the following command: 
 
 ```
 docker inspect amazon/aws-codebuild-local

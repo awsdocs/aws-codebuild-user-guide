@@ -70,7 +70,7 @@
 
 1.  From **Runtime**, choose **Standard**\. 
 
-1.  From **Runtime version** choose **aws/codebuild/standard:1\.0** \. 
+1.  From **Runtime version** choose **aws/codebuild/standard:2\.0** \. 
 
 1.  Select **Privileged**\. 
 
@@ -90,6 +90,8 @@
          EFS_DNS: "fs-11223344.efs.us-east-1.amazonaws.com"
    phases:
      install:
+       runtime-versions:
+         java: openjdk11
        commands:
          - mkdir -p $EFS_DIR
          - apt-get update && apt-get install -y nfs-common

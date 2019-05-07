@@ -122,7 +122,16 @@ In this step, you create the source code that you want CodeBuild to build to the
          <version>4.11</version>
          <scope>test</scope>
        </dependency>	
-     </dependencies>  
+     </dependencies>
+     <build>
+       <plugins>
+         <plugin>
+           <groupId>org.apache.maven.plugins</groupId>
+           <artifactId>maven-compiler-plugin</artifactId>
+           <version>3.8.0</version>
+         </plugin>
+       </plugins>
+     </build>
    </project>
    ```
 
@@ -153,8 +162,8 @@ version: 0.2
 
 phases:
   install:
-    commands:
-      - echo Nothing to do in the install phase...
+    runtime-versions:
+      java: openjdk11
   pre_build:
     commands:
       - echo Nothing to do in the pre_build phase...
@@ -267,7 +276,7 @@ An IAM user in your AWS account with the AWS managed policies named **AWSCodeBui
 
 1. For **Runtime**, choose **Standard**\.
 
-1. For **Runtime version**, choose **aws/codebuild/standard:1\.0**\.
+1. For **Runtime version**, choose **aws/codebuild/standard:2\.0**\.
 
 1. In **Service role**, leave **New service role** selected, and leave **Role name** unchanged\.
 
@@ -308,7 +317,7 @@ An IAM user in your AWS account with the AWS managed policies named **AWSCodeBui
      },
      "environment": {
        "type": "LINUX_CONTAINER",
-       "image": "aws/codebuild/standard:1.0",
+       "image": "aws/codebuild/standard:2.0",
        "computeType": "BUILD_GENERAL1_SMALL"
      },
      "serviceRole": "serviceIAMRole"
@@ -324,7 +333,7 @@ An IAM user in your AWS account with the AWS managed policies named **AWSCodeBui
    + For `artifacts`, `type` is a required value that represents the build output artifact's repository type \(in this example, `S3` for an Amazon S3 bucket\)\.
    + For `artifacts`, `location` represents the name of the output bucket you created or identified earlier \(in this example, `codebuild-region-ID-account-ID-output-bucket`\)\.
    + For `environment`, `type` is a required value that represents the type of build environment \(`LINUX_CONTAINER` is currently the only allowed value\)\.
-   + For `environment`, `image` is a required value that represents the Docker image name and tag combination this build project uses, as specified by the Docker image repository type \(in this example, `aws/codebuild/standard:1.0` for a Docker image in the CodeBuild Docker images repository\)\. `aws/codebuild/standard` is the name of the Docker image\. `1.0` is the tag of the Docker image\. 
+   + For `environment`, `image` is a required value that represents the Docker image name and tag combination this build project uses, as specified by the Docker image repository type \(in this example, `aws/codebuild/standard:2.0` for a Docker image in the CodeBuild Docker images repository\)\. `aws/codebuild/standard` is the name of the Docker image\. `1.0` is the tag of the Docker image\. 
 
      To find more Docker images you can use in your scenarios, see the [Build Environment Reference](build-env-ref.md)\.
    + For `environment`, `computeType` is a required value that represents the computing resources CodeBuild uses \(in this example, `BUILD_GENERAL1_SMALL`\)\.
@@ -356,7 +365,7 @@ Other available values in the original JSON\-formatted data, such as `descriptio
        "created": 1472661575.244,
        "environment": {
          "computeType": "BUILD_GENERAL1_SMALL",
-         "image": "aws/codebuild/standard:1.0",
+         "image": "aws/codebuild/standard:2.0",
          "type": "LINUX_CONTAINER",
          "environmentVariables": []
        },
@@ -428,7 +437,7 @@ You can use the [CodeBuild console](#getting-started-run-build-console) or [AWS 
        "buildStatus": "IN_PROGRESS",
        "environment": {
          "computeType": "BUILD_GENERAL1_SMALL",
-         "image": "aws/codebuild/standard:1.0",
+         "image": "aws/codebuild/standard:2.0",
          "type": "LINUX_CONTAINER",
          "environmentVariables": []
        },
@@ -534,7 +543,7 @@ If successful, data similar to this appears in the output\.
       "buildStatus": "SUCCEEDED",
       "environment": {
         "computeType": "BUILD_GENERAL1_SMALL",
-        "image": "aws/codebuild/standard:1.0",
+        "image": "aws/codebuild/standard:2.0",
         "type": "LINUX_CONTAINER",
         "environmentVariables": []
       },

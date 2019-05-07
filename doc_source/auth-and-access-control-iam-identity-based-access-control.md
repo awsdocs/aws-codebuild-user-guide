@@ -311,7 +311,7 @@ The following example policy statement allows a user to get information about al
 
 ### Allow CodeBuild Access to AWS Services Required to Create a VPC Network Interface<a name="customer-managed-policies-example-create-vpc-network-interface"></a>
 
-The following example policy statement grants AWS CodeBuild permission to create a network interface in an Amazon VPC:
+The following example policy statement grants AWS CodeBuild permission to create a network interface in an Amazon VPC with two subnets:
 
 ```
 {
@@ -335,11 +335,12 @@ The following example policy statement grants AWS CodeBuild permission to create
             "Action": [
                 "ec2:CreateNetworkInterfacePermission"
             ],
-            "Resource": "arn:aws:ec2:{{region}}:{{account-id}}:network-interface/*",
+            "Resource": "arn:aws:ec2:region:account-id:network-interface/*",
             "Condition": {
                 "StringEquals": {
                     "ec2:Subnet": [
-                        "arn:aws:ec2:{{region}}:{{account-id}}:subnet/[[subnets]]"
+                        "arn:aws:ec2:region:account-id:subnet/subnet-id-1",
+                        "arn:aws:ec2:region:account-id:subnet/subnet-id-2"
                     ],
                     "ec2:AuthorizedService": "codebuild.amazonaws.com"
                 }

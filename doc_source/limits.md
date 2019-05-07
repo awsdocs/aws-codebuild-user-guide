@@ -9,7 +9,7 @@ The following tables list the current limits in CodeBuild\. These limits are for
 
 | Resource | Default limit | 
 | --- | --- | 
-| Maximum number of build projects | 1,000 | 
+| Maximum number of build projects | 5,000 | 
 | Length of a build project name | 2 to 255 characters, inclusive | 
 | Allowed characters in a build project name | The letters A\-Z and a\-z, the numbers 0\-9, and the special characters \- and \_ | 
 | Maximum length of a build project description | 255 characters | 

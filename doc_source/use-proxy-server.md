@@ -28,7 +28,7 @@ There are two primary use cases for running CodeBuild in a proxy server:
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/codebuild-proxy-transparent.png)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)
 
-### Set Up aVPC, Subnets, and a Network Gateway<a name="use-proxy-server-transparent-setup"></a>
+### Set Up a VPC, Subnets, and a Network Gateway<a name="use-proxy-server-transparent-setup"></a>
 
  The following steps are required to run AWS CodeBuild in a transparent or explicit proxy server\. 
 

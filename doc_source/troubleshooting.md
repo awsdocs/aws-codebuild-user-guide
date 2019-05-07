@@ -4,10 +4,11 @@ Use the information in this topic to help you identify, diagnose, and address is
 
 **Topics**
 + [Error: "CodeBuild is not authorized to perform: sts:AssumeRole" when creating or updating a build project](#troubleshooting-assume-role)
++ [Error: "This build image requires selecting at least one runtime version\."](#troubleshooting-build-must-specify-runtime)
 + [Error: "The bucket you are attempting to access must be addressed using the specified endpoint" when running a build](#troubleshooting-input-bucket-different-region)
 + [Error: "Failed to upload artifacts: Invalid arn" when running a build](#troubleshooting-output-bucket-different-region)
 + [Error: "Unable to Locate Credentials"](#troubleshooting-versions)
-+ [Earlier Commands in Build Specs Are Not Recognized by Later Commands](#troubleshooting-build-spec-commands)
++ [Earlier Commands in Buildspec Files Are Not Recognized by Later Commands](#troubleshooting-build-spec-commands)
 + [Apache Maven Builds Reference Artifacts from the Wrong Repository](#troubleshooting-maven-repos)
 + [Build Commands Run as root by Default](#troubleshooting-root-build-commands)
 + [The Bourne Shell \(sh\) Must Exist in Build Images](#troubleshooting-sh-build-images)
@@ -26,6 +27,7 @@ Use the information in this topic to help you identify, diagnose, and address is
 + [Cannot view build success or failure](#no-status-when-build-triggered)
 + [Cannot find and select the base image of the Windows Server Core 2016 platform](#windows-image-not-available)
 + [RequestError timeout error when running CodeBuild in a proxy server](#code-request-timeout-error)
++ [Error: "QUEUED: INSUFFICIENT\_SUBNET" when a build in a build queue fails](#queued-insufficient-subnet-error)
 
 ## Error: "CodeBuild is not authorized to perform: sts:AssumeRole" when creating or updating a build project<a name="troubleshooting-assume-role"></a>
 
@@ -39,6 +41,34 @@ Use the information in this topic to help you identify, diagnose, and address is
 + Make sure AWS STS is activated for the AWS region where you are attempting to create or update the build project\. For more information, see [Activating and Deactivating AWS STS in an AWS Region](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html) in the *IAM User Guide*\.
 + Make sure the target CodeBuild service role exists in your AWS account\. If you are not using the console, make sure you did not misspell the Amazon Resource Name \(ARN\) of the service role when you created or updated the build project\.
 + Make sure the target CodeBuild service role has sufficient permissions to trust CodeBuild\. For more information, see the trust relationship policy statement in [Create a CodeBuild Service Role](setting-up.md#setting-up-service-role)\.
+
+## Error: "This build image requires selecting at least one runtime version\."<a name="troubleshooting-build-must-specify-runtime"></a>
+
+**Issue:** When you run a build, the `DOWNLOAD_SOURCE` build phase fails with the error "YAML\_FILE\_ERROR: This build image requires selecting at least one runtime version\."
+
+**Possible cause:** Your build uses version 2\.0 of the Ubuntu standard image and a runtime is not specified in the buildspec file\.
+
+**Recommended solution:** If you use the `aws/codebuild/standard:2.0` CodeBuild managed image, you must specify a runtime version in the `runtime-versions` section of the buildspec file\. For example, you might use the following buildspec file for a project that uses PHP:
+
+```
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+        php: 7.3
+  build:
+    commands:
+      - php --version
+artifacts:
+  files:
+    -  README.md
+```
+
+**Note**  
+If you specify a `runtime-versions` section and use an image other than Ubuntu Standard Image 2\.0 or later, the build fails\.
+
+ For more information, see [Specify Runtime Versions in the Buildspec File](build-spec-ref.md#runtime-versions-buildspec-file)\. 
 
 ## Error: "The bucket you are attempting to access must be addressed using the specified endpoint" when running a build<a name="troubleshooting-input-bucket-different-region"></a>
 
@@ -77,7 +107,7 @@ Use the information in this topic to help you identify, diagnose, and address is
   + Botocore: 1\.4\.37
   + CoreCLR: 3\.2\.6\-beta
   + Node\.js: 2\.4\.7
-+ If you need to run a Docker container in a build environment and that container requires AWS credentials, you must pass through the credentials from the build environment to the container\. In your build spec, include a Docker `run` command such as the following, which in this example uses the `aws s3 ls` command to list your available Amazon S3 buckets\. The `-e` option passes through the necessary environment variables for your container to access AWS credentials\.
++ If you need to run a Docker container in a build environment and that container requires AWS credentials, you must pass through the credentials from the build environment to the container\. In your buildspec file, include a Docker `run` command such as the following, which in this example uses the `aws s3 ls` command to list your available Amazon S3 buckets\. The `-e` option passes through the necessary environment variables for your container to access AWS credentials\.
 
   ```
   docker run -e AWS_DEFAULT_REGION -e AWS_CONTAINER_CREDENTIALS_RELATIVE_URI your-image-tag aws s3 ls
@@ -91,19 +121,19 @@ Use the information in this topic to help you identify, diagnose, and address is
      ARG AWS_CONTAINER_CREDENTIALS_RELATIVE_URI
      ```
 
-  1. In your build spec, include a Docker `build` command such as the following\. The `--build-arg` options will set the necessary environment variables for your Docker build process to access the AWS credentials\.
+  1. In your buildspec file, include a Docker `build` command such as the following\. The `--build-arg` options will set the necessary environment variables for your Docker build process to access the AWS credentials\.
 
      ```
      docker build --build-arg AWS_DEFAULT_REGION=$AWS_DEFAULT_REGION --build-arg AWS_CONTAINER_CREDENTIALS_RELATIVE_URI=$AWS_CONTAINER_CREDENTIALS_RELATIVE_URI -t your-image-tag .
      ```
 
-## Earlier Commands in Build Specs Are Not Recognized by Later Commands<a name="troubleshooting-build-spec-commands"></a>
+## Earlier Commands in Buildspec Files Are Not Recognized by Later Commands<a name="troubleshooting-build-spec-commands"></a>
 
-**Issue:** The results of one or more commands in your build spec are not recognized by later commands in the same build spec\. For example, a command might set a local environment variable, but a command run later might fail to get the value of that local environment variable\. 
+**Issue:** The results of one or more commands in your buildspec file are not recognized by later commands in the same buildspec file\. For example, a command might set a local environment variable, but a command run later might fail to get the value of that local environment variable\. 
 
-**Possible cause:** In build spec version 0\.1, AWS CodeBuild runs each command in a separate instance of the default shell in the build environment\. This means that each command runs in isolation from all other commands\. By default, then, you cannot run a single command that relies on the state of any previous commands\. 
+**Possible cause:** In buildspec file version 0\.1, AWS CodeBuild runs each command in a separate instance of the default shell in the build environment\. This means that each command runs in isolation from all other commands\. By default, then, you cannot run a single command that relies on the state of any previous commands\. 
 
-**Recommended solutions:** We recommend you use build spec version 0\.2, which solves this issue\. If you must use build spec version 0\.1 for some reason, we recommend using the shell command chaining operator \(for example, `&&` in Linux\) to combine multiple commands into a single command\. Or include a shell script in your source code that contains multiple commands, and then call that shell script from a single command in the build spec\. For more information, see [Shells and Commands in Build Environments](build-env-ref-cmd.md) and [Environment Variables in Build Environments](build-env-ref-env-vars.md)\.
+**Recommended solutions:** We recommend you use build spec version 0\.2, which solves this issue\. If you must use build spec version 0\.1 for some reason, we recommend using the shell command chaining operator \(for example, `&&` in Linux\) to combine multiple commands into a single command\. Or include a shell script in your source code that contains multiple commands, and then call that shell script from a single command in the buildspec file\. For more information, see [Shells and Commands in Build Environments](build-env-ref-cmd.md) and [Environment Variables in Build Environments](build-env-ref-env-vars.md)\.
 
 ## Apache Maven Builds Reference Artifacts from the Wrong Repository<a name="troubleshooting-maven-repos"></a>
 
@@ -181,7 +211,7 @@ Use the information in this topic to help you identify, diagnose, and address is
 
 **Possible cause:** Your build is using environment variables that are too large for AWS CodeBuild\. CodeBuild can raise errors once the length of all environment variables \(all names and values added together\) reach a combined maximum of around 5,500 characters\.
 
-**Recommended solution:** Use Amazon EC2 Systems Manager Parameter Store to store large environment variables and then retrieve them from your build spec\. Amazon EC2 Systems Manager Parameter Store can store an individual environment variable \(name and value added together\) that is a combined 4,096 characters or less\. To store large environment variables, see [Systems Manager Parameter Store](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-paramstore.html) and [Systems Manager Parameter Store Console Walkthrough](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-walk.html#sysman-paramstore-console) in the *Amazon EC2 Systems Manager User Guide*\. To retrieve them, see the `parameter-store` mapping in [Build Spec Syntax](build-spec-ref.md#build-spec-ref-syntax)\.
+**Recommended solution:** Use Amazon EC2 Systems Manager Parameter Store to store large environment variables and then retrieve them from your buildspec file\. Amazon EC2 Systems Manager Parameter Store can store an individual environment variable \(name and value added together\) that is a combined 4,096 characters or less\. To store large environment variables, see [Systems Manager Parameter Store](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-paramstore.html) and [Systems Manager Parameter Store Console Walkthrough](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-walk.html#sysman-paramstore-console) in the *Amazon EC2 Systems Manager User Guide*\. To retrieve them, see the `parameter-store` mapping in [Build Spec Syntax](build-spec-ref.md#build-spec-ref-syntax)\.
 
 ## Error: "BUILD\_CONTAINER\_UNABLE\_TO\_PULL\_IMAGE" when using a custom build image<a name="troubleshooting-unable-to-pull-image"></a>
 
@@ -201,7 +231,7 @@ Use the information in this topic to help you identify, diagnose, and address is
 
 **Possible cause:** : Build environments provided by AWS CodeBuild have their default locale set to `POSIX`\. `POSIX` localization settings are less compatible with CodeBuild and file names that contain non\-US English characters and can cause related builds to fail\.
 
-**Recommended solution:** Add the following commands to the `pre_build` section of your build specification\. These commands make the build environment use US English UTF\-8 for its localization settings, which is more compatible with CodeBuild and file names that contain non\-US English characters\.
+**Recommended solution:** Add the following commands to the `pre_build` section of your buildspec file\. These commands make the build environment use US English UTF\-8 for its localization settings, which is more compatible with CodeBuild and file names that contain non\-US English characters\.
 
 For build environments based on Ubuntu:
 
@@ -336,7 +366,7 @@ We recommend that you use **Insecure SSL** for testing only\. It should not be u
 +  The Container OS version is not supported by CodeBuild\. 
 +  `HTTP_PROXY`, `HTTPS_PROXY`, or both are specified in the container\.
 
- **Recommended solutions:**  
+ **Recommended solutions:** 
 + For Microsoft Windows, use a Windows container with a Container OS that is version microsoft/windowsservercore:10\.0\.x\. For example, microsoft/windowsservercore:10\.0\.14393\.2125\.
 + For Linux, clear the `HTTP_PROXY` and `HTTPS_PROXY` settings in your Docker image, or specify the VPC configuration in you build project\.
 
@@ -377,3 +407,16 @@ We recommend that you use **Insecure SSL** for testing only\. It should not be u
   1.  Create a private Amazon S3 endpoint and CloudWatch Logs endpoint and associate them with the private subnet of your Amazon VPC\. For information, see [VPC Endpoint Services \(AWS PrivateLink\)](https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-service.html)\. 
 
   1.  Confirm **Enable Private DNS Name** in your Amazon VPC is selected\. For more information, see [Creating an Interface Endpoint ](https://docs.aws.amazon.com/vpc/latest/userguide/vpce-interface.html#create-interface-endpoint)\. 
+
+## Error: "QUEUED: INSUFFICIENT\_SUBNET" when a build in a build queue fails<a name="queued-insufficient-subnet-error"></a>
+
+**Issue:** A build in a build queue fails with an error similar to `QUEUED: INSUFFICIENT_SUBNET`\.
+
+**Possible causes:** The IPv4 CIDR block specified for your VPC uses a reserved IP address\. The first four IP addresses and the last IP address in each subnet CIDR block are not available for you to use and cannot be assigned to an instance\. For example, in a subnet with CIDR block `10.0.0.0/24`, the following five IP addresses are reserved: 
++  `10.0.0.0:` Network address\. 
++  `10.0.0.1`: Reserved by AWS for the VPC router\. 
++  `10.0.0.2`: Reserved by AWS\. The IP address of the DNS server is always the base of the VPC network range plus two; however, we also reserve the base of each subnet range plus two\. For VPCs with multiple CIDR blocks, the IP address of the DNS server is located in the primary CIDR\. For more information, see [Amazon DNS Server](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html#AmazonDNS)\.
++  `10.0.0.3`: Reserved by AWS for future use\. 
++  `10.0.0.255`: Network broadcast address\. We do not support broadcast in a VPC, therefore we reserve this address\. 
+
+**Recommended solutions:** Check if your VPC uses a reserved IP address\. Replace any reserved IP address with an IP address that is not reserved\. For more information, see [VPC and Subnet Sizing](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#VPC_Sizing)\. 

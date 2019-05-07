@@ -49,7 +49,7 @@ You can create an AWS CodeBuild build project with more than one input source an
        ],
        "environment": {
          "type": "LINUX_CONTAINER",
-         "image": "aws/codebuild/standard:1.0",
+         "image": "aws/codebuild/standard:2.0",
          "computeType": "BUILD_GENERAL1_SMALL"
        },
        "serviceRole": "arn:aws:iam::account-ID:role/role-name",
@@ -72,6 +72,9 @@ You can create an AWS CodeBuild build project with more than one input source an
 version: 0.2
 
 phases:
+  install:
+    runtime-versions:
+      java: openjdk11
   build:
     commands:
       - cd $CODEBUILD_SRC_DIR_source1
@@ -124,7 +127,7 @@ artifacts:
    },
   "environment": {
     "type": "LINUX_CONTAINER",
-    "image": "aws/codebuild/standard:1.0",
+    "image": "aws/codebuild/standard:2.0",
     "computeType": "BUILD_GENERAL1_SMALL",    
   },
   "serviceRole": "arn:aws:iam::account-ID:role/role-name",

@@ -27,6 +27,9 @@ To override the default build spec file name, location, or both, do one of the f
 
 Build spec files must be expressed in [YAML](http://yaml.org/) format\.
 
+**Important**  
+If you use the Ubuntu standard image 2\.0 or later, you must specify `runtime-versions` in your buildspec file\. For more information, see [Specify Runtime Versions in the Buildspec File](#runtime-versions-buildspec-file)\.
+
 The build spec has the following syntax:
 
 ```
@@ -45,6 +48,9 @@ env:
 phases:
   install:
     run-as: Linux-user-name
+    runtime-versions:
+      runtime: version
+      runtime: version
     commands:
       - command
       - command
@@ -132,8 +138,24 @@ In build spec version 0\.1, CodeBuild runs each command in a separate instance o
   + `run-as`: Optional sequence\. Use in a build phase to specify a Linux user that runs its commands\. If `run-as` is also specified globally for all commands at the top of the buildspec file, then the phase\-level user takes precedence\. For example, if globally `run-as` specifies User\-1, and for the `install` phase only a `run-as` statement specifies User\-2, then all commands in then buildspec file are run as User\-1 *except* commands in the `install` phase, which are run as User\-2\.
 
   The allowed build phase names are:
-  + `install`: Optional sequence\. Represents the commands, if any, that CodeBuild runs during installation\. We recommend that you use the `install` phase only for installing packages in the build environment\. For example, you might use this phase to install a code testing framework such as Mocha or RSpec\.
-    + `commands`: Required sequence if `install` is specified\. Contains a sequence of scalars, where each scalar represents a single command that CodeBuild runs during installation\. CodeBuild runs each command, one at a time, in the order listed, from beginning to end\.
+  + `install`: Optional sequence\. Represents the commands, if any, that CodeBuild runs during installation\. We recommend that you use the `install` phase only for installing packages in the build environment\. For example, you might use this phase to install a code testing framework such as Mocha or RSpec\.<a name="runtime-versions-buildspec-file"></a>
+    + <a name="runtime-versions-in-build-spec"></a> `runtime-versions`: Required if using the Ubuntu Standard Image 2\.0\. A runtime version is not supported with a custom image or the Ubuntu Standard Image 1\.0\. If specified, at least one runtime must be included in this section\. Specify a runtime using a major version only, such as "java: openjdk11" or "ruby: 2\.6\." You can specify the runtime using a number or an environment variable\. For example, the following specifies that version 8 of `openjdk`, version 28 of `android`, and a version contained in an environment variable of `ruby` is installed\. For more information, see [Docker Images Provided by CodeBuild](build-env-ref-available.md)\. 
+**Note**  
+If you specify a `runtime-versions` section and use an image other than Ubuntu Standard Image 2\.0 or later, the build fails\.
+
+      ```
+      phases:
+        install:
+          runtime-versions:
+            java: openjdk8
+            android: 28
+            ruby: "$MY_RUBY_VAR"
+      ```
+      +  Some runtimes must include specific versions of other runtimes\. If a required runtime is not specified, the build fails\. For example, `android` version 28 requires version 8 of `openjdk`\. If `android: 28` is specified, and `openjdk: 8` is not, the build fails\.
+      + If two specified runtimes conflict, the build fails\. For example, `android: 8` and `java: openjdk11` conflict, so if both are specified, the build fails\.
+      +  The following runtimes can be specified\.     
+[\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html)
+    + `commands`: Required sequence unless you specify `runtime-versions`\. Optional if you specify `runtime-versions`\. Contains a sequence of scalars, where each scalar represents a single command that CodeBuild runs during installation\. CodeBuild runs each command, one at a time, in the order listed, from beginning to end\.
   + `pre_build`: Optional sequence\. Represents the commands, if any, that CodeBuild runs before the build\. For example, you might use this phase to sign in to Amazon ECR, or you might install npm dependencies\. 
     + `commands`: Required sequence if `pre_build` is specified\. Contains a sequence of scalars, where each scalar represents a single command that CodeBuild runs before the build\. CodeBuild runs each command, one at a time, in the order listed, from beginning to end\.
   + `build`: Optional sequence\. Represents the commands, if any, that CodeBuild runs during the build\. For example, you might use this phase to run Mocha, RSpec, or sbt\.

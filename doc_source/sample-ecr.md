@@ -37,7 +37,7 @@ If you are using an Amazon S3 input bucket, be sure to create a ZIP file that co
         },
         "environment": {
           "type": "LINUX_CONTAINER",
-          "image": "aws/codebuild/standard:1.0",
+          "image": "aws/codebuild/standard:2.0",
           "computeType": "BUILD_GENERAL1_SMALL"
         },
         "serviceRole": "arn:aws:iam::account-ID:role/role-name",
@@ -183,7 +183,7 @@ func main() {
 }
 ```
 
-## Related Resources<a name="w4aac11c41c10c13"></a>
+## Related Resources<a name="w6aac11c41c10c13"></a>
 + For more information about getting started with AWS CodeBuild, see [Getting Started with CodeBuild](getting-started.md)\.
 + For more information about troubleshooting problems with CodeBuild, see [Troubleshooting CodeBuild](troubleshooting.md)\.
 + For more information about limits in CodeBuild, see [Limits for CodeBuild](limits.md)\.

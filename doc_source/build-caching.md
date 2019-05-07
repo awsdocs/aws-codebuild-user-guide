@@ -82,7 +82,7 @@ CodeBuildProject:
       Environment:
         Type: LINUX_CONTAINER
         ComputeType: BUILD_GENERAL1_SMALL
-        Image: aws/codebuild/standard:1.0
+        Image: aws/codebuild/standard:2.0
         Certificate: bucket/cert.zip
         # PrivilegedMode must be true if you specify LOCAL_DOCKER_LAYER_CACHE
         PrivilegedMode: true
