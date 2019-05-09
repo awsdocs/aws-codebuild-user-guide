@@ -220,10 +220,12 @@ If you specify a `runtime-versions` section and use an image other than Ubuntu S
  **Possible causes:** 
 + The build image's overall uncompressed size is larger than the build environment compute type's available disk space\. To check your build image's size, use Docker to run the `docker images REPOSITORY:TAG` command\. For a list of available disk space by compute type, see [Build Environment Compute Types](build-env-ref-compute-types.md)\.
 + AWS CodeBuild does not have permission to pull the build image from your Amazon Elastic Container Registry \(Amazon ECR\)\.
++ AWS CodeBuild is attempting to pull the build image from Amazon Elastic Container Registry \(Amazon ECR\)\ in a different region.
 
  **Recommended solutions:** 
 + Use a larger compute type with more available disk space, or reduce the size of your custom build image\.
 + Update the permissions in your repository in Amazon ECR so that CodeBuild can pull your custom build image into the build environment\. For more information, see the [Amazon ECR Sample](sample-ecr.md)\.
++ Use an Amazon ECR repository in the same region as CodeBuild so that CodeBuild can pull your custom build image into the build environment\.
 
 ## Builds Might Fail When File Names Have Non\-U\.S\. English Characters<a name="troubleshooting-utf-8"></a>
 
