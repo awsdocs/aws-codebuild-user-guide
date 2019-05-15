@@ -6,7 +6,7 @@ There are two primary use cases for running CodeBuild in a proxy server:
 +  It eliminates the use of a NAT gateway or NAT instance in your Amazon VPC\. 
 +  It lets you specify the URLs that instances in the proxy server can access and the URLs to which the proxy server denies access\.
 
- You can use CodeBuild with two two types of proxy servers\. For both, the proxy server runs in a public subnet and CodeBuild runs in a private subnet\. 
+ You can use CodeBuild with two types of proxy servers\. For both, the proxy server runs in a public subnet and CodeBuild runs in a private subnet\. 
 +  **Explicit proxy**: If you use an explicit proxy server, you must configure `HTTP_PROXY` and `HTTPS_PROXY` environment variables in CodeBuild at the project level\. For more information, see [Change a Build Project's Settings in CodeBuild ](change-project.md) and [Create a Build Project in CodeBuild](create-project.md)\. 
 +  **Transparent proxy**: If you use a transparent proxy server, no special configuration is required\. 
 

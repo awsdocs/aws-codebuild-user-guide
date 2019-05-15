@@ -29,6 +29,8 @@ As the following diagram shows, you can add CodeBuild as a build or test action 
 
 To use CodePipeline to create a pipeline and then add a CodeBuild build or test action, see [Use AWS CodePipeline with CodeBuild](how-to-create-pipeline.md)\. For more information about CodePipeline, see the [AWS CodePipeline User Guide](https://docs.aws.amazon.com/codepipeline/latest/userguide/)\.
 
+The CodeBuild console also provides a way to quickly search for your resources, such as repositories, build projects, deployment applications, and pipelines\. Choose **Go to resource** or press the `/` key, and then type the name of the resource\. Any matches appear in the list\. Searches are case insensitive\. You only see resources that you have permissions to view\. For more information, see [Viewing Resources in the Console](console-resources.md)\. 
+
 ## Pricing for CodeBuild<a name="welcome-pricing"></a>
 
 For information, see [CodeBuild Pricing](http://aws.amazon.com/codebuild/pricing)\.

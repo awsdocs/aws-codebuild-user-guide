@@ -363,7 +363,7 @@ For information about using the AWS CLI with CodeBuild, see the [Use a Proxy Ser
        + If you specified `S3` for *artifacts\-type*, valid values include `ZIP` and `NONE`\. To create a ZIP file that contains the build output, use `ZIP`\. To create a folder that contains the build output, use `NONE`\. The default value is `NONE`\.
    + For the required `cache` object, information about this build project's cache settings\. For information, see [Build Caching](build-caching.md)\. These settings include the following\. 
      + *cache\-type*: Required value\. Valid values are `S3`, `NO_CACHE`, or `LOCAL_CACHE`\.
-     + *cache\-location*: Required value unless you set *CacheType* to `NONE`\. If you specified Amazon S3 for *CacheType*, this is the ARN of the Amazon S3 bucket and the path prefix\. For example, if your Amazon S3 bucket name is `my-bucket`, and your path prefix is `build-cache`, then acceptable formats for your *CacheLocation* are `my-bucket/build-cache` or `arn:aws:s3:::my-bucket/build-cache`\.
+     + *cache\-location*: Required value only if you set *CacheType* to `S3`\. If you specified Amazon S3 for *CacheType*, this is the ARN of the Amazon S3 bucket and the path prefix\. For example, if your Amazon S3 bucket name is `my-bucket`, and your path prefix is `build-cache`, then acceptable formats for your *CacheLocation* are `my-bucket/build-cache` or `arn:aws:s3:::my-bucket/build-cache`\.
      + *cache\-mode*: Required value if you set *CacheType* to `LOCAL`\. You can specify one or more of the following local cache modes: `LOCAL_SOURCE_CACHE`, `LOCAL_DOCKER_LAYER_CACHE`, `LOCAL_CUSTOM_CACHE`\.
 **Note**  
 `LOCAL_DOCKER_LAYER_CACHE` mode is available for Linux only\. If you choose it, your project must run in privileged mode\.

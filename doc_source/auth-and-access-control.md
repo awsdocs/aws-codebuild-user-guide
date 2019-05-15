@@ -27,3 +27,4 @@ The following sections describe how to manage permissions for CodeBuild\. We rec
 + [Overview of Managing Access Permissions to Your CodeBuild Resources](auth-and-access-control-iam-access-control-identity-based.md)
 + [Using Identity\-Based Policies \(IAM Policies\) for CodeBuild](auth-and-access-control-iam-identity-based-access-control.md)
 + [CodeBuild Permissions Reference](auth-and-access-control-permissions-reference.md)
++ [Viewing Resources in the Console](console-resources.md)

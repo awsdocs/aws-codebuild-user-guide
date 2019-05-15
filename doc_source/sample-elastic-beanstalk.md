@@ -109,8 +109,8 @@ In this step, you use the AWS CodeBuild console to create a build project and th
    + For **Environment**:
      + For **Environment image**, choose **Managed image**\.
      + For **Operating system**, choose **Ubuntu**\.
-     + For **Runtime**, choose **Standard**\.
-     + For **Runtime version**, choose **aws/codebuild/standard:2\.0**\.
+     + For **Runtime\(s\)**, choose **Standard**\.
+     + For **Image**, choose **aws/codebuild/standard:2\.0**\.
    + For **Artifacts**:
      + For **Name**, enter a build output file name that's easy for you to remember\. Include the `.zip` extension\.
      + For **Artifacts packaging**, choose **Zip**\.
@@ -145,6 +145,9 @@ In this step, you create and add a build spec file to the code you created in [C
    version: 0.2
    
    phases:
+     install:
+       runtime-versions:
+         java: openjdk11
      post_build:
        commands:
          - mvn package
@@ -185,8 +188,8 @@ In this step, you create an AWS CodeBuild build project to use with your pipelin
    + For **Environment**:
      + For **Environment image**, choose **Managed image**\.
      + For **Operating system**, choose **Ubuntu**\.
-     + For **Runtime**, choose **Standard**\.
-     + For **Runtime version**, choose **aws/codebuild/standard:2\.0**\.
+     + For **Runtime\(s\)**, choose **Standard**\.
+     + For **Image**, choose **aws/codebuild/standard:2\.0**\.
    + For **Artifacts**:
      + For **Name**, enter a build output file name that's easy for you to remember\. Include the `.zip` extension\.
      + For **Artifacts packaging**, choose **Zip**\.
@@ -245,6 +248,9 @@ In this step, you add an Elastic Beanstalk configuration file and a build spec f
    version: 0.2
    
    phases:
+     install:
+       runtime-versions:
+         java: openjdk11
      post_build:
        commands:
          - mvn package
@@ -328,7 +334,7 @@ In this step, you add an Elastic Beanstalk configuration file and a build spec f
 
 If you want, you can make changes to the source code and then run the eb deploy command from the same directory\. The EB CLI performs the same steps as the eb create command, but it deploys the build output to the existing environment instead of creating a new environment\.
 
-## Related Resources<a name="w6aac11c41c49c15"></a>
+## Related Resources<a name="w6aac11c41c51c15"></a>
 + For more information about getting started with AWS CodeBuild, see [Getting Started with CodeBuild](getting-started.md)\.
 + For more information about troubleshooting problems with CodeBuild, see [Troubleshooting CodeBuild](troubleshooting.md)\.
 + For more information about limits in CodeBuild, see [Limits for CodeBuild](limits.md)\.
