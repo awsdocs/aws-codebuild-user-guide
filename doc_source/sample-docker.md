@@ -113,7 +113,8 @@ If you are using an Amazon S3 input bucket, be sure to create a ZIP file that co
            "name": "IMAGE_TAG",
            "value": "latest"
          }
-       ]
+       ],
+       "privilegedMode": true
      },
      "serviceRole": "arn:aws:iam::account-ID:role/role-name",
      "encryptionKey": "arn:aws:kms:region-ID:account-ID:key/key-ID"
