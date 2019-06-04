@@ -1,6 +1,6 @@
 # GitHub Enterprise Sample for CodeBuild<a name="sample-github-enterprise"></a>
 
-AWS CodeBuild supports GitHub Enterprise as a source repository\. This sample shows how to set up your CodeBuild projects when your GitHub Enterprise repository has a certificate installed\. It also shows how to enable webhooks so that CodeBuild rebuilds the source code every time a code change is pushed to your private GitHub Enterprise repository\.
+AWS CodeBuild supports GitHub Enterprise as a source repository\. This sample shows how to set up your CodeBuild projects when your GitHub Enterprise repository has a certificate installed\. It also shows how to enable webhooks so that CodeBuild rebuilds the source code every time a code change is pushed to your GitHub Enterprise repository\.
 
 ## Prerequisites<a name="sample-github-enterprise-prerequisites"></a>
 
