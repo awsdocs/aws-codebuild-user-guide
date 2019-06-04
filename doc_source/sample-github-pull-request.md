@@ -3,7 +3,7 @@
 AWS CodeBuild now supports webhooks, when the source repository is GitHub\. This means that for an AWS CodeBuild build project that has its source code stored in your GitHub repository, webhooks enable AWS CodeBuild to rebuild the source code every time a code change is pushed to the connected repository\.
 
 **Note**  
-To prevent changes in public repositories triggering unnecessary builds, you can use [filter groups](#sample-github-pull-request-filter-webhook-events) to specify which GitHub users can trigger builds 
+We recommend that you use a [filter group](#sample-github-pull-request-filter-webhook-events) to specify which GitHub users can trigger a build in a public repository. This can prevent a user from triggering an unexpected build.
 
 ## Create a Build Project with GitHub as the Source Repository and Enable Webhooks \(Console\)<a name="sample-github-pull-request-running"></a>
 
