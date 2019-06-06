@@ -44,6 +44,7 @@ env:
   parameter-store:
     key: "value"
     key: "value"
+  git-credential-helper: yes
             
 phases:
   install:
@@ -132,6 +133,7 @@ If an environment variable with the same name is defined in multiple places, the
 The value in the start build operation call takes highest precedence\. You can add or override environment variables when you create a build\. For more information, see [Run a Build in CodeBuild](run-build.md)\. 
 The value in the build project definition takes next precedence\. You can add environment variables at the project level when you create or edit a project\. For more information, see [Create a Build Project in CodeBuild](create-project.md) and [Change a Build Project's Settings in CodeBuild ](change-project.md)\.
 The value in the build spec declaration takes lowest precedence\.
+  +  `git-credential-helper`: Optional mapping\. Represents whether CodeBuild uses its Git credential helper to provide Git credentials\. `yes` if it is used; otherwise, `no` or not specified\. For more information, see [gitcredentials](https://git-scm.com/docs/gitcredentials) on the Git website\. 
 + `phases`: Required sequence\. Represents the commands CodeBuild runs during each phase of the build\. 
 **Note**  
 In build spec version 0\.1, CodeBuild runs each command in a separate instance of the default shell in the build environment\. This means that each command runs in isolation from all other commands\. Therefore, by default, you cannot run a single command that relies on the state of any previous commands \(for example, changing directories or setting environment variables\)\. To get around this limitation, we recommend that you use version 0\.2, which solves this issue\. If you must use build spec version 0\.1, we recommend the approaches in [Shells and Commands in Build Environments](build-env-ref-cmd.md)\.

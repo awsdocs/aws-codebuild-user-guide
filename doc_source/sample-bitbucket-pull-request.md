@@ -72,7 +72,9 @@ CodeBuild does not support Bitbucket Server\.
  You can use webhook filter groups to specify which Bitbucket webhook events trigger a build\. For example, you can specify that a build is triggered for specified branches only\. 
 
  You can specify more than one webhook filter group\. A build is triggered if the filters on one or more filter groups evaluate to true\. When you create a filter group, you specify: 
-+  An event\. For Bitbucket, you can choose one or more of the following events: `PUSH`, `PULL_REQUEST_CREATED`, and `PULL_REQUEST_UPDATED`\. The webhook's event type is in its header in the `X-Event-Key` field\. The following table shows how `X-Event-Key` header values map to the event types\.    
++  An event\. For Bitbucket, you can choose one or more of the following events: `PUSH`, `PULL_REQUEST_CREATED`, `PULL_REQUEST_UPDATED`, and `PULL_REQUEST_MERGED`\. The webhook's event type is in its header in the `X-Event-Key` field\. The following table shows how `X-Event-Key` header values map to the event types\.
+**Note**  
+You must enable the `merged` event in your Bitbucket webhook setting if you create a webhook filter group that uses the `PULL_REQUEST_MERGED` event type\.    
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/codebuild/latest/userguide/sample-bitbucket-pull-request.html)
 +  One or more optional filters\. Use a regular expression to specify a filter\. For an event to trigger a build, every filter associated with it must evaluate to true\. 
   +  `ACTOR_ACCOUNT_ID` \(`ACTOR_ID` in the console\): A webhook event triggers a build when a Bitbucket account ID matches the regular expression pattern\. This value is found in the `account_id` property of the `actor` object in the webhook filter payload\.
@@ -135,7 +137,7 @@ In this example, a webhook filter group triggers a build only when a change is m
    [
         {
             "type": "EVENT", 
-            "pattern": "PULL_REQUEST_CREATED, PULL_REQUEST_UPDATED"
+            "pattern": "PULL_REQUEST_CREATED, PULL_REQUEST_UPDATED, PULL_REQUEST_MERGED"
         }
     ]
 ]
@@ -181,7 +183,7 @@ In this example, a webhook filter group triggers a build only when a change is m
     [
         {
             "type": "EVENT", 
-            "pattern": "PUSH, PULL_REQUEST_CREATED, PULL_REQUEST_UPDATED"
+            "pattern": "PUSH, PULL_REQUEST_CREATED, PULL_REQUEST_UPDATED, PULL_REQUEST_MERGED"
         },
         {
             "type": "HEAD_REF", 
@@ -202,7 +204,7 @@ You can create a filter that triggers a build only when a change is made by a Bi
     [
         {
             "type": "EVENT", 
-            "pattern": "PUSH, PULL_REQUEST_CREATED, PULL_REQUEST_UPDATED"
+            "pattern": "PUSH, PULL_REQUEST_CREATED, PULL_REQUEST_UPDATED, PULL_REQUEST_MERGED"
         },
         {
             "type": "ACTOR_ACCOUNT_ID", 

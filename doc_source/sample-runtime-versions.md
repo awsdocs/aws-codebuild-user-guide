@@ -2,6 +2,9 @@
 
  If you use the Ubuntu standard image version 2\.0, you must specify at least one runtime and its version in the `runtime-versions` section of your buildspec file\. This sample shows how you can change your project runtime, specify more than one runtime, and specify a runtime that is dependent on another runtime\.
 
+**Note**  
+ If you use Docker in your build container, then your build must run in privileged mode\. For more information, see [Run a Build in CodeBuild](run-build.md) and [Create a Build Project in CodeBuild](create-project.md)\. 
+
 ## Update Your Runtime Version<a name="sample-runtime-update-version"></a>
 
  You can modify the runtime used by your project to a new version by updating the `runtime-versions` section of your buildpec file\. The following examples show how to specify Java versions 8 and 10\. 

@@ -1,9 +1,9 @@
 # GitHub Pull Request and Webhook Filter Sample for CodeBuild<a name="sample-github-pull-request"></a>
 
-AWS CodeBuild now supports webhooks, when the source repository is GitHub\. This means that for an AWS CodeBuild build project that has its source code stored in your GitHub repository, webhooks enable AWS CodeBuild to rebuild the source code every time a code change is pushed to the connected repository\.
+AWS CodeBuild supports webhooks when the source repository is GitHub\. This means that for a CodeBuild build project that has its source code stored in a GitHub repository, webhooks enable CodeBuild to rebuild the source code every time a code change is pushed to the repository\.
 
 **Note**  
-We recommend that you use a [filter group](#sample-github-pull-request-filter-webhook-events) to specify which GitHub users can trigger a build in a public repository. This can prevent a user from triggering an unexpected build.
+ We recommend that you use a filter group to specify which GitHub users can trigger a build in a public repository\. This can prevent a user from triggering an unexpected build\. For more information, see [ Filter GitHub Webhook Events](#sample-github-pull-request-filter-webhook-events)\. 
 
 ## Create a Build Project with GitHub as the Source Repository and Enable Webhooks \(Console\)<a name="sample-github-pull-request-running"></a>
 
@@ -82,11 +82,11 @@ When you use the console to create or update a build project, you can create a C
 Filter groups work the same way in GitHub and GitHub Enterprise\.
 
  You can create one or more webhook filter groups to specify which webhook events trigger a build\. A build is triggered if all the filters on one or more filter groups evaluate to true\. When you create a filter group, you specify: 
-+  An event\. For GitHub, you can choose one or more of the following events: `PUSH`, `PULL_REQUEST_CREATED`, `PULL_REQUEST_UPDATED`, and `PULL_REQUEST_REOPENED`\. The webhook event type is in the `X-GitHub-Event` header in the webhook payload\. In the `X-GitHub-Event` header, you might see `pull_request` or `push`\. For a pull request event, the type is in the `action` field of the webhook event payload\. The following table shows how `X-GitHub-Event` header values and webhook pull request payload `action` field values map to the available event types\.    
++  An event\. For GitHub, you can choose one or more of the following events: `PUSH`, `PULL_REQUEST_CREATED`, `PULL_REQUEST_UPDATED`, `PULL_REQUEST_REOPENED`, and `PULL_REQUEST_MERGED`\. The webhook event type is in the `X-GitHub-Event` header in the webhook payload\. In the `X-GitHub-Event` header, you might see `pull_request` or `push`\. For a pull request event, the type is in the `action` field of the webhook event payload\. The following table shows how `X-GitHub-Event` header values and webhook pull request payload `action` field values map to the available event types\.    
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/codebuild/latest/userguide/sample-github-pull-request.html)
 **Note**  
  The `PULL_REQUEST_REOPENED` event type can be used with GitHub and GitHub Enterprise only\. 
-+  One or more optional filters\. Use a regular expression to specify a filter\. For an event to trigger a build, every filter associated with it must evaluate to true\. 
++ One or more optional filters\. Use a regular expression to specify a filter\. For an event to trigger a build, every filter associated with it must evaluate to true\. 
   +  `ACTOR_ACCOUNT_ID` \(`ACTOR_ID` in the console\): A webhook event triggers a build when a GitHub or GitHub Enterprise account ID matches the regular expression pattern\. This value is found in the `id` property of the `sender` object in the webhook payload\.
   +  `HEAD_REF`: A webhook event triggers a build when the head reference matches the regular expression pattern \(for example, `refs/heads/branch-name` or `refs/tags/tag-name`\)\. For a push event, the reference name is found in the `ref` property in the webhook payload\. For pull requests events, the branch name is found in the `ref` property of the `head` object in the webhook payload\. 
   +  `BASE_REF`: A webhook event triggers a build when the base reference matches the regular expression pattern \(for example, `refs/heads/branch-name`\)\. A `BASE_REF` filter can be used with pull request events only\. The branch name is found in the `ref` property of the `base` object in the webhook payload\.
@@ -152,7 +152,7 @@ To use the AWS CodeBuild SDK to filter webhook events, use the `filterGroups` fi
    [
         {
             "type": "EVENT", 
-            "pattern": "PULL_REQUEST_CREATED, PULL_REQUEST_UPDATED, PULL_REQUEST_REOPENED"
+            "pattern": "PULL_REQUEST_CREATED, PULL_REQUEST_UPDATED, PULL_REQUEST_REOPENED, PULL_REQUEST_MERGED"
         }
     ]
 ]
@@ -198,7 +198,7 @@ To use the AWS CodeBuild SDK to filter webhook events, use the `filterGroups` fi
     [
         {
             "type": "EVENT", 
-            "pattern": "PUSH, PULL_REQUEST_CREATED, PULL_REQUEST_UPDATED, PULL_REQUEST_REOPENED"
+            "pattern": "PUSH, PULL_REQUEST_CREATED, PULL_REQUEST_UPDATED, PULL_REQUEST_REOPENED, PULL_REQUEST_MERGED"
         },
         {
             "type": "HEAD_REF", 
@@ -236,7 +236,7 @@ You can create a filter that triggers a build only when a change is made by a sp
     [
         {
             "type": "EVENT", 
-            "pattern": "PUSH, PULL_REQUEST_CREATED, PULL_REQUEST_UPDATED, PULL_REQUEST_REOPENED"
+            "pattern": "PUSH, PULL_REQUEST_CREATED, PULL_REQUEST_UPDATED, PULL_REQUEST_REOPENED, PULL_REQUEST_MERGED"
         },
         {
             "type": "ACTOR_ACCOUNT_ID", 
