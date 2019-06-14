@@ -67,7 +67,7 @@ This section discusses the use of IAM in AWS CodeBuild\. It doesn't provide deta
 
 Policies attached to an IAM identity are referred to as identity\-based policies \(IAM policies\)\. Policies attached to a resource are referred to as resource\-based policies\. CodeBuild supports identity\-based \(IAM policies\) only\.
 
-### Identity\-Based Policies \(IAM Policies\)<a name="identity-based-policies"></a>
+### Identity\-Based Policies<a name="identity-based-policies"></a>
 
 You can attach policies to IAM identities\. 
 + **Attach a permissions policy to a user or a group in your account** – To grant a user permissions to view build projects and other AWS CodeBuild resources in the CodeBuild console, you can attach a permissions policy to a user or group that the user belongs to\.

@@ -101,9 +101,10 @@ An AWS CodeBuild project can take more than one input source\. It can also creat
 ```
 
  In this JSON file: 
-+  One of your input sources must be designated the `PrimarySource`\. This source is the directory where CodeBuild looks for and runs your buildspec file\. The keyword `PrimarySource` is used to specify the primary source in the `configuration` section of the CodeBuild stage in the JSON file\. 
-+  Each input source is installed in its own directory\. This directory is stored in the built\-in environment variable `$CODEBUILD_SRC_DIR_yourInputArtifactName`\. For the pipeline in this sample, the two input source directories are `$CODEBUILD_SRC_DIR_source1` and `$CODEBUILD_SRC_DIR_source2`\. For more information, see [Environment Variables in Build Environments](build-env-ref-env-vars.md)\. 
-+  The names of the output artifacts specified in the pipeline's JSON file must match the names of the secondary artifacts defined in your buildspec file\. This pipeline uses the following buildspec file\. For more information, see [Build Spec Syntax](build-spec-ref.md#build-spec-ref-syntax)\. 
++ One of your input sources must be designated the `PrimarySource`\. This source is the directory where CodeBuild looks for and runs your buildspec file\. The keyword `PrimarySource` is used to specify the primary source in the `configuration` section of the CodeBuild stage in the JSON file\. 
++ Each input source is installed in its own directory\. This directory is stored in the built\-in environment variable `$CODEBUILD_SRC_DIR` for the primary source and `$CODEBUILD_SRC_DIR_yourInputArtifactName` for all other sources\. For the pipeline in this sample, the two input source directories are `$CODEBUILD_SRC_DIR` and `$CODEBUILD_SRC_DIR_source2`\. For more information, see [Environment Variables in Build Environments](build-env-ref-env-vars.md)\. 
++ The names of the output artifacts specified in the pipeline's JSON file must match the names of the secondary artifacts defined in your buildspec file\. This pipeline uses the following buildspec file\. For more information, see [Build Spec Syntax](build-spec-ref.md#build-spec-ref-syntax)\. 
++ 
 
   ```
   version: 0.2
@@ -111,19 +112,20 @@ An AWS CodeBuild project can take more than one input source\. It can also creat
   phases:
     build:
       commands:
-        - cd $CODEBUILD_SRC_DIR_source1
-        - touch file
+        - touch source1_file
+        - cd $CODEBUILD_SRC_DIR_source2
+        - touch source2_file
   
   artifacts:
     secondary-artifacts:
       artifact1:
-        base-directory: $CODEBUILD_SRC_DIR_source1
+        base-directory: $CODEBUILD_SRC_DIR
         files:
-          - file
+          - source1_file
       artifact2:
-        base-directory: $CODEBUILD_SRC_DIR_source1
+        base-directory: $CODEBUILD_SRC_DIR_source2
         files:
-          - file
+          - source2_file
   ```
 
  After you create the JSON file, you can create your pipeline\. Use the AWS CLI to run the **create\-pipeline** command and pass the file to the `--cli-input-json` parameter\. For more information, see [Create a Pipeline \(CLI\)](https://docs.aws.amazon.com/codepipeline/latest/userguide/pipelines-create.html#pipelines-create-cli)\. 

@@ -1,4 +1,4 @@
-# Using Identity\-Based Policies \(IAM Policies\) for CodeBuild<a name="auth-and-access-control-iam-identity-based-access-control"></a>
+# Using Identity\-Based Policies for CodeBuild<a name="auth-and-access-control-iam-identity-based-access-control"></a>
 
 This topic provides examples of identity\-based policies that demonstrate how an account administrator can attach permissions policies to IAM identities \(that is, users, groups, and roles\) and thereby grant permissions to perform operations on AWS CodeBuild resources\.
 
@@ -85,7 +85,7 @@ You can use the following sample IAM policies to limit CodeBuild access for your
 + [Allow a User to Begin Running Builds](#customer-managed-policies-example-start-build)
 + [Allow a User to Attempt to Stop Builds](#customer-managed-policies-example-stop-build)
 + [Allow a User to Attempt to Delete Builds](#customer-managed-policies-example-delete-builds)
-+ [Allow a User to Get Information About Docker Images that Are Managed by CodeBuild](#customer-managed-policies-example-list-curated-environment-images)
++ [Allow a User to Get Information About Docker Images That Are Managed by CodeBuild](#customer-managed-policies-example-list-curated-environment-images)
 + [Allow CodeBuild Access to AWS Services Required to Create a VPC Network Interface](#customer-managed-policies-example-create-vpc-network-interface)
 + [Use a Deny Statement to Prevent CodeBuild from Disconnecting from Source Providers](#customer-managed-policies-example-deny-disconnect)
 
@@ -292,7 +292,7 @@ The following example policy statement allows a user to attempt to delete builds
 }
 ```
 
-### Allow a User to Get Information About Docker Images that Are Managed by CodeBuild<a name="customer-managed-policies-example-list-curated-environment-images"></a>
+### Allow a User to Get Information About Docker Images That Are Managed by CodeBuild<a name="customer-managed-policies-example-list-curated-environment-images"></a>
 
 The following example policy statement allows a user to get information about all Docker images that are managed by CodeBuild:
 

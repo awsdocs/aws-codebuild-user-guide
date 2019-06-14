@@ -91,12 +91,21 @@ For information about AWS root accounts and administrator IAM users, see [The Ac
            "s3:PutObject"
          ],
          "Resource": "*"
+       },
+       {
+         "Sid": "S3BucketIdentity",
+         "Effect": "Allow",
+         "Action": [
+           "s3:GetBucketAcl",
+           "s3:GetBucketLocation"
+         ],
+         "Resource": "*"
        }
      ]
    }
    ```
 **Note**  
-This policy allows access to all CodeBuild actions and to a potentially large number of AWS resources\. To restrict permissions to specific CodeBuild actions, change the value of `codebuild:*` in the CodeBuild policy statement\. For more information, see [Authentication and Access Control](auth-and-access-control.md)\. To restrict access to specific AWS resources, change the value of the `Resource` object\. For more information, see [Authentication and Access Control](auth-and-access-control.md)\.
+This policy allows access to all CodeBuild actions and to a potentially large number of AWS resources\. To restrict permissions to specific CodeBuild actions, change the value of `codebuild:*` in the CodeBuild policy statement\. For more information, see [Identity and Access Management](auth-and-access-control.md)\. To restrict access to specific AWS resources, change the value of the `Resource` object\. For more information, see [Identity and Access Management](auth-and-access-control.md)\.
 
 1. In the navigation pane, choose **Groups** or **Users**\.
 
@@ -174,12 +183,21 @@ This policy allows access to all CodeBuild actions and to a potentially large nu
            "s3:PutObject"
          ],
          "Resource": "*"
+       },
+       {
+         "Sid": "S3BucketIdentity",
+         "Effect": "Allow",
+         "Action": [
+           "s3:GetBucketAcl",
+           "s3:GetBucketLocation"
+         ],
+         "Resource": "*"
        }
      ]
    }
    ```
 **Note**  
-This policy allows access to all CodeBuild actions and to a potentially large number of AWS resources\. To restrict permissions to specific CodeBuild actions, change the value of `codebuild:*` in the CodeBuild policy statement\. For more information, see [Authentication and Access Control](auth-and-access-control.md)\. To restrict access to specific AWS resources, change the value of the related `Resource` object\. For more information, see [Authentication and Access Control](auth-and-access-control.md) or the specific AWS service's security documentation\.
+This policy allows access to all CodeBuild actions and to a potentially large number of AWS resources\. To restrict permissions to specific CodeBuild actions, change the value of `codebuild:*` in the CodeBuild policy statement\. For more information, see [Identity and Access Management](auth-and-access-control.md)\. To restrict access to specific AWS resources, change the value of the related `Resource` object\. For more information, see [Identity and Access Management](auth-and-access-control.md) or the specific AWS service's security documentation\.
 
 1. Switch to the directory where you saved the file, and then run one of the following commands\. You can use different values for `CodeBuildGroupAccessPolicy` and `CodeBuildUserAccessPolicy`\. If you use different values, substitute them here\.
 
@@ -312,7 +330,17 @@ The service role described on this page contains a policy that grants the minimu
          "Resource": [
            "*"
          ]
-       }    
+       },
+       {
+         "Sid": "S3BucketIdentity",
+         "Effect": "Allow",
+         "Action": [
+           "s3:GetBucketAcl",
+           "s3:GetBucketLocation"
+         ],
+         "Resource": 
+           "*"
+       }
      ]
    }
    ```
@@ -400,6 +428,17 @@ If you use a different name, substitute it throughout this procedure\.
          "Effect": "Allow",
          "Action": [
            "s3:PutObject"
+         ],
+         "Resource": [
+           "*"
+         ]
+       },
+       {
+         "Sid": "S3BucketIdentity",
+         "Effect": "Allow",
+         "Action": [
+           "s3:GetBucketAcl",
+           "s3:GetBucketLocation"
          ],
          "Resource": [
            "*"

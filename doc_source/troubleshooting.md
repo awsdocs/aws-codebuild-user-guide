@@ -5,6 +5,7 @@ Use the information in this topic to help you identify, diagnose, and address is
 **Topics**
 + [Error: "CodeBuild is not authorized to perform: sts:AssumeRole" when creating or updating a build project](#troubleshooting-assume-role)
 + [Error: "This build image requires selecting at least one runtime version\."](#troubleshooting-build-must-specify-runtime)
++ [Warning: "Skipping install of runtimes\. Runtime version selection is not supported by this build image" when running a build](#troubleshooting-skipping-all-runtimes-warning)
 + [Error: "The bucket you are attempting to access must be addressed using the specified endpoint" when running a build](#troubleshooting-input-bucket-different-region)
 + [Error: "Failed to upload artifacts: Invalid arn" when running a build](#troubleshooting-output-bucket-different-region)
 + [Error: "Unable to Locate Credentials"](#troubleshooting-versions)
@@ -46,7 +47,7 @@ Use the information in this topic to help you identify, diagnose, and address is
 
 **Issue:** When you run a build, the `DOWNLOAD_SOURCE` build phase fails with the error "YAML\_FILE\_ERROR: This build image requires selecting at least one runtime version\."
 
-**Possible cause:** Your build uses version 2\.0 of the Ubuntu standard image and a runtime is not specified in the buildspec file\.
+**Possible cause:** Your build uses version 2\.0 or later of the Ubuntu standard image and a runtime is not specified in the buildspec file\.
 
 **Recommended solution:** If you use the `aws/codebuild/standard:2.0` CodeBuild managed image, you must specify a runtime version in the `runtime-versions` section of the buildspec file\. For example, you might use the following buildspec file for a project that uses PHP:
 
@@ -66,9 +67,17 @@ artifacts:
 ```
 
 **Note**  
-If you specify a `runtime-versions` section and use an image other than Ubuntu Standard Image 2\.0 or later, the build fails\.
+ If you specify a `runtime-versions` section and use an image other than Ubuntu Standard Image 2\.0 or later, the build issues the warning, "Skipping install of runtimes\. Runtime version selection is not supported by this build image\." 
 
  For more information, see [Specify Runtime Versions in the Buildspec File](build-spec-ref.md#runtime-versions-buildspec-file)\. 
+
+## Warning: "Skipping install of runtimes\. Runtime version selection is not supported by this build image" when running a build<a name="troubleshooting-skipping-all-runtimes-warning"></a>
+
+**Issue:** When you run a build, the build log contains the warning, "Skipping install of runtimes\. Runtime version selection is not supported by this build image\." 
+
+**Possible cause:** Your build does not use version 2\.0 or later of the Ubuntu standard image and a runtime is specified in a `runtime-versions` section in your buildspec file\.
+
+**Recommended solution:** Be sure your buildspec file does not contain a `runtime-versions` section\. The `runtime-versions` section is only required if you use the Ubuntu standard image version 2\.0 or higher\.
 
 ## Error: "The bucket you are attempting to access must be addressed using the specified endpoint" when running a build<a name="troubleshooting-input-bucket-different-region"></a>
 

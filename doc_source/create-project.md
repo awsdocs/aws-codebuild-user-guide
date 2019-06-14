@@ -121,7 +121,7 @@ The value in the build spec declaration takes lowest precedence\.
    For **Type**, do one of the following:
    + If you do not want to create any build output artifacts, choose **No artifacts**\. You might want to do this if you're only running build tests or you want to push a Docker image to an Amazon ECR repository\.
    + To store the build output in an Amazon S3 bucket, choose **Amazon S3**, and then do the following:
-     + If you want to use your project name for the build output ZIP file or folder, leave **Name** blank\. Otherwise, type enter the name\. \(If you want to output a ZIP file, and you want the ZIP file to have a file extension, be sure to include it after the ZIP file name\.\)
+     + If you want to use your project name for the build output ZIP file or folder, leave **Name** blank\. Otherwise, enter the name\. \(If you want to output a ZIP file, and you want the ZIP file to have a file extension, be sure to include it after the ZIP file name\.\)
      + Select **Use the name specified in the buildspec file** if you want a name specified in the buildspec file to override any name that is specified in the console\. The name in a buildspec file is calculated at build time and uses the Shell command language\. For example, you can append a date and time to your artifact name so that it is always unique\. Unique artifact names prevent artifacts from being overwritten\. For more information, see [Build Spec Syntax](build-spec-ref.md#build-spec-ref-syntax)\.
      + For **Bucket name**, choose the name of the output bucket\.
      + If you chose **Insert build commands** earlier in this procedure, then for **Output files**, enter the locations of the files from the build that you want to put into the build output ZIP file or folder\. For multiple locations, separate each location with a comma \(for example, `appspec.yml, target/my-app.jar`\)\. For more information, see the description of `files` in [Build Spec Syntax](build-spec-ref.md#build-spec-ref-syntax)\.
@@ -137,7 +137,7 @@ The value in the build spec declaration takes lowest precedence\.
 
    1. Choose **Save artifact**\.
 
-   Expand **Additional configuration**\.
+   Expand **Additional configuration**\.<a name="encryptionkey-console"></a>
 
    \(Optional\) For **Encryption key**, do one of the following:
    + To use the AWS\-managed customer master key \(CMK\) for Amazon S3 in your account to encrypt the build output artifacts, leave **Encryption key** blank\. This is the default\.
@@ -208,6 +208,11 @@ For information about using the AWS CLI with CodeBuild, see the [Use a Proxy Ser
          "resource": "resource"
        }
      },
+     ”sourceVersion”: “source-version”,
+     “secondarySourceVersions”: {
+       “sourceIdentifier”: ”secondary-source-identifier”,
+       “sourceVersion”: ”secondary-source-version”
+     }, 
      "artifacts": {
        "type": "artifacts-type",
        "location": "artifacts-location",
@@ -338,6 +343,16 @@ For information about using the AWS CLI with CodeBuild, see the [Use a Proxy Ser
      + <a name="cli-sources-reportbuildstatus"></a>*reportBuildStatus*: Optional value\. Specifies whether to send your source provider the status of a build's start and completion\. If you set this with a source provider other than GitHub, GitHub Enterprise, or Bitbucket, an invalidInputException is thrown\.
      + <a name="cli-sources-gitsubmodulesconfig"></a>*gitSubmodulesConfig*: Optional value\. Information about the Git submodules configuration\. Used with CodeCommit, GitHub, GitHub Enterprise, and Bitbucket only\. Set `fetchSubmodules` to true if you want to include the Git submodules in your repository\. Git submodules that are included must be configured as HTTPS\.
      + <a name="cli-sources-insecuressl"></a>*InsecureSsl*: Optional value\. Used with GitHub Enterprise only\. Set this value to `true` to ignore SSL warnings while connecting to your GitHub Enterprise project repository\. The default value is `false`\. *InsecureSsl* should be used for testing purposes only\. It should not be used in a production environment\.
+   + <a name="cli-sourceversion"></a> *source\-version*: Optional value\. A version of the build input to be built for this project\. If not specified, the latest version is used\. If specified, it must be one of: 
+     +  For CodeCommit: the commit ID to use\. 
+     +  For GitHub: the commit ID, pull request ID, branch name, or tag name that corresponds to the version of the source code you want to build\. If a pull request ID is specified, it must use the format `pr/pull-request-ID` \(for example `pr/25`\)\. If a branch name is specified, the branch's HEAD commit ID is used\. If not specified, the default branch's HEAD commit ID is used\. 
+     +  For Bitbucket: the commit ID, branch name, or tag name that corresponds to the version of the source code you want to build\. If a branch name is specified, the branch's HEAD commit ID is used\. If not specified, the default branch's HEAD commit ID is used\. 
+     +  For Amazon Simple Storage Service \(Amazon S3\): the version ID of the object that represents the build input ZIP file to use\. 
+
+      If `sourceVersion` is specified at the build level, then that version takes precedence over this `sourceVersion` \(at the project level\)\. For more information, see [Source Version Sample with CodeBuild](sample-source-version.md)\. 
+   + <a name="cli-secondarysourceversions"></a> *secondarySourceVersions*: Optional value\. An array of `projectSourceVersion` objects\. If `secondarySourceVersions` is specified at the build level, then they take precedence over this\. 
+     +  *secondary\-source\-identifier*: An identifier for a source in the build project\. 
+     +  *secondary\-source\-version*: A `sourceVersion` object\. 
    + <a name="cli-artifacts"></a>For the required `artifacts` object, information about this build project's output artifact settings\. After you add an `artifacts` object, you can add up to 12 more artifacts using the [CodeBuild secondaryArtifacts object](#cli-secondary-artifacts)\. These settings include the following: <a name="cli-artifacts-type"></a>
      + *artifacts\-type*: Required value\. The type of build output artifact\. Valid values include `CODEPIPELINE`, `NO_ARTIFACTS`, and `S3`\.
      + <a name="cli-artifacts-location"></a>*artifacts\-location*: Required value \(unless you set *artifacts\-type* to `CODEPIPELINE` or `NO_ARTIFACTS`\)\. The location of the build output artifact:
@@ -451,7 +466,7 @@ The value in the build spec declaration takes lowest precedence\.
        ```
    + *badgeEnabled*: Optional value\. To include build badges with your CodeBuild project, you must specify *badgeEnabled* with a value of `true`\. For more information, see [Build Badges Sample with CodeBuild](sample-build-badges.md)\.
    + *timeoutInMinutes*: Optional value\. The number of minutes, between 5 to 480 \(8 hours\), after which CodeBuild stops the build if it is not complete\. If not specified, the default of 60 is used\. To determine if and when CodeBuild stopped a build due to a timeout, run the `batch-get-builds` command\. To determine if the build has stopped, look in the output for a `buildStatus` value of `FAILED`\. To determine when the build timed out, look in the output for the `endTime` value associated with a `phaseStatus` value of `TIMED_OUT`\. 
-   + *encryptionKey*: Optional value\. The alias or ARN of the AWS KMS customer master key \(CMK\) CodeBuild uses to encrypt the build output\. If you specify an alias, use the format `arn:aws:kms:region-ID:account-ID:key/key-ID` or, if an alias exists, use the format `alias/key-alias`\. If not specified, the AWS\-managed CMK for Amazon S3 is used\.
+   + <a name="encryptionkey-cli"></a>*encryptionKey*: Optional value\. The alias or ARN of the AWS KMS customer master key \(CMK\) CodeBuild uses to encrypt the build output\. If you specify an alias, use the format `arn:aws:kms:region-ID:account-ID:key/key-ID` or, if an alias exists, use the format `alias/key-alias`\. If not specified, the AWS\-managed CMK for Amazon S3 is used\.
    + For the optional *tags* array, information about any tags you want to associate with this build project\. You can specify up to 50 tags\. These tags can be used by any AWS service that supports CodeBuild build project tags\. Each tag is expressed as an object that contains a `key` and `value` value of *tag\-key* and *tag\-value*\.
 
    For an example, see [To create the build project \(AWS CLI\)](getting-started.md#getting-started-create-build-project-cli)\.

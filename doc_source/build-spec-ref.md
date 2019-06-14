@@ -141,9 +141,9 @@ In build spec version 0\.1, CodeBuild runs each command in a separate instance o
 
   The allowed build phase names are:
   + `install`: Optional sequence\. Represents the commands, if any, that CodeBuild runs during installation\. We recommend that you use the `install` phase only for installing packages in the build environment\. For example, you might use this phase to install a code testing framework such as Mocha or RSpec\.<a name="runtime-versions-buildspec-file"></a>
-    + <a name="runtime-versions-in-build-spec"></a> `runtime-versions`: Required if using the Ubuntu Standard Image 2\.0\. A runtime version is not supported with a custom image or the Ubuntu Standard Image 1\.0\. If specified, at least one runtime must be included in this section\. Specify a runtime using a major version only, such as "java: openjdk11" or "ruby: 2\.6\." You can specify the runtime using a number or an environment variable\. For example, the following specifies that version 8 of `openjdk`, version 28 of `android`, and a version contained in an environment variable of `ruby` is installed\. For more information, see [Docker Images Provided by CodeBuild](build-env-ref-available.md)\. 
+    + <a name="runtime-versions-in-build-spec"></a> `runtime-versions`: Required if using the Ubuntu standard image 2\.0\. A runtime version is not supported with a custom image or the Ubuntu standard image 1\.0\. If specified, at least one runtime must be included in this section\. Specify a runtime using a major version only, such as "java: openjdk11" or "ruby: 2\.6\." You can specify the runtime using a number or an environment variable\. For example, the following specifies that version 8 of `openjdk`, version 28 of `android`, and a version contained in an environment variable of `ruby` is installed\. For more information, see [Docker Images Provided by CodeBuild](build-env-ref-available.md)\. 
 **Note**  
-If you specify a `runtime-versions` section and use an image other than Ubuntu Standard Image 2\.0 or later, the build fails\.
+ If you specify a `runtime-versions` section and use an image other than Ubuntu Standard Image 2\.0 or later, the build issues the warning, "Skipping install of runtimes\. Runtime version selection is not supported by this build image\." 
 
       ```
       phases:

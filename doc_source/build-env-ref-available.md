@@ -7,11 +7,11 @@ AWS CodeBuild manages the following Docker images that are available in the Code
 
 | Platform | Programming language or framework | Image identifier | Definition | 
 | --- | --- | --- | --- | 
-| Ubuntu 18\.04 | \(Standard image\) | aws/codebuild/standard:2\.0 | [ubuntu/standard/2\.0](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/standard/2.0) | 
-| Ubuntu 18\.04 | \(Standard image\) | aws/codebuild/standard:1\.0 | [ubuntu/standard/1\.0](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/standard/1.0) | 
-| Windows Server Core 2016 | \(Base Image\) | aws/codebuild/windows\-base:1\.0 | N/A | 
+| Ubuntu 18\.04 | \(standard image\) | aws/codebuild/standard:2\.0 | [ubuntu/standard/2\.0](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/standard/2.0) | 
+| Ubuntu 18\.04 | \(standard image\) | aws/codebuild/standard:1\.0 | [ubuntu/standard/1\.0](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/standard/1.0) | 
+| Windows Server Core 2016 | \(base image\) | aws/codebuild/windows\-base:1\.0 | N/A | 
 
- The standard image of the Ubuntu 18\.04 platform contains the following programming languages\. If you use the Ubuntu Standard image 2\.0, you can specify your runtime in the `runtime-versions` section of your buildspec file\. For more information, see [Specify Runtime Versions in the Buildspec File](build-spec-ref.md#runtime-versions-buildspec-file)\. 
+ The standard image of the Ubuntu 18\.04 platform contains the following programming languages\. If you use the Ubuntu standard image 2\.0, you can specify your runtime in the `runtime-versions` section of your buildspec file\. For more information, see [Specify Runtime Versions in the Buildspec File](build-spec-ref.md#runtime-versions-buildspec-file)\. 
 
 
 ****  

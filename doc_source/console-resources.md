@@ -12,4 +12,4 @@ To perform this search across resources in all services, you must have the follo
 + CodeDeploy: `ListApplications`
 + CodePipeline: `ListPipelines`
 
-Results are not returned for a service's resources if you do not have permissions for that service\. Even if you have permissions for viewing resources, specific resources will not be returned if there is an explicit `Deny` to view those resources\.
+Results are not returned for a service's resources if you do not have permissions for that service\. Even if you have permissions for viewing resources, some resources are not returned if there is an explicit `Deny` to view those resources\.

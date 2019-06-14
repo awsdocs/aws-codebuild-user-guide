@@ -1,4 +1,4 @@
-# Authentication and Access Control for CodeBuild<a name="auth-and-access-control"></a>
+# Identity and Access Management in CodeBuild<a name="auth-and-access-control"></a>
 
 Access to AWS CodeBuild requires credentials\. Those credentials must have permissions to access AWS resources, such as storing and retrieving build artifacts in Amazon S3 buckets and viewing Amazon CloudWatch Logs for builds\. The following sections describe how you can use [AWS Identity and Access Management](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html) \(IAM\) and CodeBuild to help secure access to your resources:
 + [Authentication](#authentication)
@@ -25,6 +25,6 @@ You can have valid credentials to authenticate your requests, but unless you hav
 
 The following sections describe how to manage permissions for CodeBuild\. We recommend that you read the overview first\.
 + [Overview of Managing Access Permissions to Your CodeBuild Resources](auth-and-access-control-iam-access-control-identity-based.md)
-+ [Using Identity\-Based Policies \(IAM Policies\) for CodeBuild](auth-and-access-control-iam-identity-based-access-control.md)
++ [Using Identity\-Based Policies for CodeBuild](auth-and-access-control-iam-identity-based-access-control.md)
 + [CodeBuild Permissions Reference](auth-and-access-control-permissions-reference.md)
 + [Viewing Resources in the Console](console-resources.md)
