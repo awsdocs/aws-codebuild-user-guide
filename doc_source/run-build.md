@@ -98,7 +98,7 @@ The value in the build spec declaration takes lowest precedence\.
 
 **Note**  
 To use CodePipeline to run a build with AWS CodeBuild, skip these steps and follow the instructions in [Create a Pipeline That Uses CodeBuild \(AWS CLI\)](how-to-create-pipeline.md#how-to-create-pipeline-cli)\.  
-For more information about using the AWS CLI with CodeBuild, see the [Use a Proxy ServerCommand Line Reference](cmd-ref.md)\.
+For more information about using the AWS CLI with CodeBuild, see the [Command Line Reference](cmd-ref.md)\.
 
 1. Run the `start-build` command in one of the following ways:
 

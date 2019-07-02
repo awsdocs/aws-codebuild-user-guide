@@ -2,7 +2,7 @@
 
 To use one the AWS SDKs or tools to automate CodeBuild, see the following resources\.
 
-If you want to use the AWS CLI to run CodeBuild, see the [Use a Proxy ServerCommand Line Reference](cmd-ref.md)\.
+If you want to use the AWS CLI to run CodeBuild, see the [Command Line Reference](cmd-ref.md)\.
 
 ## Supported AWS SDKs and Tools for CodeBuild<a name="sdk-ref-sdks"></a>
 

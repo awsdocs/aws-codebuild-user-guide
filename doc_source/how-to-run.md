@@ -23,7 +23,7 @@ Answer the questions in [Plan a Build](planning.md)\.
 
 ## Run AWS CodeBuild Directly \(AWS CLI\)<a name="how-to-run-cli"></a>
 
-For more information about using the AWS CLI with CodeBuild, see the [Use a Proxy ServerCommand Line Reference](cmd-ref.md)\.
+For more information about using the AWS CLI with CodeBuild, see the [Command Line Reference](cmd-ref.md)\.
 
 1. Create the build project\. For information, see [Create a Build Project \(AWS CLI\)](create-project.md#create-project-cli)\.
 

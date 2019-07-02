@@ -18,7 +18,7 @@ By default, only the most recent 100 builds or build projects are displayed\. To
 
 ## View a List of Build IDs for a Build Project \(AWS CLI\)<a name="view-builds-for-project-cli"></a>
 
-For more information about using the AWS CLI with AWS CodeBuild, see the [Use a Proxy ServerCommand Line Reference](cmd-ref.md)\.
+For more information about using the AWS CLI with AWS CodeBuild, see the [Command Line Reference](cmd-ref.md)\.
 
 Run the list\-builds\-for\-project command, as follows:
 
