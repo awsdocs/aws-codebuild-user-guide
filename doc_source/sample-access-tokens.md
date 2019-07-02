@@ -52,7 +52,7 @@ CodeBuild does not support Bitbucket Server\.
 
 ## Connect Source Providers with Access Tokens \(CLI\)<a name="sample-access-tokens-cli"></a>
 
-Follow these steps to use the AWS CLI to connect your project to GitHub or Bitbucket using access tokens\. For information about using the AWS CLI with AWS CodeBuild, see the [Use a Proxy ServerCommand Line Reference](cmd-ref.md)\. 
+Follow these steps to use the AWS CLI to connect your project to GitHub or Bitbucket using access tokens\. For information about using the AWS CLI with AWS CodeBuild, see the [Command Line Reference](cmd-ref.md)\. 
 
 1.  Run the import\-source\-credentials command: 
 
