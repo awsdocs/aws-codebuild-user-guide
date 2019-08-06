@@ -276,7 +276,7 @@ An IAM user in your AWS account with the AWS managed policies named **AWSCodeBui
 
 1. For **Runtime**, choose **Standard**\.
 
-1. For **Runtime version**, choose **aws/codebuild/standard:2\.0**\.
+1. For **Image**, choose **aws/codebuild/standard:2\.0**\.
 
 1. In **Service role**, leave **New service role** selected, and leave **Role name** unchanged\.
 
