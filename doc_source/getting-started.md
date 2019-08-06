@@ -477,6 +477,7 @@ You can use the [AWS CodeBuild console](#getting-started-monitor-build-console) 
 
 1. On the build details page, in **Phase details**, the following list of build phases should be displayed, with **Succeeded** in the **Status** column:
    + **SUBMITTED**
+   + **QUEUED**
    + **PROVISIONING**
    + **DOWNLOAD\_SOURCE**
    + **INSTALL**
