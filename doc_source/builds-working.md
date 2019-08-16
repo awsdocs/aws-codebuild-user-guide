@@ -8,6 +8,9 @@ The following rules apply when you run multiple builds:
 + A build in a queue that does not start after the number of minutes specified in its time out value is removed from the queue\. The default timeout value is eight hours\. You can override the build queue timeout with a value between five minutes and eight hours when you run your build\. For more information, see [Run a Build in CodeBuild](run-build.md)\.
 + It is not possible to predict the order in which queued builds start\. 
 
+**Note**  
+You can access the history of a build for one year\.
+
 You can perform these tasks when working with builds:
 
 **Topics**

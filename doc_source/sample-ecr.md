@@ -53,33 +53,29 @@ If you are using an Amazon S3 input bucket, be sure to create a ZIP file that co
    +  Your project uses CodeBuild credentials to pull Amazon ECR images\. This is denoted by a value of `CODEBUILD` in the `imagePullCredentialsType` attribute of your ProjectEnvironment\. 
    +  Your project uses a cross\-account Amazon ECR image\. In this case, your project must use its service role to pull Amazon ECR images\. To enable this behavior, set the `imagePullCredentialsType` attribute of your ProjectEnvironment to `SERVICE_ROLE`\. 
 
-   1. Open the Amazon ECS console at [https://console\.aws\.amazon\.com/ecs/](https://console.aws.amazon.com/ecs/)\.
-
-   1. Choose **Repositories**\.
+   1. Open the Amazon ECR console at [https://console\.aws\.amazon\.com/ecr/](https://console.aws.amazon.com/ecr/)\.
 
    1. In the list of repository names, choose the name of the repository you created or selected\.
 
-   1. Choose the **Permissions** tab, choose **Add**, and then create a statement\.
+   1. From the navigation pane choose **Permissions**, choose **Edit**, and then choose **Add statement**\.
 
-   1. For **Sid**, enter an identifier \(for example, **CodeBuildAccess**\)\.
+   1. For **Statement name**, enter an identifier \(for example, **CodeBuildAccess**\)\.
 
    1. For **Effect**, leave **Allow** selected\. This indicates that you want to allow access to another AWS account\.
 
    1. For **Principal**, do one of the following:
-      + If your project uses CodeBuild credentials to pull an Amazon ECR image, enter `codebuild.amazonaws.com`\. 
-      + If your project uses a cross\-account Amazon ECR image, enter `arn:aws:iam::AWS-account-ID):root`, where `AWS-account-ID` is the account that you want to give access\.
+      + If your project uses CodeBuild credentials to pull an Amazon ECR image, in **Service principal** enter `codebuild.amazonaws.com`\. 
+      + If your project uses a cross\-account Amazon ECR image, for **AWS account IDs** enter IDs of the AWS accounts that you want to give access\.
 
    1. Skip the **All IAM entities** list\.
 
-   1. For **Action**, select **Pull only actions**\.
+   1. For **Action**, select the pull\-only actions **ecr:GetDownloadUrlForLayer**, **ecr:BatchGetImage**, and **ecr:BatchCheckLayerAvailability**\.
 
-      All of the pull\-only actions \(**ecr:GetDownloadUrlForLayer**, **ecr:BatchGetImage**, and **ecr:BatchCheckLayerAvailability**\) will be selected\. 
+   1. Choose **Save**\.
 
-   1. Choose **Save all**\.
-
-      This policy is displayed in **Policy document**\. The principal is what you entered for **Principal** in step 3g of this procedure:
-      + If your project uses CodeBuild credentials to pull an Amazon ECR image, it is `"Service": "codebuild.amazonaws.com"`\.
-      + If your project uses a cross\-account Amazon ECR image, it is `"AWS": "arn:aws:iam::AWS-account-ID):root"`, where `AWS-account-ID` is the account that you want to give access\.
+      This policy is displayed in **Permissions**\. The principal is what you entered for **Principal** in step 3f of this procedure:
+      + If your project uses CodeBuild credentials to pull an Amazon ECR image, under **Service principals** is `"codebuild.amazonaws.com"`\.
+      + If your project uses a cross\-account Amazon ECR image, under **AWS Account IDs** is the ID of the AWS account that you want to give access\.
 
         The following sample policy uses a cross\-account Amazon ECR image\.
 
@@ -154,6 +150,9 @@ This sample uses these files\.
 version: 0.2
 
 phases:
+  install: 
+   runtime-versions: 
+     golang: 1.12 
   build:
     commands:
       - echo Build started on `date`

@@ -66,6 +66,7 @@ Follow these steps to use the AWS CLI to connect your project to GitHub or Bitbu
    {
      "serverType": "server-type",
      "authType": "auth-type",
+     "shouldOverwrite": "should-overwrite",
      "token": "token",
      "username": "username"
    }
@@ -74,6 +75,7 @@ Follow these steps to use the AWS CLI to connect your project to GitHub or Bitbu
     Replace the following: 
    +  *server\-type*: Required value\. The source provider used for this credential\. Valid values are GITHUB, GITHUB\_ENTERPRISE, and BITBUCKET\. 
    +  *auth\-type*: Required value\. The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket repository\. Valid values include PERSONAL\_ACCESS\_TOKEN and BASIC\_AUTH\. You cannot use the CodeBuild API to create an OAUTH connection\. You must use the CodeBuild console instead\. 
+   +  *should\-overwrite*: Optional value\. Set to `false` to prevent overwriting the repository source credentials\. Set to `true` to overwrite the repository source credentials\. The default value is `true`\.
    +  *token*: Required value\. For GitHub or GitHub Enterprise, this is the personal access token\. For Bitbucket, this is the app password\. 
    +  *username*: Optional value\. The Bitbucket user name when authType is BASIC\_AUTH\. This parameter is ignored for other types of source providers or connections\. 
 

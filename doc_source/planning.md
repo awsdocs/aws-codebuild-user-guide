@@ -12,7 +12,7 @@ Before you run your build with CodeBuild, you must answer these questions:
 
    CodeBuild runs builds in build environments that use Docker images\. These Docker images must be stored in a repository type supported by CodeBuild\. These include the CodeBuild Docker image repository, Docker Hub, and Amazon Elastic Container Registry \(Amazon ECR\)\. For more information about the CodeBuild Docker image repository, see [Docker Images Provided by CodeBuild](build-env-ref-available.md)\.
 **Important**  
-If you use the Ubuntu standard image 2\.0 or later, you must specify `runtime-versions` in your buildspec file\. For more information, see [Specify Runtime Versions in the Buildspec File](build-spec-ref.md#runtime-versions-buildspec-file)\.
+If you use the Ubuntu standard image 2\.0 or later, or the Amazon Linux 2 \(AL2\) standard image 1\.0 or later, you must specify `runtime-versions` in your buildspec file\. For more information, see [Specify Runtime Versions in the Buildspec File](build-spec-ref.md#runtime-versions-buildspec-file)\.
 
 1. **Do you need AWS resources that aren't provided automatically by CodeBuild? If so, which security policies will those resources need?** For example, you might need to modify the CodeBuild service role to allow CodeBuild to work with those resources\. 
 

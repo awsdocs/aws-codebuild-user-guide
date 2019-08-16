@@ -5,8 +5,10 @@ Use the information in this topic to help you identify, diagnose, and address is
 **Topics**
 + [Error: "CodeBuild is not authorized to perform: sts:AssumeRole" when creating or updating a build project](#troubleshooting-assume-role)
 + [Error: "This build image requires selecting at least one runtime version\."](#troubleshooting-build-must-specify-runtime)
++ [Error: "Cannot connect to the Docker daemon" when running a build](#troubleshooting-cannot-connect-to-docker-daemon)
 + [Warning: "Skipping install of runtimes\. Runtime version selection is not supported by this build image" when running a build](#troubleshooting-skipping-all-runtimes-warning)
 + [Error: "The bucket you are attempting to access must be addressed using the specified endpoint" when running a build](#troubleshooting-input-bucket-different-region)
++ [Error: "error calling GetBucketAcl: either the bucket owner has changed or the service role no longer has permission to called s3:GetBucketAcl"](#troubleshooting-calling-bucket-error)
 + [Error: "Failed to upload artifacts: Invalid arn" when running a build](#troubleshooting-output-bucket-different-region)
 + [Error: "Unable to Locate Credentials"](#troubleshooting-versions)
 + [Earlier Commands in Buildspec Files Are Not Recognized by Later Commands](#troubleshooting-build-spec-commands)
@@ -67,9 +69,33 @@ artifacts:
 ```
 
 **Note**  
- If you specify a `runtime-versions` section and use an image other than Ubuntu Standard Image 2\.0 or later, the build issues the warning, "Skipping install of runtimes\. Runtime version selection is not supported by this build image\." 
+ If you specify a `runtime-versions` section and use an image other than Ubuntu Standard Image 2\.0 or later, or the Amazon Linux 2 \(AL2\) standard image 1\.0 or later, the build issues the warning, "Skipping install of runtimes\. Runtime version selection is not supported by this build image\." 
 
  For more information, see [Specify Runtime Versions in the Buildspec File](build-spec-ref.md#runtime-versions-buildspec-file)\. 
+
+## Error: "Cannot connect to the Docker daemon" when running a build<a name="troubleshooting-cannot-connect-to-docker-daemon"></a>
+
+**Issue: **Your build fails and you receive an error similar to `Cannot connect to the Docker daemon at unix:/var/run/docker.sock. Is the docker daemon running?` in the build log\.
+
+**Possible cause: **You are not running your build in privileged mode\.
+
+**Recommended solution: ** Run your build in privileged mode:
+
+1. Open the CodeBuild console at [https://console\.aws\.amazon\.com/codebuild/](https://console.aws.amazon.com/codebuild/)\.
+
+1.  In the navigation pane, choose **Build projects**, and then choose your build project\. 
+
+1.  From **Edit**, choose **Environment**\. 
+
+1.  Choose **Override images**, and then choose **Environment**\. 
+
+1.  Specify your environment image, operating system, runtime, and image\. These should match your settings for the build that failed\. 
+
+1.  Select **Privileged**\. 
+
+1.  Choose **Update environment**\. 
+
+1.  Choose **Start build** to retry your build\. 
 
 ## Warning: "Skipping install of runtimes\. Runtime version selection is not supported by this build image" when running a build<a name="troubleshooting-skipping-all-runtimes-warning"></a>
 
@@ -86,6 +112,14 @@ artifacts:
 **Possible cause:** Your pre\-built source code is stored in an Amazon S3 bucket, and that bucket is in a different AWS region than the AWS CodeBuild build project\.
 
 **Recommended solution:** Update the build project's settings to point to a bucket that contains your pre\-built source code, and that bucket is in the same region as the build project\.
+
+## Error: "error calling GetBucketAcl: either the bucket owner has changed or the service role no longer has permission to called s3:GetBucketAcl"<a name="troubleshooting-calling-bucket-error"></a>
+
+**Issue:** When you run a build, you receive an error about a change in ownership of an Amazon S3 bucket and `GetBucketAcl` permissions\.
+
+**Possible cause:** You added the `s3:GetBucketACL` and `s3:GetBucketLocation` permissions to your IAM role\. These permissions secure your project's Amazon S3 bucket and ensure that only you can access it\. After adding these permissions, the owner of the Amazon S3 bucket changed\.
+
+**Recommended solution:** Verify you are an owner of the Amazon S3 bucket, and then add permissions to your IAM role again\. For more information, see [Secure Access to Amazon S3 Buckets](auth-and-access-control-iam-access-control-identity-based.md#secure-s3-buckets)\.
 
 ## Error: "Failed to upload artifacts: Invalid arn" when running a build<a name="troubleshooting-output-bucket-different-region"></a>
 

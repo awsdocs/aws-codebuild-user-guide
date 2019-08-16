@@ -274,7 +274,7 @@ An IAM user in your AWS account with the AWS managed policies named **AWSCodeBui
 
 1. For **Operating system**, choose **Ubuntu**\.
 
-1. For **Runtime**, choose **Standard**\.
+1. For **Runtime\(s\)**, choose **Standard**\.
 
 1. For **Image**, choose **aws/codebuild/standard:2\.0**\.
 

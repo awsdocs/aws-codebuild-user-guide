@@ -85,6 +85,14 @@ In CodeBuild, identity\-based policies are used to manage permissions to the res
 
 You can create IAM policies to restrict the calls and resources that users in your account have access to, and then attach those policies to IAM users\. For more information about how to create IAM roles and to explore example IAM policy statements for CodeBuild, see [Overview of Managing Access Permissions to Your CodeBuild Resources](#auth-and-access-control-iam-access-control-identity-based)\. 
 
+### Secure Access to Amazon S3 Buckets<a name="secure-s3-buckets"></a>
+
+We strongly recommend that you include the following permissions in your IAM role to verify the Amazon S3 bucket associated with your CodeBuild project is owned by you or someone you trust\. These permissions are not included in AWS managed policies and roles\. You must be add them yourself\. 
++  `s3:GetBucketACL` 
++  `s3:GetBucketLocation` 
+
+If the owner of an Amazon S3 bucket used by your project changes, you must verify you still own the bucket and update permissions in your IAM role if not\. For more information, see [Add CodeBuild Access Permissions to an IAM Group or IAM User](setting-up.md#setting-up-service-permissions-group) and [Create a CodeBuild Service Role](setting-up.md#setting-up-service-role)\. 
+
 ## Specifying Policy Elements: Actions, Effects, and Principals<a name="actions-effects-principals"></a>
 
 For each AWS CodeBuild resource, the service defines a set of API operations\. To grant permissions for these API operations, CodeBuild defines a set of actions that you can specify in a policy\. Some API operations can require permissions for more than one action in order to perform the API operation\. For more information, see [CodeBuild Resources and Operations](#arn-formats) and [CodeBuild Permissions Reference](auth-and-access-control-permissions-reference.md)\.

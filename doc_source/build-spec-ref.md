@@ -28,7 +28,7 @@ To override the default build spec file name, location, or both, do one of the f
 Build spec files must be expressed in [YAML](http://yaml.org/) format\.
 
 **Important**  
-If you use the Ubuntu standard image 2\.0 or the Amazon Linux 2 (AL2) standard image 1\.0, you must specify `runtime-versions` in your buildspec file\. For more information, see [Specify Runtime Versions in the Buildspec File](#runtime-versions-buildspec-file)\.
+If you use the Ubuntu standard image 2\.0 or later, or the Amazon Linux 2 \(AL2\) standard image 1\.0 or later, you must specify `runtime-versions` in your buildspec file\. For more information, see [Specify Runtime Versions in the Buildspec File](#runtime-versions-buildspec-file)\.
 
 The build spec has the following syntax:
 
@@ -141,9 +141,9 @@ In build spec version 0\.1, CodeBuild runs each command in a separate instance o
 
   The allowed build phase names are:
   + `install`: Optional sequence\. Represents the commands, if any, that CodeBuild runs during installation\. We recommend that you use the `install` phase only for installing packages in the build environment\. For example, you might use this phase to install a code testing framework such as Mocha or RSpec\.<a name="runtime-versions-buildspec-file"></a>
-    + <a name="runtime-versions-in-build-spec"></a> `runtime-versions`: Required if using the Ubuntu standard image 2\.0\ or the AL2 standard image 1\.0. A runtime version is not supported with a custom image or the Ubuntu standard image 1\.0\. If specified, at least one runtime must be included in this section\. Specify a runtime using a major version only, such as "java: openjdk11" or "ruby: 2\.6\." You can specify the runtime using a number or an environment variable\. For example, the following specifies that version 8 of `openjdk`, version 28 of `android`, and a version contained in an environment variable of `ruby` is installed\. For more information, see [Docker Images Provided by CodeBuild](build-env-ref-available.md)\. 
+    + <a name="runtime-versions-in-build-spec"></a> `runtime-versions`: Required if using the Ubuntu standard image 2\.0 or later, or the Amazon Linux \(AL2\) standard image 1\.0 or later\. A runtime version is not supported with a custom image or the Ubuntu standard image 1\.0\. If specified, at least one runtime must be included in this section\. Specify a runtime using a major version only, such as "java: openjdk11" or "ruby: 2\.6\." You can specify the runtime using a number or an environment variable\. For example, the following specifies that version 8 of `openjdk`, version 28 of `android`, and a version contained in an environment variable of `ruby` is installed\. For more information, see [Docker Images Provided by CodeBuild](build-env-ref-available.md)\. 
 **Note**  
- If you specify a `runtime-versions` section and use an image other than Ubuntu Standard Image 2\.0 or AL2 Standard Image 1\.0, the build issues the warning, "Skipping install of runtimes\. Runtime version selection is not supported by this build image\." 
+ If you specify a `runtime-versions` section and use an image other than Ubuntu Standard Image 2\.0 or later, or the Amazon Linux 2 \(AL2\) standard image 1\.0 or later, the build issues the warning, "Skipping install of runtimes\. Runtime version selection is not supported by this build image\." 
 
       ```
       phases:
@@ -168,7 +168,7 @@ In build spec version 0\.1, CodeBuild runs each command in a separate instance o
 Commands in some build phases might not be run if commands in earlier build phases fail\. For example, if a command fails during the `install` phase, none of the commands in the `pre_build`, `build`, and `post_build` phases are run for that build's lifecycle\. For more information, see [Build Phase Transitions](view-build-details.md#view-build-details-phases)\.
 + `finally`: Optional block\. Commands specified in a `finally` block are executed after commands in the `commands` block\. The commands in a `finally` block are executed even if a command in the `commands` block fails\. For example, if the `commands` block contains three commands and the first fails, CodeBuild skips the remaining two commands and runs any commands in the `finally` block\. The phase is successful when all commands in the `commands` and the `finally` blocks run successfully\. If any command in a phase fails, the phase fails\.
 + `artifacts`: Optional sequence\. Represents information about where CodeBuild can find the build output and how CodeBuild prepares it for uploading to the Amazon S3 output bucket\. This sequence is not required if, for example, you are building and pushing a Docker image to Amazon ECR, or you are running unit tests on your source code, but not building it\.
-  + `files`: Required sequence\. Represents the locations that contain the build output artifacts in the build environment\. Contains a sequence of scalars, with each scalar representing a separate location where CodeBuild can find build output artifacts, relative to the original build location or, if set, the base directory\. Locations can include the following:
+  +  `files`: Required sequence\. Represents the locations that contain the build output artifacts in the build environment\. Contains a sequence of scalars, with each scalar representing a separate location where CodeBuild can find build output artifacts, relative to the original build location or, if set, the base directory\. Locations can include the following:
     + A single file \(for example, `my-file.jar`\)\.
     + A single file in a subdirectory \(for example, `my-subdirectory/my-file.jar` or `my-parent-subdirectory/my-subdirectory/my-file.jar`\)\.
     + `'**/*'` represents all files recursively\.
@@ -389,7 +389,7 @@ cache:
 Here is an example of the preceding build spec, expressed as a single string, for use with the AWS CLI, or the AWS SDKs\.
 
 ```
-"version: 0.2\n\nenv:\n  variables:\n    JAVA_HOME: "/usr/lib/jvm/java-8-openjdk-amd64"\n  parameter-store:\n    LOGIN_PASSWORD: /CodeBuild/dockerLoginPassword\n\nphases:\n  install:\n    commands:\n      - apt-get update -y\n      - apt-get install -y maven\n  pre_build:\n    commands:\n      - echo Entered the pre_build phase...\n  build:\n    commands:\n      - echo Build started on `date`\n      - mvn install\n  post_build:\n    commands:\n      - echo Build completed on `date`\nartifacts:\n  files:\n    - target/messageUtil-1.0.jar\n  discard-paths: yes"
+"version: 0.2\n\nenv:\n  variables:\n    JAVA_HOME: \"/usr/lib/jvm/java-8-openjdk-amd64\"\n  parameter-store:\n    LOGIN_PASSWORD: /CodeBuild/dockerLoginPassword\n\nphases:\n  install:\n    commands:\n      - apt-get update -y\n      - apt-get install -y maven\n  pre_build:\n    commands:\n      - echo Entered the pre_build phase...\n  build:\n    commands:\n      - echo Build started on `date`\n      - mvn install\n  post_build:\n    commands:\n      - echo Build completed on `date`\nartifacts:\n  files:\n    - target/messageUtil-1.0.jar\n  discard-paths: yes"
 ```
 
 Here is an example of the commands in the `build` phase, for use with the CodeBuild or CodePipeline consoles\.

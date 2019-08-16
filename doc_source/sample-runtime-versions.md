@@ -1,30 +1,14 @@
 # Runtime Versions in Buildspec File Sample for CodeBuild<a name="sample-runtime-versions"></a>
 
- If you use the Ubuntu standard image version 2\.0 or the AMazon Linux 2(AL2) standard image version 1\.0, you must specify at least one runtime and its version in the `runtime-versions` section of your buildspec file\. This sample shows how you can change your project runtime, specify more than one runtime, and specify a runtime that is dependent on another runtime\.
+ If you use the Ubuntu standard image version 2\.0, you must specify at least one runtime and its version in the `runtime-versions` section of your buildspec file\. This sample shows how you can change your project runtime, specify more than one runtime, and specify a runtime that is dependent on another runtime\.
 
 **Note**  
  If you use Docker in your build container, then your build must run in privileged mode\. For more information, see [Run a Build in CodeBuild](run-build.md) and [Create a Build Project in CodeBuild](create-project.md)\. 
 
 ## Update Your Runtime Version<a name="sample-runtime-update-version"></a>
 
- You can modify the runtime used by your project to a new version by updating the `runtime-versions` section of your buildpec file\. The following examples show how to specify Java versions 8 and 10\. 
-+  A `runtime-versions` section that specifies version 8 of Java (Ubuntu only): 
-
-  ```
-  phases:
-    install:
-      runtime-versions:
-        java: openjdk8
-  ```
-+  A `runtime-versions` section that specifies version 11 of Java (Ubuntu only): 
-
-  ```
-  phases:
-    install:
-      runtime-versions:
-        java: openjdk11
-  ```
-+  A `runtime-versions` section that specifies version 8 of Corretto (AL2 only): 
+ You can modify the runtime used by your project to a new version by updating the `runtime-versions` section of your buildpec file\. The following examples show how to specify Corretto versions 8 and 11:
++  A `runtime-versions` section that specifies version 8 of Corretto \(Amazon Linux 2 only\): 
 
   ```
   phases:
@@ -32,16 +16,33 @@
       runtime-versions:
         java: corretto8
   ```
-  
-+  A `runtime-versions` section that specifies version 11 of Corretto (AL2 only): 
++  A `runtime-versions` section that specifies version 11 of Corretto \(Amazon Linux 2 only\): 
 
   ```
   phases:
     install:
       runtime-versions:
         java: corretto11
-  ```   
- 
+  ```
+
+The following examples show how to specify Java versions 8 and 10: 
++  A `runtime-versions` section that specifies version 8 of Java \(Ubuntu only\): 
+
+  ```
+  phases:
+    install:
+      runtime-versions:
+        java: openjdk8
+  ```
++  A `runtime-versions` section that specifies version 11 of Java \(Ubuntu only\): 
+
+  ```
+  phases:
+    install:
+      runtime-versions:
+        java: openjdk11
+  ```
+
  The following examples show how you to specify different versions of Node\.js: 
 +  A `runtime-versions` section that specifies Node\.js version 8: 
 
@@ -173,9 +174,9 @@ If you are using an Amazon S3 input bucket, be sure to create a ZIP file that co
      + For **Repository**, choose **Public repository**\.
      + For **Repository URL**, type **https://github\.com/aws\-samples/aws\-mobile\-android\-notes\-tutorial**\.
      + For **Environment image**, choose **Managed image**\.
-     + For **Operating system**, choose **Ubuntu**\. 
+     + For **Operating system**, choose **Amazon Linux 2**\. 
      +  For **Runtime\(s\)**, choose **Standard**\. 
-     + For **Image**, choose **aws/codebuild/standard:2\.0**\.
+     + For **Image**, choose **aws/codebuild/amazonlinux2\-x86\_64\-standard:1\.0**\.
 
 1.  For **Build specifications**, choose **Insert build commands**, and then choose **Switch to editor**\. 
 
@@ -323,9 +324,9 @@ If you are using an Amazon S3 input bucket, be sure to create a ZIP file that co
 1. Create a build project\. For more information, see [Create a Build Project \(Console\)](create-project.md#create-project-console) and [Run a Build \(Console\)](run-build.md#run-build-console)\. Leave all settings at their default values, except for these settings\.
    + For **Environment**:
      + For **Environment image**, choose **Managed image**\.
-     + For **Operating system**, choose **Amazon Linux 2**\.
+     + For **Operating system**, choose **Ubuntu**\.
      + For **Runtime\(s\)**, choose **Standard**\.
-     + For **Image**, choose **aws/codebuild/amazonlinux2-x86_64-standard:1\.0**\.
+     + For **Image**, choose **aws/codebuild/standard:2\.0**\.
 
 1.  Choose **Create build project**\. 
 

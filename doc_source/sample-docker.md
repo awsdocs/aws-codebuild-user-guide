@@ -4,7 +4,7 @@ This sample produces as build output a Docker image and then pushes the Docker i
 
 To learn how to build a Docker image by using a custom Docker build image instead \(`docker:dind` in Docker Hub\), see our [Docker in Custom Image Sample](sample-docker-custom-image.md)\.
 
-This sample was tested referencing `golang:1.9`
+This sample was tested referencing `golang:1.12`
 
 This sample uses the new multi\-stage Docker builds feature, which produces a Docker image as build output\. It then pushes the Docker image to an Amazon ECR image repository\. Multi\-stage Docker image builds help to reduce the size of the final Docker image\. For more information, see [Use multi\-stage builds with Docker](https://docs.docker.com/engine/userguide/eng-image/multistage-build/)\.
 
@@ -78,7 +78,23 @@ The IAM entity that modifies this policy must have permission in IAM to modify p
 Do not upload `(root directory name)`, just the files inside of `(root directory name)`\.   
 If you are using an Amazon S3 input bucket, be sure to create a ZIP file that contains the files, and then upload it to the input bucket\. Do not add `(root directory name)` to the ZIP file, just the files inside of `(root directory name)`\.
 
-1. Create a build project, run the build, and view related build information by following the steps in [Run AWS CodeBuild Directly](how-to-run.md)\.
+1. Follow the steps in [Run AWS CodeBuild Directly](how-to-run.md) to create a build project, run the build, and view build informatoin\.
+
+    If you use the console to create your project:
+
+   1.  For **Operating system**, choose **Ubuntu**\. 
+
+   1.  For **Runtime**, choose **Standard**\. 
+
+   1.  For **Image**, choose **aws/codebuild/standard:2\.0**\. 
+
+   1.  Because you use this build project to build a Docker image, select **Privileged**\. 
+
+   1.  Add the following environment variables: 
+      +  AWS\_DEFAULT\_REGION with a value of *region\-ID* 
+      +  AWS\_ACCOUNT\_ID with a value of *account\-ID* 
+      +  IMAGE\_TAG with a value of Latest 
+      +  IMAGE\_REPO\_NAME with a value of *Amazon\-ECR\-repo\-name* 
 
    If you use the AWS CLI to create the build project, the JSON\-formatted input to the `create-project` command might look similar to this\. \(Replace the placeholders with your own values\.\)
 
@@ -123,11 +139,9 @@ If you are using an Amazon S3 input bucket, be sure to create a ZIP file that co
 
 1. Confirm that CodeBuild successfully pushed the Docker image to the repository:
 
-   1. Open the Amazon ECS console at [https://console\.aws\.amazon\.com/ecs/](https://console.aws.amazon.com/ecs/)\.
+   1. Open the Amazon ECR console at [https://console\.aws\.amazon\.com/ecr/](https://console.aws.amazon.com/ecr/)\.
 
-   1. Choose **Repositories**\.
-
-   1. Choose the repository name\. The image should be listed on the **Images** tab\.
+   1. Choose the repository name\. The image should be listed in the **Image tag** column\.
 
 ## Directory Structure<a name="sample-docker-dir"></a>
 
@@ -175,17 +189,19 @@ phases:
 `Dockerfile` \(in `(root directory name)`\)
 
 ```
-FROM golang:1.9 as builder
-RUN go get -d -v golang.org/x/net/html
-RUN go get -d -v github.com/alexellis/href-counter/
-WORKDIR /go/src/github.com/alexellis/href-counter/.
-RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o app .
+FROM golang:1.12-alpine AS build
+#Install git
+RUN apk add --no-cache git
+#Get the hello world package from a GitHub repository
+RUN go get github.com/golang/example/hello
+WORKDIR /go/src/github.com/golang/example/hello
+# Build the project and send the output to /bin/HelloWorld 
+RUN go build -o /bin/HelloWorld
 
-FROM alpine:latest
-RUN apk --no-cache add ca-certificates
-WORKDIR /root/
-COPY --from=builder /go/src/github.com/alexellis/href-counter/app .
-CMD ["./app"]
+FROM golang:1.12-alpine
+#Copy the build's output binary from the previous build container
+COPY --from=build /bin/HelloWorld /bin/HelloWorld
+ENTRYPOINT ["/bin/HelloWorld"]
 ```
 
 ## Adapting the Sample to Push the Image to Docker Hub<a name="sample-docker-docker-hub"></a>

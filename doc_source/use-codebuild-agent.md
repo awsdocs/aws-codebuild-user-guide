@@ -14,7 +14,7 @@
    codebuild_build.sh [-i image_name] [-a artifact_output_directory] [options]
    ```
 
- The CodeBuild agent is available from [https://hub\.docker\.com/r/amazon/aws\-codebuild\-local/](https://hub.docker.com/r/amazon/aws-codebuild-local/)\. Its Secure Hash Algorithm \(SHA\) signature is `18dc6537774a66c3ea7412397db0e0d9da1a184b937505928989fd4fc4868427`\. You can use this to identify the version of the agent\. To see the agent's SHA signature, run the following command: 
+ The CodeBuild agent is available from [https://hub\.docker\.com/r/amazon/aws\-codebuild\-local/](https://hub.docker.com/r/amazon/aws-codebuild-local/)\. Its Secure Hash Algorithm \(SHA\) signature is `2c2b0a6b3595abfb5408cfa263d91ef280a910e2a03e920f65c3ffb9a97d0550`\. You can use this to identify the version of the agent\. To see the agent's SHA signature, run the following command: 
 
 ```
 docker inspect amazon/aws-codebuild-local
@@ -26,7 +26,7 @@ docker inspect amazon/aws-codebuild-local
 
  ** To subscribe to the CodeBuild Agent notifications:** 
 
-1.  Open the Amazon SNS console at [https://console\.aws\.amazon\.com/sns/v2/home](https://console.aws.amazon.com/sns/v2/home)\. 
+1.  Open the Amazon SNS console at [https://console\.aws\.amazon\.com/sns/v3/home](https://console.aws.amazon.com/sns/v3/home)\. 
 
 1.  In the navigation bar, if it's not already selected, change the region to **US East \(N\. Virginia\)**, if it not already selected\. You must select this region because the SNS notifications that you are subscribing to are created in this region\. 
 
@@ -56,7 +56,7 @@ docker inspect amazon/aws-codebuild-local
 
  ** To unsubscribe from CodeBuild agent notifications:** 
 
-1.  Open the Amazon SNS console at [https://console\.aws\.amazon\.com/sns/v2/home](https://console.aws.amazon.com/sns/v2/home)\. 
+1.  Open the Amazon SNS console at [https://console\.aws\.amazon\.com/sns/v3/home](https://console.aws.amazon.com/sns/v3/home)\. 
 
 1.  In the navigation pane, choose **Subscriptions**\. 
 
