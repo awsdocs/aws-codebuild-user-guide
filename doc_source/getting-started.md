@@ -276,7 +276,7 @@ An IAM user in your AWS account with the AWS managed policies named **AWSCodeBui
 
 1. For **Runtime**, choose **Standard**\.
 
-1. For **Runtime version**, choose **aws/codebuild/standard:2\.0**\.
+1. For **Image**, choose **aws/codebuild/standard:2\.0**\.
 
 1. In **Service role**, leave **New service role** selected, and leave **Role name** unchanged\.
 
@@ -477,6 +477,7 @@ You can use the [AWS CodeBuild console](#getting-started-monitor-build-console) 
 
 1. On the build details page, in **Phase details**, the following list of build phases should be displayed, with **Succeeded** in the **Status** column:
    + **SUBMITTED**
+   + **QUEUED**
    + **PROVISIONING**
    + **DOWNLOAD\_SOURCE**
    + **INSTALL**
