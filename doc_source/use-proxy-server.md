@@ -124,8 +124,9 @@ sudo cat squid.key squid.crt | sudo tee squid.pem
   http_access allow localnet allowed_sites
   http_access allow localnet download_src
   ```
-+ Before the `http_access deny all` statement, insert the following statements\. They allow CodeBuild to access CloudWatch and Amazon S3\. Access to CloudWatch is required so that CodeBuild can create CloudWatch logs\. Access to Amazon S3 is required for uploading artifacts and Amazon S3 caching\. 
-  + 
++  For allowing CodeBuild to upload logs and artifacts. There are two methods:
+
+1.  Before the `http_access deny all` statement, insert the following statements\. They allow CodeBuild to access CloudWatch and Amazon S3\. Access to CloudWatch is required so that CodeBuild can create CloudWatch logs\. Access to Amazon S3 is required for uploading artifacts and Amazon S3 caching\. 
 
     ```
     https_port 3130 cert=/etc/squid/ssl/squid.pem ssl-bump intercept
@@ -140,11 +141,24 @@ sudo cat squid.key squid.crt | sudo tee squid.pem
     ssl_bump splice step3 allowed_https_sites
     ssl_bump terminate step2 all
     ```
-  + After you save `squid.conf`, execute the following: 
+    After you save `squid.conf`, execute the following: 
 
     ```
     sudo iptables -t nat -A PREROUTING -p tcp --dport 443 -j REDIRECT --to-port 3130
     sudo service squid restart
+    ```
+
+1.  Add proxy configuration to your buildspec file\.
+
+    ```
+    version: 0.2
+    proxy:
+      upload-artifacts: yes
+      logs: yes
+    phases:
+      build:
+        commands:
+          - command
     ```
 
 **Note**  
