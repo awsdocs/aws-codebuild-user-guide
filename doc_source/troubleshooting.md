@@ -437,11 +437,12 @@ We recommend that you use **Insecure SSL** for testing only\. It should not be u
 
 ## RequestError timeout error when running CodeBuild in a proxy server<a name="code-request-timeout-error"></a>
 
- **Issue:** You receive an error similar to `RequestError: send request failed caused by: Post https://logs.<your-region>.amazonaws.com/: dial tcp 52.46.158.105:443: i/o timeout` from CloudWatch Logs\. 
+ **Issue:** You receive an error similar to `RequestError: send request failed caused by: Post https://logs.<your-region>.amazonaws.com/: dial tcp 52.46.158.105:443: i/o timeout` from CloudWatch Logs or `Error uploading artifacts: RequestError: send request failed caused by: Put https://<your-bucket>.s3.<your-region>.amazonaws.com/*: dial tcp 52.219.96.208:443: connect: connection refused` from Amazon S3\. 
 
  **Possible causes:** 
 + `ssl-bump` is not configured properly\. 
 + Your organization's security policy does not allow you to use `ssl_bump`\. 
++ Proxy configuration is not added to the buildspec file\. 
 
 **Recommended solutions:** 
 + Make sure `ssl-bump` is configured properly\. If you use Squid for your proxy server, see [ Configure Squid as an Explicit Proxy Server](use-proxy-server.md#use-proxy-server-explicit-squid-configure)\. 
@@ -452,6 +453,18 @@ We recommend that you use **Insecure SSL** for testing only\. It should not be u
   1.  Create a private Amazon S3 endpoint and CloudWatch Logs endpoint and associate them with the private subnet of your Amazon VPC\. For information, see [VPC Endpoint Services \(AWS PrivateLink\)](https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-service.html)\. 
 
   1.  Confirm **Enable Private DNS Name** in your Amazon VPC is selected\. For more information, see [Creating an Interface Endpoint ](https://docs.aws.amazon.com/vpc/latest/userguide/vpce-interface.html#create-interface-endpoint)\. 
++ You need to add proxy configuration to your buildspec file if you do not use `ssl-bump`:
+
+  ```
+  version: 0.2
+  proxy:
+    upload-artifacts: yes
+    logs: yes
+  phases:
+    build:
+      commands:
+        - command
+  ```
 
 ## Error: "QUEUED: INSUFFICIENT\_SUBNET" when a build in a build queue fails<a name="queued-insufficient-subnet-error"></a>
 
