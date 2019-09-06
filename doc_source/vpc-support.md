@@ -84,7 +84,7 @@ The following are some guidelines to assist you when troubleshooting a common Co
 
 1. [Make sure that the route table for your public subnet points to the internet gateway](https://docs.aws.amazon.com/vpc/latest/userguide//VPC_Route_Tables.html#route-tables-internet-gateway)\.
 
-1. [Make sure that your network ACLs allow traffic to flow](https://docs.aws.amazon.com/vpc/latest/userguide//VPC_ACLs.html#ACLRules)\.
+1. [Make sure that your network ACLs allow traffic to flow](https://docs.aws.amazon.com/vpc/latest/userguide//VPC_SecurityGroups.html#SecurityGroupRules)\.
 
 1. [Make sure that your security groups allow traffic to flow](https://docs.aws.amazon.com/vpc/latest/userguide//VPC_SecurityGroups.html#SecurityGroupRules)\.
 

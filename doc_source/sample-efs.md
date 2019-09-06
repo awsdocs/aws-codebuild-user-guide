@@ -66,11 +66,11 @@
 
 1.  From **Environment image**, choose **Managed image**\. 
 
-1.  From **Operating system**, choose **Ubuntu**\. 
+1.  From **Operating system**, choose **Amazon Linux 2**\. 
 
-1.  From **Runtime**, choose **Standard**\. 
+1.  From **Runtime\(s\)**, choose **Standard**\. 
 
-1.  From **Runtime version** choose **aws/codebuild/standard:2\.0** \. 
+1.  From **Runtime version** choose **aws/codebuild/amazonlinux2\-x86\_64\-standard:1\.0**\. 
 
 1.  Select **Privileged**\. 
 

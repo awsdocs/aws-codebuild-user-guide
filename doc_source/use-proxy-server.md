@@ -124,42 +124,43 @@ sudo cat squid.key squid.crt | sudo tee squid.pem
   http_access allow localnet allowed_sites
   http_access allow localnet download_src
   ```
-+  For allowing CodeBuild to upload logs and artifacts. There are two methods:
++ If you want your build to upload logs and artifacts, do one of the following:
 
-1.  Before the `http_access deny all` statement, insert the following statements\. They allow CodeBuild to access CloudWatch and Amazon S3\. Access to CloudWatch is required so that CodeBuild can create CloudWatch logs\. Access to Amazon S3 is required for uploading artifacts and Amazon S3 caching\. 
+  1. Before the `http_access deny all` statement, insert the following statements\. They allow CodeBuild to access CloudWatch and Amazon S3\. Access to CloudWatch is required so that CodeBuild can create CloudWatch logs\. Access to Amazon S3 is required for uploading artifacts and Amazon S3 caching\. 
+     + 
 
-    ```
-    https_port 3130 cert=/etc/squid/ssl/squid.pem ssl-bump intercept
-    acl SSL_port port 443
-    http_access allow SSL_port
-    acl allowed_https_sites ssl::server_name .amazonaws.com
-    acl step1 at_step SslBump1
-    acl step2 at_step SslBump2
-    acl step3 at_step SslBump3
-    ssl_bump peek step1 all
-    ssl_bump peek step2 allowed_https_sites
-    ssl_bump splice step3 allowed_https_sites
-    ssl_bump terminate step2 all
-    ```
-    After you save `squid.conf`, execute the following: 
+       ```
+       https_port 3130 cert=/etc/squid/ssl/squid.pem ssl-bump intercept
+       acl SSL_port port 443
+       http_access allow SSL_port
+       acl allowed_https_sites ssl::server_name .amazonaws.com
+       acl step1 at_step SslBump1
+       acl step2 at_step SslBump2
+       acl step3 at_step SslBump3
+       ssl_bump peek step1 all
+       ssl_bump peek step2 allowed_https_sites
+       ssl_bump splice step3 allowed_https_sites
+       ssl_bump terminate step2 all
+       ```
+     + After you save `squid.conf`, execute the following: 
 
-    ```
-    sudo iptables -t nat -A PREROUTING -p tcp --dport 443 -j REDIRECT --to-port 3130
-    sudo service squid restart
-    ```
+       ```
+       sudo iptables -t nat -A PREROUTING -p tcp --dport 443 -j REDIRECT --to-port 3130
+       sudo service squid restart
+       ```
 
-1.  Add proxy configuration to your buildspec file\.
+  1.  Add `proxy` to your buildspec file\. For more information, see [Build Spec Syntax](build-spec-ref.md#build-spec-ref-syntax)\. 
 
-    ```
-    version: 0.2
-    proxy:
-      upload-artifacts: yes
-      logs: yes
-    phases:
-      build:
-        commands:
-          - command
-    ```
+     ```
+     version: 0.2
+     proxy:
+       upload-artifacts: yes
+       logs: yes
+     phases:
+       build:
+         commands:
+           - command
+     ```
 
 **Note**  
 If you receive a RequestError timeout error, see [ RequestError timeout error when running CodeBuild in a proxy server](troubleshooting.md#code-request-timeout-error)\.

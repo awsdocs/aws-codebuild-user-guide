@@ -32,6 +32,14 @@ In this section, you use Maven to produce the source code\. Later on, you use AW
                                 `-- index.jsp
    ```
 
+1. Create a subdirectory named `.ebextensions` in the `(root directory name)/my-web-app` directory\. In the `.ebextensions` subdirectory, create a file named `fix-path.config` with this content\. 
+
+   ```
+   container_commands:
+     fix_path:
+       command: "unzip my-web-app.war 2>&1 > /var/log/my_last_deploy.log"
+   ```
+
 After you run Maven, continue with one of the following scenarios:
 + [Scenario A: Run AWS CodeBuild Manually and Deploy to Elastic Beanstalk Manually](#sample-elastic-beanstalk-manual) 
 + [Scenario B: Use CodePipeline to Run AWS CodeBuild and Deploy to Elastic Beanstalk](#sample-elastic-beanstalk-codepipeline)
@@ -45,14 +53,6 @@ In this scenario, you create and upload the source code\. You then use the AWS C
 
 In this step, you add an Elastic Beanstalk configuration file and a build spec file to the code in [Create the Source Code](#sample-elastic-beanstalk-prepare-source)\. You then upload the source code to an Amazon S3 input bucket or an AWS CodeCommit or GitHub repository \.
 
-1. Create a subdirectory named `.ebextensions` in the `(root directory name)/my-web-app` directory\. In the `.ebextensions` subdirectory, create a file named `fix-path.config` with this content\. 
-
-   ```
-   container_commands:
-     fix_path:
-       command: "unzip my-web-app.war 2>&1 > /var/log/my_last_deploy.log"
-   ```
-
 1. Create a file named `buildspec.yml` with the following contents\. Store the file in the `(root directory name)/my-web-app` directory\.
 
    ```
@@ -61,7 +61,7 @@ In this step, you add an Elastic Beanstalk configuration file and a build spec f
    phases:
      install:
        runtime-versions:
-         java: openjdk11
+         java: corretto11
      post_build:
        commands:
          - mvn package
@@ -90,10 +90,10 @@ In this step, you add an Elastic Beanstalk configuration file and a build spec f
               `-- pom.xml
    ```
 
-1. Upload the contents of the `my-web-app` directory to an Amazon S3 input bucket or a CodeCommit, GitHub, or Bitbucket repository\.
+1.  Upload the contents of the `my-web-app` directory to an Amazon S3 input bucket or a CodeCommit, GitHub, or Bitbucket repository\.
 **Important**  
 Do not upload `(root directory name)` or `(root directory name)/my-web-app`, just the directories and files in `(root directory name)/my-web-app`\.   
-If you are using an Amazon S3 input bucket, be sure to create a ZIP file that contains the directory structure and files, and then upload it to the input bucket\. Do not add `(root directory name)` or `(root directory name)/my-web-app` to the ZIP file, just the directories and files in `(root directory name)/my-web-app`\.
+ If you are using an Amazon S3 input bucket, it must be versioned\. Be sure to create a ZIP file that contains the directory structure and files, and then upload it to the input bucket\. Do not add `(root directory name)` or `(root directory name)/my-web-app` to the ZIP file, just the directories and files in `(root directory name)/my-web-app`\. For more information, see [How to Configure Versioning on a Bucket](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html#how-to-enable-disable-versioning-intro)\. 
 
 ### Step A2: Create the Build Project and Run the Build<a name="sample-elastic-beanstalk-manual-build"></a>
 
@@ -108,10 +108,12 @@ In this step, you use the AWS CodeBuild console to create a build project and th
 1. Create a build project and then run a build\. For more information, see [Create a Build Project \(Console\)](create-project.md#create-project-console) and [Run a Build \(Console\)](run-build.md#run-build-console)\. Leave all settings at their default values, except for these settings\.
    + For **Environment**:
      + For **Environment image**, choose **Managed image**\.
-     + For **Operating system**, choose **Ubuntu**\.
+     + For **Operating system**, choose **Amazon Linux 2**\.
      + For **Runtime\(s\)**, choose **Standard**\.
-     + For **Image**, choose **aws/codebuild/standard:2\.0**\.
+     + For **Image**, choose **aws/codebuild/amazonlinux2\-x86\_64\-standard:1\.0**\.
    + For **Artifacts**:
+     + For **Type**, choose **Amazon S3**\.
+     + For **Bucket name**, enter the name of an Amazon S3 bucket\.
      + For **Name**, enter a build output file name that's easy for you to remember\. Include the `.zip` extension\.
      + For **Artifacts packaging**, choose **Zip**\.
 
@@ -147,13 +149,15 @@ In this step, you create and add a build spec file to the code you created in [C
    phases:
      install:
        runtime-versions:
-         java: openjdk11
+         java: corretto11
      post_build:
        commands:
          - mvn package
+         - mv target/my-web-app.war my-web-app.war
    artifacts:
      files:
-       - '**/*'
+       - my-web-app.war
+       - .ebextensions/**/*
      base-directory: 'target/my-web-app'
    ```
 
@@ -162,6 +166,8 @@ In this step, you create and add a build spec file to the code you created in [C
    ```
    (root directory name)
         `-- my-web-app
+              |-- .ebextensions
+              |     `-- fix-path.config
               |-- src    
               |     `-- main
               |           |-- resources
@@ -176,7 +182,7 @@ In this step, you create and add a build spec file to the code you created in [C
 1. Upload this contents of the `my-web-app` directory to an Amazon S3 input bucket or a CodeCommit, GitHub, or Bitbucket repository\.
 **Important**  
 Do not upload `(root directory name)` or `(root directory name)/my-web-app`, just the directories and files in `(root directory name)/my-web-app`\.   
-If you are using an Amazon S3 input bucket, be sure to create a ZIP file that contains the directory structure and files, and then upload it to the input bucket\. Do not add `(root directory name)` or `(root directory name)/my-web-app` to the ZIP file, just the directories and files in `(root directory name)/my-web-app`\.
+ If you are using an Amazon S3 input bucket, it must be versioned\. Be sure to create a ZIP file that contains the directory structure and files, and then upload it to the input bucket\. Do not add `(root directory name)` or `(root directory name)/my-web-app` to the ZIP file, just the directories and files in `(root directory name)/my-web-app`\. For more information, see [How to Configure Versioning on a Bucket](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html#how-to-enable-disable-versioning-intro)\. 
 
 ### Step B2: Create a build project<a name="sample-elastic-beanstalk-codepipeline-buildproject"></a>
 
@@ -187,10 +193,12 @@ In this step, you create an AWS CodeBuild build project to use with your pipelin
 1. Create a build project\. For more information, see [Create a Build Project \(Console\)](create-project.md#create-project-console) and [Run a Build \(Console\)](run-build.md#run-build-console)\. Leave all settings at their default values, except for these settings\.
    + For **Environment**:
      + For **Environment image**, choose **Managed image**\.
-     + For **Operating system**, choose **Ubuntu**\.
+     + For **Operating system**, choose **Amazon Linux 2**\.
      + For **Runtime\(s\)**, choose **Standard**\.
-     + For **Image**, choose **aws/codebuild/standard:2\.0**\.
+     + For **Image**, choose **aws/codebuild/amazonlinux2\-x86\_64\-standard:1\.0**\.
    + For **Artifacts**:
+     + For **Type**, choose **Amazon S3**\.
+     + For **Bucket name**, enter the name of an Amazon S3 bucket\.
      + For **Name**, enter a build output file name that's easy for you to remember\. Include the `.zip` extension\.
      + For **Artifacts packaging**, choose **Zip**\.
 
@@ -215,8 +223,8 @@ In this step, you use the CodePipeline console to create a pipeline\. After you 
    Use the AWS region selector to choose a region that supports CodeBuild and, if you're storing the source code in an Amazon S3 input bucket, choose the region where your input bucket is stored\.
 
 1. Create a pipeline\. For information, see [Create a Pipeline That Uses CodeBuild \(CodePipeline Console\)](how-to-create-pipeline.md#how-to-create-pipeline-console)\. Leave all settings at their default values, except for these settings\.
-   + For **Step 3: Add build stage**, for **Build provider**, choose CodeBuild\. For **Project name**, choose the build project you just created\.
-   + For **Step 4: Add deploy stage**, for **Deployment provider**, choose **AWS Elastic Beanstalk**\.
+   + On **Add build stage**, for **Build provider**, choose **AWS CodeBuild**\. For **Project name**, choose the build project you just created\.
+   + On **Add deploy stage**, for **Deploy provider**, choose **AWS Elastic Beanstalk**\.
      + For **Application name**, choose the Elastic Beanstalk application you just created\.
      + For **Environment name**, choose the environment you just created\.
 
@@ -234,14 +242,6 @@ In this step, you add an Elastic Beanstalk configuration file and a build spec f
 
 1. Create or identify a service role that Elastic Beanstalk and the CLI can use on your behalf\. For information, see [Create a CodeBuild Service Role](setting-up.md#setting-up-service-role)\.
 
-1. Create a subdirectory named `.ebextensions` in the `(root directory name)/my-web-app` directory\. In the `.ebextensions` subdirectory, create a file named `fix-path.config` with this content\. 
-
-   ```
-   container_commands:
-     fix_path:
-       command: "unzip my-web-app.war 2>&1 > /var/log/my_last_deploy.log"
-   ```
-
 1. Create a file named `buildspec.yml` with the following contents\. Store the file in the `(root directory name)/my-web-app` directory\.
 
    ```
@@ -250,7 +250,7 @@ In this step, you add an Elastic Beanstalk configuration file and a build spec f
    phases:
      install:
        runtime-versions:
-         java: openjdk11
+         java: corretto11
      post_build:
        commands:
          - mvn package
@@ -334,7 +334,7 @@ In this step, you add an Elastic Beanstalk configuration file and a build spec f
 
 If you want, you can make changes to the source code and then run the eb deploy command from the same directory\. The EB CLI performs the same steps as the eb create command, but it deploys the build output to the existing environment instead of creating a new environment\.
 
-## Related Resources<a name="w11aac11c41c52c15"></a>
+## Related Resources<a name="w13aac11c41c52c15"></a>
 + For more information about getting started with AWS CodeBuild, see [Getting Started with CodeBuild](getting-started.md)\.
 + For more information about troubleshooting problems with CodeBuild, see [Troubleshooting CodeBuild](troubleshooting.md)\.
 + For more information about limits in CodeBuild, see [Limits for CodeBuild](limits.md)\.

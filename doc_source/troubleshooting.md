@@ -49,7 +49,7 @@ Use the information in this topic to help you identify, diagnose, and address is
 
 **Issue:** When you run a build, the `DOWNLOAD_SOURCE` build phase fails with the error "YAML\_FILE\_ERROR: This build image requires selecting at least one runtime version\."
 
-**Possible cause:** Your build uses version 2\.0 or later of the Ubuntu standard image and a runtime is not specified in the buildspec file\.
+**Possible cause:** Your build uses version 1\.0 or later of the Amazon Linux 2 \(AL2\) standard image, or version 2\.0 or later of the Ubuntu standard image, and a runtime is not specified in the buildspec file\.
 
 **Recommended solution:** If you use the `aws/codebuild/standard:2.0` CodeBuild managed image, you must specify a runtime version in the `runtime-versions` section of the buildspec file\. For example, you might use the following buildspec file for a project that uses PHP:
 
@@ -101,9 +101,9 @@ artifacts:
 
 **Issue:** When you run a build, the build log contains the warning, "Skipping install of runtimes\. Runtime version selection is not supported by this build image\." 
 
-**Possible cause:** Your build does not use version 2\.0 or later of the Ubuntu standard image and a runtime is specified in a `runtime-versions` section in your buildspec file\.
+**Possible cause:** Your build does not use version 1\.0 or later of the Amazon Linux \(AL2\) standard image, or version 2\.0 or later of the Ubuntu standard image, and a runtime is specified in a `runtime-versions` section in your buildspec file\.
 
-**Recommended solution:** Be sure your buildspec file does not contain a `runtime-versions` section\. The `runtime-versions` section is only required if you use the Ubuntu standard image version 2\.0 or higher\.
+**Recommended solution:** Be sure your buildspec file does not contain a `runtime-versions` section\. The `runtime-versions` section is only required if you use the Amazon Linux \(AL2\) standard image or later or the Ubuntu standard image version 2\.0 or later\.
 
 ## Error: "The bucket you are attempting to access must be addressed using the specified endpoint" when running a build<a name="troubleshooting-input-bucket-different-region"></a>
 
@@ -437,12 +437,14 @@ We recommend that you use **Insecure SSL** for testing only\. It should not be u
 
 ## RequestError timeout error when running CodeBuild in a proxy server<a name="code-request-timeout-error"></a>
 
- **Issue:** You receive an error similar to `RequestError: send request failed caused by: Post https://logs.<your-region>.amazonaws.com/: dial tcp 52.46.158.105:443: i/o timeout` from CloudWatch Logs or `Error uploading artifacts: RequestError: send request failed caused by: Put https://<your-bucket>.s3.<your-region>.amazonaws.com/*: dial tcp 52.219.96.208:443: connect: connection refused` from Amazon S3\. 
+ **Issue:** You receive a `RequestError` error similar to one of the following: 
++  `RequestError: send request failed caused by: Post https://logs.<your-region>.amazonaws.com/: dial tcp 52.46.158.105:443: i/o timeout` from CloudWatch Logs\. 
++  `Error uploading artifacts: RequestError: send request failed caused by: Put https://your-bucket.s3.your-aws-region.amazonaws.com/*: dial tcp 52.219.96.208:443: connect: connection refused` from Amazon S3\. 
 
  **Possible causes:** 
 + `ssl-bump` is not configured properly\. 
 + Your organization's security policy does not allow you to use `ssl_bump`\. 
-+ Proxy configuration is not added to the buildspec file\. 
++  Your buildspec file does not have proxy settings specified using a `proxy` element\. 
 
 **Recommended solutions:** 
 + Make sure `ssl-bump` is configured properly\. If you use Squid for your proxy server, see [ Configure Squid as an Explicit Proxy Server](use-proxy-server.md#use-proxy-server-explicit-squid-configure)\. 
@@ -453,7 +455,7 @@ We recommend that you use **Insecure SSL** for testing only\. It should not be u
   1.  Create a private Amazon S3 endpoint and CloudWatch Logs endpoint and associate them with the private subnet of your Amazon VPC\. For information, see [VPC Endpoint Services \(AWS PrivateLink\)](https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-service.html)\. 
 
   1.  Confirm **Enable Private DNS Name** in your Amazon VPC is selected\. For more information, see [Creating an Interface Endpoint ](https://docs.aws.amazon.com/vpc/latest/userguide/vpce-interface.html#create-interface-endpoint)\. 
-+ You need to add proxy configuration to your buildspec file if you do not use `ssl-bump`:
++  If you do not use `ssl-bump` for an explicit proxy server, add a proxy configuration to your buildspec file using a `proxy` element\. For more information, see [ Run CodeBuild in an Explicit Proxy Server](use-proxy-server.md#run-codebuild-in-explicit-proxy-server) and [Build Spec Syntax](build-spec-ref.md#build-spec-ref-syntax)\. 
 
   ```
   version: 0.2
@@ -463,7 +465,6 @@ We recommend that you use **Insecure SSL** for testing only\. It should not be u
   phases:
     build:
       commands:
-        - command
   ```
 
 ## Error: "QUEUED: INSUFFICIENT\_SUBNET" when a build in a build queue fails<a name="queued-insufficient-subnet-error"></a>

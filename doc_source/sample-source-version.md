@@ -35,9 +35,9 @@ To speed up the `DOWNLOAD_SOURCE` phase of your build, you can also to set **Git
      +  For **Repository URL**, enter **https://github\.com/aws/aws\-sdk\-ruby\.git**\. 
    + In **Environment**:
      + For **Environment image**, choose **Managed image**\.
-     + For **Operating system**, choose **Ubuntu**\.
+     + For **Operating system**, choose **Amazon Linux 2**\.
      + For **Runtime\(s\)**, choose **Standard**\.
-     + For **Image**, choose **aws/codebuild/standard:2\.0**\.
+     + For **Image**, choose **aws/codebuild/amazonlinux2\-x86\_64\-standard:1\.0**\.
 
 1.  For **Build specifications**, choose **Insert build commands**, and then choose **Switch to editor**\. 
 

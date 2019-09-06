@@ -28,6 +28,7 @@ If you use a secondary source, the environment variable for its directory path i
 + `CODEBUILD_WEBHOOK_ACTOR_ACCOUNT_ID`: The account ID of the user that triggered the webhook event\.
 + `CODEBUILD_WEBHOOK_BASE_REF`: The base reference name of the webhook event that triggers the current build\. For a pull request, this is the branch reference\.
 + `CODEBUILD_WEBHOOK_EVENT`: The webhook event that triggers the current build\.
++ `CODEBUILD_WEBHOOK_PREV_COMMIT`: The ID of the most recent commit before the webhook push event that triggers the current build\.
 + `CODEBUILD_WEBHOOK_HEAD_REF`: The head reference name of the webhook event that triggers the current build\. It can be a branch reference or a tag reference\.
 + `CODEBUILD_WEBHOOK_TRIGGER`: Shows the webhook event that triggered the build\. This variable is available only for builds triggered by a webhook\. The value is parsed from the payload sent to CodeBuild by Github, Github Enterprise, or Bitbucket\. The value's format depends on what type of event triggered the build\.
   +  For builds triggered by a pull request, it is `pr/pull-request-number`\. 

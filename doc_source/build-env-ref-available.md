@@ -36,7 +36,7 @@ AWS CodeBuild manages the following Docker images that are available in the Code
 | --- | --- | --- | 
 | dotnet | 2\.1 | 2\.2 | 
 | golang | 1\.11 | 1\.12 | 
-| nodejs | 9\.16 | 10\.16 | 
+| nodejs | 9\.11 | 10\.16 | 
 | java | openjdk8 | openjdk11 | 
 | php | 7\.2 | 7\.3 | 
 | python | 3\.6 | 3\.7 | 

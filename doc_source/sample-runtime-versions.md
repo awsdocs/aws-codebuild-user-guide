@@ -1,6 +1,6 @@
 # Runtime Versions in Buildspec File Sample for CodeBuild<a name="sample-runtime-versions"></a>
 
- If you use the Ubuntu standard image version 2\.0, you must specify at least one runtime and its version in the `runtime-versions` section of your buildspec file\. This sample shows how you can change your project runtime, specify more than one runtime, and specify a runtime that is dependent on another runtime\.
+ If you use the Amazon Linux 2 \(AL2\) standard image version 1\.0 or later, or the Ubuntu standard image version 2\.0 or later, you must specify at least one runtime and its version in the `runtime-versions` section of your buildspec file\. This sample shows how you can change your project runtime, specify more than one runtime, and specify a runtime that is dependent on another runtime\.
 
 **Note**  
  If you use Docker in your build container, then your build must run in privileged mode\. For more information, see [Run a Build in CodeBuild](run-build.md) and [Create a Build Project in CodeBuild](create-project.md)\. 
@@ -114,9 +114,9 @@ If you are using an Amazon S3 input bucket, be sure to create a ZIP file that co
 1. Create a build project\. For more information, see [Create a Build Project \(Console\)](create-project.md#create-project-console) and [Run a Build \(Console\)](run-build.md#run-build-console)\. Leave all settings at their default values, except for these settings\.
    + For **Environment**:
      + For **Environment image**, choose **Managed image**\.
-     + For **Operating system**, choose **Ubuntu**\.
-     + For **Runtime\(s\)**, choose **Standard**\.
-     + For **Image**, choose **aws/codebuild/standard:2\.0**\.
+     + For **Operating system**, choose **Amazon Linux 2**\. 
+     +  For **Runtime\(s\)**, choose **Standard**\. 
+     + For **Image**, choose **aws/codebuild/amazonlinux2\-x86\_64\-standard:1\.0**\.
 
 1.  Choose **Start build**\. 
 
@@ -164,7 +164,9 @@ If you are using an Amazon S3 input bucket, be sure to create a ZIP file that co
 
 ## Specify a Runtime Dependency<a name="sample-runtime-dependent-runtime"></a>
 
- You might use a runtime that is dependent on another runtime\. For example, the Android runtime version 28 is dependent on the Java runtime version 8\. If you specify Android version 28, you must also specify Java version 8\. This example shows how to specify a runtime and a dependency runtime\. The build project uses source code in the GitHub [AWS Samples](https://github.com/aws-samples) repository\. The source code uses the Android version 28 runtime, so it must also specify Java version 8\. 
+ This example shows how to specify a runtime and a dependency runtime\. For example, the Android runtime version 28 is dependent on the Java or Corretto runtime version 8\. If you specify Android version 28 and use Amazon Linux 2, you must also specify Corretto version 8\. If you specify Android version 28 and use Ubuntu, you must also specify Java version 8\. 
+
+ The build project in this example uses source code in the GitHub [AWS Samples](https://github.com/aws-samples) repository\. The source code uses the Android version 28 runtime and the build project uses Amazon Linux 2, so the buildspec must also specify Corretto version 8\. 
 
 1. Open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codesuite/codebuild/home](https://console.aws.amazon.com/codesuite/codebuild/home)\.
 
@@ -189,7 +191,7 @@ If you are using an Amazon S3 input bucket, be sure to create a ZIP file that co
      install:
        runtime-versions:
          android: 28
-         java: openjdk8
+         java: corretto8
      build:
        commands:
          - ./gradlew assembleDebug
@@ -206,7 +208,7 @@ If you are using an Amazon S3 input bucket, be sure to create a ZIP file that co
 
 1.  On **Build configuration** accept the defaults, and then choose **Start build**\. 
 
-1.  After the build is complete, view the build output on the **Build logs** tab\. You should see output similar to the following\. It shows that Android version 28 and Java version 8 are installed: 
+1.  After the build is complete, view the build output on the **Build logs** tab\. You should see output similar to the following\. It shows that Android version 28 and Corretto version 8 are installed: 
 
    ```
    [Container] 2019/05/14 23:21:42 Entering phase INSTALL 
@@ -324,9 +326,9 @@ If you are using an Amazon S3 input bucket, be sure to create a ZIP file that co
 1. Create a build project\. For more information, see [Create a Build Project \(Console\)](create-project.md#create-project-console) and [Run a Build \(Console\)](run-build.md#run-build-console)\. Leave all settings at their default values, except for these settings\.
    + For **Environment**:
      + For **Environment image**, choose **Managed image**\.
-     + For **Operating system**, choose **Ubuntu**\.
+     + For **Operating system**, choose **Amazon Linux 2**\.
      + For **Runtime\(s\)**, choose **Standard**\.
-     + For **Image**, choose **aws/codebuild/standard:2\.0**\.
+     + For **Image**, choose **aws/codebuild/amazonlinux2\-x86\_64\-standard:1\.0**\.
 
 1.  Choose **Create build project**\. 
 

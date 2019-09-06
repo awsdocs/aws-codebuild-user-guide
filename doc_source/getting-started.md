@@ -163,7 +163,7 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      java: openjdk11
+      java: corretto11
   pre_build:
     commands:
       - echo Nothing to do in the pre_build phase...
@@ -255,7 +255,7 @@ You can work with CodeBuild in several ways: through the CodeBuild console, AWS 
 
 1. In the AWS region selector, choose a region that supports CodeBuild\. For more information, see [CodeBuild](https://docs.aws.amazon.com/general/latest/gr/rande.html#codebuild_region) in the "Regions and Endpoints" topic in the *Amazon Web Services General Reference*\.
 
-1.  If a CodeBuild information page is displayed, choose **Create project**\. Otherwise, on the navigation pane, expand **Build**, and then choose **Build projects**\. 
+1.  If a CodeBuild information page is displayed, choose **Create build project**\. Otherwise, on the navigation pane, expand **Build**, choose **Build projects**, and then choose **Create build project**\. 
 
 1. On the **Create build project** page, in **Project configuration**, for **Project name**, enter a name for this build project \(in this example, `codebuild-demo-project`\)\. Build project names must be unique across each AWS account\. If you use a different name, be sure to use it throughout this walkthrough\.
 **Note**  
@@ -272,11 +272,11 @@ An IAM user in your AWS account with the AWS managed policies named **AWSCodeBui
 
 1. In **Environment**, for **Environment image**, leave **Managed image** selected\.
 
-1. For **Operating system**, choose **Ubuntu**\.
+1. For **Operating system**, choose **Amazon Linux 2**\.
 
 1. For **Runtime\(s\)**, choose **Standard**\.
 
-1. For **Image**, choose **aws/codebuild/standard:2\.0**\.
+1. For **Image**, choose **aws/codebuild/amazonlinux2\-x86\_64\-standard:1\.0**\.
 
 1. In **Service role**, leave **New service role** selected, and leave **Role name** unchanged\.
 
@@ -408,7 +408,7 @@ You can use the [CodeBuild console](#getting-started-run-build-console) or [AWS 
 
 1. In the list of build projects, choose **codebuild\-demo\-project**, and then choose **Start build**\. 
 
-1. On the **Start new build** page, choose **Start build**\.
+1. On the **Start build** page, choose **Start build**\.
 
 1. Skip ahead to [Step 7: View Summarized Build Information](#getting-started-monitor-build)\.<a name="getting-started-run-build-cli"></a>
 

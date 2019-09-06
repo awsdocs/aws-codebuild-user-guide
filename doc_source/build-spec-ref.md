@@ -45,6 +45,10 @@ env:
     key: "value"
     key: "value"
   git-credential-helper: yes
+
+proxy:
+    upload-artifacts: yes
+    logs: yes
             
 phases:
   install:
@@ -134,6 +138,9 @@ The value in the start build operation call takes highest precedence\. You can a
 The value in the build project definition takes next precedence\. You can add environment variables at the project level when you create or edit a project\. For more information, see [Create a Build Project in CodeBuild](create-project.md) and [Change a Build Project's Settings in CodeBuild ](change-project.md)\.
 The value in the build spec declaration takes lowest precedence\.
   +  `git-credential-helper`: Optional mapping\. Represents whether CodeBuild uses its Git credential helper to provide Git credentials\. `yes` if it is used; otherwise, `no` or not specified\. For more information, see [gitcredentials](https://git-scm.com/docs/gitcredentials) on the Git website\. 
++ `proxy`: Optional sequence\. Represents settings if you run your build in an explicit proxy server\. For more information, see [](use-proxy-server.md#run-codebuild-in-explicit-proxy-server)\. 
+  +  `upload-artifacts`: Optional mapping\. Set to `yes` if you want your build in an explicit proxy server to upload artifacts\. The default setting is `no`\. 
+  +  `logs`: Optional mapping\. Set to `yes` for your build in a explicit proxy server to create CloudWatch Logs\. The default setting is `no`\. 
 + `phases`: Required sequence\. Represents the commands CodeBuild runs during each phase of the build\. 
 **Note**  
 In build spec version 0\.1, CodeBuild runs each command in a separate instance of the default shell in the build environment\. This means that each command runs in isolation from all other commands\. Therefore, by default, you cannot run a single command that relies on the state of any previous commands \(for example, changing directories or setting environment variables\)\. To get around this limitation, we recommend that you use version 0\.2, which solves this issue\. If you must use build spec version 0\.1, we recommend the approaches in [Shells and Commands in Build Environments](build-env-ref-cmd.md)\.
@@ -178,7 +185,7 @@ Commands in some build phases might not be run if commands in earlier build phas
     When you specify build output artifact locations, CodeBuild can locate the original build location in the build environment\. You do not have to prepend your build artifact output locations with the path to the original build location or specify `./` or similar\. If you want to know the path to this location, you can run a command such as `echo $CODEBUILD_SRC_DIR` during a build\. The location for each build environment might be slightly different\. 
   + `name`: Optional name\. Specifies a name for your build artifact\. This name is used when one of the following is true\.
     +  You use the CodeBuild API to create your builds and the `overrideArtifactName` flag is set on the `ProjectArtifacts` object when a project is updated, a project is created, or a build is started\. 
-    +  You use the CodeBuild console to create your builds, a name is specified in the buildspec file, and you select **Use the name specified in the buildspec file** when you create or update a project\. For more information, see [Create a Build Project \(Console\)](create-project.md#create-project-console)\. 
+    +  You use the CodeBuild console to create your builds, a name is specified in the buildspec file, and you select **Enable semantic versioning** when you create or update a project\. For more information, see [Create a Build Project \(Console\)](create-project.md#create-project-console)\. 
 
      You can specify a name in the build spec file that is calculated at build time\. The name specified in a build spec file uses the Shell command language\. For example, you can append a date and time to your artifact name so that it is always unique\. Unique artifact names prevent artifacts from being overwritten\. For more information, see [Shell Command Language](http://pubs.opengroup.org/onlinepubs/9699919799/)\. 
 
@@ -207,7 +214,7 @@ Commands in some build phases might not be run if commands in earlier build phas
     artifacts:
       files:
         - '**/*'
-      name: myname-$(AWS_REGION)
+      name: myname-$AWS_REGION
     ```
 
      This is an example of an artifact name that uses a CodeBuild environment variable with the artifact's creation date appended to it\. 
@@ -221,7 +228,7 @@ Commands in some build phases might not be run if commands in earlier build phas
     artifacts:
       files:
         - '**/*'
-      name: $(AWS_REGION)-$(date +%Y-%m-%d)
+      name: $AWS_REGION-$(date +%Y-%m-%d)
     ```
   + `discard-paths`: Optional mapping\. Represents whether paths to files in the build output artifact are discarded\. `yes` if paths are discarded; otherwise, `no` or not specified \(the default\)\. For example, if a path to a file in the build output artifact would be `com/mycompany/app/HelloWorld.java`, then specifying `yes` would shorten this path to simply `HelloWorld.java`\. 
   + `base-directory`: Optional mapping\. Represents one or more top\-level directories, relative to the original build location, that CodeBuild uses to determine which files and subdirectories to include in the build output artifact\. Valid values include:

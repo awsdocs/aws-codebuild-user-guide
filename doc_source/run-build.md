@@ -51,7 +51,7 @@ To use AWS CodePipeline to run a build with CodeBuild, skip these steps and foll
     Under **Build Artifacts**, you can: 
    + From **Type**, choose a different artifacts type\.
    + In **Name**, enter a different output artifact name\. 
-   + If you want a name specified in the build spec file to override any name specified in the console, select **Use the name specified in the buildspec file**\. The name in a build spec file uses the Shell command language\. For example, you can append a date and time to your artifact name so that it is always unique\. Unique artifact names prevent artifacts from being overwritten\. For more information, see [Build Spec Syntax](build-spec-ref.md#build-spec-ref-syntax)\.
+   + If you want a name specified in the build spec file to override any name specified in the console, select **Enable semantic versioning**\. The name in a build spec file uses the Shell command language\. For example, you can append a date and time to your artifact name so that it is always unique\. Unique artifact names prevent artifacts from being overwritten\. For more information, see [Build Spec Syntax](build-spec-ref.md#build-spec-ref-syntax)\.
    + In **Path**, enter a different output artifact path\. 
    + In **Namespace type**, choose a different type\. Choose **Build ID** to insert the build ID into the path of the build output file \(for example, `My-Path/Build-ID/My-Artifact.zip`\)\. Otherwise, choose **None**\. 
    + From **Bucket name** choose a different Amazon S3 bucket for your output artifacts\. 
