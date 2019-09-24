@@ -137,10 +137,12 @@ If an environment variable with the same name is defined in multiple places, the
 The value in the start build operation call takes highest precedence\. You can add or override environment variables when you create a build\. For more information, see [Run a Build in CodeBuild](run-build.md)\. 
 The value in the build project definition takes next precedence\. You can add environment variables at the project level when you create or edit a project\. For more information, see [Create a Build Project in CodeBuild](create-project.md) and [Change a Build Project's Settings in CodeBuild ](change-project.md)\.
 The value in the build spec declaration takes lowest precedence\.
-  +  `git-credential-helper`: Optional mapping\. Represents whether CodeBuild uses its Git credential helper to provide Git credentials\. `yes` if it is used; otherwise, `no` or not specified\. For more information, see [gitcredentials](https://git-scm.com/docs/gitcredentials) on the Git website\. 
-+ `proxy`: Optional sequence\. Represents settings if you run your build in an explicit proxy server\. For more information, see [](use-proxy-server.md#run-codebuild-in-explicit-proxy-server)\. 
-  +  `upload-artifacts`: Optional mapping\. Set to `yes` if you want your build in an explicit proxy server to upload artifacts\. The default setting is `no`\. 
-  +  `logs`: Optional mapping\. Set to `yes` for your build in a explicit proxy server to create CloudWatch Logs\. The default setting is `no`\. 
+  +  `git-credential-helper`: Optional mapping\. Used to indicate if CodeBuild uses its Git credential helper to provide Git credentials\. `yes` if it is used\. Otherwise, `no` or not specified\. For more information, see [gitcredentials](https://git-scm.com/docs/gitcredentials) on the Git website\. 
+**Note**  
+ `git-credential-helper` is not supported for builds that are triggered by a webhook for a public Git repository\.
++ `proxy`: Optional sequence\. Used to represent settings if you run your build in an explicit proxy server\. For more information, see [ Run CodeBuild in an Explicit Proxy Server](use-proxy-server.md#run-codebuild-in-explicit-proxy-server)\. 
+  +  `upload-artifacts`: Optional mapping\. Set to `yes` if you want your build in an explicit proxy server to upload artifacts\. The default is `no`\. 
+  +  `logs`: Optional mapping\. Set to `yes` for your build in a explicit proxy server to create CloudWatch logs\. The default is `no`\. 
 + `phases`: Required sequence\. Represents the commands CodeBuild runs during each phase of the build\. 
 **Note**  
 In build spec version 0\.1, CodeBuild runs each command in a separate instance of the default shell in the build environment\. This means that each command runs in isolation from all other commands\. Therefore, by default, you cannot run a single command that relies on the state of any previous commands \(for example, changing directories or setting environment variables\)\. To get around this limitation, we recommend that you use version 0\.2, which solves this issue\. If you must use build spec version 0\.1, we recommend the approaches in [Shells and Commands in Build Environments](build-env-ref-cmd.md)\.

@@ -48,4 +48,4 @@
 +  `FailedBuild`\. You can create an alarm that is triggered when a certain number of failed builds are detected within a predetermined number of seconds\. In CloudWatch you specify the number of seconds and how many faild builds trigger an alarm\. 
 +  `Duration`\. You can create an alarm that is triggered when a build takes longer than expected\. You specify how many seconds must elapse after a build is started and before a build is completed before the alarm is triggered\. 
 
- For infomration about how to create alarms for CodeBuild metrics, see [Monitoring Builds with CloudWatch Alarms](monitoring-alarms.md)\. For more information about alarms, see [ Creating Amazon CloudWatch Alarms](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html)\. 
+ For information about how to create alarms for CodeBuild metrics, see [Monitoring Builds with CloudWatch Alarms](monitoring-alarms.md)\. For more information about alarms, see [ Creating Amazon CloudWatch Alarms](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html)\. 

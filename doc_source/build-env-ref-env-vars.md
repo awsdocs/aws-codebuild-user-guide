@@ -24,7 +24,7 @@ For a GitHub or GitHub Enterprise build that is triggered by a webhook pull requ
 + `CODEBUILD_SRC_DIR`: The directory path that CodeBuild uses for the build \(for example, `/tmp/src123456789/src`\)\.
 **Note**  
 If you use a secondary source, the environment variable for its directory path is `CODEBUILD_SRC_DIR_sourceIdentifier`, where `sourceIdentifier` is the source identifier you create\. For more information, see [Multiple Input Sources and Output Artifacts Sample](sample-multi-in-out.md)\.
-+ `CODEBUILD_START_TIME`: The start time of the build\.
++ `CODEBUILD_START_TIME`: The start time of the build specified as a Unix timestamp in milliseconds\.
 + `CODEBUILD_WEBHOOK_ACTOR_ACCOUNT_ID`: The account ID of the user that triggered the webhook event\.
 + `CODEBUILD_WEBHOOK_BASE_REF`: The base reference name of the webhook event that triggers the current build\. For a pull request, this is the branch reference\.
 + `CODEBUILD_WEBHOOK_EVENT`: The webhook event that triggers the current build\.

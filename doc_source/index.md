@@ -83,6 +83,7 @@ Amazon's trademarks and trade dress may not be used in
       + [Overview of Managing Access Permissions to Your CodeBuild Resources](auth-and-access-control-iam-access-control-identity-based.md)
       + [Using Identity-Based Policies for CodeBuild](auth-and-access-control-iam-identity-based-access-control.md)
       + [CodeBuild Permissions Reference](auth-and-access-control-permissions-reference.md)
+      + [Using Tags to Control Access to CodeBuild Resources](auth-and-access-control-using-tags.md)
       + [Viewing Resources in the Console](console-resources.md)
    + [Logging and Monitoring in AWS CodeBuild](security-incident-response.md)
       + [Logging CodeBuild API Calls with AWS CloudTrail](cloudtrail.md)
