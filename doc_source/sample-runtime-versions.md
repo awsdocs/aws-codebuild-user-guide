@@ -1,6 +1,6 @@
 # Runtime Versions in Buildspec File Sample for CodeBuild<a name="sample-runtime-versions"></a>
 
- If you use the Amazon Linux 2 \(AL2\) standard image version 1\.0 or later, or the Ubuntu standard image version 2\.0 or later, you must specify at least one runtime and its version in the `runtime-versions` section of your buildspec file\. This sample shows how you can change your project runtime, specify more than one runtime, and specify a runtime that is dependent on another runtime\.
+ If you use the Amazon Linux 2 \(AL2\) standard image version 1\.0 or later, or the Ubuntu standard image version 2\.0 or later, you must specify at least one runtime and its version in the `runtime-versions` section of your buildspec file\. This sample shows how you can change your project runtime, specify more than one runtime, and specify a runtime that is dependent on another runtime\. For information about supported runtimes, see [Docker Images Provided by CodeBuild](build-env-ref-available.md)\.
 
 **Note**  
  If you use Docker in your build container, then your build must run in privileged mode\. For more information, see [Run a Build in CodeBuild](run-build.md) and [Create a Build Project in CodeBuild](create-project.md)\. 
