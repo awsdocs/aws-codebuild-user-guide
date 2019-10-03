@@ -2,10 +2,11 @@
 
 The following table describes the important changes to the documentation since the last release of AWS CodeBuild\. For notification about updates to this documentation, you can subscribe to an RSS feed\.
 + **Latest API version:** 2016\-10\-06
-+ **Latest documentation update: **September 30, 2019
++ **Latest documentation update: **Octorber 3, 2019
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Updated topics](#history) |  CodeBuild now supports the Android version 29 and Go version 1\.13 runtimes\. For more information, see [Docker Images Provided by CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html) and [Build Spec Syntax](https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec-ref-syntax)\. | September 10, 2019 | 
 | [Updated topics](#history) | When you create a project, you can now choose the Amazon Linux 2 \(AL2\) managed image\. For more information, see [Docker Images Provided by CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html) and [Runtime Versions in Buildspec File Sample for CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/sample-runtime-versions.html)\.  | August 16, 2019 | 
 | [Updated topic](#history) | When you create a project, you can now choose to disable encryption of S3 logs and, if you use a Git\-based source repository, include Git submodules\. For more information, see [Create a Build Project in CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/create-project.html)\.  | March 8, 2019 | 
 | [New topic](#history) | CodeBuild now supports local caching\. You can specify local caching in one or more of four modes when you create a build\. For more information, see [Build Caching in CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-caching.html)\.  | February 21, 2019 | 

@@ -7,8 +7,8 @@
 
 ## Update Your Runtime Version<a name="sample-runtime-update-version"></a>
 
- You can modify the runtime used by your project to a new version by updating the `runtime-versions` section of your buildpec file\. The following examples show how to specify Corretto versions 8 and 11:
-+  A `runtime-versions` section that specifies version 8 of Corretto \(Amazon Linux 2 only\): 
+ You can modify the runtime used by your project to a new version by updating the `runtime-versions` section of your buildpec file\. The following examples show how to specify java versions 8 and 11\.
++  A `runtime-versions` section that specifies version 8 of Java if you use the Amazon Linux 2 standard image:
 
   ```
   phases:
@@ -16,7 +16,7 @@
       runtime-versions:
         java: corretto8
   ```
-+  A `runtime-versions` section that specifies version 11 of Corretto \(Amazon Linux 2 only\): 
++  A `runtime-versions` section that specifies version 11 of Java if you use the Amazon Linux 2 standard image: 
 
   ```
   phases:
@@ -24,9 +24,7 @@
       runtime-versions:
         java: corretto11
   ```
-
-The following examples show how to specify Java versions 8 and 10: 
-+  A `runtime-versions` section that specifies version 8 of Java \(Ubuntu only\): 
++  A `runtime-versions` section that specifies version 8 of Java if you use the Ubuntu standard image 2\.0: 
 
   ```
   phases:
@@ -34,7 +32,7 @@ The following examples show how to specify Java versions 8 and 10:
       runtime-versions:
         java: openjdk8
   ```
-+  A `runtime-versions` section that specifies version 11 of Java \(Ubuntu only\): 
++  A `runtime-versions` section that specifies version 11 of Java if you use the Ubuntu standard image 2\.0: 
 
   ```
   phases:
@@ -43,7 +41,7 @@ The following examples show how to specify Java versions 8 and 10:
         java: openjdk11
   ```
 
- The following examples show how you to specify different versions of Node\.js: 
+ The following examples show how you to specify different versions of Node\.js using the Ubuntu standard image 2\.0 or the Amazon Linux 2 standard image 1\.0: 
 +  A `runtime-versions` section that specifies Node\.js version 8: 
 
   ```
@@ -73,7 +71,7 @@ The following examples show how to specify Java versions 8 and 10:
    phases:
      install:
        runtime-versions:
-         java: openjdk8
+         java: corretto8
      build:
        commands:
          - java -version
@@ -143,7 +141,7 @@ If you are using an Amazon S3 input bucket, be sure to create a ZIP file that co
    ```
    install:
        runtime-versions:
-         java: openjdk11
+         java: corretto11
    ```
 
 1.  After you save the change, run your build again and view the build output\. You should see that the installed version of Java is 11\. You should see output similar to the following: 
@@ -164,9 +162,9 @@ If you are using an Amazon S3 input bucket, be sure to create a ZIP file that co
 
 ## Specify a Runtime Dependency<a name="sample-runtime-dependent-runtime"></a>
 
- This example shows how to specify a runtime and a dependency runtime\. For example, the Android runtime version 28 is dependent on the Java or Corretto runtime version 8\. If you specify Android version 28 and use Amazon Linux 2, you must also specify Corretto version 8\. If you specify Android version 28 and use Ubuntu, you must also specify Java version 8\. 
+ This example shows how to specify a runtime and a dependency runtime\. For example, any supported Android runtime version is dependent on the Java runtime version 8\. For example, if you specify Android version 29 and use Amazon Linux 2 or Ubuntu, you must also specify Java version 8\. 
 
- The build project in this example uses source code in the GitHub [AWS Samples](https://github.com/aws-samples) repository\. The source code uses the Android version 28 runtime and the build project uses Amazon Linux 2, so the buildspec must also specify Corretto version 8\. 
+ The build project in this example uses source code in the GitHub [AWS Samples](https://github.com/aws-samples) repository\. The source code uses the Android version 28 runtime and the build project uses Amazon Linux 2, so the buildspec must also specify Java version 8\. 
 
 1. Open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codesuite/codebuild/home](https://console.aws.amazon.com/codesuite/codebuild/home)\.
 
@@ -190,7 +188,7 @@ If you are using an Amazon S3 input bucket, be sure to create a ZIP file that co
    phases:
      install:
        runtime-versions:
-         android: 28
+         android: 29
          java: corretto8
      build:
        commands:
@@ -200,7 +198,7 @@ If you are using an Amazon S3 input bucket, be sure to create a ZIP file that co
        - app/build/outputs/apk/app-debug.apk
    ```
 
-    The `runtime-versions` section specifies both Android version 28 and Java version 8 runtimes\. 
+    The `runtime-versions` section specifies both Android version 29 and Java version 8 runtimes\. 
 
 1.  Choose **Create build project**\. 
 
@@ -208,12 +206,12 @@ If you are using an Amazon S3 input bucket, be sure to create a ZIP file that co
 
 1.  On **Build configuration** accept the defaults, and then choose **Start build**\. 
 
-1.  After the build is complete, view the build output on the **Build logs** tab\. You should see output similar to the following\. It shows that Android version 28 and Corretto version 8 are installed: 
+1.  After the build is complete, view the build output on the **Build logs** tab\. You should see output similar to the following\. It shows that Android version 29 and Java version 8 are installed: 
 
    ```
    [Container] 2019/05/14 23:21:42 Entering phase INSTALL 
-   [Container] Date Time Running command echo "Installing Android version 28 ..." 
-   Installing Android version 28 ... 
+   [Container] Date Time Running command echo "Installing Android version 29 ..." 
+   Installing Android version 29 ... 
     
    [Container] Date Time Running command echo "Installing Java version 8 ..." 
    Installing Java version 8 ...
@@ -282,7 +280,7 @@ If you are using an Amazon S3 input bucket, be sure to create a ZIP file that co
    phases:
      install:
        runtime-versions:
-         golang: 1.12
+         golang: 1.13
          nodejs: 10
      build:
        commands:

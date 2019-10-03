@@ -18,13 +18,13 @@ AWS CodeBuild manages the following Docker images that are available in the Code
 
 | Runtime name | Version/versions | How to specify in the buildspec file | 
 | --- | --- | --- | 
-| android | 28 | android: 28 | 
+| android | 28, 29 | android: 28, android: 29 | 
 | docker | 18 | docker: 18 | 
 | dotnet | 2\.2 | dotnet: 2\.2 | 
-| golang | 1\.12 | golang: 1\.12 | 
+| golang | 1\.12, 1\.13 | golang: 1\.12, golang: 1\.13 | 
 | nodejs | 8, 10 | nodejs: 8, nodejs: 10 | 
 | java \(Ubuntu only\) | openjdk8, openjdk11 | java: openjdk8, java: openjdk11 | 
-| corretto \(Amazon Linux 2 only\) | corretto8, corretto11 | java: corretto8, java: corretto11 | 
+| java \(Amazon Linux 2 only\) | corretto8, corretto11 | java: corretto8, java: corretto11 | 
 | php | 7\.3 | php: 7\.3 | 
 | python | 3\.7 | python: 3\.7 | 
 | ruby | 2\.6 | ruby: 2\.6 | 

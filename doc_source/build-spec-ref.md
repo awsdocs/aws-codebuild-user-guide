@@ -150,22 +150,22 @@ In build spec version 0\.1, CodeBuild runs each command in a separate instance o
 
   The allowed build phase names are:
   + `install`: Optional sequence\. Represents the commands, if any, that CodeBuild runs during installation\. We recommend that you use the `install` phase only for installing packages in the build environment\. For example, you might use this phase to install a code testing framework such as Mocha or RSpec\.<a name="runtime-versions-buildspec-file"></a>
-    + <a name="runtime-versions-in-build-spec"></a> `runtime-versions`: Required if using the Ubuntu standard image 2\.0 or later, or the Amazon Linux \(AL2\) standard image 1\.0 or later\. A runtime version is not supported with a custom image or the Ubuntu standard image 1\.0\. If specified, at least one runtime must be included in this section\. Specify a runtime using a major version only, such as "java: openjdk11" or "ruby: 2\.6\." You can specify the runtime using a number or an environment variable\. For example, the following specifies that version 8 of `openjdk`, version 28 of `android`, and a version contained in an environment variable of `ruby` is installed\. For more information, see [Docker Images Provided by CodeBuild](build-env-ref-available.md)\. 
-**Note**  
- If you specify a `runtime-versions` section and use an image other than Ubuntu Standard Image 2\.0 or later, or the Amazon Linux 2 \(AL2\) standard image 1\.0 or later, the build issues the warning, "Skipping install of runtimes\. Runtime version selection is not supported by this build image\." 
+    + <a name="runtime-versions-in-build-spec"></a> `runtime-versions`: Required if using the Ubuntu standard image 2\.0 or later, or the Amazon Linux \(AL2\) standard image 1\.0 or later\. A runtime version is not supported with a custom image or the Ubuntu standard image 1\.0\. If specified, at least one runtime must be included in this section\. Specify a runtime using a major version only, such as "java: openjdk11" or "ruby: 2\.6\." You can specify the runtime using a number or an environment variable\. For example, if you use the Amazon Linux 2 standard image 1\.0, then the following specifies that version 8 of Java, version 29 of Android, and a version contained in an environment variable of Ruby is installed\. For more information, see [Docker Images Provided by CodeBuild](build-env-ref-available.md)\. 
 
       ```
       phases:
         install:
           runtime-versions:
-            java: openjdk8
-            android: 28
+            java: corretto8
+            android: 29
             ruby: "$MY_RUBY_VAR"
       ```
-      +  Some runtimes must include specific versions of other runtimes\. If a required runtime is not specified, the build fails\. For example, `android` version 28 requires version 8 of `openjdk`\. If `android: 28` is specified, and `openjdk: 8` is not, the build fails\.
-      + If two specified runtimes conflict, the build fails\. For example, `android: 8` and `java: openjdk11` conflict, so if both are specified, the build fails\.
-      +  The following runtimes can be specified\.     
+      +  Some runtimes must include specific versions of other runtimes\. If a required runtime is not specified, the build fails\. For example, if you use any supported version of `android`, then version 8 of Java is required\. If you use the Ubuntu standard image 2\.0, you specify this using `java: openkdk8`\. If you use the Amazon Linux 2 standard image 1\.0, you specify this using `java: corretto8`\.
+      + If two specified runtimes conflict, the build fails\. For example, `android: 29` and `java: openjdk11` conflict, so if both are specified, the build fails\.
+      +  The following supported runtimes can be specified\.     
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html)
+**Note**  
+ If you specify a `runtime-versions` section and use an image other than Ubuntu Standard Image 2\.0 or later, or the Amazon Linux 2 \(AL2\) standard image 1\.0 or later, the build issues the warning, "Skipping install of runtimes\. Runtime version selection is not supported by this build image\." 
     + `commands`: Required sequence unless you specify `runtime-versions`\. Optional if you specify `runtime-versions`\. Contains a sequence of scalars, where each scalar represents a single command that CodeBuild runs during installation\. CodeBuild runs each command, one at a time, in the order listed, from beginning to end\.
   + `pre_build`: Optional sequence\. Represents the commands, if any, that CodeBuild runs before the build\. For example, you might use this phase to sign in to Amazon ECR, or you might install npm dependencies\. 
     + `commands`: Required sequence if `pre_build` is specified\. Contains a sequence of scalars, where each scalar represents a single command that CodeBuild runs before the build\. CodeBuild runs each command, one at a time, in the order listed, from beginning to end\.

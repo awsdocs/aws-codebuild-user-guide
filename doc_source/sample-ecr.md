@@ -152,7 +152,7 @@ version: 0.2
 phases:
   install: 
    runtime-versions: 
-     golang: 1.12 
+     golang: 1.13 
   build:
     commands:
       - echo Build started on `date`
