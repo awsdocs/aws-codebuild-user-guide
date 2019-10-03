@@ -191,7 +191,7 @@ Commands in some build phases might not be run if commands in earlier build phas
 
      You can specify a name in the build spec file that is calculated at build time\. The name specified in a build spec file uses the Shell command language\. For example, you can append a date and time to your artifact name so that it is always unique\. Unique artifact names prevent artifacts from being overwritten\. For more information, see [Shell Command Language](http://pubs.opengroup.org/onlinepubs/9699919799/)\. 
 
-     This is an example of an arifact name appended with the date the artifact is created\. 
+     This is an example of an artifact name appended with the date the artifact is created\. 
 
     ```
     version: 0.2         
