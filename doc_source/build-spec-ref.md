@@ -160,7 +160,7 @@ In build spec version 0\.1, CodeBuild runs each command in a separate instance o
             android: 29
             ruby: "$MY_RUBY_VAR"
       ```
-      +  Some runtimes must include specific versions of other runtimes\. If a required runtime is not specified, the build fails\. For example, if you use any supported version of `android`, then version 8 of Java is required\. If you use the Ubuntu standard image 2\.0, you specify this using `java: openkdk8`\. If you use the Amazon Linux 2 standard image 1\.0, you specify this using `java: corretto8`\.
+      +  Some runtimes must include specific versions of other runtimes\. If a required runtime is not specified, the build fails\. For example, if you use any supported version of `android`, then version 8 of Java is required\. If you use the Ubuntu standard image 2\.0, you specify this using `java: openjdk8`\. If you use the Amazon Linux 2 standard image 1\.0, you specify this using `java: corretto8`\.
       + If two specified runtimes conflict, the build fails\. For example, `android: 29` and `java: openjdk11` conflict, so if both are specified, the build fails\.
       +  The following supported runtimes can be specified\.     
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html)
