@@ -40,17 +40,17 @@ Docker layer cache mode is available for the Linux environment only\. If you cho
 +  To specify a source cache: 
 
   ```
-  --cache type=Local,mode=[LOCAL_SOURCE_CACHE]
+  --cache type=LOCAL,mode=[LOCAL_SOURCE_CACHE]
   ```
 +  To specify a Docker layer cache: 
 
   ```
-  --cache type=Local,mode=[LOCAL_DOCKER_LAYER_CACHE]
+  --cache type=LOCAL,mode=[LOCAL_DOCKER_LAYER_CACHE]
   ```
 +  To specify a custom cache: 
 
   ```
-  --cache type=Local,mode=[LOCAL_CUSTOM_CACHE]
+  --cache type=LOCAL,mode=[LOCAL_CUSTOM_CACHE]
   ```
 
 For more information, see [Create a Build Project \(AWS CLI\)](create-project.md#create-project-cli)\.

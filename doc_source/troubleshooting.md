@@ -264,11 +264,13 @@ artifacts:
 + The build image's overall uncompressed size is larger than the build environment compute type's available disk space\. To check your build image's size, use Docker to run the `docker images REPOSITORY:TAG` command\. For a list of available disk space by compute type, see [Build Environment Compute Types](build-env-ref-compute-types.md)\.
 + AWS CodeBuild does not have permission to pull the build image from your Amazon Elastic Container Registry \(Amazon ECR\)\.
 +  The Amazon ECR image you requested is not available in the region that your AWS account is using\. 
++  You are using a private registry in a VPC that does not have public internet access\. CodeBuild cannot pull an image from a private IP address in a VPC\. For more information, see [ Private Registry with AWS Secrets Manager Sample for CodeBuild](sample-private-registry.md)\. 
 
  **Recommended solutions:** 
 + Use a larger compute type with more available disk space, or reduce the size of your custom build image\.
 + Update the permissions in your repository in Amazon ECR so that CodeBuild can pull your custom build image into the build environment\. For more information, see the [Amazon ECR Sample](sample-ecr.md)\.
 +  Use an Amazon ECR image that is in the same region as the one your AWS account is using\. 
++  If you use a private registry in a VPC, make sure the VPC has public internet access\. 
 
 ## Builds Might Fail When File Names Have Non\-U\.S\. English Characters<a name="troubleshooting-utf-8"></a>
 

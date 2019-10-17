@@ -18,7 +18,7 @@
 
  Create your Amazon VPC with an AWS CloudFormation template\. 
 
-1.  Follow the instructions here, [AWS CloudFormation VPC Template](cloudformation-vpc-template.md), to use AWS CloudFormation to create an Amazon VPC\. If you are already familiar with AWS CloudFormation, you can go directly to the AWS CloudFormation console to create a stack using the template available for download from [https://s3.amazonaws.com/codebuild-cloudformation-templates-public/vpc_cloudformation_template.yml](https://s3.amazonaws.com/codebuild-cloudformation-templates-public/vpc_cloudformation_template.yml)\. For more information, see the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide//Welcome.html)\. 
+1.  Follow the instructions here, [AWS CloudFormation VPC Template](cloudformation-vpc-template.md), to use AWS CloudFormation to create an Amazon VPC\. For more information, see the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide//Welcome.html)\. 
 **Note**  
  The Amazon VPC created by this AWS CloudFormation template has two private subnets and two public subnets\. You must only use private subnets when you use AWS CodeBuild to mount Amazon EFS\. If you use one of the public subnets, the build fails\. 
 

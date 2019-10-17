@@ -35,7 +35,7 @@ AWS CodeBuild manages the following Docker images that are available in the Code
 | Runtime name | Version in `windows-base:1.0` | Version in `windows-base:2.0` | 
 | --- | --- | --- | 
 | dotnet | 2\.1 | 2\.2 | 
-| golang | 1\.11 | 1\.12 | 
+| golang | 1\.11 | 1\.13 | 
 | nodejs | 9\.11 | 10\.16 | 
 | java | openjdk8 | openjdk11 | 
 | php | 7\.2 | 7\.3 | 
