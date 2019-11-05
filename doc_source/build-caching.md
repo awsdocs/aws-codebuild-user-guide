@@ -11,7 +11,7 @@ Docker layer cache mode is available for the Linux environment only\. If you cho
 
 ## Amazon S3 Caching<a name="caching-s3"></a>
 
- Amazon S3 caching stores the cache in an Amazon S3 bucket that is available across multiple build hosts\. This is a good option for small intermediate build artifacts that are more expensive to build than to download\. This is not the best option for large build artifacts because they can take a long time to tranfer over your network, which can affect build performance\. 
+ Amazon S3 caching stores the cache in an Amazon S3 bucket that is available across multiple build hosts\. This is a good option for small intermediate build artifacts that are more expensive to build than to download\. This is not the best option for large build artifacts because they can take a long time to transfer over your network, which can affect build performance\. 
 
 ## Local Caching<a name="caching-local"></a>
 
