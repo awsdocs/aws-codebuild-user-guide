@@ -23,9 +23,7 @@ Answer the questions in [Plan a Build](planning.md)\.
 
 1. In **Project configuration**:
 
-   On the **Create build project** page, in **Project configuration**, for **Project name**, enter a name for this build project\. Build project names must be unique across each AWS account\. You can also include an optional description of the build project to help other users understand what this project is used for\.
-
-    In **Description**, enter an optional description for your project\. 
+   On the **Create build project** page, in **Project configuration**, enter a name for this build project\. Build project names must be unique across each AWS account\. You can also include an optional description of the build project to help other users understand what this project is used for\.
 
    Select **Build badge** to make your project's build status visible and embeddable\. For more information, see [Build Badges Sample](sample-build-badges.md)\.
 **Note**  
@@ -55,8 +53,8 @@ CodeBuild does not support Bitbucket Server\.
 
    For **Environment image**, do one of the following:
    + To use a Docker image managed by AWS CodeBuild, choose **Managed image**, and then make selections from **Operating system**, **Runtime**, and **Runtime version**\.
-   + To use another Docker image, choose **Custom image**\. For **Environment type**, choose **Linux** or **Windows**\. For **Custom image type**, choose **Amazon ECR** or **Other location**\. If you choose **Other location**, enter the name and tag of the Docker image in Docker Hub, using the format `docker repository/docker image name`\. If you choose **Amazon ECR**, then use **Amazon ECR repository** and **Amazon ECR image** to choose the Docker image in your AWS account\.
-   + To use private Docker image, choose **Custom image**\. For **Environment type**, choose **Linux** or **Windows**\. For **Custom image type**, choose **Other location**, and then enter the Amazon Resource Name \(ARN\) of the credentials for your private Docker image\. The credentials must be created by AWS Secrets Manager\. For more information, see [What Is AWS Secrets Manager?](https://docs.aws.amazon.com/secretsmanager/latest/userguide/)
+   + To use another Docker image, choose **Custom image**\. For **Environment type**, choose **Linux** or **Windows**\. For **Custom image type**, choose **Amazon ECR** or **Other location**\. If you choose **Other location**, enter the name and tag of the Docker image in Docker Hub, using the format `docker repository/docker image name`\. If you choose **Amazon ECR**, use **Amazon ECR repository** and **Amazon ECR image** to choose the Docker image in your AWS account\.
+   + To use private Docker image, choose **Custom image**\. For **Environment type**, choose **Linux** or **Windows**\. For **Custom image type**, choose **Other location**, and then enter the ARN of the credentials for your private Docker image\. The credentials must be created by Secrets Manager\. For more information, see [What Is AWS Secrets Manager?](https://docs.aws.amazon.com/secretsmanager/latest/userguide/)
 
    \(Optional\) Select **Privileged** only if you plan to use this build project to build Docker images, and the build environment image you chose is not provided by CodeBuild with Docker support\. Otherwise, all associated builds that attempt to interact with the Docker daemon fail\. You must also start the Docker daemon so that your builds can interact with it\. One way to do this is to initialize the Docker daemon in the `install` phase of your build spec by running the following build commands\. Do not run these commands if you chose a build environment image provided by CodeBuild with Docker support\.
 
@@ -66,8 +64,8 @@ CodeBuild does not support Bitbucket Server\.
    ```
 
    In **Service role**, do one of the following:
-   + If you do not have a CodeBuild service role, choose **New service role**\. In **Role name**, accept the default name or enter your own\.
-   + If you have a CodeBuild service role, choose **Existing service role**\. In **Role name**, choose the service role\.
+   + If you do not have a CodeBuild service role, choose **New service role**\. In **Role name**, enter a name for the new role\.
+   + If you have a CodeBuild service role, choose **Existing service role**\. In **Role ARN**, choose the service role\.
 **Note**  
 When you use the console to create or update a build project, you can create a CodeBuild service role at the same time\. By default, the role works with that build project only\. If you use the console to associate this service role with another build project, the role is updated to work with the other build project\. A service role can work with up to 10 build projects\.
 
@@ -95,18 +93,27 @@ IMAGE\_TAG
 
    Others can see environment variables by using the CodeBuild console and the AWS CLI\. If you have no concerns about the visibility of your environment variable, set the **Name** and **Value** fields, and then set **Type** to **Plaintext**\.
 
-   We recommend that you store an environment variable with a sensitive value, such as an AWS access key ID, an AWS secret access key, or a password as a parameter in Amazon EC2 Systems Manager Parameter Store\. For **Type**, choose **Parameter**\. For **Name**, enter an identifier for CodeBuild to reference\. For **Value**, enter the parameter's name as stored in Amazon EC2 Systems Manager Parameter Store\. Using a parameter named `/CodeBuild/dockerLoginPassword` as an example, for **Type**, choose **Parameter**\. For **Name**, enter `LOGIN_PASSWORD`\. For **Value**, type `/CodeBuild/dockerLoginPassword`\. 
+   We recommend that you store an environment variable with a sensitive value, such as an AWS access key ID, an AWS secret access key, or a password as a parameter in Amazon EC2 Systems Manager Parameter Store or AWS Secrets Manager\. 
+
+   If you use Amazon EC2 Systems Manager Parameter Store, then for **Type**, choose **Parameter**\. For **Name**, enter an identifier for CodeBuild to reference\. For **Value**, enter the parameter's name as stored in Amazon EC2 Systems Manager Parameter Store\. Using a parameter named `/CodeBuild/dockerLoginPassword` as an example, for **Type**, choose **Parameter**\. For **Name**, enter `LOGIN_PASSWORD`\. For **Value**, type `/CodeBuild/dockerLoginPassword`\. 
 **Important**  
-We recommend that you store parameters in Amazon EC2 Systems Manager Parameter Store with parameter names that start with `/CodeBuild/` \(for example, `/CodeBuild/dockerLoginPassword`\)\. You can use the CodeBuild console to create a parameter in Amazon EC2 Systems Manager\. Choose **Create parameter**, and then follow the instructions in the dialog box\. \(In that dialog box, for **KMS key**, you can optionally specify the ARN of an AWS KMS key in your account\. Amazon EC2 Systems Manager uses this key to encrypt the parameter's value during storage and decrypt during retrieval\.\) If you use the CodeBuild console to create a parameter, the console starts the parameter name with `/CodeBuild/` as it is being stored\. For more information, see [Systems Manager Parameter Store](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-paramstore.html) and [Systems Manager Parameter Store Console Walkthrough](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-walk.html#sysman-paramstore-console) in the *Amazon EC2 Systems Manager User Guide*\.  
-If your build project refers to parameters stored in Amazon EC2 Systems Manager Parameter Store, the build project's service role must allow the `ssm:GetParameters` action\. If you chose **New service role** earlier, then CodeBuild includes this action in the default service role for your build project automatically\. However, if you chose **Existing service role**, then you must include this action to your service role separately\.  
-If your build project refers to parameters stored in Amazon EC2 Systems Manager Parameter Store with parameter names that do not start with `/CodeBuild/`, and you chose **New service role**, then you must update that service role to allow access to parameter names that do not start with `/CodeBuild/`\. This is because that service role allows access only to parameter names that start with `/CodeBuild/`\.  
-If you choose **Create a service role in your account**, the created service role includes permission to decrypt all parameters under the `/CodeBuild/` namespace in the Amazon EC2 Systems Manager Parameter Store\.  
+If you use Amazon EC2 Systems Manager Parameter Store, we recommend that you store parameters with parameter names that start with `/CodeBuild/` \(for example, `/CodeBuild/dockerLoginPassword`\)\. You can use the CodeBuild console to create a parameter in Amazon EC2 Systems Manager\. Choose **Create parameter**, and then follow the instructions in the dialog box\. \(In that dialog box, for **KMS key**, you can optionally specify the ARN of an AWS KMS key in your account\. Amazon EC2 Systems Manager uses this key to encrypt the parameter's value during storage and decrypt it during retrieval\.\) If you use the CodeBuild console to create a parameter, the console starts the parameter name with `/CodeBuild/` as it is being stored\. For more information, see [Systems Manager Parameter Store](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-paramstore.html) and [Systems Manager Parameter Store Console Walkthrough](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-walk.html#sysman-paramstore-console) in the *Amazon EC2 Systems Manager User Guide*\.  
+If your build project refers to parameters stored in Amazon EC2 Systems Manager Parameter Store, the build project's service role must allow the `ssm:GetParameters` action\. If you chose **New service role** earlier, CodeBuild includes this action in the default service role for your build project automatically\. However, if you chose **Existing service role**, you must include this action to your service role separately\.  
+If your build project refers to parameters stored in Amazon EC2 Systems Manager Parameter Store with parameter names that do not start with `/CodeBuild/`, and you chose **New service role**, you must update that service role to allow access to parameter names that do not start with `/CodeBuild/`\. This is because that service role allows access only to parameter names that start with `/CodeBuild/`\.  
+If you choose **New service role**, the service role includes permission to decrypt all parameters under the `/CodeBuild/` namespace in the Amazon EC2 Systems Manager Parameter Store\.  
 Environment variables you set replace existing environment variables\. For example, if the Docker image already contains an environment variable named `MY_VAR` with a value of `my_value`, and you set an environment variable named `MY_VAR` with a value of `other_value`, then `my_value` is replaced by `other_value`\. Similarly, if the Docker image already contains an environment variable named `PATH` with a value of `/usr/local/sbin:/usr/local/bin`, and you set an environment variable named `PATH` with a value of `$PATH:/usr/share/ant/bin`, then `/usr/local/sbin:/usr/local/bin` is replaced by the literal value `$PATH:/usr/share/ant/bin`\.  
 Do not set any environment variable with a name that begins with `CODEBUILD_`\. This prefix is reserved for internal use\.  
 If an environment variable with the same name is defined in multiple places, the value is determined as follows:  
 The value in the start build operation call takes highest precedence\.
 The value in the build project definition takes next precedence\.
 The value in the build spec declaration takes lowest precedence\.
+
+   If you use Secrets Manager, then for **Type**, choose **Secrets Manager**\. For **Name**, enter an identifier for CodeBuild to reference\. For **Value**, enter a `reference-key` using the pattern `secret-id:json-key:version-stage:version-id`\. For information, see [Secrets Manager reference-key in the Buildspec File](build-spec-ref.md#secrets-manager-build-spec)\.
+**Important**  
+If you use Secrets Manager, we recommend that you store secrets with names that start with `/CodeBuild/` \(for example, `/CodeBuild/dockerLoginPassword`\)\. For more information, see [What Is AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html) in the *AWS Secrets Manager User Guide*\.   
+If your build project refers to secrets stored in Secrets Manager, the build project's service role must allow the `secretsmanager:GetSecretValue` action\. If you chose **New service role** earlier, CodeBuild includes this action in the default service role for your build project automatically\. However, if you chose **Existing service role**, you must include this action to your service role separately\.   
+If your build project refers to secrets stored in Secrets Manager with secret names that do not start with `/CodeBuild/`, and you chose **New service role**, you must update the service role to allow access to secret names that do not start with `/CodeBuild/`\. This is because the service role allows access only to secret names that start with `/CodeBuild/`\.  
+If you choose **New service role** the created service role includes permission to decrypt all secrets under the `/CodeBuild/` namespace in the Secrets Manager\.
 
 1. In **Buildspec**:
 
@@ -140,7 +147,7 @@ The value in the build spec declaration takes lowest precedence\.
    Expand **Additional configuration**\.<a name="encryptionkey-console"></a>
 
    \(Optional\) For **Encryption key**, do one of the following:
-   + To use the AWS\-managed customer master key \(CMK\) for Amazon S3 in your account to encrypt the build output artifacts, leave **Encryption key** blank\. This is the default\.
+   + To use the AWS\-managed customer managed key \(CMK\) for Amazon S3 in your account to encrypt the build output artifacts, leave **Encryption key** blank\. This is the default\.
    + To use a customer\-managed CMK to encrypt the build output artifacts, in **Encryption key**, enter the ARN of the CMK\. Use the format `arn:aws:kms:region-ID:account-ID:key/key-ID`\.
 
    For **Cache type**, choose one of the following:
@@ -418,15 +425,15 @@ For information about using the AWS CLI with CodeBuild, see the [Command Line Re
        ```
        aws ec2 describe-subnets --filters "Name=vpc-id,Values=<vpc-id>" --region us-east-1
        ```
-**Note**  
-If you are using a region other than us\-east\-1, be sure to use it when you run the command\.
+
+       If you are using a region other than `us-east-1`, be sure to use it when you run the command\.
      + *securityGroupIds*: Required value\. The security group IDs used by CodeBuild to allow access to resources in the VPCs\. Run this command to get these IDs:
 
        ```
        aws ec2 describe-security-groups --filters "Name=vpc-id,Values=<vpc-id>" --region us-east-1
        ```
-**Note**  
-If you are using a region other than us\-east\-1, be sure to use it when you run the command\.
+
+       If you are using a region other than `us-east-1`, be sure to use it when you run the command\.
    + For the required `environment` object, information about this project's build environment settings\. These settings include: 
      + *environment\-type*: Required value\. The type of build environment\. Valid values are `LINUX_CONTAINER` and `WINDOWS_CONTAINER`\.
      + *image*: Required value\. The Docker image identifier used by this build environment\. Typically, this identifier is expressed as *image\-name*:*tag*\. For example, in the Docker repository that CodeBuild uses to manage its Docker images, this could be `aws/codebuild/standard:2.0`\. In Docker Hub, `maven:3.3.9-jdk-8`\. In Amazon ECR, `account-id.dkr.ecr.region-id.amazonaws.com/your-Amazon-ECR-repo-name:tag`\. For more information, see [Docker Images Provided by CodeBuild](build-env-ref-available.md)\. 
@@ -436,16 +443,27 @@ If you are using a region other than us\-east\-1, be sure to use it when you run
 
        Others can see an environment variable by using the CodeBuild console and the AWS CLI\. If you have no concerns about the visibility of your environment variable, set *environmentVariable\-name* and *environmentVariable\-value*, and then set *environmentVariable\-type* to `PLAINTEXT`\.
 
-       We recommend you store an environment variable with a sensitive value, such as an AWS access key ID, an AWS secret access key, or a password as a parameter in Amazon EC2 Systems Manager Parameter Store\. For *environmentVariable\-name*, for that stored parameter, set an identifier for CodeBuild to reference\. For *environmentVariable\-value*, set the parameter's name as stored in Amazon EC2 Systems Manager Parameter Store\. Set *environmentVariable\-type* to `PARAMETER_STORE`\. Using a parameter named `/CodeBuild/dockerLoginPassword` as an example, set *environmentVariable\-name* to `LOGIN_PASSWORD`\. Set *environmentVariable\-value* to `/CodeBuild/dockerLoginPassword`\. Set *environmentVariable\-type* to `PARAMETER_STORE`\. 
+       We recommend you store an environment variable with a sensitive value, such as an AWS access key ID, an AWS secret access key, or a password as a parameter in Amazon EC2 Systems Manager Parameter Store or AWS Secrets Manager\. For *environmentVariable\-name*, for that stored parameter, set an identifier for CodeBuild to reference\. 
+
+       If you use Amazon EC2 Systems Manager Parameter Store, for *environmentVariable\-value*, set the parameter's name as stored in the Parameter Store\. Set *environmentVariable\-type* to `PARAMETER_STORE`\. Using a parameter named `/CodeBuild/dockerLoginPassword` as an example, set *environmentVariable\-name* to `LOGIN_PASSWORD`\. Set *environmentVariable\-value* to `/CodeBuild/dockerLoginPassword`\. Set *environmentVariable\-type* to `PARAMETER_STORE`\. 
 **Important**  
-If your build project refers to parameters stored in Amazon EC2 Systems Manager Parameter Store, the build project's service role must allow the `ssm:GetParameters` action\. If you chose **Create a service role in your account** earlier, then CodeBuild includes this action in the default service role for your build project automatically\. However, if you chose **Choose an existing service role from your account**, then you must include this action to your service role separately\.  
-If your build project refers to parameters stored in Amazon EC2 Systems Manager Parameter Store with parameter names that do not start with `/CodeBuild/`, and you chose **Create a service role in your account**, then you must update that service role to allow access to parameter names that do not start with `/CodeBuild/`\. This is because that service role allows access only to parameter names that start with `/CodeBuild/`\.  
-Any environment variables you set replace existing environment variables\. For example, if the Docker image already contains an environment variable named `MY_VAR` with a value of `my_value`, and you set an environment variable named `MY_VAR` with a value of `other_value`, then `my_value` is replaced by `other_value`\. Similarly, if the Docker image already contains an environment variable named `PATH` with a value of `/usr/local/sbin:/usr/local/bin`, and you set an environment variable named `PATH` with a value of `$PATH:/usr/share/ant/bin`, then `/usr/local/sbin:/usr/local/bin` is replaced by the literal value `$PATH:/usr/share/ant/bin`\.  
+If you use Amazon EC2 Systems Manager Parameter Store, we recommend that you store parameters with parameter names that start with `/CodeBuild/` \(for example, `/CodeBuild/dockerLoginPassword`\)\. You can use the CodeBuild console to create a parameter in Amazon EC2 Systems Manager\. Choose **Create parameter**, and then follow the instructions in the dialog box\. \(In that dialog box, for **KMS key**, you can optionally specify the ARN of an AWS KMS key in your account\. Amazon EC2 Systems Manager uses this key to encrypt the parameter's value during storage and decrypt it during retrieval\.\) If you use the CodeBuild console to create a parameter, the console starts the parameter name with `/CodeBuild/` as it is being stored\. For more information, see [Systems Manager Parameter Store](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-paramstore.html) and [Systems Manager Parameter Store Console Walkthrough](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-walk.html#sysman-paramstore-console) in the *Amazon EC2 Systems Manager User Guide*\.  
+If your build project refers to parameters stored in Amazon EC2 Systems Manager Parameter Store, the build project's service role must allow the `ssm:GetParameters` action\. If you chose **New service role** earlier, CodeBuild includes this action in the default service role for your build project automatically\. However, if you chose **Existing service role**, you must include this action to your service role separately\.  
+If your build project refers to parameters stored in Amazon EC2 Systems Manager Parameter Store with parameter names that do not start with `/CodeBuild/`, and you chose **New service role**, you must update that service role to allow access to parameter names that do not start with `/CodeBuild/`\. This is because that service role allows access only to parameter names that start with `/CodeBuild/`\.  
+If you choose **New service role**, the service role includes permission to decrypt all parameters under the `/CodeBuild/` namespace in the Amazon EC2 Systems Manager Parameter Store\.  
+Environment variables you set replace existing environment variables\. For example, if the Docker image already contains an environment variable named `MY_VAR` with a value of `my_value`, and you set an environment variable named `MY_VAR` with a value of `other_value`, then `my_value` is replaced by `other_value`\. Similarly, if the Docker image already contains an environment variable named `PATH` with a value of `/usr/local/sbin:/usr/local/bin`, and you set an environment variable named `PATH` with a value of `$PATH:/usr/share/ant/bin`, then `/usr/local/sbin:/usr/local/bin` is replaced by the literal value `$PATH:/usr/share/ant/bin`\.  
 Do not set any environment variable with a name that begins with `CODEBUILD_`\. This prefix is reserved for internal use\.  
 If an environment variable with the same name is defined in multiple places, the value is determined as follows:  
 The value in the start build operation call takes highest precedence\.
 The value in the build project definition takes next precedence\.
 The value in the build spec declaration takes lowest precedence\.
+
+       If you use Secrets Manager, for *environmentVariable\-value*, set the parameter's name as stored in Secrets Manager\. Set *environmentVariable\-type* to `SECRETS_MANAGER`\. Using a secret named `/CodeBuild/dockerLoginPassword` as an example, set *environmentVariable\-name* to `LOGIN_PASSWORD`\. Set *environmentVariable\-value* to `/CodeBuild/dockerLoginPassword`\. Set *environmentVariable\-type* to `SECRETS_MANAGER`\.
+**Important**  
+If you use Secrets Manager, we recommend that you store secrets with names that start with `/CodeBuild/` \(for example, `/CodeBuild/dockerLoginPassword`\)\. For more information, see [What Is AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html) in the *AWS Secrets Manager User Guide*\.   
+If your build project refers to secrets stored in Secrets Manager, the build project's service role must allow the `secretsmanager:GetSecretValue` action\. If you chose **New service role** earlier, CodeBuild includes this action in the default service role for your build project automatically\. However, if you chose **Existing service role**, you must include this action to your service role separately\.   
+If your build project refers to secrets stored in Secrets Manager with secret names that do not start with `/CodeBuild/`, and you chose **New service role**, you must update the service role to allow access to secret names that do not start with `/CodeBuild/`\. This is because the service role allows access only to secret names that start with `/CodeBuild/`\.  
+If you choose **New service role** the created service role includes permission to decrypt all secrets under the `/CodeBuild/` namespace in the Secrets Manager\.
      + Use the optional `registryCredential` to specify information about credentials that provide access to a private Docker registry\. 
        + *credential\-arn\-or\-name*: Specifies the ARN or name of credentials created using AWS Managed Services \. You can use the name of the credentials only if they exist in your current region
        + *credential\-provider*: the only valid value is `SECRETS_MANAGER`\.
@@ -466,7 +484,7 @@ The value in the build spec declaration takes lowest precedence\.
        ```
    + *badgeEnabled*: Optional value\. To include build badges with your CodeBuild project, you must specify *badgeEnabled* with a value of `true`\. For more information, see [Build Badges Sample with CodeBuild](sample-build-badges.md)\.
    + *timeoutInMinutes*: Optional value\. The number of minutes, between 5 to 480 \(8 hours\), after which CodeBuild stops the build if it is not complete\. If not specified, the default of 60 is used\. To determine if and when CodeBuild stopped a build due to a timeout, run the `batch-get-builds` command\. To determine if the build has stopped, look in the output for a `buildStatus` value of `FAILED`\. To determine when the build timed out, look in the output for the `endTime` value associated with a `phaseStatus` value of `TIMED_OUT`\. 
-   + <a name="encryptionkey-cli"></a>*encryptionKey*: Optional value\. The alias or ARN of the AWS KMS customer master key \(CMK\) CodeBuild uses to encrypt the build output\. If you specify an alias, use the format `arn:aws:kms:region-ID:account-ID:key/key-ID` or, if an alias exists, use the format `alias/key-alias`\. If not specified, the AWS\-managed CMK for Amazon S3 is used\.
+   + <a name="encryptionkey-cli"></a>*encryptionKey*: Optional value\. The alias or ARN of the AWS KMS customer managed key \(CMK\) CodeBuild uses to encrypt the build output\. If you specify an alias, use the format `arn:aws:kms:region-ID:account-ID:key/key-ID` or, if an alias exists, use the format `alias/key-alias`\. If not specified, the AWS\-managed CMK for Amazon S3 is used\.
    + For the optional *tags* array, information about any tags you want to associate with this build project\. You can specify up to 50 tags\. These tags can be used by any AWS service that supports CodeBuild build project tags\. Each tag is expressed as an object that contains a `key` and `value` value of *tag\-key* and *tag\-value*\.
 
    For an example, see [To create the build project \(AWS CLI\)](getting-started.md#getting-started-create-build-project-cli)\.

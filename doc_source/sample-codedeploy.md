@@ -166,7 +166,7 @@ Do not add `(root directory name)` or `(root directory name)/my-app` to the ZIP 
 
 1. To find the build output artifact after the deployment is complete, sign in to the instance and look in the `/tmp` directory for the file named `my-app-1.0-SNAPSHOT.jar`\.
 
-## Related Resources<a name="w16aac11c41c48b9"></a>
+## Related Resources<a name="w26aac11c41c48b9"></a>
 + For more information about getting started with AWS CodeBuild, see [Getting Started with CodeBuild](getting-started.md)\.
 + For more information about troubleshooting problems with CodeBuild, see [Troubleshooting CodeBuild](troubleshooting.md)\.
 + For more information about limits in CodeBuild, see [Limits for CodeBuild](limits.md)\.

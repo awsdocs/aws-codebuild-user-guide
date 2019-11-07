@@ -6,6 +6,7 @@ You can perform these tasks when working with build projects:
 
 **Topics**
 + [Create a Build Project in CodeBuild](create-project.md)
++ [Create a Notification Rule](notification-rule-create.md)
 + [View a List of Build Project Names in CodeBuild](view-project-list.md)
 + [View a Build Project's Details in CodeBuild](view-project-details.md)
 + [Build Caching in CodeBuild](build-caching.md)

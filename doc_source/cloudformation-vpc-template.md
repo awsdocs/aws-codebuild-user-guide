@@ -6,13 +6,13 @@ The following is an AWS CloudFormation YAML template for configuring an Amazon V
 
 ```
 Description:  This template deploys a VPC, with a pair of public and private subnets spread
-  across two Availability Zones. It deploys an Internet Gateway, with a default
-  route on the public subnets. It deploys a pair of NAT Gateways (one in each AZ),
+  across two Availability Zones. It deploys an internet gateway, with a default
+  route on the public subnets. It deploys a pair of NAT gateways (one in each AZ),
   and default routes for them in the private subnets.
 
 Parameters:
   EnvironmentName:
-    Description: An environment name that will be prefixed to resource names
+    Description: An environment name that is prefixed to resource names
     Type: String
 
   VpcCIDR:

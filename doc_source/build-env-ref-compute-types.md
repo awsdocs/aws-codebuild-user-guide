@@ -12,7 +12,7 @@ AWS CodeBuild provides build environments with the following available memory, v
 | build\.general1\.large | BUILD\_GENERAL1\_LARGE | 15 GB | 8 | 128 GB | Linux, Windows | 
 
 **Note**  
-For custom build environment images, CodeBuild supports Docker images up to 20 GB uncompressed in Linux and 50 GB uncompressed in Windows, regardless of the compute type\. To check your build image's size, use Docker to run the `docker images REPOSITORY:TAG` command\.
+For custom build environment images, CodeBuild supports Docker images up to 50 GB uncompressed in Linux and Windows, regardless of the compute type\. To check your build image's size, use Docker to run the `docker images REPOSITORY:TAG` command\.
 
 To choose a compute type:
 + In the CodeBuild console, in the **Create build project** wizard or **Edit Build Project** page, in **Environment** expand **Additional configuration**, and then choose one of the options from **Compute type**\. For more information, see [Create a Build Project \(Console\)](create-project.md#create-project-console) or [Change a Build Project's Settings \(Console\)](change-project.md#change-project-console)\.

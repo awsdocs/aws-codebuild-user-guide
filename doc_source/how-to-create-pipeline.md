@@ -152,8 +152,8 @@ If you enable webhooks for an AWS CodeBuild project, and the project is used as 
    ```
 
 1. In **Service role**, do one of the following:
-   + If you do not have a CodeBuild service role, choose **New service role**\. In **Role name**, accept the default name or enter your own\.
-   + If you have a CodeBuild service role, choose **Existing service role**\. In **Role name**, choose the service role\.
+   + If you do not have a CodeBuild service role, choose **New service role**\. In **Role name**, enter a name for the new role\.
+   + If you have a CodeBuild service role, choose **Existing service role**\. In **Role ARN**, choose the service role\.
 **Note**  
 When you use the console to create or update a build project, you can create a CodeBuild service role at the same time\. By default, the role works with that build project only\. If you use the console to associate this service role with another build project, the role is updated to work with the other build project\. A service role can work with up to 10 build projects\.
 
@@ -165,7 +165,7 @@ When you use the console to create or update a build project, you can create a C
 
    For **Environment variables**, use **Name** and **Value** to specify any optional environment variables for the build environment to use\. To add more environment variables, choose **Add environment variable**\.
 **Important**  
-We strongly discourage storing sensitive values, especially AWS access key IDs and secret access keys, in environment variables\. Environment variables can be displayed in plain text using the CodeBuild console and AWS CLI\.  
+We strongly discourage storing sensitive values, especially AWS access key IDs and secret access keys, in environment variables\. Environment variables can be displayed in plain text in the CodeBuild console and AWS CLI\.  
 To store and retrieve sensitive values, we recommend your build commands use the AWS CLI to interact with the Amazon EC2 Systems Manager Parameter Store\. The AWS CLI is already installed and configured on all build environments provided by CodeBuild\. For more information, see [Systems Manager Parameter Store](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-paramstore.html) and [Systems Manager Parameter Store CLI Walkthrough](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-walk.html#sysman-paramstore-cli) in the *Amazon EC2 Systems Manager User Guide*
 
 1. For **Buildspec**, do one of the following:
@@ -442,8 +442,8 @@ If you enable webhooks for a CodeBuild project, and the project is used as a bui
    ```
 
 1. In **Service role**, do one of the following:
-   + If you do not have a CodeBuild service role, choose **New service role**\. In **Role name**, accept the default name or enter your own\.
-   + If you have a CodeBuild service role, choose **Existing service role**\. In **Role name**, choose the service role\.
+   + If you do not have a CodeBuild service role, choose **New service role**\. In **Role name**, enter a name for the new role\.
+   + If you have a CodeBuild service role, choose **Existing service role**\. In **Role ARN**, choose the service role\.
 **Note**  
 When you use the console to create or update a build project, you can create a CodeBuild service role at the same time\. By default, the role works with that build project only\. If you use the console to associate this service role with another build project, the role is updated to work with the other build project\. A service role can work with up to 10 build projects\.
 
@@ -455,7 +455,7 @@ When you use the console to create or update a build project, you can create a C
 
    For **Environment variables**, use **Name** and **Value** to specify any optional environment variables for the build environment to use\. To add more environment variables, choose **Add environment variable**\.
 **Important**  
-We strongly discourage storing sensitive values, especially AWS access key IDs and secret access keys, in environment variables\. Environment variables can be displayed in plain text using the CodeBuild console and AWS CLI\.  
+We strongly discourage storing sensitive values, especially AWS access key IDs and secret access keys, in environment variables\. Environment variables can be displayed in plain text in the CodeBuild console and AWS CLI\.  
 To store and retrieve sensitive values, we recommend your build commands use the AWS CLI to interact with the Amazon EC2 Systems Manager Parameter Store\. The AWS CLI is already installed and configured on all build environments provided by CodeBuild\. For more information, see [Systems Manager Parameter Store](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-paramstore.html) and [Systems Manager Parameter Store CLI Walkthrough](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-walk.html#sysman-paramstore-cli) in the *Amazon EC2 Systems Manager User Guide*
 
 1. For **Buildspec**, do one of the following:
@@ -581,8 +581,8 @@ If you enable webhooks for a CodeBuild project, and the project is used as a bui
    ```
 
 1. In **Service role**, do one of the following:
-   + If you do not have a CodeBuild service role, choose **New service role**\. In **Role name**, accept the default name or enter your own\.
-   + If you have a CodeBuild service role, choose **Existing service role**\. In **Role name**, choose the service role\.
+   + If you do not have a CodeBuild service role, choose **New service role**\. In **Role name**, enter a name for the new role\.
+   + If you have a CodeBuild service role, choose **Existing service role**\. In **Role ARN**, choose the service role\.
 **Note**  
 When you use the console to create or update a build project, you can create a CodeBuild service role at the same time\. By default, the role works with that build project only\. If you use the console to associate this service role with another build project, the role is updated to work with the other build project\. A service role can work with up to 10 build projects\.
 
@@ -594,7 +594,7 @@ When you use the console to create or update a build project, you can create a C
 
    For **Environment variables**, use **Name** and **Value** to specify any optional environment variables for the build environment to use\. To add more environment variables, choose **Add environment variable**\.
 **Important**  
-We strongly discourage storing sensitive values, especially AWS access key IDs and secret access keys, in environment variables\. Environment variables can be displayed in plain text using the CodeBuild console and AWS CLI\.  
+We strongly discourage storing sensitive values, especially AWS access key IDs and secret access keys, in environment variables\. Environment variables can be displayed in plain text in the CodeBuild console and AWS CLI\.  
 To store and retrieve sensitive values, we recommend your build commands use the AWS CLI to interact with the Amazon EC2 Systems Manager Parameter Store\. The AWS CLI is already installed and configured on all build environments provided by CodeBuild\. For more information, see [Systems Manager Parameter Store](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-paramstore.html) and [Systems Manager Parameter Store CLI Walkthrough](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-walk.html#sysman-paramstore-cli) in the *Amazon EC2 Systems Manager User Guide*
 
 1. For **Buildspec**, do one of the following:

@@ -44,6 +44,11 @@ env:
   parameter-store:
     key: "value"
     key: "value"
+  exported-variables:
+    - variable
+    - variable
+  secrets-manager:
+    key: secret-id:json-key:version-stage:version-id
   git-credential-helper: yes
 
 proxy:
@@ -137,6 +142,23 @@ If an environment variable with the same name is defined in multiple places, the
 The value in the start build operation call takes highest precedence\. You can add or override environment variables when you create a build\. For more information, see [Run a Build in CodeBuild](run-build.md)\. 
 The value in the build project definition takes next precedence\. You can add environment variables at the project level when you create or edit a project\. For more information, see [Create a Build Project in CodeBuild](create-project.md) and [Change a Build Project's Settings in CodeBuild ](change-project.md)\.
 The value in the build spec declaration takes lowest precedence\.
+  +   `secrets-manager`: Required if `env` specified, and you want to retrieve custom environment variables stored in AWS Secrets Manager\. Specify a Secrets Manager `reference-key` using the following pattern:
+
+     `secret-id:json-key:version-stage:version-id` 
+    +  `secret-id`: The name or Amazon Resource Name \(ARN\) that serves as a unique identifier for the secret\. To access a secret in your AWS account, simply specify the secret name\. To access a secret in a different AWS account, specify the secret ARN\. 
+    +  `json-key`: Specifies the key name of the key\-value pair whose value you want to retrieve\. If you do not specify a `json-key`, CodeBuild retrieves the entire secret text\. 
+    +  `verstion-stage`: Specifies the secret version that you want to retrieve by the staging label attached to the version\. Staging labels are used to keep track of different versions during the rotation process\. If you use `version-stage`, don't specify `version-id`\. If you don't specify a version stage or version ID, the default is to retrieve the version with the version stage value of `AWSCURRENT`\. 
+    +  `version-id`: Specifies the unique identifier of the version of the secret that you want to use\. If you specify `version-id`, don't specify `version-stage`\. If you don't specify a version stage or version ID, the default is to retrieve the version with the version stage value of AWSCURRENT\. 
+
+     For more information, see [What Is AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html) in the *AWS Secrets Manager User Guide*\. 
+  +   `exported-variables`: Optional mapping\. Used to list environment variables you want to export\. Specify the name of each variable you want to export on a separate line under `exported-variables`\. The variable you want to export must be available in your container during the build\. The variable you export can be an environment variable\.
+
+     During a build, the value of a variable is available starting with the `install` phase\. It can be updated between the start of the `install` phase and the end of the `post_build` phase\. After the `post_build` phase ends, the value of exported variables cannot change\.
+**Note**  
+ The following cannot be exported:   
+ Amazon EC2 Systems Manager Parameter Store secrets specified in the build project\. 
+ Secrets Manager secrets specified in the build project 
+ Environment variables that start with `AWS_`\. 
   +  `git-credential-helper`: Optional mapping\. Used to indicate if CodeBuild uses its Git credential helper to provide Git credentials\. `yes` if it is used\. Otherwise, `no` or not specified\. For more information, see [gitcredentials](https://git-scm.com/docs/gitcredentials) on the Git website\. 
 **Note**  
  `git-credential-helper` is not supported for builds that are triggered by a webhook for a public Git repository\.

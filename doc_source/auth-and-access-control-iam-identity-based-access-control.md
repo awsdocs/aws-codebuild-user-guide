@@ -9,6 +9,7 @@ We recommend that you first review the introductory topics that explain the basi
 + [Permissions Required to Use the CodeBuild Console](#console-permissions)
 + [Permissions Required for the CodeBuild Console to Connect to Source Providers](#console-policies)
 + [AWS Managed \(Predefined\) Policies for CodeBuild](#managed-policies)
++ [CodeBuild Managed Policies and Notifications](#notifications-permissions)
 + [Customer\-Managed Policy Examples](#customer-managed-policies)
 
 The following shows an example of a permissions policy that allows a user to get information about build projects only in the `us-east-2` region for account `123456789012` for any build project that starts with the name `my`:
@@ -66,6 +67,128 @@ To access build output artifacts that CodeBuild creates, you must also attach th
 To create and manage CodeBuild service roles, you must also attach the AWS managed policy named **IAMFullAccess**\.
 
 You can also create your own custom IAM policies to allow permissions for CodeBuild actions and resources\. You can attach these custom policies to the IAM users or groups that require those permissions\.
+
+## CodeBuild Managed Policies and Notifications<a name="notifications-permissions"></a>
+
+CodeBuild supports notifications, which can notify users of important changes to build projects\.  Managed policies for CodeBuild include policy statements for notification functionality\. For more information, see [What are notifications?](https://docs.aws.amazon.com/codestar-notifications/latest/userguide/welcome.html)\.
+
+### Permissions Related to Notifications in Full Access Managed Policies<a name="notifications-fullaccess"></a>
+
+The `AWSCodeBuildFullAccess` managed policy includes the following statements to allow full access to notifications\. Users with this managed policy applied can also create and manage Amazon SNS topics for notifications, subscribe and unsubscribe users to topics, and list topics to choose as targets for notification rules\.
+
+```
+    {
+        "Sid": "CodeStarNotificationsReadWriteAccess",
+        "Effect": "Allow",
+        "Action": [
+            "codestar-notifications:CreateNotificationRule",
+            "codestar-notifications:DescribeNotificationRule",
+            "codestar-notifications:UpdateNotificationRule",
+            "codestar-notifications:DeleteNotificationRule",
+            "codestar-notifications:Subscribe",
+            "codestar-notifications:Unsubscribe"
+        ],
+        "Resource": "*",
+        "Condition" : {
+            "StringLike" : {"codestar-notifications:NotificationsForResource" : "arn:aws:codebuild:*"} 
+        }
+    },    
+    {
+        "Sid": "CodeStarNotificationsListAccess",
+        "Effect": "Allow",
+        "Action": [
+            "codestar-notifications:ListNotificationRules",
+            "codestar-notifications:ListTargets",
+            "codestar-notifications:ListTagsforResource"
+        ],
+        "Resource": "*"
+    },
+    {
+        "Sid": "CodeStarNotificationsSNSTopicCreateAccess",
+        "Effect": "Allow",
+        "Action": [
+            "sns:CreateTopic",
+            "sns:SetTopicAttributes"
+        ],
+        "Resource": "arn:aws:sns:*:*:codestar-notifications*"
+    },
+    {
+        "Sid": "SNSTopicListAccess",
+        "Effect": "Allow",
+        "Action": [
+            "sns:ListTopics"
+        ],
+        "Resource": "*"
+    }
+```
+
+### Permissions Related to Notifications in Read\-Only Managed Policies<a name="notifications-readonly"></a>
+
+The `AWSCodeBuildReadOnlyAccess` managed policy includes the following statements to allow read\-only access to notifications\. Users with this managed policy applied can view notifications for resources, but cannot create, manage, or subscribe to them\. 
+
+```
+   {
+        "Sid": "CodeStarNotificationsPowerUserAccess",
+        "Effect": "Allow",
+        "Action": [
+            "codestar-notifications:DescribeNotificationRule"
+        ],
+        "Resource": "*",
+        "Condition" : {
+            "StringLike" : {"codestar-notifications:NotificationsForResource" : "arn:aws:codebuild:*"} 
+        }
+    },    
+    {
+        "Sid": "CodeStarNotificationsListAccess",
+        "Effect": "Allow",
+        "Action": [
+            "codestar-notifications:ListNotificationRules"
+        ],
+        "Resource": "*"
+    }
+```
+
+### Permissions Related to Notifications in Other Managed Policies<a name="notifications-otheraccess"></a>
+
+The `AWSCodeBuildDeveloperAccess` managed policy includes the following statements to allow users to create, edit, and subscribe to notifications\. Users cannot delete notification rules or manage tags for resources\.
+
+```
+    {
+        "Sid": "CodeStarNotificationsReadWriteAccess",
+        "Effect": "Allow",
+        "Action": [
+            "codestar-notifications:CreateNotificationRule",
+            "codestar-notifications:DescribeNotificationRule",
+            "codestar-notifications:UpdateNotificationRule",
+            "codestar-notifications:Subscribe",
+            "codestar-notifications:Unsubscribe"
+        ],
+        "Resource": "*",
+        "Condition" : {
+            "StringLike" : {"codestar-notifications:NotificationsForResource" : "arn:aws:codebuild*"} 
+        }
+    },    
+    {
+        "Sid": "CodeStarNotificationsListAccess",
+        "Effect": "Allow",
+        "Action": [
+            "codestar-notifications:ListNotificationRules",
+            "codestar-notifications:ListTargets",
+            "codestar-notifications:ListTagsforResource"
+        ],
+        "Resource": "*"
+    },
+    {
+        "Sid": "SNSTopicListAccess",
+        "Effect": "Allow",
+        "Action": [
+            "sns:ListTopics"
+        ],
+        "Resource": "*"
+    }
+```
+
+For more information about IAM and notifications, see [Identity and Access Management for AWS CodeStar Notifications](https://docs.aws.amazon.com/codestar-notifications/latest/userguide/security-iam.html)\.
 
 ## Customer\-Managed Policy Examples<a name="customer-managed-policies"></a>
 

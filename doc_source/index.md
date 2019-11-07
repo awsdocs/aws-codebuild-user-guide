@@ -60,6 +60,7 @@ Amazon's trademarks and trade dress may not be used in
 + [Working with Build Projects and Builds in CodeBuild](builds-projects-and-builds.md)
    + [Working with Build Projects](working-with-build-projects.md)
       + [Create a Build Project in CodeBuild](create-project.md)
+      + [Create a Notification Rule](notification-rule-create.md)
       + [View a List of Build Project Names in CodeBuild](view-project-list.md)
       + [View a Build Project's Details in CodeBuild](view-project-details.md)
       + [Build Caching in CodeBuild](build-caching.md)

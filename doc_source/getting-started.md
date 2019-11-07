@@ -428,6 +428,7 @@ You can use the [CodeBuild console](#getting-started-run-build-console) or [AWS 
    {
      "build": { 
        "buildComplete": false,
+       "buildNumber": 1,
        "initiator": "user-name",   
        "artifacts": { 
          "location": "arn:aws:s3:::codebuild-region-ID-account-ID-output-bucket/message-util.zip"
@@ -454,6 +455,7 @@ You can use the [CodeBuild console](#getting-started-run-build-console) or [AWS 
    ```
    + `build` represents information about this build\.
      + `buildComplete` represents whether the build was completed \(`true`\); otherwise, `false`\.
+     + `buildNumber` represents the build number for the CodeBuild build project\. The first build is number 1\. For each build run, `buildNumber` is incremented by 1\.
      + `initiator` represents the entity that started the build\.
      + `artifacts` represents information about the build output, including its location\.
      + `projectName` represents the name of the build project\.
@@ -514,6 +516,7 @@ If successful, data similar to this appears in the output\.
   "builds": [
     {
       "buildComplete": true,
+      "buildNumber": 1,
       "phases": [
         {
           "phaseStatus": "SUCCEEDED",
