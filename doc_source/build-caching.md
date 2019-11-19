@@ -21,11 +21,14 @@ Docker layer cache mode is available for the Linux environment only\. If you cho
 **Note**  
  You can use a Docker layer cache in the Linux environment only\. 
  The `privileged` flag must be set so that your project has the required Docker permissions\. 
- You should consider the security implications before you use a Docker layer cache\. 
+ You should consider the security implication before you use a Docker layer cache\. 
 +  Custom cache mode caches directories you specify in the buildspec file\. This mode is a good choice if your build scenario is not suited to one of the other two local cache modes\. If you use a custom cache: 
   +  Only directories can be specified for caching\. You cannot specify individual files\. 
   +  Symlinks are used to reference cached directories\. 
   +  Cached directories are linked to your build before it downloads its project sources\. Cached items are overriden if a source item has the same name\. Directories are specified using cache paths in the buildspec file\. For more information, see [Build Spec Syntax](build-spec-ref.md#build-spec-ref-syntax)\. 
+
+**Note**  
+The `ARM_CONTAINER` and `LINUX_GPU_CONTAINER` environment types and the `BUILD_GENERAL1_2XLARGE` compute type do not support the use of a local cache\.\. For more information, see [Build Environment Compute Types](build-env-ref-compute-types.md)\.
 
 **Topics**
 + [Specify Local Caching \(CLI\)](#caching-local-cli)
@@ -57,7 +60,7 @@ For more information, see [Create a Build Project \(AWS CLI\)](create-project.md
 
 ### Specify Local Caching \(Console\)<a name="caching-local-console"></a>
 
-You specify a cache in the **Artifacts** section of the console\. For ** Cache type**, choose **Amazon S3** or **Local**\. If you choose **Local**, choose one or more of the three local cache options\. The following shows how to choose a local cache\.
+You specify a cache in the **Artifacts** section of the console\. For **Cache type**, choose **Amazon S3** or **Local**\. If you choose **Local**, choose one or more of the three local cache options\.
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/local-cache.png)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)
 
@@ -65,7 +68,7 @@ For more information, see [Create a Build Project \(Console\)](create-project.md
 
 ### Specify Local Caching \(AWS CloudFormation\)<a name="caching-local-cfn"></a>
 
- If you use AWS CloudFormation to specify a local cache, on the `Cache` property, for `Type`, you specify `LOCAL`\. The following sample YAML\-formatted AWS CloudFormation code specifies all three local cache types\. You can specify any combination of the types\. If you use a Docker layer cache, under `Environment`, you must set `PrivilegedMode` to `true` and `Type` to `LINUX_CONTAINER`\. 
+ If you use AWS CloudFormation to specify a local cache, on the `Cache` property, for `Type`, specify `LOCAL`\. The following sample YAML\-formatted AWS CloudFormation code specifies all three local cache types\. You can specify any combination of the types\. If you use a Docker layer cache, under `Environment`, you must set `PrivilegedMode` to `true` and `Type` to `LINUX_CONTAINER`\. 
 
 ```
 CodeBuildProject:

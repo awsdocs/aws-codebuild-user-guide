@@ -30,9 +30,9 @@ AWS CodeBuild supports webhooks when the source repository is GitHub\. This mean
 1. In **Environment**:
 
    For **Environment image**, do one of the following:
-   + To use a Docker image managed by AWS CodeBuild, choose **Managed image**, and then make selections from **Operating system**, **Runtime**, and **Runtime version**\.
-   + To use another Docker image, choose **Custom image**\. For **Environment type**, choose **Linux** or **Windows**\. For **Custom image type**, choose **Amazon ECR** or **Other location**\. If you choose **Other location**, enter the name and tag of the Docker image in Docker Hub, using the format `docker repository/docker image name`\. If you choose **Amazon ECR**, use **Amazon ECR repository** and **Amazon ECR image** to choose the Docker image in your AWS account\.
-   + To use private Docker image, choose **Custom image**\. For **Environment type**, choose **Linux** or **Windows**\. For **Custom image type**, choose **Other location**, and then enter the ARN of the credentials for your private Docker image\. The credentials must be created by Secrets Manager\. For more information, see [What Is AWS Secrets Manager?](https://docs.aws.amazon.com/secretsmanager/latest/userguide/)
+   + To use a Docker image managed by AWS CodeBuild, choose **Managed image**, and then make selections from **Operating system**, **Runtime\(s\)**, **Image**, and **Image version**\. Make a selection from **Environment type** if it is available\.
+   + To use another Docker image, choose **Custom image**\. For **Environment type**, choose **ARM**, **Linux**, **Linux GPU**, or **Windows**\. If you choose **Other registry**, for **External registry URL**, enter the name and tag of the Docker image in Docker Hub, using the format `docker repository/docker image name`\. If you choose **Amazon ECR**, use **Amazon ECR repository** and **Amazon ECR image** to choose the Docker image in your AWS account\.
+   + To use private Docker image, choose **Custom image**\. For **Environment type**, choose **ARM**, **Linux**, **Linux GPU**, or **Windows**\. For **Image registry**, choose **Other registry**, and then enter the ARN of the credentials for your private Docker image\. The credentials must be created by Secrets Manager\. For more information, see [What Is AWS Secrets Manager?](https://docs.aws.amazon.com/secretsmanager/latest/userguide/)
 
 1. In **Service role**, do one of the following:
    + If you do not have a CodeBuild service role, choose **New service role**\. In **Role name**, enter a name for the new role\.
@@ -90,7 +90,7 @@ Filter groups work the same way in GitHub and GitHub Enterprise\.
   +  `ACTOR_ACCOUNT_ID` \(`ACTOR_ID` in the console\): A webhook event triggers a build when a GitHub or GitHub Enterprise account ID matches the regular expression pattern\. This value is found in the `id` property of the `sender` object in the webhook payload\.
   +  `HEAD_REF`: A webhook event triggers a build when the head reference matches the regular expression pattern \(for example, `refs/heads/branch-name` or `refs/tags/tag-name`\)\. For a push event, the reference name is found in the `ref` property in the webhook payload\. For pull requests events, the branch name is found in the `ref` property of the `head` object in the webhook payload\. 
   +  `BASE_REF`: A webhook event triggers a build when the base reference matches the regular expression pattern \(for example, `refs/heads/branch-name`\)\. A `BASE_REF` filter can be used with pull request events only\. The branch name is found in the `ref` property of the `base` object in the webhook payload\.
-  +  `FILE_PATH`: A webhook triggers a build when the path of a changed file matches the regular expressions pattern\. A `FILE_PATH` filter can be used with GitHub and GitHub Enterprise push events only\.  
+  +  `FILE_PATH`: A webhook triggers a build when the path of a changed file matches the regular expressions pattern\. A `FILE_PATH` filter can be used with GitHub and GitHub Enterprise push events only\. 
 
 **Note**  
  You can find the webhook payload in the webhook settings of your GitHub repository\. 

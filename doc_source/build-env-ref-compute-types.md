@@ -3,13 +3,31 @@
 AWS CodeBuild provides build environments with the following available memory, vCPUs, and disk space:
 
 
-****  
+**Operating system: Linux**  
 
-| Compute type | computeType value | Memory | vCPUs | Disk space | Operating system | 
+| Compute type | computeType value | Memory | vCPUs | Disk space | Environment type | 
 | --- | --- | --- | --- | --- | --- | 
-| build\.general1\.small | BUILD\_GENERAL1\_SMALL | 3 GB | 2 | 64 GB | Linux | 
-| build\.general1\.medium | BUILD\_GENERAL1\_MEDIUM | 7 GB | 4 | 128 GB | Linux, Windows | 
-| build\.general1\.large | BUILD\_GENERAL1\_LARGE | 15 GB | 8 | 128 GB | Linux, Windows | 
+| build\.general1\.small | BUILD\_GENERAL1\_SMALL | 3 GB | 2 | 64 GB | LINUX\_CONTAINER | 
+| build\.general1\.medium | BUILD\_GENERAL1\_MEDIUM | 7 GB | 4 | 128 GB | LINUX\_CONTAINER | 
+| build\.general1\.large | BUILD\_GENERAL1\_LARGE | 15 GB | 8 | 128 GB | LINUX\_CONTAINER | 
+| build\.general1\.large | BUILD\_GENERAL1\_LARGE | 255 GB | 32 | 50 GB | LINUX\_GPU\_CONTAINER | 
+| build\.general1\.large | BUILD\_GENERAL1\_LARGE | 16 GB | 8 | 50 GB | ARM\_CONTAINER | 
+| build\.general1\.2xlarge | BUILD\_GENERAL1\_2XLARGE | 145 GB | 72 | 824 GB \(SSD\) | LINUX\_CONTAINER | 
+
+**Note**  
+ Some environment and compute types have limitations:   
+The environment type `LINUX_GPU_CONTAINER` is available only in regions US East \(N\. Virginia\), US West \(Oregon\), Canada \(Central\), EU \(Ireland\), EU \(London\), EU \(Frankfurt\), Asia Pacific \(Tokyo\), Asia Pacific \(Seoul\), Asia Pacific \(Singapore\), Asia Pacific \(Sydney\) , China \(Beijing\), and China \(Ningxia\)\.
+The environment type `ARM_CONTAINER` is available only in regions US East \(N\. Virginia\), US East \(Ohio\), US West \(Oregon\), EU \(Ireland\), Asia Pacific \(Mumbai\), Asia Pacific \(Tokyo\), Asia Pacific \(Sydney\), and EU \(Frankfurt\)\.
+The compute type `build.general1.2xlarge` is available only in regions US East \(N\. Virginia\), US East \(Ohio\), US West \(N\. California\), US West \(Oregon\), Canada \(Central\), South America \(São Paulo\), EU \(Stockholm\), EU \(Ireland\), EU \(London\), EU \(Paris\), EU \(Frankfurt\), Middle East \(Bahrain\), Asia Pacific \(Hong Kong\), Asia Pacific \(Tokyo\), Asia Pacific \(Seoul\), Asia Pacific \(Singapore\), Asia Pacific \(Sydney\), Asia Pacific \(Mumbai\), China \(Beijing\), and China \(Ningxia\)\.
+For the compute type `build.general1.2xlarge`, Docker images up to 100 GB uncompressed are supported\.
+
+
+**Operating system: Windows**  
+
+| Compute type | computeType value | Memory | vCPUs | Disk space | Environment type | 
+| --- | --- | --- | --- | --- | --- | 
+| build\.general1\.medium | BUILD\_GENERAL1\_MEDIUM | 7 GB | 4 | 128 GB | WINDOWS\_CONTAINER | 
+| build\.general1\.large | BUILD\_GENERAL1\_LARGE | 15 GB | 8 | 128 GB | WINDOWS\_CONTAINER | 
 
 **Note**  
 For custom build environment images, CodeBuild supports Docker images up to 50 GB uncompressed in Linux and Windows, regardless of the compute type\. To check your build image's size, use Docker to run the `docker images REPOSITORY:TAG` command\.

@@ -65,9 +65,9 @@ We recommend that you use **Enable insecure SSL** for testing only\. It should n
 1. In **Environment**:
 
    For **Environment image**, do one of the following:
-   + To use a Docker image managed by AWS CodeBuild, choose **Managed image**, and then make selections from **Operating system**, **Runtime**, and **Runtime version**\.
-   + To use another Docker image, choose **Custom image**\. For **Environment type**, choose **Linux** or **Windows**\. For **Custom image type**, choose **Amazon ECR** or **Other location**\. If you choose **Other location**, enter the name and tag of the Docker image in Docker Hub, using the format `docker repository/docker image name`\. If you choose **Amazon ECR**, use **Amazon ECR repository** and **Amazon ECR image** to choose the Docker image in your AWS account\.
-   + To use private Docker image, choose **Custom image**\. For **Environment type**, choose **Linux** or **Windows**\. For **Custom image type**, choose **Other location**, and then enter the ARN of the credentials for your private Docker image\. The credentials must be created by Secrets Manager\. For more information, see [What Is AWS Secrets Manager?](https://docs.aws.amazon.com/secretsmanager/latest/userguide/)
+   + To use a Docker image managed by AWS CodeBuild, choose **Managed image**, and then make selections from **Operating system**, **Runtime\(s\)**, **Image**, and **Image version**\. Make a selection from **Environment type** if it is available\.
+   + To use another Docker image, choose **Custom image**\. For **Environment type**, choose **ARM**, **Linux**, **Linux GPU**, or **Windows**\. If you choose **Other registry**, for **External registry URL**, enter the name and tag of the Docker image in Docker Hub, using the format `docker repository/docker image name`\. If you choose **Amazon ECR**, use **Amazon ECR repository** and **Amazon ECR image** to choose the Docker image in your AWS account\.
+   + To use private Docker image, choose **Custom image**\. For **Environment type**, choose **ARM**, **Linux**, **Linux GPU**, or **Windows**\. For **Image registry**, choose **Other registry**, and then enter the ARN of the credentials for your private Docker image\. The credentials must be created by Secrets Manager\. For more information, see [What Is AWS Secrets Manager?](https://docs.aws.amazon.com/secretsmanager/latest/userguide/)
 
 1. In **Service role**, do one of the following:
    + If you do not have a CodeBuild service role, choose **New service role**\. In **Role name**, enter a name for the new role\.
@@ -99,15 +99,18 @@ When you use the console to create or update a build project, you can create a C
      + For **Bucket name**, choose the name of the output bucket\.
      + If you chose **Insert build commands** earlier in this procedure, for **Output files**, enter the locations of the files from the build that you want to put into the build output ZIP file or folder\. For multiple locations, separate each location with a comma \(for example, `appspec.yml, target/my-app.jar`\)\. For more information, see the description of `files` in [Build Spec Syntax](build-spec-ref.md#build-spec-ref-syntax)\.
 
-1. Expand **Additional configuration**\. In **Cache type**, do one of the following:
+1. For **Cache type**, choose one of the following:
    + If you do not want to use a cache, choose **No cache**\.
-   + To use a cache, choose **Amazon S3**, and then do the following:
-     + For **Cache bucket**, choose the name of the Amazon S3 bucket where the cache is stored\.
+   + If you want to use an Amazon S3 cache, choose **Amazon S3**, and then do the following:
+     + For **Bucket**, choose the name of the Amazon S3 bucket where the cache is stored\.
      + \(Optional\) For **Cache path prefix**, enter an Amazon S3 path prefix\. The **Cache path prefix** value is similar to a directory name\. It makes it possible for you to store the cache under the same directory in a bucket\. 
 **Important**  
 Do not append a trailing slash \(/\) to the end of the path prefix\.
+   +  If you want to use a local cache, choose **Local**, and then choose one or more local cache modes\. 
+**Note**  
+**Docker layer cache** mode is available for Linux only\. If you choose it, your project must run in privileged mode\. The `ARM_CONTAINER` and `LINUX_GPU_CONTAINER` environment types and the `BUILD_GENERAL1_2XLARGE` compute type do not support the use of a local cache\.
 
-   Using a cache saves considerable build time because reusable pieces of the build environment are stored in the cache and used across builds\.
+   Using a cache saves considerable build time because reusable pieces of the build environment are stored in the cache and used across builds\. For information about specifying a cache in the buildspec file, see [Build Spec Syntax](build-spec-ref.md#build-spec-ref-syntax)\. For more information about caching, see [Build Caching in CodeBuild](build-caching.md)\. 
 
 1. Choose **Create build project**\. On the build project page, choose **Start build**\.
 

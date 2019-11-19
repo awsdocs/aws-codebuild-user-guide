@@ -6,7 +6,7 @@ You can use AWS CodeBuild to package and deploy serverless applications that fol
 
 For more information, see [Deploying Lambda\-based Applications](https://docs.aws.amazon.com/lambda/latest/dg/deploying-lambda-apps.html) in the *AWS Lambda Developer Guide*\. To experiment with a serverless application sample that uses CodeBuild along with Lambda, AWS CloudFormation, and CodePipeline, see [Automating Deployment of Lambda\-based Applications](https://docs.aws.amazon.com/lambda/latest/dg/automating-deployment.html) in the *AWS Lambda Developer Guide*\.
 
-## Related Resources<a name="w26aac11c41c50b9"></a>
+## Related Resources<a name="w28aac11c41c50b9"></a>
 + For more information about getting started with AWS CodeBuild, see [Getting Started with CodeBuild](getting-started.md)\.
 + For more information about troubleshooting problems with CodeBuild, see [Troubleshooting CodeBuild](troubleshooting.md)\.
 + For more information about limits in CodeBuild, see [Limits for CodeBuild](limits.md)\.

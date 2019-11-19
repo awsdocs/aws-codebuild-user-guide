@@ -8,6 +8,7 @@ AWS CodeBuild manages the following Docker images that are available in the Code
 | Platform | Image identifier | Definition | 
 | --- | --- | --- | 
 | Amazon Linux 2 | aws/codebuild/amazonlinux2\-x86\_64\-standard:1\.0 | [al2/standard/1\.0](https://github.com/aws/aws-codebuild-docker-images/tree/master/al2/x86_64/standard/1.0) | 
+| Amazon Linux 2 | aws/codebuild/amazonlinux2\-aarch64\-standard:1\.0 | [al2/aarch64/standard/1\.0](https://github.com/aws/aws-codebuild-docker-images/tree/master/al2/aarch64/standard/1.00                             ) | 
 | Ubuntu 18\.04 | aws/codebuild/standard:2\.0 | [ubuntu/standard/2\.0](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/standard/2.0) | 
 | Windows Server Core 2016 | aws/codebuild/windows\-base:1\.0 | N/A | 
 | Windows Server Core 2016 | aws/codebuild/windows\-base:2\.0 | N/A | 
@@ -27,6 +28,9 @@ AWS CodeBuild manages the following Docker images that are available in the Code
 | php | 7\.3 | php: 7\.3 | 
 | python | 3\.7 | python: 3\.7 | 
 | ruby | 2\.6 | ruby: 2\.6 | 
+
+**Note**  
+The `aws/codebuild/amazonlinux2-aarch64-standard:1.0` image does not support the Android Runtime \(ART\)\.
 
  The base image of the Windows Server Core 2016 contains the following runtimes\. 
 
