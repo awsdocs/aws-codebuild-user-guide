@@ -2,6 +2,8 @@
 
 You can use the AWS CodeBuild console, AWS CLI, or AWS SDKs to change a build project's settings\.
 
+If you add test reporting to a build project, make sure your IAM role has the permissions described in [Working with Test Report Permissions](test-permissions.md)\.
+
 **Topics**
 + [Change a Build Project's Settings \(Console\)](#change-project-console)
 + [Change a Build Project's Settings \(AWS CLI\)](#change-project-cli)

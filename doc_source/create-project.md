@@ -25,6 +25,8 @@ Answer the questions in [Plan a Build](planning.md)\.
 
    On the **Create build project** page, in **Project configuration**, enter a name for this build project\. Build project names must be unique across each AWS account\. You can also include an optional description of the build project to help other users understand what this project is used for\.
 
+    In **Description**, enter an optional description for your project\. 
+
    Select **Build badge** to make your project's build status visible and embeddable\. For more information, see [Build Badges Sample](sample-build-badges.md)\.
 **Note**  
  Build badge does not apply if your source provider is Amazon S3\. 
@@ -387,6 +389,8 @@ For information about using the AWS CLI with CodeBuild, see the [Command Line Re
      + *cache\-type*: Required value\. Valid values are `S3`, `NO_CACHE`, or `LOCAL_CACHE`\.
      + *cache\-location*: Required value only if you set *CacheType* to `S3`\. If you specified Amazon S3 for *CacheType*, this is the ARN of the Amazon S3 bucket and the path prefix\. For example, if your Amazon S3 bucket name is `my-bucket`, and your path prefix is `build-cache`, then acceptable formats for your *CacheLocation* are `my-bucket/build-cache` or `arn:aws:s3:::my-bucket/build-cache`\.
      + *cache\-mode*: Required value if you set *CacheType* to `LOCAL`\. You can specify one or more of the following local cache modes: `LOCAL_SOURCE_CACHE`, `LOCAL_DOCKER_LAYER_CACHE`, `LOCAL_CUSTOM_CACHE`\.
+**Note**  
+`LOCAL_DOCKER_LAYER_CACHE` mode is available for Linux only\. If you choose it, your project must run in privileged mode\.
 **Note**  
 **Docker layer cache** mode is available for Linux only\. If you choose it, your project must run in privileged mode\. The `ARM_CONTAINER` and `LINUX_GPU_CONTAINER` environment types and the `BUILD_GENERAL1_2XLARGE` compute type do not support the use of a local cache\.
    + For the `logsConfig` object, information about where this build's logs are located:

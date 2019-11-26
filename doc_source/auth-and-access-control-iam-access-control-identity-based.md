@@ -22,8 +22,10 @@ In AWS CodeBuild, the primary resource is a build project\. In a policy, you use
 | --- | --- | 
 | Build project |  `arn:aws:codebuild:region-ID:account-ID:project/project-name`  | 
 | Build |  `arn:aws:codebuild:region-ID:account-ID:build/build-ID`  | 
+| Report group | arn:aws:codebuild:region\-ID:account\-ID:report\-group/report\-name | 
+| Report | arn:aws:codebuild:region\-ID:account\-ID:report/report\-ID | 
 |  All CodeBuild resources  |  `arn:aws:codebuild:*`  | 
-|  All CodeBuild resources owned by the specified account in the specified region  |  `arn:aws:codebuild:region-ID:account-ID:*`  | 
+|  All CodeBuild resources owned by the specified account in the specified AWS Region  |  `arn:aws:codebuild:region-ID:account-ID:*`  | 
 
 **Note**  
 Most AWS services treat a colon \(:\) or a forward slash \(/\) as the same character in ARNs\. However, CodeBuild uses an exact match in resource patterns and rules\. Be sure to use the correct characters when you create event patterns so that they match the ARN syntax in the resource\.

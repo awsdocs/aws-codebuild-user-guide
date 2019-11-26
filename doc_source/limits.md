@@ -19,6 +19,7 @@ The following tables list the current limits in CodeBuild\. These limits are for
 | Number of minutes you can specify in a build project for the build timeout of all related builds | 5 to 480 \(8 hours\) | 
 | Number of subnets you can add under VPC configuration | 1 to 16 | 
 | Number of security groups you can add under VPC configuration | 1 to 5 | 
+| Maximum number of reports you can add to a project | 5 | 
 
 ## Build Limits<a name="limits-builds"></a>
 
@@ -33,3 +34,14 @@ The following tables list the current limits in CodeBuild\. These limits are for
 | Maximum time the history of a build can be accessed | 1 year | 
 
 \* Limits for the maximum number of concurrent running builds vary, depending on the compute type\. For some platforms and compute types, the default is 20\. For a new account, the limit can be between 1 and 5\. To request a higher concurrent build limit or if you get a "Cannot have more than X active builds for the account" error, contact AWS Support\.
+
+## Report Limits<a name="report-limits"></a>
+
+
+****  
+
+| Resource | Default limit | 
+| --- | --- | 
+| Maximum number of report groups per AWS account | 1000 | 
+| Maximum duration a test report is available after it is created | 30 days | 
+| Maximum number of test cases per report | 500 | 

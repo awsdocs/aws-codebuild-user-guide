@@ -198,14 +198,24 @@ You can use the following sample IAM policies to limit CodeBuild access for your
 
 **Topics**
 + [Allow a User to Get Information About Build Projects](#customer-managed-policies-example-batch-get-projects)
++ [Allow a User to Get Information About Report Groups](#customer-managed-policies-get-information-about-report-group)
++ [Allow a User to Get Information About Reports](#customer-managed-policies-get-information-about-reports)
 + [Allow a User to Create Build Projects](#customer-managed-policies-example-create-project)
++ [Allow a User to Create a Report Group](#customer-managed-policies-example-create-report-group)
++ [Allow a User to Delete a Report Group](#customer-managed-policies-example-delete-report-group)
++ [Allow a User to Delete a Report](#customer-managed-policies-example-delete-report)
 + [Allow a User to Delete Build Projects](#customer-managed-policies-example-delete-project)
 + [Allow a User to Get a List of Build Project Names](#customer-managed-policies-example-list-projects)
 + [Allow a User to Change Information About Build Projects](#customer-managed-policies-example-update-project)
++ [Allow a User to Change a Report Group](#customer-managed-policies-example-change-report-group)
 + [Allow a User to Get Information About Builds](#customer-managed-policies-example-batch-get-builds)
 + [Allow a User to Get a List of Build IDs for a Build Project](#customer-managed-policies-example-list-builds-for-project)
 + [Allow a User to Get a List of Build IDs](#customer-managed-policies-example-list-builds)
-+ [Allow a User to Begin Running Builds](#customer-managed-policies-example-start-build)
++ [Allow a User to Get a List of Report Groups](#customer-managed-policies-example-get-list-of-report-groups)
++ [Allow a User to Get a List of Reports](#customer-managed-policies-example-get-list-of-reports)
++ [Allow a User to Get a List of Reports for a Report Group](#customer-managed-policies-example-get-list-of-reports-for-report-group)
++ [Allow a User to Get a List of Test Cases for a Report](#customer-managed-policies-example-get-list-of-test-cases-for-report)
++ [Allow a User to Start Running Builds](#customer-managed-policies-example-start-build)
 + [Allow a User to Attempt to Stop Builds](#customer-managed-policies-example-stop-build)
 + [Allow a User to Attempt to Delete Builds](#customer-managed-policies-example-delete-builds)
 + [Allow a User to Get Information About Docker Images That Are Managed by CodeBuild](#customer-managed-policies-example-list-curated-environment-images)
@@ -214,7 +224,7 @@ You can use the following sample IAM policies to limit CodeBuild access for your
 
 ### Allow a User to Get Information About Build Projects<a name="customer-managed-policies-example-batch-get-projects"></a>
 
-The following example policy statement allows a user to get information about build projects only in the `us-east-2` region for account `123456789012` for any build project that starts with the name `my`:
+The following example policy statement allows a user to get information about build projects in the `us-east-2` Region for account `123456789012` for any build project that starts with the name `my`:
 
 ```
 {
@@ -229,9 +239,43 @@ The following example policy statement allows a user to get information about bu
 }
 ```
 
+### Allow a User to Get Information About Report Groups<a name="customer-managed-policies-get-information-about-report-group"></a>
+
+The following example policy statement allows a user to get information about report groups in the `us-east-2` Region for account `123456789012`:
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "codebuild:BatchGetReportGroups",
+      "Resource": "arn:aws:codebuild:us-east-2:123456789012:report-group/*"
+    }
+  ]
+}
+```
+
+### Allow a User to Get Information About Reports<a name="customer-managed-policies-get-information-about-reports"></a>
+
+The following example policy statement allows a user to get information about reports in the `us-east-2` Region for account `123456789012`:
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "codebuild:BatchGetReports",
+      "Resource": "arn:aws:codebuild:us-east-2:123456789012:report-group/*"
+    }
+  ]
+}
+```
+
 ### Allow a User to Create Build Projects<a name="customer-managed-policies-example-create-project"></a>
 
-The following example policy statement allows a user to create build projects with any name but only in the `us-east-2` region for account `123456789012` and using only the specified CodeBuild service role:
+The following example policy statement allows a user to create build projects with any name but only in the `us-east-2` Region for account `123456789012` and only using the specified CodeBuild service role:
 
 ```
 {
@@ -251,9 +295,60 @@ The following example policy statement allows a user to create build projects wi
 }
 ```
 
+### Allow a User to Create a Report Group<a name="customer-managed-policies-example-create-report-group"></a>
+
+The following example policy statement allows a user to create a report group in the `us-east-2`Region for account `123456789012`:
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "codebuild:CreateReportGroup",
+      "Resource": "arn:aws:codebuild:us-east-2:123456789012:report-group/*"
+    }
+  ]
+}
+```
+
+### Allow a User to Delete a Report Group<a name="customer-managed-policies-example-delete-report-group"></a>
+
+The following example policy statement allows a user to delete a report group in the `us-east-2` Region for account `123456789012`:
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "codebuild:DeleteReportGroup",
+      "Resource": "arn:aws:codebuild:us-east-2:123456789012:report-group/*"
+    }
+  ]
+}
+```
+
+### Allow a User to Delete a Report<a name="customer-managed-policies-example-delete-report"></a>
+
+The following example policy statement allows a user to delete a report in the `us-east-2` Region for account `123456789012`:
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "codebuild:DeleteReport",
+      "Resource": "arn:aws:codebuild:us-east-2:123456789012:report-group/*"
+    }
+  ]
+}
+```
+
 ### Allow a User to Delete Build Projects<a name="customer-managed-policies-example-delete-project"></a>
 
-The following example policy statement allows a user to delete build projects only in the `us-east-2` region for account `123456789012` for any build project that starts with the name `my`:
+The following example policy statement allows a user to delete build projects in the `us-east-2` Region for account `123456789012` for any build project that starts with the name `my`:
 
 ```
 {
@@ -287,7 +382,7 @@ The following example policy statement allows a user to get a list of build proj
 
 ### Allow a User to Change Information About Build Projects<a name="customer-managed-policies-example-update-project"></a>
 
-The following example policy statement allows a user to change information about build projects with any name but only in the `us-east-2` region for account `123456789012` and using only the specified AWS CodeBuild service role:
+The following example policy statement allows a user to change information about build projects with any name but only in the `us-east-2` Region for account `123456789012` and only using the specified AWS CodeBuild service role:
 
 ```
 {
@@ -307,9 +402,26 @@ The following example policy statement allows a user to change information about
 }
 ```
 
+### Allow a User to Change a Report Group<a name="customer-managed-policies-example-change-report-group"></a>
+
+The following example policy statement allows a user to change a report group in the `us-east-2` Region for account `123456789012`:
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "codebuild:UpdateReportGroup",
+      "Resource": "arn:aws:codebuild:us-east-2:123456789012:report-group/*"
+    }
+  ]
+}
+```
+
 ### Allow a User to Get Information About Builds<a name="customer-managed-policies-example-batch-get-builds"></a>
 
-The following example policy statement allows a user to get information about builds only in the `us-east-2` region for account `123456789012` for the build projects named `my-build-project` and `my-other-build-project`:
+The following example policy statement allows a user to get information about builds in the `us-east-2` Region for account `123456789012` for the build projects named `my-build-project` and `my-other-build-project`:
 
 ```
 {
@@ -329,7 +441,7 @@ The following example policy statement allows a user to get information about bu
 
 ### Allow a User to Get a List of Build IDs for a Build Project<a name="customer-managed-policies-example-list-builds-for-project"></a>
 
-The following example policy statement allows a user to get a list of build IDs only in the `us-east-2` region for account `123456789012` for the build projects named `my-build-project` and `my-other-build-project`:
+The following example policy statement allows a user to get a list of build IDs in the `us-east-2` Region for account `123456789012` for the build projects named `my-build-project` and `my-other-build-project`:
 
 ```
 {
@@ -364,9 +476,77 @@ The following example policy statement allows a user to get a list of all build 
 }
 ```
 
-### Allow a User to Begin Running Builds<a name="customer-managed-policies-example-start-build"></a>
+### Allow a User to Get a List of Report Groups<a name="customer-managed-policies-example-get-list-of-report-groups"></a>
 
-The following example policy statement allows a user to run builds only in the `us-east-2` region for account `123456789012` for build project that starts with the name `my`:
+The following example policy statement allows a user to get a list of report groups in the `us-east-2` Region for account `123456789012`:
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "codebuild:ListReportGroups",
+      "Resource": "*"
+    }
+  ]
+}
+```
+
+### Allow a User to Get a List of Reports<a name="customer-managed-policies-example-get-list-of-reports"></a>
+
+The following example policy statement allows a user to get a list of reports in the `us-east-2` Region for account `123456789012`:
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "codebuild:ListReports",
+      "Resource": "*"
+    }
+  ]
+}
+```
+
+### Allow a User to Get a List of Reports for a Report Group<a name="customer-managed-policies-example-get-list-of-reports-for-report-group"></a>
+
+The following example policy statement allows a user to get a list of reports for a report group in the `us-east-2` Region for account `123456789012`:
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "codebuild:ListReportsForReportGroup",
+      "Resource": "arn:aws:codebuild:us-east-2:123456789012:report-group/*"
+    }
+  ]
+}
+```
+
+### Allow a User to Get a List of Test Cases for a Report<a name="customer-managed-policies-example-get-list-of-test-cases-for-report"></a>
+
+The following example policy statement allows a user to get a list of test cases for a report in the `us-east-2` Region for account `123456789012`:
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "codebuild:DescribeTestCases",
+      "Resource": "arn:aws:codebuild:us-east-2:123456789012:report-group/*"
+    }
+  ]
+}
+```
+
+### Allow a User to Start Running Builds<a name="customer-managed-policies-example-start-build"></a>
+
+The following example policy statement allows a user to run builds in the `us-east-2` Region for account `123456789012` for a build project that starts with the name `my`:
 
 ```
 {
