@@ -91,7 +91,7 @@ phases:
     finally:
       - command
       - command
-  reports:
+reports:
   report-name-or-arn:
     files:
       - location
@@ -99,7 +99,7 @@ phases:
     base-directory: location
     discard-paths: yes
     file-format: JunitXml | CucumberJson
-  artifacts:
+artifacts:
   files:
     - location
     - location
@@ -434,7 +434,7 @@ reports:
       - 'cucumber/target/cucumber-tests.xml'
     discard-paths: yes
     file-format: CucumberJson # default is JunitXml
-    artifacts:
+artifacts:
   files:
     - target/messageUtil-1.0.jar
   discard-paths: yes
