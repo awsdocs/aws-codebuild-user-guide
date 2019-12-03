@@ -38,7 +38,7 @@ If you want to use an existing Amazon SNS topic instead of creating a new one, i
 1. At a terminal or command prompt, run the create\-notification rule command to generate the JSON skeleton:
 
    ```
-   aws codestarnotifications create-notification-rule --generate-cli-skeleton > rule.json
+   aws codestar-notifications create-notification-rule --generate-cli-skeleton > rule.json
    ```
 
    You can name the file anything you want\. In this example, the file is named *rule\.json*\.
@@ -68,7 +68,7 @@ If you want to use an existing Amazon SNS topic instead of creating a new one, i
 1. Using the file you just edited, at the terminal or command line, run the create\-notification\-rule command again to create the notification rule:
 
    ```
-   aws codestarnotifications create-notification-rule --cli-input-json  file://rule.json
+   aws codestar-notifications create-notification-rule --cli-input-json  file://rule.json
    ```
 
 1. If successful, the command returns the ARN of the notification rule, similar to the following:
