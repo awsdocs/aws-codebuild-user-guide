@@ -398,12 +398,24 @@ We recommend that you use **Insecure SSL** for testing only\. It should not be u
 **Issue:** When you try to update a project in the console, the update failed with the error: "The policy's default version was not created by enhanced zero click role creation or was not the most recent version created by enhanced zero click role creation\."
 
  **Possible causes:** 
-+ You have manually updated the policies attached to the target AWS CodeBuild service role\.
-+ You have selected a previous version of a policy attached to the target CodeBuild service role\.
++ You have updated the policies attached to the target AWS CodeBuild service role\.
++ You have selected an earlier version of a policy attached to the target CodeBuild service role\.
 
  **Recommended solutions:** 
-+ Edit your CodeBuild project, and clear **Allow CodeBuild to modify this service role so it can be used with this build project**\. Manually update the target CodeBuild service role to have sufficient permissions\. For more information, see [Create a CodeBuild Service Role](setting-up.md#setting-up-service-role)\.
-+ Edit your CodeBuild project, and select **Create a role**\.
++ Edit your CodeBuild project and clear the **Allow CodeBuild to modify this service role so it can be used with this build project** check box\. Verify the CodeBuild service role you are using has sufficient permissions\. If you edit your CodeBuild project again, you must clear this check box again\. For more information, see [Create a CodeBuild Service Role](setting-up.md#setting-up-service-role)\.
++ Edit your CodeBuild project to use a new service role:
+
+  1. Open the IAM console and create a new service role\. For more information, see [Create a CodeBuild Service Role](setting-up.md#setting-up-service-role) 
+
+  1. Open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codesuite/codebuild/home](https://console.aws.amazon.com/codesuite/codebuild/home)\.
+
+  1. In the navigation pane, choose **Build projects**\.
+
+  1. Choose the button next to your build project, choose **Edit**, and then choose **Environment**\.
+
+  1.  For **Service role**, choose the role you created\. 
+
+  1.  Choose **Update environment**\. 
 
 ## Error: "Build container found dead before completing the build\. Build container died because it was out of memory, or the Docker image is not supported\. ErrorCode: 500"<a name="windows-server-core-version"></a>
 

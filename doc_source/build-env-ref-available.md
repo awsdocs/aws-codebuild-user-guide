@@ -8,8 +8,10 @@ AWS CodeBuild manages the following Docker images that are available in the Code
 | Platform | Image identifier | Definition | 
 | --- | --- | --- | 
 | Amazon Linux 2 | aws/codebuild/amazonlinux2\-x86\_64\-standard:1\.0 | [al2/standard/1\.0](https://github.com/aws/aws-codebuild-docker-images/tree/master/al2/x86_64/standard/1.0) | 
+| Amazon Linux 2 | aws/codebuild/amazonlinux2\-x86\_64\-standard:2\.0 | [al2/standard/2\.0](https://github.com/aws/aws-codebuild-docker-images/tree/master/al2/x86_64/standard/2.0) | 
 | Amazon Linux 2 | aws/codebuild/amazonlinux2\-aarch64\-standard:1\.0 | [al2/aarch64/standard/1\.0](https://github.com/aws/aws-codebuild-docker-images/tree/master/al2/aarch64/standard/1.0) | 
 | Ubuntu 18\.04 | aws/codebuild/standard:2\.0 | [ubuntu/standard/2\.0](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/standard/2.0) | 
+| Ubuntu 18\.04 | aws/codebuild/standard:3\.0 | [ubuntu/standard/3\.0](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/standard/3.0) | 
 | Windows Server Core 2016 | aws/codebuild/windows\-base:1\.0 | N/A | 
 | Windows Server Core 2016 | aws/codebuild/windows\-base:2\.0 | N/A | 
 
@@ -21,12 +23,15 @@ AWS CodeBuild manages the following Docker images that are available in the Code
 | android | 28, 29 | android: 28, android: 29 | 
 | docker | 18 | docker: 18 | 
 | dotnet | 2\.2 | dotnet: 2\.2 | 
+| dotnet \(Amazon Linux 2:2\.0 and Ubuntu Standard:3\.0 only\) | 3\.0 | dotnet: 3\.0 | 
 | golang | 1\.12, 1\.13 | golang: 1\.12, golang: 1\.13 | 
 | nodejs | 8, 10 | nodejs: 8, nodejs: 10 | 
+| nodejs \(Amazon Linux 2:2\.0 and Ubuntu Standard:3\.0 only\) | 10, 12 | nodejs: 10, nodejs: 12 | 
 | java \(Ubuntu only\) | openjdk8, openjdk11 | java: openjdk8, java: openjdk11 | 
 | java \(Amazon Linux 2 only\) | corretto8, corretto11 | java: corretto8, java: corretto11 | 
 | php | 7\.3 | php: 7\.3 | 
 | python | 3\.7 | python: 3\.7 | 
+| python \(Amazon Linux 2:2\.0 and Ubuntu Standard:3\.0 only\) | 3\.8 | python: 3\.8 | 
 | ruby | 2\.6 | ruby: 2\.6 | 
 
 **Note**  
@@ -46,7 +51,7 @@ The `aws/codebuild/amazonlinux2-aarch64-standard:1.0` image does not support the
 | ruby | 2\.4 | 2\.6 | 
 
 **Note**  
- The base image of the Windows Server Core 2016 platform is available in the US East \(N\. Virginia\), US East \(Ohio\), US West \(Oregon\), and EU \(Ireland\) regions only\. 
+ The base image of the Windows Server Core 2016 platform is available in the US East \(N\. Virginia\), US East \(Ohio\), US West \(Oregon\), and Europe \(Ireland\) regions only\. 
 
 You can use a build specification to install other components \(for example, the AWS CLI, Apache Maven, Apache Ant, Mocha, RSpec, or similar\) during the `install` build phase\. For more information, see [Build Spec Example](build-spec-ref.md#build-spec-ref-example)\.
 

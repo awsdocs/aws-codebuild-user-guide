@@ -11,12 +11,13 @@ AWS CodeBuild now supports the use of build badges, which provide an embeddable,
 1. On the **Create build project** page, in **Project configuration**, enter a name for this build project\. Build project names must be unique across each AWS account\. You can also include an optional description of the build project to help other users understand what this project is used for\.
 
 1. In **Source**, for **Source provider**, choose the source code provider type, and then do one of the following:
-   + If you chose **Amazon S3**, then for **Bucket**, choose the name of the input bucket that contains the source code\. For **S3 object key**, enter the name of the ZIP file that contains the source code\.
    + If you chose **CodeCommit**, then for **Repository**, choose the name of the repository\. Select **Enable build badge** to make your project's build status visible and embeddable\.
    + If you chose **GitHub**, follow the instructions to connect \(or reconnect\) with GitHub\. On the GitHub **Authorize application** page, for **Organization access**, choose **Request access** next to each repository you want AWS CodeBuild to be able to access\. After you choose **Authorize application**, back in the AWS CodeBuild console, for **Repository**, choose the name of the repository that contains the source code\. Select **Enable build badge** to make your project's build status visible and embeddable\.
    + If you chose **Bitbucket**, follow the instructions to connect \(or reconnect\) with Bitbucket\. On the Bitbucket **Confirm access to your account** page, for **Organization access**, choose **Grant access**\. After you choose **Grant access**, back in the AWS CodeBuild console, for **Repository**, choose the name of the repository that contains the source code\. Select **Enable build badge** to make your project's build status visible and embeddable\.
 **Important**  
 Updating your project source might affect the accuracy of the project's build badges\.
+**Note**  
+ CodeBuild does not support build badges with the S3 source provider\. 
 
 1. In **Environment**:
 
