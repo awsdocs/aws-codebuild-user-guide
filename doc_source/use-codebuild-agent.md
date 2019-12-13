@@ -28,7 +28,7 @@ docker inspect amazon/aws-codebuild-local
 
 1.  Open the Amazon SNS console at [https://console\.aws\.amazon\.com/sns/v3/home](https://console.aws.amazon.com/sns/v3/home)\. 
 
-1.  In the navigation bar, if it's not already selected, change the region to **US East \(N\. Virginia\)**, if it not already selected\. You must select this region because the SNS notifications that you are subscribing to are created in this region\. 
+1.  In the navigation bar, if it's not already selected, change the region to **US East \(N\. Virginia\)**\. You must select this region because the Amazon SNS notifications that you are subscribing to are created in this region\. 
 
 1.  In the navigation pane, choose **Subscriptions**\. 
 

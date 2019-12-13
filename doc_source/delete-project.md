@@ -1,9 +1,9 @@
 # Delete a Build Project in AWS CodeBuild<a name="delete-project"></a>
 
-You can use the CodeBuild console, AWS CLI, or AWS SDKs to delete a build project in CodeBuild\.
+You can use the CodeBuild console, AWS CLI, or AWS SDKs to delete a build project in CodeBuild\. If you delete a project, its builds are not deleted\.
 
 **Warning**  
-If you delete a build project, it cannot be recovered\. All information about builds is also deleted and cannot be recovered\.
+You cannot delete a project that has builds and a resource policy\. To delete a project with a resource policy and builds, remove the resource policy or delete its builds first\. 
 
 **Topics**
 + [Delete a Build Project \(Console\)](#delete-project-console)

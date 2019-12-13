@@ -14,6 +14,8 @@ AWS CodeBuild provides build environments with the following available memory, v
 | build\.general1\.large | BUILD\_GENERAL1\_LARGE | 16 GB | 8 | 50 GB | ARM\_CONTAINER | 
 | build\.general1\.2xlarge | BUILD\_GENERAL1\_2XLARGE | 145 GB | 72 | 824 GB \(SSD\) | LINUX\_CONTAINER | 
 
+The disk space listed for each build environment is available only in the directory specified by the `CODEBUILD_SRC_DIR` environment variable\.
+
 **Note**  
  Some environment and compute types have limitations:   
 The environment type `LINUX_GPU_CONTAINER` is available only in regions US East \(N\. Virginia\), US West \(Oregon\), Canada \(Central\), Europe \(Ireland\), Europe \(London\), Europe \(Frankfurt\), Asia Pacific \(Tokyo\), Asia Pacific \(Seoul\), Asia Pacific \(Singapore\), Asia Pacific \(Sydney\) , China \(Beijing\), and China \(Ningxia\)\.

@@ -17,3 +17,4 @@ A *report group* contains test reports and specifies shared settings\. You use t
 + [Specify Test Files](report-group-test-cases.md)
 + [Specify Test Commands](report-group-test-case-commands.md)
 + [Report Group Naming](test-report-group-naming.md)
++ [Working with Shared Report Groups](report-groups-sharing.md)

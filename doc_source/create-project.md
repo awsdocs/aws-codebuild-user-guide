@@ -390,8 +390,6 @@ For information about using the AWS CLI with CodeBuild, see the [Command Line Re
      + *cache\-location*: Required value only if you set *CacheType* to `S3`\. If you specified Amazon S3 for *CacheType*, this is the ARN of the Amazon S3 bucket and the path prefix\. For example, if your Amazon S3 bucket name is `my-bucket`, and your path prefix is `build-cache`, then acceptable formats for your *CacheLocation* are `my-bucket/build-cache` or `arn:aws:s3:::my-bucket/build-cache`\.
      + *cache\-mode*: Required value if you set *CacheType* to `LOCAL`\. You can specify one or more of the following local cache modes: `LOCAL_SOURCE_CACHE`, `LOCAL_DOCKER_LAYER_CACHE`, `LOCAL_CUSTOM_CACHE`\.
 **Note**  
-`LOCAL_DOCKER_LAYER_CACHE` mode is available for Linux only\. If you choose it, your project must run in privileged mode\.
-**Note**  
 **Docker layer cache** mode is available for Linux only\. If you choose it, your project must run in privileged mode\. The `ARM_CONTAINER` and `LINUX_GPU_CONTAINER` environment types and the `BUILD_GENERAL1_2XLARGE` compute type do not support the use of a local cache\.
    + For the `logsConfig` object, information about where this build's logs are located:
      +  *cloudwatch\-logs\-status*: Required value\. Valid values are `ENABLED` or `DISABLED`\. If its value is `ENABLED` then the following values are required\. For more information, see [Working with Log Groups and Log Streams](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html)\. 

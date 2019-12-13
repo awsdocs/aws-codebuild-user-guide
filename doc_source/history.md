@@ -2,10 +2,11 @@
 
 The following table describes the important changes to the documentation since the last release of AWS CodeBuild\. For notification about updates to this documentation, you can subscribe to an RSS feed\.
 + **Latest API version:** 2016\-10\-06
-+ **Latest documentation update: **December 9, 2019
++ **Latest documentation update: **December 13, 2019
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [New topics](#history) |  CodeBuild now supports sharing build project and report group resources\. For more information, see [Working with Shared Projects](https://docs.aws.amazon.com/codebuild/latest/userguide/project-sharing.html) and [Working with Shared Report Groups](https://docs.aws.amazon.com/codebuild/latest/userguide/report-groups-sharing.html)\. | December 13, 2019 | 
 | [New and updated topics](#history) |  CodeBuild now supports test reporting during the run of a build project\. For more information, see [Working with Test Reporting](https://docs.aws.amazon.com/codebuild/latest/userguide/test-reporting.html), [Create a Test Report](https://docs.aws.amazon.com/codebuild/latest/userguide/report-create.html), and [Create a Test Report Using the AWS CLI Sample](https://docs.aws.amazon.com/codebuild/latest/userguide/sample-test-report-cli.html)\. | November 25, 2019 | 
 | [Updated topic](#history) |  CodeBuild now supports Linux GPU and Arm environment types, and the `2xlarge` compute type\. For more information, see [Build Environment Compute Types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html)\. | November 19, 2019 | 
 | [Updated topics](#history) |  CodeBuild now supports build numbers on all builds, exporting environment variables, and AWS Secrets Manager integration\. For more information, see [Exported Variables](https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#exported-variables-build-spec) and [Secrets Manager](https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#secrets-manager-build-spec) in [Build Spec Syntax](https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec-ref-syntax)\. | November 6, 2019 | 
