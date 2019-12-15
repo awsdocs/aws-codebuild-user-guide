@@ -17,7 +17,7 @@ AWS CodeBuild now supports the use of build badges, which provide an embeddable,
 **Important**  
 Updating your project source might affect the accuracy of the project's build badges\.
 **Note**  
- CodeBuild does not support build badges with the S3 source provider\. 
+ CodeBuild does not support build badges with the S3 source provider\. Build badges are also not supported when CodeBuild project is part of a CodePipeline.
 
 1. In **Environment**:
 
