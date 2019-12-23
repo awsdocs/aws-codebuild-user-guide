@@ -489,7 +489,7 @@ If you choose **New service role**, the created service role includes permission
    + <a name="encryptionkey-cli"></a>*encryptionKey*: Optional value\. The alias or ARN of the AWS KMS customer managed key \(CMK\) CodeBuild uses to encrypt the build output\. If you specify an alias, use the format `arn:aws:kms:region-ID:account-ID:key/key-ID` or, if an alias exists, use the format `alias/key-alias`\. If not specified, the AWS\-managed CMK for Amazon S3 is used\.
    + For the optional *tags* array, information about any tags you want to associate with this build project\. You can specify up to 50 tags\. These tags can be used by any AWS service that supports CodeBuild build project tags\. Each tag is expressed as an object that contains a `key` and `value` value of *tag\-key* and *tag\-value*\.
 
-   For an example, see [To create the build project \(AWS CLI\)](getting-started.md#getting-started-create-build-project-cli)\.
+   For an example, see [To create the build project ](getting-started-cli-create-build-project.md#getting-started-cli-create-build-project-cli)\.
 
 1. Switch to the directory that contains the file you just saved, and run the create\-projectcommand again:
 

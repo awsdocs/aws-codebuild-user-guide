@@ -1,6 +1,6 @@
 # Advanced Setup<a name="setting-up"></a>
 
-If you follow the steps in [Getting Started](getting-started.md) to access AWS CodeBuild for the first time, most likely you will not need to reference the information in this topic\. However, as you continue using CodeBuild, you will want to do things such as give IAM groups and users in your organization access to CodeBuild, modify existing service roles in IAM or customer master keys in AWS KMS to access CodeBuild, or set up the AWS CLI across your organization's workstations to access CodeBuild\. This topic describes how to complete the related setup steps\.
+If you follow the steps in [Getting Started in the Console](getting-started.md) to access AWS CodeBuild for the first time, most likely you will not need to reference the information in this topic\. However, as you continue using CodeBuild, you will want to do things such as give IAM groups and users in your organization access to CodeBuild, modify existing service roles in IAM or customer master keys in AWS KMS to access CodeBuild, or set up the AWS CLI across your organization's workstations to access CodeBuild\. This topic describes how to complete the related setup steps\.
 
 We assume you already have an AWS account\. However, if you do not already have one, go to [http://aws\.amazon\.com](http://aws.amazon.com), choose **Sign In to the Console**, and follow the online instructions\.
 

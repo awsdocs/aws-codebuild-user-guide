@@ -41,6 +41,6 @@ We recommend that you complete the following steps:
 
 1. **Learn** more about CodeBuild by reading the information in [Concepts](concepts.md)\.
 
-1. **Experiment** with CodeBuild in an example scenario by following the instructions in [Getting Started](getting-started.md)\.
+1. **Experiment** with CodeBuild in an example scenario by following the instructions in [Getting Started in the Console](getting-started.md)\.
 
 1. **Use** CodeBuild in your own scenarios by following the instructions in [Plan a Build](planning.md)\.

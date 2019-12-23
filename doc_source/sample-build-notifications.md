@@ -258,8 +258,8 @@ To stop using a rule to send build notifications, in the CloudWatch console, cho
 
 To delete a rule altogether, in the CloudWatch console, choose the rule you want to delete, and then choose **Actions**, **Delete**\.
 
-### Related Resources<a name="w47aac11c41c32b9c12"></a>
-+ For more information about getting started with AWS CodeBuild, see [Getting Started with CodeBuild](getting-started.md)\.
+### Related Resources<a name="w48aac11c41c32b9c12"></a>
++ For more information about getting started with AWS CodeBuild, see [Getting Started with CodeBuild in the Console](getting-started.md)\.
 + For more information about troubleshooting problems with CodeBuild, see [Troubleshooting CodeBuild](troubleshooting.md)\.
 + For more information about limits in CodeBuild, see [Limits for CodeBuild](limits.md)\.
 

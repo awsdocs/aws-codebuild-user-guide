@@ -25,7 +25,13 @@ To override the default build spec file name, location, or both, do one of the f
 
 ## Build Spec Syntax<a name="build-spec-ref-syntax"></a>
 
-Build spec files must be expressed in [YAML](http://yaml.org/) format\.
+Build spec files must be expressed in [YAML](http://yaml.org/) format\. 
+
+If a command contains a character, or a string of characters, that is not supported by YAML, you must enclose the command in quotation marks \(""\)\. The following command is enclosed in quotation marks because a colon \(:\) followed by a space is not allowed in YAML\. The quotation mark in the command is escaped \(\\"\)\.
+
+```
+"export PACKAGE_NAME=$(cat package.json | grep name | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g')"
+```
 
 **Important**  
 If you use the Ubuntu standard image 2\.0 or later, or the Amazon Linux 2 \(AL2\) standard image 1\.0 or later, you must specify `runtime-versions` in your buildspec file\. For more information, see [Specify Runtime Versions in the Buildspec File](#runtime-versions-buildspec-file)\.
@@ -180,7 +186,7 @@ In build spec version 0\.1, CodeBuild runs each command in a separate instance o
 
   The allowed build phase names are:
   + `install`: Optional sequence\. Represents the commands, if any, that CodeBuild runs during installation\. We recommend that you use the `install` phase only for installing packages in the build environment\. For example, you might use this phase to install a code testing framework such as Mocha or RSpec\.<a name="runtime-versions-buildspec-file"></a>
-    + <a name="runtime-versions-in-build-spec"></a> `runtime-versions`: Required if using the Ubuntu standard image 2\.0 or later, or the Amazon Linux \(AL2\) standard image 1\.0 or later\. A runtime version is not supported with a custom image or the Ubuntu standard image 1\.0\. If specified, at least one runtime must be included in this section\. Specify a runtime using a major version only, such as "java: openjdk11" or "ruby: 2\.6\." You can specify the runtime using a number or an environment variable\. For example, if you use the Amazon Linux 2 standard image 1\.0, then the following specifies that version 8 of Java, version 29 of Android, and a version contained in an environment variable of Ruby is installed\. For more information, see [Docker Images Provided by CodeBuild](build-env-ref-available.md)\. 
+    + <a name="runtime-versions-in-build-spec"></a> `runtime-versions`: Required if using the Ubuntu standard image 2\.0 or later, or the Amazon Linux \(AL2\) standard image 1\.0 or later\. A runtime version is not supported with a custom image or the Ubuntu standard image 1\.0\. If specified, at least one runtime must be included in this section\. Specify a runtime using a major version only, such as "java: openjdk11" or "ruby: 2\.6\." You can specify the runtime using a number or an environment variable\. For example, if you use the Amazon Linux 2 standard image 2\.0, then the following specifies that version 8 of Java, version 29 of Android, and a version contained in an environment variable of Ruby is installed\. For more information, see [Docker Images Provided by CodeBuild](build-env-ref-available.md)\. 
 
       ```
       phases:
@@ -190,7 +196,7 @@ In build spec version 0\.1, CodeBuild runs each command in a separate instance o
             android: 29
             ruby: "$MY_RUBY_VAR"
       ```
-      +  Some runtimes must include specific versions of other runtimes\. If a required runtime is not specified, the build fails\. For example, if you use any supported version of `android`, then version 8 of Java is required\. If you use the Ubuntu standard image 2\.0, you specify this using `java: openjdk8`\. If you use the Amazon Linux 2 standard image 1\.0, you specify this using `java: corretto8`\.
+      +  Some runtimes must include specific versions of other runtimes\. If a required runtime is not specified, the build fails\. For example, if you use any supported version of `android`, then version 8 of Java is required\. If you use the Ubuntu standard image 2\.0, you specify this using `java: openjdk8`\. If you use the Amazon Linux 2 standard image 2\.0, you specify this using `java: corretto8`\.
       + If two specified runtimes conflict, the build fails\. For example, `android: 29` and `java: openjdk11` conflict, so if both are specified, the build fails\.
       +  The following supported runtimes can be specified\.     
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html)

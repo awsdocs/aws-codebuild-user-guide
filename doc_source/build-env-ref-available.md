@@ -7,13 +7,13 @@ AWS CodeBuild manages the following Docker images that are available in the Code
 
 | Platform | Image identifier | Definition | 
 | --- | --- | --- | 
-| Amazon Linux 2 | aws/codebuild/amazonlinux2\-x86\_64\-standard:1\.0 | [al2/standard/1\.0](https://github.com/aws/aws-codebuild-docker-images/tree/master/al2/x86_64/standard/1.0) | 
 | Amazon Linux 2 | aws/codebuild/amazonlinux2\-x86\_64\-standard:2\.0 | [al2/standard/2\.0](https://github.com/aws/aws-codebuild-docker-images/tree/master/al2/x86_64/standard/2.0) | 
 | Amazon Linux 2 | aws/codebuild/amazonlinux2\-aarch64\-standard:1\.0 | [al2/aarch64/standard/1\.0](https://github.com/aws/aws-codebuild-docker-images/tree/master/al2/aarch64/standard/1.0) | 
 | Ubuntu 18\.04 | aws/codebuild/standard:2\.0 | [ubuntu/standard/2\.0](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/standard/2.0) | 
 | Ubuntu 18\.04 | aws/codebuild/standard:3\.0 | [ubuntu/standard/3\.0](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/standard/3.0) | 
-| Windows Server Core 2016 | aws/codebuild/windows\-base:1\.0 | N/A | 
 | Windows Server Core 2016 | aws/codebuild/windows\-base:2\.0 | N/A | 
+
+ The latest version of each images is cached\. If you specify a more specific version, then CodeBuild provisions that version instead of the cached version\. This can result in longer build times\. For example, to benefit from caching, specify `aws/codebuild/amazonlinux2-x86_64-standard:2.0` instead of a more granular version, such as `aws/codebuild/amazonlinux2-x86_64-standard:2.0-1.0.0`\. 
 
  The standard image of the Ubuntu 18\.04 and Amazon Linux 2 platforms contain the following runtimes\. If you use the Amazon Linux 2 standard image 1\.0 or the Ubuntu standard image 2\.0, you must specify your runtime in the `runtime-versions` section of your buildspec file\. For more information, see [Specify Runtime Versions in the Buildspec File](build-spec-ref.md#runtime-versions-buildspec-file)\. 
 
@@ -40,15 +40,15 @@ The `aws/codebuild/amazonlinux2-aarch64-standard:1.0` image does not support the
  The base image of the Windows Server Core 2016 contains the following runtimes\. 
 
 
-| Runtime name | Version in `windows-base:1.0` | Version in `windows-base:2.0` | 
-| --- | --- | --- | 
-| dotnet | 2\.1 | 2\.2 | 
-| golang | 1\.11 | 1\.13 | 
-| nodejs | 9\.11 | 10\.16 | 
-| java | openjdk8 | openjdk11 | 
-| php | 7\.2 | 7\.3 | 
-| python | 3\.6 | 3\.7 | 
-| ruby | 2\.4 | 2\.6 | 
+| Runtime name | Version in `windows-base:2.0` | 
+| --- | --- | 
+| dotnet | 2\.2 | 
+| golang | 1\.13 | 
+| nodejs | 10\.16 | 
+| java | openjdk11 | 
+| php | 7\.3 | 
+| python | 3\.7 | 
+| ruby | 2\.6 | 
 
 **Note**  
  The base image of the Windows Server Core 2016 platform is available in the US East \(N\. Virginia\), US East \(Ohio\), US West \(Oregon\), and Europe \(Ireland\) regions only\. 

@@ -182,7 +182,7 @@ func main() {
 }
 ```
 
-## Related Resources<a name="w47aac11c41c10c13"></a>
-+ For more information about getting started with AWS CodeBuild, see [Getting Started with CodeBuild](getting-started.md)\.
+## Related Resources<a name="w48aac11c41c10c13"></a>
++ For more information about getting started with AWS CodeBuild, see [Getting Started with CodeBuild in the Console](getting-started.md)\.
 + For more information about troubleshooting problems with CodeBuild, see [Troubleshooting CodeBuild](troubleshooting.md)\.
 + For more information about limits in CodeBuild, see [Limits for CodeBuild](limits.md)\.

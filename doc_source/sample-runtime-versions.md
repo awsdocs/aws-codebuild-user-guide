@@ -41,7 +41,7 @@
         java: openjdk11
   ```
 
- The following examples show how you to specify different versions of Node\.js using the Ubuntu standard image 2\.0 or the Amazon Linux 2 standard image 1\.0: 
+ The following examples show how you to specify different versions of Node\.js using the Ubuntu standard image 2\.0 or the Amazon Linux 2 standard image 2\.0: 
 +  A `runtime-versions` section that specifies Node\.js version 8: 
 
   ```

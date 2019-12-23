@@ -144,7 +144,7 @@ aws codebuild delete-resource-policy --resource-arn project-arn
 Owners and consumers can use the AWS CLI to identify shared projects\.
 
 **To identify projects shared with your AWS account or user \(AWS CLI\)**  
-Use the [list\-shared\-project](https://docs.aws.amazon.com/cli/latest/reference/ram/list-shared-project.html) command to return the projects that are shared with you\.
+Use the [list\-shared\-projects](https://docs.aws.amazon.com/cli/latest/reference/codebuild/list-shared-projects.html) command to return the projects that are shared with you\.
 
 ## Shared Project Permissions<a name="project-sharing-perms"></a>
 

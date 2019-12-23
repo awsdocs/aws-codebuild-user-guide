@@ -1,0 +1,17 @@
+# Step 8: View Detailed Build Information<a name="getting-started-build-log-console"></a>
+
+\(Previous step: [Step 7: View Summarized Build Information](getting-started-monitor-build-console.md)\)
+
+In this step, you view detailed information about your build in CloudWatch Logs\.<a name="getting-started-build-log-console-procedure"></a>
+
+**To view detailed build information**
+
+1. With the build details page still displayed from the previous step, the last 10,000 lines of the build log are displayed in **Build logs**\. To see the entire build log in CloudWatch Logs, choose the **View entire log** link\. 
+
+1. In the CloudWatch Logs log stream, you can browse the log events\. By default, only the last set of log events is displayed\. To see earlier log events, scroll to the beginning of the list\.
+
+1. In this tutorial, most of the log events contain verbose information about CodeBuild downloading and installing build dependency files into its build environment, which you probably don't care about\. You can use the **Filter events** box to reduce the information displayed\. For example, if you enter `"[INFO]"` in **Filter events**, only those events that contain `[INFO]` are displayed\. For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/FilterAndPatternSyntax.html) in the *Amazon CloudWatch User Guide*\.
+
+## Next Step<a name="getting-started-build-log-console-next"></a>
+
+[Step 9: Get the Build Output Artifact](getting-started-output-console.md)

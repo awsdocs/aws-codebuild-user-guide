@@ -12,7 +12,7 @@ The following diagram shows what happens when you run a build with CodeBuild:
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/arch.png)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)
 
-1. As input, you must provide CodeBuild with a build project\. A *build project* defines how CodeBuild runs a build\. It includes information such as where to get the source code, the build environment to use, the build commands to run, and where to store the build output\. A *build environment* represents a combination of operating system, programming language runtime, and tools that CodeBuild uses to run a build\. For more information, see:
+1. As input, you must provide CodeBuild with a build project\. A *build project* includes information about how to run a build, including where to get the source code, which build environment to use, which build commands to run, and where to store the build output\. A *build environment* represents a combination of operating system, programming language runtime, and tools that CodeBuild uses to run a build\. For more information, see:
    + [Create a Build Project](create-project.md)
    + [Build Environment Reference](build-env-ref.md)
 
@@ -30,6 +30,6 @@ The following diagram shows what happens when you run a build with CodeBuild:
 
 Now that you know more about AWS CodeBuild, we recommend that you complete the following steps:
 
-1. **Experiment** with CodeBuild in an example scenario by following the instructions in [Getting Started](getting-started.md)\.
+1. **Experiment** with CodeBuild in an example scenario by following the instructions in [Getting Started in the Console](getting-started.md)\.
 
 1. **Use** CodeBuild in your own scenarios by following the instructions in [Plan a Build](planning.md)\.

@@ -39,7 +39,7 @@ For example, if you run this command:
 aws codebuild batch-get-builds --ids codebuild-demo-project:e9c4f4df-3f43-41d2-ab3a-60fe2EXAMPLE codebuild-demo-project:815e755f-bade-4a7e-80f0-efe51EXAMPLE my-other-project:813bb6c6-891b-426a-9dd7-6d8a3EXAMPLE
 ```
 
-If the command is successful, data similar to that described in [To view summarized build information \(AWS CLI\)](getting-started.md#getting-started-monitor-build-cli) appears in the output\.
+If the command is successful, data similar to that described in [To view summarized build information ](getting-started-cli-monitor-build.md#getting-started-cli-monitor-build-cli) appears in the output\.
 
 ## View Build Details \(AWS SDKs\)<a name="view-build-details-sdks"></a>
 

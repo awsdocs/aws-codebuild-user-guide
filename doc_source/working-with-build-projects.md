@@ -1,6 +1,6 @@
 # Working with Build Projects<a name="working-with-build-projects"></a>
 
-A *build project* defines how CodeBuild runs a build\. It includes information such as where to get the source code, the build environment to use, the build commands to run, and where to store the build output\.
+A *build project* includes information about how to run a build, including where to get the source code, which build environment to use, which build commands to run, and where to store the build output\.
 
 You can perform these tasks when working with build projects:
 

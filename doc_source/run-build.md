@@ -214,7 +214,7 @@ The value in the build spec declaration takes lowest precedence\.
    aws codebuild start-build --cli-input-json file://start-build.json
    ```
 
-1. If successful, data similar to that described in the [To run the build \(AWS CLI\)](getting-started.md#getting-started-run-build-cli) procedure appears in the output\.
+1. If successful, data similar to that described in the [To run the build](getting-started-cli-run-build.md#getting-started-run-build-cli) procedure appears in the output\.
 
 To work with detailed information about this build, make a note of the `id` value in the output, and then see [View Build Details \(AWS CLI\)](view-build-details.md#view-build-details-cli)\.
 
