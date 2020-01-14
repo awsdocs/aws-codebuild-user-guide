@@ -5,7 +5,7 @@
 | --- |
 | The test reporting feature is in preview release for CodeBuild and is subject to change\. | 
 
- When you use the AWS CLI or the AWS CodeBuild console to create a report group, you specify a name for the report group\. If you use the buildspec to create a new report group, it is named using using the format `project-name-report-group-name-specified-in-buildspec`\. All reports created by running builds of that build project belong to the new report group that has the new name\. 
+ When you use the AWS CLI or the AWS CodeBuild console to create a report group, you specify a name for the report group\. If you use the buildspec to create a new report group, it is named using the format `project-name-report-group-name-specified-in-buildspec`\. All reports created by running builds of that build project belong to the new report group that has the new name\. 
 
  If you do not want CodeBuild to create a new report group, specify the ARN of the report group in a build project's buildspec file\. You can specify a report group's ARN in multiple build projects\. After each build project runs, the report group contains test reports created by each build project\. 
 
