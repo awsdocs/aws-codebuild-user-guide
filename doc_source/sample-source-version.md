@@ -30,7 +30,7 @@ To speed up the `DOWNLOAD_SOURCE` phase of your build, you can also to set **Git
 
 1. Create a build project\. For information, see [Create a Build Project \(Console\)](create-project.md#create-project-console) and [Run a Build \(Console\)](run-build.md#run-build-console)\. Leave all settings at their default values, except for these settings:
    +  In **Source**: 
-     +  For **Source provider**, choose **GitHub**\. If you are not connected to GitHub, ollow the instructions to connect\. 
+     +  For **Source provider**, choose **GitHub**\. If you are not connected to GitHub, follow the instructions to connect\. 
      +  For **Repository**, choose **Public repository**\. 
      +  For **Repository URL**, enter **https://github\.com/aws/aws\-sdk\-ruby\.git**\. 
    + In **Environment**:
