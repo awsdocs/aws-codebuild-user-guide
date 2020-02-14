@@ -119,4 +119,4 @@ At this point, your directory structure should look like this\.
 
 ## Next Step<a name="getting-started-create-source-code-console-next"></a>
 
-[Step 3: Create the Build Spec](getting-started-create-build-spec-console.md)
+[Step 3: Create the Buildspec File](getting-started-create-build-spec-console.md)

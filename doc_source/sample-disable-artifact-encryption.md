@@ -2,7 +2,7 @@
 
  You can disable the encryption of artifacts in a build\. You might want to do this so that you can publish artifacts to a location that is configured to host a website\. \(You cannot publish encrypted artifacts\.\) This sample shows how you can use webhooks to trigger a build and publish its artifacts to an Amazon S3 bucket that is configured to be a website\. 
 
-1.  Follow the instructions in [Setting Up a Static Website](https://docs.aws.amazon.com/AmazonS3/latest/dev//HostingWebsiteOnS3Setup.html) to configure an Amazon S3 bucket to function like a website\. 
+1.  Follow the instructions in [Setting Up a Static Website](https://docs.aws.amazon.com/AmazonS3/latest/dev/HostingWebsiteOnS3Setup.html) to configure an Amazon S3 bucket to function like a website\. 
 
 1. Open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codesuite/codebuild/home](https://console.aws.amazon.com/codesuite/codebuild/home)\.
 
@@ -32,7 +32,7 @@ When you use the console to create or update a build project, you can create a C
    + Choose **Use a buildspec file** to use the buildspec\.yml file in the source code root directory\.
    + Choose **Insert build commands** to use the console to insert build commands\.
 
-   For more information, see the [Build Spec Reference](build-spec-ref.md)\.
+   For more information, see the [Buildspec Reference](build-spec-ref.md)\.
 
 1.  In **Artifacts**, for ** Type**, choose **Amazon S3** to store the build output in an Amazon S3 bucket\. 
 
@@ -46,4 +46,4 @@ When you use the console to create or update a build project, you can create a C
 
 1. Choose **Create build project**\. On the build project page, in **Build history**, choose **Start build** to run the build\.
 
-1.  \(Optional\) Follow the instructions in [Example: Speed Up Your Website with Amazon CloudFront](https://docs.aws.amazon.com/AmazonS3/latest/dev//website-hosting-cloudfront-walkthrough.html)\. 
+1.  \(Optional\) Follow the instructions in [Example: Speed Up Your Website with Amazon CloudFront](https://docs.aws.amazon.com/AmazonS3/latest/dev/website-hosting-cloudfront-walkthrough.html)\. 

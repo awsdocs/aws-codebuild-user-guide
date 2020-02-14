@@ -3,7 +3,7 @@
  You can save time when your project builds by using a cache\. A cache can store reusable pieces of your build environment and use them across multiple builds\. Your build project can use one of two types of caching: Amazon S3 or local\. If you use a local cache, you must choose one or more of three cache modes: source cache, Docker layer cache, and custom cache\. 
 
 **Note**  
-Docker layer cache mode is available for the Linux environment only\. If you choose this mode, you must run your build in privileged mode\.
+Docker layer cache mode is available for the Linux environment only\. If you choose this mode, you must run your build in privileged mode\. CodeBuild projects granted privileged mode grants its container access to all devices\. For more information, see [Runtime privilege and Linux capabilities](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities) on the Docker Docs website\.
 
 **Topics**
 + [Amazon S3 Caching](#caching-s3)
@@ -20,12 +20,13 @@ Docker layer cache mode is available for the Linux environment only\. If you cho
 +  Docker layer cache mode caches existing Docker layers\. This mode is a good choice for projects that build or pull large Docker images\. It can prevent the performance issues caused by pulling large Docker images down from the network\. 
 **Note**  
  You can use a Docker layer cache in the Linux environment only\. 
- The `privileged` flag must be set so that your project has the required Docker permissions\. 
+ The `privileged` flag must be set so that your project has the required Docker permissions\.   
+By default, Docker containers do not allow access to any devices\. Privileged mode grants a build project's Docker container access to all devices\. For more information, see [Runtime Privilege and Linux Capabilities](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities) on the Docker Docs website\.
  You should consider the security implication before you use a Docker layer cache\. 
 +  Custom cache mode caches directories you specify in the buildspec file\. This mode is a good choice if your build scenario is not suited to one of the other two local cache modes\. If you use a custom cache: 
   +  Only directories can be specified for caching\. You cannot specify individual files\. 
   +  Symlinks are used to reference cached directories\. 
-  +  Cached directories are linked to your build before it downloads its project sources\. Cached items are overriden if a source item has the same name\. Directories are specified using cache paths in the buildspec file\. For more information, see [Build Spec Syntax](build-spec-ref.md#build-spec-ref-syntax)\. 
+  +  Cached directories are linked to your build before it downloads its project sources\. Cached items are overriden if a source item has the same name\. Directories are specified using cache paths in the buildspec file\. For more information, see [Buildspec Syntax](build-spec-ref.md#build-spec-ref-syntax)\. 
 
 **Note**  
 The `ARM_CONTAINER` and `LINUX_GPU_CONTAINER` environment types and the `BUILD_GENERAL1_2XLARGE` compute type do not support the use of a local cache\.\. For more information, see [Build Environment Compute Types](build-env-ref-compute-types.md)\.
@@ -103,5 +104,8 @@ CodeBuildProject:
           - LOCAL_DOCKER_LAYER_CACHE
           - LOCAL_SOURCE_CACHE
 ```
+
+**Note**  
+By default, Docker containers do not allow access to any devices\. Privileged mode grants a build project's Docker container access to all devices\. For more information, see [Runtime Privilege and Linux Capabilities](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities) on the Docker Docs website\.
 
 For more information, see [Create a Build Project \(AWS CloudFormation\)](create-project.md#create-project-cloud-formation)\.

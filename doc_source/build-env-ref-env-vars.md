@@ -42,10 +42,10 @@ You can also provide build environments with your own environment variables\. Fo
 + [Create a Build Project](create-project.md)
 + [Change a Build Project's Settings](change-project.md)
 + [Run a Build](run-build.md)
-+ [Build Spec Reference](build-spec-ref.md)
++ [Buildspec Reference](build-spec-ref.md)
 
 To list all of the available environment variables in a build environment, you can run the `printenv` command \(for Linux\-based build environment\) or `"Get-ChildItem Env:"` \(for Windows\-based build environments\) during a build\. Except for those previously listed, environment variables that start with `CODEBUILD_` are for CodeBuild internal use\. They should not be used in your build commands\.
 
 **Important**  
 We strongly discourage the use of environment variables to store sensitive values, especially AWS access key IDs and secret access keys\. Environment variables can be displayed in plain text using tools such as the CodeBuild console and the AWS CLI\.  
-We recommend you store sensitive values in the Amazon EC2 Systems Manager Parameter Store and then retrieve them from your build spec\. To store sensitive values, see [Systems Manager Parameter Store](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-paramstore.html) and [Systems Manager Parameter Store Console Walkthrough](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-walk.html#sysman-paramstore-console) in the *Amazon EC2 Systems Manager User Guide*\. To retrieve them, see the `parameter-store` mapping in [Build Spec Syntax](build-spec-ref.md#build-spec-ref-syntax)\.
+We recommend you store sensitive values in the Amazon EC2 Systems Manager Parameter Store and then retrieve them from your buildspec\. To store sensitive values, see [Systems Manager Parameter Store](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-paramstore.html) and [Systems Manager Parameter Store Console Walkthrough](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-walk.html#sysman-paramstore-console) in the *Amazon EC2 Systems Manager User Guide*\. To retrieve them, see the `parameter-store` mapping in [Buildspec Syntax](build-spec-ref.md#build-spec-ref-syntax)\.

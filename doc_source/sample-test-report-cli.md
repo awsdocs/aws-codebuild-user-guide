@@ -16,8 +16,8 @@ You can use the CodeBuild API or the AWS CodeBuild console to access the test re
 + [Run and View Results of a Report](#sample-test-report-cli-run-and-view-report-results)
 
 ## Prerequisites<a name="sample-test-report-cli-prerequisites"></a>
-+ Create your test cases\. This sample is written with the assumption that you have test cases to include in your sample test report\. You specify the location of your test files in the buildspec file\. The format of your test cases can be JUnit XML or Cucumber JSON\. Create your test cases with any test framework that can create test files in one of those formats \(for example, Surefire JUnit plugin, TestNG, and Cucumber\)\.
-+ Create an S3 bucket and make a note of its name\. For more information, see [How Do I Create an S3 Bucket](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/create-bucket.html) in the *Amazon S3 User Guide*\. 
++ Create your test cases\. This sample is written with the assumption that you have test cases to include in your sample test report\. You specify the location of your test files in the buildspec file\. The format of your test cases can be JUnit XML, Cucumber JSON, Visual Studio TRX, or TestNG XML\. Create your test cases with any test framework that can create test files in one of those formats \(for example, Surefire JUnit plugin, TestNG, and Cucumber\)\.
++ Create an S3 bucket and make a note of its name\. For more information, see [How Do I Create an S3 Bucket?](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/create-bucket.html) in the *Amazon S3 User Guide*\. 
 + Make a note of the ARN of the IAM role you use\. You need the ARN when you create your build project\. 
 +  If your role does not have the following permissions, add them\. 
 
@@ -73,7 +73,7 @@ You can use the CodeBuild API or the AWS CodeBuild console to access the test re
    ```
    {
        "reportGroup": {
-           "arn": "arn:aws:codebuild:us-west-2:123456789012:report-group/report-name",
+           "arn": "arn:aws:codebuild:us-west-2::123456789012:report-group/report-name",
            "name": "report-name",
            "type": "TEST",
            "exportConfig": {
@@ -82,7 +82,7 @@ You can use the CodeBuild API or the AWS CodeBuild console to access the test re
                    "bucket": "s3-bucket-name",
                    "path": "folder-path",
                    "packaging": "NONE",
-                   "encryptionKey": "arn:aws:kms:us-west-2:123456789012:alias/aws/s3"
+                   "encryptionKey": "arn:aws:kms:us-west-2::123456789012:alias/aws/s3"
                }
            },
            "created": 1570837165.885,

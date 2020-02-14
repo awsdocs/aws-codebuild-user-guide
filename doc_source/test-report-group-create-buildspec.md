@@ -5,7 +5,7 @@
 | --- |
 | The test reporting feature is in preview release for CodeBuild and is subject to change\. | 
 
-A report group created using the buildspec does not export raw test result files\. You can view your report group and specify export settings\. For more information, see [Specify Export Settings](report-group-export-settings.md)\. 
+A report group created using the buildspec does not export raw test result files\. You can view your report group and specify export settings\. For more information, see [Update a Report Group](report-group-export-settings.md)\. 
 
 **To create a report group using a buildspec file**
 

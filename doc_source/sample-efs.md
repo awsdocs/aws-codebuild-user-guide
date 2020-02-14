@@ -2,41 +2,50 @@
 
  You might want to create your AWS CodeBuild builds on Amazon EFS\. Amazon EFS is a scalable, shared file service for Amazon EC2 instances\. The storage capacity with Amazon EFS is elastic, so it grows or shrinks as files are added and removed\. It has a simple web services interface that you can use to create and configure file systems\. It also manages all of the file storage infrastructure for you, so you do not need to worry about deploying, patching, or maintaining file system configurations\. For more information, see [What Is Amazon Elastic File System](https://docs.aws.amazon.com/efs/latest/ug/whatisefs.html)\. 
 
- This sample shows you how to configure a CodeBuild project so that it mounts and then builds a Java application to an Amazon EFS file system\. Before you begin, you must have a Java application ready to build that is uploaded to an Amazon S3 input bucket or an AWS CodeCommit, GitHub, GitHub Enterprise, or Bitbucket repository\. 
+ This sample shows you how to configure a CodeBuild project so that it mounts and then builds a Java application to a file system created in Amazon EFS\. Before you begin, you must have a Java application ready to build that is uploaded to an S3 input bucket or an AWS CodeCommit, GitHub, GitHub Enterprise, or Bitbucket repository\. 
+
+Data in transit for your file system is encrypted\. To encrypt data in transit using a different image, see [Encrypting Data in Transit](https://docs.aws.amazon.com/efs/latest/ug/encryption-in-transit.html)\. 
 
 ## Amazon Elastic File System and AWS CodeBuild Sample High\-Level Steps<a name="sample-efs-high-level-steps"></a>
 
  This sample covers the three high\-level steps required to use Amazon EFS with AWS CodeBuild: 
 
-1.  Create an Amazon VPC\. 
+1.  Create a virtual private cloud \(VPC\) in your AWS account\. 
 
-1.  Create an Amazon EFS that uses this Amazon VPC\. 
+1.  Create a file system that uses this VPC\. 
 
-1.  Create and build a CodeBuild project that uses the Amazon VPC\. Instructions that include how to mount an Amazon Elastic File System file system are entered into the buildspec editor when you build the project\. 
+1.  Create and build a CodeBuild project that uses the VPC\. The CodeBuild project uses the following to identify the file system:
+   +  A unique file system identifier\. You choose the identifier when you specify the file system in your build project\.
+   + The file system ID\. The ID is displayed when you view your file system in the Amazon EFS console\.
+   +  A mount point\. This is a directory in your Docker container that mounts the file system\. 
+   + Mount options\. These include details about how to mount the file system\.
 
-## Create an Amazon VPC Using AWS CloudFormation<a name="sample-efs-create-vpc"></a>
-
- Create your Amazon VPC with an AWS CloudFormation template\. 
-
-1.  Follow the instructions here, [AWS CloudFormation VPC Template](cloudformation-vpc-template.md), to use AWS CloudFormation to create an Amazon VPC\. For more information, see the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide//Welcome.html)\. 
 **Note**  
- The Amazon VPC created by this AWS CloudFormation template has two private subnets and two public subnets\. You must only use private subnets when you use AWS CodeBuild to mount Amazon EFS\. If you use one of the public subnets, the build fails\. 
+ A file system created in Amazon EFS is supported on Linux platforms only\. 
+
+## Create a VPC Using AWS CloudFormation<a name="sample-efs-create-vpc"></a>
+
+ Create your VPC with an AWS CloudFormation template\. 
+
+1.  Follow the instructions in [AWS CloudFormation VPC Template](cloudformation-vpc-template.md) to use AWS CloudFormation to create a VPC\. 
+**Note**  
+ The VPC created by this AWS CloudFormation template has two private subnets and two public subnets\. You must only use private subnets when you use AWS CodeBuild to mount the file system you created in Amazon EFS\. If you use one of the public subnets, the build fails\. 
 
 1. Sign in to the AWS Management Console and open the Amazon VPC console at [https://console\.aws\.amazon\.com/vpc/](https://console.aws.amazon.com/vpc/)\.
 
-1.  Choose the Amazon VPC you created with AWS CloudFormation\. 
+1.  Choose the VPC you created with AWS CloudFormation\.
 
-1.  Make a note of the VPC ID displayed on the **Summary** tab\. This ID is required when you create your AWS CodeBuild project later in this sample\. 
+1. On the **Description** tab, make a note of the name and ID of your VPC\. You need the name and ID when you create your AWS CodeBuild project later in this sample\. 
 
-## Create an Amazon Elastic File System File System with Your Amazon VPC<a name="sample-efs-create-efs"></a>
+## Create a File System with Your VPC<a name="sample-efs-create-efs"></a>
 
- Create a simple Amazon EFS file system for this sample using the Amazon VPC you created earlier\. 
+ Create a simple file system for this sample using the VPC you created earlier\. 
 
 1. Sign in to the AWS Management Console and open the Amazon EFS console at [ https://console\.aws\.amazon\.com/efs/](https://console.aws.amazon.com/efs/)\.
 
 1.  Choose **Create file system**\. 
 
-1.  From **VPC**, choose the VPC ID you noted earlier in this sample\. 
+1.  From **VPC**, choose the VPC name you noted earlier in this sample\. 
 
 1.  Leave the Availability Zones associated with your subnets selected\. 
 
@@ -44,15 +53,15 @@
 
 1.  In **Add tags**, for the default **Name** key, in **Value**, enter the name of your Amazon EFS file system\. 
 
-1.  Keep **General Purpose** and **Bursting** selected as your default performance and throughput modes, and then choose **Next Step**\. 
+1.  Keep **Bursting** and **General Purpose** selected as your default performance and throughput modes, and then choose **Next Step**\. 
+
+1. For **Configure client access**, choose **Next Step**\.
 
 1.  Choose **Create File System**\. 
 
-1. Choose the name of the file system you created from the list\. Make a note of the DNS name\. You enter this in the buildspec file that is used to build your AWS CodeBuild project\. 
-
 ## Create a CodeBuild Project to Use with Amazon EFS<a name="sample-efs-create-acb"></a>
 
- Create a AWS CodeBuild project that uses the Amazon VPC you created earlier in this sample\. This CodeBuild project does not use a source and does not create an artifact\. When the build is run, it mounts the Amazon EFS file system created earlier in this sample and caches the Maven dependency to it\. 
+ Create a CodeBuild project that uses the VPC you created earlier in this sample\. When the build is run, it mounts the Amazon EFS file system created earlier\. Next, it stores the \.jar file created by your Java application in your file system's mount point directory\.
 
 1. Open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codesuite/codebuild/home](https://console.aws.amazon.com/codesuite/codebuild/home)\.
 
@@ -68,55 +77,56 @@
 
 1.  From **Operating system**, choose **Amazon Linux 2**\. 
 
-1.  From **Runtime\(s\)**, choose **Standard**\. 
+1. From **Runtime\(s\)**, choose **Standard**\. 
 
-1.  From **Runtime version** choose **aws/codebuild/amazonlinux2\-x86\_64\-standard:1\.0**\. 
+1.  From **Image**, choose **aws/codebuild/amazonlinux2\-x86\_64\-standard:2\.0**\. 
+
+1.  From **Environment type**, choose **Linux**\. 
 
 1.  Select **Privileged**\. 
+**Note**  
+By default, Docker containers do not allow access to any devices\. Privileged mode grants a build project's Docker container access to all devices\. For more information, see [Runtime Privilege and Linux Capabilities](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities) on the Docker Docs website\.
 
 1.  Under **Service role**, choose **New service role**\. In **Role name**, enter a name for the role CodeBuild creates for you\. 
-
-1.  For **Build specification**, choose **Insert build commands** and then choose **Switch to editor**\. 
-
-1.  Enter the following buildspec commands into the editor\. For the `EFS_DNS`, enter the DNS name of your file system\. 
-
-   ```
-   version: 0.2
-   
-   env:
-     variables:
-         EFS_DIR: "/efs"
-         M3_HOME: ".m2"
-         EFS_DNS: "fs-11223344.efs.us-east-1.amazonaws.com"
-   phases:
-     install:
-       runtime-versions:
-         java: openjdk11
-       commands:
-         - mkdir -p $EFS_DIR
-         - apt-get update && apt-get install -y nfs-common
-     pre_build:
-       commands:
-         - mount -t nfs4 -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2 $EFS_DNS:/ $EFS_DIR
-         - df -h
-         - mkdir -p $EFS_DIR/$M3_HOME/
-     build:
-       commands:
-         - mvn compile -Dgpg.skip=true -Dmaven.repo.local=$EFS_DIR/$M3_HOME/
-   ```
 
 1. Expand **Additional configuration**\.
 
 1.  From **VPC**, choose the VPC ID\. 
 
-1.  From **Subnets**, choose one or more of the private subnets associated with your Amazon VPC\. You must use private subnets in a build that mounts an Amazon EFS file system\. If you use a public subnet, the build fails\. 
+1.  From **Subnets**, choose one or more of the private subnets associated with your VPC\. You must use private subnets in a build that mounts an Amazon EFS file system\. If you use a public subnet, the build fails\. 
 
-1.  From **Security Groups**, choose the security group that works with your Amazon VPC\. 
+1.  From **Security Groups**, choose the default security group\.
 
-1.  Use the default values for all other settings, and then choose **Create build project**\. When your build is complete, you are on the console page for your project\. 
+1.  In **File systems**, enter the following information:
+   +  For **Identifier**, enter a unique file system identifier\. It must be fewer than 129 characters and contain only alphanumeric characters and underscores\. CodeBuild uses this identifier to create an environment variable that identifies the elastic file system\. The environment variable format is `CODEBUILD_file-system-identifier` in capital letters\. For example, if you enter **efs\-1**, the environment variable is `CODEBUILD_EFS-1`\. 
+   +  For **ID**, choose the file system ID\. 
+   +  \(Optional\) Enter a directory in the file system\. CodeBuild mounts this directory\. If you leave **Directory path** blank, CodeBuild mounts the entire file system\. The path is relative to the root of the file system\. 
+   +  For **Mount point**, enter the name of a directory in your build container that mounts the file system\. If this directory does not exist, CodeBuild creates it during the build\. 
+   +  \(Optional\) Enter mount options\. If you leave **Mount options** blank, CodeBuild uses its default mount options \(`nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2`\)\. For more information, see [Recommended NFS Mount Options](https://docs.aws.amazon.com/efs/latest/ug/mounting-fs-nfs-mount-settings.html) in the *Amazon Elastic File System User Guide*\. 
+
+1.  For **Build specification**, choose **Insert build commands**, and then choose **Switch to editor**\. 
+
+1.  Enter the following buildspec commands into the editor\. Replace `file-system-identifier` with the identifier you entered in step 17\. Use capital letters \(for example, `CODEBUILD_EFS-1`\)\.
+
+   ```
+   version: 0.2
+   phases:
+     install:
+       runtime-versions:
+         java: corretto11    
+     build:
+       commands:
+         - mvn compile -Dgpg.skip=true -Dmaven.repo.local=$CODEBUILD_file-system-identifier
+   ```
+
+1.  Use the default values for all other settings, and then choose **Create build project**\. When your build is complete, the console page for your project is displayed\. 
 
 1.  Choose **Start build**\. 
 
 ## CodeBuild and Amazon EFS Sample Summary<a name="sample-efs-summary"></a>
 
- After your AWS CodeBuild project is built, you have a \.jar file created by your Java application\. The \.jar file is built to your Amazon EFS file system in a directory called `/efs/.m2`\. CodeBuild uses the mount command, `mount -t nfs4 -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2`, to mount the Amazon EFS file system\. For more information, see [Mounting File Systems](https://docs.aws.amazon.com/efs/latest/ug/mounting-fs.html)\. 
+ After your AWS CodeBuild project is built: 
++  You have a \.jar file created by your Java application that is built to your Amazon EFS file system under your mount point directory\. 
++  An environment variable that identifies your file system is created using the file system identifier you entered when you created the project\. 
+
+ For more information, see [Mounting File Systems](https://docs.aws.amazon.com/efs/latest/ug/mounting-fs.html) in the *Amazon Elastic File System User Guide*\. 

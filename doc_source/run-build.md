@@ -38,6 +38,8 @@ To use AWS CodePipeline to run a build with CodeBuild, skip these steps and foll
     Under **Environment**, you can: 
    +  Override settings for **Environment image**, **Operating system**, **Runtime**, and **Runtime version**\.
    +  Select or clear **Privileged**\. 
+**Note**  
+By default, Docker containers do not allow access to any devices\. Privileged mode grants a build project's Docker container access to all devices\. For more information, see [Runtime Privilege and Linux Capabilities](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities) on the Docker Docs website\.
    + In **Service role**, you can change the service role that CodeBuild uses to call dependent AWS services for you\. Choose **New service role** to have CodeBuild create a service role for you\.
    +  Choose **Override build specification** to use a different build specification\. 
    + Change the value for **Timeout**\.
@@ -45,13 +47,13 @@ To use AWS CodePipeline to run a build with CodeBuild, skip these steps and foll
    +  From **Certificate**, choose a different setting\.
 
     Under **Buildspec**, you can: 
-   + Choose **Use a buildspec file** to use the buildspec\.yml in the source code root directory\.
+   + Choose **Use a buildspec file** to use a buildspec\.yml file\. By default, CodeBuild looks for a file named `buildspec.yml` in the source code root directory\. If your buildspec file uses a different name or location, enter its path from the source root in **Buildspec name** \(for example, **buildspec\-two\.yml** or **configuration/buildspec\.yml**\. If the buildspec file is in an S3 bucket, it must be in the same AWS Region as your build project\. Specify the buildspec file its ARN \(for example, **arn:aws:s3:::my\-codebuild\-sample2/buildspec\.yml**\)\. 
    + Choose **Insert build commands** to enter commands you want to run during the build phase\.
 
     Under **Build Artifacts**, you can: 
    + From **Type**, choose a different artifacts type\.
    + In **Name**, enter a different output artifact name\. 
-   + If you want a name specified in the build spec file to override any name specified in the console, select **Enable semantic versioning**\. The name in a build spec file uses the Shell command language\. For example, you can append a date and time to your artifact name so that it is always unique\. Unique artifact names prevent artifacts from being overwritten\. For more information, see [Build Spec Syntax](build-spec-ref.md#build-spec-ref-syntax)\.
+   + If you want a name specified in the buildspec file to override any name specified in the console, select **Enable semantic versioning**\. The name in a buildspec file uses the Shell command language\. For example, you can append a date and time to your artifact name so that it is always unique\. Unique artifact names prevent artifacts from being overwritten\. For more information, see [Buildspec Syntax](build-spec-ref.md#build-spec-ref-syntax)\.
    + In **Path**, enter a different output artifact path\. 
    + In **Namespace type**, choose a different type\. Choose **Build ID** to insert the build ID into the path of the build output file \(for example, `My-Path/Build-ID/My-Artifact.zip`\)\. Otherwise, choose **None**\. 
    + From **Bucket name** choose a different Amazon S3 bucket for your output artifacts\. 
@@ -88,7 +90,7 @@ Do not set any environment variable with a name that begins with `CODEBUILD_`\. 
 If an environment variable with the same name is defined in multiple places, its value is determined as follows:  
 The value in the start build operation call takes highest precedence\.
 The value in the build project definition takes next precedence\.
-The value in the build spec declaration takes lowest precedence\.
+The value in the buildspec declaration takes lowest precedence\.
 
 1. Choose **Start build**\.
 
@@ -112,7 +114,7 @@ For more information about using the AWS CLI with CodeBuild, see the [Command Li
    aws codebuild start-build --generate-cli-skeleton
    ```
 
-   Use this if you want to run a build with an earlier version of the build input artifact or if you want to override the settings for the build output artifacts, environment variables, build spec, or default build timeout period\.
+   Use this if you want to run a build with an earlier version of the build input artifact or if you want to override the settings for the build output artifacts, environment variables, buildspec, or default build timeout period\.
 
 1. If you run the start\-build command with the `--project-name` option, replace *project\-name* with the name of the build project, and then skip to step 6 of this procedure\. To get a list of build projects, see [View a List of Build Project Names](view-project-list.md)\.
 
@@ -174,7 +176,7 @@ For more information about using the AWS CLI with CodeBuild, see the [Command Li
      + *namespaceType*: Optional string\. The build output artifact path type that overrides for this build the one defined in the build project\.
      + *name*: Optional string\. The build output artifact name that overrides for this build the one defined in the build project\.
      + *packaging*: Optional string\. The build output artifact packaging type that overrides for this build the one defined in the build project\.
-   + *buildspecOverride*: Optional string\. A build spec declaration that overrides for this build the one defined in the build project\. If this value is set, it can be either an inline build spec definition or the path to an alternate build spec file relative to the value of the built\-in `CODEBUILD_SRC_DIR` environment variable\.
+   + *buildspecOverride*: Optional string\. A build spec declaration that overrides for this build the one defined in the build project\. If this value is set, it can be either an inline buildspec definition, the path to an alternate buildspec file relative to the value of the built\-in `CODEBUILD_SRC_DIR` environment variable, or the path to an S3 bucket\. The S3 bucket must be in the same AWS Region as the build project\. Specify the buildspec file using its ARN \(for example, `arn:aws:s3:::my-codebuild-sample2/buildspec.yml`\)\. If this value is not provided or is set to an empty string, the source code must contain a `buildspec.yml` file in its root directory\. For more information, see [Buildspec File Name and Storage Location](build-spec-ref.md#build-spec-ref-name-storage)\.
    + The following placeholders are for `cacheOveride`\.
      + *cacheOverride\-location*: Optional string\. The location of a `ProjectCache` object for this build that overrides the `ProjectCache` object specified in the build project\. `cacheOverride` is optional and takes a `ProjectCache` object\. `location` is required in a `ProjectCache` object\.
      + *cacheOverride\-type*: Optional string\. The type of a `ProjectCache` object for this build that overrides the `ProjectCache` object specified in the build project\. `cacheOverride` is optional and takes a `ProjectCache` object\. `type` is required in a `ProjectCache` object\.
@@ -204,7 +206,7 @@ Do not set any environment variable with a name that begins with `CODEBUILD_`\. 
 If an environment variable with the same name is defined in multiple places, the environment variable's value is determined as follows:  
 The value in the start build operation call takes highest precedence\.
 The value in the build project definition takes next precedence\.
-The value in the build spec declaration takes lowest precedence\.
+The value in the buildspec file declaration takes lowest precedence\.
 
    For information about valid values for these placeholders, see [Create a Build Project \(AWS CLI\)](create-project.md#create-project-cli)\. For a list of the latest settings for a build project, see [View a Build Project's Details](view-project-details.md)\.
 

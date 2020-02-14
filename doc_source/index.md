@@ -1,7 +1,7 @@
 # AWS CodeBuild User Guide
 
 -----
-*****Copyright &copy; 2019 Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
+*****Copyright &copy; 2020 Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
 
 -----
 Amazon's trademarks and trade dress may not be used in 
@@ -20,8 +20,8 @@ Amazon's trademarks and trade dress may not be used in
    + [Getting Started with CodeBuild in the Console](getting-started.md)
       + [Step 1: Create Two S3 Buckets](getting-started-input-bucket-console.md)
       + [Step 2: Create the Source Code](getting-started-create-source-code-console.md)
-      + [Step 3: Create the Build Spec](getting-started-create-build-spec-console.md)
-      + [Step 4: Upload the Source Code and the Build Spec](getting-started-upload-source-code-console.md)
+      + [Step 3: Create the Buildspec File](getting-started-create-build-spec-console.md)
+      + [Step 4: Upload the Source Code and the Buildspec File](getting-started-upload-source-code-console.md)
       + [Step 5: Create the Build Project](getting-started-create-build-project-console.md)
       + [Step 6: Run the Build](getting-started-run-build-console.md)
       + [Step 7: View Summarized Build Information](getting-started-monitor-build-console.md)
@@ -32,8 +32,8 @@ Amazon's trademarks and trade dress may not be used in
    + [Getting Started with CodeBuild Using the AWS CLI](getting-started-cli.md)
       + [Step 1: Create Two S3 Buckets](getting-started-cli-input-bucket.md)
       + [Step 2: Create the Source Code](getting-started-cli-create-source-code.md)
-      + [Step 3: Create the Build Spec](getting-started-cli-create-build-spec.md)
-      + [Step 4: Upload the Source Code and the Build Spec](getting-started-cli-upload-source-code.md)
+      + [Step 3: Create the Buildspec File](getting-started-cli-create-build-spec.md)
+      + [Step 4: Upload the Source Code and the Buildspec File](getting-started-cli-upload-source-code.md)
       + [Step 5: Create the Build Project](getting-started-cli-create-build-project.md)
       + [Step 6: Run the Build](getting-started-cli-run-build.md)
       + [Step 7: View Summarized Build Information](getting-started-cli-monitor-build.md)
@@ -109,7 +109,9 @@ Amazon's trademarks and trade dress may not be used in
          + [Create a Report Group (CLI)](test-report-group-create-cli.md)
          + [Create a Report Group (Console)](test-report-group-create-console.md)
          + [Create a Report Group (AWS CloudFormation)](test-report-group-create-cfn.md)
-      + [Specify Export Settings](report-group-export-settings.md)
+      + [Update a Report Group](report-group-export-settings.md)
+         + [Update a Report Group (Console)](update-report-group-console.md)
+         + [Update a Report Group (CLI)](update-report-group-cli.md)
       + [Specify Test Files](report-group-test-cases.md)
       + [Specify Test Commands](report-group-test-case-commands.md)
       + [Report Group Naming](test-report-group-naming.md)

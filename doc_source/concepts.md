@@ -18,9 +18,9 @@ The following diagram shows what happens when you run a build with CodeBuild:
 
 1. CodeBuild uses the build project to create the build environment\.
 
-1. CodeBuild downloads the source code into the build environment and then uses the build specification \(build spec\), as defined in the build project or included directly in the source code\. A *build spec* is a collection of build commands and related settings, in YAML format, that CodeBuild uses to run a build\. For more information, see the [Build Spec Reference](build-spec-ref.md)\.
+1. CodeBuild downloads the source code into the build environment and then uses the build specification \(buildspec\), as defined in the build project or included directly in the source code\. A *build spec* is a collection of build commands and related settings, in YAML format, that CodeBuild uses to run a build\. For more information, see the [Buildspec Reference](build-spec-ref.md)\.
 
-1. If there is any build output, the build environment uploads its output to an Amazon S3 bucket\. The build environment can also perform tasks that you specify in the build spec \(for example, sending build notifications to an Amazon SNS topic\)\. For an example, see [Build Notifications Sample](sample-build-notifications.md)\.
+1. If there is any build output, the build environment uploads its output to an Amazon S3 bucket\. The build environment can also perform tasks that you specify in the buildspec \(for example, sending build notifications to an Amazon SNS topic\)\. For an example, see [Build Notifications Sample](sample-build-notifications.md)\.
 
 1. While the build is running, the build environment sends information to CodeBuild and Amazon CloudWatch Logs\.
 

@@ -47,7 +47,7 @@ The IAM entity that creates this CodePipeline service role must have permission 
 **Note**  
 The IAM entity that adds this CodePipeline service role policy must have permission in IAM to add service role policies to service roles\.
 
-1. Create and upload the source code to a repository type supported by CodeBuild and CodePipeline, such as CodeCommit, Amazon S3, or GitHub\. \(CodePipeline does not currently support Bitbucket\.\) The source code should contain a build spec file, but you can declare one when you define a build project later in this topic\. For more information, see the [Build Spec Reference](build-spec-ref.md)\.
+1. Create and upload the source code to a repository type supported by CodeBuild and CodePipeline, such as CodeCommit, Amazon S3, or GitHub\. \(CodePipeline does not currently support Bitbucket\.\) The source code should contain a buildspec file, but you can declare one when you define a build project later in this topic\. For more information, see the [Buildspec Reference](build-spec-ref.md)\.
 **Important**  
 If you plan to use the pipeline to deploy built source code, then the build output artifact must be compatible with the deployment system you use\.   
 For CodeDeploy, see the [CodeDeploy Sample](sample-codedeploy.md) in this guide and see [Prepare a Revision for CodeDeploy](https://docs.aws.amazon.com/codedeploy/latest/userguide/how-to-prepare-revision.html) in the *CodeDeploy User Guide*\.
@@ -607,7 +607,7 @@ To store and retrieve sensitive values, we recommend your build commands use the
 
 1. For **Input artifacts**, select the value for **Output artifact** that you noted in step 4 of this procedure\.
 
-1. \(Optional\) If you want your test action to produce an output artifact, and you set up your build spec accordingly, then for **Output artifact**, enter the value you want to assign to the output artifact\.
+1. \(Optional\) If you want your test action to produce an output artifact, and you set up your buildspec accordingly, then for **Output artifact**, enter the value you want to assign to the output artifact\.
 
 1. Choose **Save**\.
 

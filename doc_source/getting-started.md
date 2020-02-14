@@ -10,8 +10,8 @@ The steps in this tutorial require you to create resources \(for example, an S3 
 ## Steps<a name="getting-started-steps"></a>
 + [Step 1: Create Two S3 Buckets](getting-started-input-bucket-console.md)
 + [Step 2: Create the Source Code](getting-started-create-source-code-console.md)
-+ [Step 3: Create the Build Spec](getting-started-create-build-spec-console.md)
-+ [Step 4: Upload the Source Code and the Build Spec](getting-started-upload-source-code-console.md)
++ [Step 3: Create the Buildspec File](getting-started-create-build-spec-console.md)
++ [Step 4: Upload the Source Code and the Buildspec File](getting-started-upload-source-code-console.md)
 + [Step 5: Create the Build Project](getting-started-create-build-project-console.md)
 + [Step 6: Run the Build](getting-started-run-build-console.md)
 + [Step 7: View Summarized Build Information](getting-started-monitor-build-console.md)

@@ -13,7 +13,7 @@ A *report group* contains test reports and specifies shared settings\. You use t
 
 **Topics**
 + [Create a Report Group](report-group-create.md)
-+ [Specify Export Settings](report-group-export-settings.md)
++ [Update a Report Group](report-group-export-settings.md)
 + [Specify Test Files](report-group-test-cases.md)
 + [Specify Test Commands](report-group-test-case-commands.md)
 + [Report Group Naming](test-report-group-naming.md)

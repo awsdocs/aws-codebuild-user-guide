@@ -2,7 +2,13 @@
 
 \(Previous step: [Step 7: View Summarized Build Information](getting-started-monitor-build-console.md)\)
 
-In this step, you view detailed information about your build in CloudWatch Logs\.<a name="getting-started-build-log-console-procedure"></a>
+In this step, you view detailed information about your build in CloudWatch Logs\.
+
+**Note**  
+ To protect sensitive information, the following are hidden in CodeBuild logs:   
+ AWS access key IDs\. For more information, see [Managing Access Keys for IAM Users](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html) in in the *AWS Identity and Access Management User Guide*\. 
+ Strings specified using the Parameter Store\. For more information, see [Systems Manager Parameter Store](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-paramstore.html) and [Systems Manager Parameter Store Console Walkthrough](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-walk.html#sysman-paramstore-console) in the *Amazon EC2 Systems Manager User Guide*\. 
+ Strings specified using AWS Secrets Manager\. For more information, see [Key Management](security-key-management.md)\. <a name="getting-started-build-log-console-procedure"></a>
 
 **To view detailed build information**
 

@@ -1,6 +1,6 @@
 # Step 5: Create the Build Project<a name="getting-started-cli-create-build-project"></a>
 
-\(Previous step: [Step 4: Upload the Source Code and the Build Spec](getting-started-cli-upload-source-code.md)\)
+\(Previous step: [Step 4: Upload the Source Code and the Buildspec File](getting-started-cli-upload-source-code.md)\)
 
 In this step, you create a build project that AWS CodeBuild uses to run the build\. A *build project* includes information about how to run a build, including where to get the source code, which build environment to use, which build commands to run, and where to store the build output\. A *build environment* represents a combination of operating system, programming language runtime, and tools that CodeBuild uses to run a build\. The build environment is expressed as a Docker image\. For more information, see [Docker Overview](https://docs.docker.com/engine/docker-overview/) on the Docker Docs website\. 
 
@@ -31,7 +31,7 @@ For this build environment, you instruct CodeBuild to use a Docker image that co
      },
      "environment": {
        "type": "LINUX_CONTAINER",
-       "image": "aws/codebuild/standard:2.0",
+       "image": "aws/codebuild/amazonlinux2-x86_64-standard:2.0",
        "computeType": "BUILD_GENERAL1_SMALL"
      },
      "serviceRole": "serviceIAMRole"

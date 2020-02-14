@@ -149,7 +149,7 @@ sudo cat squid.key squid.crt | sudo tee squid.pem
        sudo service squid restart
        ```
 
-  1.  Add `proxy` to your buildspec file\. For more information, see [Build Spec Syntax](build-spec-ref.md#build-spec-ref-syntax)\. 
+  1.  Add `proxy` to your buildspec file\. For more information, see [Buildspec Syntax](build-spec-ref.md#build-spec-ref-syntax)\. 
 
      ```
      version: 0.2

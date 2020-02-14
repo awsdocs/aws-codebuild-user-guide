@@ -35,7 +35,9 @@ CodeBuild does not support Bitbucket Server\.
 
 1. To change information about the build environment, in **Environment**, choose **Edit**\. Make changes appropriate for the build environment type \(for example, **Environment image**, **Operating system**, **Runtime**, **Runtime version**, **Custom image**, **Other location**, **Amazon ECR repository**, or **Amazon ECR image**\)\.
 
-1. If you plan to use this build project to build Docker images and the specified build environment is not provided by CodeBuild with Docker support, select **Privileged**\. Otherwise, all associated builds that attempt to interact with the Docker daemon fail\. You must also start the Docker daemon so that your builds can interact with it as needed\. You can do this by by running the following build commands to initialize the Docker daemon in the `install` phase of your build spec\. \(Do not run the following build commands if the specified build environment image is provided by CodeBuild with Docker support\.\)
+1. If you plan to use this build project to build Docker images and the specified build environment is not provided by CodeBuild with Docker support, select **Privileged**\. Otherwise, all associated builds that attempt to interact with the Docker daemon fail\. You must also start the Docker daemon so that your builds can interact with it as needed\. You can do this by by running the following build commands to initialize the Docker daemon in the `install` phase of your buildspec file\. \(Do not run the following build commands if the specified build environment image is provided by CodeBuild with Docker support\.\)
+**Note**  
+By default, Docker containers do not allow access to any devices\. Privileged mode grants a build project's Docker container access to all devices\. For more information, see [Runtime Privilege and Linux Capabilities](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities) on the Docker Docs website\.
 
    ```
    - nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://127.0.0.1:2375 --storage-driver=overlay&
@@ -48,7 +50,9 @@ When you use the console to create or update a build project, you can create a C
 
 1. To change information about the build timeout, in **Additional configuration**, for **Timeout**, change the values for **hours** and **minutes**\. If **hours** and **minutes** are left blank, the default value is 60 minutes\.
 
-1. To change information about the VPC, in **Additional configuration**, change the values for **VPC**, **Subnets**, and **Security groups**\. 
+1. To change information about the VPC you created in Amazon VPC, in **Additional configuration**, change the values for **VPC**, **Subnets**, and **Security groups**\. 
+
+1. To change information about a file system you created in Amazon EFS, in **Additional configuration**, change its values for **Identifier**, **ID**, **Directory path**, **Mount point**, and **Mount options**\. For more information, see [Amazon Elastic File System Sample for CodeBuild](sample-efs.md)\. 
 
 1. To change the amount of memory and vCPUs that are used to run builds, in **Additional configuration**, change the value for **Compute**\.
 
@@ -73,18 +77,18 @@ The value in the build spec declaration takes lowest precedence\.
 
    If you use Secrets Manager, for **Type**, choose **Secrets Manager**\. For **Name**, enter an identifier for CodeBuild to reference\. For **Value**, enter a `reference-key` using the pattern `secret-id:json-key:version-stage:version-id`\. For information, see [Secrets Manager reference-key in the Buildspec File](build-spec-ref.md#secrets-manager-build-spec)\.
 **Important**  
-If you use Secrets Manager, we recommend that you store secrets with names that start with `/CodeBuild/` \(for example, `/CodeBuild/dockerLoginPassword`\)\. For more information, see [What Is AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html) in the *AWS Secrets Manager User Guide*\.   
+If you use Secrets Manager, we recommend that you store secrets with names that start with `/CodeBuild/` \(for example, `/CodeBuild/dockerLoginPassword`\)\. For more information, see [What Is AWS Secrets Manager?](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html) in the *AWS Secrets Manager User Guide*\.   
 If your build project refers to secrets stored in Secrets Manager, the build project's service role must allow the `secretsmanager:GetSecretValue` action\. If you chose **New service role** earlier, CodeBuild includes this action in the default service role for your build project\. However, if you chose **Existing service role**, you must include this action to your service role separately\.   
 If your build project refers to secrets stored in Secrets Manager with secret names that do not start with `/CodeBuild/`, and you chose **New service role**, you must update the service role to allow access to secret names that do not start with `/CodeBuild/`\. This is because the service role allows access only to secret names that start with `/CodeBuild/`\.  
-If you choose **New service role**, the created service role includes permission to decrypt all secrets under the `/CodeBuild/` namespace in the Secrets Manager\.
+If you choose **New service role**, the service role includes permission to decrypt all secrets under the `/CodeBuild/` namespace in the Secrets Manager\.
 
 1. To change information about tags for this build project, in **Additional configuration**, for **Tags**, change the values of **Name** and **Value**\. Use **Add row** to add a tag\. You can add up to 50 tags\. Choose the delete \(**X**\) icon next to a tag you no longer want to use\.
 
 1. Choose **Update environment**\.
 
-1. To change the project's build specifications, in **Buildspec**, choose **Edit**\.
+1. To change the project's build specifications, in **Buildspec**, choose **Edit**\. By default, CodeBuild looks for a file named `buildspec.yml` in the source code root directory\. If your buildspec file uses a different name or location, enter its path from the source root in **Buildspec name** \(for example, **buildspec\-two\.yml** or **configuration/buildspec\.yml**\. If the buildspec file is in an S3 bucket, it must be in the same AWS Region as your build project\. Specify the buildspec file using its ARN \(for example, `arn:aws:s3:::my-codebuild-sample2/buildspec.yml`\)\.
    + If your source code previously did not include a buildspec\.yml file but does now, choose **Use a buildspec file**\. 
-   + If your source code previously included a buildspec\.yml file but does not now, choose **Insert build commands**, and in **Build commands**, enter the commands, 
+   + If your source code previously included a buildspec\.yml file but does not now, choose **Insert build commands**, and in **Build commands**, enter the commands\.
 
 1. Choose **Update buildspec**\.
 
@@ -94,7 +98,7 @@ If you choose **New service role**, the created service role includes permission
 **Important**  
 If you leave **Encryption key** blank, CodeBuild uses the AWS\-managed CMK for Amazon S3 in your AWS account instead\.
 
-1. Using a cache saves build time because reusable pieces of the build environment are stored in the cache and used across builds\. For information about specifying a cache in the build spec file, see [Build Spec Syntax](build-spec-ref.md#build-spec-ref-syntax)\. To change information about the cache, expand **Additional configuration**\. In **Cache type**, do one of the following:
+1. Using a cache saves build time because reusable pieces of the build environment are stored in the cache and used across builds\. For information about specifying a cache in the buildspec file, see [Buildspec Syntax](build-spec-ref.md#build-spec-ref-syntax)\. To change information about the cache, expand **Additional configuration**\. In **Cache type**, do one of the following:
    + If you previously chose a cache, but do not want to use one now, choose **No cache**\.
    + If you previously chose **No cache** but now want to use one, choose **Amazon S3**, and then do the following:
      + For **Cache bucket**, choose the name of the Amazon S3 bucket where the cache is stored\.

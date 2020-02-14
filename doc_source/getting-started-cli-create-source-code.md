@@ -119,4 +119,4 @@ At this point, your directory structure should look like this\.
 
 ## Next Step<a name="getting-started-cli-create-source-code-next"></a>
 
-[Step 3: Create the Build Spec](getting-started-cli-create-build-spec.md)
+[Step 3: Create the Buildspec File](getting-started-cli-create-build-spec.md)

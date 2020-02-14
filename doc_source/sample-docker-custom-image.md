@@ -11,7 +11,7 @@ Running this sample may result in charges to your AWS account\. These include po
 + [Running the Sample](#sample-docker-custom-image-running)
 + [Directory Structure](#sample-docker-custom-image-dir)
 + [Files](#sample-docker-custom-image-files)
-+ [Related Resources](#w48aac11c41c34c17)
++ [Related Resources](#w58aac11c41c34c17)
 
 ## Running the Sample<a name="sample-docker-custom-image-running"></a>
 
@@ -46,6 +46,8 @@ If you are using an Amazon S3 input bucket, be sure to create a ZIP file that co
      "encryptionKey": "arn:aws:kms:region-ID:account-ID:key/key-ID"
    }
    ```
+**Note**  
+By default, Docker containers do not allow access to any devices\. Privileged mode grants a build project's Docker container access to all devices\. For more information, see [Runtime Privilege and Linux Capabilities](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities) on the Docker Docs website\.
 
 1. To see the build results, look in the build's log for the string `Hello, World!`\. For more information, see [View Build Details](view-build-details.md)\.
 
@@ -97,7 +99,7 @@ FROM maven:3.3.9-jdk-8
 RUN echo "Hello World"
 ```
 
-## Related Resources<a name="w48aac11c41c34c17"></a>
+## Related Resources<a name="w58aac11c41c34c17"></a>
 + For more information about getting started with AWS CodeBuild, see [Getting Started with CodeBuild in the Console](getting-started.md)\.
 + For more information about troubleshooting problems with CodeBuild, see [Troubleshooting CodeBuild](troubleshooting.md)\.
 + For more information about limits in CodeBuild, see [Limits for CodeBuild](limits.md)\.

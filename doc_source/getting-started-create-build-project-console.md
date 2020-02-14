@@ -1,6 +1,6 @@
 # Step 5: Create the Build Project<a name="getting-started-create-build-project-console"></a>
 
-\(Previous step: [Step 4: Upload the Source Code and the Build Spec](getting-started-upload-source-code-console.md)\)
+\(Previous step: [Step 4: Upload the Source Code and the Buildspec File](getting-started-upload-source-code-console.md)\)
 
 In this step, you create a build project that AWS CodeBuild uses to run the build\. A *build project* includes information about how to run a build, including where to get the source code, which build environment to use, which build commands to run, and where to store the build output\. A *build environment* represents a combination of operating system, programming language runtime, and tools that CodeBuild uses to run a build\. The build environment is expressed as a Docker image\. For more information, see [Docker Overview](https://docs.docker.com/engine/docker-overview/) on the Docker Docs website\. 
 
@@ -32,7 +32,7 @@ An IAM user in your AWS account with the `AWSCodeBuildAdminAccess`, `AmazonS3Rea
 
 1. For **Runtime\(s\)**, choose **Standard**\.
 
-1. For **Image**, choose **aws/codebuild/amazonlinux2\-x86\_64\-standard:1\.0**\.
+1. For **Image**, choose **aws/codebuild/amazonlinux2\-x86\_64\-standard:2\.0**\.
 
 1. In **Service role**, leave **New service role** selected, and leave **Role name** unchanged\.
 

@@ -4,7 +4,7 @@ This sample produces as build output a Docker image and then pushes the Docker i
 
 To learn how to build a Docker image by using a custom Docker build image instead \(`docker:dind` in Docker Hub\), see our [Docker in Custom Image Sample](sample-docker-custom-image.md)\.
 
-This sample was tested referencing `golang:1.12`
+This sample was tested referencing `golang:1.12`\.
 
 This sample uses the new multi\-stage Docker builds feature, which produces a Docker image as build output\. It then pushes the Docker image to an Amazon ECR image repository\. Multi\-stage Docker image builds help to reduce the size of the final Docker image\. For more information, see [Use multi\-stage builds with Docker](https://docs.docker.com/engine/userguide/eng-image/multistage-build/)\.
 
@@ -16,7 +16,7 @@ Running this sample may result in charges to your AWS account\. These include po
 + [Directory Structure](#sample-docker-dir)
 + [Files](#sample-docker-files)
 + [Adapting the Sample to Push the Image to Docker Hub](#sample-docker-docker-hub)
-+ [Related Resources](#w48aac11c41c19c23)
++ [Related Resources](#w58aac11c41c19c23)
 
 ## Running the Sample<a name="sample-docker-running"></a>
 
@@ -44,7 +44,7 @@ To run this sample:
 **Note**  
 The IAM entity that modifies this policy must have permission in IAM to modify policies\.
 
-1. Create an image repository in Amazon ECR\. Be sure to create the repository in the same AWS region where you will be creating your build environment and running your build\. For more information, see [Creating a Repository](https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-create.html) in the *Amazon ECR User Guide*\. This repository's name must match the repository name you will specify later in this procedure, represented by the `IMAGE_REPO_NAME` environment variable\.
+1. Create an image repository in Amazon ECR\. Be sure to create the repository in the same AWS Region where you will be creating your build environment and running your build\. For more information, see [Creating a Repository](https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-create.html) in the *Amazon ECR User Guide*\. This repository's name must match the repository name you will specify later in this procedure, represented by the `IMAGE_REPO_NAME` environment variable\.
 
 1. Add this statement \(between *\#\#\# BEGIN ADDING STATEMENT HERE \#\#\#* and *\#\#\# END ADDING STATEMENT HERE \#\#\#*\) to the policy you attached to your AWS CodeBuild service role\. This statement enables CodeBuild to upload Docker images to Amazon ECR repositories\. Ellipses \(`...`\) are used for brevity and to help you locate where to add the statement\. Do not remove any statements, and do not type these ellipses into the policy\. 
 
@@ -78,7 +78,7 @@ The IAM entity that modifies this policy must have permission in IAM to modify p
 Do not upload `(root directory name)`, just the files inside of `(root directory name)`\.   
 If you are using an Amazon S3 input bucket, be sure to create a ZIP file that contains the files, and then upload it to the input bucket\. Do not add `(root directory name)` to the ZIP file, just the files inside of `(root directory name)`\.
 
-1. Follow the steps in [Run AWS CodeBuild Directly](how-to-run.md) to create a build project, run the build, and view build informatoin\.
+1. Follow the steps in [Run AWS CodeBuild Directly](how-to-run.md) to create a build project, run the build, and view build information\.
 
     If you use the console to create your project:
 
@@ -89,6 +89,8 @@ If you are using an Amazon S3 input bucket, be sure to create a ZIP file that co
    1.  For **Image**, choose **aws/codebuild/standard:2\.0**\. 
 
    1.  Because you use this build project to build a Docker image, select **Privileged**\. 
+**Note**  
+By default, Docker containers do not allow access to any devices\. Privileged mode grants a build project's Docker container access to all devices\. For more information, see [Runtime Privilege and Linux Capabilities](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities) on the Docker Docs website\.
 
    1.  Add the following environment variables: 
       +  AWS\_DEFAULT\_REGION with a value of *region\-ID* 
@@ -305,7 +307,7 @@ If you are using an Amazon S3 input bucket, be sure to create a ZIP file that co
 
 1. Confirm that AWS CodeBuild successfully pushed the Docker image to the repository\. Sign in to Docker Hub, go to the repository, and choose the **Tags** tab\. The `latest` tag should contain a very recent **Last Updated** value\.
 
-## Related Resources<a name="w48aac11c41c19c23"></a>
+## Related Resources<a name="w58aac11c41c19c23"></a>
 + For more information about getting started with AWS CodeBuild, see [Getting Started with CodeBuild in the Console](getting-started.md)\.
 + For more information about troubleshooting problems with CodeBuild, see [Troubleshooting CodeBuild](troubleshooting.md)\.
 + For more information about limits in CodeBuild, see [Limits for CodeBuild](limits.md)\.

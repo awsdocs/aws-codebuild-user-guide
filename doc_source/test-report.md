@@ -7,7 +7,7 @@
 
 A report contains the results of test cases that are specified for one report group\. A test report is created during the run of a build project\. You specify a report group, test case files, and commands to run the test cases in its buildspec file\. Each time the test cases run, a new test report is created in the report group\. 
 
- A test report expires 30 days after it is created\. You cannot view an expired test report, but you can export the test results to raw test result files in an S3 bucket\. Exported raw test files do not expire\. For more information, see [Specify Export Settings](report-group-export-settings.md)\. 
+ A test report expires 30 days after it is created\. You cannot view an expired test report, but you can export the test results to raw test result files in an S3 bucket\. Exported raw test files do not expire\. For more information, see [Update a Report Group](report-group-export-settings.md)\. 
 
 The status of a test report can be one of the following:
 + `GENERATING`: The run of the test cases is still in progress\.

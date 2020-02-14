@@ -39,7 +39,7 @@ For more information, see [Editing Customer Managed Policies](https://docs.aws.a
 
 1. Create or identify a topic in Amazon SNS\. AWS CodeBuild will use CloudWatch Events to send build notifications to this topic through Amazon SNS\. To create a topic:
 
-   1. Open the Amazon SNS console, at [https://console\.aws\.amazon\.com/sns](https://console.aws.amazon.com/sns)\.
+   1. Open the Amazon SNS console, at [https://console\.aws\.amazon\.com/sns/home](https://console.aws.amazon.com/sns/home)\.
 
    1. Choose **Create topic**\. 
 
@@ -258,7 +258,7 @@ To stop using a rule to send build notifications, in the CloudWatch console, cho
 
 To delete a rule altogether, in the CloudWatch console, choose the rule you want to delete, and then choose **Actions**, **Delete**\.
 
-### Related Resources<a name="w48aac11c41c32b9c12"></a>
+### Related Resources<a name="w58aac11c41c32b9c12"></a>
 + For more information about getting started with AWS CodeBuild, see [Getting Started with CodeBuild in the Console](getting-started.md)\.
 + For more information about troubleshooting problems with CodeBuild, see [Troubleshooting CodeBuild](troubleshooting.md)\.
 + For more information about limits in CodeBuild, see [Limits for CodeBuild](limits.md)\.
@@ -275,21 +275,21 @@ Build state change notifications use the following format:
   "id": "c030038d-8c4d-6141-9545-00ff7b7153EX",
   "detail-type": "CodeBuild Build State Change",
   "source": "aws.codebuild",
-  "account": "123456789012",
+  "account": ":123456789012",
   "time": "2017-09-01T16:14:28Z",
   "region": "us-west-2",
   "resources":[
-    "arn:aws:codebuild:us-west-2:123456789012:build/my-sample-project:8745a7a9-c340-456a-9166-edf953571bEX"
+    "arn:aws:codebuild:us-west-2::123456789012:build/my-sample-project:8745a7a9-c340-456a-9166-edf953571bEX"
   ],
   "detail":{
     "build-status": "SUCCEEDED",
     "project-name": "my-sample-project",
-    "build-id": "arn:aws:codebuild:us-west-2:123456789012:build/my-sample-project:8745a7a9-c340-456a-9166-edf953571bEX",
+    "build-id": "arn:aws:codebuild:us-west-2::123456789012:build/my-sample-project:8745a7a9-c340-456a-9166-edf953571bEX",
     "additional-information": {
       "artifact": {
         "md5sum": "da9c44c8a9a3cd4b443126e823168fEX",
         "sha256sum": "6ccc2ae1df9d155ba83c597051611c42d60e09c6329dcb14a312cecc0a8e39EX",
-        "location": "arn:aws:s3:::codebuild-123456789012-output-bucket/my-output-artifact.zip"
+        "location": "arn:aws:s3:::codebuild-:123456789012-output-bucket/my-output-artifact.zip"
       },
       "environment": {
         "image": "aws/codebuild/standard:2.0",
@@ -303,7 +303,7 @@ Build state change notifications use the following format:
       "initiator": "MyCodeBuildDemoUser",
       "build-start-time": "Sep 1, 2017 4:12:29 PM",
       "source": {
-        "location": "codebuild-123456789012-input-bucket/my-input-artifact.zip",
+        "location": "codebuild-:123456789012-input-bucket/my-input-artifact.zip",
         "type": "S3"
       },
       "logs": {
@@ -405,22 +405,22 @@ Build phase change notifications use the following format:
   "id": "43ddc2bd-af76-9ca5-2dc7-b695e15adeEX",
   "detail-type": "CodeBuild Build Phase Change",
   "source": "aws.codebuild",
-  "account": "123456789012",
+  "account": ":123456789012",
   "time": "2017-09-01T16:14:21Z",
   "region": "us-west-2",
   "resources":[
-    "arn:aws:codebuild:us-west-2:123456789012:build/my-sample-project:8745a7a9-c340-456a-9166-edf953571bEX"
+    "arn:aws:codebuild:us-west-2::123456789012:build/my-sample-project:8745a7a9-c340-456a-9166-edf953571bEX"
   ],
   "detail":{
     "completed-phase": "COMPLETED",
     "project-name": "my-sample-project",
-    "build-id": "arn:aws:codebuild:us-west-2:123456789012:build/my-sample-project:8745a7a9-c340-456a-9166-edf953571bEX",
+    "build-id": "arn:aws:codebuild:us-west-2::123456789012:build/my-sample-project:8745a7a9-c340-456a-9166-edf953571bEX",
     "completed-phase-context": "[]",
     "additional-information": {
       "artifact": {
         "md5sum": "da9c44c8a9a3cd4b443126e823168fEX",
         "sha256sum": "6ccc2ae1df9d155ba83c597051611c42d60e09c6329dcb14a312cecc0a8e39EX",
-        "location": "arn:aws:s3:::codebuild-123456789012-output-bucket/my-output-artifact.zip"
+        "location": "arn:aws:s3:::codebuild-:123456789012-output-bucket/my-output-artifact.zip"
       },
       "environment": {
         "image": "aws/codebuild/standard:2.0",
@@ -434,7 +434,7 @@ Build phase change notifications use the following format:
       "initiator": "MyCodeBuildDemoUser",
       "build-start-time": "Sep 1, 2017 4:12:29 PM",
       "source": {
-        "location": "codebuild-123456789012-input-bucket/my-input-artifact.zip",
+        "location": "codebuild-:123456789012-input-bucket/my-input-artifact.zip",
         "type": "S3"
       },
       "logs": {

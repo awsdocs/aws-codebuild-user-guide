@@ -10,8 +10,8 @@ The steps in this tutorial require you to create resources \(for example, an S3 
 ## Steps<a name="getting-started-cli-steps"></a>
 + [Step 1: Create Two S3 Buckets](getting-started-cli-input-bucket.md)
 + [Step 2: Create the Source Code](getting-started-cli-create-source-code.md)
-+ [Step 3: Create the Build Spec](getting-started-cli-create-build-spec.md)
-+ [Step 4: Upload the Source Code and the Build Spec](getting-started-cli-upload-source-code.md)
++ [Step 3: Create the Buildspec File](getting-started-cli-create-build-spec.md)
++ [Step 4: Upload the Source Code and the Buildspec File](getting-started-cli-upload-source-code.md)
 + [Step 5: Create the Build Project](getting-started-cli-create-build-project.md)
 + [Step 6: Run the Build](getting-started-cli-run-build.md)
 + [Step 7: View Summarized Build Information](getting-started-cli-monitor-build.md)

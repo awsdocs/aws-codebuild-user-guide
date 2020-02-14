@@ -77,12 +77,10 @@ When you use the console to create or update a build project, you can create a C
 
 1. Expand **Additional configuration**\.
 
-   In **VPC**, do one of the following:
-   + If you are not using a VPC for your project, choose **No VPC**\.
-   + If you want CodeBuild to work with your VPC:
-     + For **VPC**, choose the VPC ID that CodeBuild uses\.
-     + For **VPC Subnets**, choose the subnets that include resources that CodeBuild uses\.
-     + For **VPC Security groups**, choose the security groups that CodeBuild uses to allow access to resources in the VPCs\.
+   If you want CodeBuild to work with your VPC:
+   + For **VPC**, choose the VPC ID that CodeBuild uses\.
+   + For **VPC Subnets**, choose the subnets that include resources that CodeBuild uses\.
+   + For **VPC Security groups**, choose the security groups that CodeBuild uses to allow access to resources in the VPCs\.
 
    For more information, see [Use CodeBuild with Amazon Virtual Private Cloud](vpc-support.md)\.
 
@@ -90,27 +88,27 @@ When you use the console to create or update a build project, you can create a C
    + Choose **Use a buildspec file** to use the buildspec\.yml file in the source code root directory\.
    + Choose **Insert build commands** to use the console to insert build commands\.
 
-   For more information, see the [Build Spec Reference](build-spec-ref.md)\.
+   For more information, see the [Buildspec Reference](build-spec-ref.md)\.
 
 1. In **Artifacts**, for **Type**, do one of the following:
    + If you do not want to create build output artifacts, choose **No artifacts**\.
    + To store the build output in an Amazon S3 bucket, choose **Amazon S3**, and then do the following:
      + If you want to use your project name for the build output ZIP file or folder, leave **Name** blank\. Otherwise, enter the name\. By default, the artifact name is the project name\. If you want to use a different name, enter it in the artifacts name box\. If you want to output a ZIP file, include the zip extension\.
      + For **Bucket name**, choose the name of the output bucket\.
-     + If you chose **Insert build commands** earlier in this procedure, for **Output files**, enter the locations of the files from the build that you want to put into the build output ZIP file or folder\. For multiple locations, separate each location with a comma \(for example, `appspec.yml, target/my-app.jar`\)\. For more information, see the description of `files` in [Build Spec Syntax](build-spec-ref.md#build-spec-ref-syntax)\.
+     + If you chose **Insert build commands** earlier in this procedure, for **Output files**, enter the locations of the files from the build that you want to put into the build output ZIP file or folder\. For multiple locations, separate each location with a comma \(for example, `appspec.yml, target/my-app.jar`\)\. For more information, see the description of `files` in [Buildspec Syntax](build-spec-ref.md#build-spec-ref-syntax)\.
 
 1. For **Cache type**, choose one of the following:
    + If you do not want to use a cache, choose **No cache**\.
    + If you want to use an Amazon S3 cache, choose **Amazon S3**, and then do the following:
-     + For **Bucket**, choose the name of the Amazon S3 bucket where the cache is stored\.
+     + For **Bucket**, choose the name of the S3 bucket where the cache is stored\.
      + \(Optional\) For **Cache path prefix**, enter an Amazon S3 path prefix\. The **Cache path prefix** value is similar to a directory name\. It makes it possible for you to store the cache under the same directory in a bucket\. 
 **Important**  
 Do not append a trailing slash \(/\) to the end of the path prefix\.
    +  If you want to use a local cache, choose **Local**, and then choose one or more local cache modes\. 
 **Note**  
-**Docker layer cache** mode is available for Linux only\. If you choose it, your project must run in privileged mode\. The `ARM_CONTAINER` and `LINUX_GPU_CONTAINER` environment types and the `BUILD_GENERAL1_2XLARGE` compute type do not support the use of a local cache\.
+Docker layer cache mode is available for Linux only\. If you choose it, your project must run in privileged mode\. The `ARM_CONTAINER` and `LINUX_GPU_CONTAINER` environment types and the `BUILD_GENERAL1_2XLARGE` compute type do not support the use of a local cache\.
 
-   Using a cache saves considerable build time because reusable pieces of the build environment are stored in the cache and used across builds\. For information about specifying a cache in the buildspec file, see [Build Spec Syntax](build-spec-ref.md#build-spec-ref-syntax)\. For more information about caching, see [Build Caching in CodeBuild](build-caching.md)\. 
+   Using a cache saves considerable build time because reusable pieces of the build environment are stored in the cache and used across builds\. For information about specifying a cache in the buildspec file, see [Buildspec Syntax](build-spec-ref.md#build-spec-ref-syntax)\. For more information about caching, see [Build Caching in CodeBuild](build-caching.md)\. 
 
 1. Choose **Create build project**\. On the build project page, choose **Start build**\.
 

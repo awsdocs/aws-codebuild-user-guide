@@ -51,7 +51,7 @@ In this scenario, you create and upload the source code\. You then use the AWS C
 
 ### Step A1: Add Files to the Source Code<a name="sample-elastic-beanstalk-manual-prepare"></a>
 
-In this step, you add an Elastic Beanstalk configuration file and a build spec file to the code in [Create the Source Code](#sample-elastic-beanstalk-prepare-source)\. You then upload the source code to an Amazon S3 input bucket or an AWS CodeCommit or GitHub repository \.
+In this step, you add an Elastic Beanstalk configuration file and a buildspec file to the code in [Create the Source Code](#sample-elastic-beanstalk-prepare-source)\. You then upload the source code to an Amazon S3 input bucket or an AWS CodeCommit or GitHub repository \.
 
 1. Create a file named `buildspec.yml` with the following contents\. Store the file in the `(root directory name)/my-web-app` directory\.
 
@@ -139,7 +139,7 @@ In this scenario, you complete the steps to prepare and upload the source code\.
 
 ### Step B1: Add a Build Spec File to the Source Code<a name="sample-elastic-beanstalk-codepipeline-prepare"></a>
 
-In this step, you create and add a build spec file to the code you created in [Create the Source Code](#sample-elastic-beanstalk-prepare-source)\. You then upload the source code to an Amazon S3 input bucket or a CodeCommit or GitHub repository\.
+In this step, you create and add a buildspec file to the code you created in [Create the Source Code](#sample-elastic-beanstalk-prepare-source)\. You then upload the source code to an Amazon S3 input bucket or a CodeCommit or GitHub repository\.
 
 1. Create a file named `buildspec.yml` with the following contents\. Store the file in the `(root directory name)/my-web-app` directory\.
 
@@ -238,7 +238,7 @@ In this scenario, you complete the steps to prepare and upload the source code\.
 
 ### Step C1: Add Files to the Source Code<a name="sample-elastic-beanstalk-eb-cli-prepare"></a>
 
-In this step, you add an Elastic Beanstalk configuration file and a build spec file to the code you created in [Create the Source Code](#sample-elastic-beanstalk-prepare-source)\. You also create or identify a service role for the build spec file\.
+In this step, you add an Elastic Beanstalk configuration file and a buildspec file to the code you created in [Create the Source Code](#sample-elastic-beanstalk-prepare-source)\. You also create or identify a service role for the buildspec file\.
 
 1. Create or identify a service role that Elastic Beanstalk and the CLI can use on your behalf\. For information, see [Create a CodeBuild Service Role](setting-up.md#setting-up-service-role)\.
 
@@ -334,7 +334,7 @@ In this step, you add an Elastic Beanstalk configuration file and a build spec f
 
 If you want, you can make changes to the source code and then run the eb deploy command from the same directory\. The EB CLI performs the same steps as the eb create command, but it deploys the build output to the existing environment instead of creating a new environment\.
 
-## Related Resources<a name="w48aac11c41c54c15"></a>
+## Related Resources<a name="w58aac11c41c54c15"></a>
 + For more information about getting started with AWS CodeBuild, see [Getting Started with CodeBuild in the Console](getting-started.md)\.
 + For more information about troubleshooting problems with CodeBuild, see [Troubleshooting CodeBuild](troubleshooting.md)\.
 + For more information about limits in CodeBuild, see [Limits for CodeBuild](limits.md)\.

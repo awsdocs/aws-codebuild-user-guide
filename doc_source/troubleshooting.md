@@ -1,6 +1,6 @@
 # Troubleshooting CodeBuild<a name="troubleshooting"></a>
 
-Use the information in this topic to help you identify, diagnose, and address issues\.
+Use the information in this topic to help you identify, diagnose, and address issues\. To learn how to log and monitor CodeBuild builds to troubleshoot issues, see [Logging and Monitoring](security-incident-response.md)\.
 
 **Topics**
 + [Error: "CodeBuild is not authorized to perform: sts:AssumeRole" when creating or updating a build project](#troubleshooting-assume-role)
@@ -92,6 +92,8 @@ artifacts:
 1.  Specify your environment image, operating system, runtime, and image\. These should match your settings for the build that failed\. 
 
 1.  Select **Privileged**\. 
+**Note**  
+By default, Docker containers do not allow access to any devices\. Privileged mode grants a build project's Docker container access to all devices\. For more information, see [Runtime Privilege and Linux Capabilities](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities) on the Docker Docs website\.
 
 1.  Choose **Update environment**\. 
 
@@ -101,9 +103,9 @@ artifacts:
 
 **Issue:** When you run a build, the build log contains the warning, "Skipping install of runtimes\. Runtime version selection is not supported by this build image\." 
 
-**Possible cause:** Your build does not use version 1\.0 or later of the Amazon Linux \(AL2\) standard image, or version 2\.0 or later of the Ubuntu standard image, and a runtime is specified in a `runtime-versions` section in your buildspec file\.
+**Possible cause:** Your build does not use version 1\.0 or later of the Amazon Linux 2 \(AL2\) standard image, or version 2\.0 or later of the Ubuntu standard image, and a runtime is specified in a `runtime-versions` section in your buildspec file\.
 
-**Recommended solution:** Be sure your buildspec file does not contain a `runtime-versions` section\. The `runtime-versions` section is only required if you use the Amazon Linux \(AL2\) standard image or later or the Ubuntu standard image version 2\.0 or later\.
+**Recommended solution:** Be sure your buildspec file does not contain a `runtime-versions` section\. The `runtime-versions` section is only required if you use the Amazon Linux 2 \(AL2\) standard image or later or the Ubuntu standard image version 2\.0 or later\.
 
 ## Error: "The bucket you are attempting to access must be addressed using the specified endpoint" when running a build<a name="troubleshooting-input-bucket-different-region"></a>
 
@@ -176,7 +178,7 @@ artifacts:
 
 **Possible cause:** In buildspec file version 0\.1, AWS CodeBuild runs each command in a separate instance of the default shell in the build environment\. This means that each command runs in isolation from all other commands\. By default, then, you cannot run a single command that relies on the state of any previous commands\. 
 
-**Recommended solutions:** We recommend you use build spec version 0\.2, which solves this issue\. If you must use build spec version 0\.1 for some reason, we recommend using the shell command chaining operator \(for example, `&&` in Linux\) to combine multiple commands into a single command\. Or include a shell script in your source code that contains multiple commands, and then call that shell script from a single command in the buildspec file\. For more information, see [Shells and Commands in Build Environments](build-env-ref-cmd.md) and [Environment Variables in Build Environments](build-env-ref-env-vars.md)\.
+**Recommended solutions:** We recommend you use build spec version 0\.2, which solves this issue\. If you must use buildspec version 0\.1 for some reason, we recommend using the shell command chaining operator \(for example, `&&` in Linux\) to combine multiple commands into a single command\. Or include a shell script in your source code that contains multiple commands, and then call that shell script from a single command in the buildspec file\. For more information, see [Shells and Commands in Build Environments](build-env-ref-cmd.md) and [Environment Variables in Build Environments](build-env-ref-env-vars.md)\.
 
 ## Apache Maven Builds Reference Artifacts from the Wrong Repository<a name="troubleshooting-maven-repos"></a>
 
@@ -254,7 +256,7 @@ artifacts:
 
 **Possible cause:** Your build is using environment variables that are too large for AWS CodeBuild\. CodeBuild can raise errors once the length of all environment variables \(all names and values added together\) reach a combined maximum of around 5,500 characters\.
 
-**Recommended solution:** Use Amazon EC2 Systems Manager Parameter Store to store large environment variables and then retrieve them from your buildspec file\. Amazon EC2 Systems Manager Parameter Store can store an individual environment variable \(name and value added together\) that is a combined 4,096 characters or less\. To store large environment variables, see [Systems Manager Parameter Store](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-paramstore.html) and [Systems Manager Parameter Store Console Walkthrough](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-walk.html#sysman-paramstore-console) in the *Amazon EC2 Systems Manager User Guide*\. To retrieve them, see the `parameter-store` mapping in [Build Spec Syntax](build-spec-ref.md#build-spec-ref-syntax)\.
+**Recommended solution:** Use Amazon EC2 Systems Manager Parameter Store to store large environment variables and then retrieve them from your buildspec file\. Amazon EC2 Systems Manager Parameter Store can store an individual environment variable \(name and value added together\) that is a combined 4,096 characters or less\. To store large environment variables, see [Systems Manager Parameter Store](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-paramstore.html) and [Systems Manager Parameter Store Console Walkthrough](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-walk.html#sysman-paramstore-console) in the *Amazon EC2 Systems Manager User Guide*\. To retrieve them, see the `parameter-store` mapping in [Buildspec Syntax](build-spec-ref.md#build-spec-ref-syntax)\.
 
 ## Error: "BUILD\_CONTAINER\_UNABLE\_TO\_PULL\_IMAGE" when using a custom build image<a name="troubleshooting-unable-to-pull-image"></a>
 
@@ -359,7 +361,7 @@ pre_build:
 + The cache has recently been invalidated via the `InvalidateProjectCache` API\.
 + The service role being used by CodeBuild does not have `s3:GetObject` and `s3:PutObject` permissions to the Amazon S3 bucket that is holding the cache\.
 
-**Recommended solution:** For first time use, it's normal to see this immediately after updating the cache configuration\. If this error persists, then you should check to see if your service role has `s3:GetObject` and `s3:PutObject` permissions to the Amazon S3 bucket that is holding the cache\. For more information, see [Specifying S3 permissions\.](https://docs.aws.amazon.com/AmazonS3/latest/dev//using-with-s3-actions.html) 
+**Recommended solution:** For first time use, it's normal to see this immediately after updating the cache configuration\. If this error persists, then you should check to see if your service role has `s3:GetObject` and `s3:PutObject` permissions to the Amazon S3 bucket that is holding the cache\. For more information, see [Specifying S3 permissions\.](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html) 
 
 ## Error: "Unable to download cache: RequestError: send request failed caused by: x509: failed to load system roots and no roots provided"<a name="troubleshooting-cache-image"></a>
 
@@ -469,7 +471,7 @@ We recommend that you use **Insecure SSL** for testing only\. It should not be u
   1.  Create a private Amazon S3 endpoint and CloudWatch Logs endpoint and associate them with the private subnet of your Amazon VPC\. For information, see [VPC Endpoint Services \(AWS PrivateLink\)](https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-service.html)\. 
 
   1.  Confirm **Enable Private DNS Name** in your Amazon VPC is selected\. For more information, see [Creating an Interface Endpoint ](https://docs.aws.amazon.com/vpc/latest/userguide/vpce-interface.html#create-interface-endpoint)\. 
-+  If you do not use `ssl-bump` for an explicit proxy server, add a proxy configuration to your buildspec file using a `proxy` element\. For more information, see [ Run CodeBuild in an Explicit Proxy Server](use-proxy-server.md#run-codebuild-in-explicit-proxy-server) and [Build Spec Syntax](build-spec-ref.md#build-spec-ref-syntax)\. 
++  If you do not use `ssl-bump` for an explicit proxy server, add a proxy configuration to your buildspec file using a `proxy` element\. For more information, see [ Run CodeBuild in an Explicit Proxy Server](use-proxy-server.md#run-codebuild-in-explicit-proxy-server) and [Buildspec Syntax](build-spec-ref.md#build-spec-ref-syntax)\. 
 
   ```
   version: 0.2

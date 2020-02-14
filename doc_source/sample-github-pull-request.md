@@ -44,14 +44,14 @@ When you use the console to create or update a build project, you can create a C
    + Choose **Use a buildspec file** to use the buildspec\.yml file in the source code root directory\.
    + Choose **Insert build commands** to use the console to insert build commands\.
 
-   For more information, see the [Build Spec Reference](build-spec-ref.md)\.
+   For more information, see the [Buildspec Reference](build-spec-ref.md)\.
 
 1. In **Artifacts**, for **Type**, do one of the following:
    + If you do not want to create build output artifacts, choose **No artifacts**\.
    + To store the build output in an Amazon S3 bucket, choose **Amazon S3**, and then do the following:
      + If you want to use your project name for the build output ZIP file or folder, leave **Name** blank\. Otherwise, enter the name\. By default, the artifact name is the project name\. If you want to use a different name, enter it in the artifacts name box\. If you want to output a ZIP file, include the zip extension\.
      + For **Bucket name**, choose the name of the output bucket\.
-     + If you chose **Insert build commands** earlier in this procedure, for **Output files**, enter the locations of the files from the build that you want to put into the build output ZIP file or folder\. For multiple locations, separate each location with a comma \(for example, `appspec.yml, target/my-app.jar`\)\. For more information, see the description of `files` in [Build Spec Syntax](build-spec-ref.md#build-spec-ref-syntax)\.
+     + If you chose **Insert build commands** earlier in this procedure, for **Output files**, enter the locations of the files from the build that you want to put into the build output ZIP file or folder\. For multiple locations, separate each location with a comma \(for example, `appspec.yml, target/my-app.jar`\)\. For more information, see the description of `files` in [Buildspec Syntax](build-spec-ref.md#build-spec-ref-syntax)\.
 
 1. Expand **Additional configuration** and set options as appropriate\.
 
@@ -71,7 +71,7 @@ When you use the console to create or update a build project, you can create a C
 
 1. In your GitHub repository, on the **Settings** page, under **Webhooks**, verify that **Pull Requests** and **Pushes** are selected\.
 
-1. In your GitHub profile settings, under **Personal settings**, **Applications**, **Authorized OAuth Apps**, you should see that your AWS CodeBuild region has been authorized\.   
+1. In your GitHub profile settings, under **Personal settings**, **Applications**, **Authorized OAuth Apps**, you should see that your AWS Region has been authorized\.  
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/github-oauth-apps.png)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)
 
 ## Filter GitHub Webhook Events<a name="sample-github-pull-request-filter-webhook-events"></a>
