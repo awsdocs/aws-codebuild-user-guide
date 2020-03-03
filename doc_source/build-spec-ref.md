@@ -1,6 +1,6 @@
 # Build Specification Reference for CodeBuild<a name="build-spec-ref"></a>
 
-This topic provides important reference information about build specification \(build spec\) files\. A *build spec* is a collection of build commands and related settings, in YAML format, that CodeBuild uses to run a build\. You can include a buildspec as part of the source code or you can define a buildspec when you create a build project\. For information about how a build spec works, see [How CodeBuild Works](concepts.md#concepts-how-it-works)\.
+This topic provides important reference information about build specification \(buildspec\) files\. A *build spec* is a collection of build commands and related settings, in YAML format, that CodeBuild uses to run a build\. You can include a buildspec as part of the source code or you can define a buildspec when you create a build project\. For information about how a build spec works, see [How CodeBuild Works](concepts.md#concepts-how-it-works)\.
 
 **Topics**
 + [Buildspec File Name and Storage Location](#build-spec-ref-name-storage)
@@ -32,9 +32,6 @@ If a command contains a character, or a string of characters, that is not suppor
 ```
 "export PACKAGE_NAME=$(cat package.json | grep name | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g')"
 ```
-
-**Important**  
-If you use the Ubuntu standard image 2\.0 or later, or the Amazon Linux 2 \(AL2\) standard image 1\.0 or later, you must specify `runtime-versions` in your buildspec file\. For more information, see [Specify Runtime Versions in the Buildspec File](#runtime-versions-buildspec-file)\.
 
 The buildspec has the following syntax:
 
@@ -186,23 +183,24 @@ In buildspec version 0\.1, CodeBuild runs each command in a separate instance of
 
   The allowed build phase names are:
   + `install`: Optional sequence\. Represents the commands, if any, that CodeBuild runs during installation\. We recommend that you use the `install` phase only for installing packages in the build environment\. For example, you might use this phase to install a code testing framework such as Mocha or RSpec\.<a name="runtime-versions-buildspec-file"></a>
-    + <a name="runtime-versions-in-build-spec"></a> `runtime-versions`: Required if using the Ubuntu standard image 2\.0 or later, or the Amazon Linux 2\.0 \(AL2\) standard image 1\.0 or later\. A runtime version is not supported with a custom image or the Ubuntu standard image 1\.0\. If specified, at least one runtime must be included in this section\. Specify a runtime using a major version only, such as "java: openjdk11" or "ruby: 2\.6\." You can specify the runtime using a number or an environment variable\. For example, if you use the Amazon Linux 2 standard image 2\.0, then the following specifies that version 8 of Java, version 29 of Android, and a version contained in an environment variable of Ruby is installed\. For more information, see [Docker Images Provided by CodeBuild](build-env-ref-available.md)\. 
+    + <a name="runtime-versions-in-build-spec"></a> `runtime-versions`: Optional sequence\. A runtime version is supported with the Ubuntu standard image 2\.0 or later and the Amazon Linux 2 standard image 1\.0 or later\. If specified, at least one runtime must be included in this section\. Specify a runtime using a specific version, a major version followed by `.x` to specify that CodeBuild uses that major version with its latest minor version, or `latest` to use the most recent major and minor version \(for example, `java: openjdk11`, `ruby: 2.6`, `nodejs: 12.x`, or `java: latest`\)\. You can specify the runtime using a number or an environment variable\. For example, if you use the Amazon Linux 2 standard image 2\.0, then the following specifies that version 8 of Java, the latest minor version of python version 3, and a version contained in an environment variable of Ruby is installed\. For more information, see [Docker Images Provided by CodeBuild](build-env-ref-available.md)\. 
 
       ```
       phases:
         install:
           runtime-versions:
             java: corretto8
-            android: 29
+            python: 3.x
             ruby: "$MY_RUBY_VAR"
       ```
-      +  Some runtimes must include specific versions of other runtimes\. If a required runtime is not specified, the build fails\. For example, if you use any supported version of `android`, then version 8 of Java is required\. If you use the Ubuntu standard image 2\.0, you specify this using `java: openjdk8`\. If you use the Amazon Linux 2 standard image 2\.0, you specify this using `java: corretto8`\.
+      +  You can specify one or more runtimes in the `runtime-versions` section of your buildspec file\. If your runtime is dependent upon another runtime, you can also specify its dependent runtime in the buildspec file\. If you do not specify any runtimes in the buildspec file, CodeBuild chooses the default runtimes that are available in the image you use\. If you specify one or more runtimes, CodeBuild uses only those runtimes\. If a dependent runtime is not specified, CodeBuild attempts to choose the dependent runtime for you\. 
       + If two specified runtimes conflict, the build fails\. For example, `android: 29` and `java: openjdk11` conflict, so if both are specified, the build fails\.
-      +  The following supported runtimes can be specified\.     
+      +  The following supported runtimes can be specified\.   
+**Ubuntu 18\.04 and Amazon Linux 2 platforms runtimes**    
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html)
 **Note**  
  If you specify a `runtime-versions` section and use an image other than Ubuntu Standard Image 2\.0 or later, or the Amazon Linux 2 \(AL2\) standard image 1\.0 or later, the build issues the warning, "Skipping install of runtimes\. Runtime version selection is not supported by this build image\." 
-    + `commands`: Required sequence unless you specify `runtime-versions`\. Optional if you specify `runtime-versions`\. Contains a sequence of scalars, where each scalar represents a single command that CodeBuild runs during installation\. CodeBuild runs each command, one at a time, in the order listed, from beginning to end\.
+    + `commands`: Optional sequence\. Contains a sequence of scalars, where each scalar represents a single command that CodeBuild runs during installation\. CodeBuild runs each command, one at a time, in the order listed, from beginning to end\.
   + `pre_build`: Optional sequence\. Represents the commands, if any, that CodeBuild runs before the build\. For example, you might use this phase to sign in to Amazon ECR, or you might install npm dependencies\. 
     + `commands`: Required sequence if `pre_build` is specified\. Contains a sequence of scalars, where each scalar represents a single command that CodeBuild runs before the build\. CodeBuild runs each command, one at a time, in the order listed, from beginning to end\.
   + `build`: Optional sequence\. Represents the commands, if any, that CodeBuild runs during the build\. For example, you might use this phase to run Mocha, RSpec, or sbt\.
@@ -226,7 +224,7 @@ Commands in some build phases might not be run if commands in earlier build phas
     + `CucumberJson`
     + `VisualStudioTrx`
     + `TestNGXml`
-+ `artifacts`: Optional sequence\. Represents information about where CodeBuild can find the build output and how CodeBuild prepares it for uploading to the Amazon S3 output bucket\. This sequence is not required if, for example, you are building and pushing a Docker image to Amazon ECR, or you are running unit tests on your source code, but not building it\.
++ <a name="artifacts-build-spec"></a>`artifacts`: Optional sequence\. Represents information about where CodeBuild can find the build output and how CodeBuild prepares it for uploading to the Amazon S3 output bucket\. This sequence is not required if, for example, you are building and pushing a Docker image to Amazon ECR, or you are running unit tests on your source code, but not building it\.
   +  `files`: Required sequence\. Represents the locations that contain the build output artifacts in the build environment\. Contains a sequence of scalars, with each scalar representing a separate location where CodeBuild can find build output artifacts, relative to the original build location or, if set, the base directory\. Locations can include the following:
     + A single file \(for example, `my-file.jar`\)\.
     + A single file in a subdirectory \(for example, `my-subdirectory/my-file.jar` or `my-parent-subdirectory/my-subdirectory/my-file.jar`\)\.

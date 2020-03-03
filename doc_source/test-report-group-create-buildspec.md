@@ -21,7 +21,7 @@ A report group created using the buildspec does not export raw test result files
       base-directory: 'surefire/target/surefire-reports'
    ```
 
-    For more information, see [Specify Test Files](report-group-test-cases.md) and [Reports Syntax in the Buildspec File](build-spec-ref.md#reports-buildspec-file)\. 
+    For more information, see [Specify Test Files](report-group-test-cases.md) and [Reports Syntax in the buildspec file](build-spec-ref.md#reports-buildspec-file)\. 
 
 1. In the `commands` section, specify the command to run your tests\. For more information, see [ Specify Test Commands ](report-group-test-case-commands.md)\. 
 

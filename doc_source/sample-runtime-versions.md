@@ -1,6 +1,6 @@
 # Runtime Versions in Buildspec File Sample for CodeBuild<a name="sample-runtime-versions"></a>
 
- If you use the Amazon Linux 2 \(AL2\) standard image version 1\.0 or later, or the Ubuntu standard image version 2\.0 or later, you must specify at least one runtime and its version in the `runtime-versions` section of your buildspec file\. This sample shows how you can change your project runtime, specify more than one runtime, and specify a runtime that is dependent on another runtime\. For information about supported runtimes, see [Docker Images Provided by CodeBuild](build-env-ref-available.md)\.
+ If you use the Amazon Linux 2 \(AL2\) standard image version 1\.0 or later, or the Ubuntu standard image version 2\.0 or later, you can specify one or more runtimes in the `runtime-versions` section of your buildspec file\. This sample shows how you can change your project runtime, specify more than one runtime, and specify a runtime that is dependent on another runtime\. For information about supported runtimes, see [Docker Images Provided by CodeBuild](build-env-ref-available.md)\.
 
 **Note**  
  If you use Docker in your build container, then your build must run in privileged mode\. For more information, see [Run a Build in CodeBuild](run-build.md) and [Create a Build Project in CodeBuild](create-project.md)\. 
@@ -123,8 +123,12 @@ If you are using an Amazon S3 input bucket, be sure to create a ZIP file that co
 1.  After the build is complete, view the build output on the **Build logs** tab\. You should see output similar to the following: 
 
    ```
-   [Container] 2019/05/14 20:45:07 Entering phase INSTALL 
-   [Container] Date Time Running command echo "Installing Java version 8 ..." 
+   [Container] Date Time Phase is DOWNLOAD_SOURCE
+   [Container] Date Time CODEBUILD_SRC_DIR=/codebuild/output/src460614277/src
+   [Container] Date Time YAML location is /codebuild/output/src460614277/src/buildspec.yml
+   [Container] Date Time Processing environment variables
+   [Container] Date Time Selecting 'java' runtime version 'corretto8' based on manual selections...
+   [Container] Date Time Running command echo "Installing Java version 8 ..."
    Installing Java version 8 ... 
     
    [Container] Date Time Running command export JAVA_HOME="$JAVA_8_HOME" 
@@ -147,8 +151,11 @@ If you are using an Amazon S3 input bucket, be sure to create a ZIP file that co
 1.  After you save the change, run your build again and view the build output\. You should see that the installed version of Java is 11\. You should see output similar to the following: 
 
    ```
-   [Container] 2019/05/14 20:45:07 Entering phase INSTALL 
-   [Container] Date Time Running command echo "Installing Java version 11 ..." 
+   [Container] Date Time Phase is DOWNLOAD_SOURCE
+   [Container] Date Time CODEBUILD_SRC_DIR=/codebuild/output/src460614277/src
+   [Container] Date Time YAML location is /codebuild/output/src460614277/src/buildspec.yml
+   [Container] Date Time Processing environment variables
+   [Container] Date Time Selecting 'java' runtime version 'corretto11' based on manual selections... 
    Installing Java version 11 ... 
     
    [Container] Date Time Running command export JAVA_HOME="$JAVA_11_HOME" 
@@ -162,9 +169,9 @@ If you are using an Amazon S3 input bucket, be sure to create a ZIP file that co
 
 ## Specify a Runtime Dependency<a name="sample-runtime-dependent-runtime"></a>
 
- This example shows how to specify a runtime and a dependency runtime\. For example, any supported Android runtime version is dependent on the Java runtime version 8\. For example, if you specify Android version 29 and use Amazon Linux 2 or Ubuntu, you must also specify Java version 8\. 
+ This example shows how to specify a runtime and a dependency runtime\. For example, any supported Android runtime version is dependent on the Java runtime version 8\. For example, if you specify Android version 29 and use Amazon Linux 2 or Ubuntu, you can also specify Java version 8\. If you do not specify the dependent runtime, CodeBuild attempts to choose it for you\. 
 
- The build project in this example uses source code in the GitHub [AWS Samples](https://github.com/aws-samples) repository\. The source code uses the Android version 28 runtime and the build project uses Amazon Linux 2, so the buildspec must also specify Java version 8\. 
+The build project in this example uses source code in the GitHub [AWS Samples](https://github.com/aws-samples) repository\. The source code uses the Android version 28 runtime and the build project uses Amazon Linux 2, so the buildspec also specifies Java version 8\. 
 
 1. Open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codesuite/codebuild/home](https://console.aws.amazon.com/codesuite/codebuild/home)\.
 
@@ -209,7 +216,7 @@ If you are using an Amazon S3 input bucket, be sure to create a ZIP file that co
 1.  After the build is complete, view the build output on the **Build logs** tab\. You should see output similar to the following\. It shows that Android version 29 and Java version 8 are installed: 
 
    ```
-   [Container] 2019/05/14 23:21:42 Entering phase INSTALL 
+   [Container] 2019/05/14 23:21:42 Entering phase DOWNLOAD_SOURCES 
    [Container] Date Time Running command echo "Installing Android version 29 ..." 
    Installing Android version 29 ... 
     
@@ -337,16 +344,26 @@ If you are using an Amazon S3 input bucket, be sure to create a ZIP file that co
 1.  After the build is complete, view the build output on the **Build logs** tab\. You should see output similar to the following\. It shows output from the Go and Node\.js runtimes\. It also shows output from the Go and Node\.js applications\. 
 
    ```
-   [Container] Date Time Entering phase INSTALL 
+   [Container] Date Time Processing environment variables
+   [Container] Date Time Selecting 'golang' runtime version '1.12' based on manual selections...
+   [Container] Date Time Selecting 'nodejs' runtime version '10' based on manual selections...
    [Container] Date Time Running command echo "Installing Go version 1.12 ..." 
    Installing Go version 1.12 ... 
     
    [Container] Date Time Running command echo "Installing Node.js version 10 ..." 
    Installing Node.js version 10 ... 
     
-   [Container] Date Time Running command n 10.15.3 
-    
-   [Container] Date Time Phase complete: INSTALL State: SUCCEEDED 
+   [Container] Date Time Running command n 10.15.3
+   
+   [Container] Date Time Moving to directory /codebuild/output/src819694850/src
+   [Container] Date Time Registering with agent
+   [Container] Date Time Phases found in YAML: 2
+   [Container] Date Time  INSTALL: 0 commands
+   [Container] Date Time  BUILD: 1 commands
+   [Container] Date Time Phase complete: DOWNLOAD_SOURCE State: SUCCEEDED
+   [Container] Date Time Phase context status code:  Message:
+   [Container] Date Time Entering phase INSTALL
+   [Container] Date Time Phase complete: INSTALL State: SUCCEEDED
    [Container] Date Time Phase context status code:  Message:  
    [Container] Date Time Entering phase PRE_BUILD 
    [Container] Date Time Phase complete: PRE_BUILD State: SUCCEEDED 

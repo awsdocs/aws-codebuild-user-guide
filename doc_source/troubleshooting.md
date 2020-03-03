@@ -4,7 +4,6 @@ Use the information in this topic to help you identify, diagnose, and address is
 
 **Topics**
 + [Error: "CodeBuild is not authorized to perform: sts:AssumeRole" when creating or updating a build project](#troubleshooting-assume-role)
-+ [Error: "This build image requires selecting at least one runtime version\."](#troubleshooting-build-must-specify-runtime)
 + [Error: "Cannot connect to the Docker daemon" when running a build](#troubleshooting-cannot-connect-to-docker-daemon)
 + [Warning: "Skipping install of runtimes\. Runtime version selection is not supported by this build image" when running a build](#troubleshooting-skipping-all-runtimes-warning)
 + [Error: "The bucket you are attempting to access must be addressed using the specified endpoint" when running a build](#troubleshooting-input-bucket-different-region)
@@ -20,7 +19,6 @@ Use the information in this topic to help you identify, diagnose, and address is
 + [Builds Might Fail When File Names Have Non\-U\.S\. English Characters](#troubleshooting-utf-8)
 + [Builds Might Fail When Getting Parameters from Amazon EC2 Parameter Store](#troubleshooting-parameter-store)
 + [Cannot Access Branch Filter in the CodeBuild Console](#troubleshooting-webhook-filter)
-+ [Procedures in This Guide Do Not Match the CodeBuild Console](#troubleshooting-old-console)
 + ["Access denied" error message when attempting to download cache](#troubleshooting-dependency-caching)
 + [Error: "Unable to download cache: RequestError: send request failed caused by: x509: failed to load system roots and no roots provided"](#troubleshooting-cache-image)
 + [Error: "Unable to download certificate from S3\. AccessDenied"](#troubleshooting-certificate-in-S3)
@@ -44,34 +42,6 @@ Use the information in this topic to help you identify, diagnose, and address is
 + Make sure AWS STS is activated for the AWS region where you are attempting to create or update the build project\. For more information, see [Activating and Deactivating AWS STS in an AWS Region](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html) in the *IAM User Guide*\.
 + Make sure the target CodeBuild service role exists in your AWS account\. If you are not using the console, make sure you did not misspell the Amazon Resource Name \(ARN\) of the service role when you created or updated the build project\.
 + Make sure the target CodeBuild service role has sufficient permissions to trust CodeBuild\. For more information, see the trust relationship policy statement in [Create a CodeBuild Service Role](setting-up.md#setting-up-service-role)\.
-
-## Error: "This build image requires selecting at least one runtime version\."<a name="troubleshooting-build-must-specify-runtime"></a>
-
-**Issue:** When you run a build, the `DOWNLOAD_SOURCE` build phase fails with the error "YAML\_FILE\_ERROR: This build image requires selecting at least one runtime version\."
-
-**Possible cause:** Your build uses version 1\.0 or later of the Amazon Linux 2 \(AL2\) standard image, or version 2\.0 or later of the Ubuntu standard image, and a runtime is not specified in the buildspec file\.
-
-**Recommended solution:** If you use the `aws/codebuild/standard:2.0` CodeBuild managed image, you must specify a runtime version in the `runtime-versions` section of the buildspec file\. For example, you might use the following buildspec file for a project that uses PHP:
-
-```
-version: 0.2
-
-phases:
-  install:
-    runtime-versions:
-        php: 7.3
-  build:
-    commands:
-      - php --version
-artifacts:
-  files:
-    -  README.md
-```
-
-**Note**  
- If you specify a `runtime-versions` section and use an image other than Ubuntu Standard Image 2\.0 or later, or the Amazon Linux 2 \(AL2\) standard image 1\.0 or later, the build issues the warning, "Skipping install of runtimes\. Runtime version selection is not supported by this build image\." 
-
- For more information, see [Specify Runtime Versions in the Buildspec File](build-spec-ref.md#runtime-versions-buildspec-file)\. 
 
 ## Error: "Cannot connect to the Docker daemon" when running a build<a name="troubleshooting-cannot-connect-to-docker-daemon"></a>
 
@@ -343,14 +313,6 @@ pre_build:
  **Possible cause:** The branch filter option is deprecated\. It has been replaced by webhook filter groups, which provide more control over the webhook events that trigger a new CodeBuild build\. 
 
 **Recommended solution:** To migrate a branch filter created prior to the introduction of webhook filters, create a webhook filter groups with a `HEAD_REF` filter with the regular expression `^refs/heads/branchName$`\. For example, if your branch filter regular expression was `^branchName$`, then the updated regular expression you put in the `HEAD_REF` filter is `^refs/heads/branchName$`\. For more information, see [Filter BitBucket Webhook Events \(Console\)](sample-bitbucket-pull-request.md#sample-bitbucket-pull-request-filter-webhook-events-console) and [Filter GitHub Webhook Events \(Console\)](sample-github-pull-request.md#sample-github-pull-request-filter-webhook-events-console)\. 
-
-## Procedures in This Guide Do Not Match the CodeBuild Console<a name="troubleshooting-old-console"></a>
-
-**Issue:** This guide supports procedures in the new console design\.
-
- **Possible cause:** You are using the old console design\. This guide supports the new consolde design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\. 
-
-**Recommended solution:** Use the latest console design\. 
 
 ## "Access denied" error message when attempting to download cache<a name="troubleshooting-dependency-caching"></a>
 

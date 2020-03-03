@@ -13,7 +13,7 @@
 
 1.  Configure the buildspec file of your project with test report informaton: 
 
-   1. Add a `reports:` section and specify the name for your report group\. CodeBuild creates a report group for you using your project name and the name you specified in the format `project-name`\-`report-group-name-in-buildspec`\. If you already have a report group you want to use, specify its ARN\. \(If you use its name instead of its ARN, CodeBuild creates a new report group\.\) For more information, see [Reports Syntax in the Buildspec File](build-spec-ref.md#reports-buildspec-file)\. 
+   1. Add a `reports:` section and specify the name for your report group\. CodeBuild creates a report group for you using your project name and the name you specified in the format `project-name`\-`report-group-name-in-buildspec`\. If you already have a report group you want to use, specify its ARN\. \(If you use its name instead of its ARN, CodeBuild creates a new report group\.\) For more information, see [Reports Syntax in the buildspec file](build-spec-ref.md#reports-buildspec-file)\. 
 
    1. Under the report group, specify the location of the files that store test results\. If you use more than one report group, specify test result file locations for each one\. A new test report is created each time your build project runs\. For more information, see [Specify Test Files](report-group-test-cases.md)\. 
 

@@ -36,11 +36,11 @@ When you use the console to create or update a build project, you can create a C
 
 1.  In **Artifacts**, for ** Type**, choose **Amazon S3** to store the build output in an Amazon S3 bucket\. 
 
-1.  Select **Disable artifacts encryption**\. 
-
 1.  For **Bucket name**, choose the name of the Amazon S3 bucket you configured to function as a website in step 1\. 
 
-1.  If you chose **Insert build commands** in **Environment**, then for **Output files**, enter the locations of the files from the build that you want to put into the output bucket\. If you have more than one location, use a comma to separate each location \(for example, "appspec\.yml, target/my\-app\.jar"\)\. 
+1.  If you chose **Insert build commands** in **Buildspec**, then in the `files` section in `artifacts` of your commands, enter the locations of the files from the build that you want to put into the output bucket\. If you have more than one location, use a comma to separate each location \(for example, "appspec\.yml, target/my\-app\.jar"\)\. For more information, see [Artifacts reference-key in the buildspec file](build-spec-ref.md#artifacts-build-spec)\. 
+
+1.  Select **Disable artifacts encryption**\. 
 
 1. Expand **Additional configuration** and set options as appropriate\.
 

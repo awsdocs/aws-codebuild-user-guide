@@ -15,26 +15,13 @@ AWS CodeBuild manages the following Docker images that are available in the Code
 
  The latest version of each image is cached\. If you specify a more specific version, then CodeBuild provisions that version instead of the cached version\. This can result in longer build times\. For example, to benefit from caching, specify `aws/codebuild/amazonlinux2-x86_64-standard:2.0` instead of a more granular version, such as `aws/codebuild/amazonlinux2-x86_64-standard:2.0-1.0.0`\. 
 
- The standard image of the Ubuntu 18\.04 and Amazon Linux 2 platforms contain the following runtimes\. If you use the Amazon Linux 2 standard image 1\.0 or later or the Ubuntu standard image 2\.0 or later, you must specify your runtime in the `runtime-versions` section of your buildspec file\. For more information, see [Specify Runtime Versions in the Buildspec File](build-spec-ref.md#runtime-versions-buildspec-file)\. 
+ You can specify one or more runtimes in the `runtime-versions` section of your buildspec file\. If your runtime is dependent upon another runtime, you can also specify its dependent runtime in the buildspec file\. If you do not specify any runtimes in the buildspec file, CodeBuild chooses the default runtimes that are available in the image you use\. If you specify one or more runtimes, CodeBuild uses only those runtimes\. If a dependent runtime is not specified, CodeBuild attempts to choose the dependent runtime for you\. For more information, see [Specify Runtime Versions in the buildspec file](build-spec-ref.md#runtime-versions-buildspec-file)\. 
+
+ When you specify a runtime in the `runtime-versions` section of your buildspec file, you can specify its major version, its major version with the latest minor version, or the latest major and minor version\. The following table lists the available runtimes and how to specify them\. 
 
 
-| Runtime name | Version/versions | How to specify in the buildspec file | 
-| --- | --- | --- | 
-| android | 28, 29 | android: 28, android: 29 | 
-| docker | 18 | docker: 18 | 
-| dotnet | 2\.2 | dotnet: 2\.2 | 
-| dotnet \(Amazon Linux 2:2\.0 and Ubuntu Standard:3\.0 only\) | 3\.0 | dotnet: 3\.0 | 
-| dotnet | 3\.1 | dotnet: 3\.1 | 
-| golang | 1\.12, 1\.13 | golang: 1\.12, golang: 1\.13 | 
-| nodejs | 8, 10 | nodejs: 8, nodejs: 10 | 
-| nodejs \(Amazon Linux 2:2\.0 and Ubuntu Standard:3\.0 only\) | 10\.18, 12\.14 | nodejs: 10, nodejs: 12 | 
-| java \(Ubuntu only\) | openjdk8, openjdk11 | java: openjdk8, java: openjdk11 | 
-| java \(Amazon Linux 2 only\) | corretto8, corretto11 | java: corretto8, java: corretto11 | 
-| php | 7\.3 | php: 7\.3 | 
-| php | 7\.4 | php: 7\.4 | 
-| python | 3\.7 | python: 3\.7 | 
-| python \(Amazon Linux 2:2\.0 and Ubuntu Standard:3\.0 only\) | 3\.8 | python: 3\.8 | 
-| ruby | 2\.6 | ruby: 2\.6 | 
+**Ubuntu 18\.04 and Amazon Linux 2 platforms runtimes**  
+[\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html)
 
 **Note**  
 The `aws/codebuild/amazonlinux2-aarch64-standard:1.0` image does not support the Android Runtime \(ART\)\.
