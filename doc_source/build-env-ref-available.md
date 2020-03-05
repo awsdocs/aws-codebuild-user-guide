@@ -35,7 +35,7 @@ The `aws/codebuild/amazonlinux2-aarch64-standard:1.0` image does not support the
 | golang | 1\.13 | 
 | nodejs | 10\.18, 12\.14 | 
 | java | openjdk11 | 
-| php | 7\.3, 7\.4 | 
+| php | 7\.3 | 
 | python | 3\.7 | 
 | ruby | 2\.6 | 
 
