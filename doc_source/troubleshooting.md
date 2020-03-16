@@ -342,7 +342,7 @@ pre_build:
 + You have entered the wrong object key for your certificate\.
 
  **Recommended solutions:** 
-+ Edit your project\. For **Bucket of certificate**, choose the S3 bucket where your SSL certificate is stored\.
++ Edit your project\. For **Bucket of certificate**, choose the S3 bucket where your TSL certificate is stored\.
 + Edit your project\. For **Object key of certificate**, type the name of your S3 object key\.
 
 ## Error: "Git Clone Failed: unable to access `'your-repository-URL'`: SSL certificate problem: self signed certificate"<a name="troubleshooting-self-signed-certificate"></a>
@@ -352,7 +352,7 @@ pre_build:
  **Possible cause:** Your source repository has a self\-signed certificate, but you have not chosen to install the certificate from your S3 bucket as part of your build project\. 
 
  **Recommended solutions:** 
-+ Edit your project\. For **Certificate**, choose **Install certificate from S3**\. For **Bucket of certificate**, choose the S3 bucket where your SSL certificate is stored\. For **Object key of certificate**, type the name of your S3 object key\.
++ Edit your project\. For **Certificate**, choose **Install certificate from S3**\. For **Bucket of certificate**, choose the S3 bucket where your TSL certificate is stored\. For **Object key of certificate**, type the name of your S3 object key\.
 + Edit your project\. Select **Insecure SSL** to ignore SSL warnings while connecting to your GitHub Enterprise project repository\.
 **Note**  
 We recommend that you use **Insecure SSL** for testing only\. It should not be used in a production environment\.

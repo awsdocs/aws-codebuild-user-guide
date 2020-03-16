@@ -4,7 +4,7 @@
 
  For data protection purposes, we recommend that you protect AWS account credentials and set up individual user accounts with AWS Identity and Access Management \(IAM\), so that each user is given only the permissions necessary to fulfill their job duties\. We also recommend that you secure your data in the following ways: 
 + Use multi\-factor authentication \(MFA\) with each account\.
-+ Use SSL/TLS to communicate with AWS resources\.
++ Use TLS to communicate with AWS resources\.
 + Set up API and user activity logging with AWS CloudTrail\.
 + Use AWS encryption solutions, along with all default security controls in AWS services\.
 + Use advanced managed security services such as Amazon Macie, which assists in discovering and securing personal data that is stored in Amazon S3\.

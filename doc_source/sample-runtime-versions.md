@@ -333,7 +333,7 @@ The build project in this example uses source code in the GitHub [AWS Samples](h
      + For **Environment image**, choose **Managed image**\.
      + For **Operating system**, choose **Amazon Linux 2**\.
      + For **Runtime\(s\)**, choose **Standard**\.
-     + For **Image**, choose **aws/codebuild/amazonlinux2\-x86\_64\-standard:1\.0**\.
+     + For **Image**, choose **aws/codebuild/amazonlinux2\-x86\_64\-standard:2\.0**\.
 
 1.  Choose **Create build project**\. 
 

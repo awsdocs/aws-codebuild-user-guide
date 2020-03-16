@@ -82,6 +82,7 @@ Amazon's trademarks and trade dress may not be used in
    + [Use CodeBuild with a Proxy Server](use-proxy-server.md)
 + [Use CodePipeline with CodeBuild to Test Code and Run Builds](how-to-create-pipeline.md)
 + [Use AWS CodeBuild with Jenkins](jenkins-plugin.md)
++ [Use AWS CodeBuild with Codecov](codecov-integration.md)
 + [Working with Build Projects and Builds in CodeBuild](builds-projects-and-builds.md)
    + [Working with Build Projects](working-with-build-projects.md)
       + [Create a Build Project in CodeBuild](create-project.md)

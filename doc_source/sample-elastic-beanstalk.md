@@ -110,7 +110,7 @@ In this step, you use the AWS CodeBuild console to create a build project and th
      + For **Environment image**, choose **Managed image**\.
      + For **Operating system**, choose **Amazon Linux 2**\.
      + For **Runtime\(s\)**, choose **Standard**\.
-     + For **Image**, choose **aws/codebuild/amazonlinux2\-x86\_64\-standard:1\.0**\.
+     + For **Image**, choose **aws/codebuild/amazonlinux2\-x86\_64\-standard:2\.0**\.
    + For **Artifacts**:
      + For **Type**, choose **Amazon S3**\.
      + For **Bucket name**, enter the name of an Amazon S3 bucket\.
@@ -195,7 +195,7 @@ In this step, you create an AWS CodeBuild build project to use with your pipelin
      + For **Environment image**, choose **Managed image**\.
      + For **Operating system**, choose **Amazon Linux 2**\.
      + For **Runtime\(s\)**, choose **Standard**\.
-     + For **Image**, choose **aws/codebuild/amazonlinux2\-x86\_64\-standard:1\.0**\.
+     + For **Image**, choose **aws/codebuild/amazonlinux2\-x86\_64\-standard:2\.0**\.
    + For **Artifacts**:
      + For **Type**, choose **Amazon S3**\.
      + For **Bucket name**, enter the name of an Amazon S3 bucket\.

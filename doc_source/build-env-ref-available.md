@@ -8,9 +8,11 @@ AWS CodeBuild manages the following Docker images that are available in the Code
 | Platform | Image identifier | Definition | 
 | --- | --- | --- | 
 | Amazon Linux 2 | aws/codebuild/amazonlinux2\-x86\_64\-standard:2\.0 | [al2/standard/2\.0](https://github.com/aws/aws-codebuild-docker-images/tree/master/al2/x86_64/standard/2.0) | 
+| Amazon Linux 2 | aws/codebuild/amazonlinux2\-x86\_64\-standard:3\.0 | [al2/standard/3\.0](https://github.com/aws/aws-codebuild-docker-images/tree/master/al2/x86_64/standard/3.0) | 
 | Amazon Linux 2 | aws/codebuild/amazonlinux2\-aarch64\-standard:1\.0 | [al2/aarch64/standard/1\.0](https://github.com/aws/aws-codebuild-docker-images/tree/master/al2/aarch64/standard/1.0) | 
 | Ubuntu 18\.04 | aws/codebuild/standard:2\.0 | [ubuntu/standard/2\.0](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/standard/2.0) | 
 | Ubuntu 18\.04 | aws/codebuild/standard:3\.0 | [ubuntu/standard/3\.0](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/standard/3.0) | 
+| Ubuntu 18\.04 | aws/codebuild/standard:4\.0 | [ubuntu/standard/4\.0](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/standard/4.0) | 
 | Windows Server Core 2016 | aws/codebuild/windows\-base:2\.0 | N/A | 
 
  The latest version of each image is cached\. If you specify a more specific version, then CodeBuild provisions that version instead of the cached version\. This can result in longer build times\. For example, to benefit from caching, specify `aws/codebuild/amazonlinux2-x86_64-standard:2.0` instead of a more granular version, such as `aws/codebuild/amazonlinux2-x86_64-standard:2.0-1.0.0`\. 
@@ -35,7 +37,7 @@ The `aws/codebuild/amazonlinux2-aarch64-standard:1.0` image does not support the
 | golang | 1\.13 | 
 | nodejs | 10\.18, 12\.14 | 
 | java | openjdk11 | 
-| php | 7\.3 | 
+| php | 7\.3, 7\.4 | 
 | python | 3\.7 | 
 | ruby | 2\.6 | 
 
