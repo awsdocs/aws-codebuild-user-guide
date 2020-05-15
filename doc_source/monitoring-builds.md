@@ -12,7 +12,7 @@
 
  Metrics displayed in the CodeBuild console are always from the past three days\. You can use the CloudWatch console to view CodeBuild metrics over different durations\. 
 
- For information about creating CloudWatch metrics for CodeBuild, see [Monitoring Builds with CloudWatch Metrics](monitoring-metrics.md)\. 
+ For more information, see [Monitoring builds with CloudWatch metrics](monitoring-metrics.md)\. 
 
 ## CodeBuild CloudWatch Metrics<a name="cloudwatch_metrics-codebuild"></a>
 
@@ -38,14 +38,14 @@
 |  `SucceededBuilds`  |   Measures the number of successful builds\.   Units: Count   Valid CloudWatch statistics: Sum   | 
 | UploadArtifactsDuration |  Measures the duration of the build's UPLOAD\_ARTIFACTS phase\. Units:Seconds Valid CloudWatch statistics: Average \(recommended\), Maximum, Minimum  | 
 
-## CodeBuild CloudWatch Dimensions<a name="codebuild-cloudwatch-dimensions"></a>
+## CodeBuild CloudWatch dimensions<a name="codebuild-cloudwatch-dimensions"></a>
 
  `ProjectName` is the only AWS CodeBuild metrics dimension\. If it is specified, then the metrics are for that project\. If it is not specified, then the metrics are for the current AWS account\. 
 
-## CodeBuild CloudWatch Alarms<a name="codebuild_cloudwatch_alarms"></a>
+## CodeBuild CloudWatch alarms<a name="codebuild_cloudwatch_alarms"></a>
 
  You can use the CloudWatch console to create alarms based on CodeBuild metrics so you can react if something goes wrong with your builds\. The two metrics that are most useful with alarms are: 
 +  `FailedBuild`\. You can create an alarm that is triggered when a certain number of failed builds are detected within a predetermined number of seconds\. In CloudWatch you specify the number of seconds and how many faild builds trigger an alarm\. 
 +  `Duration`\. You can create an alarm that is triggered when a build takes longer than expected\. You specify how many seconds must elapse after a build is started and before a build is completed before the alarm is triggered\. 
 
- For information about how to create alarms for CodeBuild metrics, see [Monitoring Builds with CloudWatch Alarms](monitoring-alarms.md)\. For more information about alarms, see [ Creating Amazon CloudWatch Alarms](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html)\. 
+ For information about how to create alarms for CodeBuild metrics, see [Monitoring builds with CloudWatch alarms](monitoring-alarms.md)\. For more information about alarms, see [Creating Amazon CloudWatch Alarms](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html) in the *Amazon CloudWatch User Guide*\. 

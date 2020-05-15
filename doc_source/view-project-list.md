@@ -1,13 +1,15 @@
-# View a List of Build Project Names in CodeBuild<a name="view-project-list"></a>
+# View a list of build project names in AWS CodeBuild<a name="view-project-list"></a>
 
 You can use the AWS CodeBuild console, AWS CLI, or AWS SDKs to view a list of build projects in CodeBuild\.
 
 **Topics**
-+ [View a List of Build Project Names \(Console\)](#view-project-list-console)
-+ [View a List of Build Project Names \(AWS CLI\)](#view-project-list-cli)
-+ [View a List of Build Project Names \(AWS SDKs\)](#view-project-list-sdks)
++ [View a list of build project names \(console\)](#view-project-list-console)
++ [View a list of build project names \(AWS CLI\)](#view-project-list-cli)
++ [View a list of build project names \(AWS SDKs\)](#view-project-list-sdks)
 
-## View a List of Build Project Names \(Console\)<a name="view-project-list-console"></a>
+## View a list of build project names \(console\)<a name="view-project-list-console"></a>
+
+You can view a list of build projects in an AWS Region in the console\. Information includes the name, source provider, repository, latest build status, and description, if any\.
 
 1. Open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codesuite/codebuild/home](https://console.aws.amazon.com/codesuite/codebuild/home)\.
 
@@ -15,7 +17,7 @@ You can use the AWS CodeBuild console, AWS CLI, or AWS SDKs to view a list of bu
 **Note**  
 By default, only the 10 most recent build projects are displayed\. To view more build projects, choose the gear icon, and then choose a different value for **Projects per page** or use the back and forward arrows\.
 
-## View a List of Build Project Names \(AWS CLI\)<a name="view-project-list-cli"></a>
+## View a list of build project names \(AWS CLI\)<a name="view-project-list-cli"></a>
 
 Run the list\-projects command:
 
@@ -70,6 +72,6 @@ A result similar to the following might appear in the output:
 }
 ```
 
-## View a List of Build Project Names \(AWS SDKs\)<a name="view-project-list-sdks"></a>
+## View a list of build project names \(AWS SDKs\)<a name="view-project-list-sdks"></a>
 
-For more information about using AWS CodeBuild with the AWS SDKs, see the [AWS SDKs and Tools Reference](sdk-ref.md)\.
+For more information about using AWS CodeBuild with the AWS SDKs, see the [AWS SDKs and tools reference](sdk-ref.md)\.

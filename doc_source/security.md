@@ -7,9 +7,9 @@ Security and compliance is a shared responsibility between AWS and you\. This sh
 To learn how to secure your CodeBuild resources, see the following topics\.
 
 **Topics**
-+ [Data Protection in AWS CodeBuild](data-protection.md)
-+ [Identity and Access Management in CodeBuild](auth-and-access-control.md)
-+ [Logging and Monitoring in AWS CodeBuild](security-incident-response.md)
-+ [Compliance Validation for AWS CodeBuild](codebuild-compliance-validation.md)
++ [Data protection in AWS CodeBuild](data-protection.md)
++ [Identity and access management in AWS CodeBuild](auth-and-access-control.md)
++ [Logging and monitoring in AWS CodeBuild](security-incident-response.md)
++ [Compliance validation for AWS CodeBuild](codebuild-compliance-validation.md)
 + [Resilience in AWS CodeBuild](codebuild-disaster-recovery-resiliency.md)
-+ [Infrastructure Security in AWS CodeBuild](infrastructure-security.md)
++ [Infrastructure security in AWS CodeBuild](infrastructure-security.md)

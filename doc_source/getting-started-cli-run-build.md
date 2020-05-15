@@ -1,6 +1,6 @@
-# Step 6: Run the Build<a name="getting-started-cli-run-build"></a>
+# Step 6: Run the build<a name="getting-started-cli-run-build"></a>
 
-\(Previous step: [Step 5: Create the Build Project](getting-started-cli-create-build-project.md)\)
+\(Previous step: [Step 5: Create the build project](getting-started-cli-create-build-project.md)\)
 
 In this step, you instruct AWS CodeBuild to run the build with the settings in the build project\.<a name="getting-started-run-build-cli"></a>
 
@@ -57,6 +57,6 @@ In this step, you instruct AWS CodeBuild to run the build with the settings in t
 
    Make a note of the `id` value\. You need it in the next step\.
 
-## Next Step<a name="getting-started-cli-run-build-next"></a>
+## Next step<a name="getting-started-cli-run-build-next"></a>
 
-[Step 7: View Summarized Build Information](getting-started-cli-monitor-build.md)
+[Step 7: View summarized build information](getting-started-cli-monitor-build.md)

@@ -1,47 +1,47 @@
-# Limits for CodeBuild<a name="limits"></a>
+# Quotas for AWS CodeBuild<a name="limits"></a>
 
-The following tables list the current limits in CodeBuild\. These limits are for each supported AWS Region for each AWS account, unless otherwise specified\. 
+The following tables list the current quotas in AWS CodeBuild\. These quotas are for each supported AWS Region for each AWS account, unless otherwise specified\. 
 
-## Build Project Limits<a name="limits-build-projects"></a>
+## Build projects<a name="limits-build-projects"></a>
 
 
 ****  
 
-| Resource | Default limit | 
+| Resource | Default | 
 | --- | --- | 
-| Maximum number of build projects | 5,000 | 
-| Length of a build project name | 2 to 255 characters, inclusive | 
-| Allowed characters in a build project name | The letters A\-Z and a\-z, the numbers 0\-9, and the special characters \- and \_ | 
-| Maximum length of a build project description | 255 characters | 
 | Allowed characters in a build project description | Any | 
-| Maximum number of build projects you can request information about at any one time by using the AWS CLI or AWS SDKs | 100 | 
+| Allowed characters in a build project name | The letters A\-Z and a\-z, the numbers 0\-9, and the special characters \- and \_ | 
+| Length of a build project name | 2 to 255 characters, inclusive | 
+| Maximum length of a build project description | 255 characters | 
+| Maximum number of build projects | 5,000 | 
+| Maximum number of build projects you can request information about at one time using the AWS CLI or AWS SDKs | 100 | 
+| Maximum number of reports you can add to a project | 5 | 
 | Maximum number of tags you can associate with a build project | 50 | 
 | Number of minutes you can specify in a build project for the build timeout of all related builds | 5 to 480 \(8 hours\) | 
-| Number of subnets you can add under VPC configuration | 1 to 16 | 
 | Number of security groups you can add under VPC configuration | 1 to 5 | 
-| Maximum number of reports you can add to a project | 5 | 
+| Number of subnets you can add under VPC configuration | 1 to 16 | 
 
-## Build Limits<a name="limits-builds"></a>
+## Builds<a name="limits-builds"></a>
 
 
 ****  
 
-| Resource | Default limit | 
+| Resource | Default | 
 | --- | --- | 
-| Maximum number of concurrent running builds \* | 60 | 
-| Maximum number of builds you can request information about at any one time by using the AWS CLI or AWS SDKs | 100 | 
+| Maximum number of builds you can request information about at one time using the AWS CLI or AWS SDKs | 100 | 
+| Maximum number of concurrent running builds\* | 60 | 
+| Maximum time the history of a build is retained | 1 year | 
 | Number of minutes you can specify for the build timeout of a single build | 5 to 480 \(8 hours\) | 
-| Maximum time the history of a build can be accessed | 1 year | 
 
-\* Limits for the maximum number of concurrent running builds vary, depending on the compute type\. For some platforms and compute types, the default is 20\. For a new account, the limit can be between 1 and 5\. To request a higher concurrent build limit or if you get a "Cannot have more than X active builds for the account" error, contact AWS Support\.
+\* Quotas for the maximum number of concurrent running builds vary, depending on the compute type\. For some platforms and compute types, the default is 20\. For a new account, the quota can be 1—5\. To request a higher concurrent build quota or if you get a "Cannot have more than X active builds for the account" error, contact AWS Support\.
 
-## Report Limits<a name="report-limits"></a>
+## Reports<a name="report-limits"></a>
 
 
 ****  
 
-| Resource | Default limit | 
+| Resource | Default  | 
 | --- | --- | 
-| Maximum number of report groups per AWS account | 1000 | 
 | Maximum duration a test report is available after it is created | 30 days | 
+| Maximum number of report groups per AWS account | 1000 | 
 | Maximum number of test cases per report | 500 | 

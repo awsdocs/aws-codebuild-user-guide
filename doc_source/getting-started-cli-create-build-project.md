@@ -1,6 +1,6 @@
-# Step 5: Create the Build Project<a name="getting-started-cli-create-build-project"></a>
+# Step 5: Create the build project<a name="getting-started-cli-create-build-project"></a>
 
-\(Previous step: [Step 4: Upload the Source Code and the Buildspec File](getting-started-cli-upload-source-code.md)\)
+\(Previous step: [Step 4: Upload the source code and the buildspec file](getting-started-cli-upload-source-code.md)\)
 
 In this step, you create a build project that AWS CodeBuild uses to run the build\. A *build project* includes information about how to run a build, including where to get the source code, which build environment to use, which build commands to run, and where to store the build output\. A *build environment* represents a combination of operating system, programming language runtime, and tools that CodeBuild uses to run a build\. The build environment is expressed as a Docker image\. For more information, see [Docker Overview](https://docs.docker.com/engine/docker-overview/) on the Docker Docs website\. 
 
@@ -38,7 +38,7 @@ For this build environment, you instruct CodeBuild to use a Docker image that co
    }
    ```
 
-   Replace *serviceIAMRole* with the Amazon Resource Name \(ARN\) of a CodeBuild service role \(for example, `arn:aws:iam::account-ID:role/role-name`\)\. To create one, see [Create a CodeBuild Service Role](setting-up.md#setting-up-service-role)\.
+   Replace *serviceIAMRole* with the Amazon Resource Name \(ARN\) of a CodeBuild service role \(for example, `arn:aws:iam::account-ID:role/role-name`\)\. To create one, see [Create a CodeBuild service role](setting-up.md#setting-up-service-role)\.
 
    In this data:
    + `name` represents a required identifier for this build project \(in this example, `codebuild-demo-project`\)\. Build project names must be unique across all build projects in your account\. 
@@ -49,10 +49,10 @@ For this build environment, you instruct CodeBuild to use a Docker image that co
    + For `environment`, `type` is a required value that represents the type of build environment \(`LINUX_CONTAINER` is currently the only allowed value\)\.
    + For `environment`, `image` is a required value that represents the Docker image name and tag combination this build project uses, as specified by the Docker image repository type \(in this example, `aws/codebuild/standard:2.0` for a Docker image in the CodeBuild Docker images repository\)\. `aws/codebuild/standard` is the name of the Docker image\. `1.0` is the tag of the Docker image\. 
 
-     To find more Docker images you can use in your scenarios, see the [Build Environment Reference](build-env-ref.md)\.
+     To find more Docker images you can use in your scenarios, see the [Build environment reference](build-env-ref.md)\.
    + For `environment`, `computeType` is a required value that represents the computing resources CodeBuild uses \(in this example, `BUILD_GENERAL1_SMALL`\)\.
 **Note**  
-Other available values in the original JSON\-formatted data, such as `description`, `buildspec`, `auth` \(including `type` and `resource`\), `path`, `namespaceType`, `name` \(for `artifacts`\), `packaging`, `environmentVariables` \(including `name` and `value`\), `timeoutInMinutes`, `encryptionKey`, and `tags` \(including `key` and `value`\) are optional\. They are not used in this tutorial, so they are not shown here\. For more information, see [Create a Build Project \(AWS CLI\)](create-project.md#create-project-cli)\.
+Other available values in the original JSON\-formatted data, such as `description`, `buildspec`, `auth` \(including `type` and `resource`\), `path`, `namespaceType`, `name` \(for `artifacts`\), `packaging`, `environmentVariables` \(including `name` and `value`\), `timeoutInMinutes`, `encryptionKey`, and `tags` \(including `key` and `value`\) are optional\. They are not used in this tutorial, so they are not shown here\. For more information, see [Create a build project \(AWS CLI\)](create-project.md#create-project-cli)\.
 
 1. Switch to the directory that contains the file you just saved, and then run the create\-project command again\.
 
@@ -105,8 +105,8 @@ Other available values in the original JSON\-formatted data, such as `descriptio
 **Note**  
 After you run the create\-project command, an error message similar to the following might be output: **User: *user\-ARN* is not authorized to perform: codebuild:CreateProject**\. This is most likely because you configured the AWS CLI with the credentials of an IAM user who does not have sufficient permissions to use CodeBuild to create build projects\. To fix this, configure the AWS CLI with credentials belonging to one of the following IAM entities:   
 An administrator IAM user in your AWS account\. For more information, see [Creating Your First IAM Admin User and Group](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html) in the *IAM User Guide*\.
-An IAM user in your AWS account with the `AWSCodeBuildAdminAccess`, `AmazonS3ReadOnlyAccess`, and `IAMFullAccess` managed policies attached to that IAM user or to an IAM group that the IAM user belongs to\. If you do not have an IAM user or group in your AWS account with these permissions, and you cannot add these permissions to your IAM user or group, contact your AWS account administrator for assistance\. For more information, see [AWS Managed \(Predefined\) Policies for CodeBuild](auth-and-access-control-iam-identity-based-access-control.md#managed-policies)\.
+An IAM user in your AWS account with the `AWSCodeBuildAdminAccess`, `AmazonS3ReadOnlyAccess`, and `IAMFullAccess` managed policies attached to that IAM user or to an IAM group that the IAM user belongs to\. If you do not have an IAM user or group in your AWS account with these permissions, and you cannot add these permissions to your IAM user or group, contact your AWS account administrator for assistance\. For more information, see [AWS managed \(predefined\) policies for AWS CodeBuild](auth-and-access-control-iam-identity-based-access-control.md#managed-policies)\.
 
-## Next Step<a name="getting-started-cli-create-build-project-next"></a>
+## Next step<a name="getting-started-cli-create-build-project-next"></a>
 
-[Step 6: Run the Build](getting-started-cli-run-build.md)
+[Step 6: Run the build](getting-started-cli-run-build.md)

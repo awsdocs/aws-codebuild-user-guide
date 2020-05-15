@@ -1,12 +1,12 @@
-# Amazon Elastic File System Sample for CodeBuild<a name="sample-efs"></a>
+# Amazon Elastic File System sample for AWS CodeBuild<a name="sample-efs"></a>
 
- You might want to create your AWS CodeBuild builds on Amazon EFS\. Amazon EFS is a scalable, shared file service for Amazon EC2 instances\. The storage capacity with Amazon EFS is elastic, so it grows or shrinks as files are added and removed\. It has a simple web services interface that you can use to create and configure file systems\. It also manages all of the file storage infrastructure for you, so you do not need to worry about deploying, patching, or maintaining file system configurations\. For more information, see [What Is Amazon Elastic File System](https://docs.aws.amazon.com/efs/latest/ug/whatisefs.html)\. 
+ You might want to create your AWS CodeBuild builds on Amazon Elastic File System, a scalable, shared file service for Amazon EC2 instances\. The storage capacity with Amazon EFS is elastic, so it grows or shrinks as files are added and removed\. It has a simple web services interface that you can use to create and configure file systems\. It also manages all of the file storage infrastructure for you, so you do not need to worry about deploying, patching, or maintaining file system configurations\. For more information, see [What Is Amazon Elastic File System?](https://docs.aws.amazon.com/efs/latest/ug/whatisefs.html) in the *Amazon Elastic File System User Guide*\. 
 
- This sample shows you how to configure a CodeBuild project so that it mounts and then builds a Java application to a file system created in Amazon EFS\. Before you begin, you must have a Java application ready to build that is uploaded to an S3 input bucket or an AWS CodeCommit, GitHub, GitHub Enterprise, or Bitbucket repository\. 
+ This sample shows you how to configure a CodeBuild project so that it mounts and then builds a Java application to an Amazon EFS file system\. Before you begin, you must have a Java application ready to build that is uploaded to an S3 input bucket or an AWS CodeCommit, GitHub, GitHub Enterprise, or Bitbucket repository\. 
 
 Data in transit for your file system is encrypted\. To encrypt data in transit using a different image, see [Encrypting Data in Transit](https://docs.aws.amazon.com/efs/latest/ug/encryption-in-transit.html)\. 
 
-## Amazon Elastic File System and AWS CodeBuild Sample High\-Level Steps<a name="sample-efs-high-level-steps"></a>
+## High\-level steps<a name="sample-efs-high-level-steps"></a>
 
  This sample covers the three high\-level steps required to use Amazon EFS with AWS CodeBuild: 
 
@@ -23,11 +23,11 @@ Data in transit for your file system is encrypted\. To encrypt data in transit u
 **Note**  
  A file system created in Amazon EFS is supported on Linux platforms only\. 
 
-## Create a VPC Using AWS CloudFormation<a name="sample-efs-create-vpc"></a>
+## Create a VPC using AWS CloudFormation<a name="sample-efs-create-vpc"></a>
 
  Create your VPC with an AWS CloudFormation template\. 
 
-1.  Follow the instructions in [AWS CloudFormation VPC Template](cloudformation-vpc-template.md) to use AWS CloudFormation to create a VPC\. 
+1.  Follow the instructions in [AWS CloudFormation VPC template](cloudformation-vpc-template.md) to use AWS CloudFormation to create a VPC\. 
 **Note**  
  The VPC created by this AWS CloudFormation template has two private subnets and two public subnets\. You must only use private subnets when you use AWS CodeBuild to mount the file system you created in Amazon EFS\. If you use one of the public subnets, the build fails\. 
 
@@ -35,11 +35,11 @@ Data in transit for your file system is encrypted\. To encrypt data in transit u
 
 1.  Choose the VPC you created with AWS CloudFormation\.
 
-1. On the **Description** tab, make a note of the name and ID of your VPC\. You need the name and ID when you create your AWS CodeBuild project later in this sample\. 
+1. On the **Description** tab, make a note of the name of your VPC and its ID\. Both are required when you create your AWS CodeBuild project later in this sample\. 
 
-## Create a File System with Your VPC<a name="sample-efs-create-efs"></a>
+## Create an Amazon Elastic File System file system with your VPC<a name="sample-efs-create-efs"></a>
 
- Create a simple file system for this sample using the VPC you created earlier\. 
+ Create a simple Amazon EFS file system for this sample using the VPC you created earlier\. 
 
 1. Sign in to the AWS Management Console and open the Amazon EFS console at [ https://console\.aws\.amazon\.com/efs/](https://console.aws.amazon.com/efs/)\.
 
@@ -59,9 +59,9 @@ Data in transit for your file system is encrypted\. To encrypt data in transit u
 
 1.  Choose **Create File System**\. 
 
-## Create a CodeBuild Project to Use with Amazon EFS<a name="sample-efs-create-acb"></a>
+## Create a CodeBuild project to use with Amazon EFS<a name="sample-efs-create-acb"></a>
 
- Create a CodeBuild project that uses the VPC you created earlier in this sample\. When the build is run, it mounts the Amazon EFS file system created earlier\. Next, it stores the \.jar file created by your Java application in your file system's mount point directory\.
+ Create a AWS CodeBuild project that uses the VPC you created earlier in this sample\. When the build is run, it mounts the Amazon EFS file system created earlier\. Next, it stores the \.jar file created by your Java application in your file system's mount point directory\.
 
 1. Open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codesuite/codebuild/home](https://console.aws.amazon.com/codesuite/codebuild/home)\.
 
@@ -123,7 +123,7 @@ By default, Docker containers do not allow access to any devices\. Privileged mo
 
 1.  Choose **Start build**\. 
 
-## CodeBuild and Amazon EFS Sample Summary<a name="sample-efs-summary"></a>
+## CodeBuild and Amazon EFS sample summary<a name="sample-efs-summary"></a>
 
  After your AWS CodeBuild project is built: 
 +  You have a \.jar file created by your Java application that is built to your Amazon EFS file system under your mount point directory\. 

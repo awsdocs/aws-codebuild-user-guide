@@ -1,10 +1,10 @@
-# AWS SDKs and Tools Reference for CodeBuild<a name="sdk-ref"></a>
+# AWS SDKs and tools reference for AWS CodeBuild<a name="sdk-ref"></a>
 
-To use one the AWS SDKs or tools to automate CodeBuild, see the following resources\.
+To use one the AWS SDKs or tools to automate AWS CodeBuild, see the following resources\.
 
-If you want to use the AWS CLI to run CodeBuild, see the [Command Line Reference](cmd-ref.md)\.
+If you want to use the AWS CLI to run CodeBuild, see the [Command line reference](cmd-ref.md)\.
 
-## Supported AWS SDKs and Tools for CodeBuild<a name="sdk-ref-sdks"></a>
+## Supported AWS SDKs and tools for AWS CodeBuild<a name="sdk-ref-sdks"></a>
 
 The following AWS SDKs and tools support CodeBuild:
 + The [AWS SDK for C\+\+](https://aws.amazon.com/sdk-for-cpp)\. For more information, see the [Aws::CodeBuild](http://sdk.amazonaws.com/cpp/api/LATEST/namespace_aws_1_1_code_build.html) namespace section of the *AWS SDK for C\+\+ API Reference*\.

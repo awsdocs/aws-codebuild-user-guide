@@ -1,6 +1,6 @@
-# Step 10: Clean Up<a name="getting-started-clean-up-console"></a>
+# Step 10: Delete the S3 input bucket<a name="getting-started-clean-up-console"></a>
 
-\(Previous step: [Step 9: Get the Build Output Artifact](getting-started-output-console.md)\)
+\(Previous step: [Step 9: Get the build output artifact](getting-started-output-console.md)\)
 
 To prevent ongoing charges to your AWS account, you can delete the input bucket used in this tutorial\. For instructions, see [Deleting or Emptying a Bucket](https://docs.aws.amazon.com/AmazonS3/latest/dev/delete-or-empty-bucket.html) in the *Amazon Simple Storage Service Developer Guide*\.
 
@@ -27,6 +27,6 @@ The ellipses \(\.\.\.\) in this statement are used for brevity\. Do not remove a
 }
 ```
 
-## Next Step<a name="getting-started-clean-up-console-next"></a>
+## Next step<a name="getting-started-clean-up-console-next"></a>
 
-[Wrapping Up](getting-started-next-steps-console.md)
+[Wrapping up](getting-started-next-steps-console.md)

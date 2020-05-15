@@ -1,6 +1,6 @@
-# Step 6: Run the Build<a name="getting-started-run-build-console"></a>
+# Step 6: Run the build<a name="getting-started-run-build-console"></a>
 
-\(Previous step: [Step 5: Create the Build Project](getting-started-create-build-project-console.md)\)
+\(Previous step: [Step 5: Create the build project](getting-started-create-build-project-console.md)\)
 
 In this step, you instruct AWS CodeBuild to run the build with the settings in the build project\.<a name="getting-started-run-build-console-console-procedure"></a>
 
@@ -14,6 +14,6 @@ In this step, you instruct AWS CodeBuild to run the build with the settings in t
 
 1. On the **Start build** page, choose **Start build**\.
 
-## Next Step<a name="getting-started-run-build-console-next"></a>
+## Next step<a name="getting-started-run-build-console-next"></a>
 
-[Step 7: View Summarized Build Information](getting-started-monitor-build-console.md)
+[Step 7: View summarized build information](getting-started-monitor-build-console.md)

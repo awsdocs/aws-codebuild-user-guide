@@ -1,4 +1,4 @@
-# Data Protection in AWS CodeBuild<a name="data-protection"></a>
+# Data protection in AWS CodeBuild<a name="data-protection"></a>
 
  AWS CodeBuild conforms to the AWS [shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/), which includes regulations and guidelines for data protection\. AWS is responsible for protecting the global infrastructure that runs all the AWS services\. AWS maintains control over data hosted on this infrastructure, including the security configuration controls for handling customer content and personal data\. AWS customers and APN partners, acting either as data controllers or data processors, are responsible for any personal data that they put in the AWS Cloud\. 
 
@@ -14,11 +14,11 @@ We strongly recommend that you never put sensitive identifying information, such
  To protect sensitive information, the following are hidden in CodeBuild logs: 
 +  AWS access key IDs\. For more information, see [Managing Access Keys for IAM Users](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html) in in the *AWS Identity and Access Management User Guide*\. 
 +  Strings specified using the Parameter Store\. For more information, see [Systems Manager Parameter Store](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-paramstore.html) and [Systems Manager Parameter Store Console Walkthrough](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-walk.html#sysman-paramstore-console) in the *Amazon EC2 Systems Manager User Guide*\. 
-+  Strings specified using AWS Secrets Manager\. For more information, see [Key Management](security-key-management.md)\. 
++  Strings specified using AWS Secrets Manager\. For more information, see [Key management](security-key-management.md)\. 
 
 For more information about data protection, see the [AWS Shared Responsibility Model and GDPR](http://aws.amazon.com/blogs/security/the-aws-shared-responsibility-model-and-gdpr/) blog post on the *AWS Security Blog*\.
 
 **Topics**
-+ [Data Encryption](security-encryption.md)
-+ [Key Management](security-key-management.md)
-+ [Traffic Privacy](security-traffic-privacy.md)
++ [Data encryption](security-encryption.md)
++ [Key management](security-key-management.md)
++ [Traffic privacy](security-traffic-privacy.md)

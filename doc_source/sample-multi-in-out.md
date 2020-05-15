@@ -1,18 +1,18 @@
-# Multiple Input Sources and Output Artifacts Sample<a name="sample-multi-in-out"></a>
+# Multiple input sources and output artifacts sample<a name="sample-multi-in-out"></a>
 
 You can create an AWS CodeBuild build project with more than one input source and more than one set of output artifacts\. This sample shows you how to set up a build project that: 
 + Uses multiple sources and repositories of varying types\.
-+ Publishes build artifacts to multiple Amazon S3 buckets in a single build\.
++ Publishes build artifacts to multiple S3 buckets in a single build\.
 
  In this sample, you create a build project and use it to run a build\. The sample uses the build project's buildspec file to show you how to incorporate more than one source and create more than one set of artifacts\. 
 
-1.  Upload your sources to one or more Amazon S3 buckets, CodeCommit, GitHub, GitHub Enterprise, or Bitbucket repositories\. 
+1.  Upload your sources to one or more S3 buckets, CodeCommit, GitHub, GitHub Enterprise, or Bitbucket repositories\. 
 
 1.  Choose which source is the primary source\. This is the source in which CodeBuild looks for and executes your buildspec file\. 
 
-1.  Create a build project\. For more information, see [Create a Build Project in CodeBuild](create-project.md) 
+1.  Create a build project\. For more information, see [Create a build project in AWS CodeBuild](create-project.md)\. 
 
-1.  Follow the instructions in [Run AWS CodeBuild Directly](how-to-run.md) to create your build project, run the build, and get information about the build\. 
+1.  Follow the instructions in [Run AWS CodeBuild directly](how-to-run.md) to create your build project, run the build, and get information about the build\. 
 
 1.  If you use the AWS CLI to create the build project, the JSON\-formatted input to the `create-project` command might look similar to the following: 
 
@@ -57,7 +57,7 @@ You can create an AWS CodeBuild build project with more than one input source an
      }
    ```
 
- Your primary source is defined under the `source` attribute\. All other sources are called secondary sources and appear under `secondarySources`\. All secondary sources are installed in their own directory\. This directory is stored in the built\-in environment variable `CODEBUILD_SRC_DIR_sourceIdentifer`\. For more information, see [Environment Variables in Build Environments](build-env-ref-env-vars.md)\. 
+ Your primary source is defined under the `source` attribute\. All other sources are called secondary sources and appear under `secondarySources`\. All secondary sources are installed in their own directory\. This directory is stored in the built\-in environment variable `CODEBUILD_SRC_DIR_sourceIdentifer`\. For more information, see [Environment variables in build environments](build-env-ref-env-vars.md)\. 
 
  The `secondaryArtifacts` attribute contains a list of artifact definitions\. These artifacts use the `secondary-artifacts` block of the buildspec file that is nested inside the `artifacts` block\. 
 
@@ -114,9 +114,9 @@ artifacts:
 }
 ```
 
-## Project Without a Source Sample<a name="no-source"></a>
+## Project without a source sample<a name="no-source"></a>
 
- You can configure a AWS CodeBuild project by choosing the **NO\_SOURCE** source type when you configure your source\. When your source type is **NO\_SOURCE**, you cannot specify a buildspec file because your project does not have a source\. Instead, you must specify a YAML\-formatted buildspec string in the `buildspec` attribute of the JSON\-formatted input to the `create-project` CLI command\. It might look like this: 
+ You can configure a CodeBuild project by choosing the **NO\_SOURCE** source type when you configure your source\. When your source type is **NO\_SOURCE**, you cannot specify a buildspec file because your project does not have a source\. Instead, you must specify a YAML\-formatted buildspec string in the `buildspec` attribute of the JSON\-formatted input to the `create-project` CLI command\. It might look like this: 
 
 ```
 {
@@ -135,6 +135,6 @@ artifacts:
 }
 ```
 
-For more information, see [Create a Build Project \(AWS CLI\)](create-project.md#create-project-cli)\.
+For more information, see [Create a build project \(AWS CLI\)](create-project.md#create-project-cli)\.
 
-To learn how to to create a pipeline that uses multiple source inputs to CodeBuild to create multiple output artifacts, see [ CodePipeline Integration with CodeBuild and Multiple Input Sources and Output Artifacts Sample ](sample-pipeline-multi-input-output.md)\.
+To learn how to to create a pipeline that uses multiple source inputs to CodeBuild to create multiple output artifacts, see [ AWS CodePipeline integration with CodeBuild and multiple input sources and output artifacts sample ](sample-pipeline-multi-input-output.md)\.

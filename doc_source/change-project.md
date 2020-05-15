@@ -1,15 +1,15 @@
-# Change a Build Project's Settings in CodeBuild<a name="change-project"></a>
+# Change a build project's settings in AWS CodeBuild<a name="change-project"></a>
 
 You can use the AWS CodeBuild console, AWS CLI, or AWS SDKs to change a build project's settings\.
 
-If you add test reporting to a build project, make sure your IAM role has the permissions described in [Working with Test Report Permissions](test-permissions.md)\.
+If you add test reporting to a build project, make sure your IAM role has the permissions described in [Working with test report permissions](test-permissions.md)\.
 
 **Topics**
-+ [Change a Build Project's Settings \(Console\)](#change-project-console)
-+ [Change a Build Project's Settings \(AWS CLI\)](#change-project-cli)
-+ [Change a Build Project's Settings \(AWS SDKs\)](#change-project-sdks)
++ [Change a build project's settings \(console\)](#change-project-console)
++ [Change a build project's settings \(AWS CLI\)](#change-project-cli)
++ [Change a build project's settings \(AWS SDKs\)](#change-project-sdks)
 
-## Change a Build Project's Settings \(Console\)<a name="change-project-console"></a>
+## Change a build project's settings \(console\)<a name="change-project-console"></a>
 
 1. Open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codesuite/codebuild/home](https://console.aws.amazon.com/codesuite/codebuild/home)\.
 
@@ -23,7 +23,7 @@ If you add test reporting to a build project, make sure your IAM role has the pe
 
    Choose **Update configuration**\.
 
-   For more information about settings referred to in this procedure, see [Create a Build Project \(Console\)](create-project.md#create-project-console)\.
+   For more information about settings referred to in this procedure, see [Create a build project \(console\)](create-project.md#create-project-console)\.
 
 1. To change information about the source code location, in **Source**, choose **Edit**\. Use the following table to make selections appropriate for your source provider, and then choose **Update source**\.
 **Note**  
@@ -31,7 +31,7 @@ CodeBuild does not support Bitbucket Server\.
 ****    
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/codebuild/latest/userguide/change-project.html)
 
-   To change whether CodeBuild can modify the service role you use for this project, select or clear **Allow AWS CodeBuild to modify this service role so it can be used with this build project**\. If you clear it, you must use a service role with CodeBuild permissions attached to it\. For more information, see [Add CodeBuild Access Permissions to an IAM Group or IAM User](setting-up.md#setting-up-service-permissions-group) and [Create a CodeBuild Service Role](setting-up.md#setting-up-service-role)\. 
+   To change whether CodeBuild can modify the service role you use for this project, select or clear **Allow AWS CodeBuild to modify this service role so it can be used with this build project**\. If you clear it, you must use a service role with CodeBuild permissions attached to it\. For more information, see [Add CodeBuild access permissions to an IAM group or IAM user](setting-up.md#setting-up-service-permissions-group) and [Create a CodeBuild service role](setting-up.md#setting-up-service-role)\. 
 
 1. To change information about the build environment, in **Environment**, choose **Edit**\. Make changes appropriate for the build environment type \(for example, **Environment image**, **Operating system**, **Runtime**, **Runtime version**, **Custom image**, **Other location**, **Amazon ECR repository**, or **Amazon ECR image**\)\.
 
@@ -52,7 +52,7 @@ When you use the console to create or update a build project, you can create a C
 
 1. To change information about the VPC you created in Amazon VPC, in **Additional configuration**, change the values for **VPC**, **Subnets**, and **Security groups**\. 
 
-1. To change information about a file system you created in Amazon EFS, in **Additional configuration**, change its values for **Identifier**, **ID**, **Directory path**, **Mount point**, and **Mount options**\. For more information, see [Amazon Elastic File System Sample for CodeBuild](sample-efs.md)\. 
+1. To change information about a file system you created in Amazon EFS, in **Additional configuration**, change its values for **Identifier**, **ID**, **Directory path**, **Mount point**, and **Mount options**\. For more information, see [Amazon Elastic File System sample for AWS CodeBuild](sample-efs.md)\. 
 
 1. To change the amount of memory and vCPUs that are used to run builds, in **Additional configuration**, change the value for **Compute**\.
 
@@ -73,7 +73,7 @@ Do not set any environment variable with a name that begins with `CODEBUILD_`\. 
 If an environment variable with the same name is defined in multiple places, the value is determined as follows:  
 The value in the start build operation call takes highest precedence\.
 The value in the build project definition takes next precedence\.
-The value in the build spec declaration takes lowest precedence\.
+The value in the buildspec declaration takes lowest precedence\.
 
    If you use Secrets Manager, for **Type**, choose **Secrets Manager**\. For **Name**, enter an identifier for CodeBuild to reference\. For **Value**, enter a `reference-key` using the pattern `secret-id:json-key:version-stage:version-id`\. For information, see [Secrets Manager reference-key in the buildspec file](build-spec-ref.md#secrets-manager-build-spec)\.
 **Important**  
@@ -98,10 +98,10 @@ If you choose **New service role**, the service role includes permission to decr
 **Important**  
 If you leave **Encryption key** blank, CodeBuild uses the AWS\-managed CMK for Amazon S3 in your AWS account instead\.
 
-1. Using a cache saves build time because reusable pieces of the build environment are stored in the cache and used across builds\. For information about specifying a cache in the buildspec file, see [Buildspec Syntax](build-spec-ref.md#build-spec-ref-syntax)\. To change information about the cache, expand **Additional configuration**\. In **Cache type**, do one of the following:
+1. Using a cache saves build time because reusable pieces of the build environment are stored in the cache and used across builds\. For information about specifying a cache in the buildspec file, see [Buildspec syntax](build-spec-ref.md#build-spec-ref-syntax)\. To change information about the cache, expand **Additional configuration**\. In **Cache type**, do one of the following:
    + If you previously chose a cache, but do not want to use one now, choose **No cache**\.
    + If you previously chose **No cache** but now want to use one, choose **Amazon S3**, and then do the following:
-     + For **Cache bucket**, choose the name of the Amazon S3 bucket where the cache is stored\.
+     + For **Cache bucket**, choose the name of the S3 bucket where the cache is stored\.
      + \(Optional\) For **Cache path prefix**, enter an Amazon S3 path prefix\. The cache path prefix value is similar to a directory name\. You use it to store the cache under the same directory in a bucket\. 
 **Important**  
 Do not append a forward slash \(/\) to the end of **Path prefix**\.
@@ -123,9 +123,9 @@ Do not append a forward slash \(/\) to the end of **Path prefix**\.
 
 1. Choose **Update artifacts**\.
 
-## Change a Build Project's Settings \(AWS CLI\)<a name="change-project-cli"></a>
+## Change a build project's settings \(AWS CLI\)<a name="change-project-cli"></a>
 
-For information about using the AWS CLI with AWS CodeBuild, see the [Command Line Reference](cmd-ref.md)\.
+For information about using the AWS CLI with AWS CodeBuild, see the [Command line reference](cmd-ref.md)\.
 
 1. Run the `update-project` command as follows:
 
@@ -133,7 +133,7 @@ For information about using the AWS CLI with AWS CodeBuild, see the [Command Lin
    aws codebuild update-project --generate-cli-skeleton
    ```
 
-   JSON\-formatted data appears in the output\. Copy the data to a file \(for example, `update-project.json`\) in a location on the local computer or instance where the AWS CLI is installed\. Then modify the copied data as described in [Create a Build Project \(AWS CLI\)](create-project.md#create-project-cli), and save your results\.
+   JSON\-formatted data appears in the output\. Copy the data to a file \(for example, `update-project.json`\) in a location on the local computer or instance where the AWS CLI is installed\. Then modify the copied data as described in [Create a build project \(AWS CLI\)](create-project.md#create-project-cli), and save your results\.
 **Note**  
 In the JSON\-formatted data, you must provide the name of the build project\. All other settings are optional\. You cannot change the build project's name, but you can change any of its other settings\.
 
@@ -143,8 +143,8 @@ In the JSON\-formatted data, you must provide the name of the build project\. Al
    aws codebuild update-project --cli-input-json file://update-project.json
    ```
 
-1. If successful, data similar to that as described in [Create a Build Project \(AWS CLI\)](create-project.md#create-project-cli) appears in the output\.
+1. If successful, data similar to that described in [Create a build project \(AWS CLI\)](create-project.md#create-project-cli) appears in the output\.
 
-## Change a Build Project's Settings \(AWS SDKs\)<a name="change-project-sdks"></a>
+## Change a build project's settings \(AWS SDKs\)<a name="change-project-sdks"></a>
 
-For information about using AWS CodeBuild with the AWS SDKs, see the [AWS SDKs and Tools Reference](sdk-ref.md)\.
+For information about using AWS CodeBuild with the AWS SDKs, see the [AWS SDKs and tools reference](sdk-ref.md)\.

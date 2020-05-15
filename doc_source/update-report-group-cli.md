@@ -1,4 +1,4 @@
-# Update a Report Group \(CLI\)<a name="update-report-group-cli"></a>
+# Update a report group \(CLI\)<a name="update-report-group-cli"></a>
 
 **To update a report group**
 

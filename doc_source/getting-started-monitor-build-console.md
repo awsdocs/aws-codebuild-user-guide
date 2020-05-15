@@ -1,6 +1,6 @@
-# Step 7: View Summarized Build Information<a name="getting-started-monitor-build-console"></a>
+# Step 7: View summarized build information<a name="getting-started-monitor-build-console"></a>
 
-\(Previous step: [Step 6: Run the Build](getting-started-run-build-console.md)\)
+\(Previous step: [Step 6: Run the build](getting-started-run-build-console.md)\)
 
 In this step, you view summarized information about the status of your build\.
 
@@ -27,6 +27,6 @@ In this step, you view summarized information about the status of your build\.
 
 1. Next to each build phase, the **Duration** value indicates how long the build phase lasted\. The **End time** value indicates when that build phase ended\.
 
-## Next Step<a name="getting-started-monitor-build-console-next"></a>
+## Next step<a name="getting-started-monitor-build-console-next"></a>
 
-[Step 8: View Detailed Build Information](getting-started-build-log-console.md)
+[Step 8: View detailed build information](getting-started-build-log-console.md)

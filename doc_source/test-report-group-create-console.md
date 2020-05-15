@@ -1,11 +1,11 @@
-# Create a Report Group \(Console\)<a name="test-report-group-create-console"></a>
+# Create a report group \(console\)<a name="test-report-group-create-console"></a>
 
 
 |  | 
 | --- |
 | The test reporting feature is in preview release for CodeBuild and is subject to change\. | 
 
-**To create a test report using the AWS CodeBuild console**
+**To create a test report**
 
 1. Open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codesuite/codebuild/home](https://console.aws.amazon.com/codesuite/codebuild/home)\.
 
@@ -30,6 +30,6 @@
       +  **Choose a custom key** to use a CMK that you create and configure\. For **AWS KMS encryption key**, enter the ARN of your encryption key\. Its format is ` arn:aws:kms:region-id:aws-account-id:key/key-id`\. For more information, see [Creating KMS Keys](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html) in the *AWS Key Management Service User Guide*\. 
       +  **Disable artifact encryption** to disable encryption\. You might choose this if you want to share your test results, or publish them to a static website\. \(A dynamic website can run code to decrypt test results\.\)
 
-       For more information about encryption of data at\-rest, see [Data Encryption](security-encryption.md)\. 
+       For more information about encryption of data at\-rest, see [Data encryption](security-encryption.md)\. 
 
 1. Choose **Create report group**\.

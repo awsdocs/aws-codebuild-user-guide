@@ -1,6 +1,6 @@
-# Source Version Sample with CodeBuild<a name="sample-source-version"></a>
+# Source version sample with AWS CodeBuild<a name="sample-source-version"></a>
 
- This sample demonstrates how to specify a version of your source using a format other than a commit ID \(also known as a commit SHA\)\. You can specify the version of your source the following ways: 
+ This sample demonstrates how to specify a version of your source using a format other than a commit ID \(also known as a commit SHA\)\. You can specify the version of your source in the following ways: 
 +  For an Amazon S3 source provider, use the version ID of the object that represents the build input ZIP file\. 
 +  For CodeCommit, Bitbucket, GitHub, and GitHub Enterprise, use one of the following: 
   +  Pull request as a pull request reference \(for example, `refs/pull/1/head`\)\. 
@@ -15,20 +15,18 @@
 **Note**  
  You can specify the version of a pull request source only if your repository is GitHub or GitHub Enterprise\. 
 
- If you use a reference and a commit ID to specify a version, the `DOWNLOAD_SOURCE` phase of your build is faster than if you provide only the version\. This is because when you add a reference, CodeBuild does not need to download the entire repository to find the commit\. 
+ If you use a reference and a commit ID to specify a version, the `DOWNLOAD_SOURCE` phase of your build is faster than if you provide the version only\. This is because when you add a reference, CodeBuild does not need to download the entire repository to find the commit\. 
 + You can specify a source version with only a commit ID, such as `12345678901234567890123467890123456789`\. If you do this, CodeBuild must download the entire repository to find the version\.
 + You can specify a source version with a reference and a commit ID in this format: `refs/heads/branchname^{full-commit-SHA}` \(for example, `refs/heads/master^{12345678901234567890123467890123456789}`\)\. If you do this, CodeBuild downloads only the specified branch to find the version\. \.
 
 **Note**  
-To speed up the `DOWNLOAD_SOURCE` phase of your build, you can also to set **Git clone depth** to a low number\. CodeBuild downloads fewer versions of your repository with a lower Git clone depth\.
-
- \. 
+To speed up the `DOWNLOAD_SOURCE` phase of your build, you can also to set **Git clone depth** to a low number\. CodeBuild downloads fewer versions of your repository\.
 
 **To specify a GitHub repository version with a commit ID**
 
 1. Open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codesuite/codebuild/home](https://console.aws.amazon.com/codesuite/codebuild/home)\.
 
-1. Create a build project\. For information, see [Create a Build Project \(Console\)](create-project.md#create-project-console) and [Run a Build \(Console\)](run-build.md#run-build-console)\. Leave all settings at their default values, except for these settings:
+1. Create a build project\. For information, see [Create a build project \(console\)](create-project.md#create-project-console) and [Run a build \(console\)](run-build.md#run-build-console)\. Leave all settings at their default values, except for these settings:
    +  In **Source**: 
      +  For **Source provider**, choose **GitHub**\. If you are not connected to GitHub, follow the instructions to connect\. 
      +  For **Repository**, choose **Public repository**\. 

@@ -1,11 +1,11 @@
-# Create a Report Group \(Buildspec\)<a name="test-report-group-create-buildspec"></a>
+# Create a report group \(buildspec\)<a name="test-report-group-create-buildspec"></a>
 
 
 |  | 
 | --- |
 | The test reporting feature is in preview release for CodeBuild and is subject to change\. | 
 
-A report group created using the buildspec does not export raw test result files\. You can view your report group and specify export settings\. For more information, see [Update a Report Group](report-group-export-settings.md)\. 
+A report group created using the buildspec does not export raw test result files\. You can view your report group and specify export settings\. For more information, see [Update a report group](report-group-export-settings.md)\. 
 
 **To create a report group using a buildspec file**
 
@@ -21,8 +21,8 @@ A report group created using the buildspec does not export raw test result files
       base-directory: 'surefire/target/surefire-reports'
    ```
 
-    For more information, see [Specify Test Files](report-group-test-cases.md) and [Reports Syntax in the buildspec file](build-spec-ref.md#reports-buildspec-file)\. 
+    For more information, see [Specify test files](report-group-test-cases.md) and [Reports syntax in the buildspec file](build-spec-ref.md#reports-buildspec-file)\. 
 
-1. In the `commands` section, specify the command to run your tests\. For more information, see [ Specify Test Commands ](report-group-test-case-commands.md)\. 
+1. In the `commands` section, specify the command to run your tests\. For more information, see [ Specify test commands ](report-group-test-case-commands.md)\. 
 
-1.  Run the build\. When the build is complete, a new report group is created with a name that uses the format `project-name-report-group-name`\. For more information, see [Report Group Naming](test-report-group-naming.md)\. 
+1.  Run the build\. When the build is complete, a new report group is created with a name that uses the format `project-name-report-group-name`\. For more information, see [Report group naming](test-report-group-naming.md)\. 

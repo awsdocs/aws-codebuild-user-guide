@@ -1,10 +1,10 @@
-# Monitoring Builds with CloudWatch Metrics<a name="monitoring-metrics"></a>
+# Monitoring builds with CloudWatch metrics<a name="monitoring-metrics"></a>
 
  CodeBuild monitors functions on your behalf and reports metrics through Amazon CloudWatch\. These metrics include the number of total builds, failed builds, successful builds, and the duration of builds\. 
 
  You can use the CodeBuild console or the CloudWatch console to monitor metrics for CodeBuild\. The following procedures show you how to access metrics\. 
 
-## Access Build Metrics \(CodeBuild Console\)<a name="metrics-in-codebuild-console"></a>
+## Access build metrics \(CodeBuild console\)<a name="metrics-in-codebuild-console"></a>
 
 The graphs in the CodeBuild console show three days of metrics\. You cannot customize the metrics or the graphs used to display them\. Use the Amazon CloudWatch console to view your build metrics if you want to edit them\. <a name="cw-account-metrics-codebuild-console"></a>
 
@@ -24,7 +24,7 @@ The graphs in the CodeBuild console show three days of metrics\. You cannot cust
 
 1.  Choose the **Metrics** tab\. 
 
-## Access Build Metrics \(Amazon CloudWatch Console\)<a name="metrics-in-cloudwatch-console"></a>
+## Access build metrics \(Amazon CloudWatch console\)<a name="metrics-in-cloudwatch-console"></a>
 
  You can customize the metrics and the graphs used to display them\. <a name="cw-account-cloudwatch-console"></a>
 

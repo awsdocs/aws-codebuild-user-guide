@@ -1,4 +1,4 @@
-# View Test Reports<a name="test-view-reports"></a>
+# View test reports<a name="test-view-reports"></a>
 
 
 |  | 
@@ -10,11 +10,11 @@
  You can see view test reports that are not expired\. Test reports expire 30 days after they are created\. You cannot view an expired report in CodeBuild\. 
 
 **Topics**
-+ [View Test Reports for a Build](#test-view-project-reports)
-+ [View Test Reports for a Report Group](#test-view-report-group-reports)
-+ [View Test Reports in Your AWS Account](#test-view-account-reports)
++ [View test reports for a build](#test-view-project-reports)
++ [View test reports for a report group](#test-view-report-group-reports)
++ [View test reports in your AWS account](#test-view-account-reports)
 
-## View Test Reports for a Build<a name="test-view-project-reports"></a>
+## View test reports for a build<a name="test-view-project-reports"></a>
 
 
 |  | 
@@ -37,7 +37,7 @@
 
 1. In the build page, choose **Reports**, and then choose a test report to see its details\.
 
-## View Test Reports for a Report Group<a name="test-view-report-group-reports"></a>
+## View test reports for a report group<a name="test-view-report-group-reports"></a>
 
 
 |  | 
@@ -54,7 +54,7 @@
 
 1.  Choose a test report to see its details\. 
 
-## View Test Reports in Your AWS Account<a name="test-view-account-reports"></a>
+## View test reports in your AWS account<a name="test-view-account-reports"></a>
 
 
 |  | 

@@ -1,8 +1,8 @@
-# CodePipeline Integration with CodeBuild and Multiple Input Sources and Output Artifacts Sample<a name="sample-pipeline-multi-input-output"></a>
+# AWS CodePipeline integration with CodeBuild and multiple input sources and output artifacts sample<a name="sample-pipeline-multi-input-output"></a>
 
-An AWS CodeBuild project can take more than one input source\. It can also create more than one output artifact\. This sample demonstrates how to use AWS CodePipeline to create a build project that uses multiple input sources to create multiple output artifacts\. For more information, see [Multiple Input Sources and Output Artifacts Sample](sample-multi-in-out.md)\.
+An AWS CodeBuild project can take more than one input source\. It can also create more than one output artifact\. This sample demonstrates how to use AWS CodePipeline to create a build project that uses multiple input sources to create multiple output artifacts\. For more information, see [Multiple input sources and output artifacts sample](sample-multi-in-out.md)\.
 
- You can use a JSON\-formatted file that defines the structure of your pipeline, and then use it with the AWS CLI to create the pipeline\. Use the following JSON file as an example of a pipeline structure that creates a build with more than one input source and more than one output artifact\. Later in this sample you see how this file specifies the multiple inputs and outputs\. For more information, see [AWS CodePipeline Pipeline Structure Reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html)\. 
+ You can use a JSON\-formatted file that defines the structure of your pipeline, and then use it with the AWS CLI to create the pipeline\. Use the following JSON file as an example of a pipeline structure that creates a build with more than one input source and more than one output artifact\. Later in this sample you see how this file specifies the multiple inputs and outputs\. For more information, see [AWS CodePipeline Pipeline Structure Reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html) in the *AWS CodePipeline User Guide*\. 
 
 ```
 {
@@ -102,8 +102,8 @@ An AWS CodeBuild project can take more than one input source\. It can also creat
 
  In this JSON file: 
 + One of your input sources must be designated the `PrimarySource`\. This source is the directory where CodeBuild looks for and runs your buildspec file\. The keyword `PrimarySource` is used to specify the primary source in the `configuration` section of the CodeBuild stage in the JSON file\. 
-+ Each input source is installed in its own directory\. This directory is stored in the built\-in environment variable `$CODEBUILD_SRC_DIR` for the primary source and `$CODEBUILD_SRC_DIR_yourInputArtifactName` for all other sources\. For the pipeline in this sample, the two input source directories are `$CODEBUILD_SRC_DIR` and `$CODEBUILD_SRC_DIR_source2`\. For more information, see [Environment Variables in Build Environments](build-env-ref-env-vars.md)\. 
-+ The names of the output artifacts specified in the pipeline's JSON file must match the names of the secondary artifacts defined in your buildspec file\. This pipeline uses the following buildspec file\. For more information, see [Buildspec Syntax](build-spec-ref.md#build-spec-ref-syntax)\. 
++ Each input source is installed in its own directory\. This directory is stored in the built\-in environment variable `$CODEBUILD_SRC_DIR` for the primary source and `$CODEBUILD_SRC_DIR_yourInputArtifactName` for all other sources\. For the pipeline in this sample, the two input source directories are `$CODEBUILD_SRC_DIR` and `$CODEBUILD_SRC_DIR_source2`\. For more information, see [Environment variables in build environments](build-env-ref-env-vars.md)\. 
++ The names of the output artifacts specified in the pipeline's JSON file must match the names of the secondary artifacts defined in your buildspec file\. This pipeline uses the following buildspec file\. For more information, see [Buildspec syntax](build-spec-ref.md#build-spec-ref-syntax)\. 
 + 
 
   ```
@@ -128,4 +128,4 @@ An AWS CodeBuild project can take more than one input source\. It can also creat
           - source2_file
   ```
 
- After you create the JSON file, you can create your pipeline\. Use the AWS CLI to run the **create\-pipeline** command and pass the file to the `--cli-input-json` parameter\. For more information, see [Create a Pipeline \(CLI\)](https://docs.aws.amazon.com/codepipeline/latest/userguide/pipelines-create.html#pipelines-create-cli)\. 
+ After you create the JSON file, you can create your pipeline\. Use the AWS CLI to run the **create\-pipeline** command and pass the file to the `--cli-input-json` parameter\. For more information, see [Create a Pipeline \(CLI\)](https://docs.aws.amazon.com/codepipeline/latest/userguide/pipelines-create.html#pipelines-create-cli) in the *AWS CodePipeline User Guide*\. 

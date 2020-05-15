@@ -1,4 +1,4 @@
-# GitHub Enterprise Sample for CodeBuild<a name="sample-github-enterprise"></a>
+# GitHub Enterprise sample for CodeBuild<a name="sample-github-enterprise"></a>
 
 AWS CodeBuild supports GitHub Enterprise as a source repository\. This sample shows how to set up your CodeBuild projects when your GitHub Enterprise repository has a certificate installed\. It also shows how to enable webhooks so that CodeBuild rebuilds the source code every time a code change is pushed to your GitHub Enterprise repository\.
 
@@ -38,11 +38,11 @@ Save the certificate as a \.pem file\.
 **Important**  
 Save the certificate as a \.pem file\.
 
-1. Upload your certificate file to an Amazon S3 bucket\. For information about how to create an Amazon S3 bucket, see [How Do I Create an Amazon S3 Bucket?](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/create-bucket.html) For information about how to upload objects to an Amazon S3 bucket, see [How Do I Upload Files and Folders to a Bucket?](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/upload-objects.html)
+1. Upload your certificate file to an S3 bucket\. For information about how to create an S3 bucket, see [How Do I Create an S3 Bucket?](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/create-bucket.html) For information about how to upload objects to an S3 bucket, see [How Do I Upload Files and Folders to a Bucket?](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/upload-objects.html)
 **Note**  
 This bucket must be in the same AWS region as your builds\. For example, if you instruct CodeBuild to run a build in the US East \(Ohio\) Region, the bucket must be in the US East \(Ohio\) Region\.
 
-## Create a Build Project with GitHub Enterprise as the Source Repository and Enable Webhooks \(Console\)<a name="sample-github-enterprise-running"></a>
+## Create a build project with GitHub Enterprise as the source repository and enable webhooks \(console\)<a name="sample-github-enterprise-running"></a>
 
 1. Open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codesuite/codebuild/home](https://console.aws.amazon.com/codesuite/codebuild/home)\.
 
@@ -55,9 +55,9 @@ This bucket must be in the same AWS region as your builds\. For example, if you 
 **Note**  
 You only need to enter and save the personal access token once\. All future AWS CodeBuild projects use this token\.
    + In **Repository URL**, enter the path to your repository, including the name of the repository\.
-   + Expand **Additional configuration\.**
+   + Expand **Additional configuration**\.
    + Select **Rebuild every time a code change is pushed to this repository** to rebuild every time a code change is pushed to this repository\.
-   + Select **Enable insecure SSL** to ignore SSL warnings while connecting to your GitHub Enterprise project repository\.
+   + Select **Enable insecure SSL** to ignore SSL warnings while you connect to your GitHub Enterprise project repository\.
 **Note**  
 We recommend that you use **Enable insecure SSL** for testing only\. It should not be used in a production environment\.  
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/github-enterprise.png)
@@ -67,7 +67,7 @@ We recommend that you use **Enable insecure SSL** for testing only\. It should n
    For **Environment image**, do one of the following:
    + To use a Docker image managed by AWS CodeBuild, choose **Managed image**, and then make selections from **Operating system**, **Runtime\(s\)**, **Image**, and **Image version**\. Make a selection from **Environment type** if it is available\.
    + To use another Docker image, choose **Custom image**\. For **Environment type**, choose **ARM**, **Linux**, **Linux GPU**, or **Windows**\. If you choose **Other registry**, for **External registry URL**, enter the name and tag of the Docker image in Docker Hub, using the format `docker repository/docker image name`\. If you choose **Amazon ECR**, use **Amazon ECR repository** and **Amazon ECR image** to choose the Docker image in your AWS account\.
-   + To use private Docker image, choose **Custom image**\. For **Environment type**, choose **ARM**, **Linux**, **Linux GPU**, or **Windows**\. For **Image registry**, choose **Other registry**, and then enter the ARN of the credentials for your private Docker image\. The credentials must be created by Secrets Manager\. For more information, see [What Is AWS Secrets Manager?](https://docs.aws.amazon.com/secretsmanager/latest/userguide/)
+   + To use private Docker image, choose **Custom image**\. For **Environment type**, choose **ARM**, **Linux**, **Linux GPU**, or **Windows**\. For **Image registry**, choose **Other registry**, and then enter the ARN of the credentials for your private Docker image\. The credentials must be created by Secrets Manager\. For more information, see [What Is AWS Secrets Manager?](https://docs.aws.amazon.com/secretsmanager/latest/userguide/) in the *AWS Secrets Manager User Guide*\.
 
 1. In **Service role**, do one of the following:
    + If you do not have a CodeBuild service role, choose **New service role**\. In **Role name**, enter a name for the new role\.
@@ -82,20 +82,20 @@ When you use the console to create or update a build project, you can create a C
    + For **VPC Subnets**, choose the subnets that include resources that CodeBuild uses\.
    + For **VPC Security groups**, choose the security groups that CodeBuild uses to allow access to resources in the VPCs\.
 
-   For more information, see [Use CodeBuild with Amazon Virtual Private Cloud](vpc-support.md)\.
+   For more information, see [Use AWS CodeBuild with Amazon Virtual Private Cloud](vpc-support.md)\.
 
 1. For **Buildspec**, do one of the following:
    + Choose **Use a buildspec file** to use the buildspec\.yml file in the source code root directory\.
    + Choose **Insert build commands** to use the console to insert build commands\.
 
-   For more information, see the [Buildspec Reference](build-spec-ref.md)\.
+   For more information, see the [Buildspec reference](build-spec-ref.md)\.
 
 1. In **Artifacts**, for **Type**, do one of the following:
    + If you do not want to create build output artifacts, choose **No artifacts**\.
-   + To store the build output in an Amazon S3 bucket, choose **Amazon S3**, and then do the following:
+   + To store the build output in an S3 bucket, choose **Amazon S3**, and then do the following:
      + If you want to use your project name for the build output ZIP file or folder, leave **Name** blank\. Otherwise, enter the name\. By default, the artifact name is the project name\. If you want to use a different name, enter it in the artifacts name box\. If you want to output a ZIP file, include the zip extension\.
      + For **Bucket name**, choose the name of the output bucket\.
-     + If you chose **Insert build commands** earlier in this procedure, for **Output files**, enter the locations of the files from the build that you want to put into the build output ZIP file or folder\. For multiple locations, separate each location with a comma \(for example, `appspec.yml, target/my-app.jar`\)\. For more information, see the description of `files` in [Buildspec Syntax](build-spec-ref.md#build-spec-ref-syntax)\.
+     + If you chose **Insert build commands** earlier in this procedure, for **Output files**, enter the locations of the files from the build that you want to put into the build output ZIP file or folder\. For multiple locations, separate each location with a comma \(for example, `appspec.yml, target/my-app.jar`\)\. For more information, see the description of `files` in [Buildspec syntax](build-spec-ref.md#build-spec-ref-syntax)\.
 
 1. For **Cache type**, choose one of the following:
    + If you do not want to use a cache, choose **No cache**\.
@@ -108,11 +108,11 @@ Do not append a trailing slash \(/\) to the end of the path prefix\.
 **Note**  
 Docker layer cache mode is available for Linux only\. If you choose it, your project must run in privileged mode\. The `ARM_CONTAINER` and `LINUX_GPU_CONTAINER` environment types and the `BUILD_GENERAL1_2XLARGE` compute type do not support the use of a local cache\.
 
-   Using a cache saves considerable build time because reusable pieces of the build environment are stored in the cache and used across builds\. For information about specifying a cache in the buildspec file, see [Buildspec Syntax](build-spec-ref.md#build-spec-ref-syntax)\. For more information about caching, see [Build Caching in CodeBuild](build-caching.md)\. 
+   Using a cache saves considerable build time because reusable pieces of the build environment are stored in the cache and used across builds\. For information about specifying a cache in the buildspec file, see [Buildspec syntax](build-spec-ref.md#build-spec-ref-syntax)\. For more information about caching, see [Build caching in AWS CodeBuild](build-caching.md)\. 
 
 1. Choose **Create build project**\. On the build project page, choose **Start build**\.
 
-1. If you enabled webhooks in **Source**, then a **Create webhook** dialog box is displayed with values for **Payload URL** and **Secret**\. 
+1. If you enabled webhooks in **Source**, a **Create webhook** dialog box is displayed with values for **Payload URL** and **Secret**\. 
 **Important**  
 The **Create webhook** dialog box appears only once\. Copy the payload URL and secret key\. You need them when you add a webhook in GitHub Enterprise\.   
 If you need to generate a payload URL and secret key again, you must first delete the webhook from your GitHub Enterprise repository\. In your CodeBuild project, clear the **Webhook** check box and then choose **Save**\. You can then create or update a CodeBuild project with the **Webhook** check box selected\. The **Create webhook** dialog box appears again\.

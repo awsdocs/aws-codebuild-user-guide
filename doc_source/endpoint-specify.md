@@ -1,4 +1,4 @@
-# Specify the CodeBuild Endpoint<a name="endpoint-specify"></a>
+# Specify the AWS CodeBuild endpoint<a name="endpoint-specify"></a>
 
  You can use the AWS Command Line Interface \(AWS CLI\) or one of the AWS SDKs to specify the endpoint used by AWS CodeBuild\. There is an endpoint for each region in which CodeBuild is available\. In addition to a regional endpoint, four regions also have a Federal Information Processing Standards \(FIPS\) endpoint\. For more information about FIPS endpoints, see [FIPS 140\-2 Overview](https://aws.amazon.com/compliance/fips/)\. 
 
@@ -10,10 +10,10 @@
  For endpoints that can be used with CodeBuild, see [CodeBuild Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#codebuild_region)\. 
 
 **Topics**
-+ [Specify the CodeBuild Endpoint \(AWS CLI\)](#endpoint-specify-cli)
-+ [Specify the CodeBuild Endpoint \(AWS SDK\)](#endpoint-specify-sdk)
++ [Specify the AWS CodeBuild endpoint \(AWS CLI\)](#endpoint-specify-cli)
++ [Specify the AWS CodeBuild endpoint \(AWS SDK\)](#endpoint-specify-sdk)
 
-## Specify the CodeBuild Endpoint \(AWS CLI\)<a name="endpoint-specify-cli"></a>
+## Specify the AWS CodeBuild endpoint \(AWS CLI\)<a name="endpoint-specify-cli"></a>
 
  You can use the AWS CLI to specify the endpoint through which AWS CodeBuild is accessed by using the `--endpoint-url` argument in any CodeBuild command\. For example, run this command to get a list of project build names using the Federal Information Processing Standards \(FIPS\) endpoint in the US East \(N\. Virginia\) Region: 
 
@@ -25,7 +25,7 @@ Include the `https://` at the begining of the endpoint\.
 
  The `--endpoint-url` AWS CLI argument is available to all AWS services\. For more information about this and other AWS CLI arguments, see [AWS CLI Command Reference](https://docs.aws.amazon.com/cli/latest/reference/)\. 
 
-## Specify the CodeBuild Endpoint \(AWS SDK\)<a name="endpoint-specify-sdk"></a>
+## Specify the AWS CodeBuild endpoint \(AWS SDK\)<a name="endpoint-specify-sdk"></a>
 
  You can use an AWS SDK to specify the endpoint through which AWS CodeBuild is accessed\. Although this example uses the [AWS SDK for Java](https://aws.amazon.com/sdk-for-java/), you can specify the endpoint with the other AWS SDKs\. 
 

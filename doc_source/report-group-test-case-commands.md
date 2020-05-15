@@ -1,4 +1,4 @@
-# Specify Test Commands<a name="report-group-test-case-commands"></a>
+# Specify test commands<a name="report-group-test-case-commands"></a>
 
 
 |  | 

@@ -1,25 +1,25 @@
-# Create a Test Report in CodeBuild Using the AWS CLI Sample<a name="sample-test-report-cli"></a>
+# Create a test report in CodeBuild using the AWS CLI sample<a name="sample-test-report-cli"></a>
 
 
 |  | 
 | --- |
 | The test reporting feature is in preview release for CodeBuild and is subject to change\. | 
 
- Tests that you specify in your buildspec file are run during your build\. This sample shows you how to use the AWS CLI to incorporate tests into builds in CodeBuild\. \. You can use JUnit to create unit tests, or you can use another tool to create configuration tests\. You can then evaluate the test results to fix issues or optimize your application\. 
+ Tests that you specify in your buildspec file are run during your build\. This sample shows you how to use the AWS CLI to incorporate tests into builds in CodeBuild\. You can use JUnit to create unit tests, or you can use another tool to create configuration tests\. You can then evaluate the test results to fix issues or optimize your application\. 
 
 You can use the CodeBuild API or the AWS CodeBuild console to access the test results\. This sample shows you how to configure your report so its test results are exported to an S3 bucket\. 
 
 **Topics**
 + [Prerequisites](#sample-test-report-cli-prerequisites)
-+ [Create a Report Group](#sample-test-report-cli-create-report)
-+ [Configure a Project with a Report Group](#sample-test-report-cli-create-project-with-report)
-+ [Run and View Results of a Report](#sample-test-report-cli-run-and-view-report-results)
++ [Create a report group](#sample-test-report-cli-create-report)
++ [Configure a project with a report group](#sample-test-report-cli-create-project-with-report)
++ [Run and view results of a report](#sample-test-report-cli-run-and-view-report-results)
 
 ## Prerequisites<a name="sample-test-report-cli-prerequisites"></a>
 + Create your test cases\. This sample is written with the assumption that you have test cases to include in your sample test report\. You specify the location of your test files in the buildspec file\. The format of your test cases can be JUnit XML, Cucumber JSON, Visual Studio TRX, or TestNG XML\. Create your test cases with any test framework that can create test files in one of those formats \(for example, Surefire JUnit plugin, TestNG, and Cucumber\)\.
 + Create an S3 bucket and make a note of its name\. For more information, see [How Do I Create an S3 Bucket?](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/create-bucket.html) in the *Amazon S3 User Guide*\. 
-+ Make a note of the ARN of the IAM role you use\. You need the ARN when you create your build project\. 
-+  If your role does not have the following permissions, add them\. 
++ Create an IAM role and make a note of its ARN\. You need the ARN when you create your build project\. 
++ If your role does not have the following permissions, add them\. 
 
   ```
   {
@@ -36,9 +36,9 @@ You can use the CodeBuild API or the AWS CodeBuild console to access the test re
   }
   ```
 
-   For more information, see [Permissions for Test Reporting Operations](test-permissions.md#test-permissions-related-to-reporting)\. 
+   For more information, see [Permissions for test reporting operations](test-permissions.md#test-permissions-related-to-reporting)\. 
 
-## Create a Report Group<a name="sample-test-report-cli-create-report"></a>
+## Create a report group<a name="sample-test-report-cli-create-report"></a>
 
 1.  Create a file named `CreateReportGroupInput.json`\. 
 
@@ -68,7 +68,7 @@ You can use the CodeBuild API or the AWS CodeBuild console to access the test re
        --region your-region
    ```
 
-   The output looks like the following\. Make a note of the report group ARN\. You use it when you create a project that uses this report group\.
+   The output looks like the following\. Make a note of the ARN for the `reportGroup`\. You use it when you create a project that uses this report group\.
 
    ```
    {
@@ -91,7 +91,7 @@ You can use the CodeBuild API or the AWS CodeBuild console to access the test re
        }
    ```
 
-## Configure a Project with a Report Group<a name="sample-test-report-cli-create-project-with-report"></a>
+## Configure a project with a report group<a name="sample-test-report-cli-create-project-with-report"></a>
 
  To run a report, you first create a CodeBuild build project that is configured with your report group\. Test cases specified for your report group are run when you run a build\. 
 
@@ -118,7 +118,7 @@ You can use the CodeBuild API or the AWS CodeBuild console to access the test re
          discard-paths: false #do not remove file paths from test result files
    ```
 **Note**  
- Instead of the ARN of an existing report group, you can also specify a name for a report group that has not been created\. If you specify a name instead of an ARN, CodeBuild creates a report group when it runs a build\. Its name contains your project name and the name you specify in the buildspec file in this format: `project-name-report-group-name`\. For more information, see [Create a Test Report](report-create.md) and [Report Group Naming](test-report-group-naming.md)\. 
+ Instead of the ARN of an existing report group, you can also specify a name for a report group that has not been created\. If you specify a name instead of an ARN, CodeBuild creates a report group when it runs a build\. Its name contains your project name and the name you specify in the buildspec file, in this format: `project-name-report-group-name`\. For more information, see [Create a test report](report-create.md) and [Report group naming](test-report-group-naming.md)\. 
 
 1.  Create a file named `project.json`\. This file contains input for the create\-project command\. 
 
@@ -154,7 +154,7 @@ You can use the CodeBuild API or the AWS CodeBuild console to access the test re
        --region your-region
    ```
 
-## Run and View Results of a Report<a name="sample-test-report-cli-run-and-view-report-results"></a>
+## Run and view results of a report<a name="sample-test-report-cli-run-and-view-report-results"></a>
 
  In this section, you run a build of the project you created earlier\. During the build process, CodeBuild creates a report with the results of the test cases\. The report is contained in the report group you specified\. 
 

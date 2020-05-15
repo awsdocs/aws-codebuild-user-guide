@@ -1,4 +1,4 @@
-# Environment Variables in Build Environments<a name="build-env-ref-env-vars"></a>
+# Environment variables in build environments<a name="build-env-ref-env-vars"></a>
 
 AWS CodeBuild provides several environment variables that you can use in your build commands:
 + `AWS_DEFAULT_REGION`: The AWS Region where the build is running \(for example, `us-east-1`\)\. This environment variable is used primarily by the AWS CLI\.
@@ -24,28 +24,28 @@ AWS CodeBuild provides several environment variables that you can use in your bu
 For a GitHub or GitHub Enterprise build that is triggered by a webhook pull request event, it is `pr/pull-request-number`\.
 + `CODEBUILD_SRC_DIR`: The directory path that CodeBuild uses for the build \(for example, `/tmp/src123456789/src`\)\.
 **Note**  
-If you use a secondary source, the environment variable for its directory path is `CODEBUILD_SRC_DIR_sourceIdentifier`, where `sourceIdentifier` is the source identifier you create\. For more information, see [Multiple Input Sources and Output Artifacts Sample](sample-multi-in-out.md)\.
+If you use a secondary source, the environment variable for its directory path is `CODEBUILD_SRC_DIR_sourceIdentifier`, where `sourceIdentifier` is the source identifier you create\. For more information, see [Multiple input sources and output artifacts sample](sample-multi-in-out.md)\.
 + `CODEBUILD_START_TIME`: The start time of the build specified as a Unix timestamp in milliseconds\.
 + `CODEBUILD_WEBHOOK_ACTOR_ACCOUNT_ID`: The account ID of the user that triggered the webhook event\.
 + `CODEBUILD_WEBHOOK_BASE_REF`: The base reference name of the webhook event that triggers the current build\. For a pull request, this is the branch reference\.
 + `CODEBUILD_WEBHOOK_EVENT`: The webhook event that triggers the current build\.
 + `CODEBUILD_WEBHOOK_PREV_COMMIT`: The ID of the most recent commit before the webhook push event that triggers the current build\.
 + `CODEBUILD_WEBHOOK_HEAD_REF`: The head reference name of the webhook event that triggers the current build\. It can be a branch reference or a tag reference\.
-+ `CODEBUILD_WEBHOOK_TRIGGER`: Shows the webhook event that triggered the build\. This variable is available only for builds triggered by a webhook\. The value is parsed from the payload sent to CodeBuild by Github, Github Enterprise, or Bitbucket\. The value's format depends on what type of event triggered the build\.
++ `CODEBUILD_WEBHOOK_TRIGGER`: Shows the webhook event that triggered the build\. This variable is available only for builds triggered by a webhook\. The value is parsed from the payload sent to CodeBuild by GitHub, GitHub Enterprise, or Bitbucket\. The value's format depends on what type of event triggered the build\.
   +  For builds triggered by a pull request, it is `pr/pull-request-number`\. 
   +  For builds triggered by creating a new branch or pushing a commit to a branch, it is `branch/branch-name`\. 
   +  For builds triggered by a pushing a tag to a repository, it is `tag/tag-name`\. 
 + `HOME`: This environment variable is always set to `/root`\.
 
 You can also provide build environments with your own environment variables\. For more information, see the following topics:
-+ [Use AWS CodePipeline with CodeBuild](how-to-create-pipeline.md)
-+ [Create a Build Project](create-project.md)
-+ [Change a Build Project's Settings](change-project.md)
-+ [Run a Build](run-build.md)
-+ [Buildspec Reference](build-spec-ref.md)
++ [Use AWS CodePipeline with AWS CodeBuild](how-to-create-pipeline.md)
++ [Create a build project](create-project.md)
++ [Change a build project's settings](change-project.md)
++ [Run a build](run-build.md)
++ [Buildspec reference](build-spec-ref.md)
 
 To list all of the available environment variables in a build environment, you can run the `printenv` command \(for Linux\-based build environment\) or `"Get-ChildItem Env:"` \(for Windows\-based build environments\) during a build\. Except for those previously listed, environment variables that start with `CODEBUILD_` are for CodeBuild internal use\. They should not be used in your build commands\.
 
 **Important**  
 We strongly discourage the use of environment variables to store sensitive values, especially AWS access key IDs and secret access keys\. Environment variables can be displayed in plain text using tools such as the CodeBuild console and the AWS CLI\.  
-We recommend you store sensitive values in the Amazon EC2 Systems Manager Parameter Store and then retrieve them from your buildspec\. To store sensitive values, see [Systems Manager Parameter Store](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-paramstore.html) and [Systems Manager Parameter Store Console Walkthrough](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-walk.html#sysman-paramstore-console) in the *Amazon EC2 Systems Manager User Guide*\. To retrieve them, see the `parameter-store` mapping in [Buildspec Syntax](build-spec-ref.md#build-spec-ref-syntax)\.
+We recommend you store sensitive values in the Amazon EC2 Systems Manager Parameter Store and then retrieve them from your buildspec\. To store sensitive values, see [Systems Manager Parameter Store](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-paramstore.html) and [Systems Manager Parameter Store Console Walkthrough](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-walk.html#sysman-paramstore-console) in the *Amazon EC2 Systems Manager User Guide*\. To retrieve them, see the `parameter-store` mapping in [Buildspec syntax](build-spec-ref.md#build-spec-ref-syntax)\.

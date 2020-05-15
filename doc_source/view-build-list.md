@@ -1,13 +1,13 @@
-# View a List of Build IDs in CodeBuild<a name="view-build-list"></a>
+# View a list of build IDs in AWS CodeBuild<a name="view-build-list"></a>
 
 You can use the AWS CodeBuild console, AWS CLI, or AWS SDKs to view a list of build IDs for builds managed by CodeBuild\.
 
 **Topics**
-+ [View a List of Build IDs \(Console\)](#view-build-list-console)
-+ [View a List of Build IDs \(AWS CLI\)](#view-build-list-cli)
-+ [View a List of Build IDs \(AWS SDKs\)](#view-build-list-sdks)
++ [View a list of build IDs \(console\)](#view-build-list-console)
++ [View a list of build IDs \(AWS CLI\)](#view-build-list-cli)
++ [View a list of build IDs \(AWS SDKs\)](#view-build-list-sdks)
 
-## View a List of Build IDs \(Console\)<a name="view-build-list-console"></a>
+## View a list of build IDs \(console\)<a name="view-build-list-console"></a>
 
 1. Open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codesuite/codebuild/home](https://console.aws.amazon.com/codesuite/codebuild/home)\.
 
@@ -15,9 +15,9 @@ You can use the AWS CodeBuild console, AWS CLI, or AWS SDKs to view a list of bu
 **Note**  
 By default, only the 10 most recent builds are displayed\. To view more builds, choose the gear icon, and then choose a different value for **Builds per page** or use the back and forward arrows\.
 
-## View a List of Build IDs \(AWS CLI\)<a name="view-build-list-cli"></a>
+## View a list of build IDs \(AWS CLI\)<a name="view-build-list-cli"></a>
 
-For more information about using the AWS CLI with CodeBuild, see the [Command Line Reference](cmd-ref.md)\.
+For more information about using the AWS CLI with CodeBuild, see the [Command line reference](cmd-ref.md)\.
 + Run the list\-builds command:
 
   ```
@@ -67,6 +67,6 @@ For more information about using the AWS CLI with CodeBuild, see the [Command Li
   }
   ```
 
-## View a List of Build IDs \(AWS SDKs\)<a name="view-build-list-sdks"></a>
+## View a list of build IDs \(AWS SDKs\)<a name="view-build-list-sdks"></a>
 
-For more information about using CodeBuild with the AWS SDKs, see the [AWS SDKs and Tools Reference](sdk-ref.md)\.
+For more information about using CodeBuild with the AWS SDKs, see the [AWS SDKs and tools reference](sdk-ref.md)\.

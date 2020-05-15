@@ -1,21 +1,21 @@
-# Working with Shared Projects<a name="project-sharing"></a>
+# Working with shared projects<a name="project-sharing"></a>
 
-Project sharing allows project owners to share their CodeBuild projects with other AWS accounts or users\. In this model, the account that owns the project \(owner\) shares a project with other accounts \(consumers\)\. A consumer cannot edit or run a project\.
+Project sharing allows project owners to share their AWS CodeBuild projects with other AWS accounts or users\. In this model, the account that owns the project \(owner\) shares a project with other accounts \(consumers\)\. A consumer cannot edit or run a project\.
 
 **Topics**
-+ [Prerequisites for Sharing Projects](#project-sharing-prereqs)
-+ [Prerequisites for Accessing Shared Projects Shared with You](#project-sharing-access-prereqs)
-+ [Related Services](#project-sharing-related)
-+ [Sharing a Project](#project-sharing-share)
-+ [Unsharing a Shared Project](#project-sharing-unshare)
-+ [Identifying a Shared Project](#project-sharing-identify)
-+ [Shared Project Permissions](#project-sharing-perms)
++ [Prerequisites for sharing projects](#project-sharing-prereqs)
++ [Prerequisites for accessing shared projects shared with you](#project-sharing-access-prereqs)
++ [Related services](#project-sharing-related)
++ [Sharing a project](#project-sharing-share)
++ [Unsharing a shared project](#project-sharing-unshare)
++ [Identifying a shared project](#project-sharing-identify)
++ [Shared project permissions](#project-sharing-perms)
 
-## Prerequisites for Sharing Projects<a name="project-sharing-prereqs"></a>
+## Prerequisites for sharing projects<a name="project-sharing-prereqs"></a>
 
  To share a project, your AWS account must own it\. You cannot share a project that has been shared with you\. 
 
-## Prerequisites for Accessing Shared Projects Shared with You<a name="project-sharing-access-prereqs"></a>
+## Prerequisites for accessing shared projects shared with you<a name="project-sharing-access-prereqs"></a>
 
 To access a shared report group, a consumer's IAM role requires the `BatchGetProjects` permission\. You can attach the following policy to their IAM role: 
 
@@ -31,17 +31,17 @@ To access a shared report group, a consumer's IAM role requires the `BatchGetPro
 }
 ```
 
- For more information, see [Using Identity\-Based Policies for CodeBuild](auth-and-access-control-iam-identity-based-access-control.md)\. 
+ For more information, see [Using identity\-based policies for AWS CodeBuild](auth-and-access-control-iam-identity-based-access-control.md)\. 
 
-## Related Services<a name="project-sharing-related"></a>
+## Related services<a name="project-sharing-related"></a>
 
 Project sharing integrates with AWS Resource Access Manager \(AWS RAM\), a service that makes it possible for you to share your AWS resources with any AWS account or through AWS Organizations\. With AWS RAM, you share resources by creating a *resource share* that specifies the resources and the consumers to share them with\. Consumers can be individual AWS accounts, organizational units in AWS Organizations, or an entire organization in AWS Organizations\.
 
 For more information, see the *[AWS RAM User Guide](https://docs.aws.amazon.com/ram/latest/userguide/)*\.
 
-## Sharing a Project<a name="project-sharing-share"></a>
+## Sharing a project<a name="project-sharing-share"></a>
 
-The consumer can use the AWS CLI but not the CodeBuild console to view the project and builds you've shared\. The consumer cannot edit or run the project\.
+The consumer can use the AWS CLI but not the AWS CodeBuild console to view the project and builds you've shared\. The consumer cannot edit or run the project\.
 
 You can add a project to an existing resource share or you can create one in the [AWS RAM console](https://console.aws.amazon.com/ram)\.
 
@@ -50,7 +50,7 @@ You can add a project to an existing resource share or you can create one in the
 
 To share a project with organizational units or an entire organization, you must enable sharing with AWS Organizations\. For more information, see [Enable Sharing with AWS Organizations](https://docs.aws.amazon.com/ram/latest/userguide/getting-started-sharing.html) in the *AWS RAM User Guide*\.
 
-You can use the CodeBuild console, AWS RAM console, or the AWS CLI to share a project that you own\.
+You can use the AWS CodeBuild console, AWS RAM console, or the AWS CLI to share a project that you own\.
 
 **To share a project that you own \(CodeBuild console\)**
 
@@ -91,7 +91,7 @@ Use the [put\-resource\-policy](https://docs.aws.amazon.com/cli/latest/reference
     }
    ```
 
-1. Update `policy.json` with the project ARN and identifiers to share it with\. The following example grants read\-only access to the project with the ARN `arn:aws:codebuild:us-west-2:123456789012:project/my-project` to Alice and the root user for the AWS account identified by 123456789012\. 
+1. Update `policy.json` with the project ARN and identifiers to share it with\. The following example grants read\-only access to the root user for the AWS account identified by 123456789012\. 
 
    ```
    {
@@ -100,7 +100,6 @@ Use the [put\-resource\-policy](https://docs.aws.amazon.com/cli/latest/reference
         "Effect":"Allow",
         "Principal":{
           "AWS": [
-             "arn:aws:iam::123456789012:user/Alice",
              "123456789012"
            ]
         },
@@ -119,11 +118,11 @@ Use the [put\-resource\-policy](https://docs.aws.amazon.com/cli/latest/reference
    aws codebuild put-resource-policy --resource-arn project-arn --policy file://policy.json
    ```
 
-## Unsharing a Shared Project<a name="project-sharing-unshare"></a>
+## Unsharing a shared project<a name="project-sharing-unshare"></a>
 
 An unshared project, including its builds, can be accessed only by its owner\. If you unshare a project, any AWS account or user you previously shared it with cannot access the project or its builds\.
 
-To unshare a shared project that you own, you must remove it from the resource share\. You can use the CodeBuild console, AWS RAM console, or AWS CLI to do this\.
+To unshare a shared project that you own, you must remove it from the resource share\. You can use the AWS CodeBuild console, AWS RAM console, or AWS CLI to do this\.
 
 **To unshare a shared project that you own \(AWS RAM console\)**  
 See [Updating a Resource Share](https://docs.aws.amazon.com/ram/latest/userguide/working-with-sharing.html#working-with-sharing-update) in the *AWS RAM User Guide*\.
@@ -139,19 +138,19 @@ Run the [delete\-resource\-policy](https://docs.aws.amazon.com/cli/latest/refere
 aws codebuild delete-resource-policy --resource-arn project-arn
 ```
 
-## Identifying a Shared Project<a name="project-sharing-identify"></a>
+## Identifying a shared project<a name="project-sharing-identify"></a>
 
 Owners and consumers can use the AWS CLI to identify shared projects\.
 
 **To identify projects shared with your AWS account or user \(AWS CLI\)**  
 Use the [list\-shared\-projects](https://docs.aws.amazon.com/cli/latest/reference/codebuild/list-shared-projects.html) command to return the projects that are shared with you\.
 
-## Shared Project Permissions<a name="project-sharing-perms"></a>
+## Shared project permissions<a name="project-sharing-perms"></a>
 
-### Permissions for Owners<a name="project-perms-owner"></a>
+### Permissions for owners<a name="project-perms-owner"></a>
 
 A project owner can edit the project and use it to run builds\.
 
-### Permissions for Consumers<a name="project-perms-consumer"></a>
+### Permissions for consumers<a name="project-perms-consumer"></a>
 
 A project consumer can view a project and its builds, but cannot edit a project or use it to run builds\.

@@ -1,21 +1,21 @@
-# CodeBuild for Windows—Third Party Notices<a name="notice"></a>
+# Third party notices for AWS CodeBuild for Windows<a name="notice"></a>
 
-When you use CodeBuild for Windows builds, you have the option to use some third party packages/modules to enable your built application to run on Microsoft Windows operating systems and to interoperate with some third party products\. The following list contains the applicable third\-party legal terms that govern your use of the specified third\-party packages/modules\.
+When you use CodeBuild for Windows builds, you have the option to use some third party packages and modules to enable your built application to run on Microsoft Windows operating systems and to interoperate with some third party products\. The following list contains the applicable third\-party legal terms that govern your use of the specified third\-party packages and modules\.
 
 **Topics**
-+ [1\) Base Docker Image—windowsservercore](#base-docker-image)
-+ [2\) windows\-base Docker Image—Choco](#3-windows-base-docker-image)
-+ [3\) windows\-base Docker Image—git \-\-version 2\.16\.2](#4-windows-base-docker-image-2-16-2)
-+ [4\) windows\-base Docker Image—microsoft\-build\-tools \-\-version 15\.0\.26320\.2](#5-windows-base-docker-image-15-x)
-+ [5\) windows\-base Docker Image—nuget\.commandline \-\-version 4\.5\.1](#6-windows-base-docker-image-4-5-1)
-+ [7\) windows\-base Docker Image—netfx\-4\.6\.2\-devpack](#7-windows-base-docker-image-4-6-2)
-+ [8\) windows\-base Docker Image—visualfsharptools, v 4\.0](#8-windows-base-docker-image-visualfsharptools)
-+ [9\) windows\-base Docker Image—netfx\-pcl\-reference\-assemblies\-4\.6](#9-windows-base-docker-image)
-+ [10\) windows\-base Docker Image—visualcppbuildtools v 14\.0\.25420\.1](#10-windows-base-docker-image)
-+ [11\) windows\-base Docker Image—microsoft\-windows\-netfx3\-ondemand\-package\.cab](#11-windows-base-docker-image)
-+ [12\) windows\-base Docker Image—dotnet\-sdk](#12-windows-base-docker-image)
++ [1\) base Docker image—windowsservercore](#base-docker-image)
++ [2\) windows\-base Docker image—choco](#3-windows-base-docker-image)
++ [3\) windows\-base Docker image—git \-\-version 2\.16\.2](#4-windows-base-docker-image-2-16-2)
++ [4\) windows\-base Docker image—microsoft\-build\-tools \-\-version 15\.0\.26320\.2](#5-windows-base-docker-image-15-x)
++ [5\) windows\-base Docker image—nuget\.commandline \-\-version 4\.5\.1](#6-windows-base-docker-image-4-5-1)
++ [7\) windows\-base Docker image—netfx\-4\.6\.2\-devpack](#7-windows-base-docker-image-4-6-2)
++ [8\) windows\-base Docker image—visualfsharptools, v 4\.0](#8-windows-base-docker-image-visualfsharptools)
++ [9\) windows\-base Docker image—netfx\-pcl\-reference\-assemblies\-4\.6](#9-windows-base-docker-image)
++ [10\) windows\-base Docker image—visualcppbuildtools v 14\.0\.25420\.1](#10-windows-base-docker-image)
++ [11\) windows\-base Docker image—microsoft\-windows\-netfx3\-ondemand\-package\.cab](#11-windows-base-docker-image)
++ [12\) windows\-base Docker image—dotnet\-sdk](#12-windows-base-docker-image)
 
-## 1\) Base Docker Image—windowsservercore<a name="base-docker-image"></a>
+## 1\) base Docker image—windowsservercore<a name="base-docker-image"></a>
 
 \(license terms available at: [https://hub\.docker\.com/r/microsoft/windowsservercore/\)](https://hub.docker.com/r/microsoft/windowsservercore/)
 
@@ -43,9 +43,9 @@ By using this Supplement, you accept these terms\. If you do not accept them, do
 
 As part of the Supplemental License Terms for this Container OS Image for Windows containers, you are also subject to the underlying Windows Server host software license terms, which are located at: [https://www\.microsoft\.com/en\-us/useterms\.](https://www.microsoft.com/en-us/useterms)
 
-## 2\) windows\-base Docker Image—Choco<a name="3-windows-base-docker-image"></a>
+## 2\) windows\-base Docker image—choco<a name="3-windows-base-docker-image"></a>
 
-\(license terms available at: [https://github\.com/chocolatey/chocolatey\.org/blob/master/LICENSE\.txt\)](https://github.com/chocolatey/chocolatey.org/blob/master/LICENSE.txt)
+\(license terms available at: [https://github\.com/chocolatey/chocolatey\.org/blob/master/LICENSE\.txt](https://github.com/chocolatey/chocolatey.org/blob/master/LICENSE.txt)\)
 
 Copyright 2011 \- Present RealDimensions Software, LLC
 
@@ -55,13 +55,13 @@ Licensed under the Apache License, version 2\.0 \(the "License"\); you may not u
 
 Unless required by applicable law or as agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\. See the License for the specific language governing permissions and limitations under the License\.
 
-## 3\) windows\-base Docker Image—git \-\-version 2\.16\.2<a name="4-windows-base-docker-image-2-16-2"></a>
+## 3\) windows\-base Docker image—git \-\-version 2\.16\.2<a name="4-windows-base-docker-image-2-16-2"></a>
 
 \(license terms available at: [https://chocolatey\.org/packages/git/2\.16\.2](https://chocolatey.org/packages/git/2.16.2)\)
 
-**Licensed under GNU General Public License, version 2, available at**: [https://www\.gnu\.org/licenses/old\-licenses/gpl\-2\.0\.html](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html)
+Licensed under GNU General Public License, version 2, available at: [https://www\.gnu\.org/licenses/old\-licenses/gpl\-2\.0\.html](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html)\.
 
-## 4\) windows\-base Docker Image—microsoft\-build\-tools \-\-version 15\.0\.26320\.2<a name="5-windows-base-docker-image-15-x"></a>
+## 4\) windows\-base Docker image—microsoft\-build\-tools \-\-version 15\.0\.26320\.2<a name="5-windows-base-docker-image-15-x"></a>
 
 \(license terms available at: [https://www\.visualstudio\.com/license\-terms/mt171552/](https://www.visualstudio.com/license-terms/mt171552/)\)
 
@@ -133,7 +133,7 @@ IF YOU COMPLY WITH THESE LICENSE TERMS, YOU HAVE THE RIGHTS BELOW\.
 
 EULA ID: VS2015\_Update3\_ShellsRedist\_<ENU>
 
-## 5\) windows\-base Docker Image—nuget\.commandline \-\-version 4\.5\.1<a name="6-windows-base-docker-image-4-5-1"></a>
+## 5\) windows\-base Docker image—nuget\.commandline \-\-version 4\.5\.1<a name="6-windows-base-docker-image-4-5-1"></a>
 
 \(license terms available at: [https://github\.com/NuGet/Home/blob/dev/LICENSE\.txt](https://github.com/NuGet/Home/blob/dev/LICENSE.txt)\)
 
@@ -145,7 +145,7 @@ Licensed under the Apache License, version 2\.0 \(the "License"\); you may not u
 
 Unless required by applicable law or as agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\. See the License for the specific language governing permissions and limitations under the License\.
 
-## 7\) windows\-base Docker Image—netfx\-4\.6\.2\-devpack<a name="7-windows-base-docker-image-4-6-2"></a>
+## 7\) windows\-base Docker image—netfx\-4\.6\.2\-devpack<a name="7-windows-base-docker-image-4-6-2"></a>
 
 **MICROSOFT SOFTWARE SUPPLEMENTAL LICENSE TERMS**
 
@@ -188,7 +188,7 @@ The following license terms describe additional use terms for this supplement\. 
 
 1. **SUPPORT SERVICES FOR SUPPLEMENT**\. Microsoft provides support services for this software as described at [www\.support\.microsoft\.com/common/international\.aspx](http://www.support.microsoft.com/common/international.aspx)\.
 
-## 8\) windows\-base Docker Image—visualfsharptools, v 4\.0<a name="8-windows-base-docker-image-visualfsharptools"></a>
+## 8\) windows\-base Docker image—visualfsharptools, v 4\.0<a name="8-windows-base-docker-image-visualfsharptools"></a>
 
 \(license terms available at: [https://raw\.githubusercontent\.com/Microsoft/visualfsharp/master/License\.txt](https://raw.githubusercontent.com/Microsoft/visualfsharp/master/License.txt)\)
 
@@ -200,7 +200,7 @@ Licensed under the Apache License, version 2\.0 \(the "License"\); you may not u
 
 Unless required by applicable law or as agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\. See the License for the specific language governing permissions and limitations under the License\.
 
-## 9\) windows\-base Docker Image—netfx\-pcl\-reference\-assemblies\-4\.6<a name="9-windows-base-docker-image"></a>
+## 9\) windows\-base Docker image—netfx\-pcl\-reference\-assemblies\-4\.6<a name="9-windows-base-docker-image"></a>
 
 **MICROSOFT SOFTWARE LICENSE TERMS**
 
@@ -282,7 +282,7 @@ for this software, unless other terms accompany those items\. If so, those terms
 
    It also applies even if Microsoft knew or should have known about the possibility of the damages\. The above limitation or exclusion may not apply to you because your country may not allow the exclusion or limitation of incidental, consequential or other damages\.
 
-## 10\) windows\-base Docker Image—visualcppbuildtools v 14\.0\.25420\.1<a name="10-windows-base-docker-image"></a>
+## 10\) windows\-base Docker image—visualcppbuildtools v 14\.0\.25420\.1<a name="10-windows-base-docker-image"></a>
 
 \(license terms available at: [https://www\.visualstudio\.com/license\-terms/mt644918/](https://www.visualstudio.com/license-terms/mt644918/)\)
 
@@ -350,7 +350,7 @@ These license terms are an agreement between Microsoft Corporation \(or based on
 
    It also applies even if Microsoft knew or should have known about the possibility of the damages\. The above limitation or exclusion may not apply to you because your country may not allow the exclusion or limitation of incidental, consequential or other damages\. 
 
-## 11\) windows\-base Docker Image—microsoft\-windows\-netfx3\-ondemand\-package\.cab<a name="11-windows-base-docker-image"></a>
+## 11\) windows\-base Docker image—microsoft\-windows\-netfx3\-ondemand\-package\.cab<a name="11-windows-base-docker-image"></a>
 
 **MICROSOFT SOFTWARE SUPPLEMENTAL LICENSE TERMS**
 
@@ -374,7 +374,7 @@ The following license terms describe additional use terms for this supplement\. 
 
    Notwithstanding any other agreement you may have with Microsoft, if you disclose such benchmark test results, Microsoft shall have the right to disclose the results of benchmark tests it conducts of your products that compete with the applicable \.NET Component, provided it complies with the same conditions set forth at [http://go\.microsoft\.com/fwlink/?LinkID=66406](http://go.microsoft.com/fwlink/?LinkID=66406)\.
 
-## 12\) windows\-base Docker Image—dotnet\-sdk<a name="12-windows-base-docker-image"></a>
+## 12\) windows\-base Docker image—dotnet\-sdk<a name="12-windows-base-docker-image"></a>
 
 \(available at [https://github\.com/dotnet/core/blob/master/LICENSE\.TXT](https://github.com/dotnet/core/blob/master/LICENSE.TXT)\) 
 

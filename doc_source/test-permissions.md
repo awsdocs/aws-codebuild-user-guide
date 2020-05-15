@@ -1,4 +1,4 @@
-# Working with Test Report Permissions<a name="test-permissions"></a>
+# Working with test report permissions<a name="test-permissions"></a>
 
 
 |  | 
@@ -8,11 +8,11 @@
  This topic describes important information about permissions related to test reporting\. 
 
 **Topics**
-+ [Create a Role for Test Reports](#test-permissions-required)
-+ [Permissions for Test Reporting Operations](#test-permissions-related-to-reporting)
-+ [Test Reporting Permissions Examples](#test-permissions-examples)
++ [Create a role for test reports](#test-permissions-required)
++ [Permissions for test reporting operations](#test-permissions-related-to-reporting)
++ [Test reporting permissions examples](#test-permissions-examples)
 
-## Create a Role for Test Reports<a name="test-permissions-required"></a>
+## Create a role for test reports<a name="test-permissions-required"></a>
 
 
 |  | 
@@ -80,7 +80,7 @@
 }
 ```
 
-## Permissions for Test Reporting Operations<a name="test-permissions-related-to-reporting"></a>
+## Permissions for test reporting operations<a name="test-permissions-related-to-reporting"></a>
 
 
 |  | 
@@ -99,9 +99,9 @@
 +  `ListReportsForReportGroup` 
 +  `UpdateReportGroup` 
 
-For more information, see [CodeBuild Permissions Reference](auth-and-access-control-permissions-reference.md)\.
+For more information, see [AWS CodeBuild permissions reference](auth-and-access-control-permissions-reference.md)\.
 
-## Test Reporting Permissions Examples<a name="test-permissions-examples"></a>
+## Test reporting permissions examples<a name="test-permissions-examples"></a>
 
 
 |  | 
@@ -109,13 +109,13 @@ For more information, see [CodeBuild Permissions Reference](auth-and-access-cont
 | The test reporting feature is in preview release for CodeBuild and is subject to change\. | 
 
  For information about sample policies related to test reporting, see the following: 
-+  [Allow a User to Get Information About Report Groups](auth-and-access-control-iam-identity-based-access-control.md#customer-managed-policies-get-information-about-report-group) 
-+  [Allow a User to Get Information About Reports](auth-and-access-control-iam-identity-based-access-control.md#customer-managed-policies-get-information-about-reports) 
-+  [Allow a User to Create a Report Group](auth-and-access-control-iam-identity-based-access-control.md#customer-managed-policies-example-create-report-group) 
-+  [Allow a User to Delete a Report Group](auth-and-access-control-iam-identity-based-access-control.md#customer-managed-policies-example-delete-report-group) 
-+  [Allow a User to Delete a Report](auth-and-access-control-iam-identity-based-access-control.md#customer-managed-policies-example-delete-report) 
-+  [Allow a User to Get a List of Test Cases for a Report](auth-and-access-control-iam-identity-based-access-control.md#customer-managed-policies-example-get-list-of-test-cases-for-report) 
-+  [Allow a User to Get a List of Report Groups](auth-and-access-control-iam-identity-based-access-control.md#customer-managed-policies-example-get-list-of-report-groups) 
-+  [Allow a User to Get a List of Reports](auth-and-access-control-iam-identity-based-access-control.md#customer-managed-policies-example-get-list-of-reports) 
-+  [Allow a User to Get a List of Reports for a Report Group](auth-and-access-control-iam-identity-based-access-control.md#customer-managed-policies-example-get-list-of-reports-for-report-group) 
-+  [Allow a User to Change a Report Group](auth-and-access-control-iam-identity-based-access-control.md#customer-managed-policies-example-change-report-group) 
++  [Allow a user to change a report group](auth-and-access-control-iam-identity-based-access-control.md#customer-managed-policies-example-change-report-group) 
++  [Allow a user to create a report group](auth-and-access-control-iam-identity-based-access-control.md#customer-managed-policies-example-create-report-group) 
++  [Allow a user to delete a report](auth-and-access-control-iam-identity-based-access-control.md#customer-managed-policies-example-delete-report) 
++  [Allow a user to delete a report group](auth-and-access-control-iam-identity-based-access-control.md#customer-managed-policies-example-delete-report-group) 
++  [Allow a user to get information about report groups](auth-and-access-control-iam-identity-based-access-control.md#customer-managed-policies-get-information-about-report-group) 
++  [Allow a user to get information about reports](auth-and-access-control-iam-identity-based-access-control.md#customer-managed-policies-get-information-about-reports) 
++  [Allow a user to get a list of report groups](auth-and-access-control-iam-identity-based-access-control.md#customer-managed-policies-example-get-list-of-report-groups) 
++  [Allow a user to get a list of reports](auth-and-access-control-iam-identity-based-access-control.md#customer-managed-policies-example-get-list-of-reports) 
++  [Allow a user to get a list of reports for a report group](auth-and-access-control-iam-identity-based-access-control.md#customer-managed-policies-example-get-list-of-reports-for-report-group) 
++  [Allow a user to get a list of test cases for a report](auth-and-access-control-iam-identity-based-access-control.md#customer-managed-policies-example-get-list-of-test-cases-for-report) 

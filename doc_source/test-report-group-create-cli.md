@@ -1,11 +1,11 @@
-# Create a Report Group \(CLI\)<a name="test-report-group-create-cli"></a>
+# Create a report group \(CLI\)<a name="test-report-group-create-cli"></a>
 
 
 |  | 
 | --- |
 | The test reporting feature is in preview release for CodeBuild and is subject to change\. | 
 
-**To create a test report using the AWS CLI**
+**To create a test report**
 + Create a file named `CreateReportGroup.json`\.
 
 1.  Depending on your requirements, copy one of the following JSON code snippets into `CreateReportGroup.json`: 
@@ -27,7 +27,7 @@
      }
      ```
 
-      Replace `bucket-name` with your S3 bucket name and `path` with the path in your S3 bucket to where you want to export the files\. If you want to compress the exported files, for `packaging`, specify `ZIP`\. Otherwise, specify `NONE`\. Use `encryptionDisabled` to specify whether to encrypt the exported files\. If you encrypt the exported files, enter your customer master key \(CMK\)\. For more information, see [Update a Report Group](report-group-export-settings.md)\.
+      Replace `bucket-name` with your S3 bucket name and `path` with the path in your S3 bucket to where you want to export the files\. If you want to compress the exported files, for `packaging`, specify `ZIP`\. Otherwise, specify `NONE`\. Use `encryptionDisabled` to specify whether to encrypt the exported files\. If you encrypt the exported files, enter your customer master key \(CMK\)\. For more information, see [Update a report group](report-group-export-settings.md)\.
    + Use the following JSON to specify that your test report does not export raw test files: 
 
      ```

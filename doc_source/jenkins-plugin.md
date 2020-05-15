@@ -1,22 +1,22 @@
 # Use AWS CodeBuild with Jenkins<a name="jenkins-plugin"></a>
 
-The Jenkins plugin for AWS CodeBuild enables you to integrate CodeBuild with your Jenkins build jobs\. Instead of sending your build jobs to Jenkins build nodes, you use the plugin to send your build jobs to CodeBuild\. This eliminates the need for you to provision, configure, and manage Jenkins build nodes\.
+You can use the Jenkins plugin for AWS CodeBuild to integrate CodeBuild with your Jenkins build jobs\. Instead of sending your build jobs to Jenkins build nodes, you use the plugin to send your build jobs to CodeBuild\. This eliminates the need for you to provision, configure, and manage Jenkins build nodes\.
 
-## Setting Up Jenkins<a name="setup-jenkins"></a>
+## Setting up Jenkins<a name="setup-jenkins"></a>
 
-For information about setting up Jenkins with the AWS CodeBuild plugin, see the [ Simplify Your Jenkins Builds with CodeBuild](https://aws.amazon.com/blogs/devops/simplify-your-jenkins-builds-with-aws-codebuild/) blog post on the AWS DevOps Blog\. You can download the CodeBuild Jenkins from [ https://github\.com/awslabs/aws\-codebuild\-jenkins\-plugin](https://github.com/awslabs/aws-codebuild-jenkins-plugin)\.
+For information about setting up Jenkins with the AWS CodeBuild plugin, see the [ Simplify Your Jenkins Builds with CodeBuild](https://aws.amazon.com/blogs/devops/simplify-your-jenkins-builds-with-aws-codebuild/) blog post on the AWS DevOps Blog\. You can download the CodeBuild Jenkins plugin from [ https://github\.com/awslabs/aws\-codebuild\-jenkins\-plugin](https://github.com/awslabs/aws-codebuild-jenkins-plugin)\.
 
-## Installing the Plugin<a name="plugin-installation"></a>
+## Installing the plugin<a name="plugin-installation"></a>
 
-If you already have a Jenkins set up and would like to only install the AWS CodeBuild plugin, then on your Jenkins instance, in the Plugin Manager, search for "CodeBuild Plugin for Jenkins" \.
+If you already have a Jenkins server set up and would like to only install the AWS CodeBuild plugin, on your Jenkins instance, in the Plugin Manager, search for **CodeBuild Plugin for Jenkins**\.
 
-## Using the Plugin<a name="plugin-usage"></a><a name="source-available-outside-of-your-vpc"></a>
+## Using the plugin<a name="plugin-usage"></a><a name="source-available-outside-of-your-vpc"></a>
 
-**To use AWS CodeBuild with sources from outside of an Amazon VPC**
+**To use AWS CodeBuild with sources from outside of a VPC**
 
-1. Create a project in the CodeBuild console\. For more information, see [Create a Build Project \(Console\)](create-project.md#create-project-console)\. 
-   + Choose the region where you want to run the build\.
-   + \(Optional\) Set the Amazon VPC configuration to allow the CodeBuild build container to access resources in your Amazon VPC\.
+1. Create a project in the CodeBuild console\. For more information, see [Create a build project \(console\)](create-project.md#create-project-console)\. 
+   + Choose the AWS Region where you want to run the build\.
+   + \(Optional\) Set the Amazon VPC configuration to allow the CodeBuild build container to access resources in your VPC\.
    + Write down the name of your project\. You need it in step 3\.
    + \(Optional\) If your source repository is not natively supported by CodeBuild, you can set Amazon S3 as the input source type for your project\.
 
@@ -73,7 +73,7 @@ If you already have a Jenkins set up and would like to only install the AWS Code
      + Choose **Use Jenkins source**\.
      + Save the configuration and run a build from Jenkins\.<a name="jenkins-pipeline-plugin"></a>
 
-**To use the AWS CodeBuild plugin with the Jenkins Pipeline plugin**
+**To use the AWS CodeBuild plugin with the Jenkins pipeline plugin**
 + On your Jenkins pipeline project page, use the snippet generator to generate a pipeline script that adds CodeBuild as a step in your pipeline\. It should generate a script similar to this:
 
   ```

@@ -1,4 +1,4 @@
-# Update a Report Group \(Console\)<a name="update-report-group-console"></a>
+# Update a report group \(console\)<a name="update-report-group-console"></a>
 
 **To update a report group**
 

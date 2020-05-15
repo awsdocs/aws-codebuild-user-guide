@@ -1,8 +1,8 @@
-# Using Access Tokens with Your Source Provider in CodeBuild<a name="sample-access-tokens"></a>
+# Use access tokens with your source provider in CodeBuild<a name="sample-access-tokens"></a>
 
  This sample shows you how to connect to GitHub or Bitbucket with an access token\. For GitHub or GitHub Enterprise, you use a personal access token\. For Bitbucket, you use an app password\. 
 
-## Access Token Prerequisites<a name="sample-access-tokens-prerequisites"></a>
+## Access token prerequisites<a name="sample-access-tokens-prerequisites"></a>
 
  Before you begin, you must add the proper permission scopes to your access token\. 
 
@@ -11,18 +11,18 @@
 +  **repo:status**: Grants access to commit statuses\. 
 +  **admin:repo\_hook**: Grants full control of repository hooks\. This scope is not required if your token has the `repo` scope\. 
 
-For more information, see [Understanding Scopes for OAuth Apps](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/)\.
+For more information, see [Understanding Scopes for OAuth Apps](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/) on the GitHub website\.
 
  For Bitbucket, your app password must have the following scopes\. 
 +  **repository:read**: Grants read access to all the repositories to which the authorizing user has access\. 
 +  **pullrequest:read**: Grants read access to pull requests\. If your project has a Bitbucket webhook, then your app password must have this scope\. 
 +  **webhook**: Grants access to webhooks\. If your project has a webhook operation, then your app password must have this scope\. 
 
-For more information, see [Scopes for Bitbucket Cloud REST API](https://developer.atlassian.com/cloud/bitbucket/bitbucket-cloud-rest-api-scopes/) and [OAuth on Bitbucket Cloud](https://confluence.atlassian.com/bitbucket/oauth-on-bitbucket-cloud-238027431.html)\.
+For more information, see [Scopes for Bitbucket Cloud REST API](https://developer.atlassian.com/cloud/bitbucket/bitbucket-cloud-rest-api-scopes/) and [OAuth on Bitbucket Cloud](https://confluence.atlassian.com/bitbucket/oauth-on-bitbucket-cloud-238027431.html) on the Bitbucket website\.
 
-## Connect Source Providers with Access Tokens \(Console\)<a name="sample-access-tokens-console"></a>
+## Connect source providers with access tokens \(console\)<a name="sample-access-tokens-console"></a>
 
- To use the console to connect your project to GitHub or Bitbucket using access tokens, do the following while you create a project\. For information, see [Create a Build Project \(Console\)](create-project.md#create-project-console)\. 
+ To use the console to connect your project to GitHub or Bitbucket using access tokens, do the following while you create a project\. For information, see [Create a build project \(console\)](create-project.md#create-project-console)\. 
 
 For GitHub:
 
@@ -50,9 +50,9 @@ CodeBuild does not support Bitbucket Server\.
 
 1.  Choose **Save Bitbucket credentials**\. 
 
-## Connect Source Providers with Access Tokens \(CLI\)<a name="sample-access-tokens-cli"></a>
+## Connect source providers with access tokens \(CLI\)<a name="sample-access-tokens-cli"></a>
 
-Follow these steps to use the AWS CLI to connect your project to GitHub or Bitbucket using access tokens\. For information about using the AWS CLI with AWS CodeBuild, see the [Command Line Reference](cmd-ref.md)\. 
+Follow these steps to use the AWS CLI to connect your project to GitHub or Bitbucket using access tokens\. For information about using the AWS CLI with AWS CodeBuild, see the [Command line reference](cmd-ref.md)\. 
 
 1.  Run the import\-source\-credentials command: 
 
@@ -95,7 +95,7 @@ Follow these steps to use the AWS CLI to connect your project to GitHub or Bitbu
 **Note**  
  If you run the import\-source\-credentials command with the same server type and auth type a second time, the stored access token is updated\. 
 
-    After your account is connected with an access token, you can use `create-project` to create your CodeBuild project\. For more information, see [Create a Build Project \(AWS CLI\)](create-project.md#create-project-cli)\. 
+    After your account is connected with an access token, you can use `create-project` to create your CodeBuild project\. For more information, see [Create a build project \(AWS CLI\)](create-project.md#create-project-cli)\. 
 
 1.  To view the connected access tokens, run the list\-source\-credentials command\. 
 

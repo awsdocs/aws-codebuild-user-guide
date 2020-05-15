@@ -1,6 +1,6 @@
-# Step 4: Upload the Source Code and the Buildspec File<a name="getting-started-upload-source-code-console"></a>
+# Step 4: Upload the source code and the buildspec file<a name="getting-started-upload-source-code-console"></a>
 
-\(Previous step: [Step 3: Create the Buildspec File](getting-started-create-build-spec-console.md)\)
+\(Previous step: [Step 3: Create the buildspec file](getting-started-create-build-spec-console.md)\)
 
 In this step, you add the source code and build spec file to the input bucket\.
 
@@ -29,8 +29,8 @@ Upload the `MessageUtil.zip` file to the input bucket named `codebuild-region-ID
 **Important**  
 For CodeCommit, GitHub, and Bitbucket repositories, by convention, you must store a build spec file named `buildspec.yml` in the root \(top level\) of each repository or include the build spec declaration as part of the build project definition\. Do not create a ZIP file that contains the repository's source code and build spec file\.   
 For build input stored in S3 buckets only, you must create a ZIP file that contains the source code and, by convention, a build spec file named `buildspec.yml` at the root \(top level\) or include the build spec declaration as part of the build project definition\.  
-If you want to use a different name for your build spec file, or you want to reference a build spec in a location other than the root, you can specify a build spec override as part of the build project definition\. For more information, see [Buildspec File Name and Storage Location](build-spec-ref.md#build-spec-ref-name-storage)\.
+If you want to use a different name for your build spec file, or you want to reference a build spec in a location other than the root, you can specify a build spec override as part of the build project definition\. For more information, see [Buildspec file name and storage location](build-spec-ref.md#build-spec-ref-name-storage)\.
 
-## Next Step<a name="getting-started-upload-source-code-console-next"></a>
+## Next step<a name="getting-started-upload-source-code-console-next"></a>
 
-[Step 5: Create the Build Project](getting-started-create-build-project-console.md)
+[Step 5: Create the build project](getting-started-create-build-project-console.md)

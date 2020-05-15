@@ -1,16 +1,16 @@
-# Advanced Setup<a name="setting-up"></a>
+# Advanced setup<a name="setting-up"></a>
 
-If you follow the steps in [Getting Started in the Console](getting-started.md) to access AWS CodeBuild for the first time, most likely you will not need to reference the information in this topic\. However, as you continue using CodeBuild, you will want to do things such as give IAM groups and users in your organization access to CodeBuild, modify existing service roles in IAM or customer master keys in AWS KMS to access CodeBuild, or set up the AWS CLI across your organization's workstations to access CodeBuild\. This topic describes how to complete the related setup steps\.
+If you follow the steps in [Getting started using the console](getting-started.md) to access AWS CodeBuild for the first time, you most likely do not need the information in this topic\. However, as you continue using CodeBuild, you might want to do things such as give IAM groups and users in your organization access to CodeBuild, modify existing service roles in IAM or customer master keys in AWS KMS to access CodeBuild, or set up the AWS CLI across your organization's workstations to access CodeBuild\. This topic describes how to complete the related setup steps\.
 
 We assume you already have an AWS account\. However, if you do not already have one, go to [http://aws\.amazon\.com](http://aws.amazon.com), choose **Sign In to the Console**, and follow the online instructions\.
 
 **Topics**
-+ [Add CodeBuild Access Permissions to an IAM Group or IAM User](#setting-up-service-permissions-group)
-+ [Create a CodeBuild Service Role](#setting-up-service-role)
-+ [Create and Configure an AWS KMS CMK for CodeBuild](#setting-up-kms)
-+ [Install and Configure the AWS CLI](#setting-up-cli)
++ [Add CodeBuild access permissions to an IAM group or IAM user](#setting-up-service-permissions-group)
++ [Create a CodeBuild service role](#setting-up-service-role)
++ [Create and configure an AWS KMS CMK for CodeBuild](#setting-up-kms)
++ [Install and configure the AWS CLI](#setting-up-cli)
 
-## Add CodeBuild Access Permissions to an IAM Group or IAM User<a name="setting-up-service-permissions-group"></a>
+## Add CodeBuild access permissions to an IAM group or IAM user<a name="setting-up-service-permissions-group"></a>
 
 To access AWS CodeBuild with an IAM group or IAM user, you must add access permissions\. This section describes how to do this with the IAM console or the AWS CLI\.
 
@@ -45,8 +45,8 @@ For information about AWS root accounts and administrator IAM users, see [The Ac
 1. To add a custom set of AWS CodeBuild access permissions to an IAM group or IAM user, skip ahead to step 4 in this procedure\.
 
    To add a default set of CodeBuild access permissions to an IAM group or IAM user, choose **Policy Type**, **AWS Managed**, and then do the following:
-   + To add full access permissions to CodeBuild, select the box named **AWSCodeBuildAdminAccess**\. Then choose **Policy Actions**, **Attach**\. Select the box next to the target IAM group or IAM user, and then choose **Attach Policy**\. Repeat this for the policies named **AmazonS3ReadOnlyAccess** and **IAMFullAccess**\.
-   + To add access permissions to CodeBuild for everything except build project administration, select the box named **AWSCodeBuildDeveloperAccess**\. Then choose **Policy Actions**, **Attach**\. Select the box next to the target IAM group or IAM user, and then choose **Attach Policy**\. Repeat this for the policy named **AmazonS3ReadOnlyAccess**\.
+   + To add full access permissions to CodeBuild, select the box named **AWSCodeBuildAdminAccess**, choose **Policy Actions**, and then choose **Attach**\. Select the box next to the target IAM group or IAM user, and then choose **Attach Policy**\. Repeat this for the policies named **AmazonS3ReadOnlyAccess** and **IAMFullAccess**\.
+   + To add access permissions to CodeBuild for everything except build project administration, select the box named **AWSCodeBuildDeveloperAccess**, choose **Policy Actions**, and then choose **Attach**\. Select the box next to the target IAM group or IAM user, and then choose **Attach Policy**\. Repeat this for the policy named **AmazonS3ReadOnlyAccess**\.
    + To add read\-only access permissions to CodeBuild, select the boxes named **AWSCodeBuildReadOnlyAccess**\. Select the box next to the target IAM group or IAM user, and then choose **Attach Policy**\. Repeat this for the policy named **AmazonS3ReadOnlyAccess**\.
 
    You have now added a default set of CodeBuild access permissions to an IAM group or IAM user\. Skip the rest of the steps in this procedure\.
@@ -55,9 +55,9 @@ For information about AWS root accounts and administrator IAM users, see [The Ac
 
 1. On the **Create Policy** page, next to **Create Your Own Policy**, choose **Select**\.
 
-1. On the **Review Policy** page, for **Policy Name**, type a name for the policy \(for example, **CodeBuildAccessPolicy**\)\. If you use a different name, substitute it throughout this procedure\.
+1. On the **Review Policy** page, for **Policy Name**, enter a name for the policy \(for example, **CodeBuildAccessPolicy**\)\. If you use a different name, be sure to use it throughout this procedure\.
 
-1. For **Policy Document**, type the following, and then choose **Create Policy**\.
+1. For **Policy Document**, enter the following, and then choose **Create Policy**\.
 
    ```
    {
@@ -105,13 +105,13 @@ For information about AWS root accounts and administrator IAM users, see [The Ac
    }
    ```
 **Note**  
-This policy allows access to all CodeBuild actions and to a potentially large number of AWS resources\. To restrict permissions to specific CodeBuild actions, change the value of `codebuild:*` in the CodeBuild policy statement\. For more information, see [Identity and Access Management](auth-and-access-control.md)\. To restrict access to specific AWS resources, change the value of the `Resource` object\. For more information, see [Identity and Access Management](auth-and-access-control.md)\.
+This policy allows access to all CodeBuild actions and to a potentially large number of AWS resources\. To restrict permissions to specific CodeBuild actions, change the value of `codebuild:*` in the CodeBuild policy statement\. For more information, see [Identity and access management](auth-and-access-control.md)\. To restrict access to specific AWS resources, change the value of the `Resource` object\. For more information, see [Identity and access management](auth-and-access-control.md)\.
 
 1. In the navigation pane, choose **Groups** or **Users**\.
 
 1. In the list of groups or users, choose the name of the IAM group or IAM user to which you want to add CodeBuild access permissions\.
 
-1. For a group, on the group settings page, on the **Permissions** tab, expand **Managed Policies**, and choose **Attach Policy**\.
+1. For a group, on the group settings page, on the **Permissions** tab, expand **Managed Policies**, and then choose **Attach Policy**\.
 
    For a user, on the user settings page, on the **Permissions** tab, choose **Add permissions**\.
 
@@ -123,7 +123,7 @@ This policy allows access to all CodeBuild actions and to a potentially large nu
 
 1. Make sure you have configured the AWS CLI with the AWS access key and AWS secret access key that correspond to one of the IAM entities, as described in the previous procedure\. For more information, see [Getting Set Up with the AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-set-up.html) in the *AWS Command Line Interface User Guide*\.
 
-1. To add a custom set of AWS CodeBuild access permissions to an IAM group or IAM user, skip ahead to step 3 in this procedure\.
+1. To add a custom set of AWS CodeBuild access permissions to an IAM group or IAM user, skip to step 3 in this procedure\.
 
    To add a default set of CodeBuild access permissions to an IAM group or IAM user, do the following:
 
@@ -149,7 +149,7 @@ This policy allows access to all CodeBuild actions and to a potentially large nu
 
    You have now added a default set of CodeBuild access permissions to an IAM group or IAM user\. Skip the rest of the steps in this procedure\.
 
-1. In an empty directory on the local workstation or instance where the AWS CLI is installed, create a file named `put-group-policy.json` or `put-user-policy.json`\. If you use a different file name, substitute it throughout this procedure\.
+1. In an empty directory on the local workstation or instance where the AWS CLI is installed, create a file named `put-group-policy.json` or `put-user-policy.json`\. If you use a different file name, be sure to use it throughout this procedure\.
 
    ```
    {
@@ -197,9 +197,9 @@ This policy allows access to all CodeBuild actions and to a potentially large nu
    }
    ```
 **Note**  
-This policy allows access to all CodeBuild actions and to a potentially large number of AWS resources\. To restrict permissions to specific CodeBuild actions, change the value of `codebuild:*` in the CodeBuild policy statement\. For more information, see [Identity and Access Management](auth-and-access-control.md)\. To restrict access to specific AWS resources, change the value of the related `Resource` object\. For more information, see [Identity and Access Management](auth-and-access-control.md) or the specific AWS service's security documentation\.
+This policy allows access to all CodeBuild actions and to a potentially large number of AWS resources\. To restrict permissions to specific CodeBuild actions, change the value of `codebuild:*` in the CodeBuild policy statement\. For more information, see [Identity and access management](auth-and-access-control.md)\. To restrict access to specific AWS resources, change the value of the related `Resource` object\. For more information, see [Identity and access management](auth-and-access-control.md) or the specific AWS service's security documentation\.
 
-1. Switch to the directory where you saved the file, and then run one of the following commands\. You can use different values for `CodeBuildGroupAccessPolicy` and `CodeBuildUserAccessPolicy`\. If you use different values, substitute them here\.
+1. Switch to the directory where you saved the file, and then run one of the following commands\. You can use different values for `CodeBuildGroupAccessPolicy` and `CodeBuildUserAccessPolicy`\. If you use different values, be sure to use them here\.
 
    For an IAM group:
 
@@ -215,18 +215,18 @@ This policy allows access to all CodeBuild actions and to a potentially large nu
 
    In the preceding commands, replace *group\-name* or *user\-name* with the name of the target IAM group or IAM user\.
 
-## Create a CodeBuild Service Role<a name="setting-up-service-role"></a>
+## Create a CodeBuild service role<a name="setting-up-service-role"></a>
 
 You need an AWS CodeBuild service role so that CodeBuild can interact with dependent AWS services on your behalf\. You can create a CodeBuild service role by using the CodeBuild or AWS CodePipeline consoles\. For information, see:
-+ [Create a Build Project \(Console\)](create-project.md#create-project-console)
-+ [Create a Pipeline That Uses CodeBuild \(CodePipeline Console\)](how-to-create-pipeline.md#how-to-create-pipeline-console)
-+ [Add an CodeBuild Build Action to a Pipeline \(CodePipeline Console\)](how-to-create-pipeline.md#how-to-create-pipeline-add)
-+ [Change a Build Project's Settings \(Console\)](change-project.md#change-project-console)
++ [Create a build project \(console\)](create-project.md#create-project-console)
++ [Create a pipeline that uses CodeBuild \(CodePipeline console\)](how-to-create-pipeline.md#how-to-create-pipeline-console)
++ [Add a CodeBuild build action to a pipeline \(CodePipeline console\)](how-to-create-pipeline.md#how-to-create-pipeline-add)
++ [Change a build project's settings \(console\)](change-project.md#change-project-console)
 
 If you do not plan to use these consoles, this section describes how to create a CodeBuild service role with the IAM console or the AWS CLI\. 
 
 **Note**  
-The service role described on this page contains a policy that grants the minimum permissions required to use CodeBuild\. You might need to add additional permissions depending on your use case\. For example, if you want to use CodeBuild with Amazon Virtual Private Cloud, then the service role you create requires the permissions in the following policy: [Create a CodeBuild Service Role](#setting-up-service-role)\.<a name="setting-up-service-role-console"></a>
+The service role described on this page contains a policy that grants the minimum permissions required to use CodeBuild\. You might need to add additional permissions depending on your use case\. For example, if you want to use CodeBuild with Amazon Virtual Private Cloud, then the service role you create requires the permissions in the following policy: [Create a CodeBuild service role](#setting-up-service-role)\.<a name="setting-up-service-role-console"></a>
 
 **To create a CodeBuild service role \(console\)**
 
@@ -260,7 +260,7 @@ The service role described on this page contains a policy that grants the minimu
 
 1. On the **Create Policy** page, choose **JSON**\.
 
-1. For the JSON Policy, type the following, and then choose **Review Policy**:
+1. For the JSON policy, enter the following, and then choose **Review Policy**:
 
    ```
    {
@@ -347,25 +347,25 @@ The service role described on this page contains a policy that grants the minimu
 **Note**  
 This policy contains statements that allow access to a potentially large number of AWS resources\. To restrict AWS CodeBuild to access specific AWS resources, change the value of the `Resource` array\. For more information, see the security documentation for the AWS service\.
 
-1. On the **Review Policy** page, for **Policy Name**, type a name for the policy \(for example, **CodeBuildServiceRolePolicy**\), and then choose **Create policy**\.
+1. On the **Review Policy** page, for **Policy Name**, enter a name for the policy \(for example, **CodeBuildServiceRolePolicy**\), and then choose **Create policy**\.
 **Note**  
-If you use a different name, substitute it throughout this procedure\.
+If you use a different name, be sure to use it throughout this procedure\.
 
 1. In the navigation pane, choose **Roles**\.
 
 1. Choose **Create role**\.
 
-1. On the **Create role** page, with **AWS Service** already selected, choose **CodeBuild**, as the service that will use this role, and then choose **Next:Permissions**\.
+1. On the **Create role** page, with **AWS Service** already selected, choose **CodeBuild**, and then choose **Next:Permissions**\.
 
 1. On the **Attach permissions policies** page, select **CodeBuildServiceRolePolicy**, and then choose **Next: Review**\.
 
-1. On the **Create role and review** page, for **Role name**, type a name for the role \(for example, **CodeBuildServiceRole**\), and then choose **Create role**\.<a name="setting-up-service-role-cli"></a>
+1. On the **Create role and review** page, for **Role name**, enter a name for the role \(for example, **CodeBuildServiceRole**\), and then choose **Create role**\.<a name="setting-up-service-role-cli"></a>
 
 **To create a CodeBuild service role \(AWS CLI\)**
 
 1. Make sure you have configured the AWS CLI with the AWS access key and AWS secret access key that correspond to one of the IAM entities, as described in the previous procedure\. For more information, see [Getting Set Up with the AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-set-up.html) in the *AWS Command Line Interface User Guide*\.
 
-1. In an empty directory on the local workstation or instance where the AWS CLI is installed, create two files named `create-role.json` and `put-role-policy.json`\. If you choose different file names, substitute them throughout this procedure\.
+1. In an empty directory on the local workstation or instance where the AWS CLI is installed, create two files named `create-role.json` and `put-role-policy.json`\. If you choose different file names, be sure to use them throughout this procedure\.
 
    `create-role.json`:
 
@@ -450,7 +450,7 @@ If you use a different name, substitute it throughout this procedure\.
 **Note**  
 This policy contains statements that allow access to a potentially large number of AWS resources\. To restrict AWS CodeBuild to access specific AWS resources, change the value of the `Resource` array\. For more information, see the security documentation for the AWS service\.
 
-1. Switch to the directory where you saved the preceding files, and then run the following two commands, one at a time, in this order\. You can use different values for `CodeBuildServiceRole` and `CodeBuildServiceRolePolicy`, but be sure to substitute them here\.
+1. Switch to the directory where you saved the preceding files, and then run the following two commands, one at a time, in this order\. You can use different values for `CodeBuildServiceRole` and `CodeBuildServiceRolePolicy`, but be sure to use them here\.
 
    ```
    aws iam create-role --role-name CodeBuildServiceRole --assume-role-policy-document file://create-role.json
@@ -460,7 +460,7 @@ This policy contains statements that allow access to a potentially large number 
    aws iam put-role-policy --role-name CodeBuildServiceRole --policy-name CodeBuildServiceRolePolicy --policy-document file://put-role-policy.json
    ```
 
-## Create and Configure an AWS KMS CMK for CodeBuild<a name="setting-up-kms"></a>
+## Create and configure an AWS KMS CMK for CodeBuild<a name="setting-up-kms"></a>
 
 For AWS CodeBuild to encrypt its build output artifacts, it needs access to an AWS KMS customer master key \(CMK\)\. By default, CodeBuild uses the AWS\-managed CMK for Amazon S3 in your AWS account\.
 
@@ -541,7 +541,7 @@ Your AWS root account\. This is not recommended\. For more information, see [The
 An administrator IAM user in your AWS account\. For more information, see [Creating Your First IAM Admin User and Group](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html) in the *IAM User Guide*\.
 An IAM user in your AWS account with permission to create or modify the CMK\. For more information, see [Permissions Required to Use the AWS KMS Console](https://docs.aws.amazon.com/kms/latest/developerguide/iam-policies.html#console-permissions) in the *AWS KMS Developer Guide*\.
 
-## Install and Configure the AWS CLI<a name="setting-up-cli"></a>
+## Install and configure the AWS CLI<a name="setting-up-cli"></a>
 
 To access AWS CodeBuild, you can use the AWS CLI with—or instead of—the CodeBuild console, the CodePipeline console, or the AWS SDKs\. To install and configure the AWS CLI, see [Getting Set Up with the AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-set-up.html) in the *AWS Command Line Interface User Guide*\.
 

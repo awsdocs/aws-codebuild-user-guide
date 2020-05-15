@@ -1,8 +1,8 @@
-# Create a Static Website with Build Output Hosted in an Amazon S3 Bucket<a name="sample-disable-artifact-encryption"></a>
+# Create a static website with build output hosted in an S3 bucket<a name="sample-disable-artifact-encryption"></a>
 
- You can disable the encryption of artifacts in a build\. You might want to do this so that you can publish artifacts to a location that is configured to host a website\. \(You cannot publish encrypted artifacts\.\) This sample shows how you can use webhooks to trigger a build and publish its artifacts to an Amazon S3 bucket that is configured to be a website\. 
+ You can disable the encryption of artifacts in a build\. You might want to do this so that you can publish artifacts to a location that is configured to host a website\. \(You cannot publish encrypted artifacts\.\) This sample shows how you can use webhooks to trigger a build and publish its artifacts to an S3 bucket that is configured to be a website\. 
 
-1.  Follow the instructions in [Setting Up a Static Website](https://docs.aws.amazon.com/AmazonS3/latest/dev/HostingWebsiteOnS3Setup.html) to configure an Amazon S3 bucket to function like a website\. 
+1.  Follow the instructions in [Setting Up a Static Website](https://docs.aws.amazon.com/AmazonS3/latest/dev/HostingWebsiteOnS3Setup.html) to configure an S3 bucket to function like a website\. 
 
 1. Open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codesuite/codebuild/home](https://console.aws.amazon.com/codesuite/codebuild/home)\.
 
@@ -20,7 +20,7 @@
    For **Environment image**, do one of the following:
    + To use a Docker image managed by AWS CodeBuild, choose **Managed image**, and then make selections from **Operating system**, **Runtime\(s\)**, **Image**, and **Image version**\. Make a selection from **Environment type** if it is available\.
    + To use another Docker image, choose **Custom image**\. For **Environment type**, choose **ARM**, **Linux**, **Linux GPU**, or **Windows**\. If you choose **Other registry**, for **External registry URL**, enter the name and tag of the Docker image in Docker Hub, using the format `docker repository/docker image name`\. If you choose **Amazon ECR**, use **Amazon ECR repository** and **Amazon ECR image** to choose the Docker image in your AWS account\.
-   + To use private Docker image, choose **Custom image**\. For **Environment type**, choose **ARM**, **Linux**, **Linux GPU**, or **Windows**\. For **Image registry**, choose **Other registry**, and then enter the ARN of the credentials for your private Docker image\. The credentials must be created by Secrets Manager\. For more information, see [What Is AWS Secrets Manager?](https://docs.aws.amazon.com/secretsmanager/latest/userguide/)
+   + To use private Docker image, choose **Custom image**\. For **Environment type**, choose **ARM**, **Linux**, **Linux GPU**, or **Windows**\. For **Image registry**, choose **Other registry**, and then enter the ARN of the credentials for your private Docker image\. The credentials must be created by Secrets Manager\. For more information, see [What Is AWS Secrets Manager?](https://docs.aws.amazon.com/secretsmanager/latest/userguide/) in the *AWS Secrets Manager User Guide*\.
 
 1. In **Service role**, do one of the following:
    + If you do not have a CodeBuild service role, choose **New service role**\. In **Role name**, enter a name for the new role\.
@@ -32,18 +32,18 @@ When you use the console to create or update a build project, you can create a C
    + Choose **Use a buildspec file** to use the buildspec\.yml file in the source code root directory\.
    + Choose **Insert build commands** to use the console to insert build commands\.
 
-   For more information, see the [Buildspec Reference](build-spec-ref.md)\.
+   For more information, see the [Buildspec reference](build-spec-ref.md)\.
 
-1.  In **Artifacts**, for ** Type**, choose **Amazon S3** to store the build output in an Amazon S3 bucket\. 
+1.  In **Artifacts**, for ** Type**, choose **Amazon S3** to store the build output in an S3 bucket\. 
 
-1.  For **Bucket name**, choose the name of the Amazon S3 bucket you configured to function as a website in step 1\. 
+1.  For **Bucket name**, choose the name of the S3 bucket you configured to function as a website in step 1\. 
 
-1.  If you chose **Insert build commands** in **Buildspec**, then in the `files` section in `artifacts` of your commands, enter the locations of the files from the build that you want to put into the output bucket\. If you have more than one location, use a comma to separate each location \(for example, "appspec\.yml, target/my\-app\.jar"\)\. For more information, see [Artifacts reference-key in the buildspec file](build-spec-ref.md#artifacts-build-spec)\. 
+1.  If you chose **Insert build commands** in **Environment**, then for **Output files**, enter the locations of the files from the build that you want to put into the output bucket\. If you have more than one location, use a comma to separate each location \(for example, **appspec\.yml, target/my\-app\.jar**\)\. For more information, see [Artifacts reference-key in the buildspec file](build-spec-ref.md#artifacts-build-spec)\.
 
 1.  Select **Disable artifacts encryption**\. 
 
-1. Expand **Additional configuration** and set options as appropriate\.
+1. Expand **Additional configuration** and choose options as appropriate\.
 
 1. Choose **Create build project**\. On the build project page, in **Build history**, choose **Start build** to run the build\.
 
-1.  \(Optional\) Follow the instructions in [Example: Speed Up Your Website with Amazon CloudFront](https://docs.aws.amazon.com/AmazonS3/latest/dev/website-hosting-cloudfront-walkthrough.html)\. 
+1.  \(Optional\) Follow the instructions in [Example: Speed Up Your Website with Amazon CloudFront](https://docs.aws.amazon.com/AmazonS3/latest/dev/website-hosting-cloudfront-walkthrough.html) in the *Amazon S3 Developer Guide*\. 

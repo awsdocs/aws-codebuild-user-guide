@@ -1,6 +1,6 @@
-# Step 2: Create the Source Code<a name="getting-started-cli-create-source-code"></a>
+# Step 2: Create the source code<a name="getting-started-cli-create-source-code"></a>
 
-\(Previous step: [Step 1: Create Two S3 Buckets](getting-started-cli-input-bucket.md)\)
+\(Previous step: [Step 1: Create two S3 buckets](getting-started-cli-input-bucket.md)\)
 
 In this step, you create the source code that you want CodeBuild to build to the output bucket\. This source code consists of two Java class files and an Apache Maven Project Object Model \(POM\) file\.
 
@@ -117,6 +117,6 @@ At this point, your directory structure should look like this\.
                      `-- TestMessageUtil.java
 ```
 
-## Next Step<a name="getting-started-cli-create-source-code-next"></a>
+## Next step<a name="getting-started-cli-create-source-code-next"></a>
 
-[Step 3: Create the Buildspec File](getting-started-cli-create-build-spec.md)
+[Step 3: Create the buildspec file](getting-started-cli-create-build-spec.md)

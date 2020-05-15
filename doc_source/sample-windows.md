@@ -1,20 +1,20 @@
-# Microsoft Windows Samples for CodeBuild<a name="sample-windows"></a>
+# Microsoft Windows samples for CodeBuild<a name="sample-windows"></a>
 
-These samples use an AWS CodeBuild build environment running Microsoft Windows Server 2016, the Microsoft \.NET Framework, and the \.NET Core SDK to build executables file out of code written in C\#, F\#, and Visual Basic\. 
+These samples use an AWS CodeBuild build environment running Microsoft Windows Server 2016, the \.NET Framework, and the \.NET Core SDK to build executables file out of code written in C\#, F\#, and Visual Basic\. 
 
 **Important**  
-Running these samples may result in charges to your AWS account\. These include possible charges for CodeBuild and for AWS resources and actions related to Amazon S3, AWS KMS, and CloudWatch Logs\. For more information, see [CodeBuild Pricing](http://aws.amazon.com/codebuild/pricing), [Amazon S3 Pricing](http://aws.amazon.com/s3/pricing), [AWS Key Management Service Pricing](http://aws.amazon.com/kms/pricing), and [Amazon CloudWatch Pricing](http://aws.amazon.com/cloudwatch/pricing)\.
+Running these samples might result in charges to your AWS account\. These include possible charges for CodeBuild and for AWS resources and actions related to Amazon S3, AWS KMS, and CloudWatch Logs\. For more information, see [CodeBuild Pricing](http://aws.amazon.com/codebuild/pricing), [Amazon S3 Pricing](http://aws.amazon.com/s3/pricing), [AWS Key Management Service Pricing](http://aws.amazon.com/kms/pricing), and [Amazon CloudWatch Pricing](http://aws.amazon.com/cloudwatch/pricing)\.
 
-## Running the Samples<a name="run-windows-samples"></a>
+## Running the samples<a name="run-windows-samples"></a>
 
-To run these samples:
+**To run these samples**
 
-1. Create the files as described in the Directory Structure and Files sections of this topic, and then upload them to an Amazon S3 input bucket or a CodeCommit or GitHub repository\.
+1. Create the files as described in the "Directory structure" and "Files" sections of this topic, and then upload them to an S3 input bucket or a CodeCommit or GitHub repository\.
 **Important**  
 Do not upload `(root directory name)`, just the files inside of `(root directory name)`\.  
-If you are using an Amazon S3 input bucket, be sure to create a ZIP file that contains the files, and then upload it to the input bucket\. Do not add `(root directory name)` to the ZIP file, just the files inside of `(root directory name)`\.
+If you are using an S3 input bucket, be sure to create a ZIP file that contains the files, and then upload it to the input bucket\. Do not add `(root directory name)` to the ZIP file, just the files inside of `(root directory name)`\.
 
-1. Create a build project, run the build, and follow the steps in [Run AWS CodeBuild Directly](how-to-run.md)\.
+1. Create a build project, run the build, and follow the steps in [Run AWS CodeBuild directly](how-to-run.md)\.
 
    If you use the AWS CLI to create the build project, the JSON\-formatted input to the `create-project` command might look similar to this\. \(Replace the placeholders with your own values\.\)
 
@@ -41,17 +41,17 @@ If you are using an Amazon S3 input bucket, be sure to create a ZIP file that co
    }
    ```
 
-1. To get the build output artifact, in your Amazon S3 output bucket, download the `windows-build-output-artifact.zip` file to your local computer or instance\. Extract the contents to get to the executable and other files\.
-   + The executable file for the C\# sample using the Microsoft \.NET Framework, `CSharpHelloWorld.exe`, can be found in the `CSharpHelloWorld\bin\Debug` directory\. 
-   + The executable file for the F\# sample using the Microsoft \.NET Framework, `FSharpHelloWorld.exe`, can be found in the `FSharpHelloWorld\bin\Debug` directory\.
-   + The executable file for the Visual Basic sample using the Microsoft \.NET Framework, `VBHelloWorld.exe`, can be found in the `VBHelloWorld\bin\Debug` directory\. 
+1. To get the build output artifact, in your S3 output bucket, download the `windows-build-output-artifact.zip` file to your local computer or instance\. Extract the contents to get to the executable and other files\.
+   + The executable file for the C\# sample using the \.NET Framework, `CSharpHelloWorld.exe`, can be found in the `CSharpHelloWorld\bin\Debug` directory\. 
+   + The executable file for the F\# sample using the \.NET Framework, `FSharpHelloWorld.exe`, can be found in the `FSharpHelloWorld\bin\Debug` directory\.
+   + The executable file for the Visual Basic sample using the \.NET Framework, `VBHelloWorld.exe`, can be found in the `VBHelloWorld\bin\Debug` directory\. 
    + The executable file for the C\# sample using \.NET Core, `HelloWorldSample.dll`, can be found in the `bin\Debug\netcoreapp1.0` directory\.
 
-## Directory Structure<a name="windows-samples-directory-structure"></a>
+## Directory structure<a name="windows-samples-directory-structure"></a>
 
 These samples assume the following directory structures\.
 
-### C\# and the Microsoft \.NET Framework<a name="windows-samples-directory-structure-csharp"></a>
+### C\# and the \.NET Framework<a name="windows-samples-directory-structure-csharp"></a>
 
 ```
 (root directory name)
@@ -65,7 +65,7 @@ These samples assume the following directory structures\.
               `-- AssemblyInfo.cs
 ```
 
-### F\# and the Microsoft \.NET Framework<a name="windows-samples-directory-structure-fsharp"></a>
+### F\# and the \.NET Framework<a name="windows-samples-directory-structure-fsharp"></a>
 
 ```
 (root directory name)
@@ -78,7 +78,7 @@ These samples assume the following directory structures\.
         `-- Program.fs
 ```
 
-### Visual Basic and the Microsoft \.NET Framework<a name="windows-samples-directory-structure-vb"></a>
+### Visual Basic and the \.NET Framework<a name="windows-samples-directory-structure-vb"></a>
 
 ```
 (root directory name)
@@ -109,9 +109,9 @@ These samples assume the following directory structures\.
 
 ## Files<a name="windows-samples-directory-structure-csharp-framework"></a>
 
-These samples use the following files:
+These samples use the following files\.
 
-### C\# and the Microsoft \.NET Framework<a name="windows-samples-directory-structure-csharp-framework-list"></a>
+### C\# and the \.NET Framework<a name="windows-samples-directory-structure-csharp-framework-list"></a>
 
 `buildspec.yml` \(in `(root directory name)`\):
 
@@ -299,7 +299,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyFileVersion("1.0.0.0")]
 ```
 
-### F\# and the Microsoft \.NET Framework<a name="windows-samples-directory-structure-fsharp-framework-list"></a>
+### F\# and the \.NET Framework<a name="windows-samples-directory-structure-fsharp-framework-list"></a>
 
 `buildspec.yml` \(in `(root directory name)`\):
 
@@ -499,7 +499,7 @@ let main argv =
   0 // return an integer exit code
 ```
 
-### Visual Basic and the Microsoft \.NET Framework<a name="windows-samples-directory-structure-vb-framework-list"></a>
+### Visual Basic and the \.NET Framework<a name="windows-samples-directory-structure-vb-framework-list"></a>
 
 `buildspec.yml` \(in `(root directory name)`\):
 

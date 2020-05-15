@@ -1,4 +1,4 @@
-# Update a Report Group<a name="report-group-export-settings"></a>
+# Update a report group<a name="report-group-export-settings"></a>
 
 
 |  | 
@@ -11,4 +11,4 @@
   + A customer master key \(CMK\) for Amazon S3 that is managed by the AWS Key Management Service\. 
   + A CMK that you create and configure\.
 
- For more information, see [Data Encryption](security-encryption.md)\. 
+ For more information, see [Data encryption](security-encryption.md)\. 

@@ -1,13 +1,13 @@
-# View a List of Build IDs for a Build Project in CodeBuild<a name="view-builds-for-project"></a>
+# View a list of build IDs for a build project in AWS CodeBuild<a name="view-builds-for-project"></a>
 
 You can use the AWS CodeBuild console, AWS CLI, or AWS SDKs to view a list of build IDs for a build project in CodeBuild\.
 
 **Topics**
-+ [View a List of Build IDs for a Build Project \(Console\)](#view-builds-for-project-console)
-+ [View a List of Build IDs for a Build Project \(AWS CLI\)](#view-builds-for-project-cli)
-+ [View a List of Build IDs for a Build Project \(AWS SDKs\)](#view-builds-for-project-sdks)
++ [View a list of build IDs for a build project \(console\)](#view-builds-for-project-console)
++ [View a list of build IDs for a build project \(AWS CLI\)](#view-builds-for-project-cli)
++ [View a list of build IDs for a build project \(AWS SDKs\)](#view-builds-for-project-sdks)
 
-## View a List of Build IDs for a Build Project \(Console\)<a name="view-builds-for-project-console"></a>
+## View a list of build IDs for a build project \(console\)<a name="view-builds-for-project-console"></a>
 
 1. Open the CodeBuild console at [https://console\.aws\.amazon\.com/codebuild/](https://console.aws.amazon.com/codebuild/)\.
 
@@ -16,9 +16,9 @@ You can use the AWS CodeBuild console, AWS CLI, or AWS SDKs to view a list of bu
 **Note**  
 By default, only the most recent 100 builds or build projects are displayed\. To view more builds or build projects, choose the gear icon, and then choose a different value for **Builds per page** or **Projects per page** or use the back and forward arrows\.
 
-## View a List of Build IDs for a Build Project \(AWS CLI\)<a name="view-builds-for-project-cli"></a>
+## View a list of build IDs for a build project \(AWS CLI\)<a name="view-builds-for-project-cli"></a>
 
-For more information about using the AWS CLI with AWS CodeBuild, see the [Command Line Reference](cmd-ref.md)\.
+For more information about using the AWS CLI with AWS CodeBuild, see the [Command line reference](cmd-ref.md)\.
 
 Run the list\-builds\-for\-project command, as follows:
 
@@ -27,7 +27,7 @@ aws codebuild list-builds-for-project --project-name project-name --sort-order s
 ```
 
 In the preceding command, replace the following placeholders:
-+ *project\-name*: Required string used to indicate the name of the build project to list builds IDs for\. To get a list of build projects, see [View a List of Build Project Names \(AWS CLI\)](view-project-list.md#view-project-list-cli)\.
++ *project\-name*: Required string used to indicate the name of the build project to list builds IDs for\. To get a list of build projects, see [View a list of build project names \(AWS CLI\)](view-project-list.md#view-project-list-cli)\.
 + *sort\-order*: Optional string used to indicate how to list the build IDs\. Valid values include `ASCENDING` and `DESCENDING`\.
 + *next\-token*: Optional string\. During a previous run, if there were more than 100 items in the list, only the first 100 items are returned, along with a unique string called *next token*\. To get the next batch of items in the list, run this command again, adding the next token to the call\. To get all of the items in the list, keep running this command with each subsequent next token that is returned, until no more next tokens are returned\.
 
@@ -70,6 +70,6 @@ You might see a result like the following in the output:
 }
 ```
 
-## View a List of Build IDs for a Build Project \(AWS SDKs\)<a name="view-builds-for-project-sdks"></a>
+## View a list of build IDs for a build project \(AWS SDKs\)<a name="view-builds-for-project-sdks"></a>
 
-For more information about using AWS CodeBuild with the AWS SDKs, see the [AWS SDKs and Tools Reference](sdk-ref.md)\.
+For more information about using AWS CodeBuild with the AWS SDKs, see the [AWS SDKs and tools reference](sdk-ref.md)\.

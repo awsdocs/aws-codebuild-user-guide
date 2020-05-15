@@ -1,6 +1,6 @@
-# Step 5: Create the Build Project<a name="getting-started-create-build-project-console"></a>
+# Step 5: Create the build project<a name="getting-started-create-build-project-console"></a>
 
-\(Previous step: [Step 4: Upload the Source Code and the Buildspec File](getting-started-upload-source-code-console.md)\)
+\(Previous step: [Step 4: Upload the source code and the buildspec file](getting-started-upload-source-code-console.md)\)
 
 In this step, you create a build project that AWS CodeBuild uses to run the build\. A *build project* includes information about how to run a build, including where to get the source code, which build environment to use, which build commands to run, and where to store the build output\. A *build environment* represents a combination of operating system, programming language runtime, and tools that CodeBuild uses to run a build\. The build environment is expressed as a Docker image\. For more information, see [Docker Overview](https://docs.docker.com/engine/docker-overview/) on the Docker Docs website\. 
 
@@ -18,8 +18,8 @@ For this build environment, you instruct CodeBuild to use a Docker image that co
 **Note**  
 On the **Create build project** page, you might see an error message similar to the following: **You are not authorized to perform this operation\.**\. This is most likely because you signed in to the AWS Management Console as an IAM user who does not have permissions to create a build project\.\. To fix this, sign out of the AWS Management Console, and then sign back in with credentials belonging to one of the following IAM entities:   
 An administrator IAM user in your AWS account\. For more information, see [Creating Your First IAM Admin User and Group](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html) in the *IAM User Guide*\.
-An IAM user in your AWS account with the `AWSCodeBuildAdminAccess`, `AmazonS3ReadOnlyAccess`, and `IAMFullAccess` managed policies attached to that IAM user or to an IAM group that the IAM user belongs to\. If you do not have an IAM user or group in your AWS account with these permissions, and you cannot add these permissions to your IAM user or group, contact your AWS account administrator for assistance\. For more information, see [AWS Managed \(Predefined\) Policies for CodeBuild](auth-and-access-control-iam-identity-based-access-control.md#managed-policies)\.
-Both options include administrator permissions that allow you to create a build project so you can complete this tutorial\. We recommend that you always use the minimum permissions required to accomplish your task\. For more information, see [CodeBuild Permissions Reference](auth-and-access-control-permissions-reference.md)\.
+An IAM user in your AWS account with the `AWSCodeBuildAdminAccess`, `AmazonS3ReadOnlyAccess`, and `IAMFullAccess` managed policies attached to that IAM user or to an IAM group that the IAM user belongs to\. If you do not have an IAM user or group in your AWS account with these permissions, and you cannot add these permissions to your IAM user or group, contact your AWS account administrator for assistance\. For more information, see [AWS managed \(predefined\) policies for AWS CodeBuild](auth-and-access-control-iam-identity-based-access-control.md#managed-policies)\.
+Both options include administrator permissions that allow you to create a build project so you can complete this tutorial\. We recommend that you always use the minimum permissions required to accomplish your task\. For more information, see [AWS CodeBuild permissions reference](auth-and-access-control-permissions-reference.md)\.
 
 1. In **Source**, for **Source provider**, choose **Amazon S3**\.
 
@@ -47,6 +47,6 @@ Both options include administrator permissions that allow you to create a build 
 
 1. Choose **Create build project**\.
 
-## Next Step<a name="getting-started-create-build-project-console-next"></a>
+## Next step<a name="getting-started-create-build-project-console-next"></a>
 
-[Step 6: Run the Build](getting-started-run-build-console.md)
+[Step 6: Run the build](getting-started-run-build-console.md)

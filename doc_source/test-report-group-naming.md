@@ -1,4 +1,4 @@
-# Report Group Naming<a name="test-report-group-naming"></a>
+# Report group naming<a name="test-report-group-naming"></a>
 
 
 |  | 

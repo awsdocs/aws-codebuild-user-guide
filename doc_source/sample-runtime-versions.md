@@ -1,11 +1,11 @@
-# Runtime Versions in Buildspec File Sample for CodeBuild<a name="sample-runtime-versions"></a>
+# Runtime versions in buildspec file sample for CodeBuild<a name="sample-runtime-versions"></a>
 
- If you use the Amazon Linux 2 \(AL2\) standard image version 1\.0 or later, or the Ubuntu standard image version 2\.0 or later, you can specify one or more runtimes in the `runtime-versions` section of your buildspec file\. This sample shows how you can change your project runtime, specify more than one runtime, and specify a runtime that is dependent on another runtime\. For information about supported runtimes, see [Docker Images Provided by CodeBuild](build-env-ref-available.md)\.
+ If you use the Amazon Linux 2 \(AL2\) standard image version 1\.0 or later, or the Ubuntu standard image version 2\.0 or later, you can specify one or more runtimes in the `runtime-versions` section of your buildspec file\. This sample shows how you can change your project runtime, specify more than one runtime, and specify a runtime that is dependent on another runtime\. For information about supported runtimes, see [Docker images provided by CodeBuild](build-env-ref-available.md)\.
 
 **Note**  
- If you use Docker in your build container, then your build must run in privileged mode\. For more information, see [Run a Build in CodeBuild](run-build.md) and [Create a Build Project in CodeBuild](create-project.md)\. 
+ If you use Docker in your build container, your build must run in privileged mode\. For more information, see [Run a build in AWS CodeBuild](run-build.md) and [Create a build project in AWS CodeBuild](create-project.md)\. 
 
-## Update Your Runtime Version<a name="sample-runtime-update-version"></a>
+## Update your runtime version<a name="sample-runtime-update-version"></a>
 
  You can modify the runtime used by your project to a new version by updating the `runtime-versions` section of your buildpec file\. The following examples show how to specify java versions 8 and 11\.
 +  A `runtime-versions` section that specifies version 8 of Java if you use the Amazon Linux 2 standard image:
@@ -61,7 +61,7 @@
 
  This sample demonstrates a project that starts with the Java version 8 runtime, and then is updated to the Java version 10 runtime\. 
 
-1.  Follow steps 1 and 2 in [Create the Source Code](sample-elastic-beanstalk.md#sample-elastic-beanstalk-prepare-source) to generate source code\. If successful, a directory named `my-web-app` is created with your source files\. 
+1.  Follow steps 1 and 2 in [Create the source code](sample-elastic-beanstalk.md#sample-elastic-beanstalk-prepare-source) to generate source code\. If successful, a directory named `my-web-app` is created with your source files\. 
 
 1.  Create a file named `buildspec.yml` with the following contents\. Store the file in the ` (root directory name)/my-web-app` directory\. 
 
@@ -102,14 +102,14 @@
           `-- pom.xml
    ```
 
-1.  Upload the contents of the `my-web-app` directory to an Amazon S3 input bucket or a CodeCommit, GitHub, or Bitbucket repository\. 
+1.  Upload the contents of the `my-web-app` directory to an S3 input bucket or a CodeCommit, GitHub, or Bitbucket repository\. 
 **Important**  
 Do not upload `(root directory name)` or `(root directory name)/my-web-app`, just the directories and files in `(root directory name)/my-web-app`\.   
-If you are using an Amazon S3 input bucket, be sure to create a ZIP file that contains the directory structure and files, and then upload it to the input bucket\. Do not add `(root directory name)` or `(root directory name)/my-web-app` to the ZIP file, just the directories and files in `(root directory name)/my-web-app`\.
+If you are using an S3 input bucket, be sure to create a ZIP file that contains the directory structure and files, and then upload it to the input bucket\. Do not add `(root directory name)` or `(root directory name)/my-web-app` to the ZIP file, just the directories and files in `(root directory name)/my-web-app`\.
 
 1. Open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codesuite/codebuild/home](https://console.aws.amazon.com/codesuite/codebuild/home)\.
 
-1. Create a build project\. For more information, see [Create a Build Project \(Console\)](create-project.md#create-project-console) and [Run a Build \(Console\)](run-build.md#run-build-console)\. Leave all settings at their default values, except for these settings\.
+1. Create a build project\. For more information, see [Create a build project \(console\)](create-project.md#create-project-console) and [Run a build \(console\)](run-build.md#run-build-console)\. Leave all settings at their default values, except for these settings\.
    + For **Environment**:
      + For **Environment image**, choose **Managed image**\.
      + For **Operating system**, choose **Amazon Linux 2**\. 
@@ -118,7 +118,7 @@ If you are using an Amazon S3 input bucket, be sure to create a ZIP file that co
 
 1.  Choose **Start build**\. 
 
-1.  On **Build configuration** accept the defaults, and then choose **Start build**\. 
+1.  On **Build configuration**, accept the defaults, and then choose **Start build**\. 
 
 1.  After the build is complete, view the build output on the **Build logs** tab\. You should see output similar to the following: 
 
@@ -167,7 +167,7 @@ If you are using an Amazon S3 input bucket, be sure to create a ZIP file that co
    [Container] Date Time Running command for tool_path in "$JAVA_11_HOME"/bin/* "$JRE_11_HOME"/bin/*;
    ```
 
-## Specify a Runtime Dependency<a name="sample-runtime-dependent-runtime"></a>
+## Specify a runtime dependency<a name="sample-runtime-dependent-runtime"></a>
 
  This example shows how to specify a runtime and a dependency runtime\. For example, any supported Android runtime version is dependent on the Java runtime version 8\. For example, if you specify Android version 29 and use Amazon Linux 2 or Ubuntu, you can also specify Java version 8\. If you do not specify the dependent runtime, CodeBuild attempts to choose it for you\. 
 
@@ -175,11 +175,11 @@ The build project in this example uses source code in the GitHub [AWS Samples](h
 
 1. Open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codesuite/codebuild/home](https://console.aws.amazon.com/codesuite/codebuild/home)\.
 
-1. Create a build project\. For more information, see [Create a Build Project \(Console\)](create-project.md#create-project-console) and [Run a Build \(Console\)](run-build.md#run-build-console)\. Leave all settings at their default values, except for these settings\.
+1. Create a build project\. For more information, see [Create a build project \(console\)](create-project.md#create-project-console) and [Run a build \(console\)](run-build.md#run-build-console)\. Leave all settings at their default values, except for these settings\.
    + For **Environment**:
      + For **Source provider**, choose **GitHub**\.
      + For **Repository**, choose **Public repository**\.
-     + For **Repository URL**, type **https://github\.com/aws\-samples/aws\-mobile\-android\-notes\-tutorial**\.
+     + For **Repository URL**, enter **https://github\.com/aws\-samples/aws\-mobile\-android\-notes\-tutorial**\.
      + For **Environment image**, choose **Managed image**\.
      + For **Operating system**, choose **Amazon Linux 2**\. 
      +  For **Runtime\(s\)**, choose **Standard**\. 
@@ -211,7 +211,7 @@ The build project in this example uses source code in the GitHub [AWS Samples](h
 
 1.  Choose **Start build**\. 
 
-1.  On **Build configuration** accept the defaults, and then choose **Start build**\. 
+1.  On **Build configuration**, accept the defaults, and then choose **Start build**\. 
 
 1.  After the build is complete, view the build output on the **Build logs** tab\. You should see output similar to the following\. It shows that Android version 29 and Java version 8 are installed: 
 
@@ -224,7 +224,7 @@ The build project in this example uses source code in the GitHub [AWS Samples](h
    Installing Java version 8 ...
    ```
 
-## Specify Two Runtimes<a name="sample-runtime-two-major-version-runtimes"></a>
+## Specify two runtimes<a name="sample-runtime-two-major-version-runtimes"></a>
 
  You can specify more than one runtime in the same CodeBuild build project\. This sample project uses two source files: one that uses the Go runtime and one that uses the Node\.js runtime\. 
 
@@ -322,13 +322,13 @@ The build project in this example uses source code in the GitHub [AWS Samples](h
        |-- buildspec.yml
    ```
 
-1. Upload the contents of the `my-source` directory to an Amazon S3 input bucket or a CodeCommit, GitHub, or Bitbucket repository\.
+1. Upload the contents of the `my-source` directory to an S3 input bucket or a CodeCommit, GitHub, or Bitbucket repository\.
 **Important**  
- If you are using an Amazon S3 input bucket, be sure to create a ZIP file that contains the directory structure and files, and then upload it to the input bucket\. Do not add `my-source` to the ZIP file, just the directories and files in `my-source`\.
+ If you are using an S3 input bucket, be sure to create a ZIP file that contains the directory structure and files, and then upload it to the input bucket\. Do not add `my-source` to the ZIP file, just the directories and files in `my-source`\.
 
 1. Open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codesuite/codebuild/home](https://console.aws.amazon.com/codesuite/codebuild/home)\.
 
-1. Create a build project\. For more information, see [Create a Build Project \(Console\)](create-project.md#create-project-console) and [Run a Build \(Console\)](run-build.md#run-build-console)\. Leave all settings at their default values, except for these settings\.
+1. Create a build project\. For more information, see [Create a build project \(console\)](create-project.md#create-project-console) and [Run a build \(console\)](run-build.md#run-build-console)\. Leave all settings at their default values, except for these settings\.
    + For **Environment**:
      + For **Environment image**, choose **Managed image**\.
      + For **Operating system**, choose **Amazon Linux 2**\.

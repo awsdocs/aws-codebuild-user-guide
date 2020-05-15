@@ -1,6 +1,6 @@
-# Step 7: View Summarized Build Information<a name="getting-started-cli-monitor-build"></a>
+# Step 7: View summarized build information<a name="getting-started-cli-monitor-build"></a>
 
-\(Previous step: [Step 6: Run the Build](getting-started-cli-run-build.md)\)
+\(Previous step: [Step 6: Run the build](getting-started-cli-run-build.md)\)
 
 In this step, you view summarized information about the status of your build\.
 
@@ -79,6 +79,6 @@ You can also use the Amazon S3 console to view these hashes\. Select the box nex
 If you use the AWS SDKs to get these hashes, the values are named `codebuild-content-md5` and `codebuild-content-sha256`\. 
   + `endTime` represents the time, in Unix time format, when the build process ended\.
 
-## Next Step<a name="getting-started-cli-monitor-build-next"></a>
+## Next step<a name="getting-started-cli-monitor-build-next"></a>
 
-[Step 8: View Detailed Build Information](getting-started-cli-build-log.md)
+[Step 8: View detailed build information](getting-started-cli-build-log.md)

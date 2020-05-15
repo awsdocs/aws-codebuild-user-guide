@@ -2,7 +2,7 @@
 
 Codecov is a tool that measures the test coverage of your code\. Codecov identifies which methods and statements in your code are not tested\. Use the results to determine where to write tests to improve the quality of your code\. Codecov is available for three of the source repositories supported by CodeBuild: GitHub, GitHub Enterprise, and Bitbucket\. If your build project uses GitHub Enterprise, you must use Codecov Enterprise\.
 
- When you run a build of a CodeBuild project that is integrated Codecov, Codecov reports that analyzes code in your repository are uploaded to Codecov\. The build logs include a link to the reports\. This sample shows you how to integrate a Python and a Java build project with Codecov\. For a list of languages supported by Codecov, see [Codecov Supported Languages](https://docs.codecov.io/docs/supported-languages) on the Codecov website\.
+ When you run a build of a CodeBuild project that is integrated with Codecov, Codecov reports that analyzes code in your repository are uploaded to Codecov\. The build logs include a link to the reports\. This sample shows you how to integrate a Python and a Java build project with Codecov\. For a list of languages supported by Codecov, see [Codecov Supported Languages](https://docs.codecov.io/docs/supported-languages) on the Codecov website\.
 
 ## Integrate Codecov into a build project<a name="integrate-codecov"></a>
 
@@ -15,7 +15,7 @@ Codecov is a tool that measures the test coverage of your code\. Codecov identif
 1.  When token information is displayed, choose **Copy**\.   
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/codecov-token.png)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)
 
-1.  Add the copied token as an environment variable named `CODECOV_TOKEN` to your build project\. For more information, see [Change a Build Project's Settings \(Console\)](change-project.md#change-project-console)\. 
+1.  Add the copied token as an environment variable named `CODECOV_TOKEN` to your build project\. For more information, see [Change a build project's settings \(console\)](change-project.md#change-project-console)\. 
 
 1.  Create a text file named `my_script.sh` in your repository\. Enter the following into the file: 
 
@@ -57,7 +57,7 @@ Codecov is a tool that measures the test coverage of your code\. Codecov identif
       </build>
       ```
 
-   1.  Enter the following commands in your buildspec file\. For more information, see [Buildspec Syntax](build-spec-ref.md#build-spec-ref-syntax)\. 
+   1.  Enter the following commands in your buildspec file\. For more information, see [Buildspec syntax](build-spec-ref.md#build-spec-ref-syntax)\. 
 
       ```
       build:
@@ -70,7 +70,7 @@ Codecov is a tool that measures the test coverage of your code\. Codecov identif
 ------
 #### [ Python ]
 
-    Enter the following commands in your buildspec file\. For more information, see [Buildspec Syntax](build-spec-ref.md#build-spec-ref-syntax)\. 
+    Enter the following commands in your buildspec file\. For more information, see [Buildspec syntax](build-spec-ref.md#build-spec-ref-syntax)\. 
 
    ```
    build:
@@ -83,7 +83,7 @@ Codecov is a tool that measures the test coverage of your code\. Codecov identif
 
 ------
 
-1.  Run a build of your build project\. A link to Codecov reports generated for your project appears in your build logs\. Use the link to view the Codecov reports\. For more information, see [Run a Build in CodeBuild](run-build.md) and [Logging CodeBuild API Calls with AWS CloudTrail](cloudtrail.md)\. Codecov information in the build logs looks like the following: 
+1.  Run a build of your build project\. A link to Codecov reports generated for your project appears in your build logs\. Use the link to view the Codecov reports\. For more information, see [Run a build in AWS CodeBuild](run-build.md) and [Logging AWS CodeBuild API calls with AWS CloudTrail](cloudtrail.md)\. Codecov information in the build logs looks like the following: 
 
    ```
    [Container] 2020/03/09 16:31:04 Running command bash my_script.sh

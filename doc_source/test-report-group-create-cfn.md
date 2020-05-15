@@ -1,13 +1,13 @@
-# Create a Report Group \(AWS CloudFormation\)<a name="test-report-group-create-cfn"></a>
+# Create a report group \(AWS CloudFormation\)<a name="test-report-group-create-cfn"></a>
 
 
 |  | 
 | --- |
 | The test reporting feature is in preview release for CodeBuild and is subject to change\. | 
 
- **To create a test report using the AWS CloudFormation template** 
+ **To create a test report** 
 
- You can use an AWS CloudFormation template file to create and provision a report group\. For more information, see [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html)\. 
+ You can use an AWS CloudFormation template file to create and provision a report group\. For more information, see the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html)\. 
 
  The following AWS CloudFormation YAML template creates a report group that does not export raw test result files\. 
 

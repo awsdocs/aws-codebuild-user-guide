@@ -1,4 +1,4 @@
-# Compliance Validation for AWS CodeBuild<a name="codebuild-compliance-validation"></a>
+# Compliance validation for AWS CodeBuild<a name="codebuild-compliance-validation"></a>
 
 Third\-party auditors assess the security and compliance of AWS CodeBuild as part of multiple AWS compliance programs\. These include SOC, PCI, FedRAMP, HIPAA, and others\.
 

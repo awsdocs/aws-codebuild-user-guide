@@ -1,4 +1,4 @@
-# Working with Report Groups<a name="test-report-group"></a>
+# Working with report groups<a name="test-report-group"></a>
 
 
 |  | 
@@ -12,9 +12,9 @@ A *report group* contains test reports and specifies shared settings\. You use t
  Report groups can be used in more than one build project\. All test reports created with one report group share the same configuration, such as its export option and permissions, even if the test reports are created using different build projects\. Test reports created with one report group in multiple build projects can contain the results from running different sets of test cases \(one set of test cases for each build project\)\. This is because you can specify different test case files for the report group in each project's buildspec file\. You can also change the test case files for a report group in a build project by editing its buildspec file\. Subsequent build runs create new test reports that contain the results of the test case files in the updated buildspec\. 
 
 **Topics**
-+ [Create a Report Group](report-group-create.md)
-+ [Update a Report Group](report-group-export-settings.md)
-+ [Specify Test Files](report-group-test-cases.md)
-+ [Specify Test Commands](report-group-test-case-commands.md)
-+ [Report Group Naming](test-report-group-naming.md)
-+ [Working with Shared Report Groups](report-groups-sharing.md)
++ [Create a report group](report-group-create.md)
++ [Update a report group](report-group-export-settings.md)
++ [Specify test files](report-group-test-cases.md)
++ [Specify test commands](report-group-test-case-commands.md)
++ [Report group naming](test-report-group-naming.md)
++ [Working with shared report groups](report-groups-sharing.md)

@@ -1,6 +1,6 @@
-# CodeBuild Permissions Reference<a name="auth-and-access-control-permissions-reference"></a>
+# AWS CodeBuild permissions reference<a name="auth-and-access-control-permissions-reference"></a>
 
-You can use the following table as a reference when you are setting up [Access Control](auth-and-access-control.md#access-control) and writing permissions policies that you can attach to an IAM identity \(identity\-based policies\)\. 
+You can use the following table as a reference when you are setting up [Access control](auth-and-access-control.md#access-control) and writing permissions policies that you can attach to an IAM identity \(identity\-based policies\)\. 
 
 You can use AWS\-wide condition keys in your AWS CodeBuild policies to express conditions\. For a list, see [Available Keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html#AvailableKeys) in the *IAM User Guide*\.
 
@@ -14,7 +14,7 @@ You specify an ARN, with or without a wildcard character \(\*\), as the resource
 arn:aws:codebuild:us-east-2:123456789012:project/my*
 ```
 
-If you see an expand arrow \(**↗**\) in the upper\-right corner of the table, you can open the table in a new window\. To close the window, choose the close button \(**X**\) in the lower\-right corner\.
+Use the scroll bars to see the rest of the table\.
 
 
 **CodeBuild API Operations and Required Permissions for Actions**  
