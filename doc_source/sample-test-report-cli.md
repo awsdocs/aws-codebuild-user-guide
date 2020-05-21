@@ -73,7 +73,7 @@ You can use the CodeBuild API or the AWS CodeBuild console to access the test re
    ```
    {
        "reportGroup": {
-           "arn": "arn:aws:codebuild:us-west-2::123456789012:report-group/report-name",
+           "arn": "arn:aws:codebuild:us-west-2:123456789012:report-group/report-name",
            "name": "report-name",
            "type": "TEST",
            "exportConfig": {
@@ -82,7 +82,7 @@ You can use the CodeBuild API or the AWS CodeBuild console to access the test re
                    "bucket": "s3-bucket-name",
                    "path": "folder-path",
                    "packaging": "NONE",
-                   "encryptionKey": "arn:aws:kms:us-west-2::123456789012:alias/aws/s3"
+                   "encryptionKey": "arn:aws:kms:us-west-2:123456789012:alias/aws/s3"
                }
            },
            "created": 1570837165.885,

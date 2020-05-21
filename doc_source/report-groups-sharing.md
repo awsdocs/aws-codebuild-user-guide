@@ -99,7 +99,7 @@ Use the [put\-resource\-policy](https://docs.aws.amazon.com/cli/latest/reference
         "Effect":"Allow",
         "Principal":{
           "AWS": [
-             "arn:aws:iam::123456789012:user/Alice",
+             "arn:aws:iam:123456789012:user/Alice",
              "123456789012"
            ]
         },

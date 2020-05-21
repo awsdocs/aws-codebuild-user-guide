@@ -279,7 +279,7 @@ Build state change notifications use the following format:
   "id": "c030038d-8c4d-6141-9545-00ff7b7153EX",
   "detail-type": "CodeBuild Build State Change",
   "source": "aws.codebuild",
-  "account": ":123456789012",
+  "account": "123456789012",
   "time": "2017-09-01T16:14:28Z",
   "region": "us-west-2",
   "resources":[
@@ -293,7 +293,7 @@ Build state change notifications use the following format:
       "artifact": {
         "md5sum": "da9c44c8a9a3cd4b443126e823168fEX",
         "sha256sum": "6ccc2ae1df9d155ba83c597051611c42d60e09c6329dcb14a312cecc0a8e39EX",
-        "location": "arn:aws:s3:::codebuild-:123456789012-output-bucket/my-output-artifact.zip"
+        "location": "arn:aws:s3:::codebuild-123456789012-output-bucket/my-output-artifact.zip"
       },
       "environment": {
         "image": "aws/codebuild/standard:2.0",
@@ -307,7 +307,7 @@ Build state change notifications use the following format:
       "initiator": "MyCodeBuildDemoUser",
       "build-start-time": "Sep 1, 2017 4:12:29 PM",
       "source": {
-        "location": "codebuild-:123456789012-input-bucket/my-input-artifact.zip",
+        "location": "codebuild-123456789012-input-bucket/my-input-artifact.zip",
         "type": "S3"
       },
       "logs": {
@@ -409,7 +409,7 @@ Build phase change notifications use the following format:
   "id": "43ddc2bd-af76-9ca5-2dc7-b695e15adeEX",
   "detail-type": "CodeBuild Build Phase Change",
   "source": "aws.codebuild",
-  "account": ":123456789012",
+  "account": "123456789012",
   "time": "2017-09-01T16:14:21Z",
   "region": "us-west-2",
   "resources":[
@@ -424,7 +424,7 @@ Build phase change notifications use the following format:
       "artifact": {
         "md5sum": "da9c44c8a9a3cd4b443126e823168fEX",
         "sha256sum": "6ccc2ae1df9d155ba83c597051611c42d60e09c6329dcb14a312cecc0a8e39EX",
-        "location": "arn:aws:s3:::codebuild-:123456789012-output-bucket/my-output-artifact.zip"
+        "location": "arn:aws:s3:::codebuild-123456789012-output-bucket/my-output-artifact.zip"
       },
       "environment": {
         "image": "aws/codebuild/standard:2.0",
@@ -438,7 +438,7 @@ Build phase change notifications use the following format:
       "initiator": "MyCodeBuildDemoUser",
       "build-start-time": "Sep 1, 2017 4:12:29 PM",
       "source": {
-        "location": "codebuild-:123456789012-input-bucket/my-input-artifact.zip",
+        "location": "codebuild-123456789012-input-bucket/my-input-artifact.zip",
         "type": "S3"
       },
       "logs": {
