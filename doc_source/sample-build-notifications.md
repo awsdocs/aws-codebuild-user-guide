@@ -283,12 +283,12 @@ Build state change notifications use the following format:
   "time": "2017-09-01T16:14:28Z",
   "region": "us-west-2",
   "resources":[
-    "arn:aws:codebuild:us-west-2::123456789012:build/my-sample-project:8745a7a9-c340-456a-9166-edf953571bEX"
+    "arn:aws:codebuild:us-west-2:123456789012:build/my-sample-project:8745a7a9-c340-456a-9166-edf953571bEX"
   ],
   "detail":{
     "build-status": "SUCCEEDED",
     "project-name": "my-sample-project",
-    "build-id": "arn:aws:codebuild:us-west-2::123456789012:build/my-sample-project:8745a7a9-c340-456a-9166-edf953571bEX",
+    "build-id": "arn:aws:codebuild:us-west-2:123456789012:build/my-sample-project:8745a7a9-c340-456a-9166-edf953571bEX",
     "additional-information": {
       "artifact": {
         "md5sum": "da9c44c8a9a3cd4b443126e823168fEX",
@@ -413,12 +413,12 @@ Build phase change notifications use the following format:
   "time": "2017-09-01T16:14:21Z",
   "region": "us-west-2",
   "resources":[
-    "arn:aws:codebuild:us-west-2::123456789012:build/my-sample-project:8745a7a9-c340-456a-9166-edf953571bEX"
+    "arn:aws:codebuild:us-west-2:123456789012:build/my-sample-project:8745a7a9-c340-456a-9166-edf953571bEX"
   ],
   "detail":{
     "completed-phase": "COMPLETED",
     "project-name": "my-sample-project",
-    "build-id": "arn:aws:codebuild:us-west-2::123456789012:build/my-sample-project:8745a7a9-c340-456a-9166-edf953571bEX",
+    "build-id": "arn:aws:codebuild:us-west-2:123456789012:build/my-sample-project:8745a7a9-c340-456a-9166-edf953571bEX",
     "completed-phase-context": "[]",
     "additional-information": {
       "artifact": {
