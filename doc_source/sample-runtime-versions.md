@@ -279,7 +279,7 @@ The build project in this example uses source code in the GitHub [AWS Samples](h
    }
    ```
 
-1.  Create a file named `buildspec.yml` with the following contents\. Store the file in the `my-source` directory, at the same level as the `nodejs-app` and `golang-app` directories\. The `runtime-versions` section specifies the Node\.js version 10 and Go version 1\.12 runtimes\. 
+1.  Create a file named `buildspec.yml` with the following contents\. Store the file in the `my-source` directory, at the same level as the `nodejs-app` and `golang-app` directories\. The `runtime-versions` section specifies the Node\.js version 10 and Go version 1\.13 runtimes\. 
 
    ```
    version: 0.2
@@ -345,10 +345,10 @@ The build project in this example uses source code in the GitHub [AWS Samples](h
 
    ```
    [Container] Date Time Processing environment variables
-   [Container] Date Time Selecting 'golang' runtime version '1.12' based on manual selections...
+   [Container] Date Time Selecting 'golang' runtime version '1.13' based on manual selections...
    [Container] Date Time Selecting 'nodejs' runtime version '10' based on manual selections...
-   [Container] Date Time Running command echo "Installing Go version 1.12 ..." 
-   Installing Go version 1.12 ... 
+   [Container] Date Time Running command echo "Installing Go version 1.13 ..." 
+   Installing Go version 1.13 ... 
     
    [Container] Date Time Running command echo "Installing Node.js version 10 ..." 
    Installing Node.js version 10 ... 
