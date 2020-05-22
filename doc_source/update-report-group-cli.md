@@ -18,7 +18,13 @@
                "encryptionDisabled": "false",
                "encryptionKey": "your-key"
             }
-        }
+        },
+        "tags": [
+           {
+               "key": "tag-key",
+               "value": "tag-value"
+           }
+        ]
    }
    ```
 
@@ -34,6 +40,11 @@
            "type": "NO_EXPORT"
        }
      }
+     ```
+   +  If you want to update the report group's tags, update the `tags` section\. You can change, add, or remove tags\. If you want to remove all tags, update it with the following JSON: 
+
+     ```
+     "tags": []
      ```
 
 1.  Run the following command: 

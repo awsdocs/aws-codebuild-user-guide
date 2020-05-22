@@ -1,10 +1,5 @@
 # Create a report group \(buildspec\)<a name="test-report-group-create-buildspec"></a>
 
-
-|  | 
-| --- |
-| The test reporting feature is in preview release for CodeBuild and is subject to change\. | 
-
 A report group created using the buildspec does not export raw test result files\. You can view your report group and specify export settings\. For more information, see [Update a report group](report-group-export-settings.md)\. 
 
 **To create a report group using a buildspec file**

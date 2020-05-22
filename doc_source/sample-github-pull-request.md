@@ -254,11 +254,11 @@ You can create a filter that triggers a build only when the head commit message 
 "filterGroups": [
     [
         {
-            "type": "EVENT", 
+            "type": "EVENT",
             "pattern": "PUSH"
         },
         {
-            "type": "COMMIT_MESSAGE", 
+            "type": "COMMIT_MESSAGE",
             "pattern": "\[CodeBuild\]"
         }
     ]

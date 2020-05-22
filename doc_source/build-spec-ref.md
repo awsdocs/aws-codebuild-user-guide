@@ -223,13 +223,14 @@ Commands in some build phases might not be run if commands in earlier build phas
     + `my-subdirectory/*` represents all files in a subdirectory named *my\-subdirectory*\.
     + `my-subdirectory/**/*` represents all files recursively starting from a subdirectory named *my\-subdirectory*\.
   + `base-directory`: Optional mapping\. Represents one or more top\-level directories, relative to the original build location, that CodeBuild uses to determine where to find the raw test files\.
-  + `discard-paths`: Optional mapping\. Represents whether paths to test result files uploaded to an S3 bucket are discarded\. `yes` if paths are discarded\. Otherwise, `no` or not specified \(the default\)\. For example, if a path to a test result is `com/myapp/mytests/TestResult.xml`, specifying `yes` shortens this path to `TestResult.xml`\. 
+  + `discard-paths`: Optional mapping\. Represents whether paths to test result files uploaded to an S3 bucket are discarded\. `yes` if paths are discarded\. Otherwise, `no` or not specified \(the default\)\. For example, if a path to a test result is `com/myapp/mytests/TestResult.xml`, specifying `yes` shortens this path to `TesResult.xml`\. 
   + `file-format`: Optional mapping\. Represents the test file format\. If not specified, `JunitXml` is used\. The valid values are:
     + `JunitXml`
     + `CucumberJson`
     + `VisualStudioTrx`
+    + `VisualStudioTrx`
     + `TestNGXml`
-+ <a name="artifacts-build-spec"></a>`artifacts`: Optional sequence\. Represents information about where CodeBuild can find the build output and how CodeBuild prepares it for uploading to the Amazon S3 output bucket\. This sequence is not required if, for example, you are building and pushing a Docker image to Amazon ECR, or you are running unit tests on your source code, but not building it\.
++ <a name="artifacts-build-spec"></a>`artifacts`: Optional sequence\. Represents information about where CodeBuild can find the build output and how CodeBuild prepares it for uploading to the S3 output bucket\. This sequence is not required if, for example, you are building and pushing a Docker image to Amazon ECR, or you are running unit tests on your source code, but not building it\.
   +  `files`: Required sequence\. Represents the locations that contain the build output artifacts in the build environment\. Contains a sequence of scalars, with each scalar representing a separate location where CodeBuild can find build output artifacts, relative to the original build location or, if set, the base directory\. Locations can include the following:
     + A single file \(for example, `my-file.jar`\)\.
     + A single file in a subdirectory \(for example, `my-subdirectory/my-file.jar` or `my-parent-subdirectory/my-subdirectory/my-file.jar`\)\.
@@ -378,7 +379,7 @@ Commands in some build phases might not be run if commands in earlier build phas
             - directory/file2
           name: secondary-artifact-name-2
     ```
-+ `cache`: Optional sequence\. Represents information about where CodeBuild can prepare the files for uploading cache to an Amazon S3 cache bucket\. This sequence is not required if the cache type of the project is `No Cache`\. 
++ `cache`: Optional sequence\. Represents information about where CodeBuild can prepare the files for uploading cache to an S3 cache bucket\. This sequence is not required if the cache type of the project is `No Cache`\. 
   + `paths`: Required sequence\. Represents the locations of the cache\. Contains a sequence of scalars, with each scalar representing a separate location where CodeBuild can find build output artifacts, relative to the original build location or, if set, the base directory\. Locations can include the following:
     + A single file \(for example, `my-file.jar`\)\.
     + A single file in a subdirectory \(for example, `my-subdirectory/my-file.jar` or `my-parent-subdirectory/my-subdirectory/my-file.jar`\)\.
@@ -393,11 +394,6 @@ If you use the CodeBuild or AWS CodePipeline consoles instead of a buildspec\.ym
 You can use the CodeBuild or CodePipeline consoles instead of a buildspec\.yml file to specify the locations of the build output artifacts in the build environment\. Instead of using the preceding syntax, you list, in a single line, all of the locations\. For multiple locations, separate each location with a comma \(for example, `buildspec.yml, target/my-app.jar`\)\. 
 
 ## Buildspec example<a name="build-spec-ref-example"></a>
-
-
-|  | 
-| --- |
-| The test reporting feature is in preview release for CodeBuild and is subject to change\. | 
 
 Here is an example of a buildspec\.yml file\.
 

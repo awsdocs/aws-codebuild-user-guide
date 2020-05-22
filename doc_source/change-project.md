@@ -82,8 +82,6 @@ If your build project refers to secrets stored in Secrets Manager, the build pro
 If your build project refers to secrets stored in Secrets Manager with secret names that do not start with `/CodeBuild/`, and you chose **New service role**, you must update the service role to allow access to secret names that do not start with `/CodeBuild/`\. This is because the service role allows access only to secret names that start with `/CodeBuild/`\.  
 If you choose **New service role**, the service role includes permission to decrypt all secrets under the `/CodeBuild/` namespace in the Secrets Manager\.
 
-1. To change information about tags for this build project, in **Additional configuration**, for **Tags**, change the values of **Name** and **Value**\. Use **Add row** to add a tag\. You can add up to 50 tags\. Choose the delete \(**X**\) icon next to a tag you no longer want to use\.
-
 1. Choose **Update environment**\.
 
 1. To change the project's build specifications, in **Buildspec**, choose **Edit**\. By default, CodeBuild looks for a file named `buildspec.yml` in the source code root directory\. If your buildspec file uses a different name or location, enter its path from the source root in **Buildspec name** \(for example, **buildspec\-two\.yml** or **configuration/buildspec\.yml**\. If the buildspec file is in an S3 bucket, it must be in the same AWS Region as your build project\. Specify the buildspec file using its ARN \(for example, `arn:aws:s3:::my-codebuild-sample2/buildspec.yml`\)\.

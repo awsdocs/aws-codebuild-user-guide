@@ -59,3 +59,70 @@ The following policy denies users permission to the `CreateProject` action if th
   ]
 }
 ```
+
+**Example Example 3: Deny or allow actions on report groups based on resource tags**  
+You can create a policy that allows or denies actions on CodeBuild resources \(projects and report groups\) based on the AWS tags associated with those resources, and then apply those policies to the IAM groups you configure for managing IAM users\. For example, you can create a policy that denies all CodeBuild actions on any report group with the AWS tag key `Status` and the key value of `Secret`, and then apply that policy to the IAM group you created for general developers \(*Developers*\)\. You then need to make sure that the developers working on those tagged report groups are not members of that general *Developers* group, but belong instead to a different IAM group that does not have the restrictive policy applied \(`SecretDevelopers`\)\.  
+The following example denies all CodeBuild actions on report groups tagged with the key `Status` and the key value of `Secret`:  
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement" : [
+    {
+      "Effect" : "Deny",
+      "Action" : [
+        "codebuild:BatchGetReportGroups,"
+        "codebuild:CreateReportGroup",
+        "codebuild:DeleteReportGroup",
+        "codebuild:ListReportGroups",
+        "codebuild:ListReportsForReportGroup",
+        "codebuild:UpdateReportGroup"
+       ]
+      "Resource" : "*",
+      "Condition" : {
+         "StringEquals" : "aws:ResourceTag/Status": "Secret"
+        }
+    }
+  ]
+}
+```
+
+**Example Example 4: Limit CodeBuild actions to AWSCodeBuildDeveloperAccess based on resource tags**  
+You can create policies that allow CodeBuild actions on all report groups and projects that are not tagged with specific tags\. For example, the following policy allows the equivalent of [AWSCodeBuildDeveloperAccess](auth-and-access-control-iam-identity-based-access-control.md#developer-access-policy) permissions for all report groups and projects except those tagged with the specified tags:  
+
+```
+{
+   "Version": "2012-10-17",
+   "Statement": [
+      {
+         "Effect": "Allow",
+         "Action": [
+            "codebuild:StartBuild",
+            "codebuild:StopBuild",
+            "codebuild:BatchGet*",
+            "codebuild:GetResourcePolicy",
+            "codebuild:DescribeTestCases",
+            "codebuild:List*",
+            "codecommit:GetBranch",
+            "codecommit:GetCommit",
+            "codecommit:GetRepository",
+            "codecommit:ListBranches",
+            "cloudwatch:GetMetricStatistics",
+            "events:DescribeRule",
+            "events:ListTargetsByRule",
+            "events:ListRuleNamesByTarget",
+            "logs:GetLogEvents",
+            "s3:GetBucketLocation",
+            "s3:ListAllMyBuckets"
+         ],
+         "Resource": "*",
+         "Condition": {
+            "StringNotEquals": {
+               "aws:ResourceTag/Status": "Secret",
+               "aws:ResourceTag/Team": "Saanvi"
+            }
+         }
+      }
+   ]
+}
+```

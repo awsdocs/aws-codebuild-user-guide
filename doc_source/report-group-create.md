@@ -1,11 +1,6 @@
 # Create a report group<a name="report-group-create"></a>
 
-
-|  | 
-| --- |
-| The test reporting feature is in preview release for CodeBuild and is subject to change\. | 
-
- You can use the AWS CodeBuild console, the AWS CLI, or a buildspec file to create a report group\. Your IAM role must have the permissions required to create a report group\. For more information, see [Working with test report permissions](test-permissions.md)\. 
+ You can use the CodeBuild console, the AWS CLI, or a buildspec file to create a report group\. Your IAM role must have the permissions required to create a report group\. For more information, see [Working with test report permissions](test-permissions.md)\. 
 
 **Topics**
 + [Create a report group \(buildspec\)](test-report-group-create-buildspec.md)

@@ -1,10 +1,5 @@
 # Working with test report permissions<a name="test-permissions"></a>
 
-
-|  | 
-| --- |
-| The test reporting feature is in preview release for CodeBuild and is subject to change\. | 
-
  This topic describes important information about permissions related to test reporting\. 
 
 **Topics**
@@ -13,11 +8,6 @@
 + [Test reporting permissions examples](#test-permissions-examples)
 
 ## Create a role for test reports<a name="test-permissions-required"></a>
-
-
-|  | 
-| --- |
-| The test reporting feature is in preview release for CodeBuild and is subject to change\. | 
 
  To run a test report, and to update a project to include test reports, your IAM role requires the following permissions\. These permissions are included in the predefined AWS managed policies\. If you want to add test reporting to an existing build project, you must add these permissions yourself\.
 +  `CreateReportGroup` 
@@ -80,12 +70,10 @@
 }
 ```
 
+**Note**  
+The CodeBuild service role specified in the project is used for permissions to upload to the S3 bucket\.
+
 ## Permissions for test reporting operations<a name="test-permissions-related-to-reporting"></a>
-
-
-|  | 
-| --- |
-| The test reporting feature is in preview release for CodeBuild and is subject to change\. | 
 
  You can specify permissions for the following test reporting CodeBuild API operations: 
 +  `BatchGetReportGroups` 
@@ -102,11 +90,6 @@
 For more information, see [AWS CodeBuild permissions reference](auth-and-access-control-permissions-reference.md)\.
 
 ## Test reporting permissions examples<a name="test-permissions-examples"></a>
-
-
-|  | 
-| --- |
-| The test reporting feature is in preview release for CodeBuild and is subject to change\. | 
 
  For information about sample policies related to test reporting, see the following: 
 +  [Allow a user to change a report group](auth-and-access-control-iam-identity-based-access-control.md#customer-managed-policies-example-change-report-group) 

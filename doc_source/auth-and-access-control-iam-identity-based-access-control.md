@@ -21,7 +21,7 @@ The following shows an example of a permissions policy that allows a user to get
     {
       "Effect": "Allow",
       "Action": "codebuild:BatchGetProjects",
-      "Resource": "arn:aws:codebuild:us-east-2:123456789012:project/my*"      
+      "Resource": "arn:aws:codebuild:us-east-2:123456789012:project/my*"
     }
   ]
 }
@@ -55,7 +55,7 @@ The `ListConnectedOAuthAccounts`, `ListRepositories`, and `PersistOAuthToken` AP
 
 ## AWS managed \(predefined\) policies for AWS CodeBuild<a name="managed-policies"></a>
 
-AWS addresses many common use cases by providing standalone IAM policies that are created and administered by AWS\. These AWS managed policies grant necessary permissions for common use cases so you can avoid having to investigate what permissions are needed\. For more information, see [AWS Managed Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html#aws-managed-policies) in the *IAM User Guide*\.
+AWS addresses many common use cases by providing standalone IAM policies that are created and administered by AWS\. These AWS managed policies grant necessary permissions for common use cases so you can avoid having to investigate what permissions are needed\. The managed policies for CodeBuild also provide permissions to perform operations in other serivces, such as IAM, AWS CodeCommit,Amazon EC2, Amazon ECR, Amazon SNS, and Amazon CloudWatch Events, as required for the responsibilities for the users who have been granted the policy in question\. For example, the `AWSCodeBuildAdminAccess` policy is an administrative\-level user policy that allows users with this policy to create and manage CloudWatch Events rules for project builds and Amazon SNS topics for notifications about project\-related events \(topics whose names are prefixed with `arn:aws:codebuild:`\), as well as administer projects and report groups in CodeBuild\. For more information, see [AWS Managed Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html#aws-managed-policies) in the *IAM User Guide*\.
 
 The following AWS managed policies, which you can attach to users in your account, are specific to AWS CodeBuild\.
 + `AWSCodeBuildAdminAccess` – Provides full access to CodeBuild including permissions to administrate CodeBuild build projects\. 
@@ -67,6 +67,251 @@ To access build output artifacts that CodeBuild creates, you must also attach th
 To create and manage CodeBuild service roles, you must also attach the AWS managed policy named `IAMFullAccess`\.
 
 You can also create your own custom IAM policies to allow permissions for CodeBuild actions and resources\. You can attach these custom policies to the IAM users or groups that require those permissions\.
+
+**Topics**
++ [AWSCodeBuildAdminAccess](#admin-access-policy)
++ [AWSCodeBuildDeveloperAccess](#developer-access-policy)
++ [AWSCodeBuildReadOnlyAccess](#read-only-access-policy)
+
+### AWSCodeBuildAdminAccess<a name="admin-access-policy"></a>
+
+`AWSCodeBuildAdminAccess` – Provides full access to CodeBuild, including permissions to administer CodeBuild build projects\. Apply this policy only to administrative\-level users to grant them full control over CodeBuild projects, report groups, and related resources in your AWS account, including the ability to delete projects and report groups\.
+
+The `AWSCodeBuildAdminAccess` policy contains the following policy statement:
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Action": [
+                "codebuild:*",
+                "codecommit:GetBranch",
+                "codecommit:GetCommit",
+                "codecommit:GetRepository",
+                "codecommit:ListBranches",
+                "codecommit:ListRepositories",
+                "cloudwatch:GetMetricStatistics",
+                "ec2:DescribeVpcs",
+                "ec2:DescribeSecurityGroups",
+                "ec2:DescribeSubnets",
+                "ecr:DescribeRepositories",
+                "ecr:ListImages",
+                "events:DeleteRule",
+                "events:DescribeRule",
+                "events:DisableRule",
+                "events:EnableRule",
+                "events:ListTargetsByRule",
+                "events:ListRuleNamesByTarget",
+                "events:PutRule",
+                "events:PutTargets",
+                "events:RemoveTargets",
+                "logs:GetLogEvents",
+                "s3:GetBucketLocation",
+                "s3:ListAllMyBuckets"
+            ],
+            "Effect": "Allow",
+            "Resource": "*"
+        },
+        {
+            "Action": [
+                "logs:DeleteLogGroup"
+            ],
+            "Effect": "Allow",
+            "Resource": "arn:aws:logs:*:*:log-group:/aws/codebuild/*:log-stream:*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ssm:PutParameter"
+            ],
+            "Resource": "arn:aws:ssm:*:*:parameter/CodeBuild/*"
+        },
+        {
+            "Sid": "CodeStarNotificationsReadWriteAccess",
+            "Effect": "Allow",
+            "Action": [
+                "codestar-notifications:CreateNotificationRule",
+                "codestar-notifications:DescribeNotificationRule",
+                "codestar-notifications:UpdateNotificationRule",
+                "codestar-notifications:DeleteNotificationRule",
+                "codestar-notifications:Subscribe",
+                "codestar-notifications:Unsubscribe"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "StringLike": {
+                    "codestar-notifications:NotificationsForResource": "arn:aws:codebuild:*"
+                }
+            }
+        },
+        {
+            "Sid": "CodeStarNotificationsListAccess",
+            "Effect": "Allow",
+            "Action": [
+                "codestar-notifications:ListNotificationRules",
+                "codestar-notifications:ListEventTypes",
+                "codestar-notifications:ListTargets",
+                "codestar-notifications:ListTagsforResource"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "CodeStarNotificationsSNSTopicCreateAccess",
+            "Effect": "Allow",
+            "Action": [
+                "sns:CreateTopic",
+                "sns:SetTopicAttributes"
+            ],
+            "Resource": "arn:aws:sns:*:*:codestar-notifications*"
+        },
+        {
+            "Sid": "SNSTopicListAccess",
+            "Effect": "Allow",
+            "Action": [
+                "sns:ListTopics",
+                "sns:GetTopicAttributes"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+```
+
+### AWSCodeBuildDeveloperAccess<a name="developer-access-policy"></a>
+
+`AWSCodeBuildDeveloperAccess` – Allows access to all of the functionality of CodeBuild and project and report group\-related resources\. This policy does not allow users to delete CodeBuild projects or report groups, or related resources in other AWS services, such as CloudWatch Events\. We recommend that you apply this policy to most users\.
+
+The `AWSCodeBuildDeveloperAccess` policy contains the following policy statement:
+
+```
+{
+    "Statement": [
+        {
+            "Action": [
+                "codebuild:StartBuild",
+                "codebuild:StopBuild",
+                "codebuild:BatchGet*",
+                "codebuild:GetResourcePolicy",
+                "codebuild:DescribeTestCases",
+                "codebuild:List*",
+                "codecommit:GetBranch",
+                "codecommit:GetCommit",
+                "codecommit:GetRepository",
+                "codecommit:ListBranches",
+                "cloudwatch:GetMetricStatistics",
+                "events:DescribeRule",
+                "events:ListTargetsByRule",
+                "events:ListRuleNamesByTarget",
+                "logs:GetLogEvents",
+                "s3:GetBucketLocation",
+                "s3:ListAllMyBuckets"
+            ],
+            "Effect": "Allow",
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ssm:PutParameter"
+            ],
+            "Resource": "arn:aws:ssm:*:*:parameter/CodeBuild/*"
+        },
+        {
+            "Sid": "CodeStarNotificationsReadWriteAccess",
+            "Effect": "Allow",
+            "Action": [
+                "codestar-notifications:CreateNotificationRule",
+                "codestar-notifications:DescribeNotificationRule",
+                "codestar-notifications:UpdateNotificationRule",
+                "codestar-notifications:Subscribe",
+                "codestar-notifications:Unsubscribe"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "StringLike": {
+                    "codestar-notifications:NotificationsForResource": "arn:aws:codebuild:*"
+                }
+            }
+        },
+        {
+            "Sid": "CodeStarNotificationsListAccess",
+            "Effect": "Allow",
+            "Action": [
+                "codestar-notifications:ListNotificationRules",
+                "codestar-notifications:ListEventTypes",
+                "codestar-notifications:ListTargets",
+                "codestar-notifications:ListTagsforResource"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "SNSTopicListAccess",
+            "Effect": "Allow",
+            "Action": [
+                "sns:ListTopics",
+                "sns:GetTopicAttributes"
+            ],
+            "Resource": "*"
+        }
+    ],
+    "Version": "2012-10-17"
+}
+```
+
+### AWSCodeBuildReadOnlyAccess<a name="read-only-access-policy"></a>
+
+`AWSCodeBuildReadOnlyAccess` – Grants read\-only access to CodeBuild and related resources in other AWS services\. Apply this policy to users who can view and run builds, view projects, and view report groups, but cannot make any changes to them\. 
+
+The `AWSCodeBuildReadOnlyAccess` policy contains the following policy statement:
+
+```
+{
+    "Statement": [
+        {
+            "Action": [
+                "codebuild:BatchGet*",
+                "codebuild:GetResourcePolicy",
+                "codebuild:List*",
+                "codebuild:DescribeTestCases",
+                "codecommit:GetBranch",
+                "codecommit:GetCommit",
+                "codecommit:GetRepository",
+                "cloudwatch:GetMetricStatistics",
+                "events:DescribeRule",
+                "events:ListTargetsByRule",
+                "events:ListRuleNamesByTarget",
+                "logs:GetLogEvents"
+            ],
+            "Effect": "Allow",
+            "Resource": "*"
+        },
+        {
+            "Sid": "CodeStarNotificationsPowerUserAccess",
+            "Effect": "Allow",
+            "Action": [
+                "codestar-notifications:DescribeNotificationRule"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "StringLike": {
+                    "codestar-notifications:NotificationsForResource": "arn:aws:codebuild:*"
+                }
+            }
+        },
+        {
+            "Sid": "CodeStarNotificationsListAccess",
+            "Effect": "Allow",
+            "Action": [
+                "codestar-notifications:ListNotificationRules",
+                "codestar-notifications:ListEventTypes"
+            ],
+            "Resource": "*"
+        }
+    ],
+    "Version": "2012-10-17"
+}
+```
 
 ## CodeBuild Managed Policies and Notifications<a name="notifications-permissions"></a>
 
@@ -212,7 +457,7 @@ For more information about IAM and notifications, see [Identity and Access Manag
 
 ## Customer\-managed policy examples<a name="customer-managed-policies"></a>
 
-In this section, you can find example user policies that grant permissions for AWS CodeBuild actions\. These policies work when you are using the CodeBuild API, AWS SDKs, or AWS CLI\. When you are using the console, you must grant additional permissions specific to the console\. For information, see [Permissions required to use the AWS CodeBuild console](#console-permissions)\.
+In this section, you can find example user policies that grant permissions for AWS CodeBuild actions\. These policies work when you are using the CodeBuild API, AWS SDKs, or AWS CLI\. When you are using the console, you must grant additional, console\-specific permissions\. For information, see [Permissions required to use the AWS CodeBuild console](#console-permissions)\.
 
 You can use the following sample IAM policies to limit CodeBuild access for your IAM users and roles\.
 

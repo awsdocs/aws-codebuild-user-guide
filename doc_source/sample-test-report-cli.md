@@ -1,10 +1,5 @@
 # Create a test report in CodeBuild using the AWS CLI sample<a name="sample-test-report-cli"></a>
 
-
-|  | 
-| --- |
-| The test reporting feature is in preview release for CodeBuild and is subject to change\. | 
-
  Tests that you specify in your buildspec file are run during your build\. This sample shows you how to use the AWS CLI to incorporate tests into builds in CodeBuild\. You can use JUnit to create unit tests, or you can use another tool to create configuration tests\. You can then evaluate the test results to fix issues or optimize your application\. 
 
 You can use the CodeBuild API or the AWS CodeBuild console to access the test results\. This sample shows you how to configure your report so its test results are exported to an S3 bucket\. 

@@ -1,10 +1,5 @@
 # Create a report group \(console\)<a name="test-report-group-create-console"></a>
 
-
-|  | 
-| --- |
-| The test reporting feature is in preview release for CodeBuild and is subject to change\. | 
-
 **To create a test report**
 
 1. Open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codesuite/codebuild/home](https://console.aws.amazon.com/codesuite/codebuild/home)\.
@@ -15,7 +10,9 @@
 
 1. For **Report group name**, enter a name for your report group\. 
 
-1.  If you want to upload the raw data of your test report results to an S3 bucket: 
+1.  \(Optional\) For **Tags**, enter the name and value of any tags that you want supporting AWS services to use\. Use **Add row** to add a tag\. You can add up to 50 tags\. 
+
+1.  If you want to upload the raw data of your test report results to an Amazon S3 bucket: 
 
    1. Select **Backup to Amazon S3**\. 
 
@@ -31,5 +28,7 @@
       +  **Disable artifact encryption** to disable encryption\. You might choose this if you want to share your test results, or publish them to a static website\. \(A dynamic website can run code to decrypt test results\.\)
 
        For more information about encryption of data at\-rest, see [Data encryption](security-encryption.md)\. 
+**Note**  
+The CodeBuild service role specified in the project is used for permissions to upload to the S3 bucket\.
 
 1. Choose **Create report group**\.

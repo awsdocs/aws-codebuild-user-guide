@@ -45,3 +45,16 @@ The following tables list the current quotas in AWS CodeBuild\. These quotas are
 | Maximum duration a test report is available after it is created | 30 days | 
 | Maximum number of report groups per AWS account | 1000 | 
 | Maximum number of test cases per report | 500 | 
+
+## Tags<a name="tag-limits"></a>
+
+ Tag limits apply to tags on CodeBuild build project and CodeBuild report group resources\. 
+
+
+****  
+
+| Resource | Default | 
+| --- | --- | 
+| Maximum number of tags you can associate with a resource | 50\. Tags are case sensitive | 
+| Resource tag key names |  Any combination of Unicode letters, numbers, spaces, and allowed characters in UTF\-8 between 1 and 127 characters in length\. Allowed characters are `+ - = . _ : / @` Tag key names must be unique, and each key can only have one value\. A tag key name cannot: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/codebuild/latest/userguide/limits.html)  | 
+| Resource tag values |  Any combination of Unicode letters, numbers, spaces, and allowed characters in UTF\-8 between 0 and 255 characters in length\. Allowed characters are `+ - = . _ : / @` A key can only have one value, but many keys can have the same value\. A tag key value cannot contain emojis or any of the following characters:` ? ^ * [ \ ~ ! # $ % & * ( ) > < \| " ' ` [ ] { } ;`  | 

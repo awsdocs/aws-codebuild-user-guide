@@ -2,10 +2,12 @@
 
 The following table describes the important changes to the documentation since the last release of AWS CodeBuild\. For notification about updates to this documentation, you can subscribe to an RSS feed\.
 + **Latest API version:** 2016\-10\-06
-+ **Latest documentation update: **May 6, 2020
++ **Latest documentation update: **May 21, 2020
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Updated topics](#history) | CodeBuild now supports adding tags to report groups\. For more information, see [ReportGroup](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ReportGroup.html)\. | May 21, 2020 | 
+| [Support for test reporting](#history) | CodeBuild support for test reporting is now generally available\. | May 21, 2020 | 
 | [Updated topics](#history) |  CodeBuild now supports creating create webhook filters for Github and Bitbucket that trigger builds only when the head commit message matches the specified expression\. For more information, see [GitHub pull request and webhook filter sample](https://docs.aws.amazon.com/codebuild/latest/userguide/sample-github-pull-request.html) and [Bitbucket pull request and webhook filter sample](https://docs.aws.amazon.com/codebuild/latest/userguide/sample-bitbucket-pull-request.html)\. | May 6, 2020 | 
 | [New topics](#history) |  CodeBuild now supports sharing build project and report group resources\. For more information, see [Working with shared projects](https://docs.aws.amazon.com/codebuild/latest/userguide/project-sharing.html) and [Working with shared report groups](https://docs.aws.amazon.com/codebuild/latest/userguide/report-groups-sharing.html)\. | December 13, 2019 | 
 | [New and updated topics](#history) |  CodeBuild now supports test reporting during the run of a build project\. For more information, see [Working with test reporting](https://docs.aws.amazon.com/codebuild/latest/userguide/test-reporting.html), [Create a test report](https://docs.aws.amazon.com/codebuild/latest/userguide/report-create.html), and [Create a test report using the AWS CLI sample](https://docs.aws.amazon.com/codebuild/latest/userguide/sample-test-report-cli.html)\. | November 25, 2019 | 
@@ -42,8 +44,6 @@ The following table describes the important changes to the documentation since t
 
 The following table describes important changes in each release of the *AWS CodeBuild User Guide* before June 2018\.
 
-
-****  
 
 | Change | Description | Date | 
 | --- | --- | --- | 

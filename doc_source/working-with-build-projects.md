@@ -15,3 +15,4 @@ You can perform these tasks when working with build projects:
 + [Change a build project's settings in AWS CodeBuild](change-project.md)
 + [Delete a build project in AWS CodeBuild](delete-project.md)
 + [Working with shared projects](project-sharing.md)
++ [Tagging Projects in AWS CodeBuild](how-to-tag-project.md)

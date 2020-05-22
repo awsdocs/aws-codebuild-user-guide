@@ -1,10 +1,5 @@
 # Working with report groups<a name="test-report-group"></a>
 
-
-|  | 
-| --- |
-| The test reporting feature is in preview release for CodeBuild and is subject to change\. | 
-
 A *report group* contains test reports and specifies shared settings\. You use the buildspec file to specify the test cases to run and the commands to run them when it builds\. For each report group configured in a build project, a run of the build project creates a test report\. Multiple runs of a build project configured with a report group create multiple test reports in that report group, each with results of the the same test cases specified for that report group\. 
 
  The test cases are specified for a report group in the buildspec file of a build project\. You can specify up to 5 report groups in one build project\. When your run a build, all the test cases run\. A new test report is created with the results of each test case specified for a report group\. Each time you run a new build, the test cases run and a new test report is created with the new test results\. 
@@ -17,4 +12,5 @@ A *report group* contains test reports and specifies shared settings\. You use t
 + [Specify test files](report-group-test-cases.md)
 + [Specify test commands](report-group-test-case-commands.md)
 + [Report group naming](test-report-group-naming.md)
++ [Tagging Report Groups in AWS CodeBuild](how-to-tag-report-group.md)
 + [Working with shared report groups](report-groups-sharing.md)

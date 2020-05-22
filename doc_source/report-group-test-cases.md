@@ -1,13 +1,8 @@
 # Specify test files<a name="report-group-test-cases"></a>
 
-
-|  | 
-| --- |
-| The test reporting feature is in preview release for CodeBuild and is subject to change\. | 
-
  You specify the test result files and their location for each report group in the `reports` section of your build project's buildspec file\. For more information, see [Reports syntax in the buildspec file](build-spec-ref.md#reports-buildspec-file)\. 
 
- The following is a sample `reports` section that specifies two report groups for a build project\. One is specified with its ARN, the other with a name\. The `files` section specifies the files that contain the test case results\. The optional `base-directory` section specifies the directory where the test case files are located\. The optional `discard-paths` section specifies whether paths to test result files uploaded to an S3 bucket are discarded\. 
+ The following is a sample `reports` section that specifies two report groups for a build project\. One is specified with its ARN, the other with a name\. The `files` section specifies the files that contain the test case results\. The optional `base-directory` section specifies the directory where the test case files are located\. The optional `discard-paths` section specifies whether paths to test result files uploaded to an Amazon S3 bucket are discarded\. 
 
 ```
 reports:

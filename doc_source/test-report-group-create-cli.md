@@ -1,15 +1,11 @@
 # Create a report group \(CLI\)<a name="test-report-group-create-cli"></a>
 
-
-|  | 
-| --- |
-| The test reporting feature is in preview release for CodeBuild and is subject to change\. | 
-
 **To create a test report**
-+ Create a file named `CreateReportGroup.json`\.
+
+1. Create a file named `CreateReportGroup.json`\.
 
 1.  Depending on your requirements, copy one of the following JSON code snippets into `CreateReportGroup.json`: 
-   + Use the following JSON to specify that your test report group exports raw test result files to an S3 bucket\. 
+   + Use the following JSON to specify that your test report group exports raw test result files to an Amazon S3 bucket\. 
 
      ```
      {
@@ -23,7 +19,13 @@
          "packaging": "NONE | ZIP",
          "encryptionDisabled": "false",
          "encryptionKey": "your-key"
-       }
+       },
+       "tags": [
+         {
+           "key": "tag-key",
+           "value": "tag-value"
+         }
+       ]
      }
      ```
 
@@ -39,6 +41,8 @@
        }
      }
      ```
+**Note**  
+The CodeBuild service role specified in the project is used for permissions to upload to the S3 bucket\.
 
 1.  Run the following command: 
 

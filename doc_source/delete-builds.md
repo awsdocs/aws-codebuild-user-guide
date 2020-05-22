@@ -34,7 +34,7 @@ Information similar to the following appears in the output:
     }
   ], 
   "buildsDeleted": [
-    "arn:aws:codebuild:us-west-2:123456789012n:build/my-other-demo-build-project:a18bc6ee-e499-4887-b36a-8c90349c7eEX"
+    "arn:aws:codebuild:us-west-2:123456789012:build/my-other-demo-build-project:a18bc6ee-e499-4887-b36a-8c90349c7eEX"
   ]
 }
 ```

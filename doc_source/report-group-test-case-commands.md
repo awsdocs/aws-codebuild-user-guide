@@ -1,10 +1,5 @@
 # Specify test commands<a name="report-group-test-case-commands"></a>
 
-
-|  | 
-| --- |
-| The test reporting feature is in preview release for CodeBuild and is subject to change\. | 
-
  You specify the commands that run your test cases in the `commands` section of your buildspec file\. These commands run the test cases specified for your report groups in the `reports` section of your buildspec file\. The following is a sample `commands` section that includes commands to run the tests in test files: 
 
 ```
