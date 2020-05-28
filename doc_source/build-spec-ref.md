@@ -133,7 +133,7 @@ The buildspec contains the following:
 + `version`: Required mapping\. Represents the buildspec version\. We recommend that you use `0.2`\.
 **Note**  
 Although version 0\.1 is still supported, we recommend that you use version 0\.2 whenever possible\. For more information, see [Buildspec versions](#build-spec-ref-versions)\.
-+ `run-as`: Optional sequence\. Available to Linux users only\. Specifies a Linux user that runs commands in this buildspec file\. `run-as` grants the specified user read and execute permissions\. When you specify `run-as` at the top of the buildspec file, it applies globally to all commands\. If you don't want to specify a user for all buildspec file commands, you can specify one for commands in a phase by using `run-as` in one of the `phases` blocks\. If `run-as` is not specified, then all commands run as the root\.
++ `run-as`: Optional sequence\. Available to Linux users only\. Specifies a Linux user that runs commands in this buildspec file\. `run-as` grants the specified user read and execute permissions\. When you specify `run-as` at the top of the buildspec file, it applies globally to all commands\. If you don't want to specify a user for all buildspec file commands, you can specify one for commands in a phase by using `run-as` in one of the `phases` blocks\. If `run-as` is not specified, then all commands run as the root user\.
 + `env`: Optional sequence\. Represents information for one or more custom environment variables\.
 **Note**  
  To protect sensitive information, the following are hidden in CodeBuild logs:   
