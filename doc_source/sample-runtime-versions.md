@@ -114,7 +114,7 @@ If you are using an S3 input bucket, be sure to create a ZIP file that contains 
      + For **Environment image**, choose **Managed image**\.
      + For **Operating system**, choose **Amazon Linux 2**\. 
      +  For **Runtime\(s\)**, choose **Standard**\. 
-     + For **Image**, choose **aws/codebuild/amazonlinux2\-x86\_64\-standard:2\.0**\.
+     + For **Image**, choose **aws/codebuild/amazonlinux2\-x86\_64\-standard:3\.0**\.
 
 1.  Choose **Start build**\. 
 
@@ -183,7 +183,7 @@ The build project in this example uses source code in the GitHub [AWS Samples](h
      + For **Environment image**, choose **Managed image**\.
      + For **Operating system**, choose **Amazon Linux 2**\. 
      +  For **Runtime\(s\)**, choose **Standard**\. 
-     + For **Image**, choose **aws/codebuild/amazonlinux2\-x86\_64\-standard:2\.0**\.
+     + For **Image**, choose **aws/codebuild/amazonlinux2\-x86\_64\-standard:3\.0**\.
 
 1.  For **Build specifications**, choose **Insert build commands**, and then choose **Switch to editor**\. 
 

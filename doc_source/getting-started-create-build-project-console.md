@@ -33,7 +33,7 @@ Both options include administrator permissions that allow you to create a build 
 
 1. For **Runtime\(s\)**, choose **Standard**\.
 
-1. For **Image**, choose **aws/codebuild/amazonlinux2\-x86\_64\-standard:2\.0**\.
+1. For **Image**, choose **aws/codebuild/amazonlinux2\-x86\_64\-standard:3\.0**\.
 
 1. In **Service role**, leave **New service role** selected, and leave **Role name** unchanged\.
 

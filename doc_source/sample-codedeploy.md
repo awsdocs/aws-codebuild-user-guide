@@ -139,7 +139,7 @@ Do not add `(root directory name)` or `(root directory name)/my-app` to the ZIP 
      },
      "environment": {
        "type": "LINUX_CONTAINER",
-       "image": "aws/codebuild/standard:2.0",
+       "image": "aws/codebuild/standard:4.0",
        "computeType": "BUILD_GENERAL1_SMALL"
      },
      "serviceRole": "arn:aws:iam::account-ID:role/role-name",

@@ -133,7 +133,7 @@ The buildspec contains the following:
 + `version`: Required mapping\. Represents the buildspec version\. We recommend that you use `0.2`\.
 **Note**  
 Although version 0\.1 is still supported, we recommend that you use version 0\.2 whenever possible\. For more information, see [Buildspec versions](#build-spec-ref-versions)\.
-+ `run-as`: Optional sequence\. Available to Linux users only\. Specifies a Linux user that runs commands in this buildspec file\. `run-as` grants the specified user read and execute permissions\. When you specify `run-as` at the top of the buildspec file, it applies globally to all commands\. If you don't want to specify a user for all buildspec file commands, you can specify one for commands in a phase by using `run-as` in one of the `phases` blocks\. If `run-as` is not specified, then all commands run as the root\.
++ `run-as`: Optional sequence\. Available to Linux users only\. Specifies a Linux user that runs commands in this buildspec file\. `run-as` grants the specified user read and execute permissions\. When you specify `run-as` at the top of the buildspec file, it applies globally to all commands\. If you don't want to specify a user for all buildspec file commands, you can specify one for commands in a phase by using `run-as` in one of the `phases` blocks\. If `run-as` is not specified, then all commands run as the root user\.
 + `env`: Optional sequence\. Represents information for one or more custom environment variables\.
 **Note**  
  To protect sensitive information, the following are hidden in CodeBuild logs:   
@@ -224,12 +224,12 @@ Commands in some build phases might not be run if commands in earlier build phas
     + `my-subdirectory/**/*` represents all files recursively starting from a subdirectory named *my\-subdirectory*\.
   + `base-directory`: Optional mapping\. Represents one or more top\-level directories, relative to the original build location, that CodeBuild uses to determine where to find the raw test files\.
   + `discard-paths`: Optional mapping\. Represents whether paths to test result files uploaded to an S3 bucket are discarded\. `yes` if paths are discarded\. Otherwise, `no` or not specified \(the default\)\. For example, if a path to a test result is `com/myapp/mytests/TestResult.xml`, specifying `yes` shortens this path to `TesResult.xml`\. 
-  + `file-format`: Optional mapping\. Represents the test file format\. If not specified, `JunitXml` is used\. The valid values are:
-    + `JunitXml`
+  + <a name="build-spec-ref-file-format"></a>`file-format`: Optional mapping\. Represents the test file format\. If not specified, `JunitXml` is used\. The valid values are:
     + `CucumberJson`
-    + `VisualStudioTrx`
-    + `VisualStudioTrx`
+    + `JunitXml`
+    + `NunitXml`
     + `TestNGXml`
+    + `VisualStudioTrx`
 + <a name="artifacts-build-spec"></a>`artifacts`: Optional sequence\. Represents information about where CodeBuild can find the build output and how CodeBuild prepares it for uploading to the S3 output bucket\. This sequence is not required if, for example, you are building and pushing a Docker image to Amazon ECR, or you are running unit tests on your source code, but not building it\.
   +  `files`: Required sequence\. Represents the locations that contain the build output artifacts in the build environment\. Contains a sequence of scalars, with each scalar representing a separate location where CodeBuild can find build output artifacts, relative to the original build location or, if set, the base directory\. Locations can include the following:
     + A single file \(for example, `my-file.jar`\)\.

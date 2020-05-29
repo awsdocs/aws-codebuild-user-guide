@@ -37,7 +37,7 @@ If you are using an S3 input bucket, be sure to create a ZIP file that contains 
         },
         "environment": {
           "type": "LINUX_CONTAINER",
-          "image": "aws/codebuild/standard:2.0",
+          "image": "aws/codebuild/standard:4.0",
           "computeType": "BUILD_GENERAL1_SMALL"
         },
         "serviceRole": "arn:aws:iam::account-ID:role/role-name",

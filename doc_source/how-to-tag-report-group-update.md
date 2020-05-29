@@ -1,11 +1,11 @@
-# Edit Tags for a Report Group<a name="how-to-tag-report-group-update"></a>
+# Edit tags for a report group<a name="how-to-tag-report-group-update"></a>
 
 You can change the value for a tag associated with a report group\. You can also change the name of the key, which is equivalent to removing the current tag and adding a different one with the new name and the same value as the other key\. Keep in mind that there are restrictions on the characters you can use in the key and value fields\. For more information, see [Tags](limits.md#tag-limits)\.
 
 **Important**  
 Editing tags for a report group can impact access to that report group\. Before you edit the name \(key\) or value of a tag for a report group, make sure to review any IAM policies that might use the key or value for a tag to control access to resources such as report groups\. For examples of tag\-based access policies, see [Deny or allow actions on report groups based on resource tags](auth-and-access-control-using-tags.md#report-group-tag-policy-example)\.
 
-## Edit a Tag for a Report Group \(Console\)<a name="how-to-tag-report-group-update-console"></a>
+## Edit a tag for a report group \(console\)<a name="how-to-tag-report-group-update-console"></a>
 
 You can use the CodeBuild console to edit the tags associated with a CodeBuild report group\. 
 
@@ -23,6 +23,6 @@ You can use the CodeBuild console to edit the tags associated with a CodeBuild r
 
 1. When you have finished editing tags, choose **Submit**\.
 
-## Edit Tags for a Report Group \(AWS CLI\)<a name="how-to-tag-report-group-update-cli"></a>
+## Edit tags for a report group \(AWS CLI\)<a name="how-to-tag-report-group-update-cli"></a>
 
  To add, change, or delete tags from a report group, see [Update a report group \(CLI\)](update-report-group-cli.md)\. Update the tags in `UpdateReportGroupInput.json`\. 

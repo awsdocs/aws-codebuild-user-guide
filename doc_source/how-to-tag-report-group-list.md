@@ -1,8 +1,8 @@
-# View Tags for a Report Group<a name="how-to-tag-report-group-list"></a>
+# View tags for a report group<a name="how-to-tag-report-group-list"></a>
 
 Tags can help you identify and organize your AWS resources and manage access to them\. For more information about using tags, see the [Tagging Best Practices](https://d1.awsstatic.com/whitepapers/aws-tagging-best-practices.pdf) whitepaper\. For examples of tag\-based access policies, see [Deny or allow actions on report groups based on resource tags](auth-and-access-control-using-tags.md#report-group-tag-policy-example)\.
 
-## View Tags for a Report Group \(Console\)<a name="how-to-tag-report-group-list-console"></a>
+## View tags for a report group \(console\)<a name="how-to-tag-report-group-list-console"></a>
 
 You can use the CodeBuild console to view the tags associated with a CodeBuild report group\. 
 
@@ -12,7 +12,7 @@ You can use the CodeBuild console to view the tags associated with a CodeBuild r
 
 1. In the navigation pane, choose **Settings**\.
 
-## View Tags for a Report Group \(AWS CLI\)<a name="how-to-tag-report-group-list-cli"></a>
+## View tags for a report group \(AWS CLI\)<a name="how-to-tag-report-group-list-cli"></a>
 
 Follow these steps to use the AWS CLI to view the AWS tags for a report group\. If no tags have been added, the returned tags list is empty\.
 
@@ -21,7 +21,7 @@ Follow these steps to use the AWS CLI to view the AWS tags for a report group\. 
 ------
 #### [ AWS CLI ]
 
-    Run the following comand\. 
+    Run the following command\. 
 
    ```
    aws list-report-groups

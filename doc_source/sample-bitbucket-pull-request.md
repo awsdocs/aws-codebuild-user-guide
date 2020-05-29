@@ -144,12 +144,12 @@ In this example, a webhook filter group triggers a build for a push event when t
 
 ```
 "filterGroups": [
-   [
-        {
-            "type": "EVENT", 
-            "pattern": "PULL_REQUEST_CREATED, PULL_REQUEST_UPDATED, PULL_REQUEST_MERGED"
-        }
-    ]
+  [
+    {
+      "type": "EVENT",
+      "pattern": "PULL_REQUEST_CREATED, PULL_REQUEST_UPDATED, PULL_REQUEST_MERGED"
+    }
+  ]
 ]
 ```
 
@@ -159,30 +159,30 @@ In this example, a webhook filter group triggers a build for a push event when t
 
 ```
 "filterGroups": [
-    [
-        {
-            "type": "EVENT", 
-            "pattern": "PULL_REQUEST_CREATED, PULL_REQUEST_UPDATED"
-        },
-        {
-            "type": "HEAD_REF", 
-            "pattern": "^refs/heads/myBranch$"
-        },
-        {
-            "type": "BASE_REF", 
-            "pattern": "^refs/heads/master$"
-        }
-    ],
-    [
-        {
-            "type": "EVENT", 
-            "pattern": "PUSH"
-        },
-        {
-            "type": "HEAD_REF", 
-            "pattern": "^refs/heads/myBranch$"
-        }
-    ]
+  [
+    {
+      "type": "EVENT",
+      "pattern": "PULL_REQUEST_CREATED, PULL_REQUEST_UPDATED"
+    },
+    {
+      "type": "HEAD_REF",
+      "pattern": "^refs/heads/myBranch$"
+    },
+    {
+      "type": "BASE_REF",
+      "pattern": "^refs/heads/master$"
+    }
+  ],
+  [
+    {
+      "type": "EVENT",
+      "pattern": "PUSH"
+    },
+    {
+      "type": "HEAD_REF",
+      "pattern": "^refs/heads/myBranch$"
+    }
+  ]
 ]
 ```
 
@@ -190,17 +190,17 @@ In this example, a webhook filter group triggers a build for a push event when t
 
 ```
 "filterGroups": [
-    [
-        {
-            "type": "EVENT", 
-            "pattern": "PUSH, PULL_REQUEST_CREATED, PULL_REQUEST_UPDATED, PULL_REQUEST_MERGED"
-        },
-        {
-            "type": "HEAD_REF", 
-            "pattern": "^refs/tags/.*", 
-            "excludeMatchedPattern": true
-        }
-    ]
+  [
+    {
+      "type": "EVENT",
+      "pattern": "PUSH, PULL_REQUEST_CREATED, PULL_REQUEST_UPDATED, PULL_REQUEST_MERGED"
+    },
+    {
+      "type": "HEAD_REF",
+      "pattern": "^refs/tags/.*",
+      "excludeMatchedPattern": true
+    }
+  ]
 ]
 ```
 
@@ -211,16 +211,16 @@ You can create a filter that triggers a build only when a change is made by a Bi
 
 ```
 "filterGroups": [
-    [
-        {
-            "type": "EVENT", 
-            "pattern": "PUSH, PULL_REQUEST_CREATED, PULL_REQUEST_UPDATED, PULL_REQUEST_MERGED"
-        },
-        {
-            "type": "ACTOR_ACCOUNT_ID", 
-            "pattern": "actor-account-id"
-        }
-    ]
+  [
+    {
+      "type": "EVENT",
+      "pattern": "PUSH, PULL_REQUEST_CREATED, PULL_REQUEST_UPDATED, PULL_REQUEST_MERGED"
+    },
+    {
+      "type": "ACTOR_ACCOUNT_ID",
+      "pattern": "actor-account-id"
+    }
+  ]
 ]
 ```
 
@@ -228,34 +228,34 @@ You can create a filter that triggers a build only when files with names that ma
 
 ```
 "filterGroups": [
-    [
-        {
-            "type": "EVENT", 
-            "pattern": "PUSH"
-        },
-        {
-            "type": "FILE_PATH", 
-            "pattern": "^buildspec.*"
-        }
-    ]
+  [
+    {
+      "type": "EVENT",
+      "pattern": "PUSH"
+    },
+    {
+      "type": "FILE_PATH",
+      "pattern": "^buildspec.*"
+    }
+  ]
 ]
 ```
 
-You can create a filter that triggers a build only when the head commit message matches the regular expression in the pattern argument\. In this example, the filter group specifies that a build is triggered only when the head commit message of the push event matches the regular expression *'\\\[CodeBuild\\\]*\. 
+You can create a filter that triggers a build only when the head commit message matches the regular expression in the pattern argument\. In this example, the filter group specifies that a build is triggered only when the head commit message of the push event matches the regular expression `\[CodeBuild\]`\. 
 
 ```
-"filterGroups": [
+  "filterGroups": [
     [
-        {
-            "type": "EVENT", 
-            "pattern": "PUSH"
-        },
-        {
-            "type": "COMMIT_MESSAGE", 
-            "pattern": "\[CodeBuild\]"
-        }
+      {
+        "type": "EVENT",
+        "pattern": "PUSH"
+      },
+      {
+        "type": "COMMIT_MESSAGE",
+        "pattern": "\[CodeBuild\]"
+      }
     ]
-]
+  ]
 ```
 
 ### Filter Bitbucket webhook events \(AWS CloudFormation\)<a name="sample-bitbucket-pull-request-filter-webhook-events-cfn"></a>
@@ -276,7 +276,7 @@ CodeBuildProject:
     Environment:
       Type: LINUX_CONTAINER
       ComputeType: BUILD_GENERAL1_SMALL
-      Image: aws/codebuild/standard:2.0
+      Image: aws/codebuild/standard:4.0
     Source:
       Type: BITBUCKET
       Location: source-location

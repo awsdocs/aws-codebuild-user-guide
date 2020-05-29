@@ -8,7 +8,7 @@
 
  For more information, see [Data encryption](security-encryption.md)\. 
 
-If you use the AWS CLI to update a report group, you can also update or add tags\. For more information, see [Tagging Report Groups in AWS CodeBuildTagging a Report Group](how-to-tag-report-group.md)\.
+If you use the AWS CLI to update a report group, you can also update or add tags\. For more information, see [Tagging report groups in AWS CodeBuildTag a report group](how-to-tag-report-group.md)\.
 
 **Note**  
 The CodeBuild service role specified in the project is used for permissions to upload to the S3 bucket\.

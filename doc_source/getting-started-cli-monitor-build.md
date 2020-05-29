@@ -52,7 +52,7 @@ If successful, data similar to this appears in the output\.
       "buildStatus": "SUCCEEDED",
       "environment": {
         "computeType": "BUILD_GENERAL1_SMALL",
-        "image": "aws/codebuild/standard:2.0",
+        "image": "aws/codebuild/standard:4.0",
         "type": "LINUX_CONTAINER",
         "environmentVariables": []
       },

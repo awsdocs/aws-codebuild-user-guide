@@ -106,7 +106,7 @@ You can use the CodeBuild API or the AWS CodeBuild console to access the test re
            - enter commands to run your tests
            
        reports:
-       report-name-or-arn: #test file information
+         report-name-or-arn: #test file information
          files:
            - 'test-result-files'
          base-directory: 'optional-base-directory'
@@ -120,25 +120,26 @@ You can use the CodeBuild API or the AWS CodeBuild console to access the test re
 1.  Copy the following JSON into `project.json`\. For `source`, enter the type and location of the repository that contains your source files\. For `serviceRole`, specify the ARN of the role you are using\. 
 
    ```
-   {create-project-with-report
-       "name": "test-report-project",
-       "description": "sample-test-report-project",
-       "source": {
-           "type": "your-repository-type",
-           "location": "https://github.com/your-repository/your-folder"
-       },
-       "artifacts": {
-           "type": "NO_ARTIFACTS"
-       },
-       "cache": {
-           "type": "NO_CACHE"
-       },
-       "environment": {
-           "type": "LINUX_CONTAINER",
-           "image": "aws/codebuild/standard:2.0",
-           "computeType": "small"
-       },    "serviceRole": "arn:aws:iam::your-aws-account-id:role/service-role/your-role-name"
-       }
+   {
+     "name": "test-report-project",
+     "description": "sample-test-report-project",
+     "source": {
+       "type": "your-repository-type",
+       "location": "https://github.com/your-repository/your-folder"
+     },
+     "artifacts": {
+       "type": "NO_ARTIFACTS"
+     },
+     "cache": {
+       "type": "NO_CACHE"
+     },
+     "environment": {
+       "type": "LINUX_CONTAINER",
+       "image": "aws/codebuild/standard:4.0",
+       "computeType": "small"
+     },
+     "serviceRole": "arn:aws:iam:your-aws-account-id:role/service-role/your-role-name"
+   }
    ```
 
 1.  Run the following command in the directory that contains `project.json`\. This creates a project named `test-project`\. 
@@ -179,40 +180,40 @@ You can use the CodeBuild API or the AWS CodeBuild console to access the test re
 
    ```
    {
-       "reports": [
-           {
-               "status": "FAILED",
-               "reportGroupArn": "report-group-arn",
-               "name": "report-group-name",
-               "created": 1573324770.154,
-               "exportConfig": {
-                   "type": "S3",
-                   "s3": {
-                       "bucket": "your-s3-bucket",
-                       "path": "path-to-your-report-results",
-                       "packaging": "NONE",
-                       "encryptionKey": "encryption-key"
-                   }
-               },
-               "expired": 1575916770.0,
-               "truncated": false,
-               "executionId": "arn:aws:codebuild:us-west-2:123456789012:build/name-of-build-project:2c254862-ddf6-4831-a53f-6839a73829c1",
-               "type": "TEST",
-               "arn": "report-arn",
-               "testSummary": {
-                   "durationInNanoSeconds": 6657770,
-                   "total": 11,
-                   "statusCounts": {
-                       "FAILED": 3,
-                       "SKIPPED": 7,
-                       "ERROR": 0,
-                       "SUCCEEDED": 1,
-                       "UNKNOWN": 0
-                   }
-               }
+     "reports": [
+       {
+         "status": "FAILED",
+         "reportGroupArn": "report-group-arn",
+         "name": "report-group-name",
+         "created": 1573324770.154,
+         "exportConfig": {
+           "type": "S3",
+           "s3": {
+             "bucket": "your-s3-bucket",
+             "path": "path-to-your-report-results",
+             "packaging": "NONE",
+             "encryptionKey": "encryption-key"
            }
-       ],
-       "reportsNotFound": []
+         },
+         "expired": 1575916770.0,
+         "truncated": false,
+         "executionId": "arn:aws:codebuild:us-west-2:123456789012:build/name-of-build-project:2c254862-ddf6-4831-a53f-6839a73829c1",
+         "type": "TEST",
+         "arn": "report-arn",
+         "testSummary": {
+           "durationInNanoSeconds": 6657770,
+           "total": 11,
+           "statusCounts": {
+             "FAILED": 3,
+             "SKIPPED": 7,
+             "ERROR": 0,
+             "SUCCEEDED": 1,
+             "UNKNOWN": 0
+           }
+         }
+       }
+     ],
+     "reportsNotFound": []
    }
    ```
 
@@ -229,27 +230,27 @@ You can use the CodeBuild API or the AWS CodeBuild console to access the test re
 
    ```
    {
-       "testCases": [
-           {
-               "status": "FAILED",
-               "name": "Test case 1",
-               "expired": 1575916770.0,
-               "reportArn": "report-arn",
-               "prefix": "Cucumber tests for agent",
-               "message": "A test message",
-               "durationInNanoSeconds": 1540540,
-               "testRawDataPath": "path-to-output-report-files"
-           },
-           {
-               "status": "SUCCEEDED",
-               "name": "Test case 2",
-               "expired": 1575916770.0,
-               "reportArn": "report-arn",
-               "prefix": "Cucumber tests for agent",
-               "message": "A test message",
-               "durationInNanoSeconds": 1540540,
-               "testRawDataPath": "path-to-output-report-files"
-           }
-       ]
+     "testCases": [
+       {
+         "status": "FAILED",
+         "name": "Test case 1",
+         "expired": 1575916770.0,
+         "reportArn": "report-arn",
+         "prefix": "Cucumber tests for agent",
+         "message": "A test message",
+         "durationInNanoSeconds": 1540540,
+         "testRawDataPath": "path-to-output-report-files"
+       },
+       {
+         "status": "SUCCEEDED",
+         "name": "Test case 2",
+         "expired": 1575916770.0,
+         "reportArn": "report-arn",
+         "prefix": "Cucumber tests for agent",
+         "message": "A test message",
+         "durationInNanoSeconds": 1540540,
+         "testRawDataPath": "path-to-output-report-files"
+       }
+     ]
    }
    ```

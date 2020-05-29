@@ -17,3 +17,4 @@ The CodeBuild service role specified in the project is used for permissions to u
 + [Working with reports](test-report.md)
 + [Working with test report permissions](test-permissions.md)
 + [View test reports](test-view-reports.md)
++ [Test reporting with test frameworks](test-framework-reporting.md)

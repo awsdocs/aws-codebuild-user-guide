@@ -29,7 +29,7 @@ In this step, you instruct AWS CodeBuild to run the build with the settings in t
        "buildStatus": "IN_PROGRESS",
        "environment": {
          "computeType": "BUILD_GENERAL1_SMALL",
-         "image": "aws/codebuild/standard:2.0",
+         "image": "aws/codebuild/standard:4.0",
          "type": "LINUX_CONTAINER",
          "environmentVariables": []
        },

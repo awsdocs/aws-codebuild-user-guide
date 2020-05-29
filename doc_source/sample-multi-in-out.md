@@ -18,43 +18,43 @@ You can create an AWS CodeBuild build project with more than one input source an
 
    ```
    {
-       "name": "sample-project",
-       "source": {
+     "name": "sample-project",
+     "source": {
+       "type": "S3",
+       "location": "bucket/sample.zip"
+     },
+     "secondarySources": [
+       {
+         "type": "CODECOMMIT",
+         "location": "https://git-codecommit.us-west-2.amazonaws.com/v1/repos/repo"
+         "sourceIdentifier": "source1"
+       },
+       {
+         "type": "GITHUB",
+         "location": "https://github.com/awslabs/aws-codebuild-jenkins-plugin"
+         "sourceIdentifier": "source2"
+       }
+     ],
+     "secondaryArtifacts": [
+       {
          "type": "S3",
-         "location": "bucket/sample.zip"
+         "location": "output-bucket",
+         "artifactIdentifier": "artifact1"
        },
-       "secondarySources": [
-         {
-           "type": "CODECOMMIT",
-           "location": "https://git-codecommit.us-west-2.amazonaws.com/v1/repos/repo"
-           "sourceIdentifier": "source1"
-         },
-         {
-           "type": "GITHUB",
-           "location": "https://github.com/awslabs/aws-codebuild-jenkins-plugin"
-           "sourceIdentifier": "source2"
-         }
-       ],
-       "secondaryArtifacts": [
-         {
-           "type": "S3",
-           "location": "output-bucket",
-           "artifactIdentifier": "artifact1"
-         },
-         {
-           "type": "S3",
-           "location": "other-output-bucket",
-           "artifactIdentifier": "artifact2"
-         }
-       ],
-       "environment": {
-         "type": "LINUX_CONTAINER",
-         "image": "aws/codebuild/standard:2.0",
-         "computeType": "BUILD_GENERAL1_SMALL"
-       },
-       "serviceRole": "arn:aws:iam::account-ID:role/role-name",
-       "encryptionKey": "arn:aws:kms:region-ID:account-ID:key/key-ID"
-     }
+       {
+         "type": "S3",
+         "location": "other-output-bucket",
+         "artifactIdentifier": "artifact2"
+       }
+     ],
+     "environment": {
+       "type": "LINUX_CONTAINER",
+       "image": "aws/codebuild/standard:4.0",
+       "computeType": "BUILD_GENERAL1_SMALL"
+     },
+     "serviceRole": "arn:aws:iam::account-ID:role/role-name",
+     "encryptionKey": "arn:aws:kms:region-ID:account-ID:key/key-ID"
+   }
    ```
 
  Your primary source is defined under the `source` attribute\. All other sources are called secondary sources and appear under `secondarySources`\. All secondary sources are installed in their own directory\. This directory is stored in the built\-in environment variable `CODEBUILD_SRC_DIR_sourceIdentifer`\. For more information, see [Environment variables in build environments](build-env-ref-env-vars.md)\. 
@@ -127,7 +127,7 @@ artifacts:
    },
   "environment": {
     "type": "LINUX_CONTAINER",
-    "image": "aws/codebuild/standard:2.0",
+    "image": "aws/codebuild/standard:4.0",
     "computeType": "BUILD_GENERAL1_SMALL",    
   },
   "serviceRole": "arn:aws:iam::account-ID:role/role-name",

@@ -262,7 +262,7 @@ In this step, you add an Elastic Beanstalk configuration file and a buildspec fi
    eb_codebuild_settings:
      CodeBuildServiceRole: my-service-role-name
      ComputeType: BUILD_GENERAL1_SMALL
-     Image: aws/codebuild/standard:2.0
+     Image: aws/codebuild/standard:4.0
      Timeout: 60
    ```
 

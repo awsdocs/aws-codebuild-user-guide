@@ -1,4 +1,4 @@
-# Tagging Report Groups in AWS CodeBuild<a name="how-to-tag-report-group"></a>
+# Tagging report groups in AWS CodeBuild<a name="how-to-tag-report-group"></a>
 
 A *tag* is a custom attribute label that you or AWS assigns to an AWS resource\. Each AWS tag has two parts:
 + A *tag key* \(for example, `CostCenter`, `Environment`, `Project`, or `Secret`\)\. Tag keys are case sensitive\.
@@ -11,7 +11,7 @@ Tags help you identify and organize your AWS resources\. Many AWS services suppo
 In CodeBuild, the primary resources are the report group and the project\. You can use the CodeBuild console, the AWS CLI, CodeBuild APIs, or AWS SDKs to add, manage, and remove tags for a report group\. In addition to identifying, organizing, and tracking your report group with tags, you can use tags in IAM policies to help control who can view and interact with your report group\. For examples of tag\-based access policies, see [Using tags to control access to AWS CodeBuild resources](auth-and-access-control-using-tags.md)\.
 
 **Topics**
-+ [Add a Tag to a Report Group](how-to-tag-report-group-add.md)
-+ [View Tags for a Report Group](how-to-tag-report-group-list.md)
-+ [Edit Tags for a Report Group](how-to-tag-report-group-update.md)
-+ [Remove a Tag from a Report Group](how-to-tag-report-group-delete.md)
++ [Add a tag to a report group](how-to-tag-report-group-add.md)
++ [View tags for a report group](how-to-tag-report-group-list.md)
++ [Edit tags for a report group](how-to-tag-report-group-update.md)
++ [Remove a tag from a report group](how-to-tag-report-group-delete.md)

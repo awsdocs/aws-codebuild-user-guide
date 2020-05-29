@@ -1,6 +1,6 @@
-# Add a Tag to a Report Group<a name="how-to-tag-report-group-add"></a>
+# Add a tag to a report group<a name="how-to-tag-report-group-add"></a>
 
-Adding tags to a report group can help you identify and organize your AWS resources and manage access to them\. First, you add one or more tags \(key\-value pairs\) to a report group\. Keep in mind that there are limits on the number of tags you can have on a report group\. There are restrictions on the characters you can use in the key and value fields\. For more information, see [Tags](limits.md#tag-limits)\. After you have tags, you can create IAM policies to manage access to the report group based on these tags\. You can use the the CodeBuild console or the AWS CLI to add tags to a report group\. 
+Adding tags to a report group can help you identify and organize your AWS resources and manage access to them\. First, you add one or more tags \(key\-value pairs\) to a report group\. Keep in mind that there are limits on the number of tags you can have on a report group\. There are restrictions on the characters you can use in the key and value fields\. For more information, see [Tags](limits.md#tag-limits)\. After you have tags, you can create IAM policies to manage access to the report group based on these tags\. You can use the CodeBuild console or the AWS CLI to add tags to a report group\. 
 
 **Important**  
 Adding tags to a report group can impact access to that report group\. Before you add a tag to a report group, make sure to review any IAM policies that might use tags to control access to resources such as report groups\. For examples of tag\-based access policies, see [Using tags to control access to AWS CodeBuild resources](auth-and-access-control-using-tags.md)\.
@@ -8,10 +8,10 @@ Adding tags to a report group can impact access to that report group\. Before yo
 For more information about adding tags to a report group when you create it, see [Create a report group \(console\)](test-report-group-create-console.md)\.
 
 **Topics**
-+ [Add a Tag to a Report Group \(Console\)](#how-to-tag-report-group-add-console)
-+ [Add a Tag to a Report Group \(AWS CLI\)](#how-to-tag-report-group-add-cli)
++ [Add a tag to a report group \(console\)](#how-to-tag-report-group-add-console)
++ [Add a tag to a report group \(AWS CLI\)](#how-to-tag-report-group-add-cli)
 
-## Add a Tag to a Report Group \(Console\)<a name="how-to-tag-report-group-add-console"></a>
+## Add a tag to a report group \(console\)<a name="how-to-tag-report-group-add-console"></a>
 
 You can use the CodeBuild console to add one or more tags to a CodeBuild report group\. 
 
@@ -29,7 +29,7 @@ You can use the CodeBuild console to add one or more tags to a CodeBuild report 
 
 1. When you have finished adding tags, choose **Submit**\.
 
-## Add a Tag to a Report Group \(AWS CLI\)<a name="how-to-tag-report-group-add-cli"></a>
+## Add a tag to a report group \(AWS CLI\)<a name="how-to-tag-report-group-add-cli"></a>
 
 To add a tag to a report group when you create it, see [Create a report group \(CLI\)](test-report-group-create-cli.md)\. In `CreateReportGroup.json`, add your tags\.
 

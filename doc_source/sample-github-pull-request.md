@@ -248,7 +248,7 @@ You can create a filter that triggers a build only when a change is made by a sp
 ]
 ```
 
-You can create a filter that triggers a build only when the head commit message matches the regular expression in the pattern argument\. In this example, the filter group specifies that a build is triggered only when the head commit message of the push event matches the regular expression *\\\[CodeBuild\\\]*\. 
+You can create a filter that triggers a build only when the head commit message matches the regular expression in the pattern argument\. In this example, the filter group specifies that a build is triggered only when the head commit message of the push event matches the regular expression `\[CodeBuild\]`\. 
 
 ```
 "filterGroups": [
@@ -283,7 +283,7 @@ CodeBuildProject:
     Environment:
       Type: LINUX_CONTAINER
       ComputeType: BUILD_GENERAL1_SMALL
-      Image: aws/codebuild/standard:2.0
+      Image: aws/codebuild/standard:4.0
     Source:
       Type: GITHUB
       Location: source-location

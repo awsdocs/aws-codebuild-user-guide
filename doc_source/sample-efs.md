@@ -79,7 +79,7 @@ Data in transit for your file system is encrypted\. To encrypt data in transit u
 
 1. From **Runtime\(s\)**, choose **Standard**\. 
 
-1.  From **Image**, choose **aws/codebuild/amazonlinux2\-x86\_64\-standard:2\.0**\. 
+1.  From **Image**, choose **aws/codebuild/amazonlinux2\-x86\_64\-standard:3\.0**\. 
 
 1.  From **Environment type**, choose **Linux**\. 
 

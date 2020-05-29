@@ -86,7 +86,7 @@ If you are using an S3 input bucket, be sure to create a ZIP file that contains 
 
    1.  For **Runtime**, choose **Standard**\. 
 
-   1.  For **Image**, choose **aws/codebuild/standard:2\.0**\. 
+   1.  For **Image**, choose **aws/codebuild/standard:4\.0**\. 
 
    1.  Because you use this build project to build a Docker image, select **Privileged**\. 
 **Note**  
@@ -112,7 +112,7 @@ By default, Docker containers do not allow access to any devices\. Privileged mo
      },
      "environment": {
        "type": "LINUX_CONTAINER",
-       "image": "aws/codebuild/standard:2.0",
+       "image": "aws/codebuild/standard:4.0",
        "computeType": "BUILD_GENERAL1_SMALL",
        "environmentVariables": [
          {

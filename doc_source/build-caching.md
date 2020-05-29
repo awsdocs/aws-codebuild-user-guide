@@ -77,7 +77,7 @@ CodeBuildProject:
     Type: AWS::CodeBuild::Project
     Properties:
       Name: MyProject
-      ServiceRole: service-role
+      ServiceRole: <service-role>
       Artifacts:
         Type: S3
         Location: myBucket
@@ -87,13 +87,13 @@ CodeBuildProject:
       Environment:
         Type: LINUX_CONTAINER
         ComputeType: BUILD_GENERAL1_SMALL
-        Image: aws/codebuild/standard:2.0
+        Image: aws/codebuild/standard:4.0
         Certificate: bucket/cert.zip
         # PrivilegedMode must be true if you specify LOCAL_DOCKER_LAYER_CACHE
         PrivilegedMode: true
       Source:
         Type: GITHUB
-        Location: github-location
+        Location: <github-location>
         InsecureSsl: true
         GitCloneDepth: 1
         ReportBuildStatus: false

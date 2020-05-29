@@ -27,7 +27,7 @@
       +  **Choose a custom key** to use a CMK that you create and configure\. For **AWS KMS encryption key**, enter the ARN of your encryption key\. Its format is ` arn:aws:kms:region-id:aws-account-id:key/key-id`\. For more information, see [Creating KMS Keys](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html) in the *AWS Key Management Service User Guide*\. 
       +  **Disable artifact encryption** to disable encryption\. You might choose this if you want to share your test results, or publish them to a static website\. \(A dynamic website can run code to decrypt test results\.\)
 
-       For more information about encryption of data at\-rest, see [Data encryption](security-encryption.md)\. 
+       For more information about encryption of data at rest, see [Data encryption](security-encryption.md)\. 
 **Note**  
 The CodeBuild service role specified in the project is used for permissions to upload to the S3 bucket\.
 
