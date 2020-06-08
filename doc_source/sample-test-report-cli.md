@@ -46,13 +46,14 @@ You can use the CodeBuild API or the AWS CodeBuild console to access the test re
        "name": "report-name", 
        "type": "TEST", 
        "exportConfig": {
-           "type": "S3", 
-           "s3": {
+           "exportConfigType": "S3", 
+           "s3Destination": {
                "bucket": "bucket-name", 
                "path": "path-to-folder", 
                "packaging": "NONE"
+           }
        }
-       }
+   }
    ```
 
 1.  Run the following command in the directory that contains `CreateReportGroupInput.json`\. For `region`, specify your AWS Region \(for example, `us-east-2`\)\. 
