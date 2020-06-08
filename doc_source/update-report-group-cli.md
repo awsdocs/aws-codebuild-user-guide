@@ -10,8 +10,8 @@
    {
        "arn": "",
        "exportConfig": {
-           "type": "S3", 
-           "s3": {
+           "exportConfigType": "S3",
+           "s3Destination": {
                "bucket": "bucket-name", 
                "path": "path", 
                "packaging": "NONE | ZIP",
@@ -37,7 +37,7 @@
      ```
      { 
        "exportConfig": {
-           "type": "NO_EXPORT"
+           "exportConfigType": "NO_EXPORT"
        }
      }
      ```
