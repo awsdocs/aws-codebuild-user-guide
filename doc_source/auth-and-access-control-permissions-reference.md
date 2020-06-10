@@ -12,41 +12,160 @@ You specify an ARN, with or without a wildcard character \(\*\), as the resource
 
 ```
 arn:aws:codebuild:us-east-2:123456789012:project/my*
-```
+```<a name="actions-related-to-objects-table"></a>CodeBuild API operations and required permissions for actions
 
-Use the scroll bars to see the rest of the table\.
+BatchDeleteBuilds  
+**Action:** `codebuild:BatchDeleteBuilds`  
+Required to delete builds\.  
+**Resource:** `arn:aws:codebuild:region-ID:account-ID:project/project-name`
 
+BatchGetBuilds  
+**Action:** `codebuild:BatchGetBuilds`  
+Required to get information about builds\.  
+**Resource:** `arn:aws:codebuild:region-ID:account-ID:project/project-name`
 
-**CodeBuild API Operations and Required Permissions for Actions**  
+BatchGetProjects  
+**Action:** `codebuild:BatchGetProjects`  
+Required to get information about build projects\.  
+**Resource:** `arn:aws:codebuild:region-ID:account-ID:project/project-name`
 
-| AWS CodeBuild API operations | Required permissions \(API actions\) | Resources | 
-| --- | --- | --- | 
-| BatchDeleteBuilds |  `codebuild:BatchDeleteBuilds` Required to delete builds\.  |  `arn:aws:codebuild:region-ID:account-ID:project/project-name`  | 
-| BatchGetBuilds |  `codebuild:BatchGetBuilds` Required to get information about builds\.  |  `arn:aws:codebuild:region-ID:account-ID:project/project-name`  | 
-| BatchGetProjects |  `codebuild:BatchGetProjects` Required to get information about build projects\.  |  `arn:aws:codebuild:region-ID:account-ID:project/project-name`  | 
-| BatchGetReportGroups | codebuild:BatchGetReportGroupsRequired to get information about report groups\. | arn:aws:codebuild:region\-ID:account\-ID:report\-group/report\-name | 
-| BatchGetReports | codebuild:BatchGetReportsRequired to get information about reports\. |  `arn:aws:codebuild:region-ID:account-ID:report-group/report-name`  | 
-| CreateProject |  `codebuild:CreateProject` `iam:PassRole` Required to create build projects\.  |  `arn:aws:codebuild:region-ID:account-ID:project/project-name` `arn:aws:iam:account-ID:role/role-name`  | 
-| CreateReportGroup | codebuild:CreateReportGroupRequired to create a report group\. | arn:aws:codebuild:region\-ID:account\-ID:report\-group/report\-name | 
-| CreateWebhook |  `codebuild:CreateWebhook` Required to create a webhook\.  |  `arn:aws:codebuild:region-ID:account-ID:project/project-name`  | 
-| DeleteProject |  `codebuild:DeleteProject` Required to delete build projects\.  |  `arn:aws:codebuild:region-ID:account-ID:project/project-name`  | 
-| DeleteReport | codebuild:DeleteReportRequired to delete a report\. | arn:aws:codebuild:region\-ID:account\-ID:report\-group/report\-name | 
-| DeleteReportGroup | codebuild:DeleteReportGroupRequired to delete a report group\. | arn:aws:codebuild:region\-ID:account\-ID:report\-group/report\-name | 
-| DeleteSourceCredentials |  `codebuild:DeleteSourceCredentials` Required to delete a set of `SourceCredentialsInfo` objects that contain information about credentials for a GitHub, GitHub Enterprise, or Bitbucket repository\.  |  `*`  | 
-| DeleteWebhook |  `codebuild:DeleteWebhook` Required to delete a webhook\.  |  `arn:aws:codebuild:region-ID:account-ID:project/project-name`  | 
-| DescribeTestCases | codebuild:DescribeTestCasesRequired to return a paginated list of test cases\. | arn:aws:codebuild:region\-ID:account\-ID:report\-group/report\-name | 
-| ImportSourceCredentials |  `codebuild:ImportSourceCredentials` Required to import a set of `SourceCredentialsInfo` objects that contain information about credentials for a GitHub, GitHub Enterprise, or Bitbucket repository\.  |  `*`  | 
-| InvalidateProjectCache |  `codebuild:InvalidateProjectCache` Required to reset the cache for a project\.  |  `arn:aws:codebuild:region-ID:account-ID:project/project-name`  | 
-| ListBuilds | codebuild:ListBuildsRequired to get a list of build IDs\. |  `*`  | 
-| ListBuildsForProject |  `codebuild:ListBuildsForProject` Required to get a list of build IDs for a build project\.  |  `arn:aws:codebuild:region-ID:account-ID:project/project-name`  | 
-| ListCuratedEnvironmentImages |  `codebuild:ListCuratedEnvironmentImages` Required to get information about all Docker images that are managed by CodeBuild\.  |  `*` \(required, but does not refer to an addressable AWS resource\)  | 
-| ListProjects |  `codebuild:ListProjects` Required to get a list of build project names\.  |  `*`  | 
-| ListReportGroups | codebuild:ListReportGroupsRequired to get a list of report groups\. | \* | 
-| ListReports | codebuild:ListReportsRequired to get a list of reports\. | \* | 
-| ListReportsForReportGroup | codebuild:ListReportsForReportGroupRequired to get a list of reports for a report group\. | arn:aws:codebuild:region\-ID:account\-ID:report\-group/report\-name | 
-| ListSourceCredentials |  `codebuild:ListSourceCredentials` Required to get a list of `SourceCredentialsInfo` objects that contain information about credentials for a GitHub, GitHub Enterprise, or Bitbucket repository\.  |  `*`  | 
-| StartBuild |  `codebuild:StartBuild` Required to start running builds\.  |  `arn:aws:codebuild:region-ID:account-ID:project/project-name`  | 
-| StopBuild |  `codebuild:StopBuild` Required to attempt to stop running builds\.  |  `arn:aws:codebuild:region-ID:account-ID:project/project-name`  | 
-| UpdateProject |  `codebuild:UpdateProject` `iam:PassRole` Required to change information about builds\.  |  `arn:aws:codebuild:region-ID:account-ID:project/project-name` `arn:aws:iam:account-ID:role/role-name`  | 
-| UpdateReportGroup | codebuild:UpdateReportGroupRequired to update a report group\. | arn:aws:codebuild:region\-ID:account\-ID:report\-group/report\-name | 
-| UpdateWebhook |  `codebuild:UpdateWebhook` Required to update a webhook\.  |  `arn:aws:codebuild:region-ID:account-ID:project/project-name`  | 
+BatchGetReportGroups  
+**Action:** `codebuild:BatchGetReportGroups`  
+Required to get information about report groups\.  
+**Resource:** `arn:aws:codebuild:region-ID:account-ID:report-group/report-group-name`
+
+BatchGetReports  
+**Action:** `codebuild:BatchGetReports`  
+Required to get information about reports\.  
+**Resource:** `arn:aws:codebuild:region-ID:account-ID:report-group/report-group-name`
+
+BatchPutTestCases ¹  
+**Action:** `codebuild:BatchPutTestCases`  
+Required to create or update a test report\.  
+**Resource:** `arn:aws:codebuild:region-ID:account-ID:report-group/report-group-name`
+
+CreateProject  
+**Actions:** `codebuild:CreateProject`, `iam:PassRole`  
+Required to create build projects\.  
+**Resources:**  
++ `arn:aws:codebuild:region-ID:account-ID:project/project-name`
++ `arn:aws:iam:account-ID:role/role-name`
+
+CreateReport ¹  
+**Action:** `codebuild:CreateReport`  
+Required to create a test report\.  
+**Resource:** `arn:aws:codebuild:region-ID:account-ID:report-group/report-group-name`
+
+CreateReportGroup  
+**Action:** `codebuild:CreateReportGroup`  
+Required to create a report group\.  
+**Resource:** `arn:aws:codebuild:region-ID:account-ID:report-group/report-group-name`
+
+CreateWebhook  
+**Action:** `codebuild:CreateWebhook`  
+Required to create a webhook\.  
+**Resource:** `arn:aws:codebuild:region-ID:account-ID:project/project-name`
+
+DeleteReport  
+**Action:** `codebuild:DeleteReport`  
+Required to delete a report\.   
+**Resource:** `arn:aws:codebuild:region-ID:account-ID:report-group/report-group-name`
+
+DeleteReportGroup  
+**Action:** `codebuild:DeleteReportGroup`  
+Required to delete a report group\.  
+**Resource:** `arn:aws:codebuild:region-ID:account-ID:report-group/report-group-name`
+
+DeleteSourceCredentials  
+**Action:** `codebuild:DeleteSourceCredentials`  
+Required to delete a set of `SourceCredentialsInfo` objects that contain information about credentials for a GitHub, GitHub Enterprise Server, or Bitbucket repository\.   
+**Resource:** `*`
+
+DeleteWebhook  
+**Action:** `codebuild:DeleteWebhook`  
+Required to create a webhook\.  
+**Resource:** `arn:aws:codebuild:region-ID:account-ID:project/project-name`
+
+DescribeTestCases  
+**Action:** `codebuild:DescribeTestCases`  
+Required to return a paginated list of test cases\.  
+**Resource:** `arn:aws:codebuild:region-ID:account-ID:report-group/report-group-name`
+
+ImportSourceCredentials  
+**Action:** `codebuild:ImportSourceCredentials`  
+Required to import a set of `SourceCredentialsInfo` objects that contain information about credentials for a GitHub, GitHub Enterprise Server, or Bitbucket repository\.   
+**Resource:** `*`
+
+InvalidateProjectCache  
+**Action:** `codebuild:InvalidateProjectCache`  
+Required to reset the cache for a project\.  
+**Resource:** `arn:aws:codebuild:region-ID:account-ID:project/project-name`
+
+ListBuilds  
+**Action:** `codebuild:ListBuilds`  
+Required to get a list of build IDs\.  
+**Resource:** `*`
+
+ListBuildsForProject  
+**Action:** `codebuild:ListBuildsForProject`  
+Required to get a list of build IDs for a build project\.  
+**Resource:** `arn:aws:codebuild:region-ID:account-ID:project/project-name`
+
+ListCuratedEnvironmentImages  
+**Action:** `codebuild:ListCuratedEnvironmentImages`  
+Required to get information about all Docker images that are managed by AWS CodeBuild\.  
+**Resource:** `*` \(required, but does not refer to an addressable AWS resource\)
+
+ListProjects  
+**Action:** `codebuild:ListProjects`  
+Required to get a list of build project names\.  
+**Resource:** `*`
+
+ListReportGroups  
+**Action:** `codebuild:ListReportGroups`  
+Required to get a list of report groups\.  
+**Resource:** `*`
+
+ListReports  
+**Action:** `codebuild:ListReports`  
+Required to get a list of reports\.  
+**Resource:** `*`
+
+ListReportsForReportGroup  
+**Action:** `codebuild:ListReportsForReportGroup`  
+Required to get a list of reports for a report group\.  
+**Resource:** `arn:aws:codebuild:region-ID:account-ID:report-group/report-group-name`
+
+StartBuild  
+**Action:** `codebuild:StartBuild`  
+Required to start running builds\.  
+**Resource:** `arn:aws:codebuild:region-ID:account-ID:project/project-name`
+
+StopBuild  
+**Action:** `codebuild:StopBuild`  
+Required to attempt to stop running builds\.  
+**Resource:** `arn:aws:codebuild:region-ID:account-ID:project/project-name`
+
+UpdateProject  
+**Actions:** `codebuild:UpdateProject`, `iam:PassRole`  
+Required to change information about builds\.  
+**Resources:**  
++ `arn:aws:codebuild:region-ID:account-ID:project/project-name`
++ `arn:aws:iam:account-ID:role/role-name`
+
+UpdateReport ¹  
+**Action:** `codebuild:UpdateReport`  
+Required to create or update a test report\.  
+**Resource:** `arn:aws:codebuild:region-ID:account-ID:report-group/report-group-name`
+
+UpdateReportGroup  
+**Action:** `codebuild:UpdateReportGroup`  
+Required to update a report group\.  
+**Resource:** `arn:aws:codebuild:region-ID:account-ID:report-group/report-group-name`
+
+UpdateWebhook  
+**Action:** `codebuild:UpdateWebhook`  
+Required to update a webhook\.  
+**Resource:** `arn:aws:codebuild:region-ID:account-ID:project/project-name`
+
+¹ Used for permission only\. There is no API for this action\.

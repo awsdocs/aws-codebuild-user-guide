@@ -22,7 +22,7 @@ To use AWS CodePipeline to run a build with CodeBuild, skip these steps and foll
 1. On the **Start build** page, do one of the following:
    + For Amazon S3, for the optional **Source version** value, enter the version ID for the version of the input artifact you want to build\. If **Source version** is left blank, the latest version is used\.
    + For CodeCommit, for **Reference type**, choose **Branch**, **Git tag**, or **Commit ID**\. Next, choose the branch, Git tag, or enter a commit ID to specify the version of you source code\. For more information, see [Source version sample with AWS CodeBuild](sample-source-version.md)\. Change the value for **Git clone depth**\. This creates a shallow clone with a history truncated to the specified number of commits\. If you want a full clone, choose **Full**\.
-   + For GitHub or GitHub Enterprise, for the optional **Source version** value, enter a commit ID, pull request ID, branch name, or tag name for the version of the source code you want to build\. If you specify a pull request ID, it must use the format `pr/pull-request-ID` \(for example, `pr/25`\)\. If you specify a branch name, the branch's HEAD commit ID is used\. If **Source version** is blank, the default branch's HEAD commit ID is used\. Change the value for **Git clone depth**\. This creates a shallow clone with a history truncated to the specified number of commits\. If you want a full clone, choose **Full**\.
+   + For GitHub or GitHub Enterprise Server, for the optional **Source version** value, enter a commit ID, pull request ID, branch name, or tag name for the version of the source code you want to build\. If you specify a pull request ID, it must use the format `pr/pull-request-ID` \(for example, `pr/25`\)\. If you specify a branch name, the branch's HEAD commit ID is used\. If **Source version** is blank, the default branch's HEAD commit ID is used\. Change the value for **Git clone depth**\. This creates a shallow clone with a history truncated to the specified number of commits\. If you want a full clone, choose **Full**\.
    + For Bitbucket, for the optional **Source version** value, enter a commit ID, branch name, or tag name for the version of the source code you want to build\. If you specify a branch name, the branch's HEAD commit ID is used\. If **Source version** is blank, the default branch's HEAD commit ID is used\. Change the value for **Git clone depth**\. This creates a shallow clone with a history truncated to the specified number of commits\. If you want a full clone, choose **Full**\.
    + To use a different source provider for this build only, choose **Advanced build options**\. For more information about source provider options and settings, see [Choose source provider](create-project.md#create-project-source-provider)\.
 
@@ -189,10 +189,10 @@ For more information about using the AWS CLI with CodeBuild, see the [Command li
    + *gitCloneDepthOverride*: Optional\. The value of the **Git clone depth** in the build project whose value you want to override for this build\. If your source type is Amazon S3, this value is not supported\.
    + *imageOverride*: Optional\. The name of an image for this build that overrides the one specified in the build project\.
    + *idempotencyToken*: Optional\. A string that serves as a token to specify that the build request is idempotent\. You can choose any string that is 64 characters or less\. The token is valid for 5 minutes after the start\-build request\. If you repeat the start\-build request with the same token, but change a parameter, CodeBuild returns a parameter mismatch error\. 
-   + *insecureSslOverride*: Optional boolean that specifies whether to override the insecure TLS setting specified in the build project\. The insecure TLS setting determines whether to ignore TLS warnings while connecting to the project source code\. This override applies only if the build's source is GitHub Enterprise\.
+   + *insecureSslOverride*: Optional boolean that specifies whether to override the insecure TLS setting specified in the build project\. The insecure TLS setting determines whether to ignore TLS warnings while connecting to the project source code\. This override applies only if the build's source is GitHub Enterprise Server\.
    + *privilegedModeOverride*: Optional boolean\. If set to true, the build overrides privileged mode in the build project\.
    +  *queuedTimeoutInMinutesOverride*: Optional integer that specifies the number of minutes a build is allowed to be queued before it times out\. Its minimum value is five minutes and its maximum value is 480 minutes \(eight hours\)\. 
-   + *reportBuildStatusOverride*: Optional boolean that specifies whether to send your source provider the status of a build's start and completion\. If you set this with a source provider other than GitHub, GitHub Enterprise, or Bitbucket, an invalidInputException is thrown\.
+   + *reportBuildStatusOverride*: Optional boolean that specifies whether to send your source provider the status of a build's start and completion\. If you set this with a source provider other than GitHub, GitHub Enterprise Server, or Bitbucket, an invalidInputException is thrown\.
    + *sourceAuthOverride*: Optional string\. An authorization type for this build that overrides the one defined in the build project\. This override applies only if the build project's source is Bitbucket or GitHub\.
    + *sourceLocationOverride*: Optional string\. A location that overrides for this build the source location for the one defined in the build project\.
    + *serviceRoleOverride*: Optional string\. The name of a service role for this build that overrides the one specified in the build project\.
@@ -222,7 +222,7 @@ To work with detailed information about this build, make a note of the `id` valu
 
 ## Start running builds automatically \(AWS CLI\)<a name="run-build-cli-auto-start"></a>
 
-If your source code is stored in a GitHub or a GitHub Enterprise repository, you can use GitHub webhooks to have AWS CodeBuild rebuild your source code whenever a code change is pushed to the repository\.
+If your source code is stored in a GitHub or a GitHub Enterprise Server repository, you can use GitHub webhooks to have AWS CodeBuild rebuild your source code whenever a code change is pushed to the repository\.
 
 Run the create\-webhookcommand as follows:
 
@@ -242,19 +242,19 @@ For GitHub, information similar to the following appears in the output:
 ```
 + where *url* is the URL to the GitHub webhook\.
 
-For GitHub Enterprise, information similar to the following appears in the output:
+For GitHub Enterprise Server, information similar to the following appears in the output:
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/create-webhook-ghe.png)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)
 
-1. Copy the secret key and payload URL from the output\. You need them to add a webhook in GitHub Enterprise\. 
+1. Copy the secret key and payload URL from the output\. You need them to add a webhook in GitHub Enterprise Server\. 
 
-1. In GitHub Enterprise, choose the repository where your CodeBuild project is stored\. Choose **Settings**, choose **Hooks & services**, and then choose **Add webhook**\. 
+1. In GitHub Enterprise Server, choose the repository where your CodeBuild project is stored\. Choose **Settings**, choose **Hooks & services**, and then choose **Add webhook**\. 
 
 1. Enter the payload URL and secret key, accept the defaults for the other fields, and then choose **Add webhook**\.
 
 ## Stop running builds automatically \(AWS CLI\)<a name="run-build-cli-auto-stop"></a>
 
-If your source code is stored in a GitHub or a GitHub Enterprise repository, you can set up GitHub webhooks to have AWS CodeBuild rebuild your source code whenever a code change is pushed to the repository\. For more information, see [Start running builds automatically \(AWS CLI\)](#run-build-cli-auto-start)\.
+If your source code is stored in a GitHub or a GitHub Enterprise Server repository, you can set up GitHub webhooks to have AWS CodeBuild rebuild your source code whenever a code change is pushed to the repository\. For more information, see [Start running builds automatically \(AWS CLI\)](#run-build-cli-auto-start)\.
 
 If you have enabled this behavior, you can turn it off by running the `delete-webhook` command as follows:
 
@@ -266,7 +266,7 @@ aws codebuild delete-webhook --project-name
 If this command is successful, no information and no errors appear in the output\.
 
 **Note**  
-This deletes the webhook from your CodeBuild project only\. You should also delete the webhook from your GitHub or GitHub Enterprise repository\.
+This deletes the webhook from your CodeBuild project only\. You should also delete the webhook from your GitHub or GitHub Enterprise Server repository\.
 
 ## Run a build \(AWS SDKs\)<a name="run-build-sdks"></a>
 

@@ -310,7 +310,7 @@ By default, Docker containers do not allow access to any devices\. Privileged mo
 
  **Recommended solutions:** 
 + Edit your project\. For **Certificate**, choose **Install certificate from S3**\. For **Bucket of certificate**, choose the S3 bucket where your SSL certificate is stored\. For **Object key of certificate**, enter the name of your S3 object key\.
-+ Edit your project\. Select **Insecure SSL** to ignore SSL warnings while connecting to your GitHub Enterprise project repository\.
++ Edit your project\. Select **Insecure SSL** to ignore SSL warnings while connecting to your GitHub Enterprise Server project repository\.
 **Note**  
 We recommend that you use **Insecure SSL** for testing only\. It should not be used in a production environment\.
 

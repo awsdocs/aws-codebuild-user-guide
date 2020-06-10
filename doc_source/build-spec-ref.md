@@ -101,7 +101,7 @@ reports:
       - location
     base-directory: location
     discard-paths: yes
-    file-format: JunitXml | CucumberJson | VisualStudioTrx | TestNGXml
+    file-format: JunitXml | NunitXml | CucumberJson | VisualStudioTrx | TestNGXml
 artifacts:
   files:
     - location

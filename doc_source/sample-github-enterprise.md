@@ -1,15 +1,15 @@
-# GitHub Enterprise sample for CodeBuild<a name="sample-github-enterprise"></a>
+# GitHub Enterprise Server sample for CodeBuild<a name="sample-github-enterprise"></a>
 
-AWS CodeBuild supports GitHub Enterprise as a source repository\. This sample shows how to set up your CodeBuild projects when your GitHub Enterprise repository has a certificate installed\. It also shows how to enable webhooks so that CodeBuild rebuilds the source code every time a code change is pushed to your GitHub Enterprise repository\.
+AWS CodeBuild supports GitHub Enterprise Server as a source repository\. This sample shows how to set up your CodeBuild projects when your GitHub Enterprise Server repository has a certificate installed\. It also shows how to enable webhooks so that CodeBuild rebuilds the source code every time a code change is pushed to your GitHub Enterprise Server repository\.
 
 ## Prerequisites<a name="sample-github-enterprise-prerequisites"></a>
 
-1. Generate a personal access token for your CodeBuild project\. We recommend that you create a GitHub Enterprise user and generate a personal access token for this user\. Copy it to your clipboard so that it can be used when you create your CodeBuild project\. For more information, see [Creating a Personal Access Token in GitHub Enterprise](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/) on the GitHub Help website\.
+1. Generate a personal access token for your CodeBuild project\. We recommend that you create a GitHub Enterprise user and generate a personal access token for this user\. Copy it to your clipboard so that it can be used when you create your CodeBuild project\. For more information, see [Creating a personal access token for the command line](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/) on the GitHub Help website\.
 
    When you create the personal access token, include the **repo** scope in the definition\.  
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/scopes.png)
 
-1. Download your certificate from GitHub Enterprise\. CodeBuild uses the certificate to make a trusted SSL connection to the repository\.
+1. Download your certificate from GitHub Enterprise Server\. CodeBuild uses the certificate to make a trusted SSL connection to the repository\.
 
    **Linux/macOS clients:**
 
@@ -22,7 +22,7 @@ AWS CodeBuild supports GitHub Enterprise as a source repository\. This sample sh
 
    Replace the placeholders in the command with the following values:
 
-   *HOST*\. The IP address of your GitHub Enterprise repository\.
+   *HOST*\. The IP address of your GitHub Enterprise Server repository\.
 
    *PORTNUMBER*\. The port number you are using to connect \(for example, 443\)\.
 
@@ -34,7 +34,7 @@ Save the certificate as a \.pem file\.
 
    **Windows clients:**
 
-   Use your browser to download your certificate from GitHub Enterprise\. To see the site's certificate details, choose the padlock icon\. For information about how to export the certificate, see your browser documentation\.
+   Use your browser to download your certificate from GitHub Enterprise Server\. To see the site's certificate details, choose the padlock icon\. For information about how to export the certificate, see your browser documentation\.
 **Important**  
 Save the certificate as a \.pem file\.
 
@@ -42,7 +42,7 @@ Save the certificate as a \.pem file\.
 **Note**  
 This bucket must be in the same AWS region as your builds\. For example, if you instruct CodeBuild to run a build in the US East \(Ohio\) Region, the bucket must be in the US East \(Ohio\) Region\.
 
-## Create a build project with GitHub Enterprise as the source repository and enable webhooks \(console\)<a name="sample-github-enterprise-running"></a>
+## Create a build project with GitHub Enterprise Server as the source repository and enable webhooks \(console\)<a name="sample-github-enterprise-running"></a>
 
 1. Open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codesuite/codebuild/home](https://console.aws.amazon.com/codesuite/codebuild/home)\.
 
@@ -51,13 +51,13 @@ This bucket must be in the same AWS region as your builds\. For example, if you 
 1. On the **Create build project** page, in **Project configuration**, enter a name for this build project\. Build project names must be unique across each AWS account\. You can also include an optional description of the build project to help other users understand what this project is used for\.
 
 1. In **Source**, in **Source provider**, choose **GitHub Enterprise**\.
-   + For **Personal Access Token**, paste the token you copied to your clipboard and choose **Save Token**\. In **Repository URL**, enter the URL for your GitHub Enterprise repository\.
+   + For **Personal Access Token**, paste the token you copied to your clipboard and choose **Save Token**\. In **Repository URL**, enter the URL for your GitHub Enterprise Server repository\.
 **Note**  
 You only need to enter and save the personal access token once\. All future AWS CodeBuild projects use this token\.
    + In **Repository URL**, enter the path to your repository, including the name of the repository\.
    + Expand **Additional configuration**\.
    + Select **Rebuild every time a code change is pushed to this repository** to rebuild every time a code change is pushed to this repository\.
-   + Select **Enable insecure SSL** to ignore SSL warnings while you connect to your GitHub Enterprise project repository\.
+   + Select **Enable insecure SSL** to ignore SSL warnings while you connect to your GitHub Enterprise Server project repository\.
 **Note**  
 We recommend that you use **Enable insecure SSL** for testing only\. It should not be used in a production environment\.  
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/github-enterprise.png)
@@ -114,10 +114,10 @@ Docker layer cache mode is available for Linux only\. If you choose it, your pro
 
 1. If you enabled webhooks in **Source**, a **Create webhook** dialog box is displayed with values for **Payload URL** and **Secret**\. 
 **Important**  
-The **Create webhook** dialog box appears only once\. Copy the payload URL and secret key\. You need them when you add a webhook in GitHub Enterprise\.   
-If you need to generate a payload URL and secret key again, you must first delete the webhook from your GitHub Enterprise repository\. In your CodeBuild project, clear the **Webhook** check box and then choose **Save**\. You can then create or update a CodeBuild project with the **Webhook** check box selected\. The **Create webhook** dialog box appears again\.
+The **Create webhook** dialog box appears only once\. Copy the payload URL and secret key\. You need them when you add a webhook in GitHub Enterprise Server\.   
+If you need to generate a payload URL and secret key again, you must first delete the webhook from your GitHub Enterprise Server repository\. In your CodeBuild project, clear the **Webhook** check box and then choose **Save**\. You can then create or update a CodeBuild project with the **Webhook** check box selected\. The **Create webhook** dialog box appears again\.
 
-1. In GitHub Enterprise, choose the repository where your CodeBuild project is stored\.
+1. In GitHub Enterprise Server, choose the repository where your CodeBuild project is stored\.
 
 1.  Choose **Settings**, choose **Hooks & services**, and then choose **Add webhook**\.
 

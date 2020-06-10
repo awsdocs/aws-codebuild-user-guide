@@ -82,13 +82,13 @@ When you use the console to create or update a build project, you can create a C
 +  An event\. For GitHub, you can choose one or more of the following events: `PUSH`, `PULL_REQUEST_CREATED`, `PULL_REQUEST_UPDATED`, `PULL_REQUEST_REOPENED`, and `PULL_REQUEST_MERGED`\. The webhook event type is in the `X-GitHub-Event` header in the webhook payload\. In the `X-GitHub-Event` header, you might see `pull_request` or `push`\. For a pull request event, the type is in the `action` field of the webhook event payload\. The following table shows how `X-GitHub-Event` header values and webhook pull request payload `action` field values map to the available event types\.    
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/codebuild/latest/userguide/sample-github-pull-request.html)
 **Note**  
- The `PULL_REQUEST_REOPENED` event type can be used with GitHub and GitHub Enterprise only\. 
+ The `PULL_REQUEST_REOPENED` event type can be used with GitHub and GitHub Enterprise Server only\. 
 + One or more optional filters\. Use a regular expression to specify a filter\. For an event to trigger a build, every filter associated with it must evaluate to true\. 
-  +  `ACTOR_ACCOUNT_ID` \(`ACTOR_ID` in the console\): A webhook event triggers a build when a GitHub or GitHub Enterprise account ID matches the regular expression pattern\. This value is found in the `id` property of the `sender` object in the webhook payload\.
+  +  `ACTOR_ACCOUNT_ID` \(`ACTOR_ID` in the console\): A webhook event triggers a build when a GitHub or GitHub Enterprise Server account ID matches the regular expression pattern\. This value is found in the `id` property of the `sender` object in the webhook payload\.
   +  `HEAD_REF`: A webhook event triggers a build when the head reference matches the regular expression pattern \(for example, `refs/heads/branch-name` or `refs/tags/tag-name`\)\. For a push event, the reference name is found in the `ref` property in the webhook payload\. For pull requests events, the branch name is found in the `ref` property of the `head` object in the webhook payload\. 
   +  `BASE_REF`: A webhook event triggers a build when the base reference matches the regular expression pattern \(for example, `refs/heads/branch-name`\)\. A `BASE_REF` filter can be used with pull request events only\. The branch name is found in the `ref` property of the `base` object in the webhook payload\.
-  +  `FILE_PATH`: A webhook triggers a build when the path of a changed file matches the regular expressions pattern\. A `FILE_PATH` filter can be used with GitHub push and pull request events and GitHub Enterprise push events\. It cannot be used with GitHub Enterprise pull request events\. 
-  + `COMMIT_MESSAGE`: A webhook triggers a build when the head commit message matches the regular expression pattern\. A `COMMIT_MESSAGE` filter can be used with GitHub push and pull request events and GitHub Enterprise push events\. It cannot be used with GitHub Enterprise pull request events\.
+  +  `FILE_PATH`: A webhook triggers a build when the path of a changed file matches the regular expressions pattern\. A `FILE_PATH` filter can be used with GitHub push and pull request events and GitHub Enterprise Server push events\. It cannot be used with GitHub Enterprise Server pull request events\. 
+  + `COMMIT_MESSAGE`: A webhook triggers a build when the head commit message matches the regular expression pattern\. A `COMMIT_MESSAGE` filter can be used with GitHub push and pull request events and GitHub Enterprise Server push events\. It cannot be used with GitHub Enterprise Server pull request events\.
 
 **Note**  
  You can find the webhook payload in the webhook settings of your GitHub repository\. 
@@ -132,7 +132,7 @@ In this example, a webhook filter group triggers a build only when files with na
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/pull-request-webhook-filter-file-name-regex.png)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)
 
-In this example, a webhook filter group triggers a build only when a change is made by a specified GitHub or GitHub Enterprise user with an account ID that matches the regular expression `actor-account-id`\. 
+In this example, a webhook filter group triggers a build only when a change is made by a specified GitHub or GitHub Enterprise Server user with an account ID that matches the regular expression `actor-account-id`\. 
 
 **Note**  
  For information about how to find your GitHub account ID, see https://api\.github\.com/users/*user\-name*, where *user\-name* is your GitHub user name\. 
@@ -228,7 +228,7 @@ You can create a filter that triggers a build only when files with names that ma
 ]
 ```
 
-You can create a filter that triggers a build only when a change is made by a specified GitHub or GitHub Enterprise user with account ID `actor-account-id`\. 
+You can create a filter that triggers a build only when a change is made by a specified GitHub or GitHub Enterprise Server user with account ID `actor-account-id`\. 
 
 **Note**  
  For information about how to find your GitHub account ID, see https://api\.github\.com/users/*user\-name*, where *user\-name* is your GitHub user name\. 

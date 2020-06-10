@@ -1,6 +1,6 @@
 # Use access tokens with your source provider in CodeBuild<a name="sample-access-tokens"></a>
 
- This sample shows you how to connect to GitHub or Bitbucket with an access token\. For GitHub or GitHub Enterprise, you use a personal access token\. For Bitbucket, you use an app password\. 
+ This sample shows you how to connect to GitHub or Bitbucket with an access token\. For GitHub or GitHub Enterprise Server, you use a personal access token\. For Bitbucket, you use an app password\. 
 
 ## Access token prerequisites<a name="sample-access-tokens-prerequisites"></a>
 
@@ -74,9 +74,9 @@ Follow these steps to use the AWS CLI to connect your project to GitHub or Bitbu
 
     Replace the following: 
    +  *server\-type*: Required value\. The source provider used for this credential\. Valid values are GITHUB, GITHUB\_ENTERPRISE, and BITBUCKET\. 
-   +  *auth\-type*: Required value\. The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket repository\. Valid values include PERSONAL\_ACCESS\_TOKEN and BASIC\_AUTH\. You cannot use the CodeBuild API to create an OAUTH connection\. You must use the CodeBuild console instead\. 
+   +  *auth\-type*: Required value\. The type of authentication used to connect to a GitHub, GitHub Enterprise Server, or Bitbucket repository\. Valid values include PERSONAL\_ACCESS\_TOKEN and BASIC\_AUTH\. You cannot use the CodeBuild API to create an OAUTH connection\. You must use the CodeBuild console instead\. 
    +  *should\-overwrite*: Optional value\. Set to `false` to prevent overwriting the repository source credentials\. Set to `true` to overwrite the repository source credentials\. The default value is `true`\.
-   +  *token*: Required value\. For GitHub or GitHub Enterprise, this is the personal access token\. For Bitbucket, this is the app password\. 
+   +  *token*: Required value\. For GitHub or GitHub Enterprise Server, this is the personal access token\. For Bitbucket, this is the app password\. 
    +  *username*: Optional value\. The Bitbucket user name when authType is BASIC\_AUTH\. This parameter is ignored for other types of source providers or connections\. 
 
 1. To connect your account with an access token, switch to the directory that contains the `import-source-credentials.json` file you saved in step 1 and run the import\-source\-credentials command again\. 

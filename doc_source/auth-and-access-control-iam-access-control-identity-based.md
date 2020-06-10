@@ -22,7 +22,7 @@ In AWS CodeBuild, the primary resource is a build project\. In a policy, you use
 | --- | --- | 
 | Build project |  `arn:aws:codebuild:region-ID:account-ID:project/project-name`  | 
 | Build |  `arn:aws:codebuild:region-ID:account-ID:build/build-ID`  | 
-| Report group | arn:aws:codebuild:region\-ID:account\-ID:report\-group/report\-name | 
+| Report group | arn:aws:codebuild:region\-ID:account\-ID:report\-group/report\-group\-name | 
 | Report | arn:aws:codebuild:region\-ID:account\-ID:report/report\-ID | 
 |  All CodeBuild resources  |  `arn:aws:codebuild:*`  | 
 |  All CodeBuild resources owned by the specified account in the specified AWS Region  |  `arn:aws:codebuild:region-ID:account-ID:*`  | 

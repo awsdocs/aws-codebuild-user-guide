@@ -1,6 +1,15 @@
 # Working with test reporting in AWS CodeBuild<a name="test-reporting"></a>
 
-You can create reports in CodeBuild that contain details about tests that are run during builds\. You can create tests such as unit tests, configuration tests, and functional tests\. The test file format can be JUnit XML, Cucumber JSON, Visual Studio TRX or TestNG XML\. Create your test cases with any test framework that can create files in one of those formats \(for example, Surefire JUnit plugin, TestNG, and Cucumber\)\.
+You can create reports in CodeBuild that contain details about tests that are run during builds\. You can create tests such as unit tests, configuration tests, and functional tests\. 
+
+The following test report file formats are supported:
++ Cucumber JSON
++ JUnit XML
++ NUnit XML
++ TestNG XML
++ Visual Studio TRX
+
+Create your test cases with any test framework that can create report files in one of these formats \(for example, Surefire JUnit plugin, TestNG, or Cucumber\)\.
 
 To create a test report, you add a report group name to the buildspec file of a build project with information about your test cases\. When you run the build project, the test cases are run and a test report is created\. You do not need to create a report group before you run your tests\. If you specify a report group name, CodeBuild creates a report group for you when you run your reports\. If you want to use a report group that already exists, you specify its ARN in the buildspec file\.
 

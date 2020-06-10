@@ -58,7 +58,7 @@ Amazon's trademarks and trade dress may not be used in
       + [Create a test report in CodeBuild using the AWS CLI sample](sample-test-report-cli.md)
       + [Docker in custom image sample for CodeBuild](sample-docker-custom-image.md)
       + [Docker sample for CodeBuild](sample-docker.md)
-      + [GitHub Enterprise sample for CodeBuild](sample-github-enterprise.md)
+      + [GitHub Enterprise Server sample for CodeBuild](sample-github-enterprise.md)
       + [GitHub pull request and webhook filter sample for CodeBuild](sample-github-pull-request.md)
       + [Create a static website with build output hosted in an S3 bucket](sample-disable-artifact-encryption.md)
       + [Runtime versions in buildspec file sample for CodeBuild](sample-runtime-versions.md)

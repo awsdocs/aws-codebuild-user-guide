@@ -16,7 +16,7 @@ Docker layer cache mode is available for the Linux environment only\. If you cho
 ## Local caching<a name="caching-local"></a>
 
  Local caching stores a cache locally on a build host that is available to that build host only\. This is a good option for large intermediate build artifacts because the cache is immediately available on the build host\. This is not the best option if your builds are infrequent\. This means that build performance is not impacted by network transfer time\. If you choose local caching, you must choose one or more of the following cache modes: 
-+  Source cache mode caches Git metadata for primary and secondary sources\. After the cache is created, subsequent builds pull only the change between commits\. This mode is a good choice for projects with a clean working directory and a source that is a large Git repository\. If you choose this option and your project does not use a Git repository \(GitHub, GitHub Enterprise, or Bitbucket\), the option is ignored\. 
++  Source cache mode caches Git metadata for primary and secondary sources\. After the cache is created, subsequent builds pull only the change between commits\. This mode is a good choice for projects with a clean working directory and a source that is a large Git repository\. If you choose this option and your project does not use a Git repository \(GitHub, GitHub Enterprise Server, or Bitbucket\), the option is ignored\. 
 +  Docker layer cache mode caches existing Docker layers\. This mode is a good choice for projects that build or pull large Docker images\. It can prevent the performance issues caused by pulling large Docker images down from the network\. 
 **Note**  
  You can use a Docker layer cache in the Linux environment only\. 

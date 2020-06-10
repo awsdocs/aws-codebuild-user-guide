@@ -21,7 +21,7 @@ You can use these use case\-based samples to experiment with AWS CodeBuild:
 | [Create a test report using the AWS CLI sample](sample-test-report-cli.md) | Uses the AWS CLI to create, run, and view the results of a test report\. | 
 | [Docker in custom image sample](sample-docker-custom-image.md) | Uses a custom Docker image to produce a Docker image\. | 
 | [Docker sample](sample-docker.md) | Uses a build image provided by CodeBuild with Docker support to produce a Docker image with Apache Maven\. Pushes the Docker image to a repository in Amazon ECR\. You can also adapt this sample to push the Docker image to Docker Hub\. | 
-| [GitHub Enterprise sample](sample-github-enterprise.md) | Uses CodeBuild with GitHub Enterprise as the source repository, with certificates installed and webhooks enabled, to rebuild the source code every time a code change is pushed to the repository\. | 
+| [GitHub Enterprise Server sample](sample-github-enterprise.md) | Uses CodeBuild with GitHub Enterprise Server as the source repository, with certificates installed and webhooks enabled, to rebuild the source code every time a code change is pushed to the repository\. | 
 | [GitHub pull request and webhook filter sample](sample-github-pull-request.md) | Uses CodeBuild with GitHub as the source repository and webhooks enabled, to rebuild the source code every time a code change is pushed to the repository\. | 
 | [ Host build output in an S3 bucket ](sample-disable-artifact-encryption.md) | Shows how to create a static website in an S3 bucket using unencrypted build artifacts\. | 
 | [ Multiple input sources and output artifacts sample ](sample-multi-in-out.md) |  Shows how to use multiple input sources and multiple output artifacts in a build project\.  | 

@@ -2,7 +2,7 @@
 
  This sample demonstrates how to specify a version of your source using a format other than a commit ID \(also known as a commit SHA\)\. You can specify the version of your source in the following ways: 
 +  For an Amazon S3 source provider, use the version ID of the object that represents the build input ZIP file\. 
-+  For CodeCommit, Bitbucket, GitHub, and GitHub Enterprise, use one of the following: 
++  For CodeCommit, Bitbucket, GitHub, and GitHub Enterprise Server, use one of the following: 
   +  Pull request as a pull request reference \(for example, `refs/pull/1/head`\)\. 
   +  Branch as a branch name\. 
   +  Commit ID\. 
@@ -13,7 +13,7 @@
     +  A pull request \(for example, `refs/pull/1/head^{full-commit-SHA}`\)\. 
 
 **Note**  
- You can specify the version of a pull request source only if your repository is GitHub or GitHub Enterprise\. 
+ You can specify the version of a pull request source only if your repository is GitHub or GitHub Enterprise Server\. 
 
  If you use a reference and a commit ID to specify a version, the `DOWNLOAD_SOURCE` phase of your build is faster than if you provide the version only\. This is because when you add a reference, CodeBuild does not need to download the entire repository to find the commit\. 
 + You can specify a source version with only a commit ID, such as `12345678901234567890123467890123456789`\. If you do this, CodeBuild must download the entire repository to find the version\.

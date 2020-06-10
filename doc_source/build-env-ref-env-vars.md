@@ -12,16 +12,16 @@ AWS CodeBuild provides several environment variables that you can use in your bu
 + `CODEBUILD_KMS_KEY_ID`: The identifier of the AWS KMS key that CodeBuild is using to encrypt the build output artifact \(for example, `arn:aws:kms:region-ID:account-ID:key/key-ID` or `alias/key-alias`\)\.
 + `CODEBUILD_LOG_PATH`: The log stream name in CloudWatch Logs for the build\.
 + `CODEBUILD_RESOLVED_SOURCE_VERSION`: An identifier for the version of a build's source code\. Its format depends on the source code repository:
-  +  For CodeCommit, GitHub, GitHub Enterprise, and Bitbucket, it is the commit ID\. For these repositories, `CODEBUILD_RESOLVED_SOURCE_VERSION` is only available after the `DOWNLOAD_SOURCE` phase\. 
+  +  For CodeCommit, GitHub, GitHub Enterprise Server, and Bitbucket, it is the commit ID\. For these repositories, `CODEBUILD_RESOLVED_SOURCE_VERSION` is only available after the `DOWNLOAD_SOURCE` phase\. 
   +  For CodePipeline, it is the source revision is provided by CodePipeline\. For CodePipeline, the `CODEBUILD_RESOLVED_SOURCE_VERSION` environment variable may not always be available\. 
   +  For Amazon S3, this does not apply\. 
 + `CODEBUILD_SOURCE_REPO_URL`: The URL to the input artifact or source code repository\. For Amazon S3, this is `s3://` followed by the bucket name and path to the input artifact\. For CodeCommit and GitHub, this is the repository's clone URL\. If a build originates from CodePipeline, then this might be empty\.
 + `CODEBUILD_SOURCE_VERSION`: The value's format depends on the source repository\.
   + For Amazon S3, it is the version ID associated with the input artifact\.
   + For CodeCommit, it is the commit ID or branch name associated with the version of the source code to be built\.
-  + For GitHub, GitHub Enterprise, and Bitbucket it is the commit ID, branch name, or tag name associated with the version of the source code to be built\.
+  + For GitHub, GitHub Enterprise Server, and Bitbucket it is the commit ID, branch name, or tag name associated with the version of the source code to be built\.
 **Note**  
-For a GitHub or GitHub Enterprise build that is triggered by a webhook pull request event, it is `pr/pull-request-number`\.
+For a GitHub or GitHub Enterprise Server build that is triggered by a webhook pull request event, it is `pr/pull-request-number`\.
 + `CODEBUILD_SRC_DIR`: The directory path that CodeBuild uses for the build \(for example, `/tmp/src123456789/src`\)\.
 **Note**  
 If you use a secondary source, the environment variable for its directory path is `CODEBUILD_SRC_DIR_sourceIdentifier`, where `sourceIdentifier` is the source identifier you create\. For more information, see [Multiple input sources and output artifacts sample](sample-multi-in-out.md)\.
@@ -31,7 +31,7 @@ If you use a secondary source, the environment variable for its directory path i
 + `CODEBUILD_WEBHOOK_EVENT`: The webhook event that triggers the current build\.
 + `CODEBUILD_WEBHOOK_PREV_COMMIT`: The ID of the most recent commit before the webhook push event that triggers the current build\.
 + `CODEBUILD_WEBHOOK_HEAD_REF`: The head reference name of the webhook event that triggers the current build\. It can be a branch reference or a tag reference\.
-+ `CODEBUILD_WEBHOOK_TRIGGER`: Shows the webhook event that triggered the build\. This variable is available only for builds triggered by a webhook\. The value is parsed from the payload sent to CodeBuild by GitHub, GitHub Enterprise, or Bitbucket\. The value's format depends on what type of event triggered the build\.
++ `CODEBUILD_WEBHOOK_TRIGGER`: Shows the webhook event that triggered the build\. This variable is available only for builds triggered by a webhook\. The value is parsed from the payload sent to CodeBuild by GitHub, GitHub Enterprise Server, or Bitbucket\. The value's format depends on what type of event triggered the build\.
   +  For builds triggered by a pull request, it is `pr/pull-request-number`\. 
   +  For builds triggered by creating a new branch or pushing a commit to a branch, it is `branch/branch-name`\. 
   +  For builds triggered by a pushing a tag to a repository, it is `tag/tag-name`\. 
