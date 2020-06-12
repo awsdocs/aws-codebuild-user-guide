@@ -1,13 +1,13 @@
 # Specify the AWS CodeBuild endpoint<a name="endpoint-specify"></a>
 
- You can use the AWS Command Line Interface \(AWS CLI\) or one of the AWS SDKs to specify the endpoint used by AWS CodeBuild\. There is an endpoint for each region in which CodeBuild is available\. In addition to a regional endpoint, four regions also have a Federal Information Processing Standards \(FIPS\) endpoint\. For more information about FIPS endpoints, see [FIPS 140\-2 Overview](https://aws.amazon.com/compliance/fips/)\. 
+ You can use the AWS Command Line Interface \(AWS CLI\) or one of the AWS SDKs to specify the endpoint used by AWS CodeBuild\. There is an endpoint for each region in which CodeBuild is available\. In addition to a regional endpoint, four regions also have a Federal Information Processing Standards \(FIPS\) endpoint\. For more information about FIPS endpoints, see [FIPS 140\-2 overview](https://aws.amazon.com/compliance/fips/)\. 
 
  Specifying an endpoint is optional\. If you don't explicitly tell CodeBuild which endpoint to use, the service uses the endpoint associated with the region your AWS account uses\. CodeBuild never defaults to a FIPS endpoint\. If you want to use a FIPS endpoint, you must associate CodeBuild with it using one of the following methods\. 
 
 **Note**  
  You can use an alias or region name to specify an endpoint using an AWS SDK\. If you use the AWS CLI, then you must use the full endpoint name\. 
 
- For endpoints that can be used with CodeBuild, see [CodeBuild Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#codebuild_region)\. 
+ For endpoints that can be used with CodeBuild, see [CodeBuild regions and endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#codebuild_region)\. 
 
 **Topics**
 + [Specify the AWS CodeBuild endpoint \(AWS CLI\)](#endpoint-specify-cli)
@@ -40,7 +40,7 @@ AWSCodeBuild awsCodeBuild = AWSCodeBuildClientBuilder.standard().
 
  For information about `AWSCodeBuildClientBuilder`, see [Class AWSCodeBuildClientBuilder](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/codebuild/AWSCodeBuildClientBuilder.html)\. 
 
- The credentials used in `withCredentials` must be of type `AWSCredentialsProvider`\. For more information, see [Working with AWS Credentials](https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/credentials.html)\. 
+ The credentials used in `withCredentials` must be of type `AWSCredentialsProvider`\. For more information, see [Working with AWS credentials](https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/credentials.html)\. 
 
  Do not include `https://` at the begining of the endpoint\.
 

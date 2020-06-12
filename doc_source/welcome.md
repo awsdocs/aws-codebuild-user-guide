@@ -33,7 +33,7 @@ The CodeBuild console also provides a way to quickly search for your resources, 
 
 ## Pricing for CodeBuild<a name="welcome-pricing"></a>
 
-For information, see [CodeBuild Pricing](https://aws.amazon.com/codebuild/pricing)\.
+For information, see [CodeBuild pricing](https://aws.amazon.com/codebuild/pricing)\.
 
 ## How do I get started with CodeBuild?<a name="welcome-getting-started"></a>
 

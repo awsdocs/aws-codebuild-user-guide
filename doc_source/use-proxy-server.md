@@ -36,15 +36,15 @@ There are two primary use cases for running CodeBuild in a proxy server:
 
 1. Create two subnets in your VPC\. One is a public subnet named `Public Subnet` in which your proxy server runs\. The other is a private subnet named `Private Subnet` in which CodeBuild runs\. 
 
-   For information, see [Creating a Subnet in Your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/working-with-vpcs.html#AddaSubnet)\.
+   For information, see [Creating a subnet in your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/working-with-vpcs.html#AddaSubnet)\.
 
-1.  Create and attach an internet gateway to your VPC\. For more information, see [Creating and Attaching an Internet Gateway](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html#Add_IGW_Attach_Gateway)\. 
+1.  Create and attach an internet gateway to your VPC\. For more information, see [Creating and attaching an internet gateway](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html#Add_IGW_Attach_Gateway)\. 
 
-1.  Add a rule to the default route table that routes outgoing traffic from the VPC \(0\.0\.0\.0/0\) to the internet gateway\. For information, see [Adding and Removing Routes from a Route Table](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html#AddRemoveRoutes)\. 
+1.  Add a rule to the default route table that routes outgoing traffic from the VPC \(0\.0\.0\.0/0\) to the internet gateway\. For information, see [Adding and removing routes from a route table](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html#AddRemoveRoutes)\. 
 
 1.  Add a rule to the default security group of your VPC that allows ingress SSH traffic \(TCP 22\) from your VPC \(0\.0\.0\.0/0\)\. 
 
-1.  Follow the instructions in [Launching an Instance Using the Launch Instance Wizard](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/launching-instance.html) in the *Amazon EC2 User Guide* to launch an Amazon Linux instance\. When you run the wizard, choose the following options: 
+1.  Follow the instructions in [Launching an instance using the launch instance wizard](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/launching-instance.html) in the *Amazon EC2 User Guide* to launch an Amazon Linux instance\. When you run the wizard, choose the following options: 
    +  In **Choose an Instance Type**, choose an Amazon Linux Amazon Machine Image \(AMI\)\. 
    +  In **Subnet**, choose the public subnet you created earlier in this topic\. If you used the suggested name, it is **Public Subnet**\. 
    +  In **Auto\-assign Public IP**, choose **Enable**\. 
@@ -53,7 +53,7 @@ There are two primary use cases for running CodeBuild in a proxy server:
 
     Choose the default settings for all other options\. 
 
-1.  After your EC2 instance is running, disable source/destination checks\. For information, see [Disabling Source/Destination Checks](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_NAT_Instance.html#EIP_Disable_SrcDestCheck) in the *Amazon VPC User Guide*\. 
+1.  After your EC2 instance is running, disable source/destination checks\. For information, see [Disabling Source/Destination checks](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_NAT_Instance.html#EIP_Disable_SrcDestCheck) in the *Amazon VPC User Guide*\. 
 
 1.  Create a route table in your VPC\. Add a rule to the route table that routes traffic destined for the internet to your proxy server\. Associate this route table with your private subnet\. This is required so that outbound requests from instances in your private subnet, where CodeBuild runs, are always routed through the proxy server\. 
 

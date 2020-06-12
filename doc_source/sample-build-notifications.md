@@ -3,7 +3,7 @@
 Amazon CloudWatch Events has built\-in support for AWS CodeBuild\. CloudWatch Events is a stream of system events describing changes in your AWS resources\. With CloudWatch Events, you write declarative rules to associate events of interest with automated actions to be taken\. This sample uses Amazon CloudWatch Events and Amazon Simple Notification Service \(Amazon SNS\) to send build notifications to subscribers whenever builds succeed, fail, go from one build phase to another, or any combination of these events\.
 
 **Important**  
-Running this sample might result in charges to your AWS account\. These include possible charges for CodeBuild and for AWS resources and actions related to Amazon CloudWatch and Amazon SNS\. For more information, see [CodeBuild Pricing](http://aws.amazon.com/codebuild/pricing), [Amazon CloudWatch Pricing](http://aws.amazon.com/cloudwatch/pricing), and [Amazon SNS Pricing](http://aws.amazon.com/sns/pricing)\.
+Running this sample might result in charges to your AWS account\. These include possible charges for CodeBuild and for AWS resources and actions related to Amazon CloudWatch and Amazon SNS\. For more information, see [CodeBuild pricing](http://aws.amazon.com/codebuild/pricing), [Amazon CloudWatch pricing](http://aws.amazon.com/cloudwatch/pricing), and [Amazon SNS pricing](http://aws.amazon.com/sns/pricing)\.
 
 ## Running the sample<a name="sample-build-notifications-running"></a>
 
@@ -35,7 +35,7 @@ Running this sample might result in charges to your AWS account\. These include 
    ```
 **Note**  
 The IAM entity that modifies this policy must have permission in IAM to modify policies\.  
-For more information, see [Editing Customer Managed Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-using.html#edit-managed-policy-console) or the "To edit or delete an inline policy for a group, user, or role" section in [Working with Inline Policies \(Console\)](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_inline-using.html#AddingPermissions_Console) in the *IAM User Guide*\.
+For more information, see [Editing customer managed policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-using.html#edit-managed-policy-console) or the "To edit or delete an inline policy for a group, user, or role" section in [Working with inline policies \(console\)](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_inline-using.html#AddingPermissions_Console) in the *IAM User Guide*\.
 
 1. Create or identify a topic in Amazon SNS\. AWS CodeBuild uses CloudWatch Events to send build notifications to this topic through Amazon SNS\. 
 
@@ -52,7 +52,7 @@ For more information, see [Editing Customer Managed Policies](https://docs.aws.a
    1. On the **Topic details: CodeBuildDemoTopic** page, copy the **Topic ARN** value\. You need this value for the next step\.   
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/topic-arn.png)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)
 
-   For more information, see [Create a Topic](https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html) in the *Amazon SNS Developer Guide*\.
+   For more information, see [Create a topic](https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html) in the *Amazon SNS Developer Guide*\.
 
 1. Subscribe one or more recipients to the topic to receive email notifications\. 
 
@@ -71,7 +71,7 @@ For more information, see [Editing Customer Managed Policies](https://docs.aws.a
 
    1. Amazon SNS sends a subscription confirmation email to the recipient\. To begin receiving email notifications, the recipient must choose the **Confirm subscription** link in the subscription confirmation email\. After the recipient clicks the link, if successfully subscribed, Amazon SNS displays a confirmation message in the recipient's web browser\.
 
-   For more information, see [Subscribe to a Topic](https://docs.aws.amazon.com/sns/latest/dg/SubscribeTopic.html) in the *Amazon SNS Developer Guide*\.
+   For more information, see [Subscribe to a topic](https://docs.aws.amazon.com/sns/latest/dg/SubscribeTopic.html) in the *Amazon SNS Developer Guide*\.
 
 1. If you are using an IAM user instead of an AWS root account or an administrator IAM user to work with CloudWatch Events, add the following statement \(between *\#\#\# BEGIN ADDING STATEMENT HERE \#\#\#* and *\#\#\# END ADDING STATEMENT HERE \#\#\#*\) to the user \(or IAM group the user is associated with\)\. Using an AWS root account is not recommended\. This statement is used to allow the user to work with CloudWatch Events\. Ellipses \(`...`\) are used for brevity and to help you locate where to add the statement\. Do not remove any statements, and do not type these ellipses into the existing policy\.
 
@@ -95,7 +95,7 @@ For more information, see [Editing Customer Managed Policies](https://docs.aws.a
    ```
 **Note**  
 The IAM entity that modifies this policy must have permission in IAM to modify policies\.  
-For more information, see [Editing Customer Managed Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-using.html#edit-managed-policy-console) or the "To edit or delete an inline policy for a group, user, or role" section in [Working with Inline Policies \(Console\)](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_inline-using.html#AddingPermissions_Console) in the *IAM User Guide*\.
+For more information, see [Editing customer managed policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-using.html#edit-managed-policy-console) or the "To edit or delete an inline policy for a group, user, or role" section in [Working with inline policies \(console\)](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_inline-using.html#AddingPermissions_Console) in the *IAM User Guide*\.
 
 1. Create a rule in CloudWatch Events\. To do this, open the CloudWatch console, at [https://console\.aws\.amazon\.com/cloudwatch](https://console.aws.amazon.com/cloudwatch)\.
 

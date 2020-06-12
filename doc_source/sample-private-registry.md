@@ -23,7 +23,7 @@
    docker push your-username/repository-name
    ```
 
-1.  Follow the steps in [Creating a Basic Secret](https://docs.aws.amazon.com/secretsmanager/latest/userguide/manage_create-basic-secret.html) in the *AWS Secrets Manager User Guide*\. In step 3, in **Select secret type**, do the following: 
+1.  Follow the steps in [Creating a basic secret](https://docs.aws.amazon.com/secretsmanager/latest/userguide/manage_create-basic-secret.html) in the *AWS Secrets Manager User Guide*\. In step 3, in **Select secret type**, do the following: 
 
    1.  Choose **Other type of secrets**\.   
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/private-registry-sample-secrets-manager.png)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)
@@ -38,9 +38,9 @@
 
    1.  When you review your settings, write down the ARN to use later in this sample\. 
 
-    For more information, see [What Is AWS Secrets Manager?](https://docs.aws.amazon.com/secretsmanager/latest/userguide/) 
+    For more information, see [What is AWS Secrets Manager?](https://docs.aws.amazon.com/secretsmanager/latest/userguide/) 
 
-1.  When you create an AWS CodeBuild project in the console, CodeBuild attaches the required permission for you\. If you use an AWS KMS key other than `DefaultEncryptionKey`, you must add it to the service role\. For more information, see [Modifying a Role \(Console\)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_manage_modify.html#roles-managingrole-editing-console) in the *AWS Identity and Management User Guide*\. 
+1.  When you create an AWS CodeBuild project in the console, CodeBuild attaches the required permission for you\. If you use an AWS KMS key other than `DefaultEncryptionKey`, you must add it to the service role\. For more information, see [Modifying a role \(console\)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_manage_modify.html#roles-managingrole-editing-console) in the *AWS Identity and Management User Guide*\. 
 
     For your service role to work with Secrets Manager, it must have, at a minimum, the `secretsmanager:GetSecretValue` permission\.   
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/private-registry-sample-iam.png)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)

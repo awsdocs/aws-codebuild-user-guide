@@ -16,7 +16,7 @@ In this step, you view detailed information about your build in CloudWatch Logs\
 
 1. In the CloudWatch Logs log stream, you can browse the log events\. By default, only the last set of log events is displayed\. To see earlier log events, scroll to the beginning of the list\.
 
-1. In this tutorial, most of the log events contain verbose information about CodeBuild downloading and installing build dependency files into its build environment, which you probably don't care about\. You can use the **Filter events** box to reduce the information displayed\. For example, if you enter `"[INFO]"` in **Filter events**, only those events that contain `[INFO]` are displayed\. For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html) in the *Amazon CloudWatch User Guide*\.
+1. In this tutorial, most of the log events contain verbose information about CodeBuild downloading and installing build dependency files into its build environment, which you probably don't care about\. You can use the **Filter events** box to reduce the information displayed\. For example, if you enter `"[INFO]"` in **Filter events**, only those events that contain `[INFO]` are displayed\. For more information, see [Filter and pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html) in the *Amazon CloudWatch User Guide*\.
 
 These portions of a CloudWatch Logs log stream pertain to this tutorial\.
 

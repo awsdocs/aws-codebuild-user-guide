@@ -1,10 +1,10 @@
 # Amazon Elastic File System sample for AWS CodeBuild<a name="sample-efs"></a>
 
- You might want to create your AWS CodeBuild builds on Amazon Elastic File System, a scalable, shared file service for Amazon EC2 instances\. The storage capacity with Amazon EFS is elastic, so it grows or shrinks as files are added and removed\. It has a simple web services interface that you can use to create and configure file systems\. It also manages all of the file storage infrastructure for you, so you do not need to worry about deploying, patching, or maintaining file system configurations\. For more information, see [What Is Amazon Elastic File System?](https://docs.aws.amazon.com/efs/latest/ug/whatisefs.html) in the *Amazon Elastic File System User Guide*\. 
+ You might want to create your AWS CodeBuild builds on Amazon Elastic File System, a scalable, shared file service for Amazon EC2 instances\. The storage capacity with Amazon EFS is elastic, so it grows or shrinks as files are added and removed\. It has a simple web services interface that you can use to create and configure file systems\. It also manages all of the file storage infrastructure for you, so you do not need to worry about deploying, patching, or maintaining file system configurations\. For more information, see [What is Amazon Elastic File System?](https://docs.aws.amazon.com/efs/latest/ug/whatisefs.html) in the *Amazon Elastic File System User Guide*\. 
 
  This sample shows you how to configure a CodeBuild project so that it mounts and then builds a Java application to an Amazon EFS file system\. Before you begin, you must have a Java application ready to build that is uploaded to an S3 input bucket or an AWS CodeCommit, GitHub, GitHub Enterprise Server, or Bitbucket repository\. 
 
-Data in transit for your file system is encrypted\. To encrypt data in transit using a different image, see [Encrypting Data in Transit](https://docs.aws.amazon.com/efs/latest/ug/encryption-in-transit.html)\. 
+Data in transit for your file system is encrypted\. To encrypt data in transit using a different image, see [Encrypting data in transit](https://docs.aws.amazon.com/efs/latest/ug/encryption-in-transit.html)\. 
 
 ## High\-level steps<a name="sample-efs-high-level-steps"></a>
 
@@ -129,4 +129,4 @@ By default, Docker containers do not allow access to any devices\. Privileged mo
 +  You have a \.jar file created by your Java application that is built to your Amazon EFS file system under your mount point directory\. 
 +  An environment variable that identifies your file system is created using the file system identifier you entered when you created the project\. 
 
- For more information, see [Mounting File Systems](https://docs.aws.amazon.com/efs/latest/ug/mounting-fs.html) in the *Amazon Elastic File System User Guide*\. 
+ For more information, see [Mounting file systems](https://docs.aws.amazon.com/efs/latest/ug/mounting-fs.html) in the *Amazon Elastic File System User Guide*\. 

@@ -9,7 +9,7 @@ This sample was tested referencing `golang:1.12`\.
 This sample uses the new multi\-stage Docker builds feature, which produces a Docker image as build output\. It then pushes the Docker image to an Amazon ECR image repository\. Multi\-stage Docker image builds help to reduce the size of the final Docker image\. For more information, see [Use multi\-stage builds with Docker](https://docs.docker.com/engine/userguide/eng-image/multistage-build/)\.
 
 **Important**  
-Running this sample might result in charges to your AWS account\. These include possible charges for AWS CodeBuild and for AWS resources and actions related to Amazon S3, AWS KMS, CloudWatch Logs, and Amazon ECR\. For more information, see [CodeBuild Pricing](http://aws.amazon.com/codebuild/pricing), [Amazon S3 Pricing](http://aws.amazon.com/s3/pricing), [AWS Key Management Service Pricing](http://aws.amazon.com/kms/pricing), [Amazon CloudWatch Pricing](http://aws.amazon.com/cloudwatch/pricing), and [Amazon Elastic Container Registry Pricing](http://aws.amazon.com/ecr/pricing)\.
+Running this sample might result in charges to your AWS account\. These include possible charges for AWS CodeBuild and for AWS resources and actions related to Amazon S3, AWS KMS, CloudWatch Logs, and Amazon ECR\. For more information, see [CodeBuild pricing](http://aws.amazon.com/codebuild/pricing), [Amazon S3 pricing](http://aws.amazon.com/s3/pricing), [AWS Key Management Service pricing](http://aws.amazon.com/kms/pricing), [Amazon CloudWatch pricing](http://aws.amazon.com/cloudwatch/pricing), and [Amazon Elastic Container Registry pricing](http://aws.amazon.com/ecr/pricing)\.
 
 **Topics**
 + [Running the sample](#sample-docker-running)
@@ -22,7 +22,7 @@ Running this sample might result in charges to your AWS account\. These include 
 
 **To run this sample**
 
-1. If you already have an image repository in Amazon ECR you want to use, skip to step 3\. Otherwise, if you are using an IAM user instead of an AWS root account or an administrator IAM user to work with Amazon ECR, add this statement \(between *\#\#\# BEGIN ADDING STATEMENT HERE \#\#\#* and *\#\#\# END ADDING STATEMENT HERE \#\#\#*\) to the user \(or IAM group the user is associated with\)\. Using an AWS root account is not recommended\.This statement allows the creation of Amazon ECR repositories for storing Docker images\. Ellipses \(`...`\) are used for brevity and to help you locate where to add the statement\. Do not remove any statements, and do not type these ellipses into the policy\. For more information, see [Working with Inline Policies Using the AWS Management Console](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_inline-using.html#AddingPermissions_Console) in the *IAM User Guide*\. 
+1. If you already have an image repository in Amazon ECR you want to use, skip to step 3\. Otherwise, if you are using an IAM user instead of an AWS root account or an administrator IAM user to work with Amazon ECR, add this statement \(between *\#\#\# BEGIN ADDING STATEMENT HERE \#\#\#* and *\#\#\# END ADDING STATEMENT HERE \#\#\#*\) to the user \(or IAM group the user is associated with\)\. Using an AWS root account is not recommended\.This statement allows the creation of Amazon ECR repositories for storing Docker images\. Ellipses \(`...`\) are used for brevity and to help you locate where to add the statement\. Do not remove any statements, and do not type these ellipses into the policy\. For more information, see [Working with inline policies using the AWS Management Console](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_inline-using.html#AddingPermissions_Console) in the *IAM User Guide*\. 
 
    ```
    {
@@ -44,7 +44,7 @@ Running this sample might result in charges to your AWS account\. These include 
 **Note**  
 The IAM entity that modifies this policy must have permission in IAM to modify policies\.
 
-1. Create an image repository in Amazon ECR\. Be sure to create the repository in the same AWS Region where you create your build environment and run your build\. For more information, see [Creating a Repository](https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-create.html) in the *Amazon ECR User Guide*\. This repository's name must match the repository name you specify later in this procedure, represented by the `IMAGE_REPO_NAME` environment variable\.
+1. Create an image repository in Amazon ECR\. Be sure to create the repository in the same AWS Region where you create your build environment and run your build\. For more information, see [Creating a repository](https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-create.html) in the *Amazon ECR User Guide*\. This repository's name must match the repository name you specify later in this procedure, represented by the `IMAGE_REPO_NAME` environment variable\.
 
 1. Add this statement \(between *\#\#\# BEGIN ADDING STATEMENT HERE \#\#\#* and *\#\#\# END ADDING STATEMENT HERE \#\#\#*\) to the policy you attached to your AWS CodeBuild service role\. This statement allows CodeBuild to upload Docker images to Amazon ECR repositories\. Ellipses \(`...`\) are used for brevity and to help you locate where to add the statement\. Do not remove any statements, and do not type these ellipses into the policy\. 
 

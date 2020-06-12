@@ -11,7 +11,7 @@
 +  **repo:status**: Grants access to commit statuses\. 
 +  **admin:repo\_hook**: Grants full control of repository hooks\. This scope is not required if your token has the `repo` scope\. 
 
-For more information, see [Understanding Scopes for OAuth Apps](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/) on the GitHub website\.
+For more information, see [Understanding scopes for OAuth apps](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/) on the GitHub website\.
 
  For Bitbucket, your app password must have the following scopes\. 
 +  **repository:read**: Grants read access to all the repositories to which the authorizing user has access\. 

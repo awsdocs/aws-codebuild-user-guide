@@ -48,7 +48,7 @@ For more information, see the *[AWS RAM User Guide](https://docs.aws.amazon.com/
 
 You can use the CodeBuild console to add a report group to an existing resource share\. If you want to add the report group to a new resource share, you must first create it in the [AWS RAM console](https://console.aws.amazon.com/ram)\.
 
-To share a report group with organizational units or an entire organization, you must enable sharing with AWS Organizations\. For more information, see [Enable Sharing with AWS Organizations](https://docs.aws.amazon.com/ram/latest/userguide/getting-started-sharing.html) in the *AWS RAM User Guide*\.
+To share a report group with organizational units or an entire organization, you must enable sharing with AWS Organizations\. For more information, see [Enable sharing with AWS Organizations](https://docs.aws.amazon.com/ram/latest/userguide/getting-started-sharing.html) in the *AWS RAM User Guide*\.
 
 You can use the CodeBuild console, AWS RAM console, or AWS CLI to share report groups that you own\.
 
@@ -58,10 +58,10 @@ You can use the CodeBuild console, AWS RAM console, or AWS CLI to share report g
 
 1. In the navigation pane, choose **Report groups**\.
 
-1.  Choose the project you want to share, and then choose **Share**\. For more information, see [Create a Resource Share](https://docs.aws.amazon.com/ram/latest/userguide/getting-started-sharing.html#getting-started-sharing-create) in the *AWS RAM User Guide*\. 
+1.  Choose the project you want to share, and then choose **Share**\. For more information, see [Create a resource share](https://docs.aws.amazon.com/ram/latest/userguide/getting-started-sharing.html#getting-started-sharing-create) in the *AWS RAM User Guide*\. 
 
 **To share report groups that you own \(AWS RAM console\)**  
-See [Creating a Resource Share](https://docs.aws.amazon.com/ram/latest/userguide/working-with-sharing.html#working-with-sharing-create) in the *AWS RAM User Guide*\.
+See [Creating a resource share](https://docs.aws.amazon.com/ram/latest/userguide/working-with-sharing.html#working-with-sharing-create) in the *AWS RAM User Guide*\.
 
 **To share report groups that you own \(AWS RAM command\)**  
 Use the [create\-resource\-share](https://docs.aws.amazon.com/cli/latest/reference/ram/create-resource-share.html) command\.
@@ -126,7 +126,7 @@ An unshared report group, including its reports and their test case results, can
 To unshare a shared report group that you own, you must remove it from the resource share\. You can use the AWS RAM console or AWS CLI to do this\.
 
 **To unshare a shared report group that you own \(AWS RAM console\)**  
-See [Updating a Resource Share](https://docs.aws.amazon.com/ram/latest/userguide/working-with-sharing.html#working-with-sharing-update) in the *AWS RAM User Guide*\.
+See [Updating a resource share](https://docs.aws.amazon.com/ram/latest/userguide/working-with-sharing.html#working-with-sharing-update) in the *AWS RAM User Guide*\.
 
 **To unshare a shared report group that you own \(AWS RAM command\)**  
 Use the [disassociate\-resource\-share](https://docs.aws.amazon.com/cli/latest/reference/ram/disassociate-resource-share.html) command\.

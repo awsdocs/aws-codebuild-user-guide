@@ -2,7 +2,7 @@
 
 \(Previous step: [Step 4: Upload the source code and the buildspec file](getting-started-cli-upload-source-code.md)\)
 
-In this step, you create a build project that AWS CodeBuild uses to run the build\. A *build project* includes information about how to run a build, including where to get the source code, which build environment to use, which build commands to run, and where to store the build output\. A *build environment* represents a combination of operating system, programming language runtime, and tools that CodeBuild uses to run a build\. The build environment is expressed as a Docker image\. For more information, see [Docker Overview](https://docs.docker.com/engine/docker-overview/) on the Docker Docs website\. 
+In this step, you create a build project that AWS CodeBuild uses to run the build\. A *build project* includes information about how to run a build, including where to get the source code, which build environment to use, which build commands to run, and where to store the build output\. A *build environment* represents a combination of operating system, programming language runtime, and tools that CodeBuild uses to run a build\. The build environment is expressed as a Docker image\. For more information, see [Docker overview](https://docs.docker.com/get-started/overview/) on the Docker Docs website\. 
 
 For this build environment, you instruct CodeBuild to use a Docker image that contains a version of the Java Development Kit \(JDK\) and Apache Maven\.<a name="getting-started-cli-create-build-project-cli"></a>
 
@@ -104,7 +104,7 @@ Other available values in the original JSON\-formatted data, such as `descriptio
 
 **Note**  
 After you run the create\-project command, an error message similar to the following might be output: **User: *user\-ARN* is not authorized to perform: codebuild:CreateProject**\. This is most likely because you configured the AWS CLI with the credentials of an IAM user who does not have sufficient permissions to use CodeBuild to create build projects\. To fix this, configure the AWS CLI with credentials belonging to one of the following IAM entities:   
-An administrator IAM user in your AWS account\. For more information, see [Creating Your First IAM Admin User and Group](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html) in the *IAM User Guide*\.
+An administrator IAM user in your AWS account\. For more information, see [Creating your first IAM admin user and group](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html) in the *IAM User Guide*\.
 An IAM user in your AWS account with the `AWSCodeBuildAdminAccess`, `AmazonS3ReadOnlyAccess`, and `IAMFullAccess` managed policies attached to that IAM user or to an IAM group that the IAM user belongs to\. If you do not have an IAM user or group in your AWS account with these permissions, and you cannot add these permissions to your IAM user or group, contact your AWS account administrator for assistance\. For more information, see [AWS managed \(predefined\) policies for AWS CodeBuild](auth-and-access-control-iam-identity-based-access-control.md#managed-policies)\.
 
 ## Next step<a name="getting-started-cli-create-build-project-next"></a>

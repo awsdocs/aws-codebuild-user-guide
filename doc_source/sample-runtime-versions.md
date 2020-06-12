@@ -171,7 +171,7 @@ If you are using an S3 input bucket, be sure to create a ZIP file that contains 
 
  This example shows how to specify a runtime and a dependency runtime\. For example, any supported Android runtime version is dependent on the Java runtime version 8\. For example, if you specify Android version 29 and use Amazon Linux 2 or Ubuntu, you can also specify Java version 8\. If you do not specify the dependent runtime, CodeBuild attempts to choose it for you\. 
 
-The build project in this example uses source code in the GitHub [AWS Samples](https://github.com/aws-samples) repository\. The source code uses the Android version 28 runtime and the build project uses Amazon Linux 2, so the buildspec also specifies Java version 8\. 
+The build project in this example uses source code in the GitHub [AWS samples](https://github.com/aws-samples) repository\. The source code uses the Android version 28 runtime and the build project uses Amazon Linux 2, so the buildspec also specifies Java version 8\. 
 
 1. Open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codesuite/codebuild/home](https://console.aws.amazon.com/codesuite/codebuild/home)\.
 

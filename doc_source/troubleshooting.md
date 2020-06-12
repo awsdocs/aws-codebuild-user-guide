@@ -209,7 +209,7 @@ pre_build:
 + The cache has recently been invalidated through the `InvalidateProjectCache` API\.
 + The service role being used by CodeBuild does not have `s3:GetObject` and `s3:PutObject` permissions to the S3 bucket that is holding the cache\.
 
-**Recommended solution:** For first time use, it's normal to see this immediately after updating the cache configuration\. If this error persists, then you should check to see if your service role has `s3:GetObject` and `s3:PutObject` permissions to the S3 bucket that is holding the cache\. For more information, see [Specifying S3 Permissions](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html) in the *Amazon S3 Developer Guide*\. 
+**Recommended solution:** For first time use, it's normal to see this immediately after updating the cache configuration\. If this error persists, then you should check to see if your service role has `s3:GetObject` and `s3:PutObject` permissions to the S3 bucket that is holding the cache\. For more information, see [Specifying S3 permissions](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html) in the *Amazon S3 Developer Guide*\. 
 
 ## Error: "BUILD\_CONTAINER\_UNABLE\_TO\_PULL\_IMAGE" when using a custom build image<a name="troubleshooting-unable-to-pull-image"></a>
 
@@ -282,7 +282,7 @@ By default, Docker containers do not allow access to any devices\. Privileged mo
 + The AWS CodeBuild service role associated with the build project does not exist or does not have sufficient permissions to trust CodeBuild\.
 
  **Recommended solutions:** 
-+ Make sure AWS STS is activated for the AWS region where you are attempting to create or update the build project\. For more information, see [Activating and Deactivating AWS STS in an AWS Region](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html) in the *IAM User Guide*\.
++ Make sure AWS STS is activated for the AWS region where you are attempting to create or update the build project\. For more information, see [Activating and deactivating AWS STS in an AWS Region](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html) in the *IAM User Guide*\.
 + Make sure the target CodeBuild service role exists in your AWS account\. If you are not using the console, make sure you did not misspell the Amazon Resource Name \(ARN\) of the service role when you created or updated the build project\.
 + Make sure the target CodeBuild service role has sufficient permissions to trust CodeBuild\. For more information, see the trust relationship policy statement in [Create a CodeBuild service role](setting-up.md#setting-up-service-role)\.
 
@@ -381,11 +381,11 @@ artifacts:
 **Possible causes:** The IPv4 CIDR block specified for your VPC uses a reserved IP address\. The first four IP addresses and the last IP address in each subnet CIDR block are not available for you to use and cannot be assigned to an instance\. For example, in a subnet with CIDR block `10.0.0.0/24`, the following five IP addresses are reserved: 
 +  `10.0.0.0:` Network address\. 
 +  `10.0.0.1`: Reserved by AWS for the VPC router\. 
-+  `10.0.0.2`: Reserved by AWS\. The IP address of the DNS server is always the base of the VPC network range plus two; however, we also reserve the base of each subnet range plus two\. For VPCs with multiple CIDR blocks, the IP address of the DNS server is located in the primary CIDR\. For more information, see [Amazon DNS Server](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html#AmazonDNS) in the *Amazon VPC User Guide*\. 
++  `10.0.0.2`: Reserved by AWS\. The IP address of the DNS server is always the base of the VPC network range plus two; however, we also reserve the base of each subnet range plus two\. For VPCs with multiple CIDR blocks, the IP address of the DNS server is located in the primary CIDR\. For more information, see [Amazon DNS server](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html#AmazonDNS) in the *Amazon VPC User Guide*\. 
 +  `10.0.0.3`: Reserved by AWS for future use\. 
 +  `10.0.0.255`: Network broadcast address\. We do not support broadcast in a VPC\. This address is reserved\. 
 
-**Recommended solutions:** Check if your VPC uses a reserved IP address\. Replace any reserved IP address with one that is not reserved\. For more information, see [VPC and Subnet Sizing](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#VPC_Sizing) in the *Amazon VPC User Guide*\. 
+**Recommended solutions:** Check if your VPC uses a reserved IP address\. Replace any reserved IP address with one that is not reserved\. For more information, see [VPC and subnet sizing](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#VPC_Sizing) in the *Amazon VPC User Guide*\. 
 
 ## Error: "Unable to download cache: RequestError: Send request failed caused by: x509: Failed to load system roots and no roots provided"<a name="troubleshooting-cache-image"></a>
 
@@ -463,11 +463,11 @@ artifacts:
 + Make sure `ssl-bump` is configured properly\. If you use Squid for your proxy server, see [ Configure Squid as an explicit proxy server](use-proxy-server.md#use-proxy-server-explicit-squid-configure)\. 
 + Follow these steps to use private endpoints for Amazon S3 and CloudWatch Logs: 
 
-  1.  In your private subnet routing table, remove the rule you added that routes traffic destined for the internet to your proxy server\. For information, see [Creating a Subnet in Your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/working-with-vpcs.html#AddaSubnet) in the *Amazon VPC User Guide*\. 
+  1.  In your private subnet routing table, remove the rule you added that routes traffic destined for the internet to your proxy server\. For information, see [Creating a subnet in your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/working-with-vpcs.html#AddaSubnet) in the *Amazon VPC User Guide*\. 
 
-  1.  Create a private Amazon S3 endpoint and CloudWatch Logs endpoint and associate them with the private subnet of your Amazon VPC\. For information, see [VPC Endpoint Services \(AWS PrivateLink\)](https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-service.html) in the *Amazon VPC User Guide*\. 
+  1.  Create a private Amazon S3 endpoint and CloudWatch Logs endpoint and associate them with the private subnet of your Amazon VPC\. For information, see [VPC endpoint services \(AWS PrivateLink\)](https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-service.html) in the *Amazon VPC User Guide*\. 
 
-  1.  Confirm **Enable Private DNS Name** in your Amazon VPC is selected\. For more information, see [Creating an Interface Endpoint](https://docs.aws.amazon.com/vpc/latest/userguide/vpce-interface.html#create-interface-endpoint) in the *Amazon VPC User Guide*\. 
+  1.  Confirm **Enable Private DNS Name** in your Amazon VPC is selected\. For more information, see [Creating an interface endpoint](https://docs.aws.amazon.com/vpc/latest/userguide/vpce-interface.html#create-interface-endpoint) in the *Amazon VPC User Guide*\. 
 +  If you do not use `ssl-bump` for an explicit proxy server, add a proxy configuration to your buildspec file using a `proxy` element\. For more information, see [ Run CodeBuild in an explicit proxy server](use-proxy-server.md#run-codebuild-in-explicit-proxy-server) and [Buildspec syntax](build-spec-ref.md#build-spec-ref-syntax)\. 
 
   ```

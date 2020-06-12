@@ -4,7 +4,7 @@ You can use the Jenkins plugin for AWS CodeBuild to integrate CodeBuild with you
 
 ## Setting up Jenkins<a name="setup-jenkins"></a>
 
-For information about setting up Jenkins with the AWS CodeBuild plugin, see the [ Simplify Your Jenkins Builds with CodeBuild](https://aws.amazon.com/blogs/devops/simplify-your-jenkins-builds-with-aws-codebuild/) blog post on the AWS DevOps Blog\. You can download the CodeBuild Jenkins plugin from [ https://github\.com/awslabs/aws\-codebuild\-jenkins\-plugin](https://github.com/awslabs/aws-codebuild-jenkins-plugin)\.
+For information about setting up Jenkins with the AWS CodeBuild plugin, see the [ Simplify your Jenkins builds with CodeBuild](https://aws.amazon.com/blogs/devops/simplify-your-jenkins-builds-with-aws-codebuild/) blog post on the AWS DevOps Blog\. You can download the CodeBuild Jenkins plugin from [ https://github\.com/awslabs/aws\-codebuild\-jenkins\-plugin](https://github.com/awslabs/aws-codebuild-jenkins-plugin)\.
 
 ## Installing the plugin<a name="plugin-installation"></a>
 

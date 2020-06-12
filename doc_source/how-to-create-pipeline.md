@@ -23,9 +23,9 @@ The following table lists tasks and the methods available for performing them\. 
 
 1. Answer the questions in [Plan a build](planning.md)\.
 
-1. If you are using an IAM user to access CodePipeline instead of an AWS root account or an administrator IAM user, attach the managed policy named `AWSCodePipelineFullAccess` to the user \(or to the IAM group to which the user belongs\)\. Using an AWS root account is not recommended\. This policy grants the user permission to create the pipeline in CodePipeline\. For more information, see [Attaching Managed Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-using.html#attach-managed-policy-console) in the *IAM User Guide*\.
+1. If you are using an IAM user to access CodePipeline instead of an AWS root account or an administrator IAM user, attach the managed policy named `AWSCodePipelineFullAccess` to the user \(or to the IAM group to which the user belongs\)\. Using an AWS root account is not recommended\. This policy grants the user permission to create the pipeline in CodePipeline\. For more information, see [Attaching managed policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-using.html#attach-managed-policy-console) in the *IAM User Guide*\.
 **Note**  
-The IAM entity that attaches the policy to the user \(or to the IAM group to which the user belongs\) must have permission in IAM to attach policies\. For more information, see [Delegating Permissions to Administer IAM Users, Groups, and Credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_delegate-permissions.html) in the *IAM User Guide*\.
+The IAM entity that attaches the policy to the user \(or to the IAM group to which the user belongs\) must have permission in IAM to attach policies\. For more information, see [Delegating permissions to administer IAM users, groups, and credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_delegate-permissions.html) in the *IAM User Guide*\.
 
 1. Create a CodePipeline service role, if you do not already have one available in your AWS account\. CodePipeline uses this service role to interact with other AWS services, including AWS CodeBuild, on your behalf\. For example, to use the AWS CLI to create a CodePipeline service role, run the IAM `create-role` command:
 
@@ -43,16 +43,16 @@ The IAM entity that attaches the policy to the user \(or to the IAM group to whi
 **Note**  
 The IAM entity that creates this CodePipeline service role must have permission in IAM to create service roles\.
 
-1. After you create a CodePipeline service role or identify an existing one, you must add the default CodePipeline service role policy to the service role as described in [Review the Default CodePipeline Service Role Policy](https://docs.aws.amazon.com/codepipeline/latest/userguide/iam-identity-based-access-control.html#how-to-custom-role) in the *AWS CodePipeline User Guide*, if it isn't already a part of the policy for the role\.
+1. After you create a CodePipeline service role or identify an existing one, you must add the default CodePipeline service role policy to the service role as described in [Review the default CodePipeline service role policy](https://docs.aws.amazon.com/codepipeline/latest/userguide/iam-identity-based-access-control.html#how-to-custom-role) in the *AWS CodePipeline User Guide*, if it isn't already a part of the policy for the role\.
 **Note**  
 The IAM entity that adds this CodePipeline service role policy must have permission in IAM to add service role policies to service roles\.
 
 1. Create and upload the source code to a repository type supported by CodeBuild and CodePipeline, such as CodeCommit, Amazon S3, or GitHub\. \(CodePipeline does not currently support Bitbucket\.\) The source code should contain a buildspec file, but you can declare one when you define a build project later in this topic\. For more information, see the [Buildspec reference](build-spec-ref.md)\.
 **Important**  
 If you plan to use the pipeline to deploy built source code, the build output artifact must be compatible with the deployment system you use\.   
-For CodeDeploy, see the [AWS CodeDeploy sample](sample-codedeploy.md) in this guide and [Prepare a Revision for CodeDeploy](https://docs.aws.amazon.com/codedeploy/latest/userguide/how-to-prepare-revision.html) in the *AWS CodeDeploy User Guide*\.
-For AWS Elastic Beanstalk, see the [AWS Elastic Beanstalk sample](sample-elastic-beanstalk.md) in this guide and [Create an Application Source Bundle](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.deployment.source.html) in the *AWS Elastic Beanstalk Developer Guide*\.
-For AWS OpsWorks, see [Application Source](https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-source) and [Using CodePipeline with AWS OpsWorks](https://docs.aws.amazon.com/opsworks/latest/userguide/other-services-cp.html) in the *AWS OpsWorks User Guide*\.
+For CodeDeploy, see the [AWS CodeDeploy sample](sample-codedeploy.md) in this guide and [Prepare a revision for CodeDeploy](https://docs.aws.amazon.com/codedeploy/latest/userguide/how-to-prepare-revision.html) in the *AWS CodeDeploy User Guide*\.
+For AWS Elastic Beanstalk, see the [AWS Elastic Beanstalk sample](sample-elastic-beanstalk.md) in this guide and [Create an application source bundle](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.deployment.source.html) in the *AWS Elastic Beanstalk Developer Guide*\.
+For AWS OpsWorks, see [Application source](https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-source) and [Using CodePipeline with AWS OpsWorks](https://docs.aws.amazon.com/opsworks/latest/userguide/other-services-cp.html) in the *AWS OpsWorks User Guide*\.
 
 ## Create a pipeline that uses CodeBuild \(CodePipeline console\)<a name="how-to-create-pipeline-console"></a>
 
@@ -65,8 +65,8 @@ To create a pipeline that only tests your source code:
 **To use the create pipeline wizard in CodePipeline to create a pipeline that uses CodeBuild**
 
 1. Sign in to the AWS Management Console by using:
-   + Your AWS root account\. This is not recommended\. For more information, see [The Account Root User](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html) in the *IAM User Guide*\.
-   + An administrator IAM user in your AWS account\. For more information, see [Creating Your First IAM Admin User and Group](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html) in the *IAM User Guide*\.
+   + Your AWS root account\. This is not recommended\. For more information, see [The account root user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html) in the *IAM User Guide*\.
+   + An administrator IAM user in your AWS account\. For more information, see [Creating your first IAM admin user and group](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html) in the *IAM User Guide*\.
    + An IAM user in your AWS account with permission to use the following minimum set of actions:
 
      ```
@@ -163,13 +163,13 @@ You can also get the build output artifact by choosing the **Build artifacts** l
 
 Use the following procedure to create a pipeline that uses CodeBuild to build your source code\.
 
-To use the AWS CLI to create a pipeline that deploys your built source code or that only tests your source code, you can adapt the instructions in [Edit a Pipeline \(AWS CLI\)](https://docs.aws.amazon.com/codepipeline/latest/userguide/how-to-edit-pipelines.html#how-to-edit-pipelines-cli) and the [CodePipeline Pipeline Structure Reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/pipeline-structure.html) in the *AWS CodePipeline User Guide*\.
+To use the AWS CLI to create a pipeline that deploys your built source code or that only tests your source code, you can adapt the instructions in [Edit a pipeline \(AWS CLI\)](https://docs.aws.amazon.com/codepipeline/latest/userguide/how-to-edit-pipelines.html#how-to-edit-pipelines-cli) and the [CodePipeline pipeline structure reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/pipeline-structure.html) in the *AWS CodePipeline User Guide*\.
 
 1. Create or identify a build project in CodeBuild\. For more information, see [Create a build project](create-project.md)\.
 **Important**  
 The build project must define build output artifact settings \(even though CodePipeline overrides them\)\. For more information, see the description of `artifacts` in [Create a build project \(AWS CLI\)](create-project.md#create-project-cli)\.
 
-1. Make sure you have configured the AWS CLI with the AWS access key and AWS secret access key that correspond to one of the IAM entities described in this topic\. For more information, see [Getting Set Up with the AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-set-up.html) in the *AWS Command Line Interface User Guide*\.
+1. Make sure you have configured the AWS CLI with the AWS access key and AWS secret access key that correspond to one of the IAM entities described in this topic\. For more information, see [Getting set up with the AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-set-up.html) in the *AWS Command Line Interface User Guide*\.
 
 1. Create a JSON\-formatted file that represents the structure of the pipeline\. Name the file `create-pipeline.json` or similar\. For example, this JSON\-formatted structure creates a pipeline with a source action that references an S3 input bucket and a build action that uses CodeBuild:
 
@@ -244,12 +244,12 @@ The build project must define build output artifact settings \(even though CodeP
 
    In this JSON\-formatted data:
    + The value of `roleArn` must match the ARN of the CodePipeline service role you created or identified as part of the prerequisites\.
-   + The values of `S3Bucket` and `S3ObjectKey` in `configuration` assume the source code is stored in an S3 bucket\. For settings for other source code repository types, see the [CodePipeline Pipeline Structure Reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/pipeline-structure.html) in the *AWS CodePipeline User Guide*\.
+   + The values of `S3Bucket` and `S3ObjectKey` in `configuration` assume the source code is stored in an S3 bucket\. For settings for other source code repository types, see the [CodePipeline pipeline structure reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/pipeline-structure.html) in the *AWS CodePipeline User Guide*\.
    + The value of `ProjectName` is the name of the CodeBuild build project you created earlier in this procedure\.
-   + The value of `location` is the name of the S3 bucket used by this pipeline\. For more information, see [Create a Policy for an S3 Bucket to Use as the Artifact Store for CodePipeline](https://docs.aws.amazon.com/codepipeline/latest/userguide/access-permissions.html#how-to-create-bucket-policy) in the *AWS CodePipeline User Guide*\.
+   + The value of `location` is the name of the S3 bucket used by this pipeline\. For more information, see [Create a policy for an S3 Bucket to use as the artifact store for CodePipeline](https://docs.aws.amazon.com/codepipeline/latest/userguide/access-permissions.html#how-to-create-bucket-policy) in the *AWS CodePipeline User Guide*\.
    + The value of `name` is the name of this pipeline\. All pipeline names must be unique to your account\.
 
-   Although this data describes only a source action and a build action, you can add actions for activities related to testing, deploying the build output artifact, invoking AWS Lambda functions, and more\. For more information, see the [AWS CodePipeline Pipeline Structure Reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/pipeline-structure.html) in the *AWS CodePipeline User Guide*\.
+   Although this data describes only a source action and a build action, you can add actions for activities related to testing, deploying the build output artifact, invoking AWS Lambda functions, and more\. For more information, see the [AWS CodePipeline pipeline structure reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/pipeline-structure.html) in the *AWS CodePipeline User Guide*\.
 
 1. Switch to the folder that contains the JSON file, and then run the CodePipeline [create\-pipeline](https://docs.aws.amazon.com/cli/latest/reference/codepipeline/create-pipeline.html) command, specifying the file name:
 
@@ -313,8 +313,8 @@ You can also get the build output artifact by choosing the **Build artifacts** l
 ## Add a CodeBuild build action to a pipeline \(CodePipeline console\)<a name="how-to-create-pipeline-add"></a>
 
 1. Sign in to the AWS Management Console by using:
-   + Your AWS root account\. This is not recommended\. For more information, see [The Account Root User](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html) in the *IAM User Guide*\.
-   + An administrator IAM user in your AWS account\. For more information, see [Creating Your First IAM Admin User and Group](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html) in the *IAM User Guide*\.
+   + Your AWS root account\. This is not recommended\. For more information, see [The account root user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html) in the *IAM User Guide*\.
+   + An administrator IAM user in your AWS account\. For more information, see [Creating your first IAM admin user and group](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html) in the *IAM User Guide*\.
    + An IAM user in your AWS account with permission to perform the following minimum set of actions:
 
      ```
@@ -453,8 +453,8 @@ You can also get the build output artifact by choosing the **Build artifacts** l
 ## Add a CodeBuild test action to a pipeline \(CodePipeline console\)<a name="how-to-create-pipeline-add-test"></a>
 
 1. Sign in to the AWS Management Console by using:
-   + Your AWS root account\. This is not recommended\. For more information, see [The Account Root User](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html) in the *IAM User Guide*\.
-   + An administrator IAM user in your AWS account\. For more information, see [Creating Your First IAM Admin User and Group](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html) in the *IAM User Guide*\.
+   + Your AWS root account\. This is not recommended\. For more information, see [The account root user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html) in the *IAM User Guide*\.
+   + An administrator IAM user in your AWS account\. For more information, see [Creating your first IAM admin user and group](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html) in the *IAM User Guide*\.
    + An IAM user in your AWS account with permission to perform the following minimum set of actions:
 
      ```

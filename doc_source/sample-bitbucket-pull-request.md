@@ -54,7 +54,7 @@ CodeBuild does not support Bitbucket Server\.
 
 1.  Make some changes in the code in your project's Bitbucket repository\. 
 
-1.  Create a pull request on your Bitbucket repository\. For more information, see [Making a Pull Request](https://www.atlassian.com/git/tutorials/making-a-pull-request)\. 
+1.  Create a pull request on your Bitbucket repository\. For more information, see [Making a pull request](https://www.atlassian.com/git/tutorials/making-a-pull-request)\. 
 
 1.  On the Bitbucket webhooks page, choose **View request** to see a list of recent events\. 
 

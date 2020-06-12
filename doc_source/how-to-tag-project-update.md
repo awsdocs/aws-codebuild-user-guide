@@ -1,11 +1,11 @@
-# Edit Tags for a Project<a name="how-to-tag-project-update"></a>
+# Edit tags for a project<a name="how-to-tag-project-update"></a>
 
 You can change the value for a tag associated with a project\. You can also change the name of the key, which is equivalent to removing the current tag and adding a different one with the new name and the same value as the other key\. Keep in mind that there are limits on the characters you can use in the key and value fields\. For more information, see [Tags](limits.md#tag-limits)\.
 
 **Important**  
 Editing tags for a project can impact access to that project\. Before you edit the name \(key\) or value of a tag for a project, make sure to review any IAM policies that might use the key or value for a tag to control access to resources such as build projects\. For examples of tag\-based access policies, see [Using tags to control access to AWS CodeBuild resources](auth-and-access-control-using-tags.md)\.
 
-## Edit a Tag for a Project \(Console\)<a name="how-to-tag-project-update-console"></a>
+## Edit a tag for a project \(console\)<a name="how-to-tag-project-update-console"></a>
 
 You can use the CodeBuild console to edit the tags associated with a CodeBuild project\. 
 
@@ -23,6 +23,6 @@ You can use the CodeBuild console to edit the tags associated with a CodeBuild p
 
 1. When you have finished editing tags, choose **Submit**\.
 
-## Edit Tags for a Project \(AWS CLI\)<a name="how-to-tag-project-update-cli"></a>
+## Edit tags for a project \(AWS CLI\)<a name="how-to-tag-project-update-cli"></a>
 
  To add, change, or delete tags from a build project, see [Change a build project's settings \(AWS CLI\)](change-project.md#change-project-cli)\. Update the `tags` section in the JSON\-formatted data you use to update the project\. 

@@ -2,7 +2,7 @@
 
  You can disable the encryption of artifacts in a build\. You might want to do this so that you can publish artifacts to a location that is configured to host a website\. \(You cannot publish encrypted artifacts\.\) This sample shows how you can use webhooks to trigger a build and publish its artifacts to an S3 bucket that is configured to be a website\. 
 
-1.  Follow the instructions in [Setting Up a Static Website](https://docs.aws.amazon.com/AmazonS3/latest/dev/HostingWebsiteOnS3Setup.html) to configure an S3 bucket to function like a website\. 
+1.  Follow the instructions in [Setting up a static website](https://docs.aws.amazon.com/AmazonS3/latest/dev/HostingWebsiteOnS3Setup.html) to configure an S3 bucket to function like a website\. 
 
 1. Open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codesuite/codebuild/home](https://console.aws.amazon.com/codesuite/codebuild/home)\.
 
@@ -46,4 +46,4 @@ When you use the console to create or update a build project, you can create a C
 
 1. Choose **Create build project**\. On the build project page, in **Build history**, choose **Start build** to run the build\.
 
-1.  \(Optional\) Follow the instructions in [Example: Speed Up Your Website with Amazon CloudFront](https://docs.aws.amazon.com/AmazonS3/latest/dev/website-hosting-cloudfront-walkthrough.html) in the *Amazon S3 Developer Guide*\. 
+1.  \(Optional\) Follow the instructions in [Example: Speed up your website with Amazon CloudFront](https://docs.aws.amazon.com/AmazonS3/latest/dev/website-hosting-cloudfront-walkthrough.html) in the *Amazon S3 Developer Guide*\. 

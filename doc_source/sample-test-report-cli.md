@@ -21,7 +21,7 @@ You can use the CodeBuild API or the AWS CodeBuild console to access the test re
   + Visual Studio TRX
 
   Create your test cases with any test framework that can create report files in one of these formats \(for example, Surefire JUnit plugin, TestNG, or Cucumber\)\.
-+ Create an S3 bucket and make a note of its name\. For more information, see [How Do I Create an S3 Bucket?](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/create-bucket.html) in the *Amazon S3 User Guide*\. 
++ Create an S3 bucket and make a note of its name\. For more information, see [How do I create an S3 bucket?](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/create-bucket.html) in the *Amazon S3 User Guide*\. 
 + Create an IAM role and make a note of its ARN\. You need the ARN when you create your build project\. 
 + If your role does not have the following permissions, add them\. 
 

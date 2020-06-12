@@ -1,6 +1,6 @@
 # Use AWS Config with CodeBuild sample<a name="how-to-integrate-config"></a>
 
-AWS Config provides an inventory of your AWS resources and a history of configuration changes to these resources\. AWS Config now supports AWS CodeBuild as an AWS resource, which means the service can track your CodeBuild projects\. For more information about AWS Config, see [What Is AWS Config?](https://docs.aws.amazon.com/config/latest/developerguide/WhatIsConfig.html) in the *AWS Config Developer Guide*\.
+AWS Config provides an inventory of your AWS resources and a history of configuration changes to these resources\. AWS Config now supports AWS CodeBuild as an AWS resource, which means the service can track your CodeBuild projects\. For more information about AWS Config, see [What is AWS Config?](https://docs.aws.amazon.com/config/latest/developerguide/WhatIsConfig.html) in the *AWS Config Developer Guide*\.
 
 You can see the following information about CodeBuild resources on the **Resource Inventory** page in the AWS Config console:
 + A timeline of your CodeBuild configuration changes\.
@@ -21,7 +21,7 @@ The procedures in this topic show you how to set up AWS Config and look up and v
 Create your AWS CodeBuild project\. For instructions, see [Create a build project](create-project.md)\.
 
 ## Set up AWS Config<a name="setup-config"></a>
-+ [Setting up AWS Config \(Console\)](https://docs.aws.amazon.com/config/latest/developerguide/gs-console.html)
++ [Setting up AWS Config \(console\)](https://docs.aws.amazon.com/config/latest/developerguide/gs-console.html)
 + [Setting up AWS Config \(AWS CLI\)](https://docs.aws.amazon.com/config/latest/developerguide/gs-cli.html)
 
 **Note**  
@@ -44,7 +44,7 @@ When you look up resources on the **Resource inventory** page, you can choose th
 
 The blocks at the top of the page are collectively called the timeline\. The timeline shows the date and time that the recording was made\.
 
-For more information, see [Viewing Configuration Details in the AWS Config Console](https://docs.aws.amazon.com/config/latest/developerguide/view-manage-resource-console.html) in the *AWS Config Developer Guide*\.
+For more information, see [Viewing configuration details in the AWS Config console](https://docs.aws.amazon.com/config/latest/developerguide/view-manage-resource-console.html) in the *AWS Config Developer Guide*\.
 
 Example of a CodeBuild project in AWS Config:
 

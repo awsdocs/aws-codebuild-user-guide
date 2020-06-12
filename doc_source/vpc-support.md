@@ -61,11 +61,11 @@ Replace `us-east-1` with your Region\.
 ## Best practices for VPCs<a name="best-practices-for-vpcs"></a>
 
 Use this checklist when you set up a VPC to work with CodeBuild\.
-+ Set up your VPC with public and private subnets and a NAT gateway\. For more information, see [VPC with Public and Private Subnets \(NAT\)](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Scenario2.html) in the *Amazon VPC User Guide*\.
++ Set up your VPC with public and private subnets and a NAT gateway\. For more information, see [VPC with public and private subnets \(NAT\)](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Scenario2.html) in the *Amazon VPC User Guide*\.
 **Important**  
 You need a NAT gateway or NAT instance to use CodeBuild with your VPC so that CodeBuild can reach public endpoints \(for example, to execute CLI commands when running builds\)\. You cannot use the internet gateway instead of a NAT gateway or a NAT instance because CodeBuild does not support assigning Elastic IP addresses to the network interfaces that it creates, and auto\-assigning a public IP address is not supported by Amazon EC2 for any network interfaces created outside of Amazon EC2 instance launches\. 
 + Include multiple Availability Zones with your VPC\.
-+ Make sure that your security groups have no inbound \(ingress\) traffic allowed to your builds\. For more information, see [Security Groups Rules](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#SecurityGroupRules) in the *Amazon VPC User Guide*\.
++ Make sure that your security groups have no inbound \(ingress\) traffic allowed to your builds\. For more information, see [Security groups rules](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#SecurityGroupRules) in the *Amazon VPC User Guide*\.
 + Set up separate subnets for your builds\.
 + When you set up your CodeBuild projects to access your VPC, choose private subnets only\. 
 

@@ -1,4 +1,4 @@
-# AWS CodeBuild User guide
+# AWS CodeBuild User Guide
 
 -----
 *****Copyright &copy; 2020 Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
@@ -95,11 +95,11 @@ Amazon's trademarks and trade dress may not be used in
       + [Change a build project's settings in AWS CodeBuild](change-project.md)
       + [Delete a build project in AWS CodeBuild](delete-project.md)
       + [Working with shared projects](project-sharing.md)
-      + [Tagging Projects in AWS CodeBuild](how-to-tag-project.md)
-         + [Add a Tag to a Project](how-to-tag-project-add.md)
-         + [View Tags for a Project](how-to-tag-project-list.md)
-         + [Edit Tags for a Project](how-to-tag-project-update.md)
-         + [Remove a Tag from a Project](how-to-tag-project-delete.md)
+      + [Tagging projects in AWS CodeBuild](how-to-tag-project.md)
+         + [Add a tag to a project](how-to-tag-project-add.md)
+         + [View tags for a project](how-to-tag-project-list.md)
+         + [Edit tags for a project](how-to-tag-project-update.md)
+         + [Remove a tag from a project](how-to-tag-project-delete.md)
    + [Working with builds in AWS CodeBuild](builds-working.md)
       + [Run a build in AWS CodeBuild](run-build.md)
       + [View build details in AWS CodeBuild](view-build-details.md)
