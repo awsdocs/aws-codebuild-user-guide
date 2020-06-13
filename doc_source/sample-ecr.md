@@ -87,7 +87,8 @@ If you are using an S3 input bucket, be sure to create a ZIP file that contains 
             "Sid": "CodeBuildAccess",
             "Effect": "Allow",
             "Principal": {
-              "AWS": "arn:aws:iam::AWS-account-ID:root"  
+              "AWS": "arn:aws:iam::AWS-account-ID:root",
+              "Service": "codebuild.amazonaws.com"
             },
             "Action": [
               "ecr:GetDownloadUrlForLayer",
