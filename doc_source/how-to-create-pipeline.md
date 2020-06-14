@@ -363,7 +363,7 @@ This procedure shows you how to add a build stage between the **Source** and **B
 
 1. Inside of the selected stage, choose **Add action**\.
 **Note**  
-This procedure shows you want how to add the build action inside of a build stage\. To add the build action somewhere else, choose **Add action** in the desired place\. You might first need to choose **Edit stage** in the existing stage where you want to add the build action\.
+This procedure shows you how to add the build action inside of a build stage\. To add the build action somewhere else, choose **Add action** in the desired place\. You might first need to choose **Edit stage** in the existing stage where you want to add the build action\.
 
 1. In **Edit action**, for **Action name**, enter a name for the action \(for example, **CodeBuild**\)\. If you choose a different name, use it throughout this procedure\.
 
