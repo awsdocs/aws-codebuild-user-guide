@@ -81,32 +81,32 @@ If you are using an S3 input bucket, be sure to create a ZIP file that contains 
 
       ```
       {
-        "Version": "2012-10-17",
-        "Statement": [
-          {
-          "Sid": "CodeBuildAccessPrincipal",
-            "Effect": "Allow",
-            "Principal": {
-              "Service": "codebuild.amazonaws.com"
+        "Version":"2012-10-17",
+        "Statement":[
+            {
+              "Sid":"CodeBuildAccessPrincipal",
+              "Effect":"Allow",
+              "Principal":{
+                  "Service":"codebuild.amazonaws.com"
+              },
+              "Action":[
+                  "ecr:BatchCheckLayerAvailability",
+                  "ecr:BatchGetImage",
+                  "ecr:GetDownloadUrlForLayer"
+              ]
             },
-            "Action": [
-              "ecr:BatchCheckLayerAvailability",
-              "ecr:BatchGetImage",
-              "ecr:GetDownloadUrlForLayer"
-            ]
-          },
-          {
-            "Sid": "CodeBuildAccessCrossaccount",
-            "Effect": "Allow",
-            "Principal": {
-              "AWS": "arn:aws:iam::AWS-account-ID:root"
-            },
-            "Action": [
-              "ecr:GetDownloadUrlForLayer",
-              "ecr:BatchGetImage",
-              "ecr:BatchCheckLayerAvailability"
-            ]
-          }
+            {
+              "Sid":"CodeBuildAccessCrossaccount",
+              "Effect":"Allow",
+              "Principal":{
+                  "AWS":"arn:aws:iam::AWS-account-ID:root"
+              },
+              "Action":[
+                  "ecr:GetDownloadUrlForLayer",
+                  "ecr:BatchGetImage",
+                  "ecr:BatchCheckLayerAvailability"
+              ]
+            }
         ]
       }
       ```
