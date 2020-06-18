@@ -224,10 +224,10 @@ For information about using the AWS CLI with CodeBuild, see the [Command line re
          "resource": "resource"
        }
      },
-     ”sourceVersion”: “source-version”,
-     “secondarySourceVersions”: {
-       “sourceIdentifier”: ”secondary-source-identifier”,
-       “sourceVersion”: ”secondary-source-version”
+     "sourceVersion": "source-version",
+     "secondarySourceVersions": {
+       "sourceIdentifier": "secondary-source-identifier",
+       "sourceVersion": "secondary-source-version"
      }, 
      "artifacts": {
        "type": "artifacts-type",
