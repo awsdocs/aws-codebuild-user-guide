@@ -86,7 +86,7 @@ Amazon's trademarks and trade dress may not be used in
 + [Working with build projects and builds in AWS CodeBuild](builds-projects-and-builds.md)
    + [Working with build projects](working-with-build-projects.md)
       + [Create a build project in AWS CodeBuild](create-project.md)
-      + [Create a Notification Rule](notification-rule-create.md)
+      + [Create a notification rule](notification-rule-create.md)
       + [View a list of build project names in AWS CodeBuild](view-project-list.md)
       + [View a build project's details in AWS CodeBuild](view-project-details.md)
       + [Build caching in AWS CodeBuild](build-caching.md)

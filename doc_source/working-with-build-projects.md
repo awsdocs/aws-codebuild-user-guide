@@ -6,7 +6,7 @@ You can perform these tasks when working with build projects:
 
 **Topics**
 + [Create a build project in AWS CodeBuild](create-project.md)
-+ [Create a Notification Rule](notification-rule-create.md)
++ [Create a notification rule](notification-rule-create.md)
 + [View a list of build project names in AWS CodeBuild](view-project-list.md)
 + [View a build project's details in AWS CodeBuild](view-project-details.md)
 + [Build caching in AWS CodeBuild](build-caching.md)

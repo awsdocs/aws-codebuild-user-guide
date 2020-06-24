@@ -9,7 +9,7 @@ We recommend that you first review the introductory topics that explain the basi
 + [Permissions required to use the AWS CodeBuild console](#console-permissions)
 + [Permissions required for the AWS CodeBuild console to connect to source providers](#console-policies)
 + [AWS managed \(predefined\) policies for AWS CodeBuild](#managed-policies)
-+ [CodeBuild Managed Policies and Notifications](#notifications-permissions)
++ [CodeBuild managed policies and notifications](#notifications-permissions)
 + [Customer\-managed policy examples](#customer-managed-policies)
 
 The following shows an example of a permissions policy that allows a user to get information about build projects only in the `us-east-2` region for account `123456789012` for any build project that starts with the name `my`:
@@ -313,11 +313,11 @@ The `AWSCodeBuildReadOnlyAccess` policy contains the following policy statement:
 }
 ```
 
-## CodeBuild Managed Policies and Notifications<a name="notifications-permissions"></a>
+## CodeBuild managed policies and notifications<a name="notifications-permissions"></a>
 
 CodeBuild supports notifications, which can notify users of important changes to build projects\. Managed policies for CodeBuild include policy statements for notification functionality\. For more information, see [What are notifications?](https://docs.aws.amazon.com/codestar-notifications/latest/userguide/welcome.html)\.
 
-### Permissions Related to Notifications in Full Access Managed Policies<a name="notifications-fullaccess"></a>
+### Permissions related to notifications in full access managed policies<a name="notifications-fullaccess"></a>
 
 The `AWSCodeBuildFullAccess` managed policy includes the following statements to allow full access to notifications\. Users with this managed policy applied can also create and manage Amazon SNS topics for notifications, subscribe and unsubscribe users to topics, list topics to choose as targets for notification rules, and list AWS Chatbot clients configured for Slack\.
 
@@ -376,7 +376,7 @@ The `AWSCodeBuildFullAccess` managed policy includes the following statements to
     }
 ```
 
-### Permissions Related to Notifications in Read\-Only Managed Policies<a name="notifications-readonly"></a>
+### Permissions related to notifications in read\-only managed policies<a name="notifications-readonly"></a>
 
 The `AWSCodeBuildReadOnlyAccess` managed policy includes the following statements to allow read\-only access to notifications\. Users with this managed policy applied can view notifications for resources, but cannot create, manage, or subscribe to them\. 
 
@@ -404,7 +404,7 @@ The `AWSCodeBuildReadOnlyAccess` managed policy includes the following statement
     }
 ```
 
-### Permissions Related to Notifications in Other Managed Policies<a name="notifications-otheraccess"></a>
+### Permissions related to notifications in other managed policies<a name="notifications-otheraccess"></a>
 
 The `AWSCodeBuildDeveloperAccess` managed policy includes the following statements to allow users to create, edit, and subscribe to notifications\. Users cannot delete notification rules or manage tags for resources\.
 
