@@ -6,6 +6,7 @@ The following table describes the important changes to the documentation since t
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Updated topic](#history) |  CodeBuild now supports specifying a shell to use in their build environments in the buildspec file\. For more information, see [Build specification reference](https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html)\. | June 25, 2020 | 
 | [Test reporting with test frameworks](#history) | Added several topics the describe how to generate CodeBuild test reports with several test frameworks\. For more information, see [Test reporting with test frameworks](https://docs.aws.amazon.com/codebuild/latest/userguide/test-framework-reporting.html)\. | May 29, 2020 | 
 | [Updated topics](#history) | CodeBuild now supports adding tags to report groups\. For more information, see [ReportGroup](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ReportGroup.html)\. | May 21, 2020 | 
 | [Support for test reporting](#history) | CodeBuild support for test reporting is now generally available\. | May 21, 2020 | 

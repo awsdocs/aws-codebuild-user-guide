@@ -41,6 +41,7 @@ version: 0.2
 run-as: Linux-user-name
 
 env:
+  shell: shell-tag
   variables:
     key: "value"
     key: "value"
@@ -151,6 +152,15 @@ Optional sequence\. Represents information for one or more custom environment va
  AWS access key IDs\. For more information, see [Managing Access Keys for IAM Users](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html) in the *AWS Identity and Access Management User Guide*\. 
  Strings specified using the Parameter Store\. For more information, see [Systems Manager Parameter Store](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-paramstore.html) and [Systems Manager Parameter Store Console Walkthrough](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-walk.html#sysman-paramstore-console) in the *Amazon EC2 Systems Manager User Guide*\. 
  Strings specified using AWS Secrets Manager\. For more information, see [Key management](security-key-management.md)\. 
+
+env/**shell**  <a name="build-spec.shell"></a>
+Optional sequence\. Specifies the supported shell for Linux or Windows operating systems\.   
+For Linux operating systems, supported shell tags are:  
++ `bash`
++ `/bin/sh`
+For Windows operating systems, supported shell tags are:  
++ `powershell.exe`
++ `cmd.exe`
 
 env/**variables**  <a name="build-spec.env.variables"></a>
 Required if `env` is specified, and you want to define custom environment variables in plain text\. Contains a mapping of *key*/*value* scalars, where each mapping represents a single custom environment variable in plain text\. *key* is the name of the custom environment variable, and *value* is that variable's value\.  

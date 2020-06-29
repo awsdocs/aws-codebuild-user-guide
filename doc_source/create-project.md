@@ -467,9 +467,19 @@ Docker layer cache mode is available for Linux only\. If you choose it, your pro
      +  *identifier*: Required\. A unique file system identifier\. CodeBuild uses this to create an environment variable that identifies the file system\. The environment variable format is `CODEBUILD_file-system-identifier` in capital letters\. For example, if you enter **efs\-1**, the resulting environment variable is `CODEBUILD_EFS-1`\. 
      +  *mountOptions*: Optional\. If you leave this blank, CodeBuild uses its default mount options \(`nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2`\)\. For more information, see [Recommended NFS mount options](https://docs.aws.amazon.com/efs/latest/ug/mounting-fs-nfs-mount-settings.html) in the *Amazon Elastic File System User Guide*\. 
    + For the required `environment` object, information about this project's build environment settings\. These settings include: 
-     + *environment\-type*: Required\. The type of build environment\. Valid values are `ARM_CONTAINER`, `LINUX_CONTAINER`, `LINUX_GPU_CONTAINER`, and `WINDOWS_CONTAINER`\.
+     + *environment\-type*: Required\. The type of build environment\. Valid values are:
+       + `ARM_CONTAINER`
+       + `LINUX_CONTAINER`
+       + `LINUX_GPU_CONTAINER`
+       + `WINDOWS_CONTAINER`
      + *image*: Required\. The Docker image identifier used by this build environment\. Typically, this identifier is expressed as *image\-name*:*tag*\. For example, in the Docker repository that CodeBuild uses to manage its Docker images, this could be `aws/codebuild/standard:4.0`\. In Docker Hub, `maven:3.3.9-jdk-8`\. In Amazon ECR, `account-id.dkr.ecr.region-id.amazonaws.com/your-Amazon-ECR-repo-name:tag`\. For more information, see [Docker images provided by CodeBuild](build-env-ref-available.md)\. 
-     + *computeType*: Required\. A category that corresponds to the number of CPU cores and memory used by this build environment\. Allowed values include `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE, and BUILD_GENERAL1_2XLARGE`\. `BUILD_GENERAL1_2XLARGE` is only supported with the `LINUX_CONTAINER` environment type\.
+     + *computeType*: Required\. A category that corresponds to the number of CPU cores and memory used by this build environment\. Allowed values include:
+       + `BUILD_GENERAL1_SMALL`
+       + `BUILD_GENERAL1_MEDIUM`
+       + `BUILD_GENERAL1_LARGE`
+       + `BUILD_GENERAL1_2XLARGE`
+
+       `BUILD_GENERAL1_2XLARGE` is only supported with the `LINUX_CONTAINER` environment type\.
      + *certificate*: Optional\. The ARN of the S3 bucket, path prefix and object key that contains the PEM\-encoded certificate\. The object key can be either just the \.pem file or a \.zip file containing the PEM\-encoded certificate\. For example, if your S3 bucket name is `my-bucket`, your path prefix is `cert`, and your object key name is `certificate.pem`, then acceptable formats for your *certificate* are `my-bucket/cert/certificate.pem` or `arn:aws:s3:::my-bucket/cert/certificate.pem`\.
      + For the optional `environmentVariables` array, information about any environment variables you want to specify for this build environment\. Each environment variable is expressed as an object that contains a `name`, `value`, and `type` of *environmentVariable\-name*, *environmentVariable\-value*, and *environmentVariable\-type*\. 
 
