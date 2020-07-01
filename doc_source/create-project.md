@@ -49,7 +49,7 @@ CodeBuild does not support Bitbucket Server\.
 
    1.  For **Source identifier**, enter a value that is fewer than 128 characters and contains only alphanumeric characters and underscores\.
 
-   1.  For **Source provider**, choose the source code provider type\. Use the table earlier in this step to make selections appropriate for your secondary source provider\. 
+   1.  For **Source provider**, choose the source cod380e provider type\. Use the table earlier in this step to make selections appropriate for your secondary source provider\. 
 
 1. In **Environment**:
 
@@ -216,6 +216,10 @@ For information about using the AWS CLI with CodeBuild, see the [Command line re
        "buildspec": "buildspec",
        "InsecureSsl": "InsecureSsl",
        "reportBuildStatus": reportBuildStatus", 
+       "buildStatusConfig": {
+         "context": context,
+         "targetUrl": target-url
+       },
        "gitSubmodulesConfig": {
          "fetchSubmodules": "fetchSubmodules"
        },
@@ -373,6 +377,23 @@ For information about using the AWS CLI with CodeBuild, see the [Command line re
      + <a name="cli-sources-buildspec"></a>*buildspec*: Optional\. The build specification definition or file to use\. If this value is set, it can be either an inline buildspec definition, the path to an alternate buildspec file relative to the value of the built\-in `CODEBUILD_SRC_DIR` environment variable, or the path to an S3 bucket\. The bucket must be in the same AWS Region as the build project\. Specify the buildspec file using its ARN \(for example, `arn:aws:s3:::my-codebuild-sample2/buildspec.yml`\)\. If this value is not provided or is set to an empty string, the source code must contain a `buildspec.yml` file in its root directory\. For more information, see [Buildspec file name and storage location](build-spec-ref.md#build-spec-ref-name-storage)\.
      + <a name="cli-sources-auth"></a>*auth*: This object is used by the CodeBuild console only\. Do not specify values for *auth\-type* \(unless *source\-type* is set to `GITHUB`\) or *resource*\.
      + <a name="cli-sources-reportbuildstatus"></a>*reportBuildStatus*: Optional\. Specifies whether to send your source provider the status of a build's start and completion\. If you set this with a source provider other than GitHub, GitHub Enterprise Server, or Bitbucket, an `invalidInputException` is thrown\.
+     + <a name="create-project-cli.build-status-config"></a>*buildStatusConfig*: Optional\. Contains information that defines how the CodeBuild build project reports the build status to the source provider\. This option is only used when the source type is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`\.
+       + *context*: For Bitbucket sources, this parameter is used for the `name` parameter in the Bitbucket commit status\. For GitHub sources, this parameter is used for the `context` parameter in the GitHub commit status\. 
+
+         For example, you can have the `context` contain the build number and the webhook trigger using the CodeBuild environment variables:
+
+         ```
+         AWS CodeBuild sample-project Build #$CODEBUILD_BUILD_NUMBER - $CODEBUILD_WEBHOOK_TRIGGER
+         ```
+
+         This results in the context appearing like this for build \#24 triggered by a webhook pull request event:
+
+         ```
+         AWS CodeBuild sample-project Build #24 - pr/8
+         ```
+       + *target\-url*: For Bitbucket sources, this parameter is used for the `url` parameter in the Bitbucket commit status\. For GitHub sources, this parameter is used for the `target_url` parameter in the GitHub commit status\.
+
+         For example, you can set the `targetUrl` to `https://aws.amazon.com/codebuild/` and the commit status will link to this URL\.
      + <a name="cli-sources-gitsubmodulesconfig"></a>*gitSubmodulesConfig*: Optional\. Information about the Git submodules configuration\. Used with CodeCommit, GitHub, GitHub Enterprise Server, and Bitbucket only\. Set `fetchSubmodules` to `true` if you want to include the Git submodules in your repository\. Git submodules that are included must be configured as HTTPS\.
      + <a name="cli-sources-insecuressl"></a>*InsecureSsl*: Optional\. Used with GitHub Enterprise Server only\. Set this value to `true` to ignore TLS warnings while connecting to your GitHub Enterprise Server project repository\. The default value is `false`\. *InsecureSsl* should be used for testing purposes only\. It should not be used in a production environment\.
    + <a name="cli-sourceversion"></a> *source\-version*: Optional\. A version of the build input to be built for this project\. If not specified, the latest version is used\. If specified, it must be one of: 
