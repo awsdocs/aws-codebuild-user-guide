@@ -76,7 +76,9 @@ By default, Docker containers do not allow access to any devices\. Privileged mo
 
 1. Expand **Environment variables override**\. 
 
-   If you want to change the environment variables for this build only, change the values for **Name**, **Value**, and **Type**\. Choose **Add environment variable** to add a new environment variable for this build only\. Choose **Remove environment variable** to remove an environment variable you do not want to use in this build\.
+   The environment variable list is pre\-populated with the environment variables that are set in the build project\. If you want to change the value of a pre\-populated environment variable for this build only, change the values for **Value** and/or **Type**\. Choose **Add environment variable** to add a new environment variable for this build only\. 
+**Note**  
+The **Remove** button cannot be used to remove a pre\-populated environment variable\. The **Remove** button is only used to remove an environment variable added or modified for this build\.
 
    Others can see an environment variable by using the CodeBuild console and the AWS CLI\. If you have no concerns about the visibility of your environment variable, set the **Name** and **Value** fields, and then set **Type** to **Plaintext**\.
 

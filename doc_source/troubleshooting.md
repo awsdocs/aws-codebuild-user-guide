@@ -1,6 +1,6 @@
 # Troubleshooting AWS CodeBuild<a name="troubleshooting"></a>
 
-Use the information in this topic to help you identify, diagnose, and address issues\. To learn how to log and monitor CodeBuild builds to troubleshoot issues, see [Logging and monitoring](security-incident-response.md)\.
+Use the information in this topic to help you identify, diagnose, and address issues\. To learn how to log and monitor CodeBuild builds to troubleshoot issues, see [Logging and monitoring](logging-monitoring.md)\.
 
 **Topics**
 + [Apache Maven builds reference artifacts from the wrong repository](#troubleshooting-maven-repos)

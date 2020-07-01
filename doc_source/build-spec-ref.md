@@ -408,7 +408,9 @@ The following files would be included in the build output artifact:
 ```
 
 artifacts/**secondary\-artifacts**  <a name="build-spec.artifacts.secondary-artifacts"></a>
-Optional sequence\. Represents one or more artifact definitions as a mapping between an artifact identifier and an artifact definition\. Each artifact identifiers in this block must match an artifact defined in the `secondaryArtifacts` attribute of your project\. Each separate definition has the same syntax as the `artifacts` block above\. For example, if your project has the following structure:  
+Optional sequence\. Represents one or more artifact definitions as a mapping between an artifact identifier and an artifact definition\. Each artifact identifiers in this block must match an artifact defined in the `secondaryArtifacts` attribute of your project\. Each separate definition has the same syntax as the `artifacts` block above\.   
+The [`artifacts/files`](#build-spec.artifacts.files) sequence is always required, even when there are only secondary artifacts defined\.
+For example, if your project has the following structure:  
 
 ```
 {
@@ -439,6 +441,8 @@ build:
   commands:
     - echo Building...
 artifacts:
+  files:
+    - '**/*'
   secondary-artifacts:
     artifact1:
       files:

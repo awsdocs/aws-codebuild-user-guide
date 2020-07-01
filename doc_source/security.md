@@ -9,7 +9,6 @@ To learn how to secure your CodeBuild resources, see the following topics\.
 **Topics**
 + [Data protection in AWS CodeBuild](data-protection.md)
 + [Identity and access management in AWS CodeBuild](auth-and-access-control.md)
-+ [Logging and monitoring in AWS CodeBuild](security-incident-response.md)
 + [Compliance validation for AWS CodeBuild](codebuild-compliance-validation.md)
 + [Resilience in AWS CodeBuild](codebuild-disaster-recovery-resiliency.md)
 + [Infrastructure security in AWS CodeBuild](infrastructure-security.md)

@@ -8,9 +8,11 @@ You can use the CodeBuild console or the Amazon S3 console to complete this step
 
 **To get the build output artifact \(AWS CodeBuild console\)**
 
-1. With the CodeBuild console still open and the build details page still displayed from the previous step, in **Build Status**, choose the **View artifacts** link\. This opens the folder in Amazon S3 for the build output artifact\. \(If the build details page is not displayed, in the navigation bar, choose **Build history**, and then choose the **Build run** link\.\)
+1. With the CodeBuild console still open and the build details page still displayed from the previous step, choose the **Build details** tab and scroll down to the **Artifacts** section\. 
+**Note**  
+If the build details page is not displayed, in the navigation bar, choose **Build history**, and then choose the **Build run** link\.
 
-1. Open the `target` folder, where you find the `messageUtil-1.0.jar` build output artifact file\.
+1. The link to the Amazon S3 folder is under the **Artifacts upload location**\. This link opens the folder in Amazon S3 where you find the `messageUtil-1.0.jar` build output artifact file\.
 
 **To get the build output artifact \(Amazon S3 console\)**
 
