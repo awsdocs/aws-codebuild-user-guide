@@ -199,7 +199,7 @@ Optional mapping\. Used to list environment variables you want to export\. Speci
 +  Secrets Manager secrets specified in the build project 
 +  Environment variables that start with `AWS_`\. 
 
-env/**git\-credential\-help**  <a name="build-spec.env.git-credential-helper"></a>
+env/**git\-credential\-helper**  <a name="build-spec.env.git-credential-helper"></a>
 Optional mapping\. Used to indicate if CodeBuild uses its Git credential helper to provide Git credentials\. `yes` if it is used\. Otherwise, `no` or not specified\. For more information, see [gitcredentials](https://git-scm.com/docs/gitcredentials) on the Git website\.   
  `git-credential-helper` is not supported for builds that are triggered by a webhook for a public Git repository\.
 
