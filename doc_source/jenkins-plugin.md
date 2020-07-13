@@ -14,7 +14,7 @@ If you already have a Jenkins server set up and would like to only install the A
 
 **To use AWS CodeBuild with sources from outside of a VPC**
 
-1. Create a project in the CodeBuild console\. For more information, see [Create a build project \(console\)](create-project.md#create-project-console)\. 
+1. Create a project in the CodeBuild console\. For more information, see [Create a build project \(console\)](create-project-console.md)\. 
    + Choose the AWS Region where you want to run the build\.
    + \(Optional\) Set the Amazon VPC configuration to allow the CodeBuild build container to access resources in your VPC\.
    + Write down the name of your project\. You need it in step 3\.

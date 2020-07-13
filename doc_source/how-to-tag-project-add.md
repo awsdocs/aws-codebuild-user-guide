@@ -31,7 +31,7 @@ You can use the CodeBuild console to add one or more tags to a CodeBuild project
 
 ## Add a tag to a project \(AWS CLI\)<a name="how-to-tag-project-add-cli"></a>
 
-To add a tag to a project when you create it, see [Create a build project \(AWS CLI\)](create-project.md#create-project-cli)\. In `create-project.json`, add your tags\.
+To add a tag to a project when you create it, see [Create a build project \(AWS CLI\)](create-project-cli.md)\. In `create-project.json`, add your tags\.
 
 In these steps, we assume that you have already installed a recent version of the AWS CLI or updated to the current version\. For more information, see [Installing the AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/installing.html)\.
 

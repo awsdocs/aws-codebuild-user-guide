@@ -23,7 +23,7 @@ If you add test reporting to a build project, make sure your IAM role has the pe
 
    Choose **Update configuration**\.
 
-   For more information about settings referred to in this procedure, see [Create a build project \(console\)](create-project.md#create-project-console)\.
+   For more information about settings referred to in this procedure, see [Create a build project \(console\)](create-project-console.md)\.
 
 1. To change information about the source code location, in **Source**, choose **Edit**\. Use the following table to make selections appropriate for your source provider, and then choose **Update source**\.
 **Note**  
@@ -131,7 +131,7 @@ For information about using the AWS CLI with AWS CodeBuild, see the [Command lin
    aws codebuild update-project --generate-cli-skeleton
    ```
 
-   JSON\-formatted data appears in the output\. Copy the data to a file \(for example, `update-project.json`\) in a location on the local computer or instance where the AWS CLI is installed\. Then modify the copied data as described in [Create a build project \(AWS CLI\)](create-project.md#create-project-cli), and save your results\.
+   JSON\-formatted data appears in the output\. Copy the data to a file \(for example, `update-project.json`\) in a location on the local computer or instance where the AWS CLI is installed\. Then modify the copied data as described in [Create a build project \(AWS CLI\)](create-project-cli.md), and save your results\.
 **Note**  
 In the JSON\-formatted data, you must provide the name of the build project\. All other settings are optional\. You cannot change the build project's name, but you can change any of its other settings\.
 
@@ -141,7 +141,7 @@ In the JSON\-formatted data, you must provide the name of the build project\. Al
    aws codebuild update-project --cli-input-json file://update-project.json
    ```
 
-1. If successful, data similar to that described in [Create a build project \(AWS CLI\)](create-project.md#create-project-cli) appears in the output\.
+1. If successful, data similar to that described in [Create a build project \(AWS CLI\)](create-project-cli.md) appears in the output\.
 
 ## Change a build project's settings \(AWS SDKs\)<a name="change-project-sdks"></a>
 

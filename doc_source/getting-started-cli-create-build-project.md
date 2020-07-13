@@ -52,7 +52,7 @@ For this build environment, you instruct CodeBuild to use a Docker image that co
      To find more Docker images you can use in your scenarios, see the [Build environment reference](build-env-ref.md)\.
    + For `environment`, `computeType` is a required value that represents the computing resources CodeBuild uses \(in this example, `BUILD_GENERAL1_SMALL`\)\.
 **Note**  
-Other available values in the original JSON\-formatted data, such as `description`, `buildspec`, `auth` \(including `type` and `resource`\), `path`, `namespaceType`, `name` \(for `artifacts`\), `packaging`, `environmentVariables` \(including `name` and `value`\), `timeoutInMinutes`, `encryptionKey`, and `tags` \(including `key` and `value`\) are optional\. They are not used in this tutorial, so they are not shown here\. For more information, see [Create a build project \(AWS CLI\)](create-project.md#create-project-cli)\.
+Other available values in the original JSON\-formatted data, such as `description`, `buildspec`, `auth` \(including `type` and `resource`\), `path`, `namespaceType`, `name` \(for `artifacts`\), `packaging`, `environmentVariables` \(including `name` and `value`\), `timeoutInMinutes`, `encryptionKey`, and `tags` \(including `key` and `value`\) are optional\. They are not used in this tutorial, so they are not shown here\. For more information, see [Create a build project \(AWS CLI\)](create-project-cli.md)\.
 
 1. Switch to the directory that contains the file you just saved, and then run the create\-project command again\.
 

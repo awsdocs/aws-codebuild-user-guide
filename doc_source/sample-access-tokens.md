@@ -22,7 +22,7 @@ For more information, see [Scopes for Bitbucket Cloud REST API](https://develope
 
 ## Connect source providers with access tokens \(console\)<a name="sample-access-tokens-console"></a>
 
- To use the console to connect your project to GitHub or Bitbucket using access tokens, do the following while you create a project\. For information, see [Create a build project \(console\)](create-project.md#create-project-console)\. 
+ To use the console to connect your project to GitHub or Bitbucket using access tokens, do the following while you create a project\. For information, see [Create a build project \(console\)](create-project-console.md)\. 
 
 For GitHub:
 
@@ -95,7 +95,7 @@ Follow these steps to use the AWS CLI to connect your project to GitHub or Bitbu
 **Note**  
  If you run the import\-source\-credentials command with the same server type and auth type a second time, the stored access token is updated\. 
 
-    After your account is connected with an access token, you can use `create-project` to create your CodeBuild project\. For more information, see [Create a build project \(AWS CLI\)](create-project.md#create-project-cli)\. 
+    After your account is connected with an access token, you can use `create-project` to create your CodeBuild project\. For more information, see [Create a build project \(AWS CLI\)](create-project-cli.md)\. 
 
 1.  To view the connected access tokens, run the list\-source\-credentials command\. 
 

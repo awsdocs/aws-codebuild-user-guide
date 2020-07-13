@@ -40,7 +40,7 @@ CodeBuild does not support Bitbucket Server\.
  If a build is triggered by a Bitbucket webhook, the **Report build status** setting is ignored\. The build status is always sent to Bitbucket\.   
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/github-pr-webhook.png)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)
 
-1.  Choose other settings for your project\. For more information about source provider options and settings, see [Choose source provider](create-project.md#create-project-source-provider)\. 
+1.  Choose other settings for your project\. For more information about source provider options and settings, see [Choose source provider](create-project-console.md#create-project-source-provider)\. 
 
 1. Choose **Create build project**\. On the **Review** page, choose **Start build** to run the build\.
 
@@ -105,7 +105,7 @@ You must enable the `merged` event in your Bitbucket webhook setting if you crea
 
 1.  Choose **Add filter group** to add another filter group\. 
 
- For more information, see [Create a build project \(console\)](create-project.md#create-project-console) and [WebhookFilter](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_WebhookFilter.html) in the *AWS CodeBuild API Reference*\. 
+ For more information, see [Create a build project \(console\)](create-project-console.md) and [WebhookFilter](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_WebhookFilter.html) in the *AWS CodeBuild API Reference*\. 
 
 In this example, a webhook filter group triggers a build for pull requests only:
 

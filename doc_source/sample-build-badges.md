@@ -51,7 +51,7 @@ When you use the console to create or update a build project, you can create a C
 
 ## Create a build project with build badges enabled \(CLI\)<a name="sample-build-badges-request-running-cli"></a>
 
-For information about creating a build project, see [Create a build project \(AWS CLI\)](create-project.md#create-project-cli)\. To include build badges with your AWS CodeBuild project, you must specify *badgeEnabled* with a value of `true`\.
+For information about creating a build project, see [Create a build project \(AWS CLI\)](create-project-cli.md)\. To include build badges with your AWS CodeBuild project, you must specify *badgeEnabled* with a value of `true`\.
 
 ## Access your AWS CodeBuild build badges<a name="access-badges"></a>
 

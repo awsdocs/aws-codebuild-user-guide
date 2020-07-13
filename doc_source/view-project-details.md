@@ -58,7 +58,7 @@ A result similar to the following might appear in the output\. Ellipses \(`...`\
 }
 ```
 
-In the preceding output, the `projectsNotFound` array lists any build project names that were specified, but not found\. The `projects` array lists details for each build project where information was found\. Build project details have been omitted from the preceding output for brevity\. For more information, see the output of [Create a build project \(AWS CLI\)](create-project.md#create-project-cli)\.
+In the preceding output, the `projectsNotFound` array lists any build project names that were specified, but not found\. The `projects` array lists details for each build project where information was found\. Build project details have been omitted from the preceding output for brevity\. For more information, see the output of [Create a build project \(AWS CLI\)](create-project-cli.md)\.
 
 For more information about using the AWS CLI with AWS CodeBuild, see the [Command line reference](cmd-ref.md)\.
 

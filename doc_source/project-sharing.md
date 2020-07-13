@@ -4,7 +4,7 @@ Project sharing allows project owners to share their AWS CodeBuild projects with
 
 **Topics**
 + [Prerequisites for sharing projects](#project-sharing-prereqs)
-+ [Prerequisites for accessing shared projects shared with you](#project-sharing-access-prereqs)
++ [Prerequisites for accessing shared projects](#project-sharing-access-prereqs)
 + [Related services](#project-sharing-related)
 + [Sharing a project](#project-sharing-share)
 + [Unsharing a shared project](#project-sharing-unshare)
@@ -41,7 +41,7 @@ For more information, see the *[AWS RAM User Guide](https://docs.aws.amazon.com/
 
 ## Sharing a project<a name="project-sharing-share"></a>
 
-The consumer can use the AWS CLI but not the AWS CodeBuild console to view the project and builds you've shared\. The consumer cannot edit or run the project\.
+The consumer can use both the AWS CLI and AWS CodeBuild console to view the project and builds you've shared\. The consumer cannot edit or run the project\.
 
 You can add a project to an existing resource share or you can create one in the [AWS RAM console](https://console.aws.amazon.com/ram)\.
 

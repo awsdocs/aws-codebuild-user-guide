@@ -24,7 +24,7 @@ To use AWS CodePipeline to run a build with CodeBuild, skip these steps and foll
    + For CodeCommit, for **Reference type**, choose **Branch**, **Git tag**, or **Commit ID**\. Next, choose the branch, Git tag, or enter a commit ID to specify the version of your source code\. For more information, see [Source version sample with AWS CodeBuild](sample-source-version.md)\. Change the value for **Git clone depth**\. This creates a shallow clone with a history truncated to the specified number of commits\. If you want a full clone, choose **Full**\.
    + For GitHub or GitHub Enterprise Server, for the optional **Source version** value, enter a commit ID, pull request ID, branch name, or tag name for the version of the source code you want to build\. If you specify a pull request ID, it must use the format `pr/pull-request-ID` \(for example, `pr/25`\)\. If you specify a branch name, the branch's HEAD commit ID is used\. If **Source version** is blank, the default branch's HEAD commit ID is used\. Change the value for **Git clone depth**\. This creates a shallow clone with a history truncated to the specified number of commits\. If you want a full clone, choose **Full**\.
    + For Bitbucket, for the optional **Source version** value, enter a commit ID, branch name, or tag name for the version of the source code you want to build\. If you specify a branch name, the branch's HEAD commit ID is used\. If **Source version** is blank, the default branch's HEAD commit ID is used\. Change the value for **Git clone depth**\. This creates a shallow clone with a history truncated to the specified number of commits\. If you want a full clone, choose **Full**\.
-   + To use a different source provider for this build only, choose **Advanced build options**\. For more information about source provider options and settings, see [Choose source provider](create-project.md#create-project-source-provider)\.
+   + To use a different source provider for this build only, choose **Advanced build options**\. For more information about source provider options and settings, see [Choose source provider](create-project-console.md#create-project-source-provider)\.
 
 1.  Choose **Advanced build overrides**\. 
 
@@ -62,7 +62,7 @@ By default, Docker containers do not allow access to any devices\. Privileged mo
    + Under **Cache**, from **Type**, choose a different cache setting\.
    + To override secondary artifacts for this build only:
      + To remove a secondary artifact, in **Secondary artifacts**, choose the **X** in its row\.
-     + To add a secondary artifact, choose **Add artifact**, and then enter the information for your secondary artifact\. For more information, see step 8 in [Create a build project \(console\)](create-project.md#create-project-console)\.
+     + To add a secondary artifact, choose **Add artifact**, and then enter the information for your secondary artifact\. For more information, see step 8 in [Create a build project \(console\)](create-project-console.md)\.
 
    Under **Logs**, you can override your log settings by selecting or clearing **CloudWatch Logs** and **S3 logs**\. 
    +  If you enable **CloudWatch logs**: 
@@ -210,7 +210,7 @@ The value in the start build operation call takes highest precedence\.
 The value in the build project definition takes next precedence\.
 The value in the buildspec file declaration takes lowest precedence\.
 
-   For information about valid values for these placeholders, see [Create a build project \(AWS CLI\)](create-project.md#create-project-cli)\. For a list of the latest settings for a build project, see [View a build project's details](view-project-details.md)\.
+   For information about valid values for these placeholders, see [Create a build project \(AWS CLI\)](create-project-cli.md)\. For a list of the latest settings for a build project, see [View a build project's details](view-project-details.md)\.
 
 1. Switch to the directory that contains the file you just saved, and run the `start-build` command again\.
 

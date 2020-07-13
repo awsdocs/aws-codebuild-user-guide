@@ -109,7 +109,7 @@ If you are using an S3 input bucket, be sure to create a ZIP file that contains 
 
 1. Open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codesuite/codebuild/home](https://console.aws.amazon.com/codesuite/codebuild/home)\.
 
-1. Create a build project\. For more information, see [Create a build project \(console\)](create-project.md#create-project-console) and [Run a build \(console\)](run-build.md#run-build-console)\. Leave all settings at their default values, except for these settings\.
+1. Create a build project\. For more information, see [Create a build project \(console\)](create-project-console.md) and [Run a build \(console\)](run-build.md#run-build-console)\. Leave all settings at their default values, except for these settings\.
    + For **Environment**:
      + For **Environment image**, choose **Managed image**\.
      + For **Operating system**, choose **Amazon Linux 2**\. 
@@ -175,7 +175,7 @@ The build project in this example uses source code in the GitHub [AWS samples](h
 
 1. Open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codesuite/codebuild/home](https://console.aws.amazon.com/codesuite/codebuild/home)\.
 
-1. Create a build project\. For more information, see [Create a build project \(console\)](create-project.md#create-project-console) and [Run a build \(console\)](run-build.md#run-build-console)\. Leave all settings at their default values, except for these settings\.
+1. Create a build project\. For more information, see [Create a build project \(console\)](create-project-console.md) and [Run a build \(console\)](run-build.md#run-build-console)\. Leave all settings at their default values, except for these settings\.
    + For **Environment**:
      + For **Source provider**, choose **GitHub**\.
      + For **Repository**, choose **Public repository**\.
@@ -328,7 +328,7 @@ The build project in this example uses source code in the GitHub [AWS samples](h
 
 1. Open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codesuite/codebuild/home](https://console.aws.amazon.com/codesuite/codebuild/home)\.
 
-1. Create a build project\. For more information, see [Create a build project \(console\)](create-project.md#create-project-console) and [Run a build \(console\)](run-build.md#run-build-console)\. Leave all settings at their default values, except for these settings\.
+1. Create a build project\. For more information, see [Create a build project \(console\)](create-project-console.md) and [Run a build \(console\)](run-build.md#run-build-console)\. Leave all settings at their default values, except for these settings\.
    + For **Environment**:
      + For **Environment image**, choose **Managed image**\.
      + For **Operating system**, choose **Amazon Linux 2**\.

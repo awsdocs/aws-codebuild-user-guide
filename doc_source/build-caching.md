@@ -58,7 +58,7 @@ The `ARM_CONTAINER` and `LINUX_GPU_CONTAINER` environment types and the `BUILD_G
   --cache type=LOCAL,mode=[LOCAL_CUSTOM_CACHE]
   ```
 
-For more information, see [Create a build project \(AWS CLI\)](create-project.md#create-project-cli)\.
+For more information, see [Create a build project \(AWS CLI\)](create-project-cli.md)\.
 
 ### Specify local caching \(console\)<a name="caching-local-console"></a>
 
@@ -66,7 +66,7 @@ You specify a cache in the **Artifacts** section of the console\. For **Cache ty
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/local-cache.png)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)
 
-For more information, see [Create a build project \(console\)](create-project.md#create-project-console)\.
+For more information, see [Create a build project \(console\)](create-project-console.md)\.
 
 ### Specify local caching \(AWS CloudFormation\)<a name="caching-local-cfn"></a>
 
@@ -109,4 +109,4 @@ CodeBuildProject:
 **Note**  
 By default, Docker containers do not allow access to any devices\. Privileged mode grants a build project's Docker container access to all devices\. For more information, see [Runtime Privilege and Linux Capabilities](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities) on the Docker Docs website\.
 
-For more information, see [Create a build project \(AWS CloudFormation\)](create-project.md#create-project-cloud-formation)\.
+For more information, see [Create a build project \(AWS CloudFormation\)](create-project-cloud-formation.md)\.

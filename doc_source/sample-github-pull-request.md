@@ -112,7 +112,7 @@ When you use the console to create or update a build project, you can create a C
 
 1.  Choose **Add filter group** to add another filter group\. 
 
- For more information, see [Create a build project \(console\)](create-project.md#create-project-console) and [WebhookFilter](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_WebhookFilter.html) in the *AWS CodeBuild API Reference*\. 
+ For more information, see [Create a build project \(console\)](create-project-console.md) and [WebhookFilter](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_WebhookFilter.html) in the *AWS CodeBuild API Reference*\. 
 
 In this example, a webhook filter group triggers a build for pull requests only:
 

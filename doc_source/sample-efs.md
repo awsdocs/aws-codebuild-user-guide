@@ -71,7 +71,7 @@ Data in transit for your file system is encrypted\. To encrypt data in transit u
 
 1.  From **Source provider**, choose the repository that contains the Java application you want to build\. 
 
-1.  Enter information, such as a repository URL, that CodeBuild uses to locate your application\. The options are different for each source provider\. For more information, see [Choose source provider](create-project.md#create-project-source-provider)\. 
+1.  Enter information, such as a repository URL, that CodeBuild uses to locate your application\. The options are different for each source provider\. For more information, see [Choose source provider](create-project-console.md#create-project-source-provider)\. 
 
 1.  From **Environment image**, choose **Managed image**\. 
 
@@ -98,11 +98,6 @@ By default, Docker containers do not allow access to any devices\. Privileged mo
 1.  From **Security Groups**, choose the default security group\.
 
 1.  In **File systems**, enter the following information:
-   +  For **Identifier**, enter a unique file system identifier\. It must be fewer than 129 characters and contain only alphanumeric characters and underscores\. CodeBuild uses this identifier to create an environment variable that identifies the elastic file system\. The environment variable format is `CODEBUILD_file-system-identifier` in capital letters\. For example, if you enter **efs\-1**, the environment variable is `CODEBUILD_EFS-1`\. 
-   +  For **ID**, choose the file system ID\. 
-   +  \(Optional\) Enter a directory in the file system\. CodeBuild mounts this directory\. If you leave **Directory path** blank, CodeBuild mounts the entire file system\. The path is relative to the root of the file system\. 
-   +  For **Mount point**, enter the name of a directory in your build container that mounts the file system\. If this directory does not exist, CodeBuild creates it during the build\. 
-   +  \(Optional\) Enter mount options\. If you leave **Mount options** blank, CodeBuild uses its default mount options \(`nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2`\)\. For more information, see [Recommended NFS Mount Options](https://docs.aws.amazon.com/efs/latest/ug/mounting-fs-nfs-mount-settings.html) in the *Amazon Elastic File System User Guide*\. 
 
 1.  For **Build specification**, choose **Insert build commands**, and then choose **Switch to editor**\. 
 

@@ -14,7 +14,7 @@ Answer the questions in [Plan a build](planning.md)\.
 
 ## Run AWS CodeBuild directly<a name="how-to-run-console"></a>
 
-1. Create the build project\. To use the console, see [Create a build project \(console\)](create-project.md#create-project-console)\. To use the AWS CLI, see [Create a build project \(AWS CLI\)](create-project.md#create-project-cli)\.
+1. Create the build project\. To use the console, see [Create a build project \(console\)](create-project-console.md)\. To use the AWS CLI, see [Create a build project \(AWS CLI\)](create-project-cli.md)\.
 
 1. Run the build\. To use the console, see [Run a build \(console\)](run-build.md#run-build-console)\. To use the AWS CLI, see [Run a build \(AWS CLI\)](run-build.md#run-build-cli)\.
 

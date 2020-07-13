@@ -199,7 +199,7 @@ Optional mapping\. Used to list environment variables you want to export\. Speci
 +  Secrets Manager secrets specified in the build project 
 +  Environment variables that start with `AWS_`\. 
 
-env/**git\-credential\-help**  <a name="build-spec.env.git-credential-helper"></a>
+env/**git\-credential\-helper**  <a name="build-spec.env.git-credential-helper"></a>
 Optional mapping\. Used to indicate if CodeBuild uses its Git credential helper to provide Git credentials\. `yes` if it is used\. Otherwise, `no` or not specified\. For more information, see [gitcredentials](https://git-scm.com/docs/gitcredentials) on the Git website\.   
  `git-credential-helper` is not supported for builds that are triggered by a webhook for a public Git repository\.
 
@@ -316,7 +316,7 @@ When you specify build output artifact locations, CodeBuild can locate the origi
 artifacts/**name**  <a name="build-spec.artifacts.name"></a>
 Optional name\. Specifies a name for your build artifact\. This name is used when one of the following is true\.  
 +  You use the CodeBuild API to create your builds and the `overrideArtifactName` flag is set on the `ProjectArtifacts` object when a project is updated, a project is created, or a build is started\. 
-+  You use the CodeBuild console to create your builds, a name is specified in the buildspec file, and you select **Enable semantic versioning** when you create or update a project\. For more information, see [Create a build project \(console\)](create-project.md#create-project-console)\. 
++  You use the CodeBuild console to create your builds, a name is specified in the buildspec file, and you select **Enable semantic versioning** when you create or update a project\. For more information, see [Create a build project \(console\)](create-project-console.md)\. 
 You can specify a name in the buildspec file that is calculated at build time\. The name specified in a buildspec file uses the Shell command language\. For example, you can append a date and time to your artifact name so that it is always unique\. Unique artifact names prevent artifacts from being overwritten\. For more information, see [Shell command language](http://pubs.opengroup.org/onlinepubs/9699919799/)\.   
 This is an example of an artifact name appended with the date the artifact is created\.   
 

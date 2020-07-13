@@ -45,7 +45,7 @@
     For your service role to work with Secrets Manager, it must have, at a minimum, the `secretsmanager:GetSecretValue` permission\.   
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/private-registry-sample-iam.png)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)
 
-1.  To use the console to create a project with an environment stored in a private registry, do the following while you create a project\. For information, see [Create a build project \(console\)](create-project.md#create-project-console)\. 
+1.  To use the console to create a project with an environment stored in a private registry, do the following while you create a project\. For information, see [Create a build project \(console\)](create-project-console.md)\. 
 **Note**  
  If your private registry is in your VPC, it must have public internet access\. CodeBuild cannot pull an image from a private IP address in a VPC\. 
 
