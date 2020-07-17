@@ -446,7 +446,7 @@ artifacts:
   secondary-artifacts:
     artifact1:
       files:
-        - directory/file
+        - directory/file1
       name: secondary-artifact-name-1
     artifact2:
       files:
@@ -529,11 +529,11 @@ artifacts:
   secondary-artifacts:
     artifact1:
       files:
-        - target/messageUtil-1.0.jar
+        - target/artifact-1.0.jar
       discard-paths: yes
     artifact2:
       files:
-        - target/messageUtil-1.0.jar
+        - target/artifact-2.0.jar
       discard-paths: yes
 cache:
   paths:

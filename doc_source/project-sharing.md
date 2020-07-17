@@ -68,7 +68,7 @@ See [Creating a resource share](https://docs.aws.amazon.com/ram/latest/userguide
 **To share a project that you own \(AWS RAM command\)**  
 Use the [create\-resource\-share](https://docs.aws.amazon.com/cli/latest/reference/ram/create-resource-share.html) command\.
 
- **To share a project that you own \(CodeBuild command\)** 
+ **To share a project that you own \(CodeBuild command\)** <a name="codebuild-command"></a>
 
 Use the [put\-resource\-policy](https://docs.aws.amazon.com/cli/latest/reference/codebuild/put-resource-policy.html) command:
 
@@ -76,46 +76,52 @@ Use the [put\-resource\-policy](https://docs.aws.amazon.com/cli/latest/reference
 
    ```
    {
-      "Version":"2012-10-17",
-      "Statement":[{
-        "Effect":"Allow",
-        "Principal":{
-          "AWS":"consumer-aws-account-id-or-user"
-        },
-        "Action":[
-          "codebuild:BatchGetProjects",
-          "codebuild:BatchGetBuilds",
-          "codebuild:ListBuildsForProject"],
-        "Resource":"arn-of-project-to-share"
-      }]
-    }
+     "Version":"2012-10-17",
+     "Statement":[{
+       "Effect":"Allow",
+       "Principal":{
+         "AWS":"consumer-aws-account-id-or-user"
+       },
+       "Action":[
+         "codebuild:BatchGetProjects",
+         "codebuild:BatchGetBuilds",
+         "codebuild:ListBuildsForProject"],
+       "Resource":"arn-of-project-to-share"
+     }]
+   }
    ```
 
 1. Update `policy.json` with the project ARN and identifiers to share it with\. The following example grants read\-only access to the root user for the AWS account identified by 123456789012\. 
 
    ```
    {
-      "Version":"2012-10-17",
-      "Statement":[{
-        "Effect":"Allow",
-        "Principal":{
-          "AWS": [
-             "123456789012"
-           ]
-        },
-        "Action":[
-          "codebuild:BatchGetProjects",
-          "codebuild:BatchGetBuilds",
-          "codebuild:ListBuildsForProject"],
-        "Resource":"arn:aws:codebuild:us-west-2:123456789012:project/my-project"
-      }]
-    }
+     "Version":"2012-10-17",
+     "Statement":[{
+       "Effect":"Allow",
+       "Principal":{
+         "AWS": [
+           "123456789012"
+         ]
+       },
+       "Action":[
+         "codebuild:BatchGetProjects",
+         "codebuild:BatchGetBuilds",
+         "codebuild:ListBuildsForProject"],
+       "Resource":"arn:aws:codebuild:us-west-2:123456789012:project/my-project"
+     }]
+   }
    ```
 
-1.  Run the following command\. 
+1. Run the [put\-resource\-policy](https://docs.aws.amazon.com/cli/latest/reference/codebuild/put-resource-policy.html) command\.
 
    ```
    aws codebuild put-resource-policy --resource-arn project-arn --policy file://policy.json
+   ```
+
+1. Run the AWS RAM [promote\-resource\-share\-created\-from\-policy](https://docs.aws.amazon.com/cli/latest/reference/ram/promote-resource-share-created-from-policy.html) command\.
+
+   ```
+   aws ram promote-resource-share-created-from-policy --resource-share-arn resourcearn: project-arn
    ```
 
 ## Unsharing a shared project<a name="project-sharing-unshare"></a>

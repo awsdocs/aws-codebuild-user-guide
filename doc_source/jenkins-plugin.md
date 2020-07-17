@@ -4,7 +4,7 @@ You can use the Jenkins plugin for AWS CodeBuild to integrate CodeBuild with you
 
 ## Setting up Jenkins<a name="setup-jenkins"></a>
 
-For information about setting up Jenkins with the AWS CodeBuild plugin, see the [ Simplify your Jenkins builds with CodeBuild](https://aws.amazon.com/blogs/devops/simplify-your-jenkins-builds-with-aws-codebuild/) blog post on the AWS DevOps Blog\. You can download the CodeBuild Jenkins plugin from [ https://github\.com/awslabs/aws\-codebuild\-jenkins\-plugin](https://github.com/awslabs/aws-codebuild-jenkins-plugin)\.
+For information about setting up Jenkins with the AWS CodeBuild plugin, and to download the plugin source code, see [ https://github\.com/awslabs/aws\-codebuild\-jenkins\-plugin](https://github.com/awslabs/aws-codebuild-jenkins-plugin)\.
 
 ## Installing the plugin<a name="plugin-installation"></a>
 
@@ -25,38 +25,38 @@ If you already have a Jenkins server set up and would like to only install the A
    + Create a policy similar to the following and then attach the policy to your user\.
 
      ```
-       {
-         "Version": "2012-10-17",
-         "Statement": [
-             {
-                 "Effect": "Allow",
-                 "Resource": ["arn:aws:logs:{{region}}:{{awsAccountId}}:log-group:/aws/codebuild/{{projectName}}:*"],
-                 "Action": ["logs:GetLogEvents"]
-             },
-             {
-                 "Effect": "Allow",
-                 "Resource": ["arn:aws:s3:::{{inputBucket}}"],
-                 "Action": ["s3:GetBucketVersioning"]
-             },
-             {
-                 "Effect": "Allow",
-                 "Resource": ["arn:aws:s3:::{{inputBucket}}/{{inputObject}}"],
-                 "Action": ["s3:PutObject"]
-             },
-             {
-                 "Effect": "Allow",
-                 "Resource": ["arn:aws:s3:::{{outputBucket}}/*"],
-                 "Action": ["s3:GetObject"]
-             },
-             {
-                 "Effect": "Allow",
-                 "Resource": ["arn:aws:codebuild:{{region}}:{{awsAccountId}}:project/{{projectName}}"],
-                 "Action": ["codebuild:StartBuild",
-                            "codebuild:BatchGetBuilds",
-                            "codebuild:BatchGetProjects"]
-             }
-     	]
-       }
+     {
+       "Version": "2012-10-17",
+       "Statement": [
+         {
+           "Effect": "Allow",
+           "Resource": ["arn:aws:logs:{{region}}:{{awsAccountId}}:log-group:/aws/codebuild/{{projectName}}:*"],
+           "Action": ["logs:GetLogEvents"]
+         },
+         {
+           "Effect": "Allow",
+           "Resource": ["arn:aws:s3:::{{inputBucket}}"],
+           "Action": ["s3:GetBucketVersioning"]
+         },
+         {
+           "Effect": "Allow",
+           "Resource": ["arn:aws:s3:::{{inputBucket}}/{{inputObject}}"],
+           "Action": ["s3:PutObject"]
+         },
+         {
+           "Effect": "Allow",
+           "Resource": ["arn:aws:s3:::{{outputBucket}}/*"],
+           "Action": ["s3:GetObject"]
+         },
+         {
+           "Effect": "Allow",
+           "Resource": ["arn:aws:codebuild:{{region}}:{{awsAccountId}}:project/{{projectName}}"],
+           "Action": ["codebuild:StartBuild",
+             "codebuild:BatchGetBuilds",
+             "codebuild:BatchGetProjects"]
+         }
+       ]
+     }
      ```
 
 1. Create a freestyle project in Jenkins\.
