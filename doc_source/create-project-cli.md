@@ -423,6 +423,6 @@ By default, Docker containers do not allow access to any devices\. Privileged mo
 **Note**  
 Except for the build project name, you can change any of the build project's settings later\. For more information, see [Change a build project's settings \(AWS CLI\)](change-project.md#change-project-cli)\.
 
-To start running a build, see [Run a build \(AWS CLI\)](run-build.md#run-build-cli)\.
+To start running a build, see [Run a build \(AWS CLI\)](run-build-cli.md)\.
 
-If your source code is stored in a GitHub repository, and you want CodeBuild to rebuild the source code every time a code change is pushed to the repository, see [Start running builds automatically \(AWS CLI\)](run-build.md#run-build-cli-auto-start)\.
+If your source code is stored in a GitHub repository, and you want CodeBuild to rebuild the source code every time a code change is pushed to the repository, see [Start running builds automatically \(AWS CLI\)](run-build-cli-auto-start.md)\.

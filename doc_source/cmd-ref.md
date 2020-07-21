@@ -30,6 +30,6 @@ CodeBuild commands include:
 + `list-builds-for-project`: Gets a list of build IDs that are associated with a specified build project\. For more information, see [View a list of build IDs for a build project \(AWS CLI\)](view-builds-for-project.md#view-builds-for-project-cli)\.
 + `list-curated-environment-images`: Gets a list of Docker images managed by CodeBuild that you can use for your builds\. For more information, see [Docker images provided by CodeBuild](build-env-ref-available.md)\.
 + `list-projects`: Gets a list of build project names\. For more information, see [View a list of build project names \(AWS CLI\)](view-project-list.md#view-project-list-cli)\.
-+ `start-build`: Starts running a build\. For more information, see [Run a build \(AWS CLI\)](run-build.md#run-build-cli)\.
++ `start-build`: Starts running a build\. For more information, see [Run a build \(AWS CLI\)](run-build-cli.md)\.
 + `stop-build`: Attempts to stop the specified build from running\. For more information, see [Stop a build \(AWS CLI\)](stop-build.md#stop-build-cli)\.
 + `update-project`: Changes information about the specified build project\. For more information, see [Change a build project's settings \(AWS CLI\)](change-project.md#change-project-cli)\.

@@ -45,7 +45,7 @@ If you are using an S3 input bucket, be sure to create a ZIP file that contains 
    + The executable file for the C\# sample using the \.NET Framework, `CSharpHelloWorld.exe`, can be found in the `CSharpHelloWorld\bin\Debug` directory\. 
    + The executable file for the F\# sample using the \.NET Framework, `FSharpHelloWorld.exe`, can be found in the `FSharpHelloWorld\bin\Debug` directory\.
    + The executable file for the Visual Basic sample using the \.NET Framework, `VBHelloWorld.exe`, can be found in the `VBHelloWorld\bin\Debug` directory\. 
-   + The executable file for the C\# sample using \.NET Core, `HelloWorldSample.dll`, can be found in the `bin\Debug\netcoreapp1.0` directory\.
+   + The executable file for the C\# sample using \.NET Core, `HelloWorldSample.dll`, can be found in the `bin\Debug\netcoreapp3.1` directory\.
 
 ## Directory structure<a name="windows-samples-directory-structure"></a>
 
@@ -1055,7 +1055,7 @@ phases:
       - dotnet build
 artifacts:
   files:
-    - .\bin\Debug\netcoreapp1.0\*
+    - .\bin\Debug\netcoreapp3.1\*
 ```
 
 `HelloWorldSample.csproj` \(in `(root directory name)`
@@ -1064,7 +1064,7 @@ artifacts:
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp1.0</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 </Project>
 ```

@@ -26,7 +26,7 @@ To speed up the `DOWNLOAD_SOURCE` phase of your build, you can also to set **Git
 
 1. Open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codesuite/codebuild/home](https://console.aws.amazon.com/codesuite/codebuild/home)\.
 
-1. Create a build project\. For information, see [Create a build project \(console\)](create-project-console.md) and [Run a build \(console\)](run-build.md#run-build-console)\. Leave all settings at their default values, except for these settings:
+1. Create a build project\. For information, see [Create a build project \(console\)](create-project-console.md) and [Run a build \(console\)](run-build-console.md)\. Leave all settings at their default values, except for these settings:
    +  In **Source**: 
      +  For **Source provider**, choose **GitHub**\. If you are not connected to GitHub, follow the instructions to connect\. 
      +  For **Repository**, choose **Public repository**\. 

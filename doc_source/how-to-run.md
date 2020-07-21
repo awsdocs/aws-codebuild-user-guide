@@ -16,6 +16,6 @@ Answer the questions in [Plan a build](planning.md)\.
 
 1. Create the build project\. To use the console, see [Create a build project \(console\)](create-project-console.md)\. To use the AWS CLI, see [Create a build project \(AWS CLI\)](create-project-cli.md)\.
 
-1. Run the build\. To use the console, see [Run a build \(console\)](run-build.md#run-build-console)\. To use the AWS CLI, see [Run a build \(AWS CLI\)](run-build.md#run-build-cli)\.
+1. Run the build\. To use the console, see [Run a build \(console\)](run-build-console.md)\. To use the AWS CLI, see [Run a build \(AWS CLI\)](run-build-cli.md)\.
 
 1. Get information about the build\. To use the console, see [View build details \(console\)](view-build-details.md#view-build-details-console)\. To use the AWS CLI, see [View build details \(AWS CLI\)](view-build-details.md#view-build-details-cli)\. 

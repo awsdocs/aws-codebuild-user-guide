@@ -51,9 +51,9 @@ The base image of the Windows Server Core 2019 contains the following runtimes\.
 | golang | 1\.14 | 
 | nodejs | 12\.18 | 
 | java | corretto11 | 
-| php | 7\.3, 7\.4 | 
+| php | 7\.4\.7 | 
 | powershell | 7\.0\.2 | 
-| python | 3\.7, 3\.8 | 
+| python | 3\.8\.3 | 
 | ruby | 2\.7 | 
 
 **Note**  

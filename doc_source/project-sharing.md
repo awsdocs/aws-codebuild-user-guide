@@ -13,7 +13,7 @@ Project sharing allows project owners to share their AWS CodeBuild projects with
 
 ## Prerequisites for sharing projects<a name="project-sharing-prereqs"></a>
 
- To share a project, your AWS account must own it\. You cannot share a project that has been shared with you\. 
+To share a project, your AWS account must own it\. You cannot share a project that has been shared with you\. 
 
 ## Prerequisites for accessing shared projects shared with you<a name="project-sharing-access-prereqs"></a>
 
@@ -46,7 +46,7 @@ The consumer can use both the AWS CLI and AWS CodeBuild console to view the proj
 You can add a project to an existing resource share or you can create one in the [AWS RAM console](https://console.aws.amazon.com/ram)\.
 
 **Note**  
- You cannot delete a project with builds that has been added to a resource share\. 
+You cannot delete a project with builds that has been added to a resource share\. 
 
 To share a project with organizational units or an entire organization, you must enable sharing with AWS Organizations\. For more information, see [Enable sharing with AWS Organizations](https://docs.aws.amazon.com/ram/latest/userguide/getting-started-sharing.html) in the *AWS RAM User Guide*\.
 
@@ -60,7 +60,7 @@ You can use the AWS CodeBuild console, AWS RAM console, or the AWS CLI to share 
 **Note**  
 By default, only the 10 most recent build projects are displayed\. To view more build projects, choose the gear icon, and then choose a different value for **Projects per page** or use the back and forward arrows\.
 
-1.  Choose the project you want to share, and then choose **Share**\. For more information, see [Create a resource share](https://docs.aws.amazon.com/ram/latest/userguide/getting-started-sharing.html#getting-started-sharing-create) in the *AWS RAM User Guide*\. 
+1. Choose the project you want to share, and then choose **Share**\. For more information, see [Create a resource share](https://docs.aws.amazon.com/ram/latest/userguide/getting-started-sharing.html#getting-started-sharing-create) in the *AWS RAM User Guide*\. 
 
 **To share a project that you own \(AWS RAM console\)**  
 See [Creating a resource share](https://docs.aws.amazon.com/ram/latest/userguide/working-with-sharing.html#working-with-sharing-create) in the *AWS RAM User Guide*\.
@@ -68,11 +68,11 @@ See [Creating a resource share](https://docs.aws.amazon.com/ram/latest/userguide
 **To share a project that you own \(AWS RAM command\)**  
 Use the [create\-resource\-share](https://docs.aws.amazon.com/cli/latest/reference/ram/create-resource-share.html) command\.
 
- **To share a project that you own \(CodeBuild command\)** <a name="codebuild-command"></a>
+**To share a project that you own \(CodeBuild command\)**<a name="codebuild-command"></a>
 
 Use the [put\-resource\-policy](https://docs.aws.amazon.com/cli/latest/reference/codebuild/put-resource-policy.html) command:
 
-1.  Create a file named `policy.json` and copy the following into it\. 
+1. Create a file named `policy.json` and copy the following into it\. 
 
    ```
    {
@@ -80,13 +80,13 @@ Use the [put\-resource\-policy](https://docs.aws.amazon.com/cli/latest/reference
      "Statement":[{
        "Effect":"Allow",
        "Principal":{
-         "AWS":"consumer-aws-account-id-or-user"
+         "AWS":"<consumer-aws-account-id-or-user>"
        },
        "Action":[
          "codebuild:BatchGetProjects",
          "codebuild:BatchGetBuilds",
          "codebuild:ListBuildsForProject"],
-       "Resource":"arn-of-project-to-share"
+       "Resource":"<arn-of-project-to-share>"
      }]
    }
    ```
@@ -115,13 +115,37 @@ Use the [put\-resource\-policy](https://docs.aws.amazon.com/cli/latest/reference
 1. Run the [put\-resource\-policy](https://docs.aws.amazon.com/cli/latest/reference/codebuild/put-resource-policy.html) command\.
 
    ```
-   aws codebuild put-resource-policy --resource-arn project-arn --policy file://policy.json
+   aws codebuild put-resource-policy --resource-arn <project-arn> --policy file://policy.json
    ```
+
+1. Get the AWS RAM resource share ARN\.
+
+   ```
+   aws ram list-resources --resource-owner SELF --resource-arns <project-arn>
+   ```
+
+   This will return a response similar to this:
+
+   ```
+   {
+     "resources": [
+       {
+         "arn": "<project-arn>",
+         "type": "<type>",
+         "resourceShareArn": "<resource-share-arn>",
+         "creationTime": "<creation-time>",
+         "lastUpdatedTime": "<last-update-time>"
+       }
+     ]
+   }
+   ```
+
+   From the response, copy the *<resource\-share\-arn>* value to use in the next step\.
 
 1. Run the AWS RAM [promote\-resource\-share\-created\-from\-policy](https://docs.aws.amazon.com/cli/latest/reference/ram/promote-resource-share-created-from-policy.html) command\.
 
    ```
-   aws ram promote-resource-share-created-from-policy --resource-share-arn resourcearn: project-arn
+   aws ram promote-resource-share-created-from-policy --resource-share-arn <resource-share-arn>
    ```
 
 ## Unsharing a shared project<a name="project-sharing-unshare"></a>

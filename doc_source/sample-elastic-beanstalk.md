@@ -105,7 +105,7 @@ In this step, you use the AWS CodeBuild console to create a build project and th
 
    Use the AWS region selector to choose an AWS Region where CodeBuild is supported\. This must be the same Region where your S3 output bucket is stored\.
 
-1. Create a build project and then run a build\. For more information, see [Create a build project \(console\)](create-project-console.md) and [Run a build \(console\)](run-build.md#run-build-console)\. Leave all settings at their default values, except for these settings\.
+1. Create a build project and then run a build\. For more information, see [Create a build project \(console\)](create-project-console.md) and [Run a build \(console\)](run-build-console.md)\. Leave all settings at their default values, except for these settings\.
    + For **Environment**:
      + For **Environment image**, choose **Managed image**\.
      + For **Operating system**, choose **Amazon Linux 2**\.
@@ -190,7 +190,7 @@ In this step, you create an AWS CodeBuild build project to use with your pipelin
 
 1. Open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codesuite/codebuild/home](https://console.aws.amazon.com/codesuite/codebuild/home)\.
 
-1. Create a build project\. For more information, see [Create a build project \(console\)](create-project-console.md) and [Run a build \(console\)](run-build.md#run-build-console)\. Leave all settings at their default values, except for these settings\.
+1. Create a build project\. For more information, see [Create a build project \(console\)](create-project-console.md) and [Run a build \(console\)](run-build-console.md)\. Leave all settings at their default values, except for these settings\.
    + For **Environment**:
      + For **Environment image**, choose **Managed image**\.
      + For **Operating system**, choose **Amazon Linux 2**\.
