@@ -298,6 +298,7 @@ Docker layer cache mode is available for Linux only\. If you choose it, your pro
        + `LINUX_CONTAINER`
        + `LINUX_GPU_CONTAINER`
        + `WINDOWS_CONTAINER`
+       + `WINDOWS_SERVER_2019_CONTAINER`
      + *image*: Required\. The Docker image identifier used by this build environment\. Typically, this identifier is expressed as *image\-name*:*tag*\. For example, in the Docker repository that CodeBuild uses to manage its Docker images, this could be `aws/codebuild/standard:4.0`\. In Docker Hub, `maven:3.3.9-jdk-8`\. In Amazon ECR, `account-id.dkr.ecr.region-id.amazonaws.com/your-Amazon-ECR-repo-name:tag`\. For more information, see [Docker images provided by CodeBuild](build-env-ref-available.md)\. 
      + *computeType*: Required\. A category that corresponds to the number of CPU cores and memory used by this build environment\. Allowed values include:
        + `BUILD_GENERAL1_SMALL`

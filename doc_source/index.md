@@ -110,6 +110,7 @@ Amazon's trademarks and trade dress may not be used in
       + [View a list of build IDs in AWS CodeBuild](view-build-list.md)
       + [View a list of build IDs for a build project in AWS CodeBuild](view-builds-for-project.md)
       + [Stop a build in AWS CodeBuild](stop-build.md)
+      + [View a running build in Session Manager](session-manager.md)
       + [Delete builds in AWS CodeBuild](delete-builds.md)
 + [Working with test reporting in AWS CodeBuild](test-reporting.md)
    + [Create a test report](report-create.md)

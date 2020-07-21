@@ -13,4 +13,4 @@ You can specify any Shell Command Language \(sh\) command\. In buildspec version
 
 If CodeBuild encounters an error, the error might be more difficult to troubleshoot compared to running a single command in its own instance of the default shell\.
 
-Commands that are run in a Windows Server Core 2016 image use the Powershell shell\.
+Commands that are run in a Windows Server Core 2016 image use the PowerShell shell\.

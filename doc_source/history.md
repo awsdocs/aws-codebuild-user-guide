@@ -2,11 +2,13 @@
 
 The following table describes the important changes to the documentation since the last release of AWS CodeBuild\. For notification about updates to this documentation, you can subscribe to an RSS feed\.
 + **Latest API version:** 2016\-10\-06
-+ **Latest documentation update: **May 29, 2020
++ **Latest documentation update: **July 20, 2020
 
 | Change | Description | Date | 
 | --- |--- |--- |
-| [Updated topic](#history) |  CodeBuild now supports specifying a shell to use in their build environments in the buildspec file\. For more information, see [Build specification reference](https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html)\. | June 25, 2020 | 
+| [Windows Server 2019 image](#history) | CodeBuild now provides a Windows Server Core 2019 build image\. For more information, see [Docker images provided by CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html)\.  | July 20, 2020 | 
+| [Session Manager](#history) | CodeBuild now allows you to pause a running build and then use AWS Systems Manager Session Manager to connect to the build container and view the state of the container\. For more information, see [Session Manager](https://docs.aws.amazon.com/codebuild/latest/userguide/session-manager.html)\. | July 20, 2020 | 
+| [Updated topic](#history) |  CodeBuild now supports specifying a shell to use in their build environments in the buildspec file\. For more information, see [Build specification reference](https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html)\.  | June 25, 2020 | 
 | [Test reporting with test frameworks](#history) | Added several topics the describe how to generate CodeBuild test reports with several test frameworks\. For more information, see [Test reporting with test frameworks](https://docs.aws.amazon.com/codebuild/latest/userguide/test-framework-reporting.html)\. | May 29, 2020 | 
 | [Updated topics](#history) | CodeBuild now supports adding tags to report groups\. For more information, see [ReportGroup](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ReportGroup.html)\. | May 21, 2020 | 
 | [Support for test reporting](#history) | CodeBuild support for test reporting is now generally available\. | May 21, 2020 | 

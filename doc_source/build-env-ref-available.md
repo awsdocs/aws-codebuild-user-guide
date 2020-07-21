@@ -12,8 +12,9 @@ AWS CodeBuild manages the following Docker images that are available in the Code
 | Ubuntu 18\.04 | aws/codebuild/standard:3\.0 | [ubuntu/standard/3\.0](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/standard/3.0) | 
 | Ubuntu 18\.04 | aws/codebuild/standard:2\.0 ¹ | [ubuntu/standard/2\.0](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/standard/2.0) | 
 | Windows Server Core 2016 | aws/codebuild/windows\-base:2\.0 | N/A | 
+| Windows Server Core 2019 | aws/codebuild/windows\-base:2019\-1\.0 | N/A | 
 
-¹ No longer maintained after June, 2020\.
+¹ No longer maintained after June 2020\.
 
  The latest version of each image is cached\. If you specify a more specific version, then CodeBuild provisions that version instead of the cached version\. This can result in longer build times\. For example, to benefit from caching, specify `aws/codebuild/amazonlinux2-x86_64-standard:3.0` instead of a more granular version, such as `aws/codebuild/amazonlinux2-x86_64-standard:3.0-1.0.0`\. 
 
@@ -28,7 +29,7 @@ AWS CodeBuild manages the following Docker images that are available in the Code
 **Note**  
 The `aws/codebuild/amazonlinux2-aarch64-standard:1.0` image does not support the Android Runtime \(ART\)\.
 
- The base image of the Windows Server Core 2016 contains the following runtimes\. 
+The base image of the Windows Server Core 2016 contains the following runtimes\.
 
 
 | Runtime name | Version in `windows-base:2.0` | 
@@ -41,8 +42,22 @@ The `aws/codebuild/amazonlinux2-aarch64-standard:1.0` image does not support the
 | python | 3\.7 | 
 | ruby | 2\.6 | 
 
+The base image of the Windows Server Core 2019 contains the following runtimes\.
+
+
+| Runtime name | Version in `windows-base:2019-1.0` | 
+| --- | --- | 
+| dotnet | 3\.1\.3 | 
+| golang | 1\.14 | 
+| nodejs | 12\.18 | 
+| java | corretto11 | 
+| php | 7\.3, 7\.4 | 
+| powershell | 7\.0\.2 | 
+| python | 3\.7, 3\.8 | 
+| ruby | 2\.7 | 
+
 **Note**  
- The base image of the Windows Server Core 2016 platform is available in the US East \(N\. Virginia\), US East \(Ohio\), US West \(Oregon\), and Europe \(Ireland\) regions only\. 
+ The base image of the Windows Server Core 2016 and Windows Server Core 2016 platforms are available in the US East \(N\. Virginia\), US East \(Ohio\), US West \(Oregon\), and Europe \(Ireland\) Regions only\. 
 
 You can use a build specification to install other components \(for example, the AWS CLI, Apache Maven, Apache Ant, Mocha, RSpec, or similar\) during the `install` build phase\. For more information, see [Buildspec example](build-spec-ref.md#build-spec-ref-example)\.
 

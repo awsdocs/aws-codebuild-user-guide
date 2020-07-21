@@ -1,6 +1,6 @@
 # Microsoft Windows samples for CodeBuild<a name="sample-windows"></a>
 
-These samples use an AWS CodeBuild build environment running Microsoft Windows Server 2016, the \.NET Framework, and the \.NET Core SDK to build executables file out of code written in C\#, F\#, and Visual Basic\. 
+These samples use an AWS CodeBuild build environment running Microsoft Windows Server 2019, the \.NET Framework, and the \.NET Core SDK to build executables file out of code written in C\#, F\#, and Visual Basic\. 
 
 **Important**  
 Running these samples might result in charges to your AWS account\. These include possible charges for CodeBuild and for AWS resources and actions related to Amazon S3, AWS KMS, and CloudWatch Logs\. For more information, see [CodeBuild pricing](http://aws.amazon.com/codebuild/pricing), [Amazon S3 pricing](http://aws.amazon.com/s3/pricing), [AWS Key Management Service pricing](http://aws.amazon.com/kms/pricing), and [Amazon CloudWatch pricing](http://aws.amazon.com/cloudwatch/pricing)\.
@@ -32,8 +32,8 @@ If you are using an S3 input bucket, be sure to create a ZIP file that contains 
        "name": "windows-build-output-artifact.zip"
      },
      "environment": {
-       "type": "WINDOWS_CONTAINER",
-       "image": "aws/codebuild/windows-base:1.0",
+       "type": "WINDOWS_SERVER_2019_CONTAINER",
+       "image": "aws/codebuild/windows-base:2019-1.0",
        "computeType": "BUILD_GENERAL1_MEDIUM"
      },
      "serviceRole": "arn:aws:iam::account-ID:role/role-name",
@@ -122,7 +122,7 @@ env:
   variables:
     SOLUTION: .\CSharpHelloWorld.sln
     PACKAGE_DIRECTORY: .\packages
-    DOTNET_FRAMEWORK: 4.6.2
+    DOTNET_FRAMEWORK: 4.8
 
 phases:
   build:
@@ -166,7 +166,7 @@ EndGlobal
 <?xml version="1.0" encoding="utf-8" ?>
 <configuration>
   <startup> 
-    <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.6.2" />
+    <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.8" />
   </startup>
 </configuration>
 ```
@@ -185,7 +185,7 @@ EndGlobal
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CSharpHelloWorld</RootNamespace>
     <AssemblyName>CSharpHelloWorld</AssemblyName>
-    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
@@ -310,7 +310,7 @@ env:
   variables:
     SOLUTION: .\FSharpHelloWorld.sln
     PACKAGE_DIRECTORY: .\packages
-    DOTNET_FRAMEWORK: 4.6.2
+    DOTNET_FRAMEWORK: 4.8
 
 phases:
   build:
@@ -354,7 +354,7 @@ EndGlobal
 <?xml version="1.0" encoding="utf-8" ?>
 <configuration>
   <startup> 
-    <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.6.2" />
+    <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.8" />
   </startup>
 </configuration>
 ```
@@ -419,7 +419,7 @@ do
     <OutputType>Exe</OutputType>
     <RootNamespace>FSharpHelloWorld</RootNamespace>
     <AssemblyName>FSharpHelloWorld</AssemblyName>
-    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFSharpCoreVersion>4.4.0.0</TargetFSharpCoreVersion>
     <Name>FSharpHelloWorld</Name>
@@ -510,7 +510,7 @@ env:
   variables:
     SOLUTION: .\VBHelloWorld.sln
     PACKAGE_DIRECTORY: .\packages
-    DOTNET_FRAMEWORK: 4.6.2
+    DOTNET_FRAMEWORK: 4.8
 
 phases:
   build:
@@ -554,7 +554,7 @@ EndGlobal
 <?xml version="1.0" encoding="utf-8" ?>
 <configuration>
   <startup> 
-    <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.6.2" />
+    <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.8" />
   </startup>
 </configuration>
 ```
@@ -587,7 +587,7 @@ End Module
     <AssemblyName>VBHelloWorld</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>Console</MyType>
-    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
