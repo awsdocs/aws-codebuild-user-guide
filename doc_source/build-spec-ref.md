@@ -233,10 +233,10 @@ phases/install/**runtime\-versions**
 ```
 phases:
   install:
-  runtime-versions:
-  java: corretto8
-  python: 3.x
-  ruby: "$MY_RUBY_VAR"
+    runtime-versions:
+      java: corretto8
+      python: 3.x
+      ruby: "$MY_RUBY_VAR"
 ```
  You can specify one or more runtimes in the `runtime-versions` section of your buildspec file\. If your runtime is dependent upon another runtime, you can also specify its dependent runtime in the buildspec file\. If you do not specify any runtimes in the buildspec file, CodeBuild chooses the default runtimes that are available in the image you use\. If you specify one or more runtimes, CodeBuild uses only those runtimes\. If a dependent runtime is not specified, CodeBuild attempts to choose the dependent runtime for you\.   
 If two specified runtimes conflict, the build fails\. For example, `android: 29` and `java: openjdk11` conflict, so if both are specified, the build fails\.  
