@@ -148,6 +148,11 @@ StopBuild
 Required to attempt to stop running builds\.  
  **Resource:** `arn:aws:codebuild:region-ID: account-ID:project/ project-name ` 
 
+RetryBuild  
+ **Action:** `codebuild:RetryBuild`  
+Required to attempt to retry execution of a build\.  
+ **Resource:** `arn:aws:codebuild:region-ID: account-ID:project/ project-name`
+
 UpdateProject  
  **Actions:** `codebuild:UpdateProject`, `iam:PassRole`   
 Required to change information about builds\.  
