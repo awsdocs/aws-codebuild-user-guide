@@ -31,6 +31,7 @@ Use the information in this topic to help you identify, diagnose, and address is
 + [RequestError timeout error when running CodeBuild in a proxy server](#code-request-timeout-error)
 + [The bourne shell \(sh\) must exist in build images](#troubleshooting-sh-build-images)
 + [Warning: "Skipping install of runtimes\. runtime version selection is not supported by this build image" when running a build](#troubleshooting-skipping-all-runtimes-warning)
++ [Error: BUILD\_CONTAINER\_UNABLE\_TO\_PULL\_IMAGE](#troubleshooting-windows-version-mismatch)
 
 ## Apache Maven builds reference artifacts from the wrong repository<a name="troubleshooting-maven-repos"></a>
 
@@ -495,3 +496,13 @@ artifacts:
 **Possible cause:** Your build does not use version 1\.0 or later of the Amazon Linux 2 \(AL2\) standard image, or version 2\.0 or later of the Ubuntu standard image, and a runtime is specified in a `runtime-versions` section in your buildspec file\.
 
 **Recommended solution:** Be sure your buildspec file does not contain a `runtime-versions` section\. The `runtime-versions` section is only required if you use the Amazon Linux 2 \(AL2\) standard image or later or the Ubuntu standard image version 2\.0 or later\.
+
+## Error: BUILD\_CONTAINER\_UNABLE\_TO\_PULL\_IMAGE<a name="troubleshooting-windows-version-mismatch"></a>
+
+**Issue:** When building, you receive an error similar to the following:
+
+BUILD\_CONTAINER\_UNABLE\_TO\_PULL\_IMAGE: Unable to pull customer's container image\. CannotPullContainerError: a Windows version 10\.0\.17763\-based image is incompatible with a 10\.0\.14393 host 
+
+**Possible causes:** You have selected a Windows Server 2016 environment type \(`WINDOWS_CONTAINER`\), but selected a Windows Server 2019 image\.
+
+**Recommended solutions:** Change the environment type to `WINDOWS_SERVER_2019_CONTAINER`\.

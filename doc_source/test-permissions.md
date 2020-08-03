@@ -9,16 +9,18 @@
 
 ## Create a role for test reports<a name="test-permissions-required"></a>
 
- To run a test report, and to update a project to include test reports, your IAM role requires the following permissions\. These permissions are included in the predefined AWS managed policies\. If you want to add test reporting to an existing build project, you must add these permissions yourself\.
-+  `CreateReportGroup` 
-+  `CreateReport` 
-+  `UpdateReport` 
-+  `BatchPutTestCases` 
+To run a test report, and to update a project to include test reports, your IAM role requires the following permissions\. These permissions are included in the predefined AWS managed policies\. If you want to add test reporting to an existing build project, you must add these permissions yourself\.
++ `CreateReportGroup` 
++ `CreateReport` 
++ `UpdateReport` 
++ `BatchPutTestCases` 
+
+To run a code coverage report, your IAM role must also include the `BatchPutCodeCoverages` permission\.
 
 **Note**  
- `BatchPutTestCases`, `CreateReport`, and `UpdateReport` are not public permissions\. You cannot call a corresponding AWS CLI command or SDK method for these permissions\. 
+`BatchPutTestCases`, `CreateReport`, `UpdateReport`, and `BatchPutCodeCoverages` are not public permissions\. You cannot call a corresponding AWS CLI command or SDK method for these permissions\. 
 
- To make sure you have these permissions, you can attach the following policy to your IAM role: 
+To make sure you have these permissions, you can attach the following policy to your IAM role: 
 
 ```
 {
@@ -30,12 +32,13 @@
         "codebuild:CreateReportGroup",
         "codebuild:CreateReport",
         "codebuild:UpdateReport",
-        "codebuild:BatchPutTestCases"
+        "codebuild:BatchPutTestCases",
+        "codebuild:BatchPutCodeCoverages"
     ]
 }
 ```
 
- We recommend that you restrict this policy to only those report groups you must use\. The following restricts permissions to only the report groups with the two ARNs in the policy: 
+We recommend that you restrict this policy to only those report groups you must use\. The following restricts permissions to only the report groups with the two ARNs in the policy: 
 
 ```
 {
@@ -48,12 +51,13 @@
         "codebuild:CreateReportGroup",
         "codebuild:CreateReport",
         "codebuild:UpdateReport",
-        "codebuild:BatchPutTestCases"
+        "codebuild:BatchPutTestCases",
+        "codebuild:BatchPutCodeCoverages"
     ]
 }
 ```
 
- The following restricts permissions to only report groups created by running builds of a project named `my-project`: 
+The following restricts permissions to only report groups created by running builds of a project named `my-project`: 
 
 ```
 {
@@ -65,7 +69,8 @@
         "codebuild:CreateReportGroup",
         "codebuild:CreateReport",
         "codebuild:UpdateReport",
-        "codebuild:BatchPutTestCases"
+        "codebuild:BatchPutTestCases",
+        "codebuild:BatchPutCodeCoverages"
     ]
 }
 ```

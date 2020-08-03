@@ -14,7 +14,7 @@ Shows how to configure a buildspec file so that a CodeBuild project mounts and b
 [AWS CodeDeploy sample](sample-codedeploy.md)  
 Uses Apache Maven to produce a single JAR file\. Uses CodeDeploy to deploy the JAR file to an Amazon Linux instance\. You can also use CodePipeline to build and deploy the sample\.
 
-[ AWS CodePipeline integration with multiple input sources and output artifacts sample ](sample-pipeline-multi-input-output.md)  
+[ AWS CodePipeline integration with batch builds sample  AWS CodePipeline integration with multiple input sources and output artifacts sample ](sample-pipeline-multi-input-output.md)  
 Shows how to use AWS CodePipeline to create a build with multiple input sources and multiple output artifacts\.
 
 [AWS Config sample](how-to-integrate-config.md)  

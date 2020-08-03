@@ -2,10 +2,12 @@
 
 The following table describes the important changes to the documentation since the last release of AWS CodeBuild\. For notification about updates to this documentation, you can subscribe to an RSS feed\.
 + **Latest API version:** 2016\-10\-06
-+ **Latest documentation update: **July 20, 2020
++ **Latest documentation update: **July 30, 2020
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Code coverage reporting](#history) | CodeBuild now provides code coverage reports\. For more information, see [Code coverage reports](https://docs.aws.amazon.com/codebuild/latest/userguide/code-coverage-report.html)\.  | July 30, 2020 | 
+| [Batch builds](#history) | CodeBuild now supports the execution of concurrent and coordinated builds of a project\. For more information, see [Batch builds in CodeBuild\.](https://docs.aws.amazon.com/codebuild/latest/userguide/batch-build.html)\.  | July 30, 2020 | 
 | [Windows Server 2019 image](#history) | CodeBuild now provides a Windows Server Core 2019 build image\. For more information, see [Docker images provided by CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html)\.  | July 20, 2020 | 
 | [Session Manager](#history) | CodeBuild now allows you to pause a running build and then use AWS Systems Manager Session Manager to connect to the build container and view the state of the container\. For more information, see [Session Manager](https://docs.aws.amazon.com/codebuild/latest/userguide/session-manager.html)\. | July 20, 2020 | 
 | [Updated topic](#history) |  CodeBuild now supports specifying a shell to use in their build environments in the buildspec file\. For more information, see [Build specification reference](https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html)\.  | June 25, 2020 | 

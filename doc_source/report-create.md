@@ -16,4 +16,4 @@
 
 1.  Run a build of the build project\. For more information, see [Run a build in AWS CodeBuild](run-build.md)\. 
 
-1.  When the build is complete, choose the new build run from **Build history** on your project page\. Choose **Reports** to view the test report\. For more information, see [ View test reports for a build ](test-view-reports.md#test-view-project-reports)\.
+1.  When the build is complete, choose the new build run from **Build history** on your project page\. Choose **Reports** to view the test report\. For more information, see [View test reports for a build](test-view-reports.md#test-view-project-reports)\.

@@ -7,6 +7,7 @@ This topic provides important reference information about build specification \(
 + [Buildspec syntax](#build-spec-ref-syntax)
 + [Buildspec example](#build-spec-ref-example)
 + [Buildspec versions](#build-spec-ref-versions)
++ [Batch build buildspec reference](batch-build-buildspec.md)
 
 ## Buildspec file name and storage location<a name="build-spec-ref-name-storage"></a>
 
@@ -59,6 +60,12 @@ proxy:
   upload-artifacts: no | yes
   logs: no | yes
 
+batch:
+  fast-fail: false | true
+  # build-list:
+  # build-matrix:
+  # build-graph:
+        
 phases:
   install:
     run-as: Linux-user-name
@@ -102,7 +109,7 @@ reports:
       - location
     base-directory: location
     discard-paths: no | yes
-    file-format: JunitXml | NunitXml | CucumberJson | VisualStudioTrx | TestNGXml
+    file-format: report-format
 artifacts:
   files:
     - location
@@ -287,12 +294,17 @@ Required sequence\. Represents the locations that contain the raw data of test r
 + `my-subdirectory/**/*` represents all files recursively starting from a subdirectory named *my\-subdirectory*\.
 
 reports/<report\-group>/**file\-format**  <a name="build-spec.reports.file-format"></a>
-Optional mapping\. Represents the test file format\. If not specified, `JunitXml` is used\. The valid values are:  
+Optional mapping\. Represents the test report file format\. If not specified, `JunitXml` is used\. The following test report file formats are supported:  
 + `CucumberJson`
 + `JunitXml`
 + `NunitXml`
 + `TestNGXml`
 + `VisualStudioTrx`
+The following code coverage report formats are supported:  
++ `JaCoCoXml`
++ `SimpleCov`
++ `CloverXml`
++ `CoberturaXml`
 
 reports/<report\-group>/**base\-directory**  <a name="build-spec.reports.base-directory"></a>
 Optional mapping\. Represents one or more top\-level directories, relative to the original build location, that CodeBuild uses to determine where to find the raw test files\.

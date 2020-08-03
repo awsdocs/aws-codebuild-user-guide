@@ -25,11 +25,127 @@ If you add test reporting to a build project, make sure your IAM role has the pe
 
    For more information about settings referred to in this procedure, see [Create a build project \(console\)](create-project-console.md)\.
 
-1. To change information about the source code location, in **Source**, choose **Edit**\. Use the following table to make selections appropriate for your source provider, and then choose **Update source**\.
+1. To change information about the source code location, in **Source**, choose **Edit**\. Use the following lists to make selections appropriate for your source provider, and then choose **Update source**\.
 **Note**  
-CodeBuild does not support Bitbucket Server\.  
-****    
-[\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/codebuild/latest/userguide/change-project.html)
+CodeBuild does not support Bitbucket Server\.
+
+------
+#### [ Amazon S3 ]
+
+ **Bucket**   
+Choose the name of the input bucket that contains the source code\. 
+
+ **S3 object key or S3 folder**   
+Enter the name of the ZIP file or the path to the folder that contains the source code\. Enter a forward slash \(/\) to download everything in the S3 bucket\. 
+
+ **Source version**   
+Enter the version ID of the object that represents the build of your input file\. For more information, see[Source version sample with AWS CodeBuild](sample-source-version.md)\. 
+
+------
+#### [ CodeCommit ]
+
+ **Repository**   
+Choose the repository you want to use\.
+
+**Reference type**  
+Choose **Branch**, **Git tag**, or **Commit ID** to specify the version of your source code\. For more information, see [Source version sample with AWS CodeBuild](sample-source-version.md)\.
+
+ **Git clone depth**   
+Choose to create a shallow clone with a history truncated to the specified number of commits\. If you want a full clone, choose **Full**\. 
+
+ **Use Git submodules**   
+Select if you want to include Git submodules in your repository\. 
+
+------
+#### [ Bitbucket ]
+
+ **Repository**   
+Choose **Connect using OAuth** or **Connect with a Bitbucket app password ** and follow the instructions to connect \(or reconnect\) to Bitbucket\.   
+Choose a public repository or a repository in your account\.
+
+ **Source version**   
+Enter a branch, commit ID, tag, or reference and a commit ID\. For more information, see [Source version sample with AWS CodeBuild](sample-source-version.md) 
+
+ **Git clone depth**   
+Choose **Git clone depth** to create a shallow clone with a history truncated to the specified number of commits\. If you want a full clone, choose **Full**\. 
+
+ **Use Git submodules**   
+Select if you want to include Git submodules in your repository\. 
+
+   Select **Report build statuses to source provider when your builds start and finish ** if you want the status of your build's start and completion reported to your source provider\. 
+
+**Note**  
+The status of a build triggered by a webhook is always reported to your source provider\. 
+
+   Select **Rebuild every time a code change is pushed to this repository ** if you want CodeBuild to build the source code every time a code change is pushed to this repository\. Webhooks are allowed only with your own Bitbucket, GitHub, or GitHub Enterprise repository\. 
+
+   For **Status context**, enter the value to be used for the `name` parameter in the Bitbucket commit status\. For more information, see [build](https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Bworkspace%7D/%7Brepo_slug%7D/commit/%7Bnode%7D/statuses/build) in the Bitbucket API documentation\.
+
+   For **Target URL**, enter the value to be used for the `url` parameter in the Bitbucket commit status\. For more information, see [build](https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Bworkspace%7D/%7Brepo_slug%7D/commit/%7Bnode%7D/statuses/build) in the Bitbucket API documentation\.
+
+   If you chose **Rebuild every time a code change is pushed to this repository**, in **Event type**, choose an event that you want to trigger a build\. You use regular expressions to create a filter\. If no filter is specified, all update and create pull requests, and all push events, trigger a build\. For more information, see [ Filter GitHub webhook events](sample-github-pull-request.md#sample-github-pull-request-filter-webhook-events) and [ Filter Bitbucket webhook events](sample-bitbucket-pull-request.md#sample-bitbucket-pull-request-filter-webhook-events)\. 
+
+------
+#### [ GitHub ]
+
+ **Repository**   
+Choose **Connect using OAuth** or **Connect with a GitHub personal access token ** and follow the instructions to connect \(or reconnect\) to GitHub and authorize access to AWS CodeBuild\.   
+Choose a public repository or a repository in your account\.
+
+ **Source version**   
+Enter a branch, commit ID, tag, or reference and a commit ID\. For more information, see [Source version sample with AWS CodeBuild](sample-source-version.md) 
+
+ **Git clone depth**   
+Choose **Git clone depth** to create a shallow clone with a history truncated to the specified number of commits\. If you want a full clone, choose **Full**\. 
+
+ **Use Git submodules**   
+Select if you want to include Git submodules in your repository\. 
+
+   Select **Report build statuses to source provider when your builds start and finish ** if you want the status of your build's start and completion reported to your source provider\. 
+
+**Note**  
+The status of a build triggered by a webhook is always reported to your source provider\. 
+
+   Select **Rebuild every time a code change is pushed to this repository ** if you want CodeBuild to build the source code every time a code change is pushed to this repository\. Webhooks are allowed only with your own Bitbucket, GitHub, or GitHub Enterprise repository\. 
+
+   For **Status context**, enter the value to be used for the `context` parameter in the GitHub commit status\. For more information, see [Create a commit status](https://developer.github.com/v3/repos/statuses/#create-a-commit-status) in the GitHub developer guide\.
+
+   For **Target URL**, enter the value to be used for the `target_url` parameter in the GitHub commit status\. For more information, see [Create a commit status](https://developer.github.com/v3/repos/statuses/#create-a-commit-status) in the GitHub developer guide\.
+
+   If you chose **Rebuild every time a code change is pushed to this repository**, in **Event type**, choose an event that you want to trigger a build\. You use regular expressions to create a filter\. If no filter is specified, all update and create pull requests, and all push events, trigger a build\. For more information, see [ Filter GitHub webhook events](sample-github-pull-request.md#sample-github-pull-request-filter-webhook-events) and [ Filter Bitbucket webhook events](sample-bitbucket-pull-request.md#sample-bitbucket-pull-request-filter-webhook-events)\. 
+
+------
+#### [ GitHub Enterprise Server ]
+
+ **GitHub Enterprise personal access token**   
+See [GitHub Enterprise Server sample](sample-github-enterprise.md) for information about how to copy a personal access token to your clipboard\. Paste the token in the text field, and then choose **Save Token**\.   
+You only need to enter and save the personal access token once\. CodeBuild uses this token in all future projects\. 
+
+ **Source version**   
+Enter a pull request, branch, commit ID, tag, or reference and a commit ID\. For more information, see [Source version sample with AWS CodeBuild](sample-source-version.md)\. 
+
+ **Git clone depth**   
+Choose **Git clone depth** to create a shallow clone with a history truncated to the specified number of commits\. If you want a full clone, choose **Full**\. 
+
+ **Use Git submodules**   
+Select if you want to include Git submodules in your repository\. 
+
+ **Build status**   
+Select **Report build statuses to source provider when your builds start and finish ** if you want the status of your build's start and completion reported to your source provider\.   
+The status of a build triggered by a webhook is always reported to your source provider\. 
+
+ **Insecure SSL**   
+Choose to ignore SSL warnings while connecting to your GitHub Enterprise project repository\. 
+
+   Select **Rebuild every time a code change is pushed to this repository ** if you want CodeBuild to build the source code every time a code change is pushed to this repository\. Webhooks are allowed only with your own Bitbucket, GitHub, or GitHub Enterprise repository\. 
+
+   For **Status context**, enter the value to be used for the `context` parameter in the GitHub commit status\. For more information, see [Create a commit status](https://developer.github.com/v3/repos/statuses/#create-a-commit-status) in the GitHub developer guide\.
+
+   For **Target URL**, enter the value to be used for the `target_url` parameter in the GitHub commit status\. For more information, see [Create a commit status](https://developer.github.com/v3/repos/statuses/#create-a-commit-status) in the GitHub developer guide\.
+
+   If you chose **Rebuild every time a code change is pushed to this repository**, in **Event type**, choose an event that you want to trigger a build\. You use regular expressions to create a filter\. If no filter is specified, all update and create pull requests, and all push events, trigger a build\. For more information, see [ Filter GitHub webhook events](sample-github-pull-request.md#sample-github-pull-request-filter-webhook-events) and [ Filter Bitbucket webhook events](sample-bitbucket-pull-request.md#sample-bitbucket-pull-request-filter-webhook-events)\. 
+
+------
 
    To change whether CodeBuild can modify the service role you use for this project, select or clear **Allow AWS CodeBuild to modify this service role so it can be used with this build project**\. If you clear it, you must use a service role with CodeBuild permissions attached to it\. For more information, see [Add CodeBuild access permissions to an IAM group or IAM user](setting-up.md#setting-up-service-permissions-group) and [Create a CodeBuild service role](setting-up.md#setting-up-service-role)\. 
 
@@ -90,6 +206,25 @@ If you choose **New service role**, the service role includes permission to decr
 
 1. Choose **Update buildspec**\.
 
+1. To change information about the batch build configuration, in **Batch configuration**, choose **Edit** and update the folowing values as needed\.  
+**Batch service role**  
+Choose one of the following:  
+   + If you do not have a batch service role, choose **New service role**\. In **Service role**, enter a name for the new role\.
+   + If you have a batch service role, choose **Existing service role**\. In **Service role**, choose the service role\.
+Batch builds introduce a new security role in the batch configuration\. This new role is required as CodeBuild must be able to call the `StartBuild`, `StopBuild`, and `RetryBuild` actions on your behalf to run builds as part of a batch\. Customers should use a new role, and not the same role they use in their build, for two reasons:  
+   + Giving the build role `StartBuild`, `StopBuild`, and `RetryBuild` permissions would allow a single build to start more builds via the buildspec\.
+   + CodeBuild batch builds provide restrictions that restrict the number of builds and compute types that can be used for the builds in the batch\. If the build role has these permissions, it is possible the builds themselves could bypass these restrictions\.  
+**Allowed compute type\(s\) for batch**  
+Select the compute types allowed for the batch\. Select all that apply\.  
+**Maximum builds allowed in batch**  
+Enter the maximum number of builds allowed in the batch\. If a batch exceeds this limit, the batch will fail\.  
+**Batch timeout**  
+Enter the maximum amount of time for the batch build to complete\.  
+**Combine artifacts**  
+Select **Combine all artifacts from batch into a single location** to have all of the artifacts from the batch combined into a single location\.
+
+1. Choose **Update batch configuration**\.
+
 1. To change information about the build output artifact location and name, in **Artifacts**, choose **Edit**, and then change the values for **Type**, **Name**, **Path**, **Namespace type**, or **Bucket name**\. 
 
 1. To change information about the AWS KMS customer managed key \(CMK\), in **Additional configuration**, change the value for **Encryption key**\.
@@ -125,17 +260,15 @@ Do not append a forward slash \(/\) to the end of **Path prefix**\.
 
 For information about using the AWS CLI with AWS CodeBuild, see the [Command line reference](cmd-ref.md)\.
 
-1. Run the `update-project` command as follows:
+1. Create a skeleton JSON file with the [https://docs.aws.amazon.com/cli/latest/reference/codebuild/update-project.html](https://docs.aws.amazon.com/cli/latest/reference/codebuild/update-project.html) command, using the `--generate-cli-skeleton` option:
 
    ```
-   aws codebuild update-project --generate-cli-skeleton
+   aws codebuild update-project --generate-cli-skeleton > <json-file>
    ```
 
-   JSON\-formatted data appears in the output\. Copy the data to a file \(for example, `update-project.json`\) in a location on the local computer or instance where the AWS CLI is installed\. Then modify the copied data as described in [Create a build project \(AWS CLI\)](create-project-cli.md), and save your results\.
-**Note**  
-In the JSON\-formatted data, you must provide the name of the build project\. All other settings are optional\. You cannot change the build project's name, but you can change any of its other settings\.
+   This creates a JSON file with the path and file name specified by *<json\-file>*\. Modify the JSON data as described in [Create a build project \(AWS CLI\)](create-project-cli.md), and save your results\.
 
-1. Switch to the directory that contains the file you just saved, and run the update\-project command again\.
+1. Switch to the directory that contains the file you just saved, and run the [https://docs.aws.amazon.com/cli/latest/reference/codebuild/update-project.html](https://docs.aws.amazon.com/cli/latest/reference/codebuild/update-project.html) command again\.
 
    ```
    aws codebuild update-project --cli-input-json file://update-project.json

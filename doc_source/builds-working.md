@@ -19,5 +19,7 @@ You can perform these tasks when working with builds:
 + [View a list of build IDs in AWS CodeBuild](view-build-list.md)
 + [View a list of build IDs for a build project in AWS CodeBuild](view-builds-for-project.md)
 + [Stop a build in AWS CodeBuild](stop-build.md)
++ [Stop a batch build in AWS CodeBuild](stop-batch-build.md)
++ [Retry a build in AWS CodeBuild](retry-build.md)
 + [View a running build in Session Manager](session-manager.md)
 + [Delete builds in AWS CodeBuild](delete-builds.md)

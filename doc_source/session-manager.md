@@ -34,7 +34,54 @@ To allow Session Manager to be used with the build session, you must enable sess
   }
   ```
 
-  The CodeBuild console will automatically attach this policy to your service role when you enable session connection for the build\. Alternatively, you can attach this policy to your service role manually\.
+  You can have the CodeBuild console automatically attach this policy to your service role when you start the build\. Alternatively, you can attach this policy to your service role manually\.
++ If you have **Auditing and logging session activity** enabled in Systems Manager preferences, the CodeBuild service role must also have additional permissions\. The permissions are different, depending on where the logs are stored\.  
+CloudWatch Logs  
+If using CloudWatch Logs to store your logs, add the following permission to the CodeBuild service role:  
+
+  ```
+  {
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Effect": "Allow",
+        "Action": "logs:DescribeLogGroups",
+        "Resource": "arn:aws:logs:<region-id>:<account-id>:log-group:*:*"
+      },
+      {
+        "Effect": "Allow",
+        "Action": [
+          "logs:CreateLogStream",
+          "logs:PutLogEvents"
+        ],
+        "Resource": "arn:aws:logs:<region-id>:<account-id>:log-group:<log-group-name>:*"
+      }
+    ]
+  }
+  ```  
+Amazon S3  
+If using Amazon S3 to store your logs, add the following permission to the CodeBuild service role:  
+
+  ```
+  {
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Effect": "Allow",
+        "Action": [
+          "s3:GetEncryptionConfiguration",
+          "s3:PutObject"
+        ],
+        "Resource": [
+          "arn:aws:s3:::<bucket-name>",
+          "arn:aws:s3:::<bucket-name>/*"
+        ]
+      }
+    ]
+  }
+  ```
+
+  For more information, see [Auditing and logging session activity](https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-logging-auditing.html) in the *AWS Systems Manager User Guide*\.
 
 ## Pause the build<a name="ssm-pause-build"></a>
 
@@ -64,6 +111,8 @@ To allow Session Manager to be used with the build session, you must enable sess
 1. Choose **Advanced build overrides**\.
 
 1. In the **Environment** section, choose the **Enable session connection** option\. If this option is not selected, all of the codebuild\-breakpoint and codebuild\-resume commands are ignored\.
+
+1. In the **Environment** section, choose the **Allow AWS CodeBuild to modify this service role so it can be used with this build project** option to allow the CodeBuild console to automatically attach the session manager policy to your service role\. If you have already added the session manager policy to your role, you do not need to select this option\.
 
 1. Make any other desired changes, and choose **Start build**\. 
 
