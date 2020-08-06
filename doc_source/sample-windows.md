@@ -14,7 +14,7 @@ Running these samples might result in charges to your AWS account\. These includ
 Do not upload `(root directory name)`, just the files inside of `(root directory name)`\.  
 If you are using an S3 input bucket, be sure to create a ZIP file that contains the files, and then upload it to the input bucket\. Do not add `(root directory name)` to the ZIP file, just the files inside of `(root directory name)`\.
 
-1. Create a build project, run the build, and follow the steps in [Run AWS CodeBuild directly](how-to-run.md)\.
+1. Create a build project, run the build, and follow the steps in [Run CodeBuild directly](how-to-run.md)\.
 
    If you use the AWS CLI to create the build project, the JSON\-formatted input to the `create-project` command might look similar to this\. \(Replace the placeholders with your own values\.\)
 

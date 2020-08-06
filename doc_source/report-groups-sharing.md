@@ -70,7 +70,7 @@ Use the [create\-resource\-share](https://docs.aws.amazon.com/cli/latest/referen
 
 Use the [put\-resource\-policy](https://docs.aws.amazon.com/cli/latest/reference/codebuild/put-resource-policy.html) command:
 
-1.  Create a file named `policy.json` and copy the following into it\. 
+1. Create a file named `policy.json` and copy the following into it\. 
 
    ```
    {
@@ -83,7 +83,7 @@ Use the [put\-resource\-policy](https://docs.aws.amazon.com/cli/latest/reference
         "Action":[
           "codebuild:BatchGetReportGroups",
           "codebuild:BatchGetReports",
-          "codebuild:ListBuildsForProject",
+          "codebuild:ListReportsForReportGroup",
           "codebuild:DescribeTestCases"],
         "Resource":"arn-of-report-group-to-share"
       }]
@@ -106,14 +106,14 @@ Use the [put\-resource\-policy](https://docs.aws.amazon.com/cli/latest/reference
         "Action":[
           "codebuild:BatchGetReportGroups",
           "codebuild:BatchGetReports",
-          "codebuild:ListBuildsForProject",
+          "codebuild:ListReportsForReportGroup",
           "codebuild:DescribeTestCases"],
         "Resource":"arn:aws:codebuild:us-west-2:123456789012:report-group/my-report-group"
       }]
     }
    ```
 
-1.  Run the following command\. 
+1. Run the following command\. 
 
    ```
    aws codebuild put-resource-policy --resource-arn report-group-arn --policy file://policy.json

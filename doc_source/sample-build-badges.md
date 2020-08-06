@@ -60,7 +60,7 @@ You can use AWS CodeBuild console or the AWS CLI to access build badges\.
 + In the AWS CLI, run the `batch-get-projects` command\. The build badge URL is included in the project environment details section of the output\. For more information, see [View a build project's details \(AWS CLI\)](view-project-details.md#view-project-details-cli)\.
 
 **Important**  
-The build badge request URL is for the master branch, but you can specify any branch in your source repository that you have used to run a build\.
+The build badge request URL is for the default branch, but you can specify any branch in your source repository that you have used to run a build\.
 
 ## Publish your CodeBuild build badges<a name="publish-badges"></a>
 
@@ -69,7 +69,7 @@ You can include your build badge request URL in a markdown file in your preferre
 Sample markdown code:
 
 ```
-![Build Status](https://codebuild.us-east-1.amazon.com/badges?uuid=...&branch=master)
+![Build Status](https://codebuild.us-east-1.amazon.com/badges?uuid=...&branch=main)
 ```
 
 ## CodeBuild badge statuses<a name="badge-statuses"></a>

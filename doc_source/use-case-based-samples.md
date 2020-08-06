@@ -23,9 +23,6 @@ Shows how to set up AWS Config\. Lists which CodeBuild resources are tracked and
 [AWS Elastic Beanstalk sample](sample-elastic-beanstalk.md)  
 Uses Apache Maven to produce a single WAR file\. Uses Elastic Beanstalk to deploy the WAR file to an Elastic Beanstalk instance\.
 
-[AWS Lambda sample](sample-lambda.md)  
-Uses CodeBuild, Lambda, AWS CloudFormation, and CodePipeline to build and deploy a serverless application that follows the AWS Serverless Application Model \(AWS SAM\) standard\.
-
 [Bitbucket pull request and webhook filter sample](sample-bitbucket-pull-request.md)  
 Uses CodeBuild with Bitbucket as the source repository and webhooks enabled, to rebuild the source code every time a code change is pushed to the repository\.
 

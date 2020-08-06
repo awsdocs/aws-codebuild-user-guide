@@ -112,7 +112,7 @@ In this example, a webhook filter group triggers a build for pull requests only:
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/pull-request-webhook-filter-bitbucket.png)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)
 
 Using an example of two filter groups, a build is triggered when one or both evaluate to true:
-+ The first filter group specifies pull requests that are created or updated on branches with Git reference names that match the regular expression `^refs/heads/master$` and head references that match `^refs/heads/branch1!`\. 
++ The first filter group specifies pull requests that are created or updated on branches with Git reference names that match the regular expression `^refs/heads/main$` and head references that match `^refs/heads/branch1!`\. 
 + The second filter group specifies push requests on branches with Git reference names that match the regular expression `^refs/heads/branch1$`\. 
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/pull-request-webhook-filter-head-base-regexes-bitbucket.png)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)
@@ -154,7 +154,7 @@ In this example, a webhook filter group triggers a build for a push event when t
 ```
 
  To create a webhook filter that triggers a build for specified branches only, use the `pattern` parameter to specify a regular expression to filter branch names\. Using an example of two filter groups, a build is triggered when one or both evaluate to true:
-+ The first filter group specifies pull requests that are created or updated on branches with Git reference names that match the regular expression `^refs/heads/master$` and head references that match `^refs/heads/myBranch$`\. 
++ The first filter group specifies pull requests that are created or updated on branches with Git reference names that match the regular expression `^refs/heads/main$` and head references that match `^refs/heads/myBranch$`\. 
 + The second filter group specifies push requests on branches with Git reference names that match the regular expression `^refs/heads/myBranch$`\. 
 
 ```
@@ -170,7 +170,7 @@ In this example, a webhook filter group triggers a build for a push event when t
     },
     {
       "type": "BASE_REF",
-      "pattern": "^refs/heads/master$"
+      "pattern": "^refs/heads/main$"
     }
   ],
   [
@@ -261,7 +261,7 @@ You can create a filter that triggers a build only when the head commit message 
 ### Filter Bitbucket webhook events \(AWS CloudFormation\)<a name="sample-bitbucket-pull-request-filter-webhook-events-cfn"></a>
 
  To use an AWS CloudFormation template to filter webhook events, use the AWS CodeBuild project's `FilterGroups` property\. The following YAML\-formatted portion of an AWS CloudFormation template creates two filter groups\. Together, they trigger a build when one or both evaluate to true: 
-+  The first filter group specifies pull requests are created or updated on branches with Git reference names that match the regular expression `^refs/heads/master$` by a Bitbucket user who does not have account ID `12345`\. 
++  The first filter group specifies pull requests are created or updated on branches with Git reference names that match the regular expression `^refs/heads/main$` by a Bitbucket user who does not have account ID `12345`\. 
 +  The second filter group specifies push requests are created on branches with Git reference names that match the regular expression `^refs/heads/.*`\. 
 + The third filter group specifies a push request with a head commit message matching the regular expression `\[CodeBuild\]`\.
 
@@ -286,7 +286,7 @@ CodeBuildProject:
         - - Type: EVENT
             Pattern: PULL_REQUEST_CREATED,PULL_REQUEST_UPDATED
           - Type: BASE_REF
-            Pattern: ^refs/heads/master$
+            Pattern: ^refs/heads/main$
             ExcludeMatchedPattern: false
           - Type: ACTOR_ACCOUNT_ID
             Pattern: 12345

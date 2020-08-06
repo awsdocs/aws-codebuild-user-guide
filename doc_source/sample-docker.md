@@ -78,7 +78,7 @@ The IAM entity that modifies this policy must have permission in IAM to modify p
 Do not upload `(root directory name)`, just the files inside of `(root directory name)`\.   
 If you are using an S3 input bucket, be sure to create a ZIP file that contains the files, and then upload it to the input bucket\. Do not add `(root directory name)` to the ZIP file, just the files inside of `(root directory name)`\.
 
-1. Follow the steps in [Run AWS CodeBuild directly](how-to-run.md) to create a build project, run the build, and view build information\.
+1. Follow the steps in [Run CodeBuild directly](how-to-run.md) to create a build project, run the build, and view build information\.
 
     If you use the console to create your project:
 
@@ -300,7 +300,7 @@ If you are using an S3 input bucket, be sure to create a ZIP file that contains 
    ...
    ```
 
-1. Follow the steps in [Run AWS CodeBuild directly](how-to-run.md) to create a build environment, run the build, and view related build information\.
+1. Follow the steps in [Run CodeBuild directly](how-to-run.md) to create a build environment, run the build, and view related build information\.
 
 1. Confirm that AWS CodeBuild successfully pushed the Docker image to the repository\. Sign in to Docker Hub, go to the repository, and choose the **Tags** tab\. The `latest` tag should contain a very recent **Last Updated** value\.
 

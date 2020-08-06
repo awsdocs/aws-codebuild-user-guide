@@ -1,4 +1,4 @@
-# Use CodePipeline with AWS CodeBuild to test code and run builds<a name="how-to-create-pipeline"></a>
+# Use AWS CodePipeline with AWS CodeBuild to test code and run builds<a name="how-to-create-pipeline"></a>
 
 You can automate your release process by using AWS CodePipeline to test your code and run your builds with AWS CodeBuild\.
 

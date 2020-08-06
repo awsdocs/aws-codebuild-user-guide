@@ -162,7 +162,7 @@ Do not add `(root directory name)` or `(root directory name)/my-app` to the ZIP 
 
    To deploy with CodeDeploy, see [Deploying a revision with CodeDeploy](https://docs.aws.amazon.com/codedeploy/latest/userguide/how-to-deploy-revision.html) in the *AWS CodeDeploy User Guide*\.
 
-   To deploy with CodePipeline, see [Use AWS CodePipeline with AWS CodeBuild](how-to-create-pipeline.md)\.
+   To deploy with CodePipeline, see [Use CodePipeline with CodeBuild](how-to-create-pipeline.md)\.
 
 1. To find the build output artifact after the deployment is complete, sign in to the instance and look in the `/tmp` directory for the file named `my-app-1.0-SNAPSHOT.jar`\.
 

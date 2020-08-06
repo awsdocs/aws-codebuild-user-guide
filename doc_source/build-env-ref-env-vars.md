@@ -84,7 +84,7 @@ HOME
 This environment variable is always set to `/root`\.
 
 You can also provide build environments with your own environment variables\. For more information, see the following topics:
-+ [Use AWS CodePipeline with AWS CodeBuild](how-to-create-pipeline.md)
++ [Use CodePipeline with CodeBuild](how-to-create-pipeline.md)
 + [Create a build project](create-project.md)
 + [Change a build project's settings](change-project.md)
 + [Run a build](run-build.md)

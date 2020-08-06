@@ -17,5 +17,5 @@ Before you use AWS CodeBuild, you must answer these questions:
 1. **Do you want CodeBuild to work with your VPC?** If so, you need the VPC ID, the subnet IDs, and security group IDs for your VPC configuration\. For more information, see [Use AWS CodeBuild with Amazon Virtual Private Cloud](vpc-support.md)\.
 
 After you have answered these questions, you should have the settings and resources you need to run a build successfully\. To run your build, you can:
-+ Use the AWS CodeBuild console, AWS CLI, or AWS SDKs\. For more information, see [Run AWS CodeBuild directly](how-to-run.md)\.
-+ Create or identify a pipeline in AWS CodePipeline, and then add a build or test action that instructs CodeBuild to automatically test your code, run your build, or both\. For more information, see [Use AWS CodePipeline with AWS CodeBuild](how-to-create-pipeline.md)\.
++ Use the AWS CodeBuild console, AWS CLI, or AWS SDKs\. For more information, see [Run CodeBuild directly](how-to-run.md)\.
++ Create or identify a pipeline in AWS CodePipeline, and then add a build or test action that instructs CodeBuild to automatically test your code, run your build, or both\. For more information, see [Use CodePipeline with CodeBuild](how-to-create-pipeline.md)\.

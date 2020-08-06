@@ -17,7 +17,7 @@
 
  If you use a reference and a commit ID to specify a version, the `DOWNLOAD_SOURCE` phase of your build is faster than if you provide the version only\. This is because when you add a reference, CodeBuild does not need to download the entire repository to find the commit\. 
 + You can specify a source version with only a commit ID, such as `12345678901234567890123467890123456789`\. If you do this, CodeBuild must download the entire repository to find the version\.
-+ You can specify a source version with a reference and a commit ID in this format: `refs/heads/branchname^{full-commit-SHA}` \(for example, `refs/heads/master^{12345678901234567890123467890123456789}`\)\. If you do this, CodeBuild downloads only the specified branch to find the version\. \.
++ You can specify a source version with a reference and a commit ID in this format: `refs/heads/branchname^{full-commit-SHA}` \(for example, `refs/heads/main^{12345678901234567890123467890123456789}`\)\. If you do this, CodeBuild downloads only the specified branch to find the version\. \.
 
 **Note**  
 To speed up the `DOWNLOAD_SOURCE` phase of your build, you can also to set **Git clone depth** to a low number\. CodeBuild downloads fewer versions of your repository\.
@@ -81,7 +81,7 @@ To speed up the `DOWNLOAD_SOURCE` phase of your build, you can also to set **Git
 
 1.  Choose **Start build**\. 
 
-1.  In **Source version**, enter **refs/heads/master^\{046e8b67481d53bdc86c3f6affdd5d1afae6d369\}**\. This is the same commit ID and a reference to a branch in the format `refs/heads/branchname^{full-commit-SHA}`\. 
+1.  In **Source version**, enter **refs/heads/main^\{046e8b67481d53bdc86c3f6affdd5d1afae6d369\}**\. This is the same commit ID and a reference to a branch in the format `refs/heads/branchname^{full-commit-SHA}`\. 
 
 1.  Choose **Start build**\. 
 

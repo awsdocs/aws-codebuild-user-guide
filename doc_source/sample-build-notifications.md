@@ -252,7 +252,7 @@ If you want to trigger events for both build state changes and build phase chang
 
 1. Choose **Create rule**\. 
 
-1. Create build projects, run the builds, and view build information by following the steps in [Run AWS CodeBuild directly](how-to-run.md)\.
+1. Create build projects, run the builds, and view build information by following the steps in [Run CodeBuild directly](how-to-run.md)\.
 
 1. Confirm that CodeBuild is now successfully sending build notifications\. For example, check to see if the build notification emails are now in your inbox\.
 

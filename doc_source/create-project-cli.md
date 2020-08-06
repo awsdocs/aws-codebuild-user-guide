@@ -67,13 +67,13 @@ Modify the JSON data as follows and save your results\.
       "status": "cloudwatch-logs-status",
       "groupName": "group-name",
       "streamName": "stream-name"      
-    }
+    },
     "s3Logs": {
       "status": "s3-logs-status",
       "location": "s3-logs-location",
       "encryptionDisabled": "s3-logs-encryptionDisabled"
     }
-  }
+  },
   "secondaryArtifacts": [
     {
         "type": "artifacts-type",
@@ -84,8 +84,7 @@ Modify the JSON data as follows and save your results\.
         "packaging": "packaging",
         "artifactIdentifier": "artifact-identifier"
     }
-  ]
-  ,
+  ],
   "secondarySources": [
     {
         "type": "source-type",
