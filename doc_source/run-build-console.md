@@ -19,18 +19,17 @@ To use AWS CodePipeline to run a build with CodeBuild, skip these steps and foll
 
    Here you can change settings for this build only\. The settings in this section are optional\. 
 
-   Under **Build configuration**, you can select to run this build as a single build, or a batch build\.   
+   Under **Build configuration**, choose from the following:\.   
 **Single build**  
 Choose this to perform a single build\.  
 **Batch build**  
 Choose this to perform a batch build\.
 
-   Under **Batch configuration**, you set the batch build configuration overrides for this build\. 
+   Under **Batch configuration**, set the batch build configuration overrides for this build\. 
 **Note**  
 This section is only displayed when **Batch build** is selected in **Build configuration**\.  
 **Service role**  
-Provides the service role for batch builds\.   
-Choose one of the following:  
+Provides the service role for batch builds\. Choose one of the following:  
    + If you do not have a batch service role, choose **New service role**\. In **Service role**, enter a name for the new role\.
    + If you have a batch service role, choose **Existing service role**\. In **Service role**, choose the service role\.
 To change whether CodeBuild can modify the batch service role you use for this build, select or clear **Allow AWS CodeBuild to modify this service role so it can be used with this build project**\. If you clear it, you must use a service role with CodeBuild permissions attached to it\. For more information, see [Add CodeBuild access permissions to an IAM group or IAM user](setting-up.md#setting-up-service-permissions-group) and [Create a CodeBuild service role](setting-up.md#setting-up-service-role)\.   
