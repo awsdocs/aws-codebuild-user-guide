@@ -127,9 +127,9 @@ This is not the source bucket for your pipeline's source code\. This is the arti
 
 1. If you already have a build project you want to use, for **Project name**, choose the name of the build project and skip ahead to step 22 in this procedure\. Otherwise, use the following steps to create a project in CodeBuild\.
 
-   If you choose an existing build project, it must have build output artifact settings already defined \(even though CodePipeline overrides them\)\. For more information, see [Create a build project \(console\)](create-project-console.md) or [Change a build project's settings \(console\)](change-project.md#change-project-console)\.
+   If you choose an existing build project, it must have build output artifact settings already defined \(even though CodePipeline overrides them\)\. For more information, see [Create a build project \(console\)](create-project-console.md) or [Change a build project's settings \(console\)](change-project-console.md)\.
 **Important**  
-If you enable webhooks for a CodeBuild project, and the project is used as a build step in CodePipeline, then two identical builds are created for each commit\. One build is triggered through webhooks, and one through CodePipeline\. Because billing is on a per\-build basis, you are billed for both builds\. Therefore, if you are using CodePipeline, we recommend that you disable webhooks in CodeBuild\. In the AWS CodeBuild console, clear the **Webhook** box\. For more information, see [Change a build project's settings \(console\)](change-project.md#change-project-console)\.
+If you enable webhooks for a CodeBuild project, and the project is used as a build step in CodePipeline, then two identical builds are created for each commit\. One build is triggered through webhooks, and one through CodePipeline\. Because billing is on a per\-build basis, you are billed for both builds\. Therefore, if you are using CodePipeline, we recommend that you disable webhooks in CodeBuild\. In the AWS CodeBuild console, clear the **Webhook** box\. For more information, see [Change a build project's settings \(console\)](change-project-console.md)\.
 
 1. On the **Step 4: Add deploy stage** page, do one of the following:
    + If you do not want to deploy the build output artifact, choose **Skip**, and confirm this choice when prompted\. 
@@ -371,9 +371,9 @@ This procedure shows you how to add the build action inside of a build stage\. T
 
 1. If you already have a build project in CodeBuild, for **Project name**, choose the name of the build project, and then skip to step 22 of this procedure\.
 
-   If you choose an existing build project, it must have build output artifact settings already defined \(even though CodePipeline overrides them\)\. For more information, see the description of **Artifacts** in [Create a build project \(console\)](create-project-console.md) or [Change a build project's settings \(console\)](change-project.md#change-project-console)\.
+   If you choose an existing build project, it must have build output artifact settings already defined \(even though CodePipeline overrides them\)\. For more information, see the description of **Artifacts** in [Create a build project \(console\)](create-project-console.md) or [Change a build project's settings \(console\)](change-project-console.md)\.
 **Important**  
-If you enable webhooks for a CodeBuild project, and the project is used as a build step in CodePipeline, then two identical builds are created for each commit\. One build is triggered through webhooks and one through CodePipeline\. Because billing is on a per\-build basis, you are billed for both builds\. Therefore, if you are using CodePipeline, we recommend that you disable webhooks in CodeBuild\. In the CodeBuild console, clear the **Webhook** box\. For more information, see [Change a build project's settings \(console\)](change-project.md#change-project-console)
+If you enable webhooks for a CodeBuild project, and the project is used as a build step in CodePipeline, then two identical builds are created for each commit\. One build is triggered through webhooks and one through CodePipeline\. Because billing is on a per\-build basis, you are billed for both builds\. Therefore, if you are using CodePipeline, we recommend that you disable webhooks in CodeBuild\. In the CodeBuild console, clear the **Webhook** box\. For more information, see [Change a build project's settings \(console\)](change-project-console.md)
 
 1. Open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codesuite/codebuild/home](https://console.aws.amazon.com/codesuite/codebuild/home)\.
 
@@ -511,7 +511,7 @@ This procedure shows you how to add the test action in a test stage\. To add the
 
 1. If you already have a build project in CodeBuild, for **Project name**, choose the name of the build project, and then skip to step 22 of this procedure\.
 **Important**  
-If you enable webhooks for a CodeBuild project, and the project is used as a build step in CodePipeline, then two identical builds are created for each commit\. One build is triggered through webhooks and one through CodePipeline\. Because billing is on a per\-build basis, you are billed for both builds\. Therefore, if you are using CodePipeline, we recommend that you disable webhooks in CodeBuild\. In the CodeBuild console, clear the **Webhook**box\. For more information, see [Change a build project's settings \(console\)](change-project.md#change-project-console)
+If you enable webhooks for a CodeBuild project, and the project is used as a build step in CodePipeline, then two identical builds are created for each commit\. One build is triggered through webhooks and one through CodePipeline\. Because billing is on a per\-build basis, you are billed for both builds\. Therefore, if you are using CodePipeline, we recommend that you disable webhooks in CodeBuild\. In the CodeBuild console, clear the **Webhook**box\. For more information, see [Change a build project's settings \(console\)](change-project-console.md)
 
 1. Open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codesuite/codebuild/home](https://console.aws.amazon.com/codesuite/codebuild/home)\.
 

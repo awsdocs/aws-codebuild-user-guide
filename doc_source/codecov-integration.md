@@ -15,7 +15,7 @@ Codecov is a tool that measures the test coverage of your code\. Codecov identif
 1.  When token information is displayed, choose **Copy**\.   
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/codecov-token.png)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)
 
-1.  Add the copied token as an environment variable named `CODECOV_TOKEN` to your build project\. For more information, see [Change a build project's settings \(console\)](change-project.md#change-project-console)\. 
+1.  Add the copied token as an environment variable named `CODECOV_TOKEN` to your build project\. For more information, see [Change a build project's settings \(console\)](change-project-console.md)\. 
 
 1.  Create a text file named `my_script.sh` in your repository\. Enter the following into the file: 
 

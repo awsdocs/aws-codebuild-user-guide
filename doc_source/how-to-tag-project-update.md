@@ -25,4 +25,4 @@ You can use the CodeBuild console to edit the tags associated with a CodeBuild p
 
 ## Edit tags for a project \(AWS CLI\)<a name="how-to-tag-project-update-cli"></a>
 
- To add, change, or delete tags from a build project, see [Change a build project's settings \(AWS CLI\)](change-project.md#change-project-cli)\. Update the `tags` section in the JSON\-formatted data you use to update the project\. 
+ To add, change, or delete tags from a build project, see [Change a build project's settings \(AWS CLI\)](change-project-cli.md)\. Update the `tags` section in the JSON\-formatted data you use to update the project\. 

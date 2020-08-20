@@ -221,7 +221,7 @@ You need an AWS CodeBuild service role so that CodeBuild can interact with depen
 + [Create a build project \(console\)](create-project-console.md)
 + [Create a pipeline that uses CodeBuild \(CodePipeline console\)](how-to-create-pipeline.md#how-to-create-pipeline-console)
 + [Add a CodeBuild build action to a pipeline \(CodePipeline console\)](how-to-create-pipeline.md#how-to-create-pipeline-add)
-+ [Change a build project's settings \(console\)](change-project.md#change-project-console)
++ [Change a build project's settings \(console\)](change-project-console.md)
 
 If you do not plan to use these consoles, this section describes how to create a CodeBuild service role with the IAM console or the AWS CLI\. 
 

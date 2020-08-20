@@ -32,4 +32,4 @@ CodeBuild commands include:
 + `list-projects`: Gets a list of build project names\. For more information, see [View a list of build project names \(AWS CLI\)](view-project-list.md#view-project-list-cli)\.
 + `start-build`: Starts running a build\. For more information, see [Run a build \(AWS CLI\)](run-build-cli.md)\.
 + `stop-build`: Attempts to stop the specified build from running\. For more information, see [Stop a build \(AWS CLI\)](stop-build.md#stop-build-cli)\.
-+ `update-project`: Changes information about the specified build project\. For more information, see [Change a build project's settings \(AWS CLI\)](change-project.md#change-project-cli)\.
++ `update-project`: Changes information about the specified build project\. For more information, see [Change a build project's settings \(AWS CLI\)](change-project-cli.md)\.
