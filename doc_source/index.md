@@ -93,6 +93,8 @@ Amazon's trademarks and trade dress may not be used in
       + [Build caching in AWS CodeBuild](build-caching.md)
       + [Create AWS CodeBuild triggers](trigger-create.md)
       + [Edit AWS CodeBuild triggers](triggers-edit.md)
+      + [Bitbucket webhook events](bitbucket-webhook.md)
+      + [GitHub webhook events](github-webhook.md)
       + [Change a build project's settings in AWS CodeBuild](change-project.md)
          + [Change a build project's settings (console)](change-project-console.md)
          + [Change a build project's settings (AWS CLI)](change-project-cli.md)

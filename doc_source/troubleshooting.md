@@ -9,7 +9,6 @@ Use the information in this topic to help you identify, diagnose, and address is
 + [Builds might fail when getting parameters from Amazon EC2 Parameter Store](#troubleshooting-parameter-store)
 + [Cannot access branch filter in the CodeBuild console](#troubleshooting-webhook-filter)
 + [Cannot view build success or failure](#no-status-when-build-triggered)
-+ [Cannot view build success or failure](#no-status-when-build-triggered)
 + [Cannot find and select the base image of the Windows Server Core 2016 platform](#windows-image-not-available)
 + [Earlier commands in buildspec files are not recognized by later commands](#troubleshooting-build-spec-commands)
 + [Error: "Access denied" when attempting to download cache](#troubleshooting-dependency-caching)
@@ -163,15 +162,7 @@ pre_build:
 
  **Possible cause:** The branch filter option is deprecated\. It has been replaced by webhook filter groups, which provide more control over the webhook events that trigger a new build in CodeBuild\. 
 
-**Recommended solution:** To migrate a branch filter that you created before the introduction of webhook filters, create a webhook filter group with a `HEAD_REF` filter with the regular expression `^refs/heads/branchName$`\. For example, if your branch filter regular expression was `^branchName$`, then the updated regular expression you put in the `HEAD_REF` filter is `^refs/heads/branchName$`\. For more information, see [Filter Bitbucket webhook events \(console\)](sample-bitbucket-pull-request.md#sample-bitbucket-pull-request-filter-webhook-events-console) and [Filter GitHub webhook events \(console\)](sample-github-pull-request.md#sample-github-pull-request-filter-webhook-events-console)\. 
-
-## Cannot view build success or failure<a name="no-status-when-build-triggered"></a>
-
-**Issue:** You cannot see the success or failure of a retried build\.
-
-**Possible cause:** The option to report your build's status is not enabled\. 
-
-**Recommended solutions:** Enable **Report build status** when you create or update a CodeBuild project\. This option tells CodeBuild to report back the status when you trigger a build\. For more information, see [reportBuildStatus](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSource.html#CodeBuild-Type-ProjectSource-reportBuildStatus)\. 
+**Recommended solution:** To migrate a branch filter that you created before the introduction of webhook filters, create a webhook filter group with a `HEAD_REF` filter with the regular expression `^refs/heads/branchName$`\. For example, if your branch filter regular expression was `^branchName$`, then the updated regular expression you put in the `HEAD_REF` filter is `^refs/heads/branchName$`\. For more information, see [Bitbucket webhook events](bitbucket-webhook.md) and [Filter GitHub webhook events \(console\)](github-webhook.md#github-webhook-events-console)\. 
 
 ## Cannot view build success or failure<a name="no-status-when-build-triggered"></a>
 

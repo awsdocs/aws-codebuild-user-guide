@@ -72,7 +72,7 @@ The status of a build triggered by a webhook is always reported to your source p
 
    For **Target URL**, enter the value to be used for the `url` parameter in the Bitbucket commit status\. For more information, see [build](https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Bworkspace%7D/%7Brepo_slug%7D/commit/%7Bnode%7D/statuses/build) in the Bitbucket API documentation\.
 
-   If you chose **Rebuild every time a code change is pushed to this repository**, in **Event type**, choose an event that you want to trigger a build\. You use regular expressions to create a filter\. If no filter is specified, all update and create pull requests, and all push events, trigger a build\. For more information, see [ Filter GitHub webhook events](sample-github-pull-request.md#sample-github-pull-request-filter-webhook-events) and [ Filter Bitbucket webhook events](sample-bitbucket-pull-request.md#sample-bitbucket-pull-request-filter-webhook-events)\. 
+   If you chose **Rebuild every time a code change is pushed to this repository**, in **Event type**, choose an event that you want to trigger a build\. You use regular expressions to create a filter\. If no filter is specified, all update and create pull requests, and all push events, trigger a build\. For more information, see [GitHub webhook events](github-webhook.md) and [Bitbucket webhook events](bitbucket-webhook.md)\. 
 
 ------
 #### [ GitHub ]
@@ -101,7 +101,7 @@ The status of a build triggered by a webhook is always reported to your source p
 
    For **Target URL**, enter the value to be used for the `target_url` parameter in the GitHub commit status\. For more information, see [Create a commit status](https://developer.github.com/v3/repos/statuses/#create-a-commit-status) in the GitHub developer guide\.
 
-   If you chose **Rebuild every time a code change is pushed to this repository**, in **Event type**, choose an event that you want to trigger a build\. You use regular expressions to create a filter\. If no filter is specified, all update and create pull requests, and all push events, trigger a build\. For more information, see [ Filter GitHub webhook events](sample-github-pull-request.md#sample-github-pull-request-filter-webhook-events) and [ Filter Bitbucket webhook events](sample-bitbucket-pull-request.md#sample-bitbucket-pull-request-filter-webhook-events)\. 
+   If you chose **Rebuild every time a code change is pushed to this repository**, in **Event type**, choose an event that you want to trigger a build\. You use regular expressions to create a filter\. If no filter is specified, all update and create pull requests, and all push events, trigger a build\. For more information, see [GitHub webhook events](github-webhook.md) and [Bitbucket webhook events](bitbucket-webhook.md)\. 
 
 ------
 #### [ GitHub Enterprise Server ]
@@ -132,7 +132,7 @@ Choose to ignore SSL warnings while connecting to your GitHub Enterprise project
 
    For **Target URL**, enter the value to be used for the `target_url` parameter in the GitHub commit status\. For more information, see [Create a commit status](https://developer.github.com/v3/repos/statuses/#create-a-commit-status) in the GitHub developer guide\.
 
-   If you chose **Rebuild every time a code change is pushed to this repository**, in **Event type**, choose an event that you want to trigger a build\. You use regular expressions to create a filter\. If no filter is specified, all update and create pull requests, and all push events, trigger a build\. For more information, see [ Filter GitHub webhook events](sample-github-pull-request.md#sample-github-pull-request-filter-webhook-events) and [ Filter Bitbucket webhook events](sample-bitbucket-pull-request.md#sample-bitbucket-pull-request-filter-webhook-events)\. 
+   If you chose **Rebuild every time a code change is pushed to this repository**, in **Event type**, choose an event that you want to trigger a build\. You use regular expressions to create a filter\. If no filter is specified, all update and create pull requests, and all push events, trigger a build\. For more information, see [GitHub webhook events](github-webhook.md) and [Bitbucket webhook events](bitbucket-webhook.md)\. 
 
 ------
 
