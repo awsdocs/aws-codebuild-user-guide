@@ -17,6 +17,7 @@ You can use the CodeBuild API or the AWS CodeBuild console to access the test re
   + Cucumber JSON
   + JUnit XML
   + NUnit XML
+  + NUnit3 XML
   + TestNG XML
   + Visual Studio TRX
 

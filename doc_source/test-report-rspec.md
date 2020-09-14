@@ -27,5 +27,5 @@ reports:
         files:
             - <report filename>
         base-directory: <test report directory>
-        file-format: JunitXml
+        file-format: JUNITXML
 ```

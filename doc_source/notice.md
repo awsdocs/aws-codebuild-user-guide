@@ -190,7 +190,7 @@ The following license terms describe additional use terms for this supplement\. 
 
 ## 8\) windows\-base Docker image—visualfsharptools, v 4\.0<a name="8-windows-base-docker-image-visualfsharptools"></a>
 
-\(license terms available at: [https://raw\.githubusercontent\.com/Microsoft/visualfsharp/master/License\.txt](https://raw.githubusercontent.com/Microsoft/visualfsharp/master/License.txt)\)
+\(license terms available at: [https://github\.com/dotnet/fsharp/blob/main/License\.txt](https://github.com/dotnet/fsharp/blob/main/License.txt)\)
 
 Copyright \(c\) Microsoft Corporation\. All rights reserved\.
 

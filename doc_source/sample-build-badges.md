@@ -8,7 +8,7 @@ AWS CodeBuild now supports the use of build badges, which provide an embeddable,
 
 1.  If a CodeBuild information page is displayed, choose **Create build project**\. Otherwise, on the navigation pane, expand **Build**, choose **Build projects**, and then choose **Create build project**\. 
 
-1. On the **Create build project** page, in **Project configuration**, enter a name for this build project\. Build project names must be unique across each AWS account\. You can also include an optional description of the build project to help other users understand what this project is used for\.
+1. In **Project name**, enter a name for this build project\. Build project names must be unique across each AWS account\. You can also include an optional description of the build project to help other users understand what this project is used for\.
 
 1. In **Source**, for **Source provider**, choose the source code provider type, and then do one of the following:
 **Note**  
@@ -32,7 +32,7 @@ Updating your project source might affect the accuracy of the project's build ba
 **Note**  
 When you use the console to create or update a build project, you can create a CodeBuild service role at the same time\. By default, the role works with that build project only\. If you use the console to associate this service role with another build project, the role is updated to work with the other build project\. A service role can work with up to 10 build projects\.
 
-1. For **Buildspec**, do one of the following:
+1. In **Buildspec**, do one of the following:
    + Choose **Use a buildspec file** to use the buildspec\.yml file in the source code root directory\.
    + Choose **Insert build commands** to use the console to insert build commands\.
 

@@ -31,6 +31,7 @@ Use the information in this topic to help you identify, diagnose, and address is
 + [The bourne shell \(sh\) must exist in build images](#troubleshooting-sh-build-images)
 + [Warning: "Skipping install of runtimes\. runtime version selection is not supported by this build image" when running a build](#troubleshooting-skipping-all-runtimes-warning)
 + [Error: BUILD\_CONTAINER\_UNABLE\_TO\_PULL\_IMAGE](#troubleshooting-windows-version-mismatch)
++ [Error: "Unable to verify JobWorker identity" when opening the CodeBuild console](#troubleshooting-unable-to-verify-jobworker)
 
 ## Apache Maven builds reference artifacts from the wrong repository<a name="troubleshooting-maven-repos"></a>
 
@@ -497,3 +498,11 @@ BUILD\_CONTAINER\_UNABLE\_TO\_PULL\_IMAGE: Unable to pull customer's container i
 **Possible causes:** You have selected a Windows Server 2016 environment type \(`WINDOWS_CONTAINER`\), but selected a Windows Server 2019 image\.
 
 **Recommended solutions:** Change the environment type to `WINDOWS_SERVER_2019_CONTAINER`\.
+
+## Error: "Unable to verify JobWorker identity" when opening the CodeBuild console<a name="troubleshooting-unable-to-verify-jobworker"></a>
+
+**Issue:** When you open the CodeBuild console, an "Unable to verify JobWorker identity" error message is displayed\.
+
+**Possible cause:** The IAM role that is used for console access has a tag with `jobId` as the key\. This tag key is reserved for CodeBuild and will cause this error if it is present\.
+
+**Recommended solution:** Change any custom IAM role tags that have the key `jobId` to have a different key, such as `jobIdentifier`\.

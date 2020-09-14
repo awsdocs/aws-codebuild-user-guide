@@ -6,6 +6,7 @@ The following test report file formats are supported:
 + Cucumber JSON
 + JUnit XML
 + NUnit XML
++ NUnit3 XML
 + TestNG XML
 + Visual Studio TRX
 

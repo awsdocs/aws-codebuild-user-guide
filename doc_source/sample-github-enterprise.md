@@ -48,7 +48,7 @@ This bucket must be in the same AWS region as your builds\. For example, if you 
 
 1.  If a CodeBuild information page is displayed, choose **Create build project**\. Otherwise, on the navigation pane, expand **Build**, choose **Build projects**, and then choose **Create build project**\. 
 
-1. On the **Create build project** page, in **Project configuration**, enter a name for this build project\. Build project names must be unique across each AWS account\. You can also include an optional description of the build project to help other users understand what this project is used for\.
+1. In **Project name**, enter a name for this build project\. Build project names must be unique across each AWS account\. You can also include an optional description of the build project to help other users understand what this project is used for\.
 
 1. In **Source**, in **Source provider**, choose **GitHub Enterprise**\.
    + For **Personal Access Token**, paste the token you copied to your clipboard and choose **Save Token**\. In **Repository URL**, enter the URL for your GitHub Enterprise Server repository\.
@@ -84,7 +84,7 @@ When you use the console to create or update a build project, you can create a C
 
    For more information, see [Use AWS CodeBuild with Amazon Virtual Private Cloud](vpc-support.md)\.
 
-1. For **Buildspec**, do one of the following:
+1. In **Buildspec**, do one of the following:
    + Choose **Use a buildspec file** to use the buildspec\.yml file in the source code root directory\.
    + Choose **Insert build commands** to use the console to insert build commands\.
 

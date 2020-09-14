@@ -42,7 +42,8 @@ An identifier for the version of a build's source code\. Its format depends on t
 + For Amazon S3, this does not apply\. 
 
 CODEBUILD\_SOURCE\_REPO\_URL  
-The URL to the input artifact or source code repository\. For Amazon S3, this is `s3://` followed by the bucket name and path to the input artifact\. For CodeCommit and GitHub, this is the repository's clone URL\. If a build originates from CodePipeline, then this might be empty\.
+The URL to the input artifact or source code repository\. For Amazon S3, this is `s3://` followed by the bucket name and path to the input artifact\. For CodeCommit and GitHub, this is the repository's clone URL\. If a build originates from CodePipeline, this environment variable may be empty\.  
+For secondary sources, the environment variable for the secondary source repository URL is `CODEBUILD_SOURCE_REPO_URL_<sourceIdentifier>`, where `<sourceIdentifier>` is the source identifier you create\. 
 
 CODEBUILD\_SOURCE\_VERSION  
 The value's format depends on the source repository\.  
@@ -51,10 +52,11 @@ The value's format depends on the source repository\.
 + For GitHub, GitHub Enterprise Server, and Bitbucket it is the commit ID, branch name, or tag name associated with the version of the source code to be built\.
 **Note**  
 For a GitHub or GitHub Enterprise Server build that is triggered by a webhook pull request event, it is `pr/pull-request-number`\.
+For secondary sources, the environment variable for the secondary source version is `CODEBUILD_SOURCE_VERSION_<sourceIdentifier>`, where `<sourceIdentifier>` is the source identifier you create\. For more information, see [Multiple input sources and output artifacts sample](sample-multi-in-out.md)\.
 
 CODEBUILD\_SRC\_DIR  
 The directory path that CodeBuild uses for the build \(for example, `/tmp/src123456789/src`\)\.  
-If you use a secondary source, the environment variable for its directory path is `CODEBUILD_SRC_DIR_sourceIdentifier`, where `sourceIdentifier` is the source identifier you create\. For more information, see [Multiple input sources and output artifacts sample](sample-multi-in-out.md)\.
+For secondary sources, the environment variable for the secondary source directory path is `CODEBUILD_SRC_DIR_<sourceIdentifier>`, where `<sourceIdentifier>` is the source identifier you create\. For more information, see [Multiple input sources and output artifacts sample](sample-multi-in-out.md)\.
 
 CODEBUILD\_START\_TIME  
 The start time of the build specified as a Unix timestamp in milliseconds\.

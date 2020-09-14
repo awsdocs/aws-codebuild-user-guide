@@ -15,5 +15,5 @@ reports:
   sampleReportGroup: #Cucumber reports from json plugin
     files:
       - 'cucumber-json/target/cucumber-json-report.json'
-    file-format: CucumberJson #Type of the report, defaults to JunitXml
+    file-format: CUCUMBERJSON #Type of the report, defaults to JUNITXML
 ```

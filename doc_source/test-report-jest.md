@@ -54,6 +54,6 @@ reports:
   jest_reports:
     files:
       - <report filename>
-    file-format: JunitXml
+    file-format: JUNITXML
     base-directory: <test report directory>
 ```

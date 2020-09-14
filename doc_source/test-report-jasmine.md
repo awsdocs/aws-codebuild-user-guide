@@ -80,12 +80,12 @@ reports:
   jasmine_reports:
     files:
       - <report filename>
-    file-format: JunitXml
+    file-format: JUNITXML
     base-directory: <test report directory>
 ```
 
 If you are using the the `NunitXml` report format, change the `file-format` value to the following\.
 
 ```
-    file-format: NunitXml
+    file-format: NUNITXML
 ```
