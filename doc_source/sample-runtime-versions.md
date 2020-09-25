@@ -7,7 +7,7 @@
 
 ## Update your runtime version<a name="sample-runtime-update-version"></a>
 
- You can modify the runtime used by your project to a new version by updating the `runtime-versions` section of your buildpec file\. The following examples show how to specify java versions 8 and 11\.
+ You can modify the runtime used by your project to a new version by updating the `runtime-versions` section of your buildspec file\. The following examples show how to specify java versions 8 and 11\.
 +  A `runtime-versions` section that specifies version 8 of Java if you use the Amazon Linux 2 standard image:
 
   ```
