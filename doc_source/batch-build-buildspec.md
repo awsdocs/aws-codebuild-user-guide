@@ -7,7 +7,7 @@ This topic contains the buildspec reference for batch build properties\.
 Optional mapping\. The batch build settings for the project\.
 
 batch/**fast\-fail**  
-Optional\. For build graphs, this property is not used and is always `true`\.    
+Optional\.     
 `false`  
 The default value\. All running builds will complete\.   
 `true`  
@@ -46,11 +46,20 @@ The environment variables that will be present in the build environment\. See [e
 batch/build\-graph/**identifier**  
 Required\. The identifier of the task\.
 
+batch/build\-graph/**ignore\-failure**  
+Optional\. A Boolean value that indicates whether failures in the batch can be ignored\.    
+`false`  
+The default value\. If one build task fails, the batch build will fail immediately\.   
+`true`  
+If one build task fails, the remaining build tasks will still run\. 
+
 The following is an example of a build graph buildspec entry:
 
 ```
 batch:
+  fast-fail: false
   build-graph:
+    ignore-failure: true
     - identifier: linux_small
       env:
         compute-type: BUILD_GENERAL1_SMALL
@@ -102,6 +111,7 @@ The following is an example of a build list buildspec entry:
 batch:
   fast-fail: false
   build-list:
+    ignore-failure: true
     - identifier: linux_small
       env:
         compute-type: BUILD_GENERAL1_SMALL

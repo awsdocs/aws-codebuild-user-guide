@@ -25,7 +25,17 @@ Choose **Repository in my GitHub account**\.
 **GitHub repository**  
 Enter the URL for your GitHub repository\.
 
-1. In **Primary source webhook events**, select **Rebuild every time a code change is pushed to this repository**\. You can select this check box only if you chose **Repository in my GitHub account** in the previous step\.
+1. In **Primary source webhook events**, select the following\. This section is only available when you chose **Repository in my GitHub account** in the previous step\.
+
+   1. Select **Rebuild every time a code change is pushed to this repository** when you create your project\. 
+
+   1. From **Event type**, choose one or more events\. 
+
+   1. To filter when an event triggers a build, under **Start a build under these conditions**, add one or more optional filters\. 
+
+   1. To filter when an event is not triggered, under **Don't start a build under these conditions**, add one or more optional filters\. 
+
+   1. Choose **Add filter group** to add another filter group, if needed\. 
 
 1. In **Environment**:  
 **Environment image**  
