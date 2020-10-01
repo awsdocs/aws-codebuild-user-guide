@@ -49,7 +49,7 @@ Required\. The identifier of the task\.
 batch/build\-graph/**ignore\-failure**  
 Optional\. A Boolean value that indicates whether failures in the batch can be ignored\.    
 `false`  
-The default value\. If one build task fails, the batch build will fail immediately\.   
+The default value\. If one build task fails, the batch build will fail\.   
 `true`  
 If one build task fails, the remaining build tasks will still run\. 
 
@@ -101,7 +101,7 @@ Optional\. The identifier of the task\.
 batch/build\-list/**ignore\-failure**  
 Optional\. A Boolean value that indicates whether failures in the batch can be ignored\.    
 `false`  
-The default value\. If one build task fails, the batch build will fail immediately\.   
+The default value\. If one build task fails, the batch build will fail\.   
 `true`  
 If one build task fails, the remaining build tasks will still run\. 
 
@@ -131,7 +131,7 @@ The static properties apply to all build tasks\.
 batch/build\-matrix/static/**ignore\-failure**  
 Optional\. A Boolean value that indicates whether failures in the batch can be ignored\.    
 `false`  
-The default value\. If one build task fails, the batch build will fail immediately\.   
+The default value\. If one build task fails, the batch build will fail\.   
 `true`  
 If one build task fails, the remaining build tasks will still run\.   
 batch/build\-matrix/static/**env**  

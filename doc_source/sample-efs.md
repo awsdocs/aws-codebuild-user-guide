@@ -142,9 +142,13 @@ The following are errors you might encounter when setting up EFS with CodeBuild\
 
 ### CLIENT\_ERROR: mounting '127\.0\.0\.1:/' failed\. permission denied<a name="sample-efs-troubleshooting.permission-denied"></a>
 
-When using a custom EFS file system policy, you must first establish a trust relationship between EFS and CodeBuild by doing one of the following:
-+ Add `codebuild.amazonaws.com` as a trusted service in the Principal in the EFS file system policy, 
-+ Add the `elasticfilesystem:ClientMount` action to the CodeBuild project service role policy\.
+IAM authorization is not supported for mounting EFS with CodeBuild\. If you are using a custom EFS file system policy, you will need to grant read and write access to all IAM principals\. For example:
+
+```
+"Principal": {
+  "AWS": "*"
+}
+```
 
 ### CLIENT\_ERROR: mounting '127\.0\.0\.1:/' failed\. connection reset by peer<a name="sample-efs-troubleshooting.connection-reset"></a>
 

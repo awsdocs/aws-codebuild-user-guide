@@ -55,12 +55,18 @@ The `ListConnectedOAuthAccounts`, `ListRepositories`, and `PersistOAuthToken` AP
 
 ## AWS managed \(predefined\) policies for AWS CodeBuild<a name="managed-policies"></a>
 
-AWS addresses many common use cases by providing standalone IAM policies that are created and administered by AWS\. These AWS managed policies grant necessary permissions for common use cases so you can avoid having to investigate what permissions are needed\. The managed policies for CodeBuild also provide permissions to perform operations in other serivces, such as IAM, AWS CodeCommit,Amazon EC2, Amazon ECR, Amazon SNS, and Amazon CloudWatch Events, as required for the responsibilities for the users who have been granted the policy in question\. For example, the `AWSCodeBuildAdminAccess` policy is an administrative\-level user policy that allows users with this policy to create and manage CloudWatch Events rules for project builds and Amazon SNS topics for notifications about project\-related events \(topics whose names are prefixed with `arn:aws:codebuild:`\), as well as administer projects and report groups in CodeBuild\. For more information, see [AWS Managed Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html#aws-managed-policies) in the *IAM User Guide*\.
+AWS addresses many common use cases by providing standalone IAM policies that are created and administered by AWS\. These AWS managed policies grant necessary permissions for common use cases so you can avoid having to investigate what permissions are needed\. The managed policies for CodeBuild also provide permissions to perform operations in other services, such as IAM, AWS CodeCommit,Amazon EC2, Amazon ECR, Amazon SNS, and Amazon CloudWatch Events, as required for the responsibilities for the users who have been granted the policy in question\. For example, the `AWSCodeBuildAdminAccess` policy is an administrative\-level user policy that allows users with this policy to create and manage CloudWatch Events rules for project builds and Amazon SNS topics for notifications about project\-related events \(topics whose names are prefixed with `arn:aws:codebuild:`\), as well as administer projects and report groups in CodeBuild\. For more information, see [AWS Managed Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html#aws-managed-policies) in the *IAM User Guide*\.
 
 The following AWS managed policies, which you can attach to users in your account, are specific to AWS CodeBuild\.
-+ `AWSCodeBuildAdminAccess` – Provides full access to CodeBuild including permissions to administrate CodeBuild build projects\. 
-+ `AWSCodeBuildDeveloperAccess` – Provides access to CodeBuild but does not allow build project administration\.
-+ `AWSCodeBuildReadOnlyAccess` – Provides read\-only access to CodeBuild\.
+
+**AWSCodeBuildAdminAccess**  
+Provides full access to CodeBuild including permissions to administrate CodeBuild build projects\. 
+
+**AWSCodeBuildDeveloperAccess**  
+Provides access to CodeBuild but does not allow build project administration\.
+
+**AWSCodeBuildReadOnlyAccess**  
+Provides read\-only access to CodeBuild\.
 
 To access build output artifacts that CodeBuild creates, you must also attach the AWS managed policy named `AmazonS3ReadOnlyAccess`\.
 
@@ -75,7 +81,7 @@ You can also create your own custom IAM policies to allow permissions for CodeBu
 
 ### AWSCodeBuildAdminAccess<a name="admin-access-policy"></a>
 
-`AWSCodeBuildAdminAccess` – Provides full access to CodeBuild, including permissions to administer CodeBuild build projects\. Apply this policy only to administrative\-level users to grant them full control over CodeBuild projects, report groups, and related resources in your AWS account, including the ability to delete projects and report groups\.
+The `AWSCodeBuildAdminAccess` policy provides full access to CodeBuild, including permissions to administer CodeBuild build projects\. Apply this policy only to administrative\-level users to grant them full control over CodeBuild projects, report groups, and related resources in your AWS account, including the ability to delete projects and report groups\.
 
 The `AWSCodeBuildAdminAccess` policy contains the following policy statement:
 
@@ -180,7 +186,7 @@ The `AWSCodeBuildAdminAccess` policy contains the following policy statement:
 
 ### AWSCodeBuildDeveloperAccess<a name="developer-access-policy"></a>
 
-`AWSCodeBuildDeveloperAccess` – Allows access to all of the functionality of CodeBuild and project and report group\-related resources\. This policy does not allow users to delete CodeBuild projects or report groups, or related resources in other AWS services, such as CloudWatch Events\. We recommend that you apply this policy to most users\.
+The `AWSCodeBuildDeveloperAccess` policy allows access to all of the functionality of CodeBuild and project and report group\-related resources\. This policy does not allow users to delete CodeBuild projects or report groups, or related resources in other AWS services, such as CloudWatch Events\. We recommend that you apply this policy to most users\.
 
 The `AWSCodeBuildDeveloperAccess` policy contains the following policy statement:
 
@@ -261,7 +267,7 @@ The `AWSCodeBuildDeveloperAccess` policy contains the following policy statement
 
 ### AWSCodeBuildReadOnlyAccess<a name="read-only-access-policy"></a>
 
-`AWSCodeBuildReadOnlyAccess` – Grants read\-only access to CodeBuild and related resources in other AWS services\. Apply this policy to users who can view and run builds, view projects, and view report groups, but cannot make any changes to them\. 
+The `AWSCodeBuildReadOnlyAccess` policy grants read\-only access to CodeBuild and related resources in other AWS services\. Apply this policy to users who can view and run builds, view projects, and view report groups, but cannot make any changes to them\. 
 
 The `AWSCodeBuildReadOnlyAccess` policy contains the following policy statement:
 
