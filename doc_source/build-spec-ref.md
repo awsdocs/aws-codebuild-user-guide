@@ -39,25 +39,25 @@ The buildspec has the following syntax:
 ```
 version: 0.2
 
-run-as: Linux-user-name
+run\-as: Linux-user-name
 
 env:
   shell: shell-tag
   variables:
     key: "value"
     key: "value"
-  parameter-store:
+  parameter\-store:
     key: "value"
     key: "value"
-  exported-variables:
+  exported\-variables:
     - variable
     - variable
-  secrets-manager:
+  secrets\-manager:
     key: secret-id:json-key:version-stage:version-id
-  git-credential-helper: no | yes
+  git\-credential\-helper: no | yes
 
 proxy:
-  upload-artifacts: no | yes
+  upload\-artifacts: no | yes
   logs: no | yes
 
 batch:
@@ -68,8 +68,8 @@ batch:
         
 phases:
   install:
-    run-as: Linux-user-name
-    runtime-versions:
+    run\-as: Linux-user-name
+    runtime\-versions:
       runtime: version
       runtime: version
     commands:
@@ -78,8 +78,8 @@ phases:
     finally:
       - command
       - command
-  pre_build:
-    run-as: Linux-user-name
+  pre\_build:
+    run\-as: Linux-user-name
     commands:
       - command
       - command
@@ -87,15 +87,15 @@ phases:
       - command
       - command
   build:
-    run-as: Linux-user-name
+    run\-as: Linux-user-name
     commands:
       - command
       - command
     finally:
       - command
       - command
-  post_build:
-    run-as: Linux-user-name
+  post\_build:
+    run\-as: Linux-user-name
     commands:
       - command
       - command
@@ -107,30 +107,30 @@ reports:
     files:
       - location
       - location
-    base-directory: location
-    discard-paths: no | yes
-    file-format: report-format
+    base\-directory: location
+    discard\-paths: no | yes
+    file\-format: report-format
 artifacts:
   files:
     - location
     - location
   name: artifact-name
-  discard-paths: no | yes
-  base-directory: location
-  secondary-artifacts:
+  discard\-paths: no | yes
+  base\-directory: location
+  secondary\-artifacts:
     artifactIdentifier:
       files:
         - location
         - location
       name: secondary-artifact-name
-      discard-paths: no | yes
-      base-directory: location
+      discard\-paths: no | yes
+      base\-directory: location
     artifactIdentifier:
       files:
         - location
         - location
-      discard-paths: no | yes
-      base-directory: location
+      discard\-paths: no | yes
+      base\-directory: location
 cache:
   paths:
     - path

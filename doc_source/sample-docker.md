@@ -161,9 +161,6 @@ This sample uses these files\.
 
 `buildspec.yml` \(in `(root directory name)`\)
 
-**Note**  
-If you are using a version of Docker earlier than 17\.06, remove the `--no-include-email` option\.
-
 ```
 version: 0.2
 
@@ -171,7 +168,7 @@ phases:
   pre_build:
     commands:
       - echo Logging in to Amazon ECR...
-      - $(aws ecr get-login --no-include-email --region $AWS_DEFAULT_REGION)
+      - docker login -u AWS -p $(aws ecr get-login-password --region $AWS_DEFAULT_REGION)
   build:
     commands:
       - echo Build started on `date`

@@ -70,6 +70,9 @@ The base reference name of the webhook event that triggers the current build\. F
 CODEBUILD\_WEBHOOK\_EVENT  
 The webhook event that triggers the current build\.
 
+CODEBUILD\_WEBHOOK\_MERGE\_COMMIT  <a name="CODEBUILD_WEBHOOK_MERGE_COMMIT"></a>
+The identifier of the merge commit used for the build\. This variable is set when a Bitbucket pull request is merged with the squash strategy and the pull request branch is closed\. In this case, the original pull request commit no longer exists, so this environment variable contains the identifier of the squashed merge commit\.
+
 CODEBUILD\_WEBHOOK\_PREV\_COMMIT  
 The ID of the most recent commit before the webhook push event that triggers the current build\.
 

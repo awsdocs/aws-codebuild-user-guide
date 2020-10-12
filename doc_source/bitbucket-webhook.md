@@ -5,9 +5,15 @@
  You can specify more than one webhook filter group\. A build is triggered if the filters on one or more filter groups evaluate to true\. When you create a filter group, you specify: 
 
 **An event**  
-For Bitbucket, you can choose one or more of the following events: `PUSH`, `PULL_REQUEST_CREATED`, `PULL_REQUEST_UPDATED`, and `PULL_REQUEST_MERGED`\. The webhook's event type is in its header in the `X-Event-Key` field\. The following table shows how `X-Event-Key` header values map to the event types\.  
+For Bitbucket, you can choose one or more of the following events:  
++ `PUSH`
++ `PULL_REQUEST_CREATED`
++ `PULL_REQUEST_UPDATED`
++ `PULL_REQUEST_MERGED`
+The webhook's event type is in its header in the `X-Event-Key` field\. The following table shows how `X-Event-Key` header values map to the event types\.  
 You must enable the `merged` event in your Bitbucket webhook setting if you create a webhook filter group that uses the `PULL_REQUEST_MERGED` event type\.    
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/codebuild/latest/userguide/bitbucket-webhook.html)
+For `PULL_REQUEST_MERGED`, if a pull request is merged with the squash strategy and the pull request branch is closed, the original pull request commit no longer exists\. In this case, the `CODEBUILD_WEBHOOK_MERGE_COMMIT` environment variable contains the identifier of the squashed merge commit\.
 
 **One or more optional filters**  
 Use a regular expression to specify a filter\. For an event to trigger a build, every filter associated with it must evaluate to true\.     

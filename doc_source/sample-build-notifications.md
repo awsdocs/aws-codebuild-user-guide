@@ -197,6 +197,10 @@ For more information, see [Editing customer managed policies](https://docs.aws.a
    + To trigger events only for individual build phase status changes, remove the name of each build phase status in the `completed-phase-status` array that you do not want to trigger an event for\.
    + To trigger events for all build projects, remove the `project-name` array\.
    + To trigger events for individual build projects, specify the name of each build project in the `project-name` array\. 
+
+   For more information about event patterns, see [Event Patterns](https://docs.aws.amazon.com/eventbridge/latest/userguide/filtering-examples-structure.html) in the Amazon EventBridge User Guide\.
+
+   For more information about filtering with event patterns, see [Content\-based Filtering with Event Patterns](https://docs.aws.amazon.com/eventbridge/latest/userguide/content-filtering-with-event-patterns.html) in the Amazon EventBridge User Guide\.
 **Note**  
 If you want to trigger events for both build state changes and build phase changes, you must create two separate rules: one for build state changes and another for build phase changes\. If you try to combine both rules into a single rule, the combined rule might produce unexpected results or stop working altogether\.
 
