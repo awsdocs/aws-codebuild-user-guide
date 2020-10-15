@@ -190,13 +190,26 @@ If an environment variable with the same name is defined in multiple places, the
 + The value in the buildspec declaration takes lowest precedence\.
 
 env/**secrets\-manager**  <a name="build-spec.env.secrets-manager"></a>
-Required if `env` specified, and you want to retrieve custom environment variables stored in AWS Secrets Manager\. Specify a Secrets Manager `reference-key` using the following pattern:  
- `secret-id:json-key:version-stage:version-id`   
-+  `secret-id`: The name or Amazon Resource Name \(ARN\) that serves as a unique identifier for the secret\. To access a secret in your AWS account, simply specify the secret name\. To access a secret in a different AWS account, specify the secret ARN\. 
-+  `json-key`: Specifies the key name of the key\-value pair whose value you want to retrieve\. If you do not specify a `json-key`, CodeBuild retrieves the entire secret text\. 
-+  `version-stage`: Specifies the secret version that you want to retrieve by the staging label attached to the version\. Staging labels are used to keep track of different versions during the rotation process\. If you use `version-stage`, don't specify `version-id`\. If you don't specify a version stage or version ID, the default is to retrieve the version with the version stage value of `AWSCURRENT`\. 
-+  `version-id`: Specifies the unique identifier of the version of the secret that you want to use\. If you specify `version-id`, don't specify `version-stage`\. If you don't specify a version stage or version ID, the default is to retrieve the version with the version stage value of AWSCURRENT\. 
- For more information, see [What is AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html) in the *AWS Secrets Manager User Guide*\. 
+Required if you want to retrieve custom environment variables stored in AWS Secrets Manager\. Specify a Secrets Manager `reference-key` using the following pattern:  
+`<key>`: `<secret-id>:<json-key>:<version-stage>|<version-id>`    
+*<key>*  
+\(Required\) The local environment variable name\. Use this name to access the variable during the build\.  
+*<secret\-id>*  
+\(Required\) The name or Amazon Resource Name \(ARN\) that serves as a unique identifier for the secret\. To access a secret in your AWS account, simply specify the secret name\. To access a secret in a different AWS account, specify the secret ARN\.   
+*<json\-key>*  
+\(Optional\) Specifies the key name of the Secrets Manager key\-value pair whose value you want to retrieve\. If you do not specify a `json-key`, CodeBuild retrieves the entire secret text\.   
+*<version\-stage>*  
+\(Optional\) Specifies the secret version that you want to retrieve by the staging label attached to the version\. Staging labels are used to keep track of different versions during the rotation process\. If you use `version-stage`, don't specify `version-id`\. If you don't specify a version stage or version ID, the default is to retrieve the version with the version stage value of `AWSCURRENT`\.   
+*<version\-id>*  
+\(Optional\) Specifies the unique identifier of the version of the secret that you want to use\. If you specify `version-id`, don't specify `version-stage`\. If you don't specify a version stage or version ID, the default is to retrieve the version with the version stage value of `AWSCURRENT`\. 
+In the following example, `TestSecret` is the name of the key\-value pair stored in Secrets Manager\. The key for `TestSecret` is `MY_SECRET_VAR`\. You access the variable during the build using the `LOCAL_SECRET_VAR` name\.  
+
+```
+env:
+  secrets-manager:
+    LOCAL_SECRET_VAR: "TestSecret:MY_SECRET_VAR"
+```
+For more information, see [What is AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html) in the *AWS Secrets Manager User Guide*\. 
 
 env/**exported\-variables**  <a name="build-spec.env.exported-variables"></a>
 Optional mapping\. Used to list environment variables you want to export\. Specify the name of each variable you want to export on a separate line under `exported-variables`\. The variable you want to export must be available in your container during the build\. The variable you export can be an environment variable\.  

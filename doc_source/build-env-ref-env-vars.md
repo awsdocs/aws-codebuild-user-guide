@@ -35,11 +35,16 @@ The identifier of the AWS KMS key that CodeBuild is using to encrypt the build o
 CODEBUILD\_LOG\_PATH  
 The log stream name in CloudWatch Logs for the build\.
 
-CODEBUILD\_RESOLVED\_SOURCE\_VERSION  
-An identifier for the version of a build's source code\. Its format depends on the source code repository:  
-+ For CodeCommit, GitHub, GitHub Enterprise Server, and Bitbucket, it is the commit ID\. For these repositories, `CODEBUILD_RESOLVED_SOURCE_VERSION` is only available after the `DOWNLOAD_SOURCE` phase\. 
-+ For CodePipeline, it is the source revision is provided by CodePipeline\. For CodePipeline, the `CODEBUILD_RESOLVED_SOURCE_VERSION` environment variable may not always be available\. 
-+ For Amazon S3, this does not apply\. 
+CODEBUILD\_RESOLVED\_SOURCE\_VERSION  <a name="CODEBUILD_RESOLVED_SOURCE_VERSION"></a>
+The version identifier of a build's source code\. The contents depends on the source code repository:    
+CodeCommit, GitHub, GitHub Enterprise Server, and Bitbucket  
+This variable contains the commit ID\.  
+CodePipeline  
+This variable contains the source revision provided by CodePipeline\.   
+If CodePipeline is not able to resolve the source revision, such as when the source is an Amazon S3 bucket that does not have versioning enabled, this environment variable is not set\.  
+Amazon S3  
+This variable is not set\.
+When applicable, the `CODEBUILD_RESOLVED_SOURCE_VERSION` variable is only available after the `DOWNLOAD_SOURCE` phase\. 
 
 CODEBUILD\_SOURCE\_REPO\_URL  
 The URL to the input artifact or source code repository\. For Amazon S3, this is `s3://` followed by the bucket name and path to the input artifact\. For CodeCommit and GitHub, this is the repository's clone URL\. If a build originates from CodePipeline, this environment variable may be empty\.  
