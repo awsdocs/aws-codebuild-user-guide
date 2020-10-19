@@ -18,7 +18,7 @@
    ```
    docker pull amazonlinux
    docker images amazonlinux --format {{.ID}}
-   docker tag image-id your-username/repository-name:latest
+   docker tag image-id your-username/repository-name:tag
    docker login
    docker push your-username/repository-name
    ```

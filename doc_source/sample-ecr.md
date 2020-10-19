@@ -130,7 +130,7 @@ If you are using an S3 input bucket, be sure to create a ZIP file that contains 
      },
      "environment": {
        "type": "LINUX_CONTAINER",
-       "image": "account-ID.dkr.ecr.region-ID.amazonaws.com/your-Amazon-ECR-repo-name:latest",
+       "image": "account-ID.dkr.ecr.region-ID.amazonaws.com/your-Amazon-ECR-repo-name:tag",
        "computeType": "BUILD_GENERAL1_SMALL"
      },
      "serviceRole": "arn:aws:iam::account-ID:role/role-name",

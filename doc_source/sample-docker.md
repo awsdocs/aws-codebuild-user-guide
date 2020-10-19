@@ -168,7 +168,7 @@ phases:
   pre_build:
     commands:
       - echo Logging in to Amazon ECR...
-      - docker login -u AWS -p $(aws ecr get-login-password --region $AWS_DEFAULT_REGION)
+      - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com
   build:
     commands:
       - echo Build started on `date`
@@ -213,7 +213,7 @@ If you are using a version of Docker earlier than 17\.06, remove the `--no-inclu
      pre_build:
        commands:
          - echo Logging in to Amazon ECR...
-         - $(aws ecr get-login --no-include-email --region $AWS_DEFAULT_REGION)
+         - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com
      build:
        commands:
          - echo Build started on `date`
