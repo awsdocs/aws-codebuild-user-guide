@@ -278,7 +278,7 @@ If `sourceVersion` is specified at the build level, then that version takes prec
 
 ### **artifacts**<a name="cli.artifacts"></a>
 
-Required\. A [ProjectArtifiacts](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectArtifacts.html) object that contains information about this build project's output artifact settings\. After you add an `artifacts` object, you can add up to 12 more artifacts using the [secondaryArtifacts](#cli.secondaryartifacts)\. These settings include the following: 
+Required\. A [ProjectArtifacts](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectArtifacts.html) object that contains information about this build project's output artifact settings\. After you add an `artifacts` object, you can add up to 12 more artifacts using the [secondaryArtifacts](#cli.secondaryartifacts)\. These settings include the following: 
 
 artifacts/**type**  <a name="cli.artifacts.type"></a>
 Required\. The type of build output artifact\. Valid values are:   
@@ -316,7 +316,7 @@ Create a ZIP file that contains the build artifacts\.
 
 ### secondaryArtifacts<a name="cli.secondaryartifacts"></a>
 
-Optional\. An array of [ProjectArtifiacts](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectArtifacts.html) objects that contain information about the secondary artifacts settings for a build project\. You can add up to 12 secondary artifacts\. The `secondaryArtifacts` uses many of the same settings used by the [**artifacts**](#cli.artifacts) object\. 
+Optional\. An array of [ProjectArtifacts](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectArtifacts.html) objects that contain information about the secondary artifacts settings for a build project\. You can add up to 12 secondary artifacts\. The `secondaryArtifacts` uses many of the same settings used by the [**artifacts**](#cli.artifacts) object\. 
 
 ### cache<a name="cli.cache"></a>
 

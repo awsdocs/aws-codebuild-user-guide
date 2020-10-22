@@ -17,7 +17,7 @@ To share a project, your AWS account must own it\. You cannot share a project th
 
 ## Prerequisites for accessing shared projects shared with you<a name="project-sharing-access-prereqs"></a>
 
-To access a shared report group, a consumer's IAM role requires the `BatchGetProjects` permission\. You can attach the following policy to their IAM role: 
+To access a shared project, a consumer's IAM role requires the `BatchGetProjects` permission\. You can attach the following policy to their IAM role: 
 
 ```
 {
