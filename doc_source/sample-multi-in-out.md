@@ -8,7 +8,7 @@ You can create an AWS CodeBuild build project with more than one input source an
 
 1.  Upload your sources to one or more S3 buckets, CodeCommit, GitHub, GitHub Enterprise Server, or Bitbucket repositories\. 
 
-1.  Choose which source is the primary source\. This is the source in which CodeBuild looks for and executes your buildspec file\. 
+1.  Choose which source is the primary source\. This is the source in which CodeBuild looks for and runs your buildspec file\. 
 
 1.  Create a build project\. For more information, see [Create a build project in AWS CodeBuild](create-project.md)\. 
 

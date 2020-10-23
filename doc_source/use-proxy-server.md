@@ -142,7 +142,7 @@ sudo cat squid.key squid.crt | sudo tee squid.pem
        ssl_bump splice step3 allowed_https_sites
        ssl_bump terminate step2 all
        ```
-     + After you save `squid.conf`, execute the following: 
+     + After you save `squid.conf`, run the following command: 
 
        ```
        sudo iptables -t nat -A PREROUTING -p tcp --dport 443 -j REDIRECT --to-port 3130
@@ -183,10 +183,10 @@ sudo tail -f /var/log/squid/access.log
 
 ```
   acl localnet src 10.0.0.0/16 #Only allow requests from within the VPC
-  # add all URLS to be whitelisted for download source and commands to be executed in build environment
+  # add all URLS to be whitelisted for download source and commands to be run in build environment
   acl allowed_sites dstdomain .github.com    #Allows to download source from github
   acl allowed_sites dstdomain .bitbucket.com #Allows to download source from bitbucket
-  acl allowed_sites dstdomain ppa.launchpad.net #Allows to execute apt-get in build environment
+  acl allowed_sites dstdomain ppa.launchpad.net #Allows to run apt-get in build environment
   acl download_src dstdom_regex .*\.amazonaws\.com #Allows to download source from S3 or CodeCommit
   acl SSL_ports port 443
   acl Safe_ports port 80		# http
@@ -306,7 +306,7 @@ sudo tail -f /var/log/squid/access.log
 
 ## Run a package manager and other tools in a proxy server<a name="use-proxy-server-tools"></a>
 
-**To execute a tool, such as a package manager, in a proxy server**
+**To run a tool, such as a package manager, in a proxy server**
 
 1.  Add the tool to the allow list in your proxy server by adding statements to your `squid.conf` file\. 
 
@@ -316,12 +316,12 @@ sudo tail -f /var/log/squid/access.log
 
 **To run `apt-get` in a proxy server**
 
-1. Add the following statements to your `squid.conf` file to add `apt-get` to an allow list in your proxy server\. The first three lines allow `apt-get` to execute in the build environment\.
+1. Add the following statements to your `squid.conf` file to add `apt-get` to an allow list in your proxy server\. The first three lines allow `apt-get` to run in the build environment\.
 
    ```
-   acl allowed_sites dstdomain ppa.launchpad.net # Required for apt-get to execute in the build environment
-   acl apt_get dstdom_regex .*\.launchpad.net # Required for CodeBuild to execute apt-get in the build environment
-   acl apt_get dstdom_regex .*\.ubuntu.com    # Required for CodeBuild to execute apt-get in the build environment
+   acl allowed_sites dstdomain ppa.launchpad.net # Required for apt-get to run in the build environment
+   acl apt_get dstdom_regex .*\.launchpad.net # Required for CodeBuild to run apt-get in the build environment
+   acl apt_get dstdom_regex .*\.ubuntu.com    # Required for CodeBuild to run apt-get in the build environment
    http_access allow localnet allowed_sites
    http_access allow localnet apt_get
    ```
@@ -337,7 +337,7 @@ sudo tail -f /var/log/squid/access.log
 1.  Add the following to your `squid.conf` file to add `curl` to an allow list in your build environment\. 
 
    ```
-   acl allowed_sites dstdomain ppa.launchpad.net # Required to execute apt-get in the build environment
+   acl allowed_sites dstdomain ppa.launchpad.net # Required to run apt-get in the build environment
    acl allowed_sites dstdomain google.com # Required for access to a webiste. This example uses www.google.com.
    http_access allow localnet allowed_sites
    http_access allow localnet apt_get
@@ -354,7 +354,7 @@ sudo tail -f /var/log/squid/access.log
 1.  Add the following to your `squid.conf` file to add `maven` to an allow list in your build environment\. 
 
    ```
-   acl allowed_sites dstdomain ppa.launchpad.net # Required to execute apt-get in the build environment
+   acl allowed_sites dstdomain ppa.launchpad.net # Required to run apt-get in the build environment
    acl maven dstdom_regex .*\.maven.org # Allows access to the maven repository in the build environment
    http_access allow localnet allowed_sites
    http_access allow localnet maven

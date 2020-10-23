@@ -12,7 +12,7 @@ Add the [https://www.npmjs.com/package/jasmine-reporters](https://www.npmjs.com/
 npm install --save-dev jasmine-reporters
 ```
 
-If it's not already present, add the `test` script to your project's `package.json` file\. The `test` script ensures that Jasmine is called when npm test is executed\.
+If it's not already present, add the `test` script to your project's `package.json` file\. The `test` script ensures that Jasmine is called when npm test is run\.
 
 ```
 {

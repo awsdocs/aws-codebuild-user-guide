@@ -12,7 +12,7 @@ Add the [https://www.npmjs.com/package/jest-junit](https://www.npmjs.com/package
 npm install --save-dev jest-junit
 ```
 
-If it's not already present, add the `test` script to your project's `package.json` file\. The `test` script ensures that Jest is called when npm test is executed\.
+If it's not already present, add the `test` script to your project's `package.json` file\. The `test` script ensures that Jest is called when npm test is run\.
 
 ```
 {

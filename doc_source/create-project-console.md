@@ -225,7 +225,7 @@ For more information, see the [Buildspec reference](build-spec-ref.md)\.
 
 ## Batch configuration<a name="create-project-console-batch-config"></a>
 
-You can run a group of builds as a single execution\. For more information, see [Batch builds in AWS CodeBuild](batch-build.md)\.
+You can run a group of builds as a single operation\. For more information, see [Batch builds in AWS CodeBuild](batch-build.md)\.
 
 **Define batch configuration**  
 Select to allow batch builds in this project\.

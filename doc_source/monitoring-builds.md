@@ -12,7 +12,7 @@ CloudWatch metrics show the behavior of your builds over time\. For example, you
 +  How many builds were attempted in a build project or an AWS account over time\. 
 +  How many builds were successful in a build project or an AWS account over time\. 
 +  How many builds failed in a build project or an AWS account over time\. 
-+  How much time CodeBuild spent executing builds in a build project or an AWS account over time\. 
++  How much time CodeBuild spent running builds in a build project or an AWS account over time\. 
 + Build resource utilization for a build or an entire build project\. Build resource utilization metrics include metrics such as CPU, memory, and storage utilization\.
 
  For more information, see [Monitoring CodeBuild metrics](monitoring-metrics.md)\. 

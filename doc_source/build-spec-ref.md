@@ -148,7 +148,7 @@ Although version 0\.1 is still supported, we recommend that you use version 0\.2
 
 ### run\-as<a name="build-spec.run-as"></a>
 
-Optional sequence\. Available to Linux users only\. Specifies a Linux user that runs commands in this buildspec file\. `run-as` grants the specified user read and execute permissions\. When you specify `run-as` at the top of the buildspec file, it applies globally to all commands\. If you don't want to specify a user for all buildspec file commands, you can specify one for commands in a phase by using `run-as` in one of the `phases` blocks\. If `run-as` is not specified, then all commands run as the root user\.
+Optional sequence\. Available to Linux users only\. Specifies a Linux user that runs commands in this buildspec file\. `run-as` grants the specified user read and run permissions\. When you specify `run-as` at the top of the buildspec file, it applies globally to all commands\. If you don't want to specify a user for all buildspec file commands, you can specify one for commands in a phase by using `run-as` in one of the `phases` blocks\. If `run-as` is not specified, then all commands run as the root user\.
 
 ### env<a name="build-spec.env"></a>
 
@@ -267,28 +267,28 @@ If two specified runtimes conflict, the build fails\. For example, `android: 29`
 phases/install/**commands**  
 `commands`: Optional sequence\. Contains a sequence of scalars, where each scalar represents a single command that CodeBuild runs during installation\. CodeBuild runs each command, one at a time, in the order listed, from beginning to end\.  
 phases/install/**finally**  
-Optional block\. Commands specified in a `finally` block are executed after commands in the `commands` block\. The commands in a `finally` block are executed even if a command in the `commands` block fails\. For example, if the `commands` block contains three commands and the first fails, CodeBuild skips the remaining two commands and runs any commands in the `finally` block\. The phase is successful when all commands in the `commands` and the `finally` blocks run successfully\. If any command in a phase fails, the phase fails\.
+Optional block\. Commands specified in a `finally` block are run after commands in the `commands` block\. The commands in a `finally` block are run even if a command in the `commands` block fails\. For example, if the `commands` block contains three commands and the first fails, CodeBuild skips the remaining two commands and runs any commands in the `finally` block\. The phase is successful when all commands in the `commands` and the `finally` blocks run successfully\. If any command in a phase fails, the phase fails\.
 
 phases/**pre\_build**  <a name="build-spec.phases.pre_build"></a>
 Optional sequence\. Represents the commands, if any, that CodeBuild runs before the build\. For example, you might use this phase to sign in to Amazon ECR, or you might install npm dependencies\.     
 phases/pre\_build/**commands**  
 Required sequence if `pre_build` is specified\. Contains a sequence of scalars, where each scalar represents a single command that CodeBuild runs before the build\. CodeBuild runs each command, one at a time, in the order listed, from beginning to end\.  
 phases/pre\_build/**finally**  
-Optional block\. Commands specified in a `finally` block are executed after commands in the `commands` block\. The commands in a `finally` block are executed even if a command in the `commands` block fails\. For example, if the `commands` block contains three commands and the first fails, CodeBuild skips the remaining two commands and runs any commands in the `finally` block\. The phase is successful when all commands in the `commands` and the `finally` blocks run successfully\. If any command in a phase fails, the phase fails\.
+Optional block\. Commands specified in a `finally` block are run after commands in the `commands` block\. The commands in a `finally` block are run even if a command in the `commands` block fails\. For example, if the `commands` block contains three commands and the first fails, CodeBuild skips the remaining two commands and runs any commands in the `finally` block\. The phase is successful when all commands in the `commands` and the `finally` blocks run successfully\. If any command in a phase fails, the phase fails\.
 
 phases/**build**  <a name="build-spec.phases.build"></a>
 Optional sequence\. Represents the commands, if any, that CodeBuild runs during the build\. For example, you might use this phase to run Mocha, RSpec, or sbt\.    
 phases/build/**commands**  
 `commands`: Required if `build` is specified\. Contains a sequence of scalars, where each scalar represents a single command that CodeBuild runs during the build\. CodeBuild runs each command, one at a time, in the order listed, from beginning to end\.  
 phases/build/**finally**  
-Optional block\. Commands specified in a `finally` block are executed after commands in the `commands` block\. The commands in a `finally` block are executed even if a command in the `commands` block fails\. For example, if the `commands` block contains three commands and the first fails, CodeBuild skips the remaining two commands and runs any commands in the `finally` block\. The phase is successful when all commands in the `commands` and the `finally` blocks run successfully\. If any command in a phase fails, the phase fails\.
+Optional block\. Commands specified in a `finally` block are run after commands in the `commands` block\. The commands in a `finally` block are run even if a command in the `commands` block fails\. For example, if the `commands` block contains three commands and the first fails, CodeBuild skips the remaining two commands and runs any commands in the `finally` block\. The phase is successful when all commands in the `commands` and the `finally` blocks run successfully\. If any command in a phase fails, the phase fails\.
 
 phases/**post\_build**  <a name="build-spec.phases.post_build"></a>
 Optional sequence\. Represents the commands, if any, that CodeBuild runs after the build\. For example, you might use Maven to package the build artifacts into a JAR or WAR file, or you might push a Docker image into Amazon ECR\. Then you might send a build notification through Amazon SNS\.    
 phases/post\_build/**commands**  
 `commands`: Required if `post_build` is specified\. Contains a sequence of scalars, where each scalar represents a single command that CodeBuild runs after the build\. CodeBuild runs each command, one at a time, in the order listed, from beginning to end\.  
 phases/post\_build/**finally**  
-Optional block\. Commands specified in a `finally` block are executed after commands in the `commands` block\. The commands in a `finally` block are executed even if a command in the `commands` block fails\. For example, if the `commands` block contains three commands and the first fails, CodeBuild skips the remaining two commands and runs any commands in the `finally` block\. The phase is successful when all commands in the `commands` and the `finally` blocks run successfully\. If any command in a phase fails, the phase fails\.
+Optional block\. Commands specified in a `finally` block are run after commands in the `commands` block\. The commands in a `finally` block are run even if a command in the `commands` block fails\. For example, if the `commands` block contains three commands and the first fails, CodeBuild skips the remaining two commands and runs any commands in the `finally` block\. The phase is successful when all commands in the `commands` and the `finally` blocks run successfully\. If any command in a phase fails, the phase fails\.
 
 **Important**  
 Commands in some build phases might not be run if commands in earlier build phases fail\. For example, if a command fails during the `install` phase, none of the commands in the `pre_build`, `build`, and `post_build` phases are run for that build's lifecycle\. For more information, see [Build phase transitions](view-build-details.md#view-build-details-phases)\.<a name="reports-buildspec-file"></a>

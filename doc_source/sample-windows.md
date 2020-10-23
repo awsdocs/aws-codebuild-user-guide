@@ -1,6 +1,6 @@
 # Microsoft Windows samples for CodeBuild<a name="sample-windows"></a>
 
-These samples use an AWS CodeBuild build environment running Microsoft Windows Server 2019, the \.NET Framework, and the \.NET Core SDK to build executables file out of code written in C\#, F\#, and Visual Basic\. 
+These samples use an AWS CodeBuild build environment running Microsoft Windows Server 2019, the \.NET Framework, and the \.NET Core SDK to build runtime files out of code written in C\#, F\#, and Visual Basic\. 
 
 **Important**  
 Running these samples might result in charges to your AWS account\. These include possible charges for CodeBuild and for AWS resources and actions related to Amazon S3, AWS KMS, and CloudWatch Logs\. For more information, see [CodeBuild pricing](http://aws.amazon.com/codebuild/pricing), [Amazon S3 pricing](http://aws.amazon.com/s3/pricing), [AWS Key Management Service pricing](http://aws.amazon.com/kms/pricing), and [Amazon CloudWatch pricing](http://aws.amazon.com/cloudwatch/pricing)\.
@@ -41,11 +41,11 @@ If you are using an S3 input bucket, be sure to create a ZIP file that contains 
    }
    ```
 
-1. To get the build output artifact, in your S3 output bucket, download the `windows-build-output-artifact.zip` file to your local computer or instance\. Extract the contents to get to the executable and other files\.
-   + The executable file for the C\# sample using the \.NET Framework, `CSharpHelloWorld.exe`, can be found in the `CSharpHelloWorld\bin\Debug` directory\. 
-   + The executable file for the F\# sample using the \.NET Framework, `FSharpHelloWorld.exe`, can be found in the `FSharpHelloWorld\bin\Debug` directory\.
-   + The executable file for the Visual Basic sample using the \.NET Framework, `VBHelloWorld.exe`, can be found in the `VBHelloWorld\bin\Debug` directory\. 
-   + The executable file for the C\# sample using \.NET Core, `HelloWorldSample.dll`, can be found in the `bin\Debug\netcoreapp3.1` directory\.
+1. To get the build output artifact, in your S3 output bucket, download the `windows-build-output-artifact.zip` file to your local computer or instance\. Extract the contents to get to the runtime and other files\.
+   + The runtime file for the C\# sample using the \.NET Framework, `CSharpHelloWorld.exe`, can be found in the `CSharpHelloWorld\bin\Debug` directory\. 
+   + The runtime file for the F\# sample using the \.NET Framework, `FSharpHelloWorld.exe`, can be found in the `FSharpHelloWorld\bin\Debug` directory\.
+   + The runtime file for the Visual Basic sample using the \.NET Framework, `VBHelloWorld.exe`, can be found in the `VBHelloWorld\bin\Debug` directory\. 
+   + The runtime file for the C\# sample using \.NET Core, `HelloWorldSample.dll`, can be found in the `bin\Debug\netcoreapp3.1` directory\.
 
 ## Directory structure<a name="windows-samples-directory-structure"></a>
 
