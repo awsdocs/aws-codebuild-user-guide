@@ -34,7 +34,7 @@ Enter a name for this build project\. Build project names must be unique across 
 **Source provider**  
 Choose **Bitbucket**\. Follow the instructions to connect \(or reconnect\) with Bitbucket and then choose **Authorize**\.  
 **Repository**  
-Choose **Repository in my GitHub account**\.  
+Choose **Repository in my Bitbucket account**\.  
 If you have not previously connected to your Bitbucket account, enter your Bitbucket username and app password, and select **Save Bitbucket credentials**\.  
 **Bitbucket repository**  
 Enter the URL for your Bitbucket repository\.  
