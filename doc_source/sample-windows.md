@@ -14,7 +14,7 @@ Running these samples might result in charges to your AWS account\. These includ
 Do not upload `(root directory name)`, just the files inside of `(root directory name)`\.  
 If you are using an S3 input bucket, be sure to create a ZIP file that contains the files, and then upload it to the input bucket\. Do not add `(root directory name)` to the ZIP file, just the files inside of `(root directory name)`\.
 
-1. Create a build project, run the build, and follow the steps in [Run CodeBuild directly](how-to-run.md)\.
+1. Create a build project\. The build project must use the `mcr.microsoft.com/dotnet/framework/sdk:4.8` image to build \.NET Framework projects\.
 
    If you use the AWS CLI to create the build project, the JSON\-formatted input to the `create-project` command might look similar to this\. \(Replace the placeholders with your own values\.\)
 
@@ -33,13 +33,15 @@ If you are using an S3 input bucket, be sure to create a ZIP file that contains 
      },
      "environment": {
        "type": "WINDOWS_SERVER_2019_CONTAINER",
-       "image": "aws/codebuild/windows-base:2019-1.0",
+       "image": "mcr.microsoft.com/dotnet/framework/sdk:4.8",
        "computeType": "BUILD_GENERAL1_MEDIUM"
      },
      "serviceRole": "arn:aws:iam::account-ID:role/role-name",
      "encryptionKey": "arn:aws:kms:region-ID:account-ID:key/key-ID"
    }
    ```
+
+1. Run the build, and follow the steps in [Run CodeBuild directly](how-to-run.md)\.
 
 1. To get the build output artifact, in your S3 output bucket, download the `windows-build-output-artifact.zip` file to your local computer or instance\. Extract the contents to get to the runtime and other files\.
    + The runtime file for the C\# sample using the \.NET Framework, `CSharpHelloWorld.exe`, can be found in the `CSharpHelloWorld\bin\Debug` directory\. 
@@ -315,8 +317,8 @@ env:
 phases:
   build:
     commands:
-      - '& "C:\ProgramData\chocolatey\bin\NuGet.exe" restore $env:SOLUTION -PackagesDirectory $env:PACKAGE_DIRECTORY'
-      - '& "C:\Program Files (x86)\MSBuild\14.0\Bin\MSBuild.exe" -p:FrameworkPathOverride="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v$env:DOTNET_FRAMEWORK" $env:SOLUTION'
+      - '& nuget restore $env:SOLUTION -PackagesDirectory $env:PACKAGE_DIRECTORY'
+      - '& msbuild -p:FrameworkPathOverride="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v$env:DOTNET_FRAMEWORK" $env:SOLUTION'
 artifacts:
   files:
     - .\FSharpHelloWorld\bin\Debug\*

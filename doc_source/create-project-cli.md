@@ -92,7 +92,7 @@ Modify the JSON data as follows and save your results\.
     ]
   },
   "environment": {
-    "type": "WINDOWS_CONTAINER" | "LINUX_CONTAINER" | "LINUX_GPU_CONTAINER" | "ARM_CONTAINER" | "WINDOWS_SERVER_2019_CONTAINER",
+    "type": "LINUX_CONTAINER" | "LINUX_GPU_CONTAINER" | "ARM_CONTAINER" | "WINDOWS_SERVER_2019_CONTAINER",
     "image": "<image>",
     "computeType": "BUILD_GENERAL1_SMALL" | "BUILD_GENERAL1_MEDIUM" | "BUILD_GENERAL1_LARGE" | "BUILD_GENERAL1_2XLARGE",
     "certificate": "<certificate>",
@@ -245,7 +245,17 @@ AWS CodeBuild sample-project Build #24 - pr/8
 ```  
 source/buildStatusConfig/**targetUrl**  
 For Bitbucket sources, this parameter is used for the `url` parameter in the Bitbucket commit status\. For GitHub sources, this parameter is used for the `target_url` parameter in the GitHub commit status\.  
-For example, you can set the `targetUrl` to `https://aws.amazon.com/codebuild/` and the commit status will link to this URL\.
+For example, you can set the `targetUrl` to `https://aws.amazon.com/codebuild/<path to build>` and the commit status will link to this URL\.  
+You can also include CodeBuild environment variables in the `targetUrl` to add additional information to the URL\. For example, to add the build region to the URL, set the `targetUrl` to:  
+
+```
+"targetUrl": "https://aws.amazon.com/codebuild/<path to build>?region=$AWS_REGION"
+```
+If the build region is `us-east-2`, this will expand to:   
+
+```
+https://aws.amazon.com/codebuild/<path to build>?region=us-east-2
+```
 
 source/**gitSubmodulesConfig**  <a name="cli.source.gitsubmodulesconfig"></a>
 Optional\. Information about the Git submodules configuration\. Used with CodeCommit, GitHub, GitHub Enterprise Server, and Bitbucket only\.     

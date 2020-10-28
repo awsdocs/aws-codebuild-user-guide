@@ -28,8 +28,8 @@ For the compute type `build.general1.2xlarge`, Docker images up to 100 GB uncomp
 
 | Compute type | computeType value | Memory | vCPUs | Disk space | Environment type | 
 | --- | --- | --- | --- | --- | --- | 
-| build\.general1\.medium | BUILD\_GENERAL1\_MEDIUM | 7 GB | 4 | 128 GB |  WINDOWS\_CONTAINER WINDOWS\_SERVER\_2019\_CONTAINER  | 
-| build\.general1\.large | BUILD\_GENERAL1\_LARGE | 15 GB | 8 | 128 GB |  WINDOWS\_CONTAINER WINDOWS\_SERVER\_2019\_CONTAINER  | 
+| build\.general1\.medium | BUILD\_GENERAL1\_MEDIUM | 7 GB | 4 | 128 GB |  WINDOWS\_SERVER\_2019\_CONTAINER  | 
+| build\.general1\.large | BUILD\_GENERAL1\_LARGE | 15 GB | 8 | 128 GB |  WINDOWS\_SERVER\_2019\_CONTAINER  | 
 
 **Note**  
 For custom build environment images, CodeBuild supports Docker images up to 50 GB uncompressed in Linux and Windows, regardless of the compute type\. To check your build image's size, use Docker to run the `docker images REPOSITORY:TAG` command\.

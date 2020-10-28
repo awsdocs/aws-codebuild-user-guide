@@ -70,8 +70,8 @@ batch:
           compute-type: BUILD_GENERAL1_SMALL
       - identifier: windows_medium
         env:
-          type: WINDOWS_CONTAINER
-          image: aws/codebuild/windows-base:2.0
+          type: WINDOWS_SERVER_2019_CONTAINER
+          image: aws/codebuild/windows-base:2019-1.0
           compute-type: BUILD_GENERAL1_MEDIUM
 ```
 
@@ -95,7 +95,7 @@ batch:
       env:
         image:
           - aws/codebuild/amazonlinux2-x86_64-standard:3.0
-          - aws/codebuild/windows-base:2.0
+          - aws/codebuild/windows-base:2019-1.0
         variables:
           MY_VAR:
             - VALUE1
@@ -107,9 +107,9 @@ In this example, CodeBuild creates six builds:
 + `aws/codebuild/amazonlinux2-x86_64-standard:3.0` / `MY_VAR=VALUE1`
 + `aws/codebuild/amazonlinux2-x86_64-standard:3.0` / `MY_VAR=VALUE2`
 + `aws/codebuild/amazonlinux2-x86_64-standard:3.0` / `MY_VAR=VALUE3`
-+ `aws/codebuild/windows-base:2.0` / `MY_VAR=VALUE1`
-+ `aws/codebuild/windows-base:2.0` / `MY_VAR=VALUE2`
-+ `aws/codebuild/windows-base:2.0` / `MY_VAR=VALUE3`
++ `aws/codebuild/windows-base:2019-1.0` / `MY_VAR=VALUE1`
++ `aws/codebuild/windows-base:2019-1.0` / `MY_VAR=VALUE2`
++ `aws/codebuild/windows-base:2019-1.0` / `MY_VAR=VALUE3`
 
 Each build will have the following settings:
 + `ignore-failure` set to `false`

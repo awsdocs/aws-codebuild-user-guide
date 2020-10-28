@@ -118,8 +118,8 @@ batch:
           compute-type: BUILD_GENERAL1_SMALL
       - identifier: windows_medium
         env:
-          type: WINDOWS_CONTAINER
-          image: aws/codebuild/windows-base:2.0
+          type: WINDOWS_SERVER_2019_CONTAINER
+          image: aws/codebuild/windows-base:2019-1.0
           compute-type: BUILD_GENERAL1_MEDIUM
 ```
 
@@ -171,7 +171,7 @@ batch:
       env:
         image:
           - aws/codebuild/amazonlinux2-x86_64-standard:3.0
-          - aws/codebuild/windows-base:2.0
+          - aws/codebuild/windows-base:2019-1.0
         variables:
           MY_VAR:
             - VALUE1
