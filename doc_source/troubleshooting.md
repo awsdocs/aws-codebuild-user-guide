@@ -212,12 +212,14 @@ pre_build:
 + AWS CodeBuild does not have permission to pull the build image from your Amazon Elastic Container Registry \(Amazon ECR\)\.
 +  The Amazon ECR image you requested is not available in the AWS Region that your AWS account is using\. 
 +  You are using a private registry in a VPC that does not have public internet access\. CodeBuild cannot pull an image from a private IP address in a VPC\. For more information, see [ Private registry with AWS Secrets Manager sample for CodeBuild](sample-private-registry.md)\. 
++ If the error message contains "**toomanyrequests**", and the image is obtained from Docker Hub, this error means the Docker Hub pull limit has been reached\. 
 
  **Recommended solutions:** 
 + Use a larger compute type with more available disk space, or reduce the size of your custom build image\.
 + Update the permissions in your repository in Amazon ECR so that CodeBuild can pull your custom build image into the build environment\. For more information, see the [Amazon ECR sample](sample-ecr.md)\.
 +  Use an Amazon ECR image that is in the same AWS Region as the one your AWS account is using\. 
 +  If you use a private registry in a VPC, make sure the VPC has public internet access\. 
++ Use a Docker Hub private registry, or obtain your image from Amazon ECR\. For more information about using a private registry, see [ Private registry with AWS Secrets Manager sample for CodeBuild](sample-private-registry.md)\. For more information about using Amazon ECR, see [Amazon ECR sample for CodeBuild ](sample-ecr.md)\.
 
 ## Error: "Build container found dead before completing the build\. build container died because it was out of memory, or the Docker image is not supported\. ErrorCode: 500"<a name="windows-server-core-version"></a>
 
