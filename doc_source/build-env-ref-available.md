@@ -39,8 +39,11 @@ The base image of the Windows Server Core 2019 contains the following runtimes\.
 | python | 3\.8\.3 | 
 | ruby | 2\.7 | 
 
-**Note**  
-The base image of the Windows Server Core 2019 platform is available in the US East \(N\. Virginia\), US East \(Ohio\), US West \(Oregon\), and Europe \(Ireland\) Regions only\. 
+The base image of the Windows Server Core 2019 platform is only available in the following regions:
++ US East \(N\. Virginia\)
++ US East \(Ohio\)
++ US West \(Oregon\)
++ Europe \(Ireland\)
 
 You can use a build specification to install other components \(for example, the AWS CLI, Apache Maven, Apache Ant, Mocha, RSpec, or similar\) during the `install` build phase\. For more information, see [Buildspec example](build-spec-ref.md#build-spec-ref-example)\.
 

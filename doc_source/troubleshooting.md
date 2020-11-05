@@ -9,7 +9,7 @@ Use the information in this topic to help you identify, diagnose, and address is
 + [Builds might fail when getting parameters from Amazon EC2 Parameter Store](#troubleshooting-parameter-store)
 + [Cannot access branch filter in the CodeBuild console](#troubleshooting-webhook-filter)
 + [Cannot view build success or failure](#no-status-when-build-triggered)
-+ [Cannot find and select the base image of the Windows Server Core 2016 platform](#windows-image-not-available)
++ [Cannot find and select the base image of the Windows Server Core 2019 platform](#windows-image-not-available)
 + [Earlier commands in buildspec files are not recognized by later commands](#troubleshooting-build-spec-commands)
 + [Error: "Access denied" when attempting to download cache](#troubleshooting-dependency-caching)
 + [Error: "BUILD\_CONTAINER\_UNABLE\_TO\_PULL\_IMAGE" when using a custom build image](#troubleshooting-unable-to-pull-image)
@@ -172,16 +172,17 @@ pre_build:
 
 **Recommended solutions:** Enable **Report build status** when you create or update a CodeBuild project\. This option tells CodeBuild to report back the status when you trigger a build\. For more information, see [reportBuildStatus](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSource.html#CodeBuild-Type-ProjectSource-reportBuildStatus) in the *AWS CodeBuild API Reference*\. 
 
-## Cannot find and select the base image of the Windows Server Core 2016 platform<a name="windows-image-not-available"></a>
+## Cannot find and select the base image of the Windows Server Core 2019 platform<a name="windows-image-not-available"></a>
 
-**Issue:** You cannot find or select the base image of the Windows Server Core 2016 platform\.
+ **Issue:** You cannot find or select the base image of the Windows Server Core 2019 platform\.
 
-**Possible cause:** You are using an AWS Region that does not support this image\. 
+ **Possible cause:** You are using an AWS Region that does not support this image\. 
 
-**Recommended solutions:** Use one of the following AWS Regions where the base image of the Windows Server Core 2016 platform is supported:
-+  US East \(N\. Virginia\) 
-+  US East \(Ohio\) 
-+  US West \(N\. California\) 
+ **Recommended solutions:** Use one of the following AWS Regions where the base image of the Windows Server Core 2019 platform is supported:
++ US East \(N\. Virginia\)
++ US East \(Ohio\)
++ US West \(Oregon\)
++ Europe \(Ireland\)
 
 ## Earlier commands in buildspec files are not recognized by later commands<a name="troubleshooting-build-spec-commands"></a>
 
