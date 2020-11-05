@@ -181,7 +181,6 @@ pre_build:
 **Recommended solutions:** Use one of the following AWS Regions where the base image of the Windows Server Core 2016 platform is supported:
 +  US East \(N\. Virginia\) 
 +  US East \(Ohio\) 
-+  US East \(Ohio\) 
 +  US West \(N\. California\) 
 
 ## Earlier commands in buildspec files are not recognized by later commands<a name="troubleshooting-build-spec-commands"></a>
