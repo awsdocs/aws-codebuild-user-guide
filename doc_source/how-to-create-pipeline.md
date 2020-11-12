@@ -391,7 +391,7 @@ If you enable webhooks for a CodeBuild project, and the project is used as a bui
    Select **Privileged** only if you plan to use this build project to build Docker images, and the build environment image you chose is not one provided by CodeBuild with Docker support\. Otherwise, all associated builds that attempt to interact with the Docker daemon fail\. You must also start the Docker daemon so that your builds can interact with it as needed\. You can do this by running the following build commands to initialize the Docker daemon in the `install` phase of your buildspec\. \(Do not run the following build commands if you chose a build environment image provided by CodeBuild with Docker support\.\)
 
    ```
-   - nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://127.0.0.1:2375 --storage-driver=overlay&
+   - nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://127.0.0.1:2375 --storage-driver=overlay2 &
    - timeout -t 15 sh -c "until docker info; do echo .; sleep 1; done"
    ```
 
@@ -529,7 +529,7 @@ If you enable webhooks for a CodeBuild project, and the project is used as a bui
    Select **Privileged** only if you plan to use this build project to build Docker images, and the build environment image you chose is not one provided by CodeBuild with Docker support\. Otherwise, all associated builds that attempt to interact with the Docker daemon fail\. You must also start the Docker daemon so that your builds can interact with it as needed\. You can do this by running the following build commands to initialize the Docker daemon in the `install` phase of your buildspec\. \(Do not run the following build commands if you chose a build environment image provided by CodeBuild with Docker support\.\)
 
    ```
-   - nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://127.0.0.1:2375 --storage-driver=overlay&
+   - nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://127.0.0.1:2375 --storage-driver=overlay2 &
    - timeout -t 15 sh -c "until docker info; do echo .; sleep 1; done"
    ```
 
