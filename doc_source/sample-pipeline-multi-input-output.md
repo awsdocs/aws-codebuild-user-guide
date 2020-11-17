@@ -104,7 +104,6 @@ An AWS CodeBuild project can take more than one input source\. It can also creat
 + One of your input sources must be designated the `PrimarySource`\. This source is the directory where CodeBuild looks for and runs your buildspec file\. The keyword `PrimarySource` is used to specify the primary source in the `configuration` section of the CodeBuild stage in the JSON file\. 
 + Each input source is installed in its own directory\. This directory is stored in the built\-in environment variable `$CODEBUILD_SRC_DIR` for the primary source and `$CODEBUILD_SRC_DIR_yourInputArtifactName` for all other sources\. For the pipeline in this sample, the two input source directories are `$CODEBUILD_SRC_DIR` and `$CODEBUILD_SRC_DIR_source2`\. For more information, see [Environment variables in build environments](build-env-ref-env-vars.md)\. 
 + The names of the output artifacts specified in the pipeline's JSON file must match the names of the secondary artifacts defined in your buildspec file\. This pipeline uses the following buildspec file\. For more information, see [Buildspec syntax](build-spec-ref.md#build-spec-ref-syntax)\. 
-+ 
 
   ```
   version: 0.2
@@ -118,7 +117,7 @@ An AWS CodeBuild project can take more than one input source\. It can also creat
   
   artifacts:
     files:
-      - **/*
+      - '**/*'
     secondary-artifacts:
       artifact1:
         base-directory: $CODEBUILD_SRC_DIR
