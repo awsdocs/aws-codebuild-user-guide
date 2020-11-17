@@ -117,6 +117,8 @@ An AWS CodeBuild project can take more than one input source\. It can also creat
         - touch source2_file
   
   artifacts:
+    files:
+      - **/*
     secondary-artifacts:
       artifact1:
         base-directory: $CODEBUILD_SRC_DIR
