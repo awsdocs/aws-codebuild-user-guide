@@ -134,7 +134,8 @@ Your local machine must have the Session Manager plugin installed for this proce
    aws codebuild batch-get-builds --ids <buildID> --region <region>
    ```
 
-1. Copy the `sessionTarget` property value\.
+1. Copy the `sessionTarget` property value\. Note: `sessionTarget` is only availabe if output is `json` or `table`. If output is set to `text` look for `DEBUGSESSION` instead. If the proprty is missing from the output then update your CLI to a more recent version.
+
 
 1. Use the following command to connect to the build container\.
 
