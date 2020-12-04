@@ -47,7 +47,7 @@ If you are using an S3 input bucket, be sure to create a ZIP file that contains 
    + The runtime file for the C\# sample using the \.NET Framework, `CSharpHelloWorld.exe`, can be found in the `CSharpHelloWorld\bin\Debug` directory\. 
    + The runtime file for the F\# sample using the \.NET Framework, `FSharpHelloWorld.exe`, can be found in the `FSharpHelloWorld\bin\Debug` directory\.
    + The runtime file for the Visual Basic sample using the \.NET Framework, `VBHelloWorld.exe`, can be found in the `VBHelloWorld\bin\Debug` directory\. 
-   + The runtime file for the C\# sample using \.NET Core, `HelloWorldSample.dll`, can be found in the `bin\Debug\netcoreapp3.1` directory\.
+   + The runtime file for the C\# sample using \.NET Core, `HelloWorldSample.dll`, can be found in the `bin\Debug\net5.0` directory\.
 
 ## Directory structure<a name="windows-samples-directory-structure"></a>
 
@@ -1057,7 +1057,7 @@ phases:
       - dotnet build
 artifacts:
   files:
-    - .\bin\Debug\netcoreapp3.1\*
+    - .\bin\Debug\net5.0\*
 ```
 
 `HelloWorldSample.csproj` \(in `(root directory name)`
@@ -1066,7 +1066,7 @@ artifacts:
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 </Project>
 ```

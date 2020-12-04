@@ -128,14 +128,13 @@ In a web browser, open the **AWS Session Manager** link to connect to the build 
 AWS CLI  
 Your local machine must have the Session Manager plugin installed for this procedure\. For more information, see [Install the Session Manager Plugin for the AWS CLI](https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html) in the AWS Systems Manager User Guide\. 
 
-1. Call the batch\-get\-builds api with the build ID to get information about the build\. 
+1. Call the batch\-get\-builds api with the build ID to get information about the build, including the session target identifier\. The session target identifier property name varies depending on the output type of the `aws` command\. This is why `--output json` is added to the command\.
 
    ```
-   aws codebuild batch-get-builds --ids <buildID> --region <region>
+   aws codebuild batch-get-builds --ids <buildID> --region <region> --output json
    ```
 
-1. Copy the `sessionTarget` property value\. Note: `sessionTarget` is only available if output is `json` or `table`. If output is set to `text` look for `DEBUGSESSION` instead. If the property is missing from the output then update your CLI to a more recent version.
-
+1. Copy the `sessionTarget` property value\. The `sessionTarget` property name can vary depending on the output type of the `aws` command\. This is why `--output json` is added to the command in the previous step\.
 
 1. Use the following command to connect to the build container\.
 

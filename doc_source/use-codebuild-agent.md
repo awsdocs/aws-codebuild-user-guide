@@ -36,7 +36,7 @@ You only need to set up the build image the first time you run the agent, or whe
 1. The CodeBuild agent is available from [https://hub\.docker\.com/r/amazon/aws\-codebuild\-local/](https://hub.docker.com/r/amazon/aws-codebuild-local/)\. Its Secure Hash Algorithm \(SHA\) signature is:
 
    ```
-   78f5c1a205604c39cd8c797fd8447f590428c0908ba1fbdbd3dcf8712af5e325
+   948390fe21cd700f7c8b8c64ee89faf7aeca8ab87cd9dac4ba6c853a35817ae3
    ```
 
    You can use this to identify the version of the agent\. To see the agent's SHA signature, run the following command: 

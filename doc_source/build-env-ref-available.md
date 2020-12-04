@@ -30,7 +30,7 @@ The base image of the Windows Server Core 2019 contains the following runtimes\.
 
 | Runtime name | Version in `windows-base:2019-1.0` | 
 | --- | --- | 
-| dotnet | 3\.1\.3 | 
+| dotnet | 3\.1\.4045\.0 | 
 | golang | 1\.14 | 
 | nodejs | 12\.18 | 
 | java | corretto11 | 
