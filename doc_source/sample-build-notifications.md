@@ -49,8 +49,12 @@ For more information, see [Editing customer managed policies](https://docs.aws.a
 
    1. Choose **Create topic**\.
 
-   1. On the **Topic details: CodeBuildDemoTopic** page, copy the **Topic ARN** value\. You need this value for the next step\.   
+   1. On the **Topic details: CodeBuildDemoTopic** page, copy the **Topic ARN** value\. You need this value for the next step\. 
+
+        
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/topic-arn.png)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)
+
+      
 
    For more information, see [Create a topic](https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html) in the *Amazon SNS Developer Guide*\.
 
@@ -64,8 +68,12 @@ For more information, see [Editing customer managed policies](https://docs.aws.a
 
    1. For **Protocol**, choose **Email**\.
 
-   1. For **Endpoint**, enter the recipient's full email address\.   
+   1. For **Endpoint**, enter the recipient's full email address\. 
+
+        
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/create-subscription.png)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)
+
+      
 
    1. Choose **Create Subscription**\.
 
@@ -115,8 +123,12 @@ For more information, see [Editing customer managed policies](https://docs.aws.a
    }
    ```
 
-   Compare your results:  
+   Compare your results:
+
+     
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/create-rule.png)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)
+
+   
 
 1. Choose **Edit** and replace the code in **Event Pattern Preview** with one of the following two rule patterns\.
 
@@ -244,15 +256,23 @@ If you want to trigger events for both build state changes and build phase chang
    "Build '<build-id>' for build project '<project-name>' has completed the build phase of '<completed-phase>' with a status of '<completed-phase-status>'."
    ```
 
-   Compare your results so far to the following, which shows a rule with a `detail-type` value of `CodeBuild Build State Change`:  
+   Compare your results so far to the following, which shows a rule with a `detail-type` value of `CodeBuild Build State Change`:
+
+     
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/create-rule-2.png)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)
+
+   
 
 1. Choose **Configure details**\.
 
 1. On the **Step 2: Configure rule details** page, enter a name and an optional description\. For **State**, leave **Enabled** selected\.
 
-   Compare your results so far to the following screen shot:  
+   Compare your results so far to the following screen shot:
+
+     
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/create-rule-3.png)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)
+
+   
 
 1. Choose **Create rule**\. 
 

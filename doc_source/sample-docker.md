@@ -151,8 +151,8 @@ This sample assumes this directory structure\.
 
 ```
 (root directory name)
-    |-- buildspec.yml
-    `-- Dockerfile
+├── buildspec.yml
+└── Dockerfile
 ```
 
 ## Files<a name="sample-docker-files"></a>

@@ -105,3 +105,5 @@ You can subscribe to Amazon SNS notifications so you know when new versions of t
 1. In the navigation pane, choose **Subscriptions**\. 
 
 1. Select the subscription and from **Actions**, choose **Delete subscriptions**\. When you are prompted to confirm, choose **Delete**\. 
+
+ 

@@ -6,6 +6,8 @@ In this step, you get the `messageUtil-1.0.jar` file that CodeBuild built and up
 
 You can use the CodeBuild console or the Amazon S3 console to complete this step\.
 
+
+
 **To get the build output artifact \(AWS CodeBuild console\)**
 
 1. With the CodeBuild console still open and the build details page still displayed from the previous step, choose the **Build details** tab and scroll down to the **Artifacts** section\. 

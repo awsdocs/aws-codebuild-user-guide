@@ -19,13 +19,21 @@ For more information, see [AWS CodeBuild](https://aws.amazon.com/codebuild/)\.
 
 You can use the AWS CodeBuild or AWS CodePipeline console to run CodeBuild\. You can also automate the running of CodeBuild by using the AWS Command Line Interface \(AWS CLI\) or the AWS SDKs\.
 
+
+
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/overview.png)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)
+
+
 
 To run CodeBuild by using the CodeBuild console, AWS CLI, or AWS SDKs, see [Run AWS CodeBuild directly](how-to-run.md)\.
 
 As the following diagram shows, you can add CodeBuild as a build or test action to the build or test stage of a pipeline in AWS CodePipeline\. AWS CodePipeline is a continuous delivery service that you can use to model, visualize, and automate the steps required to release your code\. This includes building your code\. A *pipeline* is a workflow construct that describes how code changes go through a release process\.
 
+
+
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/pipeline.png)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)
+
+
 
 To use CodePipeline to create a pipeline and then add a CodeBuild build or test action, see [Use CodePipeline with CodeBuild](how-to-create-pipeline.md)\. For more information about CodePipeline, see the [AWS CodePipeline User Guide](https://docs.aws.amazon.com/codepipeline/latest/userguide/)\.
 

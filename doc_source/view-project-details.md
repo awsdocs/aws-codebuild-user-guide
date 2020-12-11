@@ -21,6 +21,8 @@ By default, only the 10 most recent build projects are displayed\. To view more 
 
 ## View a build project's details \(AWS CLI\)<a name="view-project-details-cli"></a>
 
+
+
 Run the batch\-get\-projects command:
 
 ```

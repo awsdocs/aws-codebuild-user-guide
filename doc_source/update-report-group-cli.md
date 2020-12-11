@@ -50,6 +50,6 @@
 1.  Run the following command: 
 
    ```
-   aws codebuild upate-report-group \
+   aws codebuild update-report-group \
    --cli-input-json file://UpdateReportGroupInput.json
    ```

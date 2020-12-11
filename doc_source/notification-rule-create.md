@@ -2,6 +2,8 @@
 
 You can use notification rules to notify users when important changes, such as build successes and failures, occur\. Notification rules specify both the events and the Amazon SNS topic that is used to send notifications\. For more information, see [What are notifications?](https://docs.aws.amazon.com/codestar-notifications/latest/userguide/welcome.html)
 
+
+
 You can use the console or the AWS CLI to create notification rules for AWS CodeBuild\. <a name="notification-rule-create-console"></a>
 
 # To create a notification rule \(console\)<a name="notification-rule-create-console"></a>

@@ -306,6 +306,8 @@ sudo tail -f /var/log/squid/access.log
 
 ## Run a package manager and other tools in a proxy server<a name="use-proxy-server-tools"></a>
 
+
+
 **To run a tool, such as a package manager, in a proxy server**
 
 1.  Add the tool to the allow list in your proxy server by adding statements to your `squid.conf` file\. 

@@ -90,16 +90,16 @@
 
    ```
    (root directory name)
-     -- my-web-app
-          |-- src    
-          |     `-- main
-          |           |-- resources
-          |           `-- webapp
-          |                 |-- WEB-INF
-          |                 |     `-- web.xml
-          |                 `-- index.jsp
-          |-- buildspec.yml
-          `-- pom.xml
+   └── my-web-app
+       ├── src
+       │   ├── main
+       │   ├── resources
+       │   └── webapp
+       │       └── WEB-INF
+       │           └── web.xml
+       │               └── index.jsp
+       ├── buildspec.yml
+       └── pom.xml
    ```
 
 1.  Upload the contents of the `my-web-app` directory to an S3 input bucket or a CodeCommit, GitHub, or Bitbucket repository\. 
@@ -313,13 +313,13 @@ The build project in this example uses source code in the GitHub [AWS samples](h
 1.  Your file structure should now look like this\. 
 
    ```
-   -- my-source
-       |-- golang-app    
-       |     -- hello.go
-       |-- nodejs.app
-       |     -- index.js
-       |     -- package.json
-       |-- buildspec.yml
+   my-source
+   ├── golang-app
+   │   └── hello.go
+   ├── nodejs.app
+   │   ├── index.js
+   │   └── package.json
+   └── buildspec.yml
    ```
 
 1. Upload the contents of the `my-source` directory to an S3 input bucket or a CodeCommit, GitHub, or Bitbucket repository\.

@@ -41,6 +41,8 @@
 
 ## View test reports in your AWS account<a name="test-view-account-reports"></a>
 
+
+
 **To view test reports in your AWS account**
 
 1. Open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codesuite/codebuild/home](https://console.aws.amazon.com/codesuite/codebuild/home)\.

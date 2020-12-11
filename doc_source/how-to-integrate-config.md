@@ -31,8 +31,12 @@ After you complete setup, it might take up to 10 minutes before you can see AWS 
 
 1. Sign in to the AWS Management Console and open the AWS Config console at [https://console\.aws\.amazon\.com/config](https://console.aws.amazon.com/config)\. 
 
-1. On the **Resource inventory** page, choose **Resources**\. Scroll down and select the **CodeBuild project** check box\.  
+1. On the **Resource inventory** page, choose **Resources**\. Scroll down and select the **CodeBuild project** check box\.
+
+     
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/config-select-project.png)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)
+
+   
 
 1. Choose **Look up**\.
 

@@ -33,7 +33,11 @@ Include these settings in your VPC configuration:
 + For **Subnets**, choose a private subnet with NAT translation that includes or has routes to the resources used by CodeBuild\.
 + For **Security Groups**, choose the security groups that CodeBuild uses to allow access to resources in the VPCs\.
 
+
+
 To use the console to create a build project, see [Create a build project \(console\)](create-project-console.md)\. When you create or change your CodeBuild project, in **VPC**, choose your VPC ID, subnets, and security groups\. 
+
+
 
 To use the AWS CLI to create a build project, see [Create a build project \(AWS CLI\)](create-project-cli.md)\. If you are using the AWS CLI with CodeBuild, the service role used by CodeBuild to interact with services on behalf of the IAM user must have a policy attached\. For information, see [Allow CodeBuild access to AWS services required to create a VPC network interface](auth-and-access-control-iam-identity-based-access-control.md#customer-managed-policies-example-create-vpc-network-interface)\.
 

@@ -1,6 +1,6 @@
 # AWS Elastic Beanstalk sample for CodeBuild<a name="sample-elastic-beanstalk"></a>
 
-This sample instructs AWS CodeBuild to use Maven to produce as build output a single WAR file named `my-web-app.war`\. This sample then deploys the WAR file to the instances in an AWS Elastic Beanstalk environment\.
+This sample uses AWS CodeBuild with Maven to produce a single WAR file named `my-web-app.war` as the build output\. This sample then deploys the WAR file to the instances in an AWS Elastic Beanstalk environment\.
 
 **Important**  
 Running this sample might result in charges to your AWS account\. These include possible charges for CodeBuild and for AWS resources and actions related to Amazon S3, AWS KMS, CloudWatch Logs, and Amazon EC2\. For more information, see [CodeBuild pricing](http://aws.amazon.com/codebuild/pricing), [Amazon S3 pricing](http://aws.amazon.com/s3/pricing), [AWS Key Management Service pricing](http://aws.amazon.com/kms/pricing), [Amazon CloudWatch pricing](http://aws.amazon.com/cloudwatch/pricing), and [Amazon EC2 pricing](http://aws.amazon.com/ec2/pricing)\.
@@ -20,19 +20,19 @@ In this section, you use Maven to produce the source code\. Later, you use CodeB
    If successful, this directory structure and files are created\.
 
    ```
-   (root directory name)
-        `-- my-web-app
-              |-- pom.xml
-              `-- src    
-                    `-- main
-                          |-- resources
-                          `-- webapp
-                                |-- WEB-INF
-                                |     `-- web.xml
-                                `-- index.jsp
+   .
+   └── my-web-app
+       ├── pom.xml
+       └── src
+           └── main
+               ├── resources
+               └── webapp
+                   ├── WEB-INF
+                   │   └── web.xml
+                   └── index.jsp
    ```
 
-1. Create a subdirectory named `.ebextensions` in the `(root directory name)/my-web-app` directory\. In the `.ebextensions` subdirectory, create a file named `fix-path.config` with this content\. 
+1. Create a subdirectory named `.ebextensions` in the `my-web-app` directory\. In the `.ebextensions` subdirectory, create a file named `fix-path.config` with this content\. 
 
    ```
    container_commands:
@@ -53,7 +53,7 @@ In this scenario, you create and upload the source code\. You then use the AWS C
 
 In this step, you add an Elastic Beanstalk configuration file and a buildspec file to the code in [Create the source code](#sample-elastic-beanstalk-prepare-source)\. You then upload the source code to an S3 input bucket or a CodeCommit, GitHub, or Bitbucket repository\. 
 
-1. Create a file named `buildspec.yml` with the following contents\. Store the file in the `(root directory name)/my-web-app` directory\.
+1. Create a file named `buildspec.yml` with the following contents\. Store the file in the `my-web-app` directory\.
 
    ```
    version: 0.2
@@ -75,25 +75,25 @@ In this step, you add an Elastic Beanstalk configuration file and a buildspec fi
 1. Your file structure should now look like this\.
 
    ```
-   (root directory name)
-        `-- my-web-app
-              |-- .ebextensions
-              |     `-- fix-path.config 
-              |-- src    
-              |     `-- main
-              |           |-- resources
-              |           `-- webapp
-              |                 |-- WEB-INF
-              |                 |     `-- web.xml
-              |                 `-- index.jsp
-              |-- buildpsec.yml
-              `-- pom.xml
+   .
+   └── my-web-app
+       ├── .ebextensions
+       │   └── fix-path.config
+       ├── src
+       │   └── main
+       │       ├── resources
+       │       └── webapp
+       │           ├── WEB-INF
+       │           │   └── web.xml
+       │           └── index.jsp
+       ├── buildpsec.yml
+       └── pom.xml
    ```
 
 1.  Upload the contents of the `my-web-app` directory to an S3 input bucket or a CodeCommit, GitHub, or Bitbucket repository\.
 **Important**  
-Do not upload `(root directory name)` or `(root directory name)/my-web-app`, just the directories and files in `(root directory name)/my-web-app`\.   
- If you are using an S3 input bucket, it must be versioned\. Be sure to create a ZIP file that contains the directory structure and files, and then upload it to the input bucket\. Do not add `(root directory name)` or `(root directory name)/my-web-app` to the ZIP file, just the directories and files in `(root directory name)/my-web-app`\. For more information, see [How to Configure Versioning on a Bucket](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html#how-to-enable-disable-versioning-intro) in the *Amazon S3 Developer Guide*\. 
+Do not upload `my-web-app`, just the directories and files in `my-web-app`\.   
+ If you are using an S3 input bucket, it must be versioned\. Be sure to create a ZIP file that contains the directory structure and files, and then upload it to the input bucket\. Do not add `my-web-app` to the ZIP file, just the directories and files in `my-web-app`\. For more information, see [How to Configure Versioning on a Bucket](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html#how-to-enable-disable-versioning-intro) in the *Amazon S3 Developer Guide*\. 
 
 ### Step a2: Create the build project and run the build<a name="sample-elastic-beanstalk-manual-build"></a>
 
@@ -164,25 +164,25 @@ In this step, you create and add a buildspec file to the code you created in [Cr
 1. Your file structure should now look like this\.
 
    ```
-   (root directory name)
-        `-- my-web-app
-              |-- .ebextensions
-              |     `-- fix-path.config
-              |-- src    
-              |     `-- main
-              |           |-- resources
-              |           `-- webapp
-              |                 |-- WEB-INF
-              |                 |     `-- web.xml
-              |                 `-- index.jsp
-              |-- buildpsec.yml
-              `-- pom.xml
+   .
+   └── my-web-app
+       ├── .ebextensions
+       │   └── fix-path.config
+       ├── src
+       │   └── main
+       │       ├── resources
+       │       └── webapp
+       │           ├── WEB-INF
+       │           │   └── web.xml
+       │           └── index.jsp
+       ├── buildpsec.yml
+       └── pom.xml
    ```
 
 1. Upload the contents of the `my-web-app` directory to an S3 input bucket or a CodeCommit, GitHub, or Bitbucket repository\.
 **Important**  
-Do not upload `(root directory name)` or `(root directory name)/my-web-app`, just the directories and files in `(root directory name)/my-web-app`\.   
- If you are using an S3 input bucket, it must be versioned\. Be sure to create a ZIP file that contains the directory structure and files, and then upload it to the input bucket\. Do not add `(root directory name)` or `(root directory name)/my-web-app` to the ZIP file, just the directories and files in `(root directory name)/my-web-app`\. For more information, see [How to Configure Versioning on a Bucket](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html#how-to-enable-disable-versioning-intro) in the *Amazon S3 Developer Guide*\. 
+Do not upload `my-web-app`, just the directories and files in `my-web-app`\.   
+ If you are using an S3 input bucket, it must be versioned\. Be sure to create a ZIP file that contains the directory structure and files, and then upload it to the input bucket\. Do not add `my-web-app` to the ZIP file, just the directories and files in `my-web-app`\. For more information, see [How to Configure Versioning on a Bucket](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html#how-to-enable-disable-versioning-intro) in the *Amazon S3 Developer Guide*\. 
 
 ### Step b2: Create a build project<a name="sample-elastic-beanstalk-codepipeline-buildproject"></a>
 
@@ -271,22 +271,24 @@ In this step, you add an Elastic Beanstalk configuration file and a buildspec fi
 1. Your file structure should now look like this\.
 
    ```
-   (root directory name)
-        `-- my-web-app
-              |-- .ebextensions
-              |     `-- fix-path.config 
-              |-- src    
-              |     `-- main
-              |           |-- resources
-              |           `-- webapp
-              |                 |-- WEB-INF
-              |                 |     `-- web.xml
-              |                 `-- index.jsp
-              |-- buildpsec.yml
-              `-- pom.xml
+   .
+   └── my-web-app
+       ├── .ebextensions
+       │   └── fix-path.config
+       ├── src
+       │   └── main
+       │       ├── resources
+       │       └── webapp
+       │           ├── WEB-INF
+       │           │   └── web.xml
+       │           └── index.jsp
+       ├── buildpsec.yml
+       └── pom.xml
    ```
 
 ### Step c2: Install and run the EB CLI<a name="sample-elastic-beanstalk-eb-cli-run"></a>
+
+
 
 1. If you have not already done so, install and configure the EB CLI on the same computer or instance where you created the source code\. For information, see [Install the Elastic Beanstalk command line interface \(EB CLI\)](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli3-install.html) and [Configure the EB CLI](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli3-configuration.html) in the *AWS Elastic Beanstalk Developer Guide*\.
 

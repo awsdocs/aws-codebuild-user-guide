@@ -148,8 +148,8 @@ This sample assumes this directory structure\.
 
 ```
 (root directory name)
-    |-- buildspec.yml
-    `-- hello.go
+├── buildspec.yml
+└── hello.go
 ```
 
 ## Go project files<a name="sample-ecr-go-project-files"></a>

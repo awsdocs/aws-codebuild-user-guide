@@ -17,28 +17,28 @@ Running this sample might result in charges to your AWS account\. These include 
    mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=my-app -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
    ```
 
-   If successful, this directory structure and files is created\.
+   If successful, this directory structure and files are created\.
 
    ```
-   (root directory name)
-        `-- my-app
-              |-- pom.xml
-              `-- src    
-                    |-- main
-                    |     `-- java
-                    |           `-- com
-                    |                 `-- mycompany 
-                    |                       `-- app    
-                    |                             `-- App.java 
-                    `-- test        
-                          `-- java 
-                                `-- com
-                                      `-- mycompany 
-                                            `-- app
-                                                  `-- AppTest.java
+   .
+   └── my-app
+       ├── pom.xml
+       └── src
+           ├── main
+           │   └── java
+           │       └── com
+           │           └── mycompany
+           │               └── app
+           │                   └── App.java
+           └── test
+               └── java
+                   └── com
+                       └── mycompany
+                           └── app
+                               └── AppTest.java
    ```
 
-1. Create a file with this content\. Name the file `buildspec.yml`, and then add it to the `(root directory name)/my-app` directory\.
+1. Create a file with this content\. Name the file `buildspec.yml`, and then add it to the `my-app` directory\.
 
    ```
    version: 0.2
@@ -62,7 +62,7 @@ Running this sample might result in charges to your AWS account\. These include 
      discard-paths: yes
    ```
 
-1. Create a file with this content\. Name the file `appspec.yml`, and then add it to the `(root directory name)/my-app` directory\.
+1. Create a file with this content\. Name the file `appspec.yml`, and then add it to the `my-app` directory\.
 
    ```
    version: 0.0
@@ -75,49 +75,50 @@ Running this sample might result in charges to your AWS account\. These include 
    When finished, your directory structure and file should look like this\.
 
    ```
-   (root directory name)
-        `-- my-app
-              |-- buildspec.yml
-              |-- appspec.yml
-              |-- pom.xml
-              `-- src    
-                    |-- main
-                    |     `-- java
-                    |           `-- com
-                    |                 `-- mycompany 
-                    |                       `-- app    
-                    |                             `-- App.java 
-                    `-- test        
-                          `-- java 
-                                `-- com
-                                      `-- mycompany 
-                                            `-- app
-                                                  ` -- AppTest.java
+   .
+   └── my-app
+       ├── buildspec.yml
+       ├── appspec.yml
+       ├── pom.xml
+       └── src
+           ├── main
+           │   └── java
+           │       └── com
+           │           └── mycompany
+           │               └── app
+           │                   └── App.java
+           └── test
+               └── java
+                   └── com
+                       └── mycompany
+                           └── app
+                               └── AppTest.java
    ```
 
-1. Create a ZIP file that contains the directory structure and files inside of `(root directory name)/my-app`, and then upload the ZIP file to a source code repository type supported by AWS CodeBuild and CodeDeploy, such as an S3 input bucket or a GitHub or Bitbucket repository\. 
+1. Create a ZIP file that contains the directory structure and files inside of `my-app`, and then upload the ZIP file to a source code repository type supported by AWS CodeBuild and CodeDeploy, such as an S3 input bucket or a GitHub or Bitbucket repository\. 
 **Important**  
 If you want to use CodePipeline to deploy the resulting build output artifact, you cannot upload the source code to a Bitbucket repository\.  
-Do not add `(root directory name)` or `(root directory name)/my-app` to the ZIP file, just the directories and files inside of `(root directory name)/my-app`\. The ZIP file should contain these directories and files:  
+Do not add `my-app` to the ZIP file, just the directories and files inside of `my-app`\. The ZIP file should contain these directories and files:  
 
    ```
-   CodeDeploySample.zip
-        |--buildspec.yml
-        |-- appspec.yml
-        |-- pom.xml
-        `-- src    
-              |-- main
-              |     `-- java
-              |           `-- com
-              |                 `-- mycompany 
-              |                       `-- app    
-              |                             `-- App.java 
-              `-- test        
-                    `-- java 
-                          `-- com
-                                `-- mycompany 
-                                      `-- app
-                                            ` -- AppTest.java
+   .
+   └── CodeDeploySample.zip
+       ├── buildspec.yml
+       ├── appspec.yml
+       ├── pom.xml
+       └── src
+           ├── main
+           │   └── java
+           │       └── com
+           │           └── mycompany
+           │               └── app
+           │                   └── App.java
+           └── test
+               └── java
+                   └── com
+                       └── mycompany
+                           └── app
+                               └── AppTest.java
    ```
 
 1. Create a build project by following the steps in [Create a build project](create-project.md)\.

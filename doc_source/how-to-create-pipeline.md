@@ -356,8 +356,12 @@ This procedure shows you how to add a build action in a build stage between the 
 
 1. Between the **Source** and **Beta** stages, choose **Add stage**\.
 **Note**  
-This procedure shows you how to add a build stage between the **Source** and **Beta** stages to your pipeline\. To add a build action to an existing stage, choose **Edit stage** in the stage, and then skip to step 8 of this procedure\. To add the build stage somewhere else, choose **Add stage** in the desired place\.  
+This procedure shows you how to add a build stage between the **Source** and **Beta** stages to your pipeline\. To add a build action to an existing stage, choose **Edit stage** in the stage, and then skip to step 8 of this procedure\. To add the build stage somewhere else, choose **Add stage** in the desired place\.
+
+     
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/create-stage.png)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)
+
+   
 
 1. For **Stage name**, enter the name of the build stage \(for example, **Build**\)\. If you choose a different name, use it throughout this procedure\.
 
@@ -499,6 +503,8 @@ This procedure shows you how to add a test action inside of a test stage between
 This procedure shows you how to add a test stage immediately after the **Source** stage to your pipeline\. To add a test action to an existing stage, choose **Edit stage** in the stage, and then skip to step 8 of this procedure\. To add the test stage somewhere else, choose **Add stage** in the desired place\.  
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/create-stage.png)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)
 
+   
+
 1. For **Stage name**, enter the name of the test stage \(for example, **Test**\)\. If you choose a different name, use it throughout this procedure\.
 
 1. In the selected stage, choose **Add action**\.
@@ -567,6 +573,8 @@ To store and retrieve sensitive values, we recommend your build commands use the
 1. Choose **Release change**\.
 
 1. After the pipeline runs successfully, you can get the test results\. In the **Test** stage of the pipeline, choose the **CodeBuild** hyperlink to open the related build project page in the CodeBuild console\.
+
+   
 
 1. On the build project page, in **Build history**, choose the **Build run** hyperlink\.
 

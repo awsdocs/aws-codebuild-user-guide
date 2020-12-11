@@ -23,6 +23,8 @@ Data in transit for your file system is encrypted\. To encrypt data in transit u
 **Note**  
  A file system created in Amazon EFS is supported on Linux platforms only\. 
 
+ 
+
 ## Create a VPC using AWS CloudFormation<a name="sample-efs-create-vpc"></a>
 
  Create your VPC with an AWS CloudFormation template\. 
@@ -124,6 +126,8 @@ By default, Docker containers do not allow access to any devices\. Privileged mo
 1.  Choose **Start build**\. 
 
 ## CodeBuild and Amazon EFS sample summary<a name="sample-efs-summary"></a>
+
+
 
  After your AWS CodeBuild project is built: 
 +  You have a \.jar file created by your Java application that is built to your Amazon EFS file system under your mount point directory\. 

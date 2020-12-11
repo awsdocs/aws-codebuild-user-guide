@@ -7,6 +7,8 @@ Running these samples might result in charges to your AWS account\. These includ
 
 ## Running the samples<a name="run-windows-samples"></a>
 
+
+
 **To run these samples**
 
 1. Create the files as described in the "Directory structure" and "Files" sections of this topic, and then upload them to an S3 input bucket or a CodeCommit or GitHub repository\.
@@ -57,56 +59,56 @@ These samples assume the following directory structures\.
 
 ```
 (root directory name)
-  |-- buildspec.yml
-  |-- CSharpHelloWorld.sln
-  `-- CSharpHelloWorld
-        |-- App.config
-        |-- CSharpHelloWorld.csproj
-        |-- Program.cs
-        `-- Properties
-              `-- AssemblyInfo.cs
+├── buildspec.yml
+├── CSharpHelloWorld.sln
+└── CSharpHelloWorld
+    ├── App.config
+    ├── CSharpHelloWorld.csproj
+    ├── Program.cs
+    └── Properties
+        └── AssemblyInfo.cs
 ```
 
 ### F\# and the \.NET Framework<a name="windows-samples-directory-structure-fsharp"></a>
 
 ```
 (root directory name)
-  |-- buildspec.yml
-  |-- FSharpHelloWorld.sln
-  `-- FSharpHelloWorld
-        |-- App.config
-        |-- AssemblyInfo.fs
-        |-- FSharpHelloWorld.fsproj
-        `-- Program.fs
+├── buildspec.yml
+├── FSharpHelloWorld.sln
+└── FSharpHelloWorld
+    ├── App.config
+    ├── AssemblyInfo.fs
+    ├── FSharpHelloWorld.fsproj
+    └── Program.fs
 ```
 
 ### Visual Basic and the \.NET Framework<a name="windows-samples-directory-structure-vb"></a>
 
 ```
 (root directory name)
-  |-- buildspec.yml
-  |-- VBHelloWorld.sln
-  `-- VBHelloWorld
-        |-- App.config
-        |-- HelloWorld.vb
-        |-- VBHelloWorld.vbproj
-        `-- My Project
-              |-- Application.Designer.vb
-              |-- Application.myapp
-              |-- AssemblyInfo.vb
-              |-- Resources.Designer.vb
-              |-- Resources.resx
-              |-- Settings.Designer.vb
-              `-- Settings.settings
+├── buildspec.yml
+├── VBHelloWorld.sln
+└── VBHelloWorld
+    ├── App.config
+    ├── HelloWorld.vb
+    ├── VBHelloWorld.vbproj
+    └── My Project
+        ├── Application.Designer.vb
+        ├── Application.myapp
+        ├── AssemblyInfo.vb
+        ├── Resources.Designer.vb
+        ├── Resources.resx
+        ├── Settings.Designer.vb
+        └── Settings.settings
 ```
 
 ### C\# and \.NET Core<a name="windows-samples-directory-structure-csharp-core"></a>
 
 ```
 (root directory name)
-  |-- buildspec.yml
-  |-- HelloWorldSample.csproj
-  `-- Program.cs
+├── buildspec.yml
+├── HelloWorldSample.csproj
+└── Program.cs
 ```
 
 ## Files<a name="windows-samples-directory-structure-csharp-framework"></a>

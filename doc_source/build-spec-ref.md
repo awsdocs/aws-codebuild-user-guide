@@ -407,12 +407,13 @@ Matching top\-level directories are not included in the build output artifact, o
 You can use `files` and `discard-paths` to further restrict which files and subdirectories are included\. For example, for the following directory structure:   
 
 ```
-|-- my-build1
-|     `-- my-file1.txt
-`-- my-build2
-      |-- my-file2.txt
-      `-- my-subdirectory
-            `-- my-file3.txt
+.
+├── my-build1
+│   └── my-file1.txt
+└── my-build2
+    ├── my-file2.txt
+    └── my-subdirectory
+        └── my-file3.txt
 ```
 And for the following `artifacts` sequence:  
 
@@ -425,8 +426,9 @@ artifacts:
 The following subdirectory and file would be included in the build output artifact:  
 
 ```
-my-subdirectory
-  `-- my-file3.txt
+.
+└── my-subdirectory
+    └── my-file3.txt
 ```
 While for the following `artifacts` sequence:  
 
@@ -440,9 +442,10 @@ artifacts:
 The following files would be included in the build output artifact:  
 
 ```
-|-- my-file1.txt
-|-- my-file2.txt
-`-- my-file3.txt
+.
+├── my-file1.txt
+├── my-file2.txt
+└── my-file3.txt
 ```
 
 artifacts/**secondary\-artifacts**  <a name="build-spec.artifacts.secondary-artifacts"></a>

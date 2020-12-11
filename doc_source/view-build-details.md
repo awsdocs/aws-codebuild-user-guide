@@ -49,7 +49,11 @@ For more information about using AWS CodeBuild with the AWS SDKs, see the [AWS S
 
 Builds in AWS CodeBuild proceed in phases:
 
+
+
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/build-phases.png)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)
+
+
 
 **Important**  
 The `UPLOAD_ARTIFACTS` phase is always attempted, even if the `BUILD` phase fails\.

@@ -2,7 +2,9 @@
 
 Before you use AWS CodeBuild, you must answer these questions:
 
-1. **Where is the source code stored?** CodeBuild currently supports building from the following source code repository providers\. The source code must contain a build specification \(buildspec\) file\. A *buildspec* is a collection of build commands and related settings, in YAML format, that CodeBuild uses to run a build\. You can declare a buildspec in a build project definition\.   
+1. **Where is the source code stored?** CodeBuild currently supports building from the following source code repository providers\. The source code must contain a build specification \(buildspec\) file\. A *buildspec* is a collection of build commands and related settings, in YAML format, that CodeBuild uses to run a build\. You can declare a buildspec in a build project definition\. 
+
+     
 ****    
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/codebuild/latest/userguide/planning.html)
 

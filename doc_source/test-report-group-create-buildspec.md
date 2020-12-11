@@ -21,3 +21,4 @@ A report group created using the buildspec does not export raw test result files
 1. In the `commands` section, specify the command to run your tests\. For more information, see [ Specify test commands ](report-group-test-case-commands.md)\. 
 
 1.  Run the build\. When the build is complete, a new report group is created with a name that uses the format `project-name-report-group-name`\. For more information, see [Report group naming](test-report-group-naming.md)\. 
+

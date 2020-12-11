@@ -66,6 +66,11 @@ CreateWebhook
 Required to create a webhook\.  
  **Resource:** `arn:aws:codebuild:region-ID:account-ID:project/project-name ` 
 
+DeleteProject  
+ **Action:** `codebuild:DeleteProject`   
+Required to delete a CodeBuild project\.  
+ **Resource:** `arn:aws:codebuild:region-ID:account-ID:project/project-name ` 
+
 DeleteReport  
  **Action:** `codebuild:DeleteReport`   
 Required to delete a report\.  

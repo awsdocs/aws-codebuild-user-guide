@@ -228,6 +228,8 @@ If you leave **Encryption key** blank, CodeBuild uses the AWS\-managed CMK for A
 **Important**  
 Do not append a forward slash \(/\) to the end of **Path prefix**\.
 
+   
+
 1. To change your log settings, in **Logs**, select or clear **CloudWatch logs** and **S3 logs**\.
 
    If you select **CloudWatch logs**:
