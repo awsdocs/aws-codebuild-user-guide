@@ -222,7 +222,7 @@ In this step, you use the AWS CodePipeline console to create a pipeline\. After 
 
    Use the AWS Region selector to choose an AWS Region where CodeBuild is supported\. If you're storing the source code in an S3 input bucket, the output bucket must be in the same AWS region as the input bucket\.
 
-1. Create a pipeline\. For information, see [Create a pipeline that uses CodeBuild \(CodePipeline console\)](how-to-create-pipeline.md#how-to-create-pipeline-console)\. Leave all settings at their default values, except for these settings\.
+1. Create a pipeline\. For information, see [Create a pipeline that uses CodeBuild \(CodePipeline console\)](how-to-create-pipeline-console.md)\. Leave all settings at their default values, except for these settings\.
    + On **Add build stage**, for **Build provider**, choose **AWS CodeBuild**\. For **Project name**, choose the build project you just created\.
    + On **Add deploy stage**, for **Deploy provider**, choose **AWS Elastic Beanstalk**\.
      + For **Application name**, choose the Elastic Beanstalk application you just created\.

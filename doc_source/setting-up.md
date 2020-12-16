@@ -219,8 +219,8 @@ This policy allows access to all CodeBuild actions and to a potentially large nu
 
 You need an AWS CodeBuild service role so that CodeBuild can interact with dependent AWS services on your behalf\. You can create a CodeBuild service role by using the CodeBuild or AWS CodePipeline consoles\. For information, see:
 + [Create a build project \(console\)](create-project-console.md)
-+ [Create a pipeline that uses CodeBuild \(CodePipeline console\)](how-to-create-pipeline.md#how-to-create-pipeline-console)
-+ [Add a CodeBuild build action to a pipeline \(CodePipeline console\)](how-to-create-pipeline.md#how-to-create-pipeline-add)
++ [Create a pipeline that uses CodeBuild \(CodePipeline console\)](how-to-create-pipeline-console.md)
++ [Add a CodeBuild build action to a pipeline \(CodePipeline console\)](how-to-create-pipeline-add.md)
 + [Change a build project's settings \(console\)](change-project-console.md)
 
 If you do not plan to use these consoles, this section describes how to create a CodeBuild service role with the IAM console or the AWS CLI\. 

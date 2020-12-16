@@ -1,7 +1,7 @@
 # Run a build \(AWS CLI\)<a name="run-build-cli"></a>
 
 **Note**  
-To use CodePipeline to run a build with AWS CodeBuild, skip these steps and follow the instructions in [Create a pipeline that uses CodeBuild \(AWS CLI\)](how-to-create-pipeline.md#how-to-create-pipeline-cli)\.  
+To use CodePipeline to run a build with AWS CodeBuild, skip these steps and follow the instructions in [Create a pipeline that uses CodeBuild \(AWS CLI\)](how-to-create-pipeline-cli.md)\.  
 For more information about using the AWS CLI with CodeBuild, see the [Command line reference](cmd-ref.md)\.
 
 1. Run the `start-build` command in one of the following ways:
