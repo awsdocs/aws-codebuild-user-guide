@@ -2,9 +2,6 @@
 
 You can use these use case\-based samples to experiment with AWS CodeBuild:
 
-[ Access token sample ](sample-access-tokens.md)  
-Shows how to use access tokens in CodeBuild to connect to GitHub and Bitbucket\.
-
 [Amazon ECR sample](sample-ecr.md)  
 Uses a Docker image in an Amazon ECR repository to use Apache Maven to produce a single JAR file\.
 

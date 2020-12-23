@@ -63,6 +63,8 @@ Select if you want to include Git submodules in your repository\.
 
    Select **Report build statuses to source provider when your builds start and finish ** if you want the status of your build's start and completion reported to your source provider\. 
 
+   To be able to report the build status to the source provider, the user associated with the source provider must have write access to the repo\. If the user does not have write access, the build status cannot be updated\. For more information, see [Source provider access](access-tokens.md)\.
+
 **Note**  
 The status of a build triggered by a webhook is always reported to your source provider\. 
 
@@ -91,6 +93,8 @@ Choose **Git clone depth** to create a shallow clone with a history truncated to
 Select if you want to include Git submodules in your repository\. 
 
    Select **Report build statuses to source provider when your builds start and finish ** if you want the status of your build's start and completion reported to your source provider\. 
+
+   To be able to report the build status to the source provider, the user associated with the source provider must have write access to the repo\. If the user does not have write access, the build status cannot be updated\. For more information, see [Source provider access](access-tokens.md)\.
 
 **Note**  
 The status of a build triggered by a webhook is always reported to your source provider\. 
@@ -121,6 +125,7 @@ Select if you want to include Git submodules in your repository\.
 
  **Build status**   
 Select **Report build statuses to source provider when your builds start and finish ** if you want the status of your build's start and completion reported to your source provider\.   
+To be able to report the build status to the source provider, the user associated with the source provider must have write access to the repo\. If the user does not have write access, the build status cannot be updated\. For more information, see [Source provider access](access-tokens.md)\.  
 The status of a build triggered by a webhook is always reported to your source provider\. 
 
  **Insecure SSL**   

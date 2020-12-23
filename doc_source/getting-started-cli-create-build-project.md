@@ -31,7 +31,7 @@ For this build environment, you instruct CodeBuild to use a Docker image that co
      },
      "environment": {
        "type": "LINUX_CONTAINER",
-       "image": "aws/codebuild/amazonlinux2-x86_64-standard:3.0",
+       "image": "aws/codebuild/standard:4.0",
        "computeType": "BUILD_GENERAL1_SMALL"
      },
      "serviceRole": "serviceIAMRole"
@@ -46,7 +46,7 @@ For this build environment, you instruct CodeBuild to use a Docker image that co
    + For `source`, `location` represents the path to the source code \(in this example, the input bucket name followed by the ZIP file name\)\.
    + For `artifacts`, `type` is a required value that represents the build output artifact's repository type \(in this example, `S3` for an Amazon S3 bucket\)\.
    + For `artifacts`, `location` represents the name of the output bucket you created or identified earlier \(in this example, `codebuild-region-ID-account-ID-output-bucket`\)\.
-   + For `environment`, `type` is a required value that represents the type of build environment \(`LINUX_CONTAINER` is currently the only allowed value\)\.
+   + For `environment`, `type` is a required value that represents the type of build environment \(in this example, `LINUX_CONTAINER`\)\.
    + For `environment`, `image` is a required value that represents the Docker image name and tag combination this build project uses, as specified by the Docker image repository type \(in this example, `aws/codebuild/standard:4.0` for a Docker image in the CodeBuild Docker images repository\)\. `aws/codebuild/standard` is the name of the Docker image\. `4.0` is the tag of the Docker image\. 
 
      To find more Docker images you can use in your scenarios, see the [Build environment reference](build-env-ref.md)\.

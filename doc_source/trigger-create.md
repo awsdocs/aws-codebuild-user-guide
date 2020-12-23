@@ -1,8 +1,10 @@
 # Create AWS CodeBuild triggers<a name="trigger-create"></a>
 
- You can create a trigger on a project to schedule a build once every hour, day, or week\. You can also create a trigger using a custom rule with an Amazon CloudWatch cron expression\. For example, using a cron expression, you can schedule a build at a specific time every weekday\. 
+## Create AWS CodeBuild triggers \(console\)<a name="trigger-create-console"></a>
 
- You create a trigger after you create a project\. 
+You can create a trigger on a project to schedule a build once every hour, day, or week\. You can also create a trigger using a custom rule with an Amazon CloudWatch cron expression\. For example, using a cron expression, you can schedule a build at a specific time every weekday\. 
+
+You create a trigger after you create a project\. 
 
 **To create a trigger** 
 
@@ -37,3 +39,7 @@ By default, the 100 most recent build projects are displayed\. To view more buil
 1. \(Optional\) Specify a timeout between 5 minutes and 480 minutes \(8 hours\)\. This value specifies how long AWS CodeBuild attempts a build before it stops\. If **Hours** and **Minutes** are left blank, the default timeout value specified in the project is used\. 
 
 1. Choose **Create trigger**\.
+
+## Create AWS CodeBuild triggers programmatically<a name="trigger-create-code"></a>
+
+CodeBuild uses Amazon EventBridge rules for build triggers\. You can use the EventBridge API to programmatically create build triggers for your CodeBuild projects\. See [Amazon EventBridge API Reference](https://docs.aws.amazon.com/eventbridge/latest/APIReference/) for more information\.

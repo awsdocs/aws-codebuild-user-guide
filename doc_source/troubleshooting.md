@@ -31,6 +31,7 @@ Use the information in this topic to help you identify, diagnose, and address is
 + [The bourne shell \(sh\) must exist in build images](#troubleshooting-sh-build-images)
 + [Warning: "Skipping install of runtimes\. runtime version selection is not supported by this build image" when running a build](#troubleshooting-skipping-all-runtimes-warning)
 + [Error: "Unable to verify JobWorker identity" when opening the CodeBuild console](#troubleshooting-unable-to-verify-jobworker)
++ [Accessing GitHub metadata in locally cached builds](#troubleshooting-github-metadata)
 
 ## Apache Maven builds reference artifacts from the wrong repository<a name="troubleshooting-maven-repos"></a>
 
@@ -500,3 +501,15 @@ artifacts:
 **Possible cause:** The IAM role that is used for console access has a tag with `jobId` as the key\. This tag key is reserved for CodeBuild and will cause this error if it is present\.
 
 **Recommended solution:** Change any custom IAM role tags that have the key `jobId` to have a different key, such as `jobIdentifier`\.
+
+## Accessing GitHub metadata in locally cached builds<a name="troubleshooting-github-metadata"></a>
+
+**Issue:** In some cases, the \.git directory in a cached build is a text file and not a directory\.
+
+**Possible causes:** When local source caching is enabled for a build, CodeBuild creates a gitlink for the `.git` directory\. This means that the `.git` directory is actually a text file containing the path to the directory\. 
+
+**Recommended solutions:** In all cases, use the following command to obtain the Git metadata directory\. This command will work no matter the format of `.git`:
+
+```
+git rev-parse --git-dir
+```

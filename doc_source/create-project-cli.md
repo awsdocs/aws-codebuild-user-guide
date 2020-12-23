@@ -227,7 +227,8 @@ source/**auth**  <a name="cli.source.auth"></a>
 Do not use\. This object is used by the CodeBuild console only\.
 
 source/**reportBuildStatus**  <a name="cli.source.reportbuildstatus"></a>
-Specifies whether to send your source provider the status of a build's start and completion\. If you set this with a source provider other than GitHub, GitHub Enterprise Server, or Bitbucket, an `invalidInputException` is thrown\.
+Specifies whether to send your source provider the status of a build's start and completion\. If you set this with a source provider other than GitHub, GitHub Enterprise Server, or Bitbucket, an `invalidInputException` is thrown\.   
+To be able to report the build status to the source provider, the user associated with the source provider must have write access to the repo\. If the user does not have write access, the build status cannot be updated\. For more information, see [Source provider access](access-tokens.md)\.
 
 source/**buildStatusConfig**  <a name="cli.source.buildstatusconfig"></a>
 Contains information that defines how the CodeBuild build project reports the build status to the source provider\. This option is only used when the source type is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`\.    
