@@ -100,15 +100,26 @@ By default, Docker containers do not allow access to any devices\. Privileged mo
 1.  From **Security Groups**, choose the default security group\.
 
 1.  In **File systems**, enter the following information:
-   +  For **Identifier**, enter a unique file system identifier\. It must be fewer than 129 characters and contain only alphanumeric characters and underscores\. CodeBuild uses this identifier to create an environment variable that identifies the elastic file system\. The environment variable format is `CODEBUILD_file-system-identifier` in capital letters\. For example, if you enter **efs\-1**, the environment variable is `CODEBUILD_EFS-1`\. 
-   +  For **ID**, choose the file system ID\. 
-   +  \(Optional\) Enter a directory in the file system\. CodeBuild mounts this directory\. If you leave **Directory path** blank, CodeBuild mounts the entire file system\. The path is relative to the root of the file system\. 
-   +  For **Mount point**, enter the absolute path of the directory in your build container where the file system is mounted\. If this directory does not exist, CodeBuild creates it during the build\. 
-   +  \(Optional\) Enter mount options\. If you leave **Mount options** blank, CodeBuild uses its default mount options \(`nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2`\)\. For more information, see [Recommended NFS Mount Options](https://docs.aws.amazon.com/efs/latest/ug/mounting-fs-nfs-mount-settings.html) in the *Amazon Elastic File System User Guide*\. 
+   + For **Identifier**, enter a unique file system identifier\. It must be fewer than 129 characters and contain only alphanumeric characters and underscores\. CodeBuild uses this identifier to create an environment variable that identifies the elastic file system\. The environment variable format is `CODEBUILD_<file_system_identifier>` in capital letters\. For example, if you enter `my_efs`, the environment variable is `CODEBUILD_MY_EFS`\. 
+   + For **ID**, choose the file system ID\. 
+   + \(Optional\) Enter a directory in the file system\. CodeBuild mounts this directory\. If you leave **Directory path** blank, CodeBuild mounts the entire file system\. The path is relative to the root of the file system\. 
+   + For **Mount point**, enter the absolute path of the directory in your build container where the file system is mounted\. If this directory does not exist, CodeBuild creates it during the build\. 
+   + \(Optional\) Enter mount options\. If you leave **Mount options** blank, CodeBuild uses its default mount options:
+
+     ```
+     nfsvers=4.1
+     rsize=1048576
+     wsize=1048576
+     hard
+     timeo=600
+     retrans=2
+     ```
+
+     For more information, see [Recommended NFS Mount Options](https://docs.aws.amazon.com/efs/latest/ug/mounting-fs-nfs-mount-settings.html) in the *Amazon Elastic File System User Guide*\. 
 
 1.  For **Build specification**, choose **Insert build commands**, and then choose **Switch to editor**\. 
 
-1.  Enter the following buildspec commands into the editor\. Replace `file-system-identifier` with the identifier you entered in step 17\. Use capital letters \(for example, `CODEBUILD_EFS-1`\)\.
+1.  Enter the following buildspec commands into the editor\. Replace `<file_system_identifier>` with the identifier you entered in step 17\. Use capital letters \(for example, `CODEBUILD_MY_EFS`\)\.
 
    ```
    version: 0.2
@@ -118,7 +129,7 @@ By default, Docker containers do not allow access to any devices\. Privileged mo
          java: corretto11    
      build:
        commands:
-         - mvn compile -Dgpg.skip=true -Dmaven.repo.local=$CODEBUILD_file-system-identifier
+         - mvn compile -Dgpg.skip=true -Dmaven.repo.local=$CODEBUILD_<file_system_identifier>
    ```
 
 1.  Use the default values for all other settings, and then choose **Create build project**\. When your build is complete, the console page for your project is displayed\. 
