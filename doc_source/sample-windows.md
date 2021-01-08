@@ -1,13 +1,11 @@
 # Microsoft Windows samples for CodeBuild<a name="sample-windows"></a>
 
-These samples use an AWS CodeBuild build environment running Microsoft Windows Server 2019, the \.NET Framework, and the \.NET Core SDK to build runtime files out of code written in C\#, F\#, and Visual Basic\. 
+These samples use an AWS CodeBuild build environment running Microsoft Windows Server 2019, the \.NET Framework, and the \.NET Core SDK to build runtime files out of code written in F\# and Visual Basic\. 
 
 **Important**  
 Running these samples might result in charges to your AWS account\. These include possible charges for CodeBuild and for AWS resources and actions related to Amazon S3, AWS KMS, and CloudWatch Logs\. For more information, see [CodeBuild pricing](http://aws.amazon.com/codebuild/pricing), [Amazon S3 pricing](http://aws.amazon.com/s3/pricing), [AWS Key Management Service pricing](http://aws.amazon.com/kms/pricing), and [Amazon CloudWatch pricing](http://aws.amazon.com/cloudwatch/pricing)\.
 
 ## Running the samples<a name="run-windows-samples"></a>
-
-
 
 **To run these samples**
 
@@ -46,28 +44,12 @@ If you are using an S3 input bucket, be sure to create a ZIP file that contains 
 1. Run the build, and follow the steps in [Run CodeBuild directly](how-to-run.md)\.
 
 1. To get the build output artifact, in your S3 output bucket, download the `windows-build-output-artifact.zip` file to your local computer or instance\. Extract the contents to get to the runtime and other files\.
-   + The runtime file for the C\# sample using the \.NET Framework, `CSharpHelloWorld.exe`, can be found in the `CSharpHelloWorld\bin\Debug` directory\. 
    + The runtime file for the F\# sample using the \.NET Framework, `FSharpHelloWorld.exe`, can be found in the `FSharpHelloWorld\bin\Debug` directory\.
    + The runtime file for the Visual Basic sample using the \.NET Framework, `VBHelloWorld.exe`, can be found in the `VBHelloWorld\bin\Debug` directory\. 
-   + The runtime file for the C\# sample using \.NET Core, `HelloWorldSample.dll`, can be found in the `bin\Debug\net5.0` directory\.
 
 ## Directory structure<a name="windows-samples-directory-structure"></a>
 
 These samples assume the following directory structures\.
-
-### C\# and the \.NET Framework<a name="windows-samples-directory-structure-csharp"></a>
-
-```
-(root directory name)
-├── buildspec.yml
-├── CSharpHelloWorld.sln
-└── CSharpHelloWorld
-    ├── App.config
-    ├── CSharpHelloWorld.csproj
-    ├── Program.cs
-    └── Properties
-        └── AssemblyInfo.cs
-```
 
 ### F\# and the \.NET Framework<a name="windows-samples-directory-structure-fsharp"></a>
 
@@ -102,206 +84,9 @@ These samples assume the following directory structures\.
         └── Settings.settings
 ```
 
-### C\# and \.NET Core<a name="windows-samples-directory-structure-csharp-core"></a>
-
-```
-(root directory name)
-├── buildspec.yml
-├── HelloWorldSample.csproj
-└── Program.cs
-```
-
 ## Files<a name="windows-samples-directory-structure-csharp-framework"></a>
 
 These samples use the following files\.
-
-### C\# and the \.NET Framework<a name="windows-samples-directory-structure-csharp-framework-list"></a>
-
-`buildspec.yml` \(in `(root directory name)`\):
-
-```
-version: 0.2
-
-env:
-  variables:
-    SOLUTION: .\CSharpHelloWorld.sln
-    PACKAGE_DIRECTORY: .\packages
-    DOTNET_FRAMEWORK: 4.8
-
-phases:
-  build:
-    commands:
-      - '& "C:\ProgramData\chocolatey\bin\NuGet.exe" restore $env:SOLUTION -PackagesDirectory $env:PACKAGE_DIRECTORY'
-      - '& "C:\Program Files (x86)\MSBuild\14.0\Bin\MSBuild.exe" -p:FrameworkPathOverride="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v$env:DOTNET_FRAMEWORK" $env:SOLUTION'
-artifacts:
-  files:
-    - .\CSharpHelloWorld\bin\Debug\*
-```
-
-`CSharpHelloWorld.sln` \(in `(root directory name)`\):
-
-```
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpHelloWorld", "CSharpHelloWorld\CSharpHelloWorld.csproj", "{2F8752D5-E628-4A38-AA7E-BC4B4E697CBB}"
-EndProject
-Global
-  GlobalSection(SolutionConfigurationPlatforms) = preSolution
-    Debug|Any CPU = Debug|Any CPU
-    Release|Any CPU = Release|Any CPU
-  EndGlobalSection
-  GlobalSection(ProjectConfigurationPlatforms) = postSolution
-    {2F8752D5-E628-4A38-AA7E-BC4B4E697CBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-    {2F8752D5-E628-4A38-AA7E-BC4B4E697CBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-    {2F8752D5-E628-4A38-AA7E-BC4B4E697CBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-    {2F8752D5-E628-4A38-AA7E-BC4B4E697CBB}.Release|Any CPU.Build.0 = Release|Any CPU
-  EndGlobalSection
-  GlobalSection(SolutionProperties) = preSolution
-    HideSolutionNode = FALSE
-  EndGlobalSection
-EndGlobal
-```
-
-`App.config` \(in `(root directory name)\CSharpHelloWorld`\):
-
-```
-<?xml version="1.0" encoding="utf-8" ?>
-<configuration>
-  <startup> 
-    <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.8" />
-  </startup>
-</configuration>
-```
-
-`CSharpHelloWorld.csproj` \(in `(root directory name)\CSharpHelloWorld`\):
-
-```
-<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
-  <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2F8752D5-E628-4A38-AA7E-BC4B4E697CBB}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CSharpHelloWorld</RootNamespace>
-    <AssemblyName>CSharpHelloWorld</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
-</Project>
-```
-
-`Program.cs` \(in `(root directory name)\CSharpHelloWorld`\):
-
-```
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CSharpHelloWorld
-{
-  class Program
-  {
-    static void Main(string[] args)
-    {
-      System.Console.WriteLine("Hello World");
-      System.Threading.Thread.Sleep(10);
-    }
-  }
-}
-```
-
-`AssemblyInfo.cs` \(in `(root directory name)\CSharpHelloWorld\Properties`\):
-
-```
-using System.Reflection;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-
-// General Information about an assembly is controlled through the following 
-// set of attributes. Change these attribute values to modify the information
-// associated with an assembly.
-[assembly: AssemblyTitle("CSharpHelloWorld")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("CSharpHelloWorld")]
-[assembly: AssemblyCopyright("Copyright ©  2017")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
-
-// Setting ComVisible to false makes the types in this assembly not visible 
-// to COM components.  If you need to access a type in this assembly from 
-// COM, set the ComVisible attribute to true on that type.
-[assembly: ComVisible(false)]
-
-// The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("2f8752d5-e628-4a38-aa7e-bc4b4e697cbb")]
-
-// Version information for an assembly consists of the following four values:
-//
-// Major Version
-// Minor Version 
-// Build Number
-// Revision
-//
-// You can specify all the values or you can default the Build and Revision Numbers 
-// by using the '*' as shown below:
-// [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
-```
 
 ### F\# and the \.NET Framework<a name="windows-samples-directory-structure-fsharp-framework-list"></a>
 
@@ -1043,49 +828,4 @@ End Namespace
   </Profiles>
   <Settings />
 </SettingsFile>
-```
-
-### C\# and \.NET Core<a name="windows-samples-directory-structure-dot-net-framework-list"></a>
-
-`buildspec.yml` \(in `(root directory name)`
-
-```
-version: 0.2
-
-phases:
-  build:
-    commands:
-      - dotnet restore
-      - dotnet build
-artifacts:
-  files:
-    - .\bin\Debug\net5.0\*
-```
-
-`HelloWorldSample.csproj` \(in `(root directory name)`
-
-```
-<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <OutputType>Exe</OutputType>
-    <TargetFramework>net5.0</TargetFramework>
-  </PropertyGroup>
-</Project>
-```
-
-`Program.cs` \(in `(root directory name)`
-
-```
-using System;
-
-namespace HelloWorldSample 
-{
-  public static class Program 
-  {
-    public static void Main() 
-    {
-      Console.WriteLine("Hello World!");
-    }
-  }
-}
 ```

@@ -64,15 +64,15 @@ The following example defines a build list\. The `linux_small` and `windows_medi
 batch:
   fast-fail: false
   build-list:
-    ignore-failure: true
-      - identifier: linux_small
-        env:
-          compute-type: BUILD_GENERAL1_SMALL
-      - identifier: windows_medium
-        env:
-          type: WINDOWS_SERVER_2019_CONTAINER
-          image: aws/codebuild/windows-base:2019-1.0
-          compute-type: BUILD_GENERAL1_MEDIUM
+    - identifier: linux_small
+      env:
+        compute-type: BUILD_GENERAL1_SMALL
+      ignore-failure: true
+    - identifier: windows_medium
+      env:
+        type: WINDOWS_SERVER_2019_CONTAINER
+        image: aws/codebuild/windows-base:2019-1.0
+        compute-type: BUILD_GENERAL1_MEDIUM
 ```
 
 For more information about the build list buildspec syntax, see [`batch/build-list`](batch-build-buildspec.md#build-spec.batch.build-list)\.

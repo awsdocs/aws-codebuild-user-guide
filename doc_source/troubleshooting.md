@@ -9,6 +9,7 @@ Use the information in this topic to help you identify, diagnose, and address is
 + [Builds might fail when getting parameters from Amazon EC2 Parameter Store](#troubleshooting-parameter-store)
 + [Cannot access branch filter in the CodeBuild console](#troubleshooting-webhook-filter)
 + [Cannot view build success or failure](#no-status-when-build-triggered)
++ [Build status not reported to source provider](#build-status-not-reported)
 + [Cannot find and select the base image of the Windows Server Core 2019 platform](#windows-image-not-available)
 + [Earlier commands in buildspec files are not recognized by later commands](#troubleshooting-build-spec-commands)
 + [Error: "Access denied" when attempting to download cache](#troubleshooting-dependency-caching)
@@ -172,6 +173,14 @@ pre_build:
 **Possible cause:** The option to report your build's status is not enabled\. 
 
 **Recommended solutions:** Enable **Report build status** when you create or update a CodeBuild project\. This option tells CodeBuild to report back the status when you trigger a build\. For more information, see [reportBuildStatus](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSource.html#CodeBuild-Type-ProjectSource-reportBuildStatus) in the *AWS CodeBuild API Reference*\. 
+
+## Build status not reported to source provider<a name="build-status-not-reported"></a>
+
+**Issue:** After allowing build status reporting to a source provider, such as GitHub or Bitbucket, the build status is not updated\.
+
+**Possible cause:** The user associated with the source provider does not have write access to the repo\.
+
+**Recommended solutions:** To be able to report the build status to the source provider, the user associated with the source provider must have write access to the repo\. If the user does not have write access, the build status cannot be updated\. For more information, see [Source provider access](access-tokens.md)\.
 
 ## Cannot find and select the base image of the Windows Server Core 2019 platform<a name="windows-image-not-available"></a>
 
