@@ -5,21 +5,32 @@ AWS CodeBuild manages the following Docker images that are available in the Code
 
 | Platform | Image identifier | Definition | 
 | --- | --- | --- | 
-| Amazon Linux 2 | aws/codebuild/amazonlinux2\-x86\_64\-standard:3\.0 | [al2/standard/3\.0](https://github.com/aws/aws-codebuild-docker-images/tree/master/al2/x86_64/standard/3.0) | 
 | Amazon Linux 2 | aws/codebuild/amazonlinux2\-x86\_64\-standard:2\.0 | [al2/standard/2\.0](https://github.com/aws/aws-codebuild-docker-images/tree/master/al2/x86_64/standard/2.0) | 
+| Amazon Linux 2 | aws/codebuild/amazonlinux2\-x86\_64\-standard:3\.0 | [al2/standard/3\.0](https://github.com/aws/aws-codebuild-docker-images/tree/master/al2/x86_64/standard/3.0) | 
 | Amazon Linux 2 | aws/codebuild/amazonlinux2\-aarch64\-standard:1\.0 | [al2/aarch64/standard/1\.0](https://github.com/aws/aws-codebuild-docker-images/tree/master/al2/aarch64/standard/1.0) | 
-| Ubuntu 18\.04 | aws/codebuild/standard:4\.0 | [ubuntu/standard/4\.0](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/standard/4.0) | 
+| Amazon Linux 2 | aws/codebuild/amazonlinux2\-aarch64\-standard:2\.0 | [al2/aarch64/standard/2\.0](https://github.com/aws/aws-codebuild-docker-images/tree/master/al2/aarch64/standard/2.0) | 
 | Ubuntu 18\.04 | aws/codebuild/standard:3\.0 | [ubuntu/standard/3\.0](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/standard/3.0) | 
+| Ubuntu 18\.04 | aws/codebuild/standard:4\.0 | [ubuntu/standard/4\.0](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/standard/4.0) | 
+| Ubuntu 20\.04 | aws/codebuild/standard:5\.0 | [ubuntu/standard/5\.0](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/standard/5.0) | 
 | Windows Server Core 2019 | aws/codebuild/windows\-base:2019\-1\.0 | N/A | 
 
 The latest version of each image is cached\. If you specify a more specific version, then CodeBuild provisions that version instead of the cached version\. This can result in longer build times\. For example, to benefit from caching, specify `aws/codebuild/amazonlinux2-x86_64-standard:3.0` instead of a more granular version, such as `aws/codebuild/amazonlinux2-x86_64-standard:3.0-1.0.0`\. 
 
- You can specify one or more runtimes in the `runtime-versions` section of your buildspec file\. If your runtime is dependent upon another runtime, you can also specify its dependent runtime in the buildspec file\. If you do not specify any runtimes in the buildspec file, CodeBuild chooses the default runtimes that are available in the image you use\. If you specify one or more runtimes, CodeBuild uses only those runtimes\. If a dependent runtime is not specified, CodeBuild attempts to choose the dependent runtime for you\. For more information, see [Specify runtime versions in the buildspec file](build-spec-ref.md#runtime-versions-buildspec-file)\. 
+ You can specify one or more runtimes in the `runtime-versions` section of your buildspec file\. If your runtime is dependent upon another runtime, you can also specify its dependent runtime in the buildspec file\. If you do not specify any runtimes in the buildspec file, CodeBuild chooses the default runtimes that are available in the image you use\. If you specify one or more runtimes, CodeBuild uses only those runtimes\. If a dependent runtime is not specified, CodeBuild attempts to choose the dependent runtime for you\. For more information, see [Specify runtime versions in the buildspec file](build-spec-ref.md#runtime-versions-buildspec-file)\.
+
+The following list contains links to the available runtimes for each of the standard Linux images\. 
++ <a name="runtimes-al2-x86-2.0"></a>[Amazon Linux 2 x86 standard:2\.0](https://github.com/aws/aws-codebuild-docker-images/tree/master/al2/x86_64/standard/2.0/runtimes.yml)
++ <a name="runtimes-al2-x86-3.0"></a>[Amazon Linux 2 x86 standard:3\.0](https://github.com/aws/aws-codebuild-docker-images/tree/master/al2/x86_64/standard/3.0/runtimes.yml)
++ <a name="runtimes-al2-aarch-1.0"></a>[Amazon Linux 2 aarch64 standard:1\.0](https://github.com/aws/aws-codebuild-docker-images/tree/master/al2/aarch64/standard/1.0/runtimes.yml)
++ <a name="runtimes-al2-aarch-2.0"></a>[Amazon Linux 2 aarch64 standard:2\.0](https://github.com/aws/aws-codebuild-docker-images/tree/master/al2/aarch64/standard/2.0/runtimes.yml)
++ <a name="runtimes-ubuntu-3.0"></a>[Ubuntu standard:3\.0](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/standard/3.0/runtimes.yml)
++ <a name="runtimes-ubuntu-4.0"></a>[Ubuntu standard:4\.0](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/standard/4.0/runtimes.yml)
++ <a name="runtimes-ubuntu-5.0"></a>[Ubuntu standard:5\.0](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/standard/5.0/runtimes.yml)
 
  When you specify a runtime in the `runtime-versions` section of your buildspec file, you can specify a specific version, a specific major version and the latest minor version, or the latest version\. The following table lists the available runtimes and how to specify them\. 
 
 
-**Ubuntu 18\.04 and Amazon Linux 2 platforms runtimes**  
+**Ubuntu and Amazon Linux 2 platforms runtimes**  
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html)
 
 **Note**  
