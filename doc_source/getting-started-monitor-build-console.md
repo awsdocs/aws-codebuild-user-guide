@@ -6,9 +6,9 @@ In this step, you view summarized information about the status of your build\.
 
 ## To view summarized build information<a name="getting-started-monitor-build-console-title"></a><a name="getting-started-run-build-console-procedure"></a>
 
-1. If the **codebuild\-demo\-project:*build\-ID*** page is not displayed, in the navigation bar, choose **Build history**\. Next, in the list of build projects, for **Project**, choose the **Build run** link for **codebuild\-demo\-project**\. There should be only one matching link\. \(If you have completed this tutorial before, choose the link with the most recent value in the **Completed** column\.\)
+1. If the **codebuild\-demo\-project:*<build\-ID>*** page is not displayed, in the navigation bar, choose **Build history**\. Next, in the list of build projects, for **Project**, choose the **Build run** link for **codebuild\-demo\-project**\. There should be only one matching link\. \(If you have completed this tutorial before, choose the link with the most recent value in the **Completed** column\.\)
 
-1. On the build details page, in **Phase details**, the following build phases should be displayed, with **Succeeded** in the **Status** column:
+1. On the **Build status** page, in **Phase details**, the following build phases should be displayed, with **Succeeded** in the **Status** column:
    + **SUBMITTED**
    + **QUEUED**
    + **PROVISIONING**

@@ -34,21 +34,21 @@ For more information about using the AWS CLI with CodeBuild, see the [Command li
        "path": "path",
        "namespaceType": "namespaceType",
        "name": "artifactsOverride-name",
-       "packaging": "packaging"    
+       "packaging": "packaging"
      },
      "buildspecOverride": "buildspecOverride",
      "cacheOverride": {
-         "location": "cacheOverride-location",
-         "type": "cacheOverride-type"
-    },
+       "location": "cacheOverride-location",
+       "type": "cacheOverride-type"
+     },
      "certificateOverride": "certificateOverride",
      "computeTypeOverride": "computeTypeOverride",
      "environmentTypeOverride": "environmentTypeOverride",
      "environmentVariablesOverride": {
-         "name": "environmentVariablesOverride-name",
-         "value": "environmentVariablesValue",
-         "type": "environmentVariablesOverride-type"
-     },  
+       "name": "environmentVariablesOverride-name",
+       "value": "environmentVariablesValue",
+       "type": "environmentVariablesOverride-type"
+     },
      "gitCloneDepthOverride": "gitCloneDepthOverride",
      "imageOverride": "imageOverride",
      "idempotencyToken": "idempotencyToken",

@@ -10,9 +10,7 @@ In this step, you instruct AWS CodeBuild to run the build with the settings in t
 
 1. In the navigation pane, choose **Build projects**\.
 
-1. In the list of build projects, choose **codebuild\-demo\-project**, and then choose **Start build**\. 
-
-1. On the **Start build** page, choose **Start build**\.
+1. In the list of build projects, choose **codebuild\-demo\-project**, and then choose **Start build**\. The build starts immediately\.
 
 ## Next step<a name="getting-started-run-build-console-next"></a>
 
