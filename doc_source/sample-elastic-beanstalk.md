@@ -1,6 +1,6 @@
 # AWS Elastic Beanstalk sample for CodeBuild<a name="sample-elastic-beanstalk"></a>
 
-This sample uses AWS CodeBuild with Maven to produce a single WAR file named `my-web-app.war` as the build output\. This sample then deploys the WAR file to the instances in an AWS Elastic Beanstalk environment\.
+This sample uses AWS CodeBuild with Maven to produce a single WAR file named `ROOT.war` as the build output\. This sample then deploys the WAR file to the instances in an AWS Elastic Beanstalk environment\.
 
 **Important**  
 Running this sample might result in charges to your AWS account\. These include possible charges for CodeBuild and for AWS resources and actions related to Amazon S3, AWS KMS, CloudWatch Logs, and Amazon EC2\. For more information, see [CodeBuild pricing](http://aws.amazon.com/codebuild/pricing), [Amazon S3 pricing](http://aws.amazon.com/s3/pricing), [AWS Key Management Service pricing](http://aws.amazon.com/kms/pricing), [Amazon CloudWatch pricing](http://aws.amazon.com/cloudwatch/pricing), and [Amazon EC2 pricing](http://aws.amazon.com/ec2/pricing)\.
@@ -14,14 +14,14 @@ In this section, you use Maven to produce the source code\. Later, you use CodeB
 1. Switch to an empty directory on your local computer or instance, and then run this Maven command\.
 
    ```
-   mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=my-web-app -DarchetypeArtifactId=maven-archetype-webapp -DinteractiveMode=false
+   mvn archetype:generate "-DgroupId=com.mycompany.app" "-DartifactId=ROOT" "-DarchetypeArtifactId=maven-archetype-webapp" "-DinteractiveMode=false"
    ```
 
    If successful, this directory structure and files are created\.
 
    ```
    .
-   └── my-web-app
+   └── ROOT
        ├── pom.xml
        └── src
            └── main
@@ -32,12 +32,12 @@ In this section, you use Maven to produce the source code\. Later, you use CodeB
                    └── index.jsp
    ```
 
-1. Create a subdirectory named `.ebextensions` in the `my-web-app` directory\. In the `.ebextensions` subdirectory, create a file named `fix-path.config` with this content\. 
+1. Create a subdirectory named `.ebextensions` in the `ROOT` directory\. In the `.ebextensions` subdirectory, create a file named `fix-path.config` with this content\. 
 
    ```
    container_commands:
      fix_path:
-       command: "unzip my-web-app.war 2>&1 > /var/log/my_last_deploy.log"
+       command: "unzip ROOT.war 2>&1 > /var/log/my_last_deploy.log"
    ```
 
 After you run Maven, continue with one of the following scenarios:
@@ -53,7 +53,7 @@ In this scenario, you create and upload the source code\. You then use the AWS C
 
 In this step, you add an Elastic Beanstalk configuration file and a buildspec file to the code in [Create the source code](#sample-elastic-beanstalk-prepare-source)\. You then upload the source code to an S3 input bucket or a CodeCommit, GitHub, or Bitbucket repository\. 
 
-1. Create a file named `buildspec.yml` with the following contents\. Store the file in the `my-web-app` directory\.
+1. Create a file named `buildspec.yml` with the following contents\. Store the file in the `ROOT` directory\.
 
    ```
    version: 0.2
@@ -65,10 +65,10 @@ In this step, you add an Elastic Beanstalk configuration file and a buildspec fi
      post_build:
        commands:
          - mvn package
-         - mv target/my-web-app.war my-web-app.war
+         - mv target/ROOT.war ROOT.war
    artifacts:
      files:
-       - my-web-app.war
+       - ROOT.war
        - .ebextensions/**/*
    ```
 
@@ -76,7 +76,7 @@ In this step, you add an Elastic Beanstalk configuration file and a buildspec fi
 
    ```
    .
-   └── my-web-app
+   └── ROOT
        ├── .ebextensions
        │   └── fix-path.config
        ├── src
@@ -90,10 +90,10 @@ In this step, you add an Elastic Beanstalk configuration file and a buildspec fi
        └── pom.xml
    ```
 
-1.  Upload the contents of the `my-web-app` directory to an S3 input bucket or a CodeCommit, GitHub, or Bitbucket repository\.
+1. Upload the contents of the `ROOT` directory to an S3 input bucket or a CodeCommit, GitHub, or Bitbucket repository\.
 **Important**  
-Do not upload `my-web-app`, just the directories and files in `my-web-app`\.   
- If you are using an S3 input bucket, it must be versioned\. Be sure to create a ZIP file that contains the directory structure and files, and then upload it to the input bucket\. Do not add `my-web-app` to the ZIP file, just the directories and files in `my-web-app`\. For more information, see [How to Configure Versioning on a Bucket](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html#how-to-enable-disable-versioning-intro) in the *Amazon S3 Developer Guide*\. 
+Do not upload `ROOT`, just the directories and files in `ROOT`\.   
+ If you are using an S3 input bucket, it must be versioned\. Be sure to create a ZIP file that contains the directory structure and files, and then upload it to the input bucket\. Do not add `ROOT` to the ZIP file, just the directories and files in `ROOT`\. For more information, see [How to Configure Versioning on a Bucket](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html#how-to-enable-disable-versioning-intro) in the *Amazon S3 Developer Guide*\. 
 
 ### Step a2: Create the build project and run the build<a name="sample-elastic-beanstalk-manual-build"></a>
 
@@ -110,7 +110,7 @@ In this step, you use the AWS CodeBuild console to create a build project and th
      + For **Environment image**, choose **Managed image**\.
      + For **Operating system**, choose **Amazon Linux 2**\.
      + For **Runtime\(s\)**, choose **Standard**\.
-     + For **Image**, choose **aws/codebuild/amazonlinux2\-x86\_64\-standard:2\.0**\.
+     + For **Image**, choose **aws/codebuild/amazonlinux2\-x86\_64\-standard:3\.0**\.
    + For **Artifacts**:
      + For **Type**, choose **Amazon S3**\.
      + For **Bucket name**, enter the name of an S3 bucket\.
@@ -141,7 +141,7 @@ In this scenario, you complete the steps to prepare and upload the source code\.
 
 In this step, you create and add a buildspec file to the code you created in [Create the source code](#sample-elastic-beanstalk-prepare-source)\. You then upload the source code to an S3 input bucket or a CodeCommit, GitHub, or Bitbucket repository\.
 
-1. Create a file named `buildspec.yml` with the following contents\. Store the file in the `(root directory name)/my-web-app` directory\.
+1. Create a file named `buildspec.yml` with the following contents\. Store the file in the `ROOT` directory\. 
 
    ```
    version: 0.2
@@ -153,19 +153,18 @@ In this step, you create and add a buildspec file to the code you created in [Cr
      post_build:
        commands:
          - mvn package
-         - mv target/my-web-app.war my-web-app.war
+         - mv target/ROOT.war ROOT.war
    artifacts:
      files:
-       - my-web-app.war
+       - ROOT.war
        - .ebextensions/**/*
-     base-directory: 'target/my-web-app'
    ```
 
 1. Your file structure should now look like this\.
 
    ```
    .
-   └── my-web-app
+   └── ROOT
        ├── .ebextensions
        │   └── fix-path.config
        ├── src
@@ -179,10 +178,10 @@ In this step, you create and add a buildspec file to the code you created in [Cr
        └── pom.xml
    ```
 
-1. Upload the contents of the `my-web-app` directory to an S3 input bucket or a CodeCommit, GitHub, or Bitbucket repository\.
+1. Upload the contents of the `ROOT` directory to an S3 input bucket or a CodeCommit, GitHub, or Bitbucket repository\.
 **Important**  
-Do not upload `my-web-app`, just the directories and files in `my-web-app`\.   
- If you are using an S3 input bucket, it must be versioned\. Be sure to create a ZIP file that contains the directory structure and files, and then upload it to the input bucket\. Do not add `my-web-app` to the ZIP file, just the directories and files in `my-web-app`\. For more information, see [How to Configure Versioning on a Bucket](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html#how-to-enable-disable-versioning-intro) in the *Amazon S3 Developer Guide*\. 
+Do not upload `ROOT`, just the directories and files in `ROOT`\.   
+ If you are using an S3 input bucket, it must be versioned\. Be sure to create a ZIP file that contains the directory structure and files, and then upload it to the input bucket\. Do not add `ROOT` to the ZIP file, just the directories and files in `ROOT`\. For more information, see [How to Configure Versioning on a Bucket](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html#how-to-enable-disable-versioning-intro) in the *Amazon S3 Developer Guide*\. 
 
 ### Step b2: Create a build project<a name="sample-elastic-beanstalk-codepipeline-buildproject"></a>
 
@@ -195,7 +194,7 @@ In this step, you create an AWS CodeBuild build project to use with your pipelin
      + For **Environment image**, choose **Managed image**\.
      + For **Operating system**, choose **Amazon Linux 2**\.
      + For **Runtime\(s\)**, choose **Standard**\.
-     + For **Image**, choose **aws/codebuild/amazonlinux2\-x86\_64\-standard:2\.0**\.
+     + For **Image**, choose **aws/codebuild/amazonlinux2\-x86\_64\-standard:3\.0**\.
    + For **Artifacts**:
      + For **Type**, choose **Amazon S3**\.
      + For **Bucket name**, enter the name of an S3 bucket\.
@@ -242,7 +241,7 @@ In this step, you add an Elastic Beanstalk configuration file and a buildspec fi
 
 1. Create or identify a service role that Elastic Beanstalk and the CLI can use on your behalf\. For information, see [Create a CodeBuild service role](setting-up.md#setting-up-service-role)\.
 
-1. Create a file named `buildspec.yml` with the following contents\. Store the file in the `(root directory name)/my-web-app` directory\.
+1. Create a file named `buildspec.yml` with the following contents\. Store the file in the `ROOT` directory\.
 
    ```
    version: 0.2
@@ -254,10 +253,10 @@ In this step, you add an Elastic Beanstalk configuration file and a buildspec fi
      post_build:
        commands:
          - mvn package
-         - mv target/my-web-app.war my-web-app.war
+         - mv target/ROOT.war ROOT.war
    artifacts:
      files:
-       - my-web-app.war
+       - ROOT.war
        - .ebextensions/**/*
    eb_codebuild_settings:
      CodeBuildServiceRole: my-service-role-name
@@ -272,7 +271,7 @@ In this step, you add an Elastic Beanstalk configuration file and a buildspec fi
 
    ```
    .
-   └── my-web-app
+   └── ROOT
        ├── .ebextensions
        │   └── fix-path.config
        ├── src
@@ -292,7 +291,7 @@ In this step, you add an Elastic Beanstalk configuration file and a buildspec fi
 
 1. If you have not already done so, install and configure the EB CLI on the same computer or instance where you created the source code\. For information, see [Install the Elastic Beanstalk command line interface \(EB CLI\)](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli3-install.html) and [Configure the EB CLI](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli3-configuration.html) in the *AWS Elastic Beanstalk Developer Guide*\.
 
-1. From the command line or terminal, run the cd command or similar to switch to your `(root directory name)/my-web-app` directory\. Run the eb init command to configure the EB CLI\.
+1. From the command line or terminal, run the cd command or similar to switch to your `(root directory name)/ROOT` directory\. Run the eb init command to configure the EB CLI\.
 
    ```
    eb init

@@ -261,7 +261,7 @@ phases:
  You can specify one or more runtimes in the `runtime-versions` section of your buildspec file\. If your runtime is dependent upon another runtime, you can also specify its dependent runtime in the buildspec file\. If you do not specify any runtimes in the buildspec file, CodeBuild chooses the default runtimes that are available in the image you use\. If you specify one or more runtimes, CodeBuild uses only those runtimes\. If a dependent runtime is not specified, CodeBuild attempts to choose the dependent runtime for you\.   
 If two specified runtimes conflict, the build fails\. For example, `android: 29` and `java: openjdk11` conflict, so if both are specified, the build fails\.  
  The following supported runtimes can be specified\.     
-**Ubuntu and Amazon Linux 2 platforms runtimes**    
+**Ubuntu and Amazon Linux 2 platform runtime versions**    
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html)
  If you specify a `runtime-versions` section and use an image other than Ubuntu Standard Image 2\.0 or later, or the Amazon Linux 2 \(AL2\) standard image 1\.0 or later, the build issues the warning, "`Skipping install of runtimes. Runtime version selection is not supported by this build image`\."   
 phases/install/**commands**  
@@ -353,8 +353,8 @@ When you specify build output artifact locations, CodeBuild can locate the origi
 
 artifacts/**name**  <a name="build-spec.artifacts.name"></a>
 Optional name\. Specifies a name for your build artifact\. This name is used when one of the following is true\.  
-+  You use the CodeBuild API to create your builds and the `overrideArtifactName` flag is set on the `ProjectArtifacts` object when a project is updated, a project is created, or a build is started\. 
-+  You use the CodeBuild console to create your builds, a name is specified in the buildspec file, and you select **Enable semantic versioning** when you create or update a project\. For more information, see [Create a build project \(console\)](create-project-console.md)\. 
++ You use the CodeBuild API to create your builds and the `overrideArtifactName` flag is set on the `ProjectArtifacts` object when a project is updated, a project is created, or a build is started\. 
++ You use the CodeBuild console to create your builds, a name is specified in the buildspec file, and you select **Enable semantic versioning** when you create or update a project\. For more information, see [Create a build project \(console\)](create-project-console.md)\. 
 You can specify a name in the buildspec file that is calculated at build time\. The name specified in a buildspec file uses the Shell command language\. For example, you can append a date and time to your artifact name so that it is always unique\. Unique artifact names prevent artifacts from being overwritten\. For more information, see [Shell command language](http://pubs.opengroup.org/onlinepubs/9699919799/)\.   
 This is an example of an artifact name appended with the date the artifact is created\.   
 
@@ -408,27 +408,27 @@ You can use `files` and `discard-paths` to further restrict which files and subd
 
 ```
 .
-├── my-build1
-│   └── my-file1.txt
-└── my-build2
-    ├── my-file2.txt
+├── my-build-1
+│   └── my-file-1.txt
+└── my-build-2
+    ├── my-file-2.txt
     └── my-subdirectory
-        └── my-file3.txt
+        └── my-file-3.txt
 ```
 And for the following `artifacts` sequence:  
 
 ```
 artifacts:
   files:
-    - '*/my-file3.txt'
-  base-directory: my-build2
+    - '*/my-file-3.txt'
+  base-directory: my-build-2
 ```
 The following subdirectory and file would be included in the build output artifact:  
 
 ```
 .
 └── my-subdirectory
-    └── my-file3.txt
+    └── my-file-3.txt
 ```
 While for the following `artifacts` sequence:  
 
@@ -443,9 +443,9 @@ The following files would be included in the build output artifact:
 
 ```
 .
-├── my-file1.txt
-├── my-file2.txt
-└── my-file3.txt
+├── my-file-1.txt
+├── my-file-2.txt
+└── my-file-3.txt
 ```
 
 artifacts/**secondary\-artifacts**  <a name="build-spec.artifacts.secondary-artifacts"></a>

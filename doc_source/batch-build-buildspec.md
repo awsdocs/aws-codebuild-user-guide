@@ -76,8 +76,6 @@ batch:
         - build2
 ```
 
-For more information, see [Build graph](batch-build.md#batch_build_graph)\.
-
 ## `batch/build-list`<a name="build-spec.batch.build-list"></a>
 
 Defines a *build list*\. A build list is used to define a number of tasks that run in parallel\. For more information, see [Build list](batch-build.md#batch_build_list)\.
@@ -89,9 +87,6 @@ Required\. The identifier of the task\.
 
 **buildspec**  
 Optional\. The path and file name of the buildspec file to use for this task\.
-
-**depend\-on**  
-Optional\. An array of task identifiers that this task depends on\. This task will not run until these tasks are completed\.
 
 **env**  
 Optional\. The build environment overrides for the task\. This can contain the following properties:    
@@ -129,8 +124,6 @@ batch:
         image: aws/codebuild/windows-base:2019-1.0
         compute-type: BUILD_GENERAL1_MEDIUM
 ```
-
-For more information, see [Build list](batch-build.md#batch_build_list)\.
 
 ## `batch/build-matrix`<a name="build-spec.batch.build-matrix"></a>
 
