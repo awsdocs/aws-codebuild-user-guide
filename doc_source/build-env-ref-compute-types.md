@@ -16,11 +16,51 @@ AWS CodeBuild provides build environments with the following available memory, v
 
 The disk space listed for each build environment is available only in the directory specified by the `CODEBUILD_SRC_DIR` environment variable\.
 
-**Note**  
- Some environment and compute types have limitations:   
-The environment type `LINUX_GPU_CONTAINER` is available only in Regions US East \(N\. Virginia\), US West \(Oregon\), Canada \(Central\), Europe \(Ireland\), Europe \(London\), Europe \(Frankfurt\), Asia Pacific \(Tokyo\), Asia Pacific \(Seoul\), Asia Pacific \(Singapore\), Asia Pacific \(Sydney\), China \(Beijing\), and China \(Ningxia\)\.
-The environment type `ARM_CONTAINER` is available only in Regions US East \(N\. Virginia\), US East \(Ohio\), US West \(Oregon\), Europe \(Ireland\), Asia Pacific \(Mumbai\), Asia Pacific \(Tokyo\), Asia Pacific \(Sydney\), and Europe \(Frankfurt\)\.
-The compute type `build.general1.2xlarge` is available only in Regions US East \(N\. Virginia\), US East \(Ohio\), US West \(N\. California\), US West \(Oregon\), Canada \(Central\), South America \(São Paulo\), Europe \(Stockholm\), Europe \(Ireland\), Europe \(London\), Europe \(Paris\), Europe \(Frankfurt\), Middle East \(Bahrain\), Asia Pacific \(Hong Kong\), Asia Pacific \(Tokyo\), Asia Pacific \(Seoul\), Asia Pacific \(Singapore\), Asia Pacific \(Sydney\), Asia Pacific \(Mumbai\), China \(Beijing\), and China \(Ningxia\)\.
+Some environment and compute types have Region availability limitations: 
++ The environment type `LINUX_GPU_CONTAINER` is only available in these Regions:
+  + US East \(N\. Virginia\)
+  + US West \(Oregon\)
+  + Asia Pacific \(Seoul\)
+  + Asia Pacific \(Singapore\)
+  + Asia Pacific \(Sydney\)
+  + Asia Pacific \(Tokyo\)
+  + Canada \(Central\)
+  + China \(Beijing\)
+  + China \(Ningxia\)
+  + Europe \(Frankfurt\)
+  + Europe \(Ireland\)
+  + Europe \(London\)
++ The environment type `ARM_CONTAINER` is only available in these Regions:
+  + US East \(Ohio\)
+  + US East \(N\. Virginia\)
+  + US West \(Oregon\)
+  + Asia Pacific \(Mumbai\)
+  + Asia Pacific \(Sydney\)
+  + Asia Pacific \(Tokyo\)
+  + Europe \(Frankfurt\)
+  + Europe \(Ireland\)
++ The compute type `build.general1.2xlarge` is only available in these Regions:
+  + US East \(Ohio\)
+  + US East \(N\. Virginia\)
+  + US West \(N\. California\)
+  + US West \(Oregon\)
+  + Asia Pacific \(Hong Kong\)
+  + Asia Pacific \(Mumbai\)
+  + Asia Pacific \(Seoul\)
+  + Asia Pacific \(Singapore\)
+  + Asia Pacific \(Sydney\)
+  + Asia Pacific \(Tokyo\)
+  + Canada \(Central\)
+  + China \(Beijing\)
+  + China \(Ningxia\)
+  + Europe \(Frankfurt\)
+  + Europe \(Ireland\)
+  + Europe \(London\)
+  + Europe \(Paris\)
+  + Europe \(Stockholm\)
+  + Middle East \(Bahrain\)
+  + South America \(São Paulo\)
+
 For the compute type `build.general1.2xlarge`, Docker images up to 100 GB uncompressed are supported\.
 
 

@@ -4,7 +4,8 @@
 
 You can create a trigger on a project to schedule a build once every hour, day, or week\. You can also create a trigger using a custom rule with an Amazon CloudWatch cron expression\. For example, using a cron expression, you can schedule a build at a specific time every weekday\. 
 
-You create a trigger after you create a project\. 
+**Note**  
+It is not possible to start a batch build from a build trigger, an Amazon EventBridge event, or an AWS Step Functions task\.
 
 **To create a trigger** 
 

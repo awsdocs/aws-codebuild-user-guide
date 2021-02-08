@@ -45,7 +45,7 @@ As part of the Supplemental License Terms for this Container OS Image for Window
 
 ## 2\) windows\-base Docker image—choco<a name="3-windows-base-docker-image"></a>
 
-\(license terms available at: [https://github\.com/chocolatey/chocolatey\.org/blob/master/LICENSE\.txt](https://github.com/chocolatey/chocolatey.org/blob/master/LICENSE.txt)\)
+\(license terms available at: [https://github\.com/chocolatey/choco/blob/master/LICENSE](https://github.com/chocolatey/choco/blob/master/LICENSE)\)
 
 Copyright 2011 \- Present RealDimensions Software, LLC
 
