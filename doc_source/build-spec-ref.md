@@ -69,6 +69,7 @@ batch:
 phases:
   install:
     run\-as: Linux-user-name
+    on\-failure: ABORT | CONTINUE
     runtime\-versions:
       runtime: version
       runtime: version
@@ -80,26 +81,29 @@ phases:
       - command
   pre\_build:
     run\-as: Linux-user-name
+    on\-failure: ABORT | CONTINUE
     commands:
       - command
       - command
-    finally:
+      finally:
       - command
       - command
   build:
     run\-as: Linux-user-name
+    on\-failure: ABORT | CONTINUE
     commands:
       - command
       - command
-    finally:
+      finally:
       - command
       - command
   post\_build:
     run\-as: Linux-user-name
+    on\-failure: ABORT | CONTINUE
     commands:
       - command
       - command
-    finally:
+      finally:
       - command
       - command
 reports:
@@ -117,6 +121,9 @@ artifacts:
   name: artifact-name
   discard\-paths: no | yes
   base\-directory: location
+  exclude\-paths: excluded paths
+  enable\-symlinks: no | yes
+  s3\-prefix: prefix
   secondary\-artifacts:
     artifactIdentifier:
       files:
@@ -243,6 +250,15 @@ In buildspec version 0\.1, CodeBuild runs each command in a separate instance of
 phases/\*/**run\-as**  <a name="build-spec.phases.run-as"></a>
 Optional sequence\. Use in a build phase to specify a Linux user that runs its commands\. If `run-as` is also specified globally for all commands at the top of the buildspec file, then the phase\-level user takes precedence\. For example, if globally `run-as` specifies User\-1, and for the `install` phase only a `run-as` statement specifies User\-2, then all commands in then buildspec file are run as User\-1 *except* commands in the `install` phase, which are run as User\-2\.
 
+phases/\*/**on\-failure**  <a name="build-spec.phases.on-failure"></a>
+Optional sequence\. Specifies the action to take if a failure occurs during the phase\. This can be one of the following values:  
++ `ABORT` \- Abort the build\.
++ `CONTINUE` \- Continue to the next phase\.
+If this property is not specified, the failure process follows the transition phases as shown in [Build phase transitions](view-build-details.md#view-build-details-phases)\.
+
+phases/\*/**finally**  <a name="build-spec.phases.finally"></a>
+Optional block\. Commands specified in a `finally` block are run after commands in the `commands` block\. The commands in a `finally` block are run even if a command in the `commands` block fails\. For example, if the `commands` block contains three commands and the first fails, CodeBuild skips the remaining two commands and runs any commands in the `finally` block\. The phase is successful when all commands in the `commands` and the `finally` blocks run successfully\. If any command in a phase fails, the phase fails\.
+
 The allowed build phase names are:
 
 phases/**install**  <a name="build-spec.phases.install"></a>
@@ -258,40 +274,29 @@ phases:
       python: 3.x
       ruby: "$MY_RUBY_VAR"
 ```
- You can specify one or more runtimes in the `runtime-versions` section of your buildspec file\. If your runtime is dependent upon another runtime, you can also specify its dependent runtime in the buildspec file\. If you do not specify any runtimes in the buildspec file, CodeBuild chooses the default runtimes that are available in the image you use\. If you specify one or more runtimes, CodeBuild uses only those runtimes\. If a dependent runtime is not specified, CodeBuild attempts to choose the dependent runtime for you\.   
+You can specify one or more runtimes in the `runtime-versions` section of your buildspec file\. If your runtime is dependent upon another runtime, you can also specify its dependent runtime in the buildspec file\. If you do not specify any runtimes in the buildspec file, CodeBuild chooses the default runtimes that are available in the image you use\. If you specify one or more runtimes, CodeBuild uses only those runtimes\. If a dependent runtime is not specified, CodeBuild attempts to choose the dependent runtime for you\.   
 If two specified runtimes conflict, the build fails\. For example, `android: 29` and `java: openjdk11` conflict, so if both are specified, the build fails\.  
- The following supported runtimes can be specified\.     
+The following supported runtimes can be specified\.     
 **Ubuntu and Amazon Linux 2 platform runtime versions**    
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html)
  If you specify a `runtime-versions` section and use an image other than Ubuntu Standard Image 2\.0 or later, or the Amazon Linux 2 \(AL2\) standard image 1\.0 or later, the build issues the warning, "`Skipping install of runtimes. Runtime version selection is not supported by this build image`\."   
 phases/install/**commands**  
-`commands`: Optional sequence\. Contains a sequence of scalars, where each scalar represents a single command that CodeBuild runs during installation\. CodeBuild runs each command, one at a time, in the order listed, from beginning to end\.  
-phases/install/**finally**  
-Optional block\. Commands specified in a `finally` block are run after commands in the `commands` block\. The commands in a `finally` block are run even if a command in the `commands` block fails\. For example, if the `commands` block contains three commands and the first fails, CodeBuild skips the remaining two commands and runs any commands in the `finally` block\. The phase is successful when all commands in the `commands` and the `finally` blocks run successfully\. If any command in a phase fails, the phase fails\.
+Optional sequence\. Contains a sequence of scalars, where each scalar represents a single command that CodeBuild runs during installation\. CodeBuild runs each command, one at a time, in the order listed, from beginning to end\.
 
 phases/**pre\_build**  <a name="build-spec.phases.pre_build"></a>
 Optional sequence\. Represents the commands, if any, that CodeBuild runs before the build\. For example, you might use this phase to sign in to Amazon ECR, or you might install npm dependencies\.     
 phases/pre\_build/**commands**  
-Required sequence if `pre_build` is specified\. Contains a sequence of scalars, where each scalar represents a single command that CodeBuild runs before the build\. CodeBuild runs each command, one at a time, in the order listed, from beginning to end\.  
-phases/pre\_build/**finally**  
-Optional block\. Commands specified in a `finally` block are run after commands in the `commands` block\. The commands in a `finally` block are run even if a command in the `commands` block fails\. For example, if the `commands` block contains three commands and the first fails, CodeBuild skips the remaining two commands and runs any commands in the `finally` block\. The phase is successful when all commands in the `commands` and the `finally` blocks run successfully\. If any command in a phase fails, the phase fails\.
+Required sequence if `pre_build` is specified\. Contains a sequence of scalars, where each scalar represents a single command that CodeBuild runs before the build\. CodeBuild runs each command, one at a time, in the order listed, from beginning to end\.
 
 phases/**build**  <a name="build-spec.phases.build"></a>
 Optional sequence\. Represents the commands, if any, that CodeBuild runs during the build\. For example, you might use this phase to run Mocha, RSpec, or sbt\.    
 phases/build/**commands**  
-`commands`: Required if `build` is specified\. Contains a sequence of scalars, where each scalar represents a single command that CodeBuild runs during the build\. CodeBuild runs each command, one at a time, in the order listed, from beginning to end\.  
-phases/build/**finally**  
-Optional block\. Commands specified in a `finally` block are run after commands in the `commands` block\. The commands in a `finally` block are run even if a command in the `commands` block fails\. For example, if the `commands` block contains three commands and the first fails, CodeBuild skips the remaining two commands and runs any commands in the `finally` block\. The phase is successful when all commands in the `commands` and the `finally` blocks run successfully\. If any command in a phase fails, the phase fails\.
+Required if `build` is specified\. Contains a sequence of scalars, where each scalar represents a single command that CodeBuild runs during the build\. CodeBuild runs each command, one at a time, in the order listed, from beginning to end\.
 
 phases/**post\_build**  <a name="build-spec.phases.post_build"></a>
 Optional sequence\. Represents the commands, if any, that CodeBuild runs after the build\. For example, you might use Maven to package the build artifacts into a JAR or WAR file, or you might push a Docker image into Amazon ECR\. Then you might send a build notification through Amazon SNS\.    
 phases/post\_build/**commands**  
-`commands`: Required if `post_build` is specified\. Contains a sequence of scalars, where each scalar represents a single command that CodeBuild runs after the build\. CodeBuild runs each command, one at a time, in the order listed, from beginning to end\.  
-phases/post\_build/**finally**  
-Optional block\. Commands specified in a `finally` block are run after commands in the `commands` block\. The commands in a `finally` block are run even if a command in the `commands` block fails\. For example, if the `commands` block contains three commands and the first fails, CodeBuild skips the remaining two commands and runs any commands in the `finally` block\. The phase is successful when all commands in the `commands` and the `finally` blocks run successfully\. If any command in a phase fails, the phase fails\.
-
-**Important**  
-Commands in some build phases might not be run if commands in earlier build phases fail\. For example, if a command fails during the `install` phase, none of the commands in the `pre_build`, `build`, and `post_build` phases are run for that build's lifecycle\. For more information, see [Build phase transitions](view-build-details.md#view-build-details-phases)\.<a name="reports-buildspec-file"></a>
+Required if `post_build` is specified\. Contains a sequence of scalars, where each scalar represents a single command that CodeBuild runs after the build\. CodeBuild runs each command, one at a time, in the order listed, from beginning to end\.<a name="reports-buildspec-file"></a>
 
 ### reports<a name="build-spec.reports"></a>
 
@@ -356,7 +361,46 @@ Optional name\. Specifies a name for your build artifact\. This name is used whe
 + You use the CodeBuild API to create your builds and the `overrideArtifactName` flag is set on the `ProjectArtifacts` object when a project is updated, a project is created, or a build is started\. 
 + You use the CodeBuild console to create your builds, a name is specified in the buildspec file, and you select **Enable semantic versioning** when you create or update a project\. For more information, see [Create a build project \(console\)](create-project-console.md)\. 
 You can specify a name in the buildspec file that is calculated at build time\. The name specified in a buildspec file uses the Shell command language\. For example, you can append a date and time to your artifact name so that it is always unique\. Unique artifact names prevent artifacts from being overwritten\. For more information, see [Shell command language](http://pubs.opengroup.org/onlinepubs/9699919799/)\.   
-This is an example of an artifact name appended with the date the artifact is created\.   
++ This is an example of an artifact name appended with the date the artifact is created\. 
+
+  ```
+  version: 0.2
+  phases:
+    build:
+      commands:
+        - rspec HelloWorld_spec.rb
+  artifacts:
+    files:
+      - '**/*'
+    name: myname-$(date +%Y-%m-%d)
+  ```
++ This is an example of an artifact name that uses a CodeBuild environment variable\. For more information, see [Environment variables in build environments](build-env-ref-env-vars.md)\. 
+
+  ```
+  version: 0.2
+  phases:
+    build:
+      commands:
+        - rspec HelloWorld_spec.rb
+  artifacts:
+    files:
+      - '**/*'
+    name: myname-$AWS_REGION
+  ```
++ This is an example of an artifact name that uses a CodeBuild environment variable with the artifact's creation date appended to it\. 
+
+  ```
+  version: 0.2
+  phases:
+    build:
+      commands:
+        - rspec HelloWorld_spec.rb
+  artifacts:
+    files:
+      - '**/*'
+    name: $AWS_REGION-$(date +%Y-%m-%d)
+  ```
+You can add path information to the name so that the named artifacts are placed in directories based on the path in the name\. In this example, build artifacts are placed in the output under `builds/<build number>/my-artifacts`\.  
 
 ```
 version: 0.2
@@ -367,33 +411,7 @@ phases:
 artifacts:
   files:
     - '**/*'
-  name: myname-$(date +%Y-%m-%d)
-```
-This is an example of an artifact name that uses a CodeBuild environment variable\. For more information, see [Environment variables in build environments](build-env-ref-env-vars.md)\.   
-
-```
-version: 0.2
-phases:
-  build:
-    commands:
-      - rspec HelloWorld_spec.rb
-artifacts:
-  files:
-    - '**/*'
-  name: myname-$AWS_REGION
-```
-This is an example of an artifact name that uses a CodeBuild environment variable with the artifact's creation date appended to it\.   
-
-```
-version: 0.2
-phases:
-  build:
-    commands:
-      - rspec HelloWorld_spec.rb
-artifacts:
-  files:
-    - '**/*'
-  name: $AWS_REGION-$(date +%Y-%m-%d)
+  name: builds/$CODEBUILD_BUILD_NUMBER/my-artifacts
 ```
 
 artifacts/**discard\-paths**  <a name="build-spec.artifacts.discard-paths"></a>
@@ -447,6 +465,15 @@ The following files would be included in the build output artifact:
 ├── my-file-2.txt
 └── my-file-3.txt
 ```
+
+artifacts/**exclude\-paths**  <a name="build-spec.artifacts.exclude-paths"></a>
+Optional mapping\. Represents one or more paths, relative to `base-directory`, that CodeBuild will exclude from the build artifacts\.
+
+artifacts/**enable\-symlinks**  <a name="build-spec.artifacts.enable-symlinks"></a>
+Optional\. If the output type is `ZIP`, specifies if internal symbolic links are preserved in the ZIP file\. If this contains `yes`, all internal symbolic links in the source will be preserved in the artifacts ZIP file\. 
+
+artifacts/**s3\-prefix**  <a name="build-spec.artifacts.s3-prefix"></a>
+Optional\. Specifies a prefix used when the artifacts are output to an Amazon S3 bucket and the namespace type is `BUILD_ID`\. When used, the output path in the bucket is `<s3-prefix>/<build-id>/<name>.zip`\.
 
 artifacts/**secondary\-artifacts**  <a name="build-spec.artifacts.secondary-artifacts"></a>
 Optional sequence\. Represents one or more artifact definitions as a mapping between an artifact identifier and an artifact definition\. Each artifact identifiers in this block must match an artifact defined in the `secondaryArtifacts` attribute of your project\. Each separate definition has the same syntax as the `artifacts` block above\.   
