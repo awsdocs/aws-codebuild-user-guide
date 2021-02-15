@@ -85,7 +85,7 @@ phases:
     commands:
       - command
       - command
-      finally:
+    finally:
       - command
       - command
   build:
@@ -94,7 +94,7 @@ phases:
     commands:
       - command
       - command
-      finally:
+    finally:
       - command
       - command
   post\_build:
@@ -103,7 +103,7 @@ phases:
     commands:
       - command
       - command
-      finally:
+    finally:
       - command
       - command
 reports:
