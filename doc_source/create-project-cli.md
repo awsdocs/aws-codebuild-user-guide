@@ -163,7 +163,8 @@ Modify the JSON data as follows and save your results\.
       ]
     },
     "timeoutInMins": <batch-timeout>
-  }
+  },
+  "concurrentBuildLimit": <concurrent-build-limit>
 }
 ```
 
@@ -478,6 +479,12 @@ An array of strings that specify the compute types that are allowed for the batc
 
 buildBatchConfig/**timeoutInMinutes**  
 The maximum amount of time, in minutes, that the batch build must be completed in\.
+
+### concurrentBuildLimit<a name="cli.concurrentbuildlimit"></a>
+
+The maximum number of concurrent builds that are allowed for this project\.
+
+New builds are only started if the current number of builds is less than or equal to this limit\. If the current build count meets this limit, new builds are throttled and are not run\.
 
 ## Create the project<a name="cp-cli-create-project"></a>
 

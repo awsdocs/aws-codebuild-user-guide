@@ -26,8 +26,16 @@ Enter a name for this build project\. Build project names must be unique across 
 Enter an optional description of the build project to help other users understand what this project is used for\.
 
 **Build badge**  
-Select to make your project's build status visible and embeddable\. For more information, see [Build badges sample](sample-build-badges.md)\.  
+\(Optional\) Select **Enable build badge** to make your project's build status visible and embeddable\. For more information, see [Build badges sample](sample-build-badges.md)\.  
 Build badge does not apply if your source provider is Amazon S3\. 
+
+**Enable concurrent build limit**  
+\(Optional\) If you want to limit the number of concurrent builds for this project, perform the following steps:  
+
+1. Select **Restrict number of concurrent builds this project can start**\.
+
+1. In **Concurrent build limit**, enter the maximum number of concurrent builds that are allowed for this project\. This limit cannot be greater than the concurrent build limit set for the account\. If you try to enter a number greater than the account limit, an error message is displayed\.
+New builds are only started if the current number of builds is less than or equal to this limit\. If the current build count meets this limit, new builds are throttled and are not run\.
 
 **Additional information**  
 \(Optional\) For **Tags**, enter the name and value of any tags that you want supporting AWS services to use\. Use **Add row** to add a tag\. You can add up to 50 tags\. 

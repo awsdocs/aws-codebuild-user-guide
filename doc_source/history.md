@@ -2,10 +2,11 @@
 
 The following table describes the important changes to the documentation since the last release of AWS CodeBuild\. For notification about updates to this documentation, you can subscribe to an RSS feed\.
 +  **Latest API version:** 2016\-10\-06
-+  **Latest documentation update: **February 9, 2021
++  **Latest documentation update: **February 16, 2021
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Project level concurrent build limit](#history) | CodeBuild now allows you to limit the number of concurrent builds for a build project\. For more information, see [Project configuration](https://docs.aws.amazon.com/codebuild/latest/userguide/create-project-console.html#create-project-console-project-config) and [concurrentBuildLimit](https://docs.aws.amazon.com/codebuild/latest/userguide/create-project-cli.html#cli.concurrentbuildlimit)\.  | February 16, 2021 | 
 | [New buildspec property: s3‑prefix](#history) | CodeBuild now provides the `s3-prefix` buildspec property for artifacts that allows you to specify a path prefix for artifacts that are uploaded to Amazon S3\. For more information, see [s3\-prefix](https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec.artifacts.s3-prefix)\.  | February 9, 2021 | 
 | [New buildspec property: on‑failure](#history) | CodeBuild now provides the `on-failure` buildspec property for build phases that allows you to determine what happens when a build phase fails\. For more information, see [on\-failure](https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec.phases.on-failure)\.  | February 9, 2021 | 
 | [New buildspec property: exclude‑paths](#history) | CodeBuild now provides the `exclude-paths` buildspec property for artifacts that allows you to exclude paths from your build artifacts\. For more information, see [exclude\-paths](https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec.artifacts.exclude-paths)\.  | February 9, 2021 | 

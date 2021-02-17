@@ -48,7 +48,7 @@ Specifies the service role ARN for the batch build project\.
 *batchTimeout*  
 Specifies the maximum amount of time, in minutes, that the batch build must be completed in\.
 
-1. Switch to the directory that contains the file you just saved, and run the `start-build` command again\.
+1. Switch to the directory that contains the file you just saved, and run the `start-build-batch` command again\.
 
    ```
    aws codebuild start-build-batch --cli-input-json file://start-build.json

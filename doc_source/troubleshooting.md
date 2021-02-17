@@ -33,6 +33,7 @@ Use the information in this topic to help you identify, diagnose, and address is
 + [Warning: "Skipping install of runtimes\. runtime version selection is not supported by this build image" when running a build](#troubleshooting-skipping-all-runtimes-warning)
 + [Error: "Unable to verify JobWorker identity" when opening the CodeBuild console](#troubleshooting-unable-to-verify-jobworker)
 + [Accessing GitHub metadata in locally cached builds](#troubleshooting-github-metadata)
++ [Build failed to start](#troubleshooting-build-failed-to-start)
 
 ## Apache Maven builds reference artifacts from the wrong repository<a name="troubleshooting-maven-repos"></a>
 
@@ -522,3 +523,11 @@ artifacts:
 ```
 git rev-parse --git-dir
 ```
+
+## Build failed to start<a name="troubleshooting-build-failed-to-start"></a>
+
+**Issue:** When starting a build, you receive a **Build failed to start** error message\.
+
+**Possible cause:** The number of concurrent builds has been reached\.
+
+**Recommended solutions:** Wait until other builds are complete, or increase the concurrrent build limit for the project, and start the build again\. For more information, see [Project configuration](create-project-console.md#create-project-console-project-config)\.
