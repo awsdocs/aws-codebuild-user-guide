@@ -1,6 +1,6 @@
 # GitHub webhook events<a name="github-webhook"></a>
 
-You can use webhook filter groups to specify which GitHub webhook events trigger a build\. For example, you can specify that a build is triggered for specified branches only\. 
+You can use webhook filter groups to specify which GitHub webhook events trigger a build\. For example, you can specify that a build is only triggered for changes to specific branches\. 
 
 You can create one or more webhook filter groups to specify which webhook events trigger a build\. A build is triggered if all the filters on one or more filter groups evaluate to true\. When you create a filter group, you specify: 
 

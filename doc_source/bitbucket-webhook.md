@@ -1,8 +1,8 @@
 # Bitbucket webhook events<a name="bitbucket-webhook"></a>
 
- You can use webhook filter groups to specify which Bitbucket webhook events trigger a build\. For example, you can specify that a build is triggered for specified branches only\. 
+You can use webhook filter groups to specify which Bitbucket webhook events trigger a build\. For example, you can specify that a build is only triggered for changes to specific branches\. 
 
- You can specify more than one webhook filter group\. A build is triggered if the filters on one or more filter groups evaluate to true\. When you create a filter group, you specify: 
+You can specify more than one webhook filter group\. A build is triggered if the filters on one or more filter groups evaluate to true\. When you create a filter group, you specify: 
 
 **An event**  
 For Bitbucket, you can choose one or more of the following events:  
