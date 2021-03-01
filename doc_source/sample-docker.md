@@ -200,6 +200,9 @@ COPY --from=build /bin/HelloWorld /bin/HelloWorld
 ENTRYPOINT ["/bin/HelloWorld"]
 ```
 
+**Note**  
+CodeBuild overrides the `ENTRYPOINT` for custom Docker images\.
+
 ## Adapting the sample to push the image to Docker Hub<a name="sample-docker-docker-hub"></a>
 
 To push the Docker image to Docker Hub instead of Amazon ECR, edit this sample's code\.

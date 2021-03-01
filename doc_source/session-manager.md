@@ -2,6 +2,9 @@
 
 In AWS CodeBuild, you can pause a running build and then use AWS Systems Manager Session Manager to connect to the build container and view the state of the container\.
 
+**Note**  
+This feature is not available in Windows environments\.
+
 **Topics**
 + [Prerequisites](#ssm.prerequisites)
 + [Pause the build](#ssm-pause-build)

@@ -32,8 +32,9 @@ Use the information in this topic to help you identify, diagnose, and address is
 + [The bourne shell \(sh\) must exist in build images](#troubleshooting-sh-build-images)
 + [Warning: "Skipping install of runtimes\. runtime version selection is not supported by this build image" when running a build](#troubleshooting-skipping-all-runtimes-warning)
 + [Error: "Unable to verify JobWorker identity" when opening the CodeBuild console](#troubleshooting-unable-to-verify-jobworker)
-+ [Accessing GitHub metadata in locally cached builds](#troubleshooting-github-metadata)
 + [Build failed to start](#troubleshooting-build-failed-to-start)
++ [Accessing GitHub metadata in locally cached builds](#troubleshooting-github-metadata)
++ [AccessDenied: The bucket owner for the report group does not match the owner of the S3 bucket\.\.\.](#troubleshooting-bucket-owner)
 
 ## Apache Maven builds reference artifacts from the wrong repository<a name="troubleshooting-maven-repos"></a>
 
@@ -512,6 +513,14 @@ artifacts:
 
 **Recommended solution:** Change any custom IAM role tags that have the key `jobId` to have a different key, such as `jobIdentifier`\.
 
+## Build failed to start<a name="troubleshooting-build-failed-to-start"></a>
+
+**Issue:** When starting a build, you receive a **Build failed to start** error message\.
+
+**Possible cause:** The number of concurrent builds has been reached\.
+
+**Recommended solutions:** Wait until other builds are complete, or increase the concurrrent build limit for the project, and start the build again\. For more information, see [Project configuration](create-project-console.md#create-project-console-project-config)\.
+
 ## Accessing GitHub metadata in locally cached builds<a name="troubleshooting-github-metadata"></a>
 
 **Issue:** In some cases, the \.git directory in a cached build is a text file and not a directory\.
@@ -524,10 +533,14 @@ artifacts:
 git rev-parse --git-dir
 ```
 
-## Build failed to start<a name="troubleshooting-build-failed-to-start"></a>
+## AccessDenied: The bucket owner for the report group does not match the owner of the S3 bucket\.\.\.<a name="troubleshooting-bucket-owner"></a>
 
-**Issue:** When starting a build, you receive a **Build failed to start** error message\.
+**Issue:** When uploading test data to an Amazon S3 bucket, CodeBuild is unable to write the test data to the bucket\.
 
-**Possible cause:** The number of concurrent builds has been reached\.
+**Possible causes:** 
++ The account specified for the report group bucket owner does not match the owner of the Amazon S3 bucket\.
++ The service role does not have write access to the bucket\.
 
-**Recommended solutions:** Wait until other builds are complete, or increase the concurrrent build limit for the project, and start the build again\. For more information, see [Project configuration](create-project-console.md#create-project-console-project-config)\.
+**Recommended solutions:** 
++ Change the report group bucket owner to match the owner of the Amazon S3 bucket\.
++ Modify the service role to allow write access to the Amazon S3 bucket\.

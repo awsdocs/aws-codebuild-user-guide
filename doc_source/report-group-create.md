@@ -4,6 +4,6 @@
 
 **Topics**
 + [Create a report group \(buildspec\)](test-report-group-create-buildspec.md)
-+ [Create a report group \(CLI\)](test-report-group-create-cli.md)
 + [Create a report group \(console\)](test-report-group-create-console.md)
++ [Create a report group \(CLI\)](test-report-group-create-cli.md)
 + [Create a report group \(AWS CloudFormation\)](test-report-group-create-cfn.md)
