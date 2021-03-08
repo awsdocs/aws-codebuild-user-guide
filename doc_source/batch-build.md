@@ -35,11 +35,13 @@ batch:
     - identifier: build1
       env:
         compute-type: BUILD_GENERAL1_SMALL
+      debug-session: true
     - identifier: build2
       env:
         compute-type: BUILD_GENERAL1_MEDIUM
       depend-on:
         - build1
+      debug-session: false
     - identifier: build3
       env:
         compute-type: BUILD_GENERAL1_LARGE
@@ -68,6 +70,7 @@ batch:
       env:
         compute-type: BUILD_GENERAL1_SMALL
       ignore-failure: true
+      debug-session: true
     - identifier: windows_medium
       env:
         type: WINDOWS_SERVER_2019_CONTAINER

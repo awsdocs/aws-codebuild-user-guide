@@ -32,6 +32,13 @@ Required\. The identifier of the task\.
 **buildspec**  
 Optional\. The path and file name of the buildspec file to use for this task\.
 
+**debug\-session**  
+Optional\. A Boolean value that indicates whether session debugging is enabled for this batch build\. For more information about session debugging, see [View a running build in Session Manager](session-manager.md)\.    
+`false`  
+Session debugging is disabled\.   
+`true`  
+Session debugging is enabled\. 
+
 **depend\-on**  
 Optional\. An array of task identifiers that this task depends on\. This task will not run until these tasks are completed\.
 
@@ -64,11 +71,13 @@ batch:
     - identifier: build1
       env:
         compute-type: BUILD_GENERAL1_SMALL
+      debug-session: true
     - identifier: build2
       env:
         compute-type: BUILD_GENERAL1_MEDIUM
       depend-on:
         - build1
+      debug-session: false
     - identifier: build3
       env:
         compute-type: BUILD_GENERAL1_LARGE
@@ -87,6 +96,13 @@ Required\. The identifier of the task\.
 
 **buildspec**  
 Optional\. The path and file name of the buildspec file to use for this task\.
+
+**debug\-session**  
+Optional\. A Boolean value that indicates whether session debugging is enabled for this batch build\. For more information about session debugging, see [View a running build in Session Manager](session-manager.md)\.    
+`false`  
+Session debugging is disabled\.   
+`true`  
+Session debugging is enabled\. 
 
 **env**  
 Optional\. The build environment overrides for the task\. This can contain the following properties:    
@@ -118,6 +134,7 @@ batch:
       env:
         compute-type: BUILD_GENERAL1_SMALL
       ignore-failure: true
+      debug-session: true
     - identifier: windows_medium
       env:
         type: WINDOWS_SERVER_2019_CONTAINER
