@@ -220,7 +220,8 @@ For more information, see [What is AWS Secrets Manager](https://docs.aws.amazon.
 
 env/**exported\-variables**  <a name="build-spec.env.exported-variables"></a>
 Optional mapping\. Used to list environment variables you want to export\. Specify the name of each variable you want to export on a separate line under `exported-variables`\. The variable you want to export must be available in your container during the build\. The variable you export can be an environment variable\.  
- During a build, the value of a variable is available starting with the `install` phase\. It can be updated between the start of the `install` phase and the end of the `post_build` phase\. After the `post_build` phase ends, the value of exported variables cannot change\.  
+Exported environment variables are used in conjunction with AWS CodePipeline to export environment variables from the current build stage to subsequent stages in the pipeline\. For more information, see [Working with variables](https://docs.aws.amazon.com/codepipeline/latest/userguide/actions-variables.html) in the *AWS CodePipeline User Guide*\.  
+During a build, the value of a variable is available starting with the `install` phase\. It can be updated between the start of the `install` phase and the end of the `post_build` phase\. After the `post_build` phase ends, the value of exported variables cannot change\.  
  The following cannot be exported:   
 +  Amazon EC2 Systems Manager Parameter Store secrets specified in the build project\. 
 +  Secrets Manager secrets specified in the build project 

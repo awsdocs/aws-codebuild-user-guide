@@ -30,7 +30,7 @@ This element contains an array of build tasks\. Each build task contains the fol
 Required\. The identifier of the task\.
 
 **buildspec**  
-Optional\. The path and file name of the buildspec file to use for this task\.
+Optional\. The path and file name of the buildspec file to use for this task\. If this parameter is not specified, the current buildspec file is used\.
 
 **debug\-session**  
 Optional\. A Boolean value that indicates whether session debugging is enabled for this batch build\. For more information about session debugging, see [View a running build in Session Manager](session-manager.md)\.    
@@ -95,7 +95,7 @@ This element contains an array of build tasks\. Each build task contains the fol
 Required\. The identifier of the task\.
 
 **buildspec**  
-Optional\. The path and file name of the buildspec file to use for this task\.
+Optional\. The path and file name of the buildspec file to use for this task\. If this parameter is not specified, the current buildspec file is used\.
 
 **debug\-session**  
 Optional\. A Boolean value that indicates whether session debugging is enabled for this batch build\. For more information about session debugging, see [View a running build in Session Manager](session-manager.md)\.    
@@ -144,7 +144,7 @@ batch:
 
 ## `batch/build-matrix`<a name="build-spec.batch.build-matrix"></a>
 
-Defines a *build matrix*\. A build matrix is used to define tasks that will run in parallel with different environments\. CodeBuild creates a separate build for each possible environment configuration\. For more information, see [Build matrix](batch-build.md#batch_build_matrix)\.
+Defines a *build matrix*\. A build matrix defines tasks with different configurations that run in parallel\. CodeBuild creates a separate build for each possible configuration combination\. For more information, see [Build matrix](batch-build.md#batch_build_matrix)\.
 
 **static**  
 The static properties apply to all build tasks\.    
@@ -167,20 +167,20 @@ The identifier of the environment type to use for the task\. See **Environment t
 **variables**  
 The environment variables that will be present in the build environment\. See [env/variables](build-spec-ref.md#build-spec.env.variables) for more information, \.  
 **privileged\-mode**  
-Optional\. A Boolean value that indicates whether to run the Docker daemon inside a Docker container\. Set to `true` only if the build project is used to build Docker images\. Otherwise, a build that attempts to interact with the Docker daemon fails\. The default setting is `false`\.  
+A Boolean value that indicates whether to run the Docker daemon inside a Docker container\. Set to `true` only if the build project is used to build Docker images\. Otherwise, a build that attempts to interact with the Docker daemon fails\. The default setting is `false`\.  
 **type**  
-Optional\. The identifier of the environment type to use for the task\. See **Environment Type** in [Build environment compute types](build-env-ref-compute-types.md) for possible values\.
+The identifier of the environment type to use for these tasks\. See **Environment Type** in [Build environment compute types](build-env-ref-compute-types.md) for possible values\.
 
 **dynamic**  
 The dynamic properties define the build matrix\.    
 **buildspec**  
-Optional\. An array that contains the path and file name of the buildspec files to use for these tasks\.  
+Optional\. An array that contains the path and file names of the buildspec files to use for these tasks\. If this parameter is not specified, the current buildspec file is used\.   
 **env**  
-Optional\. The build environment overrides for the task\.     
+Optional\. The build environment overrides for these tasks\.    
 **compute\-type**  
-An array that containbs the identifiers of the compute types to use for these tasks\. See **computeType** in [Build environment compute types](build-env-ref-compute-types.md) for possible values\.  
+An array that contains the identifiers of the compute types to use for these tasks\. See **computeType** in [Build environment compute types](build-env-ref-compute-types.md) for possible values\.  
 **image**  
-Optional\. An array that contains the identifiers of the images to use for these tasks\. See **Image identifier** in [Docker images provided by CodeBuild](build-env-ref-available.md) for possible values\.  
+An array that contains the identifiers of the images to use for these tasks\. See **Image identifier** in [Docker images provided by CodeBuild](build-env-ref-available.md) for possible values\.  
 **variables**  
 An array that contains the environment variables that will be present in the build environments for these tasks\. See [env/variables](build-spec-ref.md#build-spec.env.variables) for more information, \.
 
@@ -193,12 +193,13 @@ batch:
       ignore-failure: false
       env:
         type: LINUX_CONTAINER
+        image: aws/codebuild/amazonlinux2-x86_64-standard:3.0
         privileged-mode: true
     dynamic:
+      buildspec: 
+        - matrix1.yml
+        - matrix2.yml
       env:
-        image:
-          - aws/codebuild/amazonlinux2-x86_64-standard:3.0
-          - aws/codebuild/windows-base:2019-1.0
         variables:
           MY_VAR:
             - VALUE1

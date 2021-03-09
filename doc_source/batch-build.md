@@ -82,9 +82,9 @@ For more information about the build list buildspec syntax, see [`batch/build-li
 
 ### Build matrix<a name="batch_build_matrix"></a>
 
-A build matrix defines tasks that will run in parallel with different environments\. CodeBuild creates a separate build for each possible environment configuration\. 
+A build matrix defines tasks with different configurations that run in parallel\. CodeBuild creates a separate build for each possible configuration combination\. 
 
-The following example shows a build matrix with two images and three values for an environment variable\.
+The following example shows a build matrix with two buildspec files and three values for an environment variable\.
 
 ```
 batch:
@@ -93,12 +93,13 @@ batch:
       ignore-failure: false
       env:
         type: LINUX_CONTAINER
+        image: aws/codebuild/amazonlinux2-x86_64-standard:3.0
         privileged-mode: true
     dynamic:
+      buildspec: 
+        - matrix1.yml
+        - matrix2.yml
       env:
-        image:
-          - aws/codebuild/amazonlinux2-x86_64-standard:3.0
-          - aws/codebuild/windows-base:2019-1.0
         variables:
           MY_VAR:
             - VALUE1
@@ -107,17 +108,18 @@ batch:
 ```
 
 In this example, CodeBuild creates six builds:
-+ `aws/codebuild/amazonlinux2-x86_64-standard:3.0` / `MY_VAR=VALUE1`
-+ `aws/codebuild/amazonlinux2-x86_64-standard:3.0` / `MY_VAR=VALUE2`
-+ `aws/codebuild/amazonlinux2-x86_64-standard:3.0` / `MY_VAR=VALUE3`
-+ `aws/codebuild/windows-base:2019-1.0` / `MY_VAR=VALUE1`
-+ `aws/codebuild/windows-base:2019-1.0` / `MY_VAR=VALUE2`
-+ `aws/codebuild/windows-base:2019-1.0` / `MY_VAR=VALUE3`
++ `matrix1.yml` with `$MY_VAR=VALUE1`
++ `matrix1.yml` with `$MY_VAR=VALUE2`
++ `matrix1.yml` with `$MY_VAR=VALUE3`
++ `matrix2.yml` with `$MY_VAR=VALUE1`
++ `matrix2.yml` with `$MY_VAR=VALUE2`
++ `matrix2.yml` with `$MY_VAR=VALUE3`
 
 Each build will have the following settings:
 + `ignore-failure` set to `false`
 + `env/type` set to `LINUX_CONTAINER`
-+ `env/privileged`\-mode set to `true`
++ `env/image` set to `aws/codebuild/amazonlinux2-x86_64-standard:3.0`
++ `env/privileged-mode` set to `true`
 
 These builds run in parallel\.
 
