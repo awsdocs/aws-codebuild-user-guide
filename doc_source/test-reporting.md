@@ -3,12 +3,12 @@
 You can create reports in CodeBuild that contain details about tests that are run during builds\. You can create tests such as unit tests, configuration tests, and functional tests\. 
 
 The following test report file formats are supported:
-+ Cucumber JSON
-+ JUnit XML
-+ NUnit XML
-+ NUnit3 XML
-+ TestNG XML
-+ Visual Studio TRX
++ Cucumber JSON \(\.json\)
++ JUnit XML \(\.xml\)
++ NUnit XML \(\.xml\)
++ NUnit3 XML \(\.xml\)
++ TestNG XML \(\.xml\)
++ Visual Studio TRX \(\.trx\)
 
 Create your test cases with any test framework that can create report files in one of these formats \(for example, Surefire JUnit plugin, TestNG, or Cucumber\)\.
 

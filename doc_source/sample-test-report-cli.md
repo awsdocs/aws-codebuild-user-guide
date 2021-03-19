@@ -14,12 +14,12 @@ You can use the CodeBuild API or the AWS CodeBuild console to access the test re
 + Create your test cases\. This sample is written with the assumption that you have test cases to include in your sample test report\. You specify the location of your test files in the buildspec file\. 
 
   The following test report file formats are supported:
-  + Cucumber JSON
-  + JUnit XML
-  + NUnit XML
-  + NUnit3 XML
-  + TestNG XML
-  + Visual Studio TRX
+  + Cucumber JSON \(\.json\)
+  + JUnit XML \(\.xml\)
+  + NUnit XML \(\.xml\)
+  + NUnit3 XML \(\.xml\)
+  + TestNG XML \(\.xml\)
+  + Visual Studio TRX \(\.trx\)
 
   Create your test cases with any test framework that can create report files in one of these formats \(for example, Surefire JUnit plugin, TestNG, or Cucumber\)\.
 + Create an S3 bucket and make a note of its name\. For more information, see [How do I create an S3 bucket?](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/create-bucket.html) in the *Amazon S3 User Guide*\. 
