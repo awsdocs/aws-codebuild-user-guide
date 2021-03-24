@@ -1,6 +1,6 @@
-# Step 1: Create two S3 buckets<a name="getting-started-input-bucket-console"></a>
+# Step 3: Create two S3 buckets<a name="getting-started-input-bucket-console"></a>
 
-\(Part of: [Getting started with AWS CodeBuild using the console](getting-started.md)\)
+\(Previous step: [Step 2: Create the buildspec file](getting-started-create-build-spec-console.md)\)
 
 Although you can use a single bucket for this tutorial, two buckets makes it easier to see where the build input is coming from and where the build output is going\.
 + One of these buckets \(the *input bucket*\) stores the build input\. In this tutorial, the name of this input bucket is `codebuild-region-ID-account-ID-input-bucket`, where *region\-ID* is the AWS Region of the bucket and *account\-ID* is your AWS account ID\.
@@ -17,4 +17,4 @@ Although CodeBuild also supports build input stored in CodeCommit, GitHub, and B
 
 ## Next step<a name="getting-started-input-bucket-console-next"></a>
 
-[Step 2: Create the source code](getting-started-create-source-code-console.md)
+[Step 4: Upload the source code and the buildspec file](getting-started-upload-source-code-console.md)

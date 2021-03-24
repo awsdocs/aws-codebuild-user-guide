@@ -28,4 +28,4 @@ If the build details page is not displayed, in the navigation bar, choose **Buil
 
 ## Next step<a name="getting-started-output-console-next"></a>
 
-[Step 10: Delete the S3 input bucket](getting-started-clean-up-console.md)
+[Step 10: Delete the S3 buckets](getting-started-clean-up-console.md)

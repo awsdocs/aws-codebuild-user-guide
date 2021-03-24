@@ -1,7 +1,7 @@
 # AWS CodeBuild User Guide
 
 -----
-*****Copyright &copy; 2021 Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
+*****Copyright &copy;  Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
 
 -----
 Amazon's trademarks and trade dress may not be used in 
@@ -18,28 +18,28 @@ Amazon's trademarks and trade dress may not be used in
    + [AWS CodeBuild concepts](concepts.md)
 + [Getting started with CodeBuild](getting-started-overview.md)
    + [Getting started with AWS CodeBuild using the console](getting-started.md)
-      + [Step 1: Create two S3 buckets](getting-started-input-bucket-console.md)
-      + [Step 2: Create the source code](getting-started-create-source-code-console.md)
-      + [Step 3: Create the buildspec file](getting-started-create-build-spec-console.md)
+      + [Step 1: Create the source code](getting-started-create-source-code-console.md)
+      + [Step 2: Create the buildspec file](getting-started-create-build-spec-console.md)
+      + [Step 3: Create two S3 buckets](getting-started-input-bucket-console.md)
       + [Step 4: Upload the source code and the buildspec file](getting-started-upload-source-code-console.md)
       + [Step 5: Create the build project](getting-started-create-build-project-console.md)
       + [Step 6: Run the build](getting-started-run-build-console.md)
       + [Step 7: View summarized build information](getting-started-monitor-build-console.md)
       + [Step 8: View detailed build information](getting-started-build-log-console.md)
       + [Step 9: Get the build output artifact](getting-started-output-console.md)
-      + [Step 10: Delete the S3 input bucket](getting-started-clean-up-console.md)
+      + [Step 10: Delete the S3 buckets](getting-started-clean-up-console.md)
       + [Wrapping up](getting-started-next-steps-console.md)
    + [Getting started with AWS CodeBuild using the AWS CLI](getting-started-cli.md)
-      + [Step 1: Create two S3 buckets](getting-started-cli-input-bucket.md)
-      + [Step 2: Create the source code](getting-started-cli-create-source-code.md)
-      + [Step 3: Create the buildspec file](getting-started-cli-create-build-spec.md)
+      + [Step 1: Create the source code](getting-started-cli-create-source-code.md)
+      + [Step 2: Create the buildspec file](getting-started-cli-create-build-spec.md)
+      + [Step 3: Create two S3 buckets](getting-started-cli-input-bucket.md)
       + [Step 4: Upload the source code and the buildspec file](getting-started-cli-upload-source-code.md)
       + [Step 5: Create the build project](getting-started-cli-create-build-project.md)
       + [Step 6: Run the build](getting-started-cli-run-build.md)
       + [Step 7: View summarized build information](getting-started-cli-monitor-build.md)
       + [Step 8: View detailed build information](getting-started-cli-build-log.md)
       + [Step 9: Get the build output artifact](getting-started-cli-output.md)
-      + [Step 10: Delete the S3 input bucket](getting-started-cli-clean-up.md)
+      + [Step 10: Delete the S3 buckets](getting-started-cli-clean-up.md)
       + [Wrapping up](getting-started-cli-next-steps.md)
 + [CodeBuild samples](samples.md)
    + [Microsoft Windows samples for CodeBuild](sample-windows.md)

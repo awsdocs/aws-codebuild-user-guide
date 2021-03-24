@@ -1,6 +1,6 @@
 # Step 4: Upload the source code and the buildspec file<a name="getting-started-cli-upload-source-code"></a>
 
-\(Previous step: [Step 3: Create the buildspec file](getting-started-cli-create-build-spec.md)\)
+\(Previous step: [Step 3: Create two S3 buckets](getting-started-cli-input-bucket.md)\)
 
 In this step, you add the source code and build spec file to the input bucket\.
 

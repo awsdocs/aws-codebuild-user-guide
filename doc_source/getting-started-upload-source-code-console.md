@@ -1,6 +1,6 @@
 # Step 4: Upload the source code and the buildspec file<a name="getting-started-upload-source-code-console"></a>
 
-\(Previous step: [Step 3: Create the buildspec file](getting-started-create-build-spec-console.md)\)
+\(Previous step: [Step 3: Create two S3 buckets](getting-started-input-bucket-console.md)\)
 
 In this step, you add the source code and build spec file to the input bucket\.
 

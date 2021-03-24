@@ -1,6 +1,6 @@
-# Step 2: Create the source code<a name="getting-started-create-source-code-console"></a>
+# Step 1: Create the source code<a name="getting-started-create-source-code-console"></a>
 
-\(Previous step: [Step 1: Create two S3 buckets](getting-started-input-bucket-console.md)\)
+\(Part of: [Getting started with AWS CodeBuild using the console](getting-started.md)\)
 
 In this step, you create the source code that you want CodeBuild to build to the output bucket\. This source code consists of two Java class files and an Apache Maven Project Object Model \(POM\) file\.
 
@@ -119,4 +119,4 @@ At this point, your directory structure should look like this\.
 
 ## Next step<a name="getting-started-create-source-code-console-next"></a>
 
-[Step 3: Create the buildspec file](getting-started-create-build-spec-console.md)
+[Step 2: Create the buildspec file](getting-started-create-build-spec-console.md)

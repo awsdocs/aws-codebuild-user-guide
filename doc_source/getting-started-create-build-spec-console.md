@@ -1,6 +1,6 @@
-# Step 3: Create the buildspec file<a name="getting-started-create-build-spec-console"></a>
+# Step 2: Create the buildspec file<a name="getting-started-create-build-spec-console"></a>
 
-\(Previous step: [Step 2: Create the source code](getting-started-create-source-code-console.md)\)
+\(Previous step: [Step 1: Create the source code](getting-started-create-source-code-console.md)\)
 
 In this step, you create a build specification \(build spec\) file\. A *buildspec* is a collection of build commands and related settings, in YAML format, that CodeBuild uses to run a build\. Without a build spec, CodeBuild cannot successfully convert your build input into build output or locate the build output artifact in the build environment to upload to your output bucket\.
 
@@ -60,4 +60,4 @@ At this point, your directory structure should look like this\.
 
 ## Next step<a name="getting-started-create-build-spec-console-next"></a>
 
-[Step 4: Upload the source code and the buildspec file](getting-started-upload-source-code-console.md)
+[Step 3: Create two S3 buckets](getting-started-input-bucket-console.md)
