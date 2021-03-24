@@ -22,7 +22,7 @@ The following code coverage report file formats are supported:
 
 ## Create a code coverage report<a name="code-coverage-report-create"></a>
 
-To create a code coverage report, you run a build project that is configured with at least one code coverage report group in its buildspec file\. AWS CodeBuild will interpret the code coverage results and provide a code coverage report for the run\. A new test report is generated for each subsequent build that uses the same buildspec file\. 
+To create a code coverage report, you run a build project that is configured with at least one code coverage report group in its buildspec file\. CodeBuild will interpret the code coverage results and provide a code coverage report for the run\. A new test report is generated for each subsequent build that uses the same buildspec file\. 
 
 **To create a test report**
 
@@ -30,7 +30,7 @@ To create a code coverage report, you run a build project that is configured wit
 
 1. Configure the buildspec file of your project with test report information:
 
-   1. Add a `reports:` section and specify the name for your report group\. AWS CodeBuild creates a report group for you using your project name and the name you specified in the format `project-name`\-`report-group-name-in-buildspec`\. If you already have a report group you want to use, specify its ARN\. If you use the name instead of the ARN, AWS CodeBuild creates a new report group\. For more information, see [Reports syntax in the buildspec file](build-spec-ref.md#reports-buildspec-file)\. 
+   1. Add a `reports:` section and specify the name for your report group\. CodeBuild creates a report group for you using your project name and the name you specified in the format `project-name`\-`report-group-name-in-buildspec`\. If you already have a report group you want to use, specify its ARN\. If you use the name instead of the ARN, CodeBuild creates a new report group\. For more information, see [Reports syntax in the buildspec file](build-spec-ref.md#reports-buildspec-file)\. 
 
    1. Under the report group, specify the location of the files that contain the code coverage results\. If you use more than one report group, specify result file locations for each report group\. A new code coverage report is created each time your build project runs\. For more information, see [Specify test files](report-group-test-cases.md)\.
 

@@ -3,10 +3,10 @@
 The following procedure demonstrates how to set up test reporting in AWS CodeBuild with the [Jest testing framework](https://jestjs.io/)\. 
 
 The procedure requires the following prerequisites:
-+ You have an existing AWS CodeBuild project\.
++ You have an existing CodeBuild project\.
 + Your project is a Node\.js project that is set up to use the Jest testing framework\.
 
-Add the [https://www.npmjs.com/package/jest-junit](https://www.npmjs.com/package/jest-junit) package to the `devDependencies` section of your project's `package.json` file\. AWS CodeBuild uses this package to generate reports in the `JunitXml` format\.
+Add the [https://www.npmjs.com/package/jest-junit](https://www.npmjs.com/package/jest-junit) package to the `devDependencies` section of your project's `package.json` file\. CodeBuild uses this package to generate reports in the `JunitXml` format\.
 
 ```
 npm install --save-dev jest-junit

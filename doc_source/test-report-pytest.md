@@ -3,7 +3,7 @@
 The following procedure demonstrates how to set up test reporting in AWS CodeBuild with the [pytest testing framework](https://docs.pytest.org/)\. 
 
 The procedure requires the following prerequisites:
-+ You have an existing AWS CodeBuild project\.
++ You have an existing CodeBuild project\.
 + Your project is a Python project that is set up to use the pytest testing framework\.
 
 Add the following entry to either the `build` or `post_build` phase of your `buildspec.yml` file\. This code automatically discovers tests in the current directory and exports the test reports to the file specified by *<test report directory>*/*<report filename>*\. The report uses the `JunitXml` format\.

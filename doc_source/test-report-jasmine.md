@@ -3,7 +3,7 @@
 The following procedure demonstrates how to set up test reporting in AWS CodeBuild with the [JasmineBDD testing framework](http://jasmine.github.io/)\. 
 
 The procedure requires the following prerequisites:
-+ You have an existing AWS CodeBuild project\.
++ You have an existing CodeBuild project\.
 + Your project is a Node\.js project that is set up to use the Jasmine testing framework\.
 
 Add the [https://www.npmjs.com/package/jasmine-reporters](https://www.npmjs.com/package/jasmine-reporters) package to the `devDependencies` section of your project's `package.json` file\. This package has a collection of JavaScript reporter classes that can be used with Jasmine\. 
@@ -22,7 +22,7 @@ If it's not already present, add the `test` script to your project's `package.js
 }
 ```
 
-AWS CodeBuild supports the following Jasmine test reporters:
+CodeBuild supports the following Jasmine test reporters:
 
 JUnitXmlReporter  
 Used to generate reports in the `JunitXml` format\.
