@@ -374,7 +374,7 @@ If you choose **New service role**, the service role includes permission to decr
 environment/**registryCredential**  <a name="cli.environment.registrycredential"></a>
 Optional\. A [RegistryCredential](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_RegistryCredential.html) object that specifies the credentials that provide access to a private Docker registry\.     
 environment/registryCredential/**credential**  
-Specifies the ARN or name of credentials created using AWS Managed Services \. You can use the name of the credentials only if they exist in your current Region\.  
+Specifies the ARN or name of credentials created using AWS Managed Services\. You can use the name of the credentials only if they exist in your current Region\.  
 environment/registryCredential/**credentialProvider**  
 The only valid value is `SECRETS_MANAGER`\.
 When this is set:   

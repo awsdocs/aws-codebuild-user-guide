@@ -1,14 +1,16 @@
 # Run builds locally with the AWS CodeBuild agent<a name="use-codebuild-agent"></a>
 
-You can use the AWS CodeBuild agent to run CodeBuild builds on a local machine\. You can also subscribe to notifications about new versions of the agent\. 
+You can use the AWS CodeBuild agent to run CodeBuild builds on a local machine\. There are agents available for x86\_64 and ARM platforms\.
+
+You can also subscribe to receive notifications when new versions of the agent are published\. 
 
 ## Prerequisites<a name="use-codebuild-agent.prerequisites"></a>
 
 Before you begin, you need to do the following:
 + Install Git on your local machine\.
-+ Install and setup [Docker](https://www.docker.com/) on your local machine\.
++ Install and set up [Docker](https://www.docker.com/) on your local machine\.
 
-## Setup the build image<a name="use-codebuild-agent.setup-image"></a>
+## Set up the build image<a name="use-codebuild-agent.setup-image"></a>
 
 You only need to set up the build image the first time you run the agent, or when the image has changed\.
 
@@ -27,19 +29,35 @@ You only need to set up the build image the first time you run the agent, or whe
    $ docker build -t aws/codebuild/standard:4.0 .
    ```
 
-1. Run the following Docker command to download the local CodeBuild agent\.:
+1. Download the agent\.
+
+   To download the x86\_64 version of the agent, run the following command:
 
    ```
    $ docker pull amazon/aws-codebuild-local:latest --disable-content-trust=false
    ```
 
-1. The CodeBuild agent is available from [https://hub\.docker\.com/r/amazon/aws\-codebuild\-local/](https://hub.docker.com/r/amazon/aws-codebuild-local/)\. Its Secure Hash Algorithm \(SHA\) signature is:
+   To download the ARM version of the agent, run the following command:
+
+   ```
+   $ docker pull amazon/aws-codebuild-local:aarch64 --disable-content-trust=false
+   ```
+
+1. <a name="codebuild-agent-sha"></a>The CodeBuild agent is available from [https://hub\.docker\.com/r/amazon/aws\-codebuild\-local/](https://hub.docker.com/r/amazon/aws-codebuild-local/)\. 
+
+   The Secure Hash Algorithm \(SHA\) signature for the x86\_64 version of the agent is:
 
    ```
    sha256:fdfff9470520c53dcd522606a3cc2b5df195ae8a5546697b08249b48175f45ed
    ```
 
-   You can use this to identify the version of the agent\. To see the agent's SHA signature, run the following command: 
+   The SHA signature for the ARM version of the agent is:
+
+   ```
+   sha256:5480b70cf48435e276c21789c61280cfada24e17701ede6386e5d82088bc41ca
+   ```
+
+   You can use the SHA to identify the version of the agent\. To see the agent's SHA signature, run the following command: 
 
    ```
    $ docker inspect amazon/aws-codebuild-local
@@ -58,17 +76,25 @@ You only need to set up the build image the first time you run the agent, or whe
    $ chmod +x codebuild_build.sh
    ```
 
-1. Run the `codebuild_build.sh` script and specify your container image and the output directory: 
+1. Run the `codebuild_build.sh` script and specify your container image and the output directory\.
+
+   To run an x86\_64 build, run the following command:
 
    ```
    $ ./codebuild_build.sh -i aws/codebuild/standard:4.0 -a <output directory>
+   ```
+
+   To run an ARM build, run the following command:
+
+   ```
+   $ ./codebuild_build.sh -i aws/codebuild/standard:4.0 -a <output directory> -l amazon/aws-codebuild-local:aarch64
    ```
 
    The script launches the build image and runs the build on the project in the current directory\. To specify the location of the build project, add the `-s <build project directory>` option to the script command\.
 
 ## Receive notifications for new CodeBuild agent versions<a name="receive-codebuild-agent-notifications"></a>
 
-You can subscribe to Amazon SNS notifications so you know when new versions of the AWS CodeBuild agent are released\. 
+You can subscribe to Amazon SNS notifications so you will be notified when new versions of the AWS CodeBuild agent are released\. 
 
 **To subscribe to CodeBuild agent notifications**
 
@@ -105,5 +131,3 @@ You can subscribe to Amazon SNS notifications so you know when new versions of t
 1. In the navigation pane, choose **Subscriptions**\. 
 
 1. Select the subscription and from **Actions**, choose **Delete subscriptions**\. When you are prompted to confirm, choose **Delete**\. 
-
- 

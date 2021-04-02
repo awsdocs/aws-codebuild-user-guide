@@ -33,8 +33,10 @@ Some environment and compute types have Region availability limitations:
 + The environment type `ARM_CONTAINER` is only available in these Regions:
   + US East \(Ohio\)
   + US East \(N\. Virginia\)
+  + US West \(N\. California\)
   + US West \(Oregon\)
   + Asia Pacific \(Mumbai\)
+  + Asia Pacific \(Singapore\)
   + Asia Pacific \(Sydney\)
   + Asia Pacific \(Tokyo\)
   + Europe \(Frankfurt\)
