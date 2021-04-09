@@ -289,8 +289,8 @@ For each secondary set of artifacts you want:
 **Additional configuration**    
 **Encryption key**  
 \(Optional\) Do one of the following:  
-+ To use the AWS\-managed customer managed key \(CMK\) for Amazon S3 in your account to encrypt the build output artifacts, leave **Encryption key** blank\. This is the default\.
-+ To use a customer\-managed CMK to encrypt the build output artifacts, in **Encryption key**, enter the ARN of the CMK\. Use the format `arn:aws:kms:region-ID:account-ID:key/key-ID`\.  
++ To use the AWS managed key for Amazon S3 in your account to encrypt the build output artifacts, leave **Encryption key** blank\. This is the default\.
++ To use a customer managed key to encrypt the build output artifacts, in **Encryption key**, enter the ARN of the KMS key\. Use the format `arn:aws:kms:region-ID:account-ID:key/key-ID`\.  
 **Cache type**  
 For **Cache type**, choose one of the following:  
 + If you do not want to use a cache, choose **No cache**\.

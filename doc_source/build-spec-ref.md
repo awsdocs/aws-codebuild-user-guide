@@ -565,7 +565,7 @@ phases:
   pre_build:
     commands:
       - echo Entered the pre_build phase...
-      - docker login –u User –p $LOGIN_PASSWORD
+      - docker login -u User -p $LOGIN_PASSWORD
     finally:
       - echo This always runs even if the login command fails 
   build:
@@ -612,7 +612,7 @@ cache:
 Here is an example of the preceding buildspec, expressed as a single string, for use with the AWS CLI, or the AWS SDKs\.
 
 ```
-"version: 0.2\n\nenv:\n  variables:\n    JAVA_HOME: \"/usr/lib/jvm/java-8-openjdk-amd64\\"\n  parameter-store:\n    LOGIN_PASSWORD: /CodeBuild/dockerLoginPassword\n  phases:\n\n  install:\n    commands:\n      - echo Entered the install phase...\n      - apt-get update -y\n      - apt-get install -y maven\n    finally:\n      - echo This always runs even if the update or install command fails \n  pre_build:\n    commands:\n      - echo Entered the pre_build phase...\n      - docker login –u User –p $LOGIN_PASSWORD\n    finally:\n      - echo This always runs even if the login command fails \n  build:\n    commands:\n      - echo Entered the build phase...\n      - echo Build started on `date`\n      - mvn install\n    finally:\n      - echo This always runs even if the install command fails\n  post_build:\n    commands:\n      - echo Entered the post_build phase...\n      - echo Build completed on `date`\n\n reports:\n  reportGroupJunitXml:\n    files:\n      - \"**/*\"\n    base-directory: 'target/tests/reports'\n    discard-paths: false\n  reportGroupCucumberJson:\n    files:\n      - 'cucumber/target/cucumber-tests.xml'\n    file-format: CUCUMBERJSON\n\nartifacts:\n  files:\n    - target/messageUtil-1.0.jar\n  discard-paths: yes\n  secondary-artifacts:\n    artifact1:\n      files:\n       - target/messageUtil-1.0.jar\n      discard-paths: yes\n    artifact2:\n      files:\n       - target/messageUtil-1.0.jar\n      discard-paths: yes\n cache:\n  paths:\n    - '/root/.m2/**/*'"
+"version: 0.2\n\nenv:\n  variables:\n    JAVA_HOME: \"/usr/lib/jvm/java-8-openjdk-amd64\\"\n  parameter-store:\n    LOGIN_PASSWORD: /CodeBuild/dockerLoginPassword\n  phases:\n\n  install:\n    commands:\n      - echo Entered the install phase...\n      - apt-get update -y\n      - apt-get install -y maven\n    finally:\n      - echo This always runs even if the update or install command fails \n  pre_build:\n    commands:\n      - echo Entered the pre_build phase...\n      - docker login -u User -p $LOGIN_PASSWORD\n    finally:\n      - echo This always runs even if the login command fails \n  build:\n    commands:\n      - echo Entered the build phase...\n      - echo Build started on `date`\n      - mvn install\n    finally:\n      - echo This always runs even if the install command fails\n  post_build:\n    commands:\n      - echo Entered the post_build phase...\n      - echo Build completed on `date`\n\n reports:\n  reportGroupJunitXml:\n    files:\n      - \"**/*\"\n    base-directory: 'target/tests/reports'\n    discard-paths: false\n  reportGroupCucumberJson:\n    files:\n      - 'cucumber/target/cucumber-tests.xml'\n    file-format: CUCUMBERJSON\n\nartifacts:\n  files:\n    - target/messageUtil-1.0.jar\n  discard-paths: yes\n  secondary-artifacts:\n    artifact1:\n      files:\n       - target/messageUtil-1.0.jar\n      discard-paths: yes\n    artifact2:\n      files:\n       - target/messageUtil-1.0.jar\n      discard-paths: yes\n cache:\n  paths:\n    - '/root/.m2/**/*'"
 ```
 
 Here is an example of the commands in the `build` phase, for use with the CodeBuild or CodePipeline consoles\.

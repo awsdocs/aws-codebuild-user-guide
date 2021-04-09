@@ -99,7 +99,7 @@ Other available values in the original JSON\-formatted data, such as `descriptio
      + `timeoutInMinutes` represents the number of minutes after which CodeBuild stops the build if the build has not been completed\. \(The default is 60 minutes\.\)
      + `created` represents the time, in Unix time format, when the build project was created\.
      + `environmentVariables` represents any environment variables that were declared and are available for CodeBuild to use during the build\.
-     + `encryptionKey` represents the ARN of the AWS KMS customer master key \(CMK\) that CodeBuild used to encrypt the build output artifact\.
+     + `encryptionKey` represents the ARN of the customer managed key that CodeBuild used to encrypt the build output artifact\.
      + `arn` represents the ARN of the build project\.
 
 **Note**  
