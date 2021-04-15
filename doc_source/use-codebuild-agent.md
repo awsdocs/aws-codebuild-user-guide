@@ -22,10 +22,15 @@ You only need to set up the build image the first time you run the agent, or whe
    $ git clone https://github.com/aws/aws-codebuild-docker-images.git
    ```
 
-1. Build the image\. For this example, use the `aws/codebuild/standard:5.0` image\. This will take several minutes\.
+1. Change to the image directory\. For this example, use the `aws/codebuild/standard:5.0` image:
 
    ```
    $ cd aws-codebuild-docker-images/ubuntu/standard/5.0
+   ```
+
+1. Build the image\. This will take several minutes\.
+
+   ```
    $ docker build -t aws/codebuild/standard:5.0 .
    ```
 
@@ -81,13 +86,13 @@ You only need to set up the build image the first time you run the agent, or whe
    To run an x86\_64 build, run the following command:
 
    ```
-   $ ./codebuild_build.sh -i aws/codebuild/standard:5.0 -a <output directory>
+   $ ./codebuild_build.sh -i aws/codebuild/standard:4.0 -a <output directory>
    ```
 
    To run an ARM build, run the following command:
 
    ```
-   $ ./codebuild_build.sh -i aws/codebuild/standard:5.0 -a <output directory> -l amazon/aws-codebuild-local:aarch64
+   $ ./codebuild_build.sh -i aws/codebuild/standard:4.0 -a <output directory> -l amazon/aws-codebuild-local:aarch64
    ```
 
    The script launches the build image and runs the build on the project in the current directory\. To specify the location of the build project, add the `-s <build project directory>` option to the script command\.
