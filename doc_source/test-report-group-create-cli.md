@@ -33,7 +33,7 @@
      + Replace *<bucket\-name>* with your Amazon S3 bucket name and *<path>* with the path in your bucket to where you want to export the files\. 
      + If you want to compress the exported files, for `packaging`, specify `ZIP`\. Otherwise, specify `NONE`\. 
      + `bucketOwner` is optional and is only required if the Amazon S3 bucket is owned by an account other than the account running the build\.
-     + Use `encryptionDisabled` to specify whether to encrypt the exported files\. If you encrypt the exported files, enter your customer managed key\. For more information, see [Update a report group](report-group-export-settings.md)\.
+     + Use `encryptionDisabled` to specify whether to encrypt the exported files\. If you encrypt the exported files, enter your customer master key \(CMK\)\. For more information, see [Update a report group](report-group-export-settings.md)\.
    + Use the following JSON to specify that your test report does not export raw test files: 
 
      ```

@@ -221,9 +221,9 @@ Select **Combine all artifacts from batch into a single location** to have all o
 
 1. To change information about the build output artifact location and name, in **Artifacts**, choose **Edit**, and then change the values for **Type**, **Name**, **Path**, **Namespace type**, or **Bucket name**\. 
 
-1. To change information about the AWS KMS key, in **Additional configuration**, change the value for **Encryption key**\.
+1. To change information about the AWS KMS customer managed key \(CMK\), in **Additional configuration**, change the value for **Encryption key**\.
 **Important**  
-If you leave **Encryption key** blank, CodeBuild uses the KMS key for Amazon S3 in your AWS account instead\.
+If you leave **Encryption key** blank, CodeBuild uses the AWS\-managed CMK for Amazon S3 in your AWS account instead\.
 
 1. Using a cache saves build time because reusable pieces of the build environment are stored in the cache and used across builds\. For information about specifying a cache in the buildspec file, see [Buildspec syntax](build-spec-ref.md#build-spec-ref-syntax)\. To change information about the cache, expand **Additional configuration**\. In **Cache type**, do one of the following:
    + If you previously chose a cache, but do not want to use one now, choose **No cache**\.
