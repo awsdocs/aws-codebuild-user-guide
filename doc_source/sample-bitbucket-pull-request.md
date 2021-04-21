@@ -40,11 +40,11 @@ Choose **Bitbucket**\. Follow the instructions to connect \(or reconnect\) with 
 Choose **Repository in my Bitbucket account**\.  
 If you have not previously connected to your Bitbucket account, enter your Bitbucket username and app password, and select **Save Bitbucket credentials**\.  
 **Bitbucket repository**  
-Enter the URL for your Bitbucket repository\.  
-**Bitbucket repository**  
 Enter the URL for your Bitbucket repository\.
 
-1. In **Primary source webhook events**, select the following\. This section is only available when you chose **Repository in my Bitbucket account** in the previous step\.
+1. In **Primary source webhook events**, select the following\. 
+**Note**  
+The **Primary source webhook events** section is only visible if you chose **Repository in my Bitbucket account** in the previous step\.
 
    1. Select **Rebuild every time a code change is pushed to this repository** when you create your project\. 
 
@@ -55,6 +55,8 @@ Enter the URL for your Bitbucket repository\.
    1. To filter when an event is not triggered, under **Don't start a build under these conditions**, add one or more optional filters\. 
 
    1. Choose **Add filter group** to add another filter group, if needed\. 
+
+   For more information about Bitbucket webhook event types and filters, see [Bitbucket webhook events](bitbucket-webhook.md)\.
 
 1. In **Environment**:  
 **Environment image**  
