@@ -70,6 +70,8 @@ Amazon's trademarks and trade dress may not be used in
       + [Batch build buildspec reference](batch-build-buildspec.md)
    + [Build environment reference for AWS CodeBuild](build-env-ref.md)
       + [Docker images provided by CodeBuild](build-env-ref-available.md)
+         + [Available runtimes](available-runtimes.md)
+         + [Runtime versions](runtime-versions.md)
       + [Build environment compute types](build-env-ref-compute-types.md)
       + [Shells and commands in build environments](build-env-ref-cmd.md)
       + [Environment variables in build environments](build-env-ref-env-vars.md)
