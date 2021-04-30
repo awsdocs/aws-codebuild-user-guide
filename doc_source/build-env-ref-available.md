@@ -9,10 +9,12 @@ AWS CodeBuild manages the following Docker images that are available in the Code
 | Amazon Linux 2 | aws/codebuild/amazonlinux2\-x86\_64\-standard:3\.0 | [al2/standard/3\.0](https://github.com/aws/aws-codebuild-docker-images/tree/master/al2/x86_64/standard/3.0) | 
 | Amazon Linux 2 | aws/codebuild/amazonlinux2\-aarch64\-standard:1\.0 | [al2/aarch64/standard/1\.0](https://github.com/aws/aws-codebuild-docker-images/tree/master/al2/aarch64/standard/1.0) | 
 | Amazon Linux 2 | aws/codebuild/amazonlinux2\-aarch64\-standard:2\.0 | [al2/aarch64/standard/2\.0](https://github.com/aws/aws-codebuild-docker-images/tree/master/al2/aarch64/standard/2.0) | 
-| Ubuntu 18\.04 | aws/codebuild/standard:3\.0 | [ubuntu/standard/3\.0](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/standard/3.0) | 
+| Ubuntu 18\.04 | aws/codebuild/standard:3\.0 ¹ | [ubuntu/standard/3\.0](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/standard/3.0) | 
 | Ubuntu 18\.04 | aws/codebuild/standard:4\.0 | [ubuntu/standard/4\.0](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/standard/4.0) | 
 | Ubuntu 20\.04 | aws/codebuild/standard:5\.0 | [ubuntu/standard/5\.0](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/standard/5.0) | 
 | Windows Server Core 2019 | aws/codebuild/windows\-base:2019\-1\.0 | N/A | 
+
+¹ No longer maintained after May 2021\.
 
 The base image of the Windows Server Core 2019 platform is only available in the following regions:
 + US East \(N\. Virginia\)
