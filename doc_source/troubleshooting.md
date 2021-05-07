@@ -474,7 +474,7 @@ artifacts:
 
   1.  In your private subnet routing table, remove the rule you added that routes traffic destined for the internet to your proxy server\. For information, see [Creating a subnet in your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/working-with-vpcs.html#AddaSubnet) in the *Amazon VPC User Guide*\. 
 
-  1.  Create a private Amazon S3 endpoint and CloudWatch Logs endpoint and associate them with the private subnet of your Amazon VPC\. For information, see [VPC endpoint services \(AWS PrivateLink\)](https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-service.html) in the *Amazon VPC User Guide*\. 
+  1.  Create a private Amazon S3 endpoint and CloudWatch Logs endpoint and associate them with the private subnet of your Amazon VPC\. For information, see [VPC endpoint services](https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-service.html) in the *Amazon VPC User Guide*\. 
 
   1.  Confirm **Enable Private DNS Name** in your Amazon VPC is selected\. For more information, see [Creating an interface endpoint](https://docs.aws.amazon.com/vpc/latest/userguide/vpce-interface.html#create-interface-endpoint) in the *Amazon VPC User Guide*\. 
 +  If you do not use `ssl-bump` for an explicit proxy server, add a proxy configuration to your buildspec file using a `proxy` element\. For more information, see [ Run CodeBuild in an explicit proxy server](use-proxy-server.md#run-codebuild-in-explicit-proxy-server) and [Buildspec syntax](build-spec-ref.md#build-spec-ref-syntax)\. 

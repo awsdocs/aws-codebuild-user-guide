@@ -25,8 +25,7 @@
 
 1.  Follow the steps in [Creating a basic secret](https://docs.aws.amazon.com/secretsmanager/latest/userguide/manage_create-basic-secret.html) in the *AWS Secrets Manager User Guide*\. In step 3, in **Select secret type**, do the following: 
 
-   1.  Choose **Other type of secrets**\.   
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/private-registry-sample-secrets-manager.png)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)
+   1.  Choose **Other type of secrets**\. 
 
    1.  In **Secret key/value**, create one key\-value pair for your Docker Hub user name and one key\-value pair for your Docker Hub password\. 
 

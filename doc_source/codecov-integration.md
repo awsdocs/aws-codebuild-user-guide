@@ -96,7 +96,7 @@ Codecov is a tool that measures the test coverage of your code\. Codecov identif
     \_____\___/ \__,_|\___|\___\___/ \_/
                                  Bash-20200303-bc4d7e6
    
-   ·[0;90m==>·[0m AWS Codebuild detected.
+   ·[0;90m==>·[0m AWS CodeBuild detected.
    ... The full list of Codecov log entries has been omitted for brevity ...
        ·
        ·[0;32m->·[0m View reports at ·[0;36mhttps://codecov.io/github/user/test_py/commit/commit-id·[0m
