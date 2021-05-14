@@ -62,6 +62,49 @@ A result similar to the following might appear in the output\. Ellipses \(`...`\
 
 In the preceding output, the `projectsNotFound` array lists any build project names that were specified, but not found\. The `projects` array lists details for each build project where information was found\. Build project details have been omitted from the preceding output for brevity\. For more information, see the output of [Create a build project \(AWS CLI\)](create-project-cli.md)\.
 
+The batch\-get\-projects command does not support filtering for certain property values, but you can write a script that enumerates the properties for a project\. For example, the following Linux shell script enumerates the projects in the current region for the current account, and prints the image used by each project\.
+
+```
+#!/usr/bin/sh
+
+# This script enumerates all of the projects for the current account 
+# in the current region and prints out the image that each project is using.
+
+imageName=""
+
+function getImageName(){
+  local environmentValues=(${1//$'\t'/ })
+  imageName=${environmentValues[1]}
+}
+
+function processProjectInfo() {
+  local projectInfo=$1
+
+  while IFS=$'\t' read -r section value; do
+    if [[ "$section" == *"ENVIRONMENT"* ]]; then
+      getImageName "$value"
+    fi
+  done <<< "$projectInfo"
+}
+
+# Get the list of projects.
+projectList=$(aws codebuild list-projects --output=text)
+
+for projectName in $projectList
+do
+  if [[ "$projectName" != *"PROJECTS"* ]]; then
+    echo "==============================================="
+
+    # Get the detailed information for the project.
+    projectInfo=$(aws codebuild batch-get-projects --output=text --names "$projectName")
+
+    processProjectInfo "$projectInfo"
+
+    printf 'Project "%s" has image "%s"\n' "$projectName" "$imageName"
+  fi
+done
+```
+
 For more information about using the AWS CLI with AWS CodeBuild, see the [Command line reference](cmd-ref.md)\.
 
 ## View a build project's details \(AWS SDKs\)<a name="view-project-details-sdks"></a>
