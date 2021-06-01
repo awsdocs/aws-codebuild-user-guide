@@ -242,5 +242,5 @@ CodeBuildProject:
         - - Type: EVENT
             Pattern: PUSH
           - Type: COMMIT_MESSAGE
-          - Pattern: \[CodeBuild\]
+            Pattern: \[CodeBuild\]
 ```
