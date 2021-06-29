@@ -3,10 +3,13 @@
 A *build* represents a set of actions performed by AWS CodeBuild to create output artifacts \(for example, a JAR file\) based on a set of input artifacts \(for example, a collection of Java class files\)\.
 
 The following rules apply when you run multiple builds:
-+ When possible, builds run concurrently\. The maximum number of concurrently running builds can vary\. For more information, see [Builds](limits.md#limits-builds)\. 
-+  Builds are queued if the number of concurrently running builds reaches its limit\. The maximum number of builds in a queue is five times the concurrent build limit\. For more information, see [Builds](limits.md#limits-builds)\.
-+ A build in a queue that does not start after the number of minutes specified in its time out value is removed from the queue\. The default timeout value is eight hours\. You can override the build queue timeout with a value between five minutes and eight hours when you run your build\. For more information, see [Run a build in AWS CodeBuild](run-build.md)\.
-+ It is not possible to predict the order in which queued builds start\. 
++ When possible, builds run concurrently\. The maximum number of concurrently running builds can vary\. For more information, see [Quotas for AWS CodeBuild](limits.md)\. 
++ If the build project has a concurrent build limit set, builds return an error if the number of running builds reaches the concurrent build limit for the project\. For more information, see [Enable concurrent build limit](create-project-console.md#enable-concurrent-build-limit.console)\.
++ If the build project does not have a concurrent build limit set, builds are queued if the number of running builds reaches the concurrent build limit for the platform and compute type\. The maximum number of builds in a queue is five times the concurrent build limit\. For more information, see [Quotas for AWS CodeBuild](limits.md)\.
+
+  A build in a queue that does not start after the number of minutes specified in its time out value is removed from the queue\. The default timeout value is eight hours\. You can override the build queue timeout with a value between five minutes and eight hours when you run your build\. For more information, see [Run a build in AWS CodeBuild](run-build.md)\.
+
+  It is not possible to predict the order in which queued builds start\. 
 
 **Note**  
 You can access the history of a build for one year\.

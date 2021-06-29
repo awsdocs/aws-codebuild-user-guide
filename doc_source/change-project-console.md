@@ -151,7 +151,7 @@ By default, Docker containers do not allow access to any devices\. Privileged mo
 
    ```
    - nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://127.0.0.1:2375 --storage-driver=overlay2 &
-   - timeout -t 15 sh -c "until docker info; do echo .; sleep 1; done"
+   - timeout 15 sh -c "until docker info; do echo .; sleep 1; done"
    ```
 
 1. To change information about the CodeBuild service role, in **Service role**, change the values for **New service role**, **Existing service role**, or **Role name**\.

@@ -29,7 +29,7 @@ Enter an optional description of the build project to help other users understan
 \(Optional\) Select **Enable build badge** to make your project's build status visible and embeddable\. For more information, see [Build badges sample](sample-build-badges.md)\.  
 Build badge does not apply if your source provider is Amazon S3\. 
 
-**Enable concurrent build limit**  
+**Enable concurrent build limit**  <a name="enable-concurrent-build-limit.console"></a>
 \(Optional\) If you want to limit the number of concurrent builds for this project, perform the following steps:  
 
 1. Select **Restrict number of concurrent builds this project can start**\.
@@ -184,7 +184,7 @@ By default, Docker containers do not allow access to any devices\. Privileged mo
 
 ```
 - nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://127.0.0.1:2375 --storage-driver=overlay2 &
-- timeout -t 15 sh -c "until docker info; do echo .; sleep 1; done"
+- timeout 15 sh -c "until docker info; do echo .; sleep 1; done"
 ```
 
 **Service role**  
