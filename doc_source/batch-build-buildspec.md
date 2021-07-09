@@ -7,11 +7,11 @@ This topic contains the buildspec reference for batch build properties\.
 Optional mapping\. The batch build settings for the project\.
 
 batch/**fast\-fail**  
-Optional\.     
+Optional\. Specifies the behavior of the batch build when one or more build tasks fail\.    
 `false`  
 The default value\. All running builds will complete\.   
 `true`  
-All running builds will be stopped if one of the builds fails\.
+All running builds will be stopped when one of the build tasks fails\.
 
 By default, all batch build tasks run with the build settings such as `env` and `phases`, specified in the buildspec file\. You can override the default build settings by specifying different `env` values or a different buildspec file in the `batch/<batch-type>/buildspec` parameter\.
 
@@ -56,11 +56,11 @@ The identifier of the environment type to use for the task\. See **Environment t
 The environment variables that will be present in the build environment\. See [env/variables](build-spec-ref.md#build-spec.env.variables) for more information, \.
 
 **ignore\-failure**  
-Optional\. A Boolean value that indicates whether failures in the batch can be ignored\.    
+Optional\. A Boolean value that indicates if a failure of this build task can be ignored\.    
 `false`  
-The default value\. If one build task fails, the batch build will fail\.   
+The default value\. If this build task fails, the batch build will fail\.   
 `true`  
-If one build task fails, the remaining build tasks will still run\. 
+If this build task fails, the batch build can still succeed\. 
 
 The following is an example of a build graph buildspec entry:
 
@@ -70,17 +70,20 @@ batch:
   build-graph:
     - identifier: build1
       env:
-        compute-type: BUILD_GENERAL1_SMALL
-      debug-session: true
+        variables:
+          BUILD_ID: build1
+      ignore-failure: false
     - identifier: build2
+      buildspec: build2.yml
       env:
-        compute-type: BUILD_GENERAL1_MEDIUM
+        variables:
+          BUILD_ID: build2
       depend-on:
         - build1
-      debug-session: false
     - identifier: build3
       env:
-        compute-type: BUILD_GENERAL1_LARGE
+        variables:
+          BUILD_ID: build3
       depend-on:
         - build2
 ```
@@ -118,11 +121,11 @@ The identifier of the environment type to use for the task\. See **Environment t
 The environment variables that will be present in the build environment\. See [env/variables](build-spec-ref.md#build-spec.env.variables) for more information, \.
 
 **ignore\-failure**  
-Optional\. A Boolean value that indicates whether failures in the batch can be ignored\.    
+Optional\. A Boolean value that indicates if a failure of this build task can be ignored\.    
 `false`  
-The default value\. If one build task fails, the batch build will fail\.   
+The default value\. If this build task fails, the batch build will fail\.   
 `true`  
-If one build task fails, the remaining build tasks will still run\. 
+If this build task fails, the batch build can still succeed\. 
 
 The following is an example of a build list buildspec entry:
 
@@ -130,16 +133,17 @@ The following is an example of a build list buildspec entry:
 batch:
   fast-fail: false
   build-list:
-    - identifier: linux_small
+    - identifier: build1
       env:
-        compute-type: BUILD_GENERAL1_SMALL
+        variables:
+          BUILD_ID: build1
+      ignore-failure: false
+    - identifier: build2
+      buildspec: build2.yml
+      env:
+        variables:
+          BUILD_ID: build2
       ignore-failure: true
-      debug-session: true
-    - identifier: windows_medium
-      env:
-        type: WINDOWS_SERVER_2019_CONTAINER
-        image: aws/codebuild/windows-base:2019-1.0
-        compute-type: BUILD_GENERAL1_MEDIUM
 ```
 
 ## `batch/build-matrix`<a name="build-spec.batch.build-matrix"></a>
@@ -149,11 +153,11 @@ Defines a *build matrix*\. A build matrix defines tasks with different configura
 **static**  
 The static properties apply to all build tasks\.    
 **ignore\-failure**  
-Optional\. A Boolean value that indicates whether failures in the batch can be ignored\.    
+Optional\. A Boolean value that indicates if a failure of this build task can be ignored\.    
 `false`  
-The default value\. If one build task fails, the batch build will fail\.   
+The default value\. If this build task fails, the batch build will fail\.   
 `true`  
-If one build task fails, the remaining build tasks will still run\.   
+If this build task fails, the batch build can still succeed\.   
 **env**  
 Optional\. The build environment overrides for all tasks\.     
 **compute\-type**  
@@ -182,7 +186,7 @@ An array that contains the identifiers of the compute types to use for these tas
 **image**  
 An array that contains the identifiers of the images to use for these tasks\. See **Image identifier** in [Docker images provided by CodeBuild](build-env-ref-available.md) for possible values\.  
 **variables**  
-An array that contains the environment variables that will be present in the build environments for these tasks\. See [env/variables](build-spec-ref.md#build-spec.env.variables) for more information, \.
+An array that contains the environment variables that will be present in the build environments for these tasks\. See [env/variables](build-spec-ref.md#build-spec.env.variables) for more information\.
 
 The following is an example of a build matrix buildspec entry:
 

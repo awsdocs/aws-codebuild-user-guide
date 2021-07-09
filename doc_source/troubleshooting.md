@@ -297,7 +297,7 @@ By default, Docker containers do not allow access to any devices\. Privileged mo
 
 **Issue:** When you run a build, you receive an error about a change in ownership of an S3 bucket and `GetBucketAcl` permissions\.
 
-**Possible cause:** You added the `s3:GetBucketACL` and `s3:GetBucketLocation` permissions to your IAM role\. These permissions secure your project's S3 bucket and ensure that only you can access it\. After you added these permissions, the owner of the S3 bucket changed\.
+**Possible cause:** You added the `s3:GetBucketAcl` and `s3:GetBucketLocation` permissions to your IAM role\. These permissions secure your project's S3 bucket and ensure that only you can access it\. After you added these permissions, the owner of the S3 bucket changed\.
 
 **Recommended solution:** Verify you are an owner of the S3 bucket, and then add permissions to your IAM role again\. For more information, see [Secure access to S3 buckets](auth-and-access-control-iam-access-control-identity-based.md#secure-s3-buckets)\.
 

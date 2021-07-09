@@ -90,7 +90,7 @@ You can create IAM policies to restrict the calls and resources that users in yo
 ### Secure access to S3 buckets<a name="secure-s3-buckets"></a>
 
 We strongly recommend that you include the following permissions in your IAM role to verify the S3 bucket associated with your CodeBuild project is owned by you or someone you trust\. These permissions are not included in AWS managed policies and roles\. You must add them yourself\. 
-+  `s3:GetBucketACL` 
++  `s3:GetBucketAcl` 
 +  `s3:GetBucketLocation` 
 
 If the owner of an S3 bucket used by your project changes, you must verify you still own the bucket and update permissions in your IAM role if not\. For more information, see [Add CodeBuild access permissions to an IAM group or IAM user](setting-up.md#setting-up-service-permissions-group) and [Create a CodeBuild service role](setting-up.md#setting-up-service-role)\. 

@@ -19,7 +19,7 @@ To allow Session Manager to be used with the build session, you must enable sess
 
   If you are using a custom image for your build, do the following:
 
-  1. Install the SSM Agent\. For more information, see [Manually install SSM Agent on EC2 instances for Linux](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-manual-agent-install.html) in the AWS Systems Manager User Guide\.
+  1. Install the SSM Agent\. For more information, see [Manually install SSM Agent on EC2 instances for Linux](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-manual-agent-install.html) in the AWS Systems Manager User Guide\. The SSM Agent version must be 3\.0\.1295\.0 or later\.
 
   1. Copy the file [https://github\.com/aws/aws\-codebuild\-docker\-images/blob/master/ubuntu/standard/4\.0/amazon\-ssm\-agent\.json](https://github.com/aws/aws-codebuild-docker-images/blob/master/ubuntu/standard/4.0/amazon-ssm-agent.json) to the `/etc/amazon/ssm/` directory in your image\. This enables Container Mode in the SSM agent\.
 + The CodeBuild service role must have the following SSM policy:

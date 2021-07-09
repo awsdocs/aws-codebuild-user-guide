@@ -34,17 +34,20 @@ batch:
   build-graph:
     - identifier: build1
       env:
-        compute-type: BUILD_GENERAL1_SMALL
-      debug-session: true
+        variables:
+          BUILD_ID: build1
+      ignore-failure: false
     - identifier: build2
+      buildspec: build2.yml
       env:
-        compute-type: BUILD_GENERAL1_MEDIUM
+        variables:
+          BUILD_ID: build2
       depend-on:
         - build1
-      debug-session: false
     - identifier: build3
       env:
-        compute-type: BUILD_GENERAL1_LARGE
+        variables:
+          BUILD_ID: build3
       depend-on:
         - build2
 ```
@@ -60,22 +63,23 @@ For more information about the build graph buildspec syntax, see [`batch/build-g
 
 A build list defines a number of tasks that run in parallel\. 
 
-The following example defines a build list\. The `linux_small` and `windows_medium` builds will be run in parallel\.
+The following example defines a build list\. The `build1` and `build2` builds will run in parallel\.
 
 ```
 batch:
   fast-fail: false
   build-list:
-    - identifier: linux_small
+    - identifier: build1
       env:
-        compute-type: BUILD_GENERAL1_SMALL
+        variables:
+          BUILD_ID: build1
+      ignore-failure: false
+    - identifier: build2
+      buildspec: build2.yml
+      env:
+        variables:
+          BUILD_ID: build2
       ignore-failure: true
-      debug-session: true
-    - identifier: windows_medium
-      env:
-        type: WINDOWS_SERVER_2019_CONTAINER
-        image: aws/codebuild/windows-base:2019-1.0
-        compute-type: BUILD_GENERAL1_MEDIUM
 ```
 
 For more information about the build list buildspec syntax, see [`batch/build-list`](batch-build-buildspec.md#build-spec.batch.build-list)\.
