@@ -1,14 +1,14 @@
 # Runtime versions in buildspec file sample for CodeBuild<a name="sample-runtime-versions"></a>
 
- If you use the Amazon Linux 2 \(AL2\) standard image version 1\.0 or later, or the Ubuntu standard image version 2\.0 or later, you can specify one or more runtimes in the `runtime-versions` section of your buildspec file\. This sample shows how you can change your project runtime, specify more than one runtime, and specify a runtime that is dependent on another runtime\. For information about supported runtimes, see [Docker images provided by CodeBuild](build-env-ref-available.md)\.
+If you use the Amazon Linux 2 \(AL2\) standard image version 1\.0 or later, or the Ubuntu standard image version 2\.0 or later, you can specify one or more runtimes in the `runtime-versions` section of your buildspec file\. This sample shows how you can change your project runtime, specify more than one runtime, and specify a runtime that is dependent on another runtime\. For information about supported runtimes, see [Docker images provided by CodeBuild](build-env-ref-available.md)\.
 
 **Note**  
- If you use Docker in your build container, your build must run in privileged mode\. For more information, see [Run a build in AWS CodeBuild](run-build.md) and [Create a build project in AWS CodeBuild](create-project.md)\. 
+If you use Docker in your build container, your build must run in privileged mode\. For more information, see [Run a build in AWS CodeBuild](run-build.md) and [Create a build project in AWS CodeBuild](create-project.md)\. 
 
 ## Update your runtime version<a name="sample-runtime-update-version"></a>
 
- You can modify the runtime used by your project to a new version by updating the `runtime-versions` section of your buildspec file\. The following examples show how to specify java versions 8 and 11\.
-+  A `runtime-versions` section that specifies version 8 of Java if you use the Amazon Linux 2 standard image:
+You can modify the runtime used by your project to a new version by updating the `runtime-versions` section of your buildspec file\. The following examples show how to specify java versions 8 and 11\.
++ A `runtime-versions` section that specifies version 8 of Java:
 
   ```
   phases:
@@ -16,7 +16,7 @@
       runtime-versions:
         java: corretto8
   ```
-+  A `runtime-versions` section that specifies version 11 of Java if you use the Amazon Linux 2 standard image: 
++ A `runtime-versions` section that specifies version 11 of Java:
 
   ```
   phases:
@@ -24,46 +24,30 @@
       runtime-versions:
         java: corretto11
   ```
-+  A `runtime-versions` section that specifies version 8 of Java if you use the Ubuntu standard image 2\.0: 
+
+The following examples show how to specify different versions of Python using the Ubuntu standard image 5\.0 or the Amazon Linux 2 standard image 3\.0:
++ A `runtime-versions` section that specifies Python version 3\.7: 
 
   ```
   phases:
     install:
       runtime-versions:
-        java: openjdk8
+        python: 3.7
   ```
-+  A `runtime-versions` section that specifies version 11 of Java if you use the Ubuntu standard image 2\.0: 
++ A `runtime-versions` section that specifies Python version 3\.8: 
 
   ```
   phases:
     install:
       runtime-versions:
-        java: openjdk11
+        python: 3.8
   ```
 
- The following examples show how you to specify different versions of Node\.js using the Ubuntu standard image 2\.0 or the Amazon Linux 2 standard image 2\.0: 
-+  A `runtime-versions` section that specifies Node\.js version 8: 
+This sample demonstrates a project that starts with the Java version 8 runtime, and then is updated to the Java version 10 runtime\. 
 
-  ```
-  phases:
-    install:
-      runtime-versions:
-        nodejs: 8
-  ```
-+  A `runtime-versions` section that specifies Node\.js version 10: 
+1. Follow steps 1 and 2 in [Create the source code](sample-elastic-beanstalk.md#sample-elastic-beanstalk-prepare-source) to generate source code\. If successful, a directory named `my-web-app` is created with your source files\. 
 
-  ```
-  phases:
-    install:
-      runtime-versions:
-        nodejs: 10
-  ```
-
- This sample demonstrates a project that starts with the Java version 8 runtime, and then is updated to the Java version 10 runtime\. 
-
-1.  Follow steps 1 and 2 in [Create the source code](sample-elastic-beanstalk.md#sample-elastic-beanstalk-prepare-source) to generate source code\. If successful, a directory named `my-web-app` is created with your source files\. 
-
-1.  Create a file named `buildspec.yml` with the following contents\. Store the file in the ` (root directory name)/my-web-app` directory\. 
+1. Create a file named `buildspec.yml` with the following contents\. Store the file in the ` (root directory name)/my-web-app` directory\. 
 
    ```
    version: 0.2
@@ -82,11 +66,11 @@
      base-directory: 'target/my-web-app'
    ```
 
-    In the buildspec file: 
-   +  The `runtime-versions` section specifies that the project uses version 8 of the Java runtime\. 
-   +  The `- java -version` command displays the version of Java used by your project when it builds\. 
+   In the buildspec file: 
+   + The `runtime-versions` section specifies that the project uses version 8 of the Java runtime\. 
+   + The `- java -version` command displays the version of Java used by your project when it builds\. 
 
-    Your file structure should now look like this\. 
+   Your file structure should now look like this\. 
 
    ```
    (root directory name)
@@ -102,7 +86,7 @@
        └── pom.xml
    ```
 
-1.  Upload the contents of the `my-web-app` directory to an S3 input bucket or a CodeCommit, GitHub, or Bitbucket repository\. 
+1. Upload the contents of the `my-web-app` directory to an S3 input bucket or a CodeCommit, GitHub, or Bitbucket repository\. 
 **Important**  
 Do not upload `(root directory name)` or `(root directory name)/my-web-app`, just the directories and files in `(root directory name)/my-web-app`\.   
 If you are using an S3 input bucket, be sure to create a ZIP file that contains the directory structure and files, and then upload it to the input bucket\. Do not add `(root directory name)` or `(root directory name)/my-web-app` to the ZIP file, just the directories and files in `(root directory name)/my-web-app`\.
@@ -116,11 +100,11 @@ If you are using an S3 input bucket, be sure to create a ZIP file that contains 
      +  For **Runtime\(s\)**, choose **Standard**\. 
      + For **Image**, choose **aws/codebuild/amazonlinux2\-x86\_64\-standard:3\.0**\.
 
-1.  Choose **Start build**\. 
+1. Choose **Start build**\. 
 
-1.  On **Build configuration**, accept the defaults, and then choose **Start build**\. 
+1. On **Build configuration**, accept the defaults, and then choose **Start build**\. 
 
-1.  After the build is complete, view the build output on the **Build logs** tab\. You should see output similar to the following: 
+1. After the build is complete, view the build output on the **Build logs** tab\. You should see output similar to the following: 
 
    ```
    [Container] Date Time Phase is DOWNLOAD_SOURCE
@@ -140,7 +124,7 @@ If you are using an S3 input bucket, be sure to create a ZIP file that contains 
    [Container] Date Time Running command for tool_path in "$JAVA_8_HOME"/bin/* "$JRE_8_HOME"/bin/*;
    ```
 
-1.  Update the `runtime-versions` section with Java version 11: 
+1. Update the `runtime-versions` section with Java version 11: 
 
    ```
    install:
@@ -148,7 +132,7 @@ If you are using an S3 input bucket, be sure to create a ZIP file that contains 
          java: corretto11
    ```
 
-1.  After you save the change, run your build again and view the build output\. You should see that the installed version of Java is 11\. You should see output similar to the following: 
+1. After you save the change, run your build again and view the build output\. You should see that the installed version of Java is 11\. You should see output similar to the following: 
 
    ```
    [Container] Date Time Phase is DOWNLOAD_SOURCE
@@ -169,7 +153,7 @@ If you are using an S3 input bucket, be sure to create a ZIP file that contains 
 
 ## Specify a runtime dependency<a name="sample-runtime-dependent-runtime"></a>
 
- This example shows how to specify a runtime and a dependency runtime\. For example, any supported Android runtime version is dependent on the Java runtime version 8\. For example, if you specify Android version 29 and use Amazon Linux 2 or Ubuntu, you can also specify Java version 8\. If you do not specify the dependent runtime, CodeBuild attempts to choose it for you\. 
+This example shows how to specify a runtime and a dependency runtime\. For example, any supported Android runtime version is dependent on the Java runtime version 8\. For example, if you specify Android version 29 and use Amazon Linux 2 or Ubuntu, you can also specify Java version 8\. If you do not specify the dependent runtime, CodeBuild attempts to choose it for you\. 
 
 The build project in this example uses source code in the GitHub [AWS samples](https://github.com/aws-samples) repository\. The source code uses the Android version 28 runtime and the build project uses Amazon Linux 2, so the buildspec also specifies Java version 8\. 
 
@@ -185,9 +169,9 @@ The build project in this example uses source code in the GitHub [AWS samples](h
      +  For **Runtime\(s\)**, choose **Standard**\. 
      + For **Image**, choose **aws/codebuild/amazonlinux2\-x86\_64\-standard:3\.0**\.
 
-1.  For **Build specifications**, choose **Insert build commands**, and then choose **Switch to editor**\. 
+1. For **Build specifications**, choose **Insert build commands**, and then choose **Switch to editor**\. 
 
-1.  In **Build commands**, replace the placeholder text with the following: 
+1. In **Build commands**, replace the placeholder text with the following: 
 
    ```
    version: 0.2
@@ -205,15 +189,15 @@ The build project in this example uses source code in the GitHub [AWS samples](h
        - app/build/outputs/apk/app-debug.apk
    ```
 
-    The `runtime-versions` section specifies both Android version 29 and Java version 8 runtimes\. 
+   The `runtime-versions` section specifies both Android version 29 and Java version 8 runtimes\. 
 
-1.  Choose **Create build project**\. 
+1. Choose **Create build project**\. 
 
-1.  Choose **Start build**\. 
+1. Choose **Start build**\. 
 
-1.  On **Build configuration**, accept the defaults, and then choose **Start build**\. 
+1. On **Build configuration**, accept the defaults, and then choose **Start build**\. 
 
-1.  After the build is complete, view the build output on the **Build logs** tab\. You should see output similar to the following\. It shows that Android version 29 and Java version 8 are installed: 
+1. After the build is complete, view the build output on the **Build logs** tab\. You should see output similar to the following\. It shows that Android version 29 and Java version 8 are installed: 
 
    ```
    [Container] 2019/05/14 23:21:42 Entering phase DOWNLOAD_SOURCES 
@@ -226,13 +210,13 @@ The build project in this example uses source code in the GitHub [AWS samples](h
 
 ## Specify two runtimes<a name="sample-runtime-two-major-version-runtimes"></a>
 
- You can specify more than one runtime in the same CodeBuild build project\. This sample project uses two source files: one that uses the Go runtime and one that uses the Node\.js runtime\. 
+You can specify more than one runtime in the same CodeBuild build project\. This sample project uses two source files: one that uses the Go runtime and one that uses the Node\.js runtime\. 
 
-1.  Create a directory named `my-source`\. 
+1. Create a directory named `my-source`\. 
 
-1.  Inside the `my-source` directory, create a directory named `golang-app`\. 
+1. Inside the `my-source` directory, create a directory named `golang-app`\. 
 
-1.  Create a file named `hello.go` with the following contents\. Store the file in the `golang-app` directory\. 
+1. Create a file named `hello.go` with the following contents\. Store the file in the `golang-app` directory\. 
 
    ```
    package main
@@ -249,9 +233,9 @@ The build project in this example uses source code in the GitHub [AWS samples](h
    }
    ```
 
-1.  Inside the `my-source` directory, create a directory named `nodejs-app`\. It should be at the same level as the `golang-app` directory\. 
+1. Inside the `my-source` directory, create a directory named `nodejs-app`\. It should be at the same level as the `golang-app` directory\. 
 
-1.  Create a file named `index.js` with the following contents\. Store the file in the `nodejs-app` directory\. 
+1. Create a file named `index.js` with the following contents\. Store the file in the `nodejs-app` directory\. 
 
    ```
    console.log("hello world from nodejs");
@@ -263,7 +247,7 @@ The build project in this example uses source code in the GitHub [AWS samples](h
    console.log("good bye from nodejs");
    ```
 
-1.  Create a file named `package.json` with the following contents\. Store the file in the `nodejs-app` directory\. 
+1. Create a file named `package.json` with the following contents\. Store the file in the `nodejs-app` directory\. 
 
    ```
    {
@@ -279,7 +263,7 @@ The build project in this example uses source code in the GitHub [AWS samples](h
    }
    ```
 
-1.  Create a file named `buildspec.yml` with the following contents\. Store the file in the `my-source` directory, at the same level as the `nodejs-app` and `golang-app` directories\. The `runtime-versions` section specifies the Node\.js version 10 and Go version 1\.13 runtimes\. 
+1. Create a file named `buildspec.yml` with the following contents\. Store the file in the `my-source` directory, at the same level as the `nodejs-app` and `golang-app` directories\. The `runtime-versions` section specifies the Node\.js version 12 and Go version 1\.13 runtimes\. 
 
    ```
    version: 0.2
@@ -288,7 +272,7 @@ The build project in this example uses source code in the GitHub [AWS samples](h
      install:
        runtime-versions:
          golang: 1.13
-         nodejs: 10
+         nodejs: 12
      build:
        commands:
          - echo Building the Go code...
@@ -310,7 +294,7 @@ The build project in this example uses source code in the GitHub [AWS samples](h
            - package.json
    ```
 
-1.  Your file structure should now look like this\. 
+1. Your file structure should now look like this\. 
 
    ```
    my-source
@@ -335,25 +319,26 @@ The build project in this example uses source code in the GitHub [AWS samples](h
      + For **Runtime\(s\)**, choose **Standard**\.
      + For **Image**, choose **aws/codebuild/amazonlinux2\-x86\_64\-standard:3\.0**\.
 
-1.  Choose **Create build project**\. 
+1. Choose **Create build project**\. 
 
-1.  Choose **Start build**\. 
+1. Choose **Start build**\. 
 
-1.  On **Build configuration**, accept the defaults, and then choose **Start build**\. 
+1. On **Build configuration**, accept the defaults, and then choose **Start build**\. 
 
-1.  After the build is complete, view the build output on the **Build logs** tab\. You should see output similar to the following\. It shows output from the Go and Node\.js runtimes\. It also shows output from the Go and Node\.js applications\. 
+1. After the build is complete, view the build output on the **Build logs** tab\. You should see output similar to the following\. It shows output from the Go and Node\.js runtimes\. It also shows output from the Go and Node\.js applications\. 
 
    ```
    [Container] Date Time Processing environment variables
    [Container] Date Time Selecting 'golang' runtime version '1.13' based on manual selections...
-   [Container] Date Time Selecting 'nodejs' runtime version '10' based on manual selections...
+   [Container] Date Time Selecting 'nodejs' runtime version '12' based on manual selections...
    [Container] Date Time Running command echo "Installing Go version 1.13 ..."
-   Installing Go version 1.12 ... 
+   Installing Go version 1.13 ... 
     
-   [Container] Date Time Running command echo "Installing Node.js version 10 ..." 
-   Installing Node.js version 10 ... 
+   [Container] Date Time Running command echo "Installing Node.js version 12 ..." 
+   Installing Node.js version 12 ... 
     
-   [Container] Date Time Running command n 10.15.3
+   [Container] Date Time Running command n $NODE_12_VERSION
+      installed : v12.20.1 (with npm 6.14.10)
    
    [Container] Date Time Moving to directory /codebuild/output/src819694850/src
    [Container] Date Time Registering with agent
