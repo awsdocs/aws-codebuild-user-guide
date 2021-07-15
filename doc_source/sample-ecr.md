@@ -20,7 +20,7 @@ If you are using an S3 input bucket, be sure to create a ZIP file that contains 
 
    1. Create a build project, run the build, and view related build information by following the steps in [Run AWS CodeBuild directly](how-to-run.md)\.
 
-      If you use the AWS CLI to create the build project, the JSON\-formatted input to the`create-project` command might look similar to this\. \(Replace the placeholders with your own values\.\)
+      If you use the AWS CLI to create the build project, the JSON\-formatted input to the `create-project` command might look similar to this\. \(Replace the placeholders with your own values\.\)
 
       ```
       {
