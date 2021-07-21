@@ -195,7 +195,7 @@ When you use the console to create a build project, you can create a CodeBuild s
 
 **Additional configuration**    
 **Timeout**  
-Specify a value between 5 minutes and 480 minutes \(8 hours\) after which CodeBuild stops the build if it is not complete\. If **hours** and **minutes** are left blank, the default value of 60 minutes is used\.  
+Specify a value, between 5 minutes and 8 hours, after which CodeBuild stops the build if it is not complete\. If **hours** and **minutes** are left blank, the default value of 60 minutes is used\.  
 **VPC**  
 If you want CodeBuild to work with your VPC:  
 + For **VPC**, choose the VPC ID that CodeBuild uses\.

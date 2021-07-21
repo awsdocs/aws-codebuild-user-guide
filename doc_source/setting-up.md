@@ -274,9 +274,7 @@ The service role described on this page contains a policy that grants the minimu
            "logs:CreateLogStream",
            "logs:PutLogEvents"
          ],
-         "Resource": [
-           "*"
-         ]
+         "Resource": "*"
        },
        {
          "Sid": "CodeCommitPolicy",
@@ -284,9 +282,7 @@ The service role described on this page contains a policy that grants the minimu
          "Action": [
            "codecommit:GitPull"
          ],
-         "Resource": [
-           "*"
-         ]
+         "Resource": "*"
        },
        {
          "Sid": "S3GetObjectPolicy",
@@ -295,9 +291,7 @@ The service role described on this page contains a policy that grants the minimu
            "s3:GetObject",
            "s3:GetObjectVersion"
          ],
-         "Resource": [
-           "*"
-         ]
+         "Resource": "*"
        },
        {
          "Sid": "S3PutObjectPolicy",
@@ -305,9 +299,7 @@ The service role described on this page contains a policy that grants the minimu
          "Action": [
            "s3:PutObject"
          ],
-         "Resource": [
-           "*"
-         ]
+         "Resource": "*"
        },
        {
          "Sid": "ECRPullPolicy",
@@ -317,9 +309,7 @@ The service role described on this page contains a policy that grants the minimu
            "ecr:GetDownloadUrlForLayer",
            "ecr:BatchGetImage"
          ],
-         "Resource": [
-           "*"
-         ]
+         "Resource": "*"
        },
        {
          "Sid": "ECRAuthPolicy",
@@ -327,9 +317,7 @@ The service role described on this page contains a policy that grants the minimu
          "Action": [
            "ecr:GetAuthorizationToken"
          ],
-         "Resource": [
-           "*"
-         ]
+         "Resource": "*"
        },
        {
          "Sid": "S3BucketIdentity",
@@ -338,8 +326,7 @@ The service role described on this page contains a policy that grants the minimu
            "s3:GetBucketAcl",
            "s3:GetBucketLocation"
          ],
-         "Resource": 
-           "*"
+         "Resource": "*"
        }
      ]
    }
@@ -398,9 +385,7 @@ If you use a different name, be sure to use it throughout this procedure\.
            "logs:CreateLogStream",
            "logs:PutLogEvents"
          ],
-         "Resource": [
-           "*"
-         ]
+         "Resource": "*"
        },
        {
          "Sid": "CodeCommitPolicy",
@@ -408,9 +393,7 @@ If you use a different name, be sure to use it throughout this procedure\.
          "Action": [
            "codecommit:GitPull"
          ],
-         "Resource": [
-           "*"
-         ]
+         "Resource": "*"
        },
        {
          "Sid": "S3GetObjectPolicy",
@@ -419,9 +402,7 @@ If you use a different name, be sure to use it throughout this procedure\.
            "s3:GetObject",
            "s3:GetObjectVersion"
          ],
-         "Resource": [
-           "*"
-         ]
+         "Resource": "*"
        },
        {
          "Sid": "S3PutObjectPolicy",
@@ -429,9 +410,7 @@ If you use a different name, be sure to use it throughout this procedure\.
          "Action": [
            "s3:PutObject"
          ],
-         "Resource": [
-           "*"
-         ]
+         "Resource": "*"
        },
        {
          "Sid": "S3BucketIdentity",
@@ -440,9 +419,7 @@ If you use a different name, be sure to use it throughout this procedure\.
            "s3:GetBucketAcl",
            "s3:GetBucketLocation"
          ],
-         "Resource": [
-           "*"
-         ]
+         "Resource": "*"
        }
      ]
    }

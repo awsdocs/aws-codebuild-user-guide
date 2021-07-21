@@ -1,18 +1,18 @@
 # Build environment compute types<a name="build-env-ref-compute-types"></a>
 
-AWS CodeBuild provides build environments with the following available memory, vCPUs, and disk space:
+AWS CodeBuild provides build environments with the following available memory, vCPUs, and disk space:
 
 
 | Compute type | Environment computeType value | Environment type value | Memory | vCPUs | Disk space | 
 | --- | --- | --- | --- | --- | --- | 
-| ARM Large | BUILD\_GENERAL1\_LARGE | ARM\_CONTAINER | 16 GB | 8 | 50 GB | 
-| Linux Small | BUILD\_GENERAL1\_SMALL | LINUX\_CONTAINER | 3 GB | 2 | 64 GB | 
-| Linux Medium | BUILD\_GENERAL1\_MEDIUM | LINUX\_CONTAINER | 7 GB | 4 | 128 GB | 
-| Linux Large | BUILD\_GENERAL1\_LARGE | LINUX\_CONTAINER | 15 GB | 8 | 128 GB | 
-| Linux 2XLarge | BUILD\_GENERAL1\_2XLARGE | LINUX\_CONTAINER | 145 GB | 72 | 824 GB \(SSD\) | 
-| Linux GPU Large | BUILD\_GENERAL1\_LARGE | LINUX\_GPU\_CONTAINER | 255 GB | 32 | 50 GB | 
-| Windows Medium | BUILD\_GENERAL1\_MEDIUM | WINDOWS\_SERVER\_2019\_CONTAINER | 7 GB | 4 | 128 GB | 
-| Windows Large | BUILD\_GENERAL1\_LARGE | WINDOWS\_SERVER\_2019\_CONTAINER | 15 GB | 8 | 128 GB | 
+| ARM Large | BUILD\_GENERAL1\_LARGE | ARM\_CONTAINER | 16 GB | 8 | 50 GB | 
+| Linux Small | BUILD\_GENERAL1\_SMALL | LINUX\_CONTAINER | 3 GB | 2 | 64 GB | 
+| Linux Medium | BUILD\_GENERAL1\_MEDIUM | LINUX\_CONTAINER | 7 GB | 4 | 128 GB | 
+| Linux Large | BUILD\_GENERAL1\_LARGE | LINUX\_CONTAINER | 15 GB | 8 | 128 GB | 
+| Linux 2XLarge | BUILD\_GENERAL1\_2XLARGE | LINUX\_CONTAINER | 145 GB | 72 | 824 GB \(SSD\) | 
+| Linux GPU Large | BUILD\_GENERAL1\_LARGE | LINUX\_GPU\_CONTAINER | 255 GB | 32 | 50 GB | 
+| Windows Medium | BUILD\_GENERAL1\_MEDIUM | WINDOWS\_SERVER\_2019\_CONTAINER | 7 GB | 4 | 128 GB | 
+| Windows Large | BUILD\_GENERAL1\_LARGE | WINDOWS\_SERVER\_2019\_CONTAINER | 15 GB | 8 | 128 GB | 
 
 The disk space listed for each build environment is available only in the directory specified by the `CODEBUILD_SRC_DIR` environment variable\.
 

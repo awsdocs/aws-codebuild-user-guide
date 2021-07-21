@@ -39,7 +39,7 @@ BatchGetReports
 Required to get information about reports\.  
  **Resource:** `arn:aws:codebuild:region-ID:account-ID:report-group/report-group-name ` 
 
-BatchPutTestCases ¹  
+BatchPutTestCases ¹  
  **Action:** `codebuild:BatchPutTestCases`   
 Required to create or update a test report\.  
  **Resource:** `arn:aws:codebuild:region-ID:account-ID:report-group/report-group-name ` 
@@ -51,7 +51,7 @@ Required to create build projects\.
 +  `arn:aws:codebuild:region-ID:account-ID:project/project-name ` 
 +  `arn:aws:iam:account-ID:role/role-name ` 
 
-CreateReport ¹  
+CreateReport ¹  
  **Action:** `codebuild:CreateReport`   
 Required to create a test report\.  
  **Resource:** `arn:aws:codebuild:region-ID:account-ID:report-group/report-group-name ` 
@@ -163,7 +163,7 @@ Required to change information about builds\.
 +  `arn:aws:codebuild:region-ID:account-ID:project/project-name ` 
 +  `arn:aws:iam:account-ID:role/role-name ` 
 
-UpdateReport ¹  
+UpdateReport ¹  
  **Action:** `codebuild:UpdateReport`   
 Required to create or update a test report\.  
  **Resource:** `arn:aws:codebuild:region-ID:account-ID:report-group/report-group-name ` 
