@@ -79,8 +79,8 @@ Choose **Branch**, **Git tag**, or **Commit ID** to specify the version of your 
  **Git clone depth**   
 Choose to create a shallow clone with a history truncated to the specified number of commits\. If you want a full clone, choose **Full**\. 
 
- **Use Git submodules**   
-Select if you want to include Git submodules in your repository\. 
+**Git submodules**  
+Select **Use Git submodules** if you want to include Git submodules in your repository\. 
 
 ------
 #### [ Bitbucket ]
@@ -95,23 +95,17 @@ Enter a branch, commit ID, tag, or reference and a commit ID\. For more informat
  **Git clone depth**   
 Choose **Git clone depth** to create a shallow clone with a history truncated to the specified number of commits\. If you want a full clone, choose **Full**\. 
 
- **Use Git submodules**   
-Select if you want to include Git submodules in your repository\. 
+**Git submodules**  
+Select **Use Git submodules** if you want to include Git submodules in your repository\. 
 
-Select **Report build statuses to source provider when your builds start and finish ** if you want the status of your build's start and completion reported to your source provider\. 
-
-To be able to report the build status to the source provider, the user associated with the source provider must have write access to the repo\. If the user does not have write access, the build status cannot be updated\. For more information, see [Source provider access](access-tokens.md)\.
-
-**Note**  
+**Build status**  
+Select **Report build statuses to source provider when your builds start and finish ** if you want the status of your build's start and completion reported to your source provider\.   
+To be able to report the build status to the source provider, the user associated with the source provider must have write access to the repo\. If the user does not have write access, the build status cannot be updated\. For more information, see [Source provider access](access-tokens.md)\.  
 The status of a build triggered by a webhook is always reported to your source provider\. 
-
-Select **Rebuild every time a code change is pushed to this repository ** if you want CodeBuild to build the source code every time a code change is pushed to this repository\. Webhooks are allowed only with your own Bitbucket, GitHub, or GitHub Enterprise repository\. 
-
-For **Status context**, enter the value to be used for the `name` parameter in the Bitbucket commit status\. For more information, see [build](https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Bworkspace%7D/%7Brepo_slug%7D/commit/%7Bnode%7D/statuses/build) in the Bitbucket API documentation\.
-
+For **Status context**, enter the value to be used for the `name` parameter in the Bitbucket commit status\. For more information, see [build](https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Bworkspace%7D/%7Brepo_slug%7D/commit/%7Bnode%7D/statuses/build) in the Bitbucket API documentation\.  
 For **Target URL**, enter the value to be used for the `url` parameter in the Bitbucket commit status\. For more information, see [build](https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Bworkspace%7D/%7Brepo_slug%7D/commit/%7Bnode%7D/statuses/build) in the Bitbucket API documentation\.
 
-If you chose **Rebuild every time a code change is pushed to this repository**, in **Event type**, choose an event that you want to trigger a build\. You use regular expressions to create a filter\. If no filter is specified, all update and create pull requests, and all push events, trigger a build\. For more information, see [GitHub webhook events](github-webhook.md) and [Bitbucket webhook events](bitbucket-webhook.md)\. 
+In **Primary source webhook events**, select **Rebuild every time a code change is pushed to this repository ** if you want CodeBuild to build the source code every time a code change is pushed to this repository\. For more information about webhooks and filter groups, see [Bitbucket webhook events](bitbucket-webhook.md)\.
 
 ------
 #### [ GitHub ]
@@ -126,55 +120,45 @@ Enter a branch, commit ID, tag, or reference and a commit ID\. For more informat
  **Git clone depth**   
 Choose **Git clone depth** to create a shallow clone with a history truncated to the specified number of commits\. If you want a full clone, choose **Full**\. 
 
- **Use Git submodules**   
-Select if you want to include Git submodules in your repository\. 
+**Git submodules**  
+Select **Use Git submodules** if you want to include Git submodules in your repository\. 
 
-Select **Report build statuses to source provider when your builds start and finish ** if you want the status of your build's start and completion reported to your source provider\. 
-
-To be able to report the build status to the source provider, the user associated with the source provider must have write access to the repo\. If the user does not have write access, the build status cannot be updated\. For more information, see [Source provider access](access-tokens.md)\.
-
-**Note**  
+**Build status**  
+Select **Report build statuses to source provider when your builds start and finish ** if you want the status of your build's start and completion reported to your source provider\.   
+To be able to report the build status to the source provider, the user associated with the source provider must have write access to the repo\. If the user does not have write access, the build status cannot be updated\. For more information, see [Source provider access](access-tokens.md)\.  
 The status of a build triggered by a webhook is always reported to your source provider\. 
-
-Select **Rebuild every time a code change is pushed to this repository ** if you want CodeBuild to build the source code every time a code change is pushed to this repository\. Webhooks are allowed only with your own Bitbucket, GitHub, or GitHub Enterprise repository\. 
-
-For **Status context**, enter the value to be used for the `context` parameter in the GitHub commit status\. For more information, see [Create a commit status](https://developer.github.com/v3/repos/statuses/#create-a-commit-status) in the GitHub developer guide\.
-
+For **Status context**, enter the value to be used for the `context` parameter in the GitHub commit status\. For more information, see [Create a commit status](https://developer.github.com/v3/repos/statuses/#create-a-commit-status) in the GitHub developer guide\.  
 For **Target URL**, enter the value to be used for the `target_url` parameter in the GitHub commit status\. For more information, see [Create a commit status](https://developer.github.com/v3/repos/statuses/#create-a-commit-status) in the GitHub developer guide\.
 
-If you chose **Rebuild every time a code change is pushed to this repository**, in **Event type**, choose an event that you want to trigger a build\. You use regular expressions to create a filter\. If no filter is specified, all update and create pull requests, and all push events, trigger a build\. For more information, see [GitHub webhook events](github-webhook.md) and [Bitbucket webhook events](bitbucket-webhook.md)\. 
+In **Primary source webhook events**, select **Rebuild every time a code change is pushed to this repository ** if you want CodeBuild to build the source code every time a code change is pushed to this repository\. For more information about webhooks and filter groups, see [GitHub webhook events](github-webhook.md)\.
 
 ------
 #### [ GitHub Enterprise Server ]
 
- **GitHub Enterprise personal access token**   
+**GitHub Enterprise personal access token**  
 See [GitHub Enterprise Server sample](sample-github-enterprise.md) for information about how to copy a personal access token to your clipboard\. Paste the token in the text field, and then choose **Save Token**\.   
 You only need to enter and save the personal access token once\. CodeBuild uses this token in all future projects\. 
 
- **Source version**   
+**Source version**  
 Enter a pull request, branch, commit ID, tag, or reference and a commit ID\. For more information, see [Source version sample with AWS CodeBuild](sample-source-version.md)\. 
 
- **Git clone depth**   
+**Git clone depth**  
 Choose **Git clone depth** to create a shallow clone with a history truncated to the specified number of commits\. If you want a full clone, choose **Full**\. 
 
- **Use Git submodules**   
-Select if you want to include Git submodules in your repository\. 
+**Git submodules**  
+Select **Use Git submodules** if you want to include Git submodules in your repository\. 
 
- **Build status**   
+**Build status**  
 Select **Report build statuses to source provider when your builds start and finish ** if you want the status of your build's start and completion reported to your source provider\.   
 To be able to report the build status to the source provider, the user associated with the source provider must have write access to the repo\. If the user does not have write access, the build status cannot be updated\. For more information, see [Source provider access](access-tokens.md)\.  
 The status of a build triggered by a webhook is always reported to your source provider\. 
-
- **Insecure SSL**   
-Choose to ignore SSL warnings while connecting to your GitHub Enterprise project repository\. 
-
-Select **Rebuild every time a code change is pushed to this repository ** if you want CodeBuild to build the source code every time a code change is pushed to this repository\. Webhooks are allowed only with your own Bitbucket, GitHub, or GitHub Enterprise repository\. 
-
-For **Status context**, enter the value to be used for the `context` parameter in the GitHub commit status\. For more information, see [Create a commit status](https://developer.github.com/v3/repos/statuses/#create-a-commit-status) in the GitHub developer guide\.
-
+For **Status context**, enter the value to be used for the `context` parameter in the GitHub commit status\. For more information, see [Create a commit status](https://developer.github.com/v3/repos/statuses/#create-a-commit-status) in the GitHub developer guide\.  
 For **Target URL**, enter the value to be used for the `target_url` parameter in the GitHub commit status\. For more information, see [Create a commit status](https://developer.github.com/v3/repos/statuses/#create-a-commit-status) in the GitHub developer guide\.
 
-If you chose **Rebuild every time a code change is pushed to this repository**, in **Event type**, choose an event that you want to trigger a build\. You use regular expressions to create a filter\. If no filter is specified, all update and create pull requests, and all push events, trigger a build\. For more information, see [GitHub webhook events](github-webhook.md) and [Bitbucket webhook events](bitbucket-webhook.md)\. 
+**Insecure SSL**  
+Select **Enable insecure SSL** to ignore SSL warnings while connecting to your GitHub Enterprise project repository\. 
+
+In **Primary source webhook events**, select **Rebuild every time a code change is pushed to this repository ** if you want CodeBuild to build the source code every time a code change is pushed to this repository\. For more information about webhooks and filter groups, see [GitHub webhook events](github-webhook.md)\.
 
 ------
 
