@@ -18,3 +18,4 @@ You can perform these tasks when working with build projects:
 + [Working with shared projects](project-sharing.md)
 + [Tagging projects in AWS CodeBuild](how-to-tag-project.md)
 + [Batch builds in AWS CodeBuild](batch-build.md)
++ [Public build projects in AWS CodeBuild](public-builds.md)

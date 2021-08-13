@@ -42,6 +42,22 @@ If you want to limit the number of concurrent builds for this project, perform t
 1. In **Concurrent build limit**, enter the maximum number of concurrent builds that are allowed for this project\. This limit cannot be greater than the concurrent build limit set for the account\. If you try to enter a number greater than the account limit, an error message is displayed\.
 New builds are only started if the current number of builds is less than or equal to this limit\. If the current build count meets this limit, new builds are throttled and are not run\.
 
+**Enable public build access**  <a name="change-project-console.public-builds"></a>
+To make your project's build results available to the public, including users without access to an AWS account, select **Enable public build access** and confirm that you want to make the build results public\. The following properties are used for public build projects:    
+**Public build service role**  
+Select **New service role** if you want to have CodeBuild create a new service role for you, or **Existing service role** if you want to use an existing service role\.  
+The public build service role enables CodeBuild to read the CloudWatch Logs and download the Amazon S3 artifacts for the project's builds\. This is required to make the project's build logs and artifacts available to the public\.  
+**Service role**  
+Enter the name of the new service role or an existing service role\.
+To make your project's build results private, clear **Enable public build access**\.   
+For more information, see [Public build projects in AWS CodeBuild](public-builds.md)\.  
+The following should be kept in mind when making your project's build results public:  
++ All of a project's build results, logs, and artifacts, including builds that were run when the project was private, are available to the public\.
++ All build logs and artifacts are available to the public\. Environment variables, source code, and other sensitive information may have been output to the build logs and artifacts\. You must be careful about what information is output to the build logs\. Some best practices are:
+  + Do not store sensitive values, especially AWS access key IDs and secret access keys, in environment variables\. We recommend that you use an Amazon EC2 Systems Manager Parameter Store or AWS Secrets Manager to store sensitive values\.
+  + Follow [Best practices for using webhooks](webhooks.md#webhook-best-practices) to limit which entities can trigger a build, and do not store the buildspec in the project itself, to ensure that your webhooks are as secure as possible\.
++ A malicious user can use public builds to distribute malicious artifacts\. We recommend that project administrators review all pull requests to verify that the pull request is a legitimate change\. We also recommend that you validate any artifacts with their checksums to make sure that the correct artifacts are being downloaded\.
+
 **Additional information**  
 For **Tags**, enter the name and value of any tags that you want supporting AWS services to use\. Use **Add row** to add a tag\. You can add up to 50 tags\. 
 

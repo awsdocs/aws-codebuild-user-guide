@@ -109,6 +109,7 @@ Amazon's trademarks and trade dress may not be used in
          + [Edit tags for a project](how-to-tag-project-update.md)
          + [Remove a tag from a project](how-to-tag-project-delete.md)
       + [Batch builds in AWS CodeBuild](batch-build.md)
+      + [Public build projects in AWS CodeBuild](public-builds.md)
    + [Working with builds in AWS CodeBuild](builds-working.md)
       + [Run a build in AWS CodeBuild](run-build.md)
          + [Run a build (console)](run-build-console.md)

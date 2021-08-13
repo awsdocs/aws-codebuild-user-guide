@@ -35,6 +35,9 @@ The identifier of the AWS KMS key that CodeBuild is using to encrypt the build o
 CODEBUILD\_LOG\_PATH  
 The log stream name in CloudWatch Logs for the build\.
 
+CODEBUILD\_PUBLIC\_BUILD\_URL  
+The URL of the build results for this build on the public builds website\. This variable is only set if the build project has public builds enabled\. For more information, see [Public build projects in AWS CodeBuild](public-builds.md)\.
+
 CODEBUILD\_RESOLVED\_SOURCE\_VERSION  <a name="CODEBUILD_RESOLVED_SOURCE_VERSION"></a>
 The version identifier of a build's source code\. The contents depends on the source code repository:    
 CodeCommit, GitHub, GitHub Enterprise Server, and Bitbucket  
