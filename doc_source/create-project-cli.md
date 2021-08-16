@@ -162,7 +162,8 @@ Modify the JSON data as follows and save your results\.
         "<compute-type>"
       ]
     },
-    "timeoutInMins": <batch-timeout>
+    "timeoutInMins": <batch-timeout>,
+    "batchReportMode": "REPORT_AGGREGATED_BATCH" | "REPORT_INDIVIDUAL_BUILDS"
   },
   "concurrentBuildLimit": <concurrent-build-limit>
 }
@@ -479,6 +480,13 @@ An array of strings that specify the compute types that are allowed for the batc
 
 buildBatchConfig/**timeoutInMinutes**  
 The maximum amount of time, in minutes, that the batch build must be completed in\.
+
+buildBatchConfig/**batchReportMode**   
+Specifies how build status reports are sent to the source provider for the batch build\. Valid values include:    
+`REPORT_AGGREGATED_BATCH`  
+\(Default\) Aggregate all of the build statuses into a single status report\.  
+`REPORT_INDIVIDUAL_BUILDS`  
+Send a separate status report for each individual build\.
 
 ### concurrentBuildLimit<a name="cli.concurrentbuildlimit"></a>
 

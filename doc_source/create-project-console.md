@@ -92,9 +92,10 @@ Select **Use Git submodules** if you want to include Git submodules in your repo
 **Build status**  
 Select **Report build statuses to source provider when your builds start and finish ** if you want the status of your build's start and completion reported to your source provider\.   
 To be able to report the build status to the source provider, the user associated with the source provider must have write access to the repo\. If the user does not have write access, the build status cannot be updated\. For more information, see [Source provider access](access-tokens.md)\.  
-The status of a build triggered by a webhook is always reported to your source provider\. 
 For **Status context**, enter the value to be used for the `name` parameter in the Bitbucket commit status\. For more information, see [build](https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Bworkspace%7D/%7Brepo_slug%7D/commit/%7Bnode%7D/statuses/build) in the Bitbucket API documentation\.  
-For **Target URL**, enter the value to be used for the `url` parameter in the Bitbucket commit status\. For more information, see [build](https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Bworkspace%7D/%7Brepo_slug%7D/commit/%7Bnode%7D/statuses/build) in the Bitbucket API documentation\.
+For **Target URL**, enter the value to be used for the `url` parameter in the Bitbucket commit status\. For more information, see [build](https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Bworkspace%7D/%7Brepo_slug%7D/commit/%7Bnode%7D/statuses/build) in the Bitbucket API documentation\.  
+The status of a build triggered by a webhook is always reported to the source provider\. To have the status of a build that is started from the console or an API call reported to the source provider, you must select this setting\.  
+If your project's builds are triggered by a webhook, you must push a new commit to the repo for a change to this setting to take effect\.
 
 In **Primary source webhook events**, select **Rebuild every time a code change is pushed to this repository ** if you want CodeBuild to build the source code every time a code change is pushed to this repository\. For more information about webhooks and filter groups, see [Bitbucket webhook events](bitbucket-webhook.md)\.
 
@@ -117,9 +118,10 @@ Select **Use Git submodules** if you want to include Git submodules in your repo
 **Build status**  
 Select **Report build statuses to source provider when your builds start and finish ** if you want the status of your build's start and completion reported to your source provider\.   
 To be able to report the build status to the source provider, the user associated with the source provider must have write access to the repo\. If the user does not have write access, the build status cannot be updated\. For more information, see [Source provider access](access-tokens.md)\.  
-The status of a build triggered by a webhook is always reported to your source provider\. 
 For **Status context**, enter the value to be used for the `context` parameter in the GitHub commit status\. For more information, see [Create a commit status](https://developer.github.com/v3/repos/statuses/#create-a-commit-status) in the GitHub developer guide\.  
-For **Target URL**, enter the value to be used for the `target_url` parameter in the GitHub commit status\. For more information, see [Create a commit status](https://developer.github.com/v3/repos/statuses/#create-a-commit-status) in the GitHub developer guide\.
+For **Target URL**, enter the value to be used for the `target_url` parameter in the GitHub commit status\. For more information, see [Create a commit status](https://developer.github.com/v3/repos/statuses/#create-a-commit-status) in the GitHub developer guide\.  
+The status of a build triggered by a webhook is always reported to the source provider\. To have the status of a build that is started from the console or an API call reported to the source provider, you must select this setting\.  
+If your project's builds are triggered by a webhook, you must push a new commit to the repo for a change to this setting to take effect\.
 
 In **Primary source webhook events**, select **Rebuild every time a code change is pushed to this repository ** if you want CodeBuild to build the source code every time a code change is pushed to this repository\. For more information about webhooks and filter groups, see [GitHub webhook events](github-webhook.md)\.
 
@@ -142,9 +144,10 @@ Select **Use Git submodules** if you want to include Git submodules in your repo
 **Build status**  
 Select **Report build statuses to source provider when your builds start and finish ** if you want the status of your build's start and completion reported to your source provider\.   
 To be able to report the build status to the source provider, the user associated with the source provider must have write access to the repo\. If the user does not have write access, the build status cannot be updated\. For more information, see [Source provider access](access-tokens.md)\.  
-The status of a build triggered by a webhook is always reported to your source provider\. 
 For **Status context**, enter the value to be used for the `context` parameter in the GitHub commit status\. For more information, see [Create a commit status](https://developer.github.com/v3/repos/statuses/#create-a-commit-status) in the GitHub developer guide\.  
-For **Target URL**, enter the value to be used for the `target_url` parameter in the GitHub commit status\. For more information, see [Create a commit status](https://developer.github.com/v3/repos/statuses/#create-a-commit-status) in the GitHub developer guide\.
+For **Target URL**, enter the value to be used for the `target_url` parameter in the GitHub commit status\. For more information, see [Create a commit status](https://developer.github.com/v3/repos/statuses/#create-a-commit-status) in the GitHub developer guide\.  
+The status of a build triggered by a webhook is always reported to the source provider\. To have the status of a build that is started from the console or an API call reported to the source provider, you must select this setting\.  
+If your project's builds are triggered by a webhook, you must push a new commit to the repo for a change to this setting to take effect\.
 
 **Insecure SSL**  
 Select **Enable insecure SSL** to ignore SSL warnings while connecting to your GitHub Enterprise project repository\. 
@@ -248,6 +251,14 @@ Enter the maximum amount of time for the batch build to complete\.
 
 **Combine artifacts**  
 Select **Combine all artifacts from batch into a single location** to have all of the artifacts from the batch combined into a single location\.
+
+ **Batch report mode**   
+Select the desired build status report mode for batch builds\.  
+This field is only available when the project source is Bitbucket, GitHub, or GitHub Enterprise, and **Report build statuses to source provider when your builds start and finish** is selected under **Source**\.   
+ **Aggregated builds**   
+Select to have the statuses for all builds in the batch combined into a single status report\.  
+ **Individual builds**   
+Select to have the build statuses for all builds in the batch reported separately\.
 
 ## Artifacts<a name="create-project-console-artifacts"></a>
 
