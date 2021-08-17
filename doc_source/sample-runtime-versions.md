@@ -160,13 +160,16 @@ The build project in this example uses source code in the GitHub [AWS samples](h
 1. Open the AWS CodeBuild console at [https://console\.aws\.amazon\.com/codesuite/codebuild/home](https://console.aws.amazon.com/codesuite/codebuild/home)\.
 
 1. Create a build project\. For more information, see [Create a build project \(console\)](create-project-console.md) and [Run a build \(console\)](run-build-console.md)\. Leave all settings at their default values, except for these settings\.
-   + For **Environment**:
+   + For **Source**:
      + For **Source provider**, choose **GitHub**\.
+
+       If you have not previously connected your GitHub account, choose **Connect using OAuth** or **Connect with a GitHub personal access token ** and follow the instructions to connect \(or reconnect\) to GitHub and authorize access to AWS CodeBuild\. 
      + For **Repository**, choose **Public repository**\.
      + For **Repository URL**, enter **https://github\.com/aws\-samples/aws\-mobile\-android\-notes\-tutorial**\.
+   + For **Environment**:
      + For **Environment image**, choose **Managed image**\.
      + For **Operating system**, choose **Amazon Linux 2**\. 
-     +  For **Runtime\(s\)**, choose **Standard**\. 
+     + For **Runtime\(s\)**, choose **Standard**\. 
      + For **Image**, choose **aws/codebuild/amazonlinux2\-x86\_64\-standard:3\.0**\.
 
 1. For **Build specifications**, choose **Insert build commands**, and then choose **Switch to editor**\. 

@@ -2,7 +2,7 @@
 
 If your source code is stored in a GitHub or a GitHub Enterprise Server repository, you can use GitHub webhooks to have AWS CodeBuild rebuild your source code whenever a code change is pushed to the repository\.
 
-Run the create\-webhookcommand as follows:
+Run the create\-webhook command as follows:
 
 ```
 aws codebuild create-webhook --project-name <project-name>
