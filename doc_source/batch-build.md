@@ -5,7 +5,6 @@ You can use AWS CodeBuild to run concurrent and coordinated builds of a project 
 **Topics**
 + [Security role](#batch_security_role)
 + [Batch build types](#batch_build_types)
-+ [Batch report mode](#batch-report-mode)
 + [More information](#batch_more_info)
 
 ## Security role<a name="batch_security_role"></a>
@@ -129,14 +128,6 @@ Each build will have the following settings:
 These builds run in parallel\.
 
 For more information about the build matrix buildspec syntax, see [`batch/build-matrix`](batch-build-buildspec.md#build-spec.batch.build-matrix)\.
-
-## Batch report mode<a name="batch-report-mode"></a>
-
-If the source provider for your project is Bitbucket, GitHub, or GitHub Enterprise, and your project is configured to report build statuses to the source provider, you can select how you want your batch build statuses sent to the source provider\. You can select to have the statuses sent as a single aggregate status report for the batch, or have the status of each build in the batch reported individually\.
-
-For more information, see the following topics:
-+ [Batch configuration \(create\)](create-project-console.md#create-project-console-batch-config)
-+ [Batch configuration \(update\)](change-project-console.md#change-project-console-batch-config)
 
 ## More information<a name="batch_more_info"></a>
 

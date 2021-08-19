@@ -376,7 +376,7 @@ The following license terms describe additional use terms for this supplement\. 
 
 ## 12\) windows\-base Docker image—dotnet\-sdk<a name="12-windows-base-docker-image"></a>
 
-\(available at [https://github\.com/dotnet/core/blob/master/LICENSE\.TXT](https://github.com/dotnet/core/blob/master/LICENSE.TXT)\) 
+\(available at [https://github\.com/dotnet/core/blob/main/LICENSE\.TXT](https://github.com/dotnet/core/blob/main/LICENSE.TXT)\) 
 
 The MIT License \(MIT\)
 
