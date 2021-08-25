@@ -83,6 +83,8 @@ phases:
       - touch file2
 
 artifacts:
+  files:
+    - '**.*'
   secondary-artifacts:
     artifact1:
       base-directory: $CODEBUILD_SRC_DIR_source1
