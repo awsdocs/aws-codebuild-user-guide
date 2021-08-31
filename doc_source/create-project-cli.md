@@ -413,7 +413,7 @@ Optional\. The number of minutes, between 5 to 480 \(8 hours\), after which Code
 
 ### encryptionKey<a name="cli.encryptionkey"></a>
 
-Optional\. The alias or ARN of the AWS KMS customer managed key \(CMK\) used by CodeBuild to encrypt the build output\. If you specify an alias, use the format `arn:aws:kms:region-ID:account-ID:key/key-ID` or, if an alias exists, use the format `alias/key-alias`\. If not specified, the AWS\-managed CMK for Amazon S3 is used\.
+Optional\. The alias or ARN of the AWS KMS key used by CodeBuild to encrypt the build output\. If you specify an alias, use the format `arn:aws:kms:region-ID:account-ID:key/key-ID` or, if an alias exists, use the format `alias/key-alias`\. If not specified, the AWS\-managed KMS key for Amazon S3 is used\.
 
 ### tags<a name="cli.tags"></a>
 
