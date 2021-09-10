@@ -446,7 +446,7 @@ aws ec2 describe-security-groups --filters "Name=vpc-id,Values=<vpc-id>" --<regi
 
 ### badgeEnabled<a name="cli.badgeenabled"></a>
 
-Optional\. Specifies whener to include build badges with your CodeBuild project\. Set to `true` to enable build baddes, or `false` otehrwise\. For more information, see [Build badges sample with CodeBuild](sample-build-badges.md)\.
+Optional\. Specifies whether to include build badges with your CodeBuild project\. Set to `true` to enable build badges, or `false` otherwise\. For more information, see [Build badges sample with CodeBuild](sample-build-badges.md)\.
 
 ### logsConfig<a name="cli.logsconfig"></a>
 

@@ -87,100 +87,137 @@ The `AWSCodeBuildAdminAccess` policy contains the following policy statement:
 
 ```
 {
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Action": [
-                "codebuild:*",
-                "codecommit:GetBranch",
-                "codecommit:GetCommit",
-                "codecommit:GetRepository",
-                "codecommit:ListBranches",
-                "codecommit:ListRepositories",
-                "cloudwatch:GetMetricStatistics",
-                "ec2:DescribeVpcs",
-                "ec2:DescribeSecurityGroups",
-                "ec2:DescribeSubnets",
-                "ecr:DescribeRepositories",
-                "ecr:ListImages",
-                "events:DeleteRule",
-                "events:DescribeRule",
-                "events:DisableRule",
-                "events:EnableRule",
-                "events:ListTargetsByRule",
-                "events:ListRuleNamesByTarget",
-                "events:PutRule",
-                "events:PutTargets",
-                "events:RemoveTargets",
-                "logs:GetLogEvents",
-                "s3:GetBucketLocation",
-                "s3:ListAllMyBuckets"
-            ],
-            "Effect": "Allow",
-            "Resource": "*"
-        },
-        {
-            "Action": [
-                "logs:DeleteLogGroup"
-            ],
-            "Effect": "Allow",
-            "Resource": "arn:aws:logs:*:*:log-group:/aws/codebuild/*:log-stream:*"
-        },
-        {
-            "Effect": "Allow",
-            "Action": [
-                "ssm:PutParameter"
-            ],
-            "Resource": "arn:aws:ssm:*:*:parameter/CodeBuild/*"
-        },
-        {
-            "Sid": "CodeStarNotificationsReadWriteAccess",
-            "Effect": "Allow",
-            "Action": [
-                "codestar-notifications:CreateNotificationRule",
-                "codestar-notifications:DescribeNotificationRule",
-                "codestar-notifications:UpdateNotificationRule",
-                "codestar-notifications:DeleteNotificationRule",
-                "codestar-notifications:Subscribe",
-                "codestar-notifications:Unsubscribe"
-            ],
-            "Resource": "*",
-            "Condition": {
-                "StringLike": {
-                    "codestar-notifications:NotificationsForResource": "arn:aws:codebuild:*"
-                }
-            }
-        },
-        {
-            "Sid": "CodeStarNotificationsListAccess",
-            "Effect": "Allow",
-            "Action": [
-                "codestar-notifications:ListNotificationRules",
-                "codestar-notifications:ListEventTypes",
-                "codestar-notifications:ListTargets",
-                "codestar-notifications:ListTagsforResource"
-            ],
-            "Resource": "*"
-        },
-        {
-            "Sid": "CodeStarNotificationsSNSTopicCreateAccess",
-            "Effect": "Allow",
-            "Action": [
-                "sns:CreateTopic",
-                "sns:SetTopicAttributes"
-            ],
-            "Resource": "arn:aws:sns:*:*:codestar-notifications*"
-        },
-        {
-            "Sid": "SNSTopicListAccess",
-            "Effect": "Allow",
-            "Action": [
-                "sns:ListTopics",
-                "sns:GetTopicAttributes"
-            ],
-            "Resource": "*"
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Action": [
+        "codebuild:*",
+        "codecommit:GetBranch",
+        "codecommit:GetCommit",
+        "codecommit:GetRepository",
+        "codecommit:ListBranches",
+        "codecommit:ListRepositories",
+        "cloudwatch:GetMetricStatistics",
+        "ec2:DescribeVpcs",
+        "ec2:DescribeSecurityGroups",
+        "ec2:DescribeSubnets",
+        "ecr:DescribeRepositories",
+        "ecr:ListImages",
+        "elasticfilesystem:DescribeFileSystems",
+        "events:DeleteRule",
+        "events:DescribeRule",
+        "events:DisableRule",
+        "events:EnableRule",
+        "events:ListTargetsByRule",
+        "events:ListRuleNamesByTarget",
+        "events:PutRule",
+        "events:PutTargets",
+        "events:RemoveTargets",
+        "logs:GetLogEvents",
+        "s3:GetBucketLocation",
+        "s3:ListAllMyBuckets"
+      ],
+      "Effect": "Allow",
+      "Resource": "*"
+    },
+    {
+      "Action": [
+        "logs:DeleteLogGroup"
+      ],
+      "Effect": "Allow",
+      "Resource": "arn:aws:logs:*:*:log-group:/aws/codebuild/*:log-stream:*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "ssm:PutParameter"
+      ],
+      "Resource": "arn:aws:ssm:*:*:parameter/CodeBuild/*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "ssm:StartSession"
+      ],
+      "Resource": "arn:aws:ecs:*:*:task/*/*"
+    },
+    {
+      "Sid": "CodeStarConnectionsReadWriteAccess",
+      "Effect": "Allow",
+      "Action": [
+        "codestar-connections:CreateConnection",
+        "codestar-connections:DeleteConnection",
+        "codestar-connections:UpdateConnectionInstallation",
+        "codestar-connections:TagResource",
+        "codestar-connections:UntagResource",
+        "codestar-connections:ListConnections",
+        "codestar-connections:ListInstallationTargets",
+        "codestar-connections:ListTagsForResource",
+        "codestar-connections:GetConnection",
+        "codestar-connections:GetIndividualAccessToken",
+        "codestar-connections:GetInstallationUrl",
+        "codestar-connections:PassConnection",
+        "codestar-connections:StartOAuthHandshake",
+        "codestar-connections:UseConnection"
+      ],
+      "Resource": "arn:aws:codestar-connections:*:*:connection/*"
+    },
+    {
+      "Sid": "CodeStarNotificationsReadWriteAccess",
+      "Effect": "Allow",
+      "Action": [
+        "codestar-notifications:CreateNotificationRule",
+        "codestar-notifications:DescribeNotificationRule",
+        "codestar-notifications:UpdateNotificationRule",
+        "codestar-notifications:DeleteNotificationRule",
+        "codestar-notifications:Subscribe",
+        "codestar-notifications:Unsubscribe"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "StringLike": {
+          "codestar-notifications:NotificationsForResource": "arn:aws:codebuild:*"
         }
-    ]
+      }
+    },
+    {
+      "Sid": "CodeStarNotificationsListAccess",
+      "Effect": "Allow",
+      "Action": [
+        "codestar-notifications:ListNotificationRules",
+        "codestar-notifications:ListEventTypes",
+        "codestar-notifications:ListTargets",
+        "codestar-notifications:ListTagsforResource"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "CodeStarNotificationsSNSTopicCreateAccess",
+      "Effect": "Allow",
+      "Action": [
+        "sns:CreateTopic",
+        "sns:SetTopicAttributes"
+      ],
+      "Resource": "arn:aws:sns:*:*:codestar-notifications*"
+    },
+    {
+      "Sid": "SNSTopicListAccess",
+      "Effect": "Allow",
+      "Action": [
+        "sns:ListTopics",
+        "sns:GetTopicAttributes"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "CodeStarNotificationsChatbotAccess",
+      "Effect": "Allow",
+      "Action": [
+        "chatbot:DescribeSlackChannelConfigurations"
+      ],
+      "Resource": "*"
+    }
+  ]
 }
 ```
 
@@ -192,76 +229,105 @@ The `AWSCodeBuildDeveloperAccess` policy contains the following policy statement
 
 ```
 {
-    "Statement": [
-        {
-            "Action": [
-                "codebuild:StartBuild",
-                "codebuild:StopBuild",
-                "codebuild:BatchGet*",
-                "codebuild:GetResourcePolicy",
-                "codebuild:DescribeTestCases",
-                "codebuild:List*",
-                "codecommit:GetBranch",
-                "codecommit:GetCommit",
-                "codecommit:GetRepository",
-                "codecommit:ListBranches",
-                "cloudwatch:GetMetricStatistics",
-                "events:DescribeRule",
-                "events:ListTargetsByRule",
-                "events:ListRuleNamesByTarget",
-                "logs:GetLogEvents",
-                "s3:GetBucketLocation",
-                "s3:ListAllMyBuckets"
-            ],
-            "Effect": "Allow",
-            "Resource": "*"
-        },
-        {
-            "Effect": "Allow",
-            "Action": [
-                "ssm:PutParameter"
-            ],
-            "Resource": "arn:aws:ssm:*:*:parameter/CodeBuild/*"
-        },
-        {
-            "Sid": "CodeStarNotificationsReadWriteAccess",
-            "Effect": "Allow",
-            "Action": [
-                "codestar-notifications:CreateNotificationRule",
-                "codestar-notifications:DescribeNotificationRule",
-                "codestar-notifications:UpdateNotificationRule",
-                "codestar-notifications:Subscribe",
-                "codestar-notifications:Unsubscribe"
-            ],
-            "Resource": "*",
-            "Condition": {
-                "StringLike": {
-                    "codestar-notifications:NotificationsForResource": "arn:aws:codebuild:*"
-                }
-            }
-        },
-        {
-            "Sid": "CodeStarNotificationsListAccess",
-            "Effect": "Allow",
-            "Action": [
-                "codestar-notifications:ListNotificationRules",
-                "codestar-notifications:ListEventTypes",
-                "codestar-notifications:ListTargets",
-                "codestar-notifications:ListTagsforResource"
-            ],
-            "Resource": "*"
-        },
-        {
-            "Sid": "SNSTopicListAccess",
-            "Effect": "Allow",
-            "Action": [
-                "sns:ListTopics",
-                "sns:GetTopicAttributes"
-            ],
-            "Resource": "*"
+  "Statement": [
+    {
+      "Action": [
+        "codebuild:StartBuild",
+        "codebuild:StopBuild",
+        "codebuild:StartBuildBatch",
+        "codebuild:StopBuildBatch",
+        "codebuild:RetryBuild",
+        "codebuild:RetryBuildBatch",
+        "codebuild:BatchGet*",
+        "codebuild:GetResourcePolicy",
+        "codebuild:DescribeTestCases",
+        "codebuild:DescribeCodeCoverages",
+        "codebuild:List*",
+        "codecommit:GetBranch",
+        "codecommit:GetCommit",
+        "codecommit:GetRepository",
+        "codecommit:ListBranches",
+        "cloudwatch:GetMetricStatistics",
+        "events:DescribeRule",
+        "events:ListTargetsByRule",
+        "events:ListRuleNamesByTarget",
+        "logs:GetLogEvents",
+        "s3:GetBucketLocation",
+        "s3:ListAllMyBuckets"
+      ],
+      "Effect": "Allow",
+      "Resource": "*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "ssm:PutParameter"
+      ],
+      "Resource": "arn:aws:ssm:*:*:parameter/CodeBuild/*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "ssm:StartSession"
+      ],
+      "Resource": "arn:aws:ecs:*:*:task/*/*"
+    },
+    {
+      "Sid": "CodeStarConnectionsUserAccess",
+      "Effect": "Allow",
+      "Action": [
+        "codestar-connections:ListConnections",
+        "codestar-connections:GetConnection"
+      ],
+      "Resource": "arn:aws:codestar-connections:*:*:connection/*"
+    },
+    {
+      "Sid": "CodeStarNotificationsReadWriteAccess",
+      "Effect": "Allow",
+      "Action": [
+        "codestar-notifications:CreateNotificationRule",
+        "codestar-notifications:DescribeNotificationRule",
+        "codestar-notifications:UpdateNotificationRule",
+        "codestar-notifications:Subscribe",
+        "codestar-notifications:Unsubscribe"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "StringLike": {
+          "codestar-notifications:NotificationsForResource": "arn:aws:codebuild:*"
         }
-    ],
-    "Version": "2012-10-17"
+      }
+    },
+    {
+      "Sid": "CodeStarNotificationsListAccess",
+      "Effect": "Allow",
+      "Action": [
+        "codestar-notifications:ListNotificationRules",
+        "codestar-notifications:ListEventTypes",
+        "codestar-notifications:ListTargets",
+        "codestar-notifications:ListTagsforResource"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "SNSTopicListAccess",
+      "Effect": "Allow",
+      "Action": [
+        "sns:ListTopics",
+        "sns:GetTopicAttributes"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "CodeStarNotificationsChatbotAccess",
+      "Effect": "Allow",
+      "Action": [
+        "chatbot:DescribeSlackChannelConfigurations"
+      ],
+      "Resource": "*"
+    }
+  ],
+  "Version": "2012-10-17"
 }
 ```
 
@@ -273,49 +339,60 @@ The `AWSCodeBuildReadOnlyAccess` policy contains the following policy statement:
 
 ```
 {
-    "Statement": [
-        {
-            "Action": [
-                "codebuild:BatchGet*",
-                "codebuild:GetResourcePolicy",
-                "codebuild:List*",
-                "codebuild:DescribeTestCases",
-                "codecommit:GetBranch",
-                "codecommit:GetCommit",
-                "codecommit:GetRepository",
-                "cloudwatch:GetMetricStatistics",
-                "events:DescribeRule",
-                "events:ListTargetsByRule",
-                "events:ListRuleNamesByTarget",
-                "logs:GetLogEvents"
-            ],
-            "Effect": "Allow",
-            "Resource": "*"
-        },
-        {
-            "Sid": "CodeStarNotificationsPowerUserAccess",
-            "Effect": "Allow",
-            "Action": [
-                "codestar-notifications:DescribeNotificationRule"
-            ],
-            "Resource": "*",
-            "Condition": {
-                "StringLike": {
-                    "codestar-notifications:NotificationsForResource": "arn:aws:codebuild:*"
-                }
-            }
-        },
-        {
-            "Sid": "CodeStarNotificationsListAccess",
-            "Effect": "Allow",
-            "Action": [
-                "codestar-notifications:ListNotificationRules",
-                "codestar-notifications:ListEventTypes"
-            ],
-            "Resource": "*"
+  "Statement": [
+    {
+      "Action": [
+        "codebuild:BatchGet*",
+        "codebuild:GetResourcePolicy",
+        "codebuild:List*",
+        "codebuild:DescribeTestCases",
+        "codebuild:DescribeCodeCoverages",
+        "codecommit:GetBranch",
+        "codecommit:GetCommit",
+        "codecommit:GetRepository",
+        "cloudwatch:GetMetricStatistics",
+        "events:DescribeRule",
+        "events:ListTargetsByRule",
+        "events:ListRuleNamesByTarget",
+        "logs:GetLogEvents"
+      ],
+      "Effect": "Allow",
+      "Resource": "*"
+    },
+    {
+      "Sid": "CodeStarConnectionsUserAccess",
+      "Effect": "Allow",
+      "Action": [
+        "codestar-connections:ListConnections",
+        "codestar-connections:GetConnection"
+      ],
+      "Resource": "arn:aws:codestar-connections:*:*:connection/*"
+    },
+    {
+      "Sid": "CodeStarNotificationsPowerUserAccess",
+      "Effect": "Allow",
+      "Action": [
+        "codestar-notifications:DescribeNotificationRule"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "StringLike": {
+          "codestar-notifications:NotificationsForResource": "arn:aws:codebuild:*"
         }
-    ],
-    "Version": "2012-10-17"
+      }
+    },
+    {
+      "Sid": "CodeStarNotificationsListAccess",
+      "Effect": "Allow",
+      "Action": [
+        "codestar-notifications:ListNotificationRules",
+        "codestar-notifications:ListEventTypes",
+        "codestar-notifications:ListTargets"
+      ],
+      "Resource": "*"
+    }
+  ],
+  "Version": "2012-10-17"
 }
 ```
 
