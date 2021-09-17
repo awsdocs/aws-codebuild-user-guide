@@ -5,6 +5,7 @@ AWS CodeBuild provides build environments with the following available memory, 
 
 | Compute type | Environment computeType value | Environment type value | Memory | vCPUs | Disk space | 
 | --- | --- | --- | --- | --- | --- | 
+| ARM Small | BUILD\_GENERAL1\_SMALL | ARM\_CONTAINER | 4 GB | 2 | 50 GB | 
 | ARM Large | BUILD\_GENERAL1\_LARGE | ARM\_CONTAINER | 16 GB | 8 | 50 GB | 
 | Linux Small | BUILD\_GENERAL1\_SMALL | LINUX\_CONTAINER | 3 GB | 2 | 64 GB | 
 | Linux Medium | BUILD\_GENERAL1\_MEDIUM | LINUX\_CONTAINER | 7 GB | 4 | 128 GB | 
