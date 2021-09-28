@@ -64,13 +64,20 @@ For information about AWS root accounts and administrator IAM users, see [The Ac
      "Version": "2012-10-17",
      "Statement": [
        {
-         "Sid": "CodeBuildDefaultPolicy",
+         "Sid": "CodeBuildAccessPolicy",
          "Effect": "Allow",
          "Action": [
-           "codebuild:*",
+           "codebuild:*"
+         ],
+         "Resource": "*"
+       },
+       {
+         "Sid": "CodeBuildRolePolicy",
+         "Effect": "Allow",
+         "Action": [
            "iam:PassRole"
          ],
-         "Resource": "*"      
+         "Resource": "arn:aws:iam::account-ID:role/role-name"
        },
        {
          "Sid": "CloudWatchLogsAccessPolicy",
@@ -105,7 +112,8 @@ For information about AWS root accounts and administrator IAM users, see [The Ac
    }
    ```
 **Note**  
-This policy allows access to all CodeBuild actions and to a potentially large number of AWS resources\. To restrict permissions to specific CodeBuild actions, change the value of `codebuild:*` in the CodeBuild policy statement\. For more information, see [Identity and access management](auth-and-access-control.md)\. To restrict access to specific AWS resources, change the value of the `Resource` object\. For more information, see [Identity and access management](auth-and-access-control.md)\.
+This policy allows access to all CodeBuild actions and to a potentially large number of AWS resources\. To restrict permissions to specific CodeBuild actions, change the value of `codebuild:*` in the CodeBuild policy statement\. For more information, see [Identity and access management](auth-and-access-control.md)\. To restrict access to specific AWS resources, change the value of the `Resource` object\. For more information, see [Identity and access management](auth-and-access-control.md)\.  
+The `CodeBuildRolePolicy` statement is required to allow a build project to be created or modified\.
 
 1. In the navigation pane, choose **Groups** or **Users**\.
 
@@ -117,7 +125,7 @@ This policy allows access to all CodeBuild actions and to a potentially large nu
 
 1. For a group, on the **Attach Policy** page, select **CodeBuildAccessPolicy**, and then choose **Attach Policy**\.
 
-   For a user, on the **Add permisions** page, choose **Attach existing policies directly**\. Select **CodeBuildAccessPolicy**, choose **Next: Reivew**, and then choose **Add permissions**\.<a name="setting-up-service-permissions-group-cli"></a>
+   For a user, on the **Add permissions** page, choose **Attach existing policies directly**\. Select **CodeBuildAccessPolicy**, choose **Next: Review**, and then choose **Add permissions**\.<a name="setting-up-service-permissions-group-cli"></a>
 
 **To add CodeBuild access permissions to an IAM group or IAM user \(AWS CLI\)**
 
@@ -159,10 +167,17 @@ This policy allows access to all CodeBuild actions and to a potentially large nu
          "Sid": "CodeBuildAccessPolicy",
          "Effect": "Allow",
          "Action": [
-           "codebuild:*",
-           "iam:PassRole"
+           "codebuild:*"
          ],
          "Resource": "*"
+       },
+       {
+         "Sid": "CodeBuildRolePolicy",
+         "Effect": "Allow",
+         "Action": [
+           "iam:PassRole"
+         ],
+         "Resource": "arn:aws:iam::account-ID:role/role-name"
        },
        {
          "Sid": "CloudWatchLogsAccessPolicy",
@@ -197,7 +212,8 @@ This policy allows access to all CodeBuild actions and to a potentially large nu
    }
    ```
 **Note**  
-This policy allows access to all CodeBuild actions and to a potentially large number of AWS resources\. To restrict permissions to specific CodeBuild actions, change the value of `codebuild:*` in the CodeBuild policy statement\. For more information, see [Identity and access management](auth-and-access-control.md)\. To restrict access to specific AWS resources, change the value of the related `Resource` object\. For more information, see [Identity and access management](auth-and-access-control.md) or the specific AWS service's security documentation\.
+This policy allows access to all CodeBuild actions and to a potentially large number of AWS resources\. To restrict permissions to specific CodeBuild actions, change the value of `codebuild:*` in the CodeBuild policy statement\. For more information, see [Identity and access management](auth-and-access-control.md)\. To restrict access to specific AWS resources, change the value of the related `Resource` object\. For more information, see [Identity and access management](auth-and-access-control.md) or the specific AWS service's security documentation\.  
+The `CodeBuildRolePolicy` statement is required to allow a build project to be created or modified\.
 
 1. Switch to the directory where you saved the file, and then run one of the following commands\. You can use different values for `CodeBuildGroupAccessPolicy` and `CodeBuildUserAccessPolicy`\. If you use different values, be sure to use them here\.
 

@@ -49,7 +49,7 @@ CreateProject
 Required to create build projects\.  
  **Resources:**   
 +  `arn:aws:codebuild:region-ID:account-ID:project/project-name ` 
-+  `arn:aws:iam:account-ID:role/role-name ` 
++  `arn:aws:iam::account-ID:role/role-name ` 
 
 CreateReport ¹  
  **Action:** `codebuild:CreateReport`   
@@ -171,14 +171,14 @@ UpdateProject
 Required to change information about builds\.  
  **Resources:**   
 +  `arn:aws:codebuild:region-ID:account-ID:project/project-name ` 
-+  `arn:aws:iam:account-ID:role/role-name ` 
++  `arn:aws:iam::account-ID:role/role-name ` 
 
 UpdateProjectVisibility  <a name="UpdateProjectVisibility"></a>
  **Actions:** `codebuild:UpdateProjectVisibility`, `iam:PassRole`   
 Required to change the public visibility of a project's builds\.  
  **Resources:**   
 +  `arn:aws:codebuild:region-ID:account-ID:project/project-name ` 
-+  `arn:aws:iam:account-ID:role/role-name ` 
++  `arn:aws:iam::account-ID:role/role-name ` 
 
 UpdateReport ¹  
  **Action:** `codebuild:UpdateReport`   

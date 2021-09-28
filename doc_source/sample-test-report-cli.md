@@ -147,7 +147,7 @@ Instead of the ARN of an existing report group, you can also specify a name for 
        "image": "aws/codebuild/standard:4.0",
        "computeType": "small"
      },
-     "serviceRole": "arn:aws:iam:<your-aws-account-id>:role/service-role/<your-role-name>"
+     "serviceRole": "arn:aws:iam::<your-aws-account-id>:role/service-role/<your-role-name>"
    }
    ```
 

@@ -16,7 +16,6 @@ Use the information in this topic to help you identify, diagnose, and address is
 + [Error: "BUILD\_CONTAINER\_UNABLE\_TO\_PULL\_IMAGE" when using a custom build image](#troubleshooting-unable-to-pull-image)
 + [Error: "Build container found dead before completing the build\. build container died because it was out of memory, or the Docker image is not supported\. ErrorCode: 500"](#windows-server-core-version)
 + [Error: "Cannot connect to the Docker daemon" when running a build](#troubleshooting-cannot-connect-to-docker-daemon)
-+ [Error: "CodeBuild is experiencing an issue" when running a build](#troubleshooting-large-env-vars)
 + [Error: "CodeBuild is not authorized to perform: sts:AssumeRole" when creating or updating a build project](#troubleshooting-assume-role)
 + [Error: "Error calling GetBucketAcl: Either the bucket owner has changed or the service role no longer has permission to called s3:GetBucketAcl"](#troubleshooting-calling-bucket-error)
 + [Error: "Failed to upload artifacts: Invalid arn" when running a build](#troubleshooting-output-bucket-different-region)
@@ -271,14 +270,6 @@ By default, Docker containers do not allow access to any devices\. Privileged mo
 1.  Choose **Update environment**\. 
 
 1.  Choose **Start build** to retry your build\. 
-
-## Error: "CodeBuild is experiencing an issue" when running a build<a name="troubleshooting-large-env-vars"></a>
-
-**Issue:** When you try to run a build project, you receive this error during the build's `PROVISIONING` phase\.
-
-**Possible cause:** Your build is using environment variables that are too large for AWS CodeBuild\. CodeBuild can raise errors when the length of all environment variables \(all names and values added together\) reach a combined maximum of around 5,500 characters\.
-
-**Recommended solution:** Use Amazon EC2 Systems Manager Parameter Store to store large environment variables and then retrieve them from your buildspec file\. Amazon EC2 Systems Manager Parameter Store can store an individual environment variable \(name and value added together\) that is a combined 4,096 characters or less\. To store large environment variables, see [Systems Manager Parameter Store](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-paramstore.html) and [Systems Manager Parameter Store Console Walkthrough](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-walk.html#sysman-paramstore-console) in the *Amazon EC2 Systems Manager User Guide*\. To retrieve them, see the `parameter-store` mapping in [Buildspec syntax](build-spec-ref.md#build-spec-ref-syntax)\.
 
 ## Error: "CodeBuild is not authorized to perform: sts:AssumeRole" when creating or updating a build project<a name="troubleshooting-assume-role"></a>
 

@@ -632,12 +632,12 @@ The following example policy statement allows a user to create build projects wi
     {
       "Effect": "Allow",
       "Action": "codebuild:CreateProject",
-      "Resource": "arn:aws:codebuild:us-east-2:123456789012:project/*"      
+      "Resource": "arn:aws:codebuild:us-east-2:123456789012:project/*"
     },
     {
       "Effect": "Allow",
       "Action": "iam:PassRole",
-      "Resource": "arn:aws:iam:123456789012:role/CodeBuildServiceRole"
+      "Resource": "arn:aws:iam::123456789012:role/CodeBuildServiceRole"
     }
   ]
 }
@@ -744,7 +744,7 @@ The following example policy statement allows a user to change information about
     {
       "Effect": "Allow",
       "Action": "iam:PassRole",
-      "Resource": "arn:aws:iam:123456789012:role/CodeBuildServiceRole"
+      "Resource": "arn:aws:iam::123456789012:role/CodeBuildServiceRole"
     }
   ]
 }
@@ -991,10 +991,12 @@ The following example policy statement grants AWS CodeBuild permission to create
         "StringEquals": {
           "ec2:AuthorizedService": "codebuild.amazonaws.com"
         },
-        "ArnEquals": [
-          "arn:aws:ec2:region:account-id:subnet/subnet-id-1",
-          "arn:aws:ec2:region:account-id:subnet/subnet-id-2"
-        ]
+        "ArnEquals": {
+          "ec2:Subnet": [
+            "arn:aws:ec2:region:account-id:subnet/subnet-id-1",
+            "arn:aws:ec2:region:account-id:subnet/subnet-id-2"
+          ]
+        }
       }
     }
   ]
