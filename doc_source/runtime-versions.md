@@ -1,6 +1,6 @@
 # Runtime versions<a name="runtime-versions"></a>
 
-When you specify a runtime in the `runtime-versions` section of your buildspec file, you can specify a specific version, a specific major version and the latest minor version, or the latest version\. The following table lists the available runtimes and how to specify them\. 
+When you specify a runtime in the [`runtime-versions`](build-spec-ref.md#build-spec.phases.install.runtime-versions) section of your buildspec file, you can specify a specific version, a specific major version and the latest minor version, or the latest version\. The following table lists the available runtimes and how to specify them\. 
 
 
 **Ubuntu and Amazon Linux 2 platform runtime versions**  
