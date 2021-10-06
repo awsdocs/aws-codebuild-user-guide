@@ -252,6 +252,14 @@ Enter the maximum amount of time for the batch build to complete\.
 **Combine artifacts**  
 Select **Combine all artifacts from batch into a single location** to have all of the artifacts from the batch combined into a single location\.
 
+ **Batch report mode**   
+Select the desired build status report mode for batch builds\.  
+This field is only available when the project source is Bitbucket, GitHub, or GitHub Enterprise, and **Report build statuses to source provider when your builds start and finish** is selected under **Source**\.   
+ **Aggregated builds**   
+Select to have the statuses for all builds in the batch combined into a single status report\.  
+ **Individual builds**   
+Select to have the build statuses for all builds in the batch reported separately\.
+
 ## Artifacts<a name="create-project-console-artifacts"></a>
 
 **Type**  

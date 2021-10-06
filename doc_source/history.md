@@ -2,10 +2,11 @@
 
 The following table describes the important changes to the documentation since the last release of AWS CodeBuild\. For notification about updates to this documentation, you can subscribe to an RSS feed\.
 +  **Latest API version:** 2016\-10\-06 
-+  **Latest documentation update:** September 13, 2021 
++  **Latest documentation update:** October 4th, 2021 
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Batch report mode](batch-build.md#batch-report-mode) | CodeBuild now allows you to select how batch build statuses are sent to the source provider for a project\. For more information, see [Batch report mode](https://docs.aws.amazon.com/codebuild/latest/userguide/batch-build.html#batch-report-mode)\. | October 4, 2021 | 
 | [New compute type](build-env-ref-compute-types.md) | CodeBuild now supports a small ARM compute type\. For more information, see [Build environment compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html)\. | September 13, 2021 | 
 | [Public build projects](public-builds.md) | CodeBuild now allows you to make the build results for your build projects available to the public without requiring access to an AWS account\. For more information, see [Public build projects](https://docs.aws.amazon.com/codebuild/latest/userguide/public-builds.html)\.  | August 11, 2021 | 
 | [Session debugging for batch builds](#history) | CodeBuild now supports session debugging for batch builds\. For more information, see [build\-graph](https://docs.aws.amazon.com/codebuild/latest/userguide/batch-build-buildspec.html#build-spec.batch.build-graph) and [build\-list](https://docs.aws.amazon.com/codebuild/latest/userguide/batch-build-buildspec.html#build-spec.batch.build-list)\.  | March 3, 2021 | 

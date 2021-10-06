@@ -2,7 +2,7 @@
 
 \(Previous step: [Step 9: Get the build output artifact](getting-started-cli-output.md)\)
 
-To prevent ongoing charges to your AWS account, you can delete the input and output buckets used in this tutorial\. For instructions, see [Deleting or Emptying a Bucket](https://docs.aws.amazon.com/AmazonS3/latest/dev/delete-or-empty-bucket.html) in the *Amazon Simple Storage Service Developer Guide*\.
+To prevent ongoing charges to your AWS account, you can delete the input and output buckets used in this tutorial\. For instructions, see [Deleting or Emptying a Bucket](https://docs.aws.amazon.com/AmazonS3/latest/dev/delete-or-empty-bucket.html) in the *Amazon Simple Storage Service User Guide*\.
 
 If you are using the IAM user or an administrator IAM user to delete these buckets, the user must have more access permissions\. Add the following statement between the markers \(*\#\#\# BEGIN ADDING STATEMENT HERE \#\#\#* and *\#\#\# END ADDING STATEMENTS HERE \#\#\#*\) to an existing access policy for the user\. 
 
