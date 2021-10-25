@@ -16,39 +16,47 @@ You only need to set up the build image the first time you run the agent, or whe
 
 **To set up the build image**
 
-1. Clone the CodeBuild image repo:
+1. If you want to use a curated Amazon Linux 2 image, you can pull it from the CodeBuild public Amazon ECR repository at [https://gallery\.ecr\.aws/codebuild/amazonlinux2\-x86\_64\-standard](https://gallery.ecr.aws/codebuild/amazonlinux2-x86_64-standard) with the following command:
 
    ```
-   $ git clone https://github.com/aws/aws-codebuild-docker-images.git
+   $ docker pull public.ecr.aws/codebuild/amazonlinux2-x86_64-standard:3.0
    ```
 
-1. Change to the image directory\. For this example, use the `aws/codebuild/standard:5.0` image:
+   Alternatively, if you want to use another Linux image, perform the following steps:
 
-   ```
-   $ cd aws-codebuild-docker-images/ubuntu/standard/5.0
-   ```
+   1. Clone the CodeBuild image repo:
 
-1. Build the image\. This will take several minutes\.
+      ```
+      $ git clone https://github.com/aws/aws-codebuild-docker-images.git
+      ```
 
-   ```
-   $ docker build -t aws/codebuild/standard:5.0 .
-   ```
+   1. Change to the image directory\. For this example, use the `aws/codebuild/standard:5.0` image:
+
+      ```
+      $ cd aws-codebuild-docker-images/ubuntu/standard/5.0
+      ```
+
+   1. Build the image\. This will take several minutes\. 
+
+      ```
+      $ docker build -t aws/codebuild/standard:5.0 .
+      ```
 
 1. Download the agent\.
 
    To download the x86\_64 version of the agent, run the following command:
 
    ```
-   $ docker pull amazon/aws-codebuild-local:latest --disable-content-trust=false
+   $ docker pull public.ecr.aws/codebuild/local-builds:latest
    ```
 
    To download the ARM version of the agent, run the following command:
 
    ```
-   $ docker pull amazon/aws-codebuild-local:aarch64 --disable-content-trust=false
+   $ docker pull public.ecr.aws/codebuild/local-builds:aarch64
    ```
 
-1. <a name="codebuild-agent-sha"></a>The CodeBuild agent is available from [https://hub\.docker\.com/r/amazon/aws\-codebuild\-local/](https://hub.docker.com/r/amazon/aws-codebuild-local/)\. 
+1. <a name="codebuild-agent-sha"></a>The CodeBuild agent is available from [https://gallery\.ecr\.aws/codebuild/local\-builds](https://gallery.ecr.aws/codebuild/local-builds)\. 
 
    The Secure Hash Algorithm \(SHA\) signature for the x86\_64 version of the agent is:
 
@@ -65,7 +73,7 @@ You only need to set up the build image the first time you run the agent, or whe
    You can use the SHA to identify the version of the agent\. To see the agent's SHA signature, run the following command: 
 
    ```
-   $ docker inspect amazon/aws-codebuild-local
+   $ docker inspect public.ecr.aws/codebuild/local-builds:latest
    ```
 
 ## Run the CodeBuild agent<a name="use-codebuild-agent.run-agent"></a>
@@ -86,14 +94,16 @@ You only need to set up the build image the first time you run the agent, or whe
    To run an x86\_64 build, run the following command:
 
    ```
-   $ ./codebuild_build.sh -i aws/codebuild/standard:5.0 -a <output directory>
+   $ ./codebuild_build.sh -i <container-image> -a <output directory>
    ```
 
    To run an ARM build, run the following command:
 
    ```
-   $ ./codebuild_build.sh -i aws/codebuild/standard:5.0 -a <output directory> -l amazon/aws-codebuild-local:aarch64
+   $ ./codebuild_build.sh -i <container-image> -a <output directory> -l public.ecr.aws/codebuild/local-builds:aarch64
    ```
+
+   Replace *<container\-image>* with the name of the container image, such as `aws/codebuild/standard:5.0` or `public.ecr.aws/codebuild/amazonlinux2-x86_64-standard:3.0`\.
 
    The script launches the build image and runs the build on the project in the current directory\. To specify the location of the build project, add the `-s <build project directory>` option to the script command\.
 
