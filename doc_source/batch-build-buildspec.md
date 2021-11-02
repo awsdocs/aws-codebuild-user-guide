@@ -53,7 +53,7 @@ A Boolean value that indicates whether to run the Docker daemon inside a Docker 
 **type**  
 The identifier of the environment type to use for the task\. See **Environment type** in [Build environment compute types](build-env-ref-compute-types.md) for possible values\.  
 **variables**  
-The environment variables that will be present in the build environment\. See [env/variables](build-spec-ref.md#build-spec.env.variables) for more information, \.
+The environment variables that will be present in the build environment\. See [env/variables](build-spec-ref.md#build-spec.env.variables) for more information\.
 
 **ignore\-failure**  
 Optional\. A Boolean value that indicates if a failure of this build task can be ignored\.    
@@ -118,7 +118,7 @@ A Boolean value that indicates whether to run the Docker daemon inside a Docker 
 **type**  
 The identifier of the environment type to use for the task\. See **Environment type** in [Build environment compute types](build-env-ref-compute-types.md) for possible values\.  
 **variables**  
-The environment variables that will be present in the build environment\. See [env/variables](build-spec-ref.md#build-spec.env.variables) for more information, \.
+The environment variables that will be present in the build environment\. See [env/variables](build-spec-ref.md#build-spec.env.variables) for more information\.
 
 **ignore\-failure**  
 Optional\. A Boolean value that indicates if a failure of this build task can be ignored\.    
@@ -167,13 +167,7 @@ The identifier of the image to use for the task\. See **Image identifier** in [D
 **privileged\-mode**  
 A Boolean value that indicates whether to run the Docker daemon inside a Docker container\. Set to `true` only if the build project is used to build Docker images\. Otherwise, a build that attempts to interact with the Docker daemon fails\. The default setting is `false`\.  
 **type**  
-The identifier of the environment type to use for the task\. See **Environment type** in [Build environment compute types](build-env-ref-compute-types.md) for possible values\.  
-**variables**  
-The environment variables that will be present in the build environment\. See [env/variables](build-spec-ref.md#build-spec.env.variables) for more information, \.  
-**privileged\-mode**  
-A Boolean value that indicates whether to run the Docker daemon inside a Docker container\. Set to `true` only if the build project is used to build Docker images\. Otherwise, a build that attempts to interact with the Docker daemon fails\. The default setting is `false`\.  
-**type**  
-The identifier of the environment type to use for these tasks\. See **Environment Type** in [Build environment compute types](build-env-ref-compute-types.md) for possible values\.
+The identifier of the environment type to use for the task\. See **Environment type** in [Build environment compute types](build-env-ref-compute-types.md) for possible values\.
 
 **dynamic**  
 The dynamic properties define the build matrix\.    
