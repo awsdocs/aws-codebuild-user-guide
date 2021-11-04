@@ -160,10 +160,6 @@ The default value\. If this build task fails, the batch build will fail\.
 If this build task fails, the batch build can still succeed\.   
 **env**  
 Optional\. The build environment overrides for all tasks\.     
-**compute\-type**  
-The identifier of the compute type to use for the task\. See **computeType** in [Build environment compute types](build-env-ref-compute-types.md) for possible values\.  
-**image**  
-The identifier of the image to use for the task\. See **Image identifier** in [Docker images provided by CodeBuild](build-env-ref-available.md) for possible values\.  
 **privileged\-mode**  
 A Boolean value that indicates whether to run the Docker daemon inside a Docker container\. Set to `true` only if the build project is used to build Docker images\. Otherwise, a build that attempts to interact with the Docker daemon fails\. The default setting is `false`\.  
 **type**  
@@ -189,10 +185,6 @@ batch:
   build-matrix:
     static:
       ignore-failure: false
-      env:
-        type: LINUX_CONTAINER
-        image: aws/codebuild/amazonlinux2-x86_64-standard:3.0
-        privileged-mode: true
     dynamic:
       buildspec: 
         - matrix1.yml

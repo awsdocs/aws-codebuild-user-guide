@@ -96,10 +96,6 @@ batch:
   build-matrix:
     static:
       ignore-failure: false
-      env:
-        type: LINUX_CONTAINER
-        image: aws/codebuild/amazonlinux2-x86_64-standard:3.0
-        privileged-mode: true
     dynamic:
       buildspec: 
         - matrix1.yml
