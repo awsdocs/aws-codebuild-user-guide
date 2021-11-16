@@ -73,12 +73,10 @@ https://codebuild.us-east-1.amazon.com/badges?uuid=...&tag=<tag>
 
 ## Publish your CodeBuild build badges<a name="publish-badges"></a>
 
-You can include your build badge request URL in a markdown file in your preferred repository \(for example, GitHub or CodeCommit\) to display the status of the latest build\.
-
-Sample markdown code:
+You can display the status of the latest build in a markdown file using your build badge URL in a markdown image\. This is useful to display the status of the most recent build in the readme\.md file in your source repository \(for example, GitHub or CodeCommit\)\. For example:
 
 ```
-![Build Status](https://codebuild.us-east-1.amazon.com/badges?uuid=...&branch=main)
+![](<build badge URL>)
 ```
 
 ## CodeBuild badge statuses<a name="badge-statuses"></a>
