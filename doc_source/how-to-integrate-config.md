@@ -31,12 +31,7 @@ After you complete setup, it might take up to 10 minutes before you can see AWS 
 
 1. Sign in to the AWS Management Console and open the AWS Config console at [https://console\.aws\.amazon\.com/config](https://console.aws.amazon.com/config)\. 
 
-1. On the **Resource inventory** page, choose **Resources**\. Scroll down and select the **CodeBuild project** check box\.
-
-     
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/config-select-project.png)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)
-
-   
+1. On the **Resource inventory** page, select **AWS CodeBuild Project** under **Resource type**\. Scroll down and select the **CodeBuild project** check box\.
 
 1. Choose **Look up**\.
 
@@ -49,7 +44,3 @@ When you look up resources on the **Resource inventory** page, you can choose th
 The blocks at the top of the page are collectively called the timeline\. The timeline shows the date and time that the recording was made\.
 
 For more information, see [Viewing configuration details in the AWS Config console](https://docs.aws.amazon.com/config/latest/developerguide/view-manage-resource-console.html) in the *AWS Config Developer Guide*\.
-
-Example of a CodeBuild project in AWS Config:
-
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/config-resources.png)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)
