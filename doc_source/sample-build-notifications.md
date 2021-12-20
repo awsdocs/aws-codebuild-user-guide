@@ -52,7 +52,7 @@ For more information, see [Editing customer managed policies](https://docs.aws.a
    1. On the **Topic details: CodeBuildDemoTopic** page, copy the **Topic ARN** value\. You need this value for the next step\. 
 
         
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/topic-arn.png)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)
+![\[\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/topic-arn.png)
 
       
 
@@ -71,7 +71,7 @@ For more information, see [Editing customer managed policies](https://docs.aws.a
    1. For **Endpoint**, enter the recipient's full email address\. 
 
         
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/create-subscription.png)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)
+![\[\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/create-subscription.png)
 
       
 

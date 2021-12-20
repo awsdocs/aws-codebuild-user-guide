@@ -51,7 +51,7 @@ Builds in AWS CodeBuild proceed in phases:
 
 
 
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/build-phases.png)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)
+![\[\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/build-phases.png)
 
 
 

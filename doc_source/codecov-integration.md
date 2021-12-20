@@ -13,7 +13,7 @@ Codecov is a tool that measures the test coverage of your code\. Codecov identif
 1.  In Codecov, add the repository for which you want coverage\. 
 
 1.  When token information is displayed, choose **Copy**\.   
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/codecov-token.png)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)
+![\[\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/codecov-token.png)
 
 1.  Add the copied token as an environment variable named `CODECOV_TOKEN` to your build project\. For more information, see [Change a build project's settings \(console\)](change-project-console.md)\. 
 
@@ -105,4 +105,4 @@ Codecov is a tool that measures the test coverage of your code\. Codecov identif
    ```
 
     The reports look like the following:   
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/codecov-report.png)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)
+![\[\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/codecov-report.png)

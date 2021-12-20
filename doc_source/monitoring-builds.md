@@ -93,8 +93,6 @@ Valid CloudWatch statistics: Average \(recommended\), Maximum, Minimum
 
 ## CodeBuild CloudWatch resource utilization metrics<a name="cloudwatch-utilization-metrics"></a>
 
-The following resource utilization metrics can be tracked\.
-
 **Note**  
 CodeBuild resource utilization metrics are only available in the following regions:  
 Asia Pacific \(Tokyo\) Region
@@ -112,6 +110,8 @@ US East \(N\. Virginia\) Region
 US East \(Ohio\) Region
 US West \(N\. California\) Region
 US West \(Oregon\) Region
+
+The following resource utilization metrics can be tracked\.
 
 CPUUtilized  
 The number of CPU units of allocated processing used by the build container\.  

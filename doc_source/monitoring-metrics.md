@@ -46,7 +46,7 @@ You can customize the metrics and the graphs used to display them with the Cloud
 1.  In the navigation pane, choose **Metrics**\. 
 
 1.  On the **All metrics** tab, choose **CodeBuild**\.   
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/codebuild-metrics-in-cw.png)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)
+![\[\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/codebuild-metrics-in-cw.png)
 
 1.  Choose **Account Metrics**\. 
 
@@ -61,7 +61,7 @@ You can customize the metrics and the graphs used to display them with the Cloud
 1.  In the navigation pane, choose **Metrics**\. 
 
 1.  On the **All metrics** tab, choose **CodeBuild**\.   
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/codebuild-metrics-in-cw.png)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)
+![\[\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/codebuild-metrics-in-cw.png)
 
 1.  Choose **By Project**\. 
 

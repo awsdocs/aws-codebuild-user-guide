@@ -2,7 +2,10 @@
 
 AWS CodeBuild monitors build resource utilization on your behalf and reports metrics through Amazon CloudWatch\. These include metrics such as CPU, memory, and storage utilization\.
 
-You can use the CodeBuild console or the CloudWatch console to monitor resource utilization metrics for CodeBuild\. The following procedures show you how to access your resource utilization metrics\.
+**Note**  
+CodeBuild resource utilization metrics are only recorded for builds that run for more than one minute\.
+
+You can use the CodeBuild console or the CloudWatch console to monitor resource utilization metrics for CodeBuild\. 
 
 **Note**  
 CodeBuild resource utilization metrics are only available in the following regions:  
@@ -21,6 +24,8 @@ US East \(N\. Virginia\) Region
 US East \(Ohio\) Region
 US West \(N\. California\) Region
 US West \(Oregon\) Region
+
+The following procedures show you how to access your resource utilization metrics\.
 
 **Topics**
 + [Access resource utilization metrics \(CodeBuild console\)](#utilization-metrics-codebuild-console)
@@ -72,7 +77,7 @@ The Amazon CloudWatch console can be used to access CodeBuild resource utilizati
 1. In the navigation pane, choose **Metrics**\.
 
 1. On the **All metrics** tab, choose **CodeBuild**\.  
-![\[Console screenshot showing the CodeBuild option located on the All metrics tab.\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/codebuild-metrics-in-cw.png)![\[Console screenshot showing the CodeBuild option located on the All metrics tab.\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)![\[Console screenshot showing the CodeBuild option located on the All metrics tab.\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)
+![\[Console screenshot showing the CodeBuild option located on the All metrics tab.\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/codebuild-metrics-in-cw.png)
 
 1. Choose **By Project**\.
 
@@ -91,7 +96,7 @@ The Amazon CloudWatch console can be used to access CodeBuild resource utilizati
 1. In the navigation pane, choose **Metrics**\.
 
 1. On the **All metrics** tab, choose **CodeBuild**\.  
-![\[Console screenshot showing the CodeBuild option located on the All metrics tab.\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/codebuild-metrics-in-cw.png)![\[Console screenshot showing the CodeBuild option located on the All metrics tab.\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)![\[Console screenshot showing the CodeBuild option located on the All metrics tab.\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)
+![\[Console screenshot showing the CodeBuild option located on the All metrics tab.\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/codebuild-metrics-in-cw.png)
 
 1. Choose **BuildId, BuildNumber, ProjectName**\.
 
