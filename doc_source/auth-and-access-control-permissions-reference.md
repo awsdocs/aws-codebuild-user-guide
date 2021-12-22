@@ -111,8 +111,8 @@ ListBuildBatches
 Required to get a list of build batch IDs\.  
  **Resource:** `*` 
 
-ListBuildBatchesForProjects  
- **Action:** `codebuild:ListBuildBatchesForProjects`   
+ListBuildBatchesForProject  
+ **Action:** `codebuild:ListBuildBatchesForProject`   
 Required to get a list of build batch IDs for a specific project\.  
  **Resource:** `arn:aws:codebuild:region-ID:account-ID:project/project-name` 
 
