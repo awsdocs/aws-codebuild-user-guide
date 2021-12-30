@@ -40,7 +40,7 @@ The IAM entity that creates this CodePipeline service role must have permission 
 **Note**  
 The IAM entity that adds this CodePipeline service role policy must have permission in IAM to add service role policies to service roles\.
 
-1. Create and upload the source code to a repository type supported by CodeBuild and CodePipeline, such as CodeCommit, Amazon S3, or GitHub\. \(CodePipeline does not currently support Bitbucket\.\) The source code should contain a buildspec file, but you can declare one when you define a build project later in this topic\. For more information, see the [Buildspec reference](build-spec-ref.md)\.
+1. Create and upload the source code to a repository type supported by CodeBuild and CodePipeline, such as CodeCommit, Amazon S3, or GitHub\. The source code should contain a buildspec file, but you can declare one when you define a build project later in this topic\. For more information, see the [Buildspec reference](build-spec-ref.md)\.
 **Important**  
 If you plan to use the pipeline to deploy built source code, the build output artifact must be compatible with the deployment system you use\.   
 For CodeDeploy, see the [AWS CodeDeploy sample](sample-codedeploy.md) in this guide and [Prepare a revision for CodeDeploy](https://docs.aws.amazon.com/codedeploy/latest/userguide/how-to-prepare-revision.html) in the *AWS CodeDeploy User Guide*\.
