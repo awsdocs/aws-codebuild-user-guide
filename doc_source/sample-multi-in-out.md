@@ -26,12 +26,12 @@ You can create an AWS CodeBuild build project with more than one input source an
      "secondarySources": [
        {
          "type": "CODECOMMIT",
-         "location": "https://git-codecommit.us-west-2.amazonaws.com/v1/repos/repo"
+         "location": "https://git-codecommit.us-west-2.amazonaws.com/v1/repos/repo",
          "sourceIdentifier": "source1"
        },
        {
          "type": "GITHUB",
-         "location": "https://github.com/awslabs/aws-codebuild-jenkins-plugin"
+         "location": "https://github.com/awslabs/aws-codebuild-jenkins-plugin",
          "sourceIdentifier": "source2"
        }
      ],
