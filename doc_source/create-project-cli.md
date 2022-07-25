@@ -421,7 +421,9 @@ Optional\. An array of [Tag](https://docs.aws.amazon.com/codebuild/latest/APIRef
 
 ### vpcConfig<a name="cli.vpcconfig"></a>
 
-Optional\. A [VpcConfig](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_VpcConfig.html) object that contains information information about the VPC configuration for you rproject\. These properties include: 
+Optional\. A [VpcConfig](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_VpcConfig.html) object that contains information information about the VPC configuration for your project\. For more information, see [Use AWS CodeBuild with Amazon Virtual Private Cloud](vpc-support.md)\.
+
+These properties include: 
 
 vpcId  
 Required\. The VPC ID that CodeBuild uses\. Run this command to get a list of all VPC IDs in your Region:  

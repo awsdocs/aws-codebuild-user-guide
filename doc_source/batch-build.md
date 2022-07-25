@@ -140,4 +140,4 @@ For more information, see the following topics:
 + [Batch build buildspec reference](batch-build-buildspec.md)
 + [Batch configuration](create-project-console.md#create-project-console-batch-config)
 + [Run a batch build \(AWS CLI\)](run-batch-build-cli.md)
-+ [Stop a batch build in AWS CodeBuild ](stop-batch-build.md)
++ [Stop a batch build in AWS CodeBuild](stop-batch-build.md)

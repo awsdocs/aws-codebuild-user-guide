@@ -71,6 +71,17 @@ If you are using an S3 input bucket, be sure to create a ZIP file that contains 
 
    1. For **Action**, select the pull\-only actions: **ecr:GetDownloadUrlForLayer**, **ecr:BatchGetImage**, and **ecr:BatchCheckLayerAvailability**\.
 
+   1. For **Conditions**, add the following:
+
+      ```
+      {
+         "StringEquals":{
+            "aws:SourceAccount":"<AWS-account-ID>",
+            "aws:SourceArn":"arn:aws:codebuild:<region>:<AWS-account-ID>:project/<project-name>"
+         }
+      }
+      ```
+
    1. Choose **Save**\.
 
       This policy is displayed in **Permissions**\. The principal is what you entered for **Principal** in step 3 of this procedure:
@@ -78,6 +89,45 @@ If you are using an S3 input bucket, be sure to create a ZIP file that contains 
       + If your project uses a cross\-account Amazon ECR image, the ID of the AWS account that you want to give access appears under **AWS Account IDs**\.
 
         The following sample policy uses both CodeBuild credentials and a cross\-account Amazon ECR image\.
+
+      ```
+      {
+         "Version":"2012-10-17",
+         "Statement":[
+            {
+               "Sid":"CodeBuildAccessPrincipal",
+               "Effect":"Allow",
+               "Principal":{
+                  "Service":"codebuild.amazonaws.com"
+               },
+               "Action":[
+                  "ecr:GetDownloadUrlForLayer",
+                  "ecr:BatchGetImage",
+                  "ecr:BatchCheckLayerAvailability"
+               ],
+               "Condition":{
+                  "StringEquals":{
+                     "aws:SourceArn":"arn:aws:codebuild:<region>:<aws-account-id>:project/<project-name>",
+                     "aws:SourceAccount":"<aws-account-id>"
+                  }
+               }
+            },
+            {
+               "Sid":"CodeBuildAccessCrossAccount",
+               "Effect":"Allow",
+               "Principal":{
+                  "AWS":"arn:aws:iam::<AWS-account-ID>:root"
+               },
+               "Action":[
+                  "ecr:GetDownloadUrlForLayer",
+                  "ecr:BatchGetImage",
+                  "ecr:BatchCheckLayerAvailability"
+               ]
+            }
+         ]
+      }
+      ```
+      + If your projects use CodeBuild credentials and you would like your CodeBuild projects to have open access to the Amazon ECR repository, you can omit the `Condition` keys and add the following sample policy\.
 
       ```
       {

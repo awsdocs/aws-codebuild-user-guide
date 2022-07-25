@@ -10,6 +10,9 @@ The following test report file formats are supported:
 + TestNG XML \(\.xml\)
 + Visual Studio TRX \(\.trx\)
 
+**Note**  
+ The latest supported version of `cucumber-js` is 7\.3\.2\. 
+
 Create your test cases with any test framework that can create report files in one of these formats \(for example, Surefire JUnit plugin, TestNG, or Cucumber\)\.
 
 To create a test report, you add a report group name to the buildspec file of a build project with information about your test cases\. When you run the build project, the test cases are run and a test report is created\. You do not need to create a report group before you run your tests\. If you specify a report group name, CodeBuild creates a report group for you when you run your reports\. If you want to use a report group that already exists, you specify its ARN in the buildspec file\.

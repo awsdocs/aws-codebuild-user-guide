@@ -79,6 +79,9 @@ You can also use the Amazon S3 console to view these hashes\. Select the box nex
 If you use the AWS SDKs to get these hashes, the values are named `codebuild-content-md5` and `codebuild-content-sha256`\. 
   + `endTime` represents the time, in Unix time format, when the build process ended\.
 
+**Note**  
+Amazon S3 metadata has a CodeBuild header named `x-amz-meta-codebuild-buildarn` which contains the `buildArn` of the CodeBuild build that publishes artifacts to Amazon S3\. The `buildArn` is added to allow source tracking for notifications and to reference which build the artifact is generated from\.
+
 ## Next step<a name="getting-started-cli-monitor-build-next"></a>
 
 [Step 8: View detailed build information](getting-started-cli-build-log.md)

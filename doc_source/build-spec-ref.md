@@ -183,7 +183,7 @@ Any environment variables you set replace existing environment variables\. For e
 Do not set any environment variable with a name that starts with `CODEBUILD_`\. This prefix is reserved for internal use\.  
 If an environment variable with the same name is defined in multiple places, the value is determined as follows:  
 + The value in the start build operation call takes highest precedence\. You can add or override environment variables when you create a build\. For more information, see [Run a build in AWS CodeBuild](run-build.md)\. 
-+ The value in the build project definition takes next precedence\. You can add environment variables at the project level when you create or edit a project\. For more information, see [Create a build project in AWS CodeBuild](create-project.md) and [Change a build project's settings in AWS CodeBuild ](change-project.md)\.
++ The value in the build project definition takes next precedence\. You can add environment variables at the project level when you create or edit a project\. For more information, see [Create a build project in AWS CodeBuild](create-project.md) and [Change a build project's settings in AWS CodeBuild](change-project.md)\.
 + The value in the buildspec declaration takes lowest precedence\.
 
 env/**parameter\-store**  <a name="build-spec.env.parameter-store"></a>
@@ -193,7 +193,7 @@ Any environment variables you retrieve from Amazon EC2 Systems Manager Parameter
 Do not store any environment variable with a name that starts with `CODEBUILD_`\. This prefix is reserved for internal use\.  
 If an environment variable with the same name is defined in multiple places, the value is determined as follows:  
 + The value in the start build operation call takes highest precedence\. You can add or override environment variables when you create a build\. For more information, see [Run a build in AWS CodeBuild](run-build.md)\. 
-+ The value in the build project definition takes next precedence\. You can add environment variables at the project level when you create or edit a project\. For more information, see [Create a build project in AWS CodeBuild](create-project.md) and [Change a build project's settings in AWS CodeBuild ](change-project.md)\.
++ The value in the build project definition takes next precedence\. You can add environment variables at the project level when you create or edit a project\. For more information, see [Create a build project in AWS CodeBuild](create-project.md) and [Change a build project's settings in AWS CodeBuild](change-project.md)\.
 + The value in the buildspec declaration takes lowest precedence\.
 
 env/**secrets\-manager**  <a name="build-spec.env.secrets-manager"></a>
@@ -345,6 +345,9 @@ Optional\. Specifies if the report file directories are flattened in the output\
 ### artifacts<a name="build-spec.artifacts"></a>
 
 Optional sequence\. Represents information about where CodeBuild can find the build output and how CodeBuild prepares it for uploading to the S3 output bucket\. This sequence is not required if, for example, you are building and pushing a Docker image to Amazon ECR, or you are running unit tests on your source code, but not building it\.
+
+**Note**  
+Amazon S3 metadata has a CodeBuild header named `x-amz-meta-codebuild-buildarn` which contains the `buildArn` of the CodeBuild build that publishes artifacts to Amazon S3\. The `buildArn` is added to allow source tracking for notifications and to reference which build the artifact is generated from\.
 
 artifacts/**files**  <a name="build-spec.artifacts.files"></a>
 Required sequence\. Represents the locations that contain the build output artifacts in the build environment\. Contains a sequence of scalars, with each scalar representing a separate location where CodeBuild can find build output artifacts, relative to the original build location or, if set, the base directory\. Locations can include the following:  

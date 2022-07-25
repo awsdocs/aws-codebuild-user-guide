@@ -70,7 +70,7 @@ You only need to set up the build image the first time you run the agent, or whe
    sha256:5480b70cf48435e276c21789c61280cfada24e17701ede6386e5d82088bc41ca
    ```
 
-   You can use the SHA to identify the version of the agent\. To see the agent's SHA signature, run the following command: 
+   You can use the SHA to identify the version of the agent\. To see the agent's SHA signature, run the following command and look for the SHA under `RepoDigests`: 
 
    ```
    $ docker inspect public.ecr.aws/codebuild/local-builds:latest

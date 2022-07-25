@@ -7,7 +7,7 @@ AWS CodeBuild supports GitHub Enterprise Server as a source repository\. This sa
 1. Generate a personal access token for your CodeBuild project\. We recommend that you create a GitHub Enterprise user and generate a personal access token for this user\. Copy it to your clipboard so that it can be used when you create your CodeBuild project\. For more information, see [Creating a personal access token for the command line](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/) on the GitHub Help website\.
 
    When you create the personal access token, include the **repo** scope in the definition\.  
-![\[\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/scopes.png)
+![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/scopes.png)
 
 1. Download your certificate from GitHub Enterprise Server\. CodeBuild uses the certificate to make a trusted SSL connection to the repository\.
 
@@ -60,7 +60,7 @@ You only need to enter and save the personal access token once\. All future AWS 
    + Select **Enable insecure SSL** to ignore SSL warnings while you connect to your GitHub Enterprise Server project repository\.
 **Note**  
 We recommend that you use **Enable insecure SSL** for testing only\. It should not be used in a production environment\.  
-![\[\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/github-enterprise.png)
+![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/github-enterprise.png)
 
 1. In **Environment**:
 
@@ -106,7 +106,7 @@ When you use the console to create or update a build project, you can create a C
 Do not append a trailing slash \(/\) to the end of the path prefix\.
    +  If you want to use a local cache, choose **Local**, and then choose one or more local cache modes\. 
 **Note**  
-Docker layer cache mode is available for Linux only\. If you choose it, your project must run in privileged mode\. The `ARM_CONTAINER` and `LINUX_GPU_CONTAINER` environment types and the `BUILD_GENERAL1_2XLARGE` compute type do not support the use of a local cache\.
+Docker layer cache mode is available for Linux only\. If you choose it, your project must run in privileged mode\. 
 
    Using a cache saves considerable build time because reusable pieces of the build environment are stored in the cache and used across builds\. For information about specifying a cache in the buildspec file, see [Buildspec syntax](build-spec-ref.md#build-spec-ref-syntax)\. For more information about caching, see [Build caching in AWS CodeBuild](build-caching.md)\. 
 
@@ -122,6 +122,6 @@ If you need to generate a payload URL and secret key again, you must first delet
 1.  Choose **Settings**, choose **Hooks & services**, and then choose **Add webhook**\.
 
 1. Enter the payload URL and secret key, accept the defaults for the other fields, and then choose **Add webhook**\.  
-![\[\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/ghe-webhook.png)
+![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/ghe-webhook.png)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)
 
 1. Return to your CodeBuild project\. Close the **Create webhook** dialog box and choose **Start build**\.

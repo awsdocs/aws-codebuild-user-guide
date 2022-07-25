@@ -5,6 +5,9 @@ Typically, AWS CodeBuild cannot access resources in a VPC\. To enable access, yo
 **Note**  
  VPC connectivity from CodeBuild is not supported in Windows\. 
 
+**Note**  
+If you configure a VPC, [local caching](build-caching.md#caching-local) is not supported\. Starting 02/28/22, your VPC build will take longer since a new Amazon EC2 instance will be used for each build\.
+
 **Topics**
 + [Use cases](#use-cases)
 + [Allowing Amazon VPC access in your CodeBuild projects](#enabling-vpc-access-in-projects)

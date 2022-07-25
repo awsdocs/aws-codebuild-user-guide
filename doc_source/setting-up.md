@@ -241,8 +241,9 @@ You need an AWS CodeBuild service role so that CodeBuild can interact with depen
 
 If you do not plan to use these consoles, this section describes how to create a CodeBuild service role with the IAM console or the AWS CLI\. 
 
-**Note**  
-The service role described on this page contains a policy that grants the minimum permissions required to use CodeBuild\. You might need to add additional permissions depending on your use case\. For example, if you want to use CodeBuild with Amazon Virtual Private Cloud, then the service role you create requires the permissions in the following policy: [Create a CodeBuild service role](#setting-up-service-role)\.<a name="setting-up-service-role-console"></a>
+**Important**  
+CodeBuild uses the service role for all operations that are performed on your behalf\. If the role includes permissions that the user shouldn't have, you can unintentionally escalate a user's permissions\. Ensure that the role grants [least privilege](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#grant-least-privilege)\.  
+The service role described on this page contains a policy that grants the minimum permissions required to use CodeBuild\. You may need to add additional permissions, depending on your use case\.<a name="setting-up-service-role-console"></a>
 
 **To create a CodeBuild service role \(console\)**
 

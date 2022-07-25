@@ -7,7 +7,7 @@ There are two primary use cases for running CodeBuild in a proxy server:
 +  It lets you specify the URLs that instances in the proxy server can access and the URLs to which the proxy server denies access\.
 
  You can use CodeBuild with two types of proxy servers\. For both, the proxy server runs in a public subnet and CodeBuild runs in a private subnet\. 
-+  **Explicit proxy**: If you use an explicit proxy server, you must configure `NO_PROXY`, `HTTP_PROXY`, and `HTTPS_PROXY` environment variables in CodeBuild at the project level\. For more information, see [Change a build project's settings in AWS CodeBuild ](change-project.md) and [Create a build project in AWS CodeBuild](create-project.md)\. 
++  **Explicit proxy**: If you use an explicit proxy server, you must configure `NO_PROXY`, `HTTP_PROXY`, and `HTTPS_PROXY` environment variables in CodeBuild at the project level\. For more information, see [Change a build project's settings in AWS CodeBuild](change-project.md) and [Create a build project in AWS CodeBuild](create-project.md)\. 
 +  **Transparent proxy**: If you use a transparent proxy server, no special configuration is required\. 
 
 **Topics**
@@ -26,7 +26,7 @@ There are two primary use cases for running CodeBuild in a proxy server:
 
  The following diagram shows how the components interact\. 
 
-![\[\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/codebuild-proxy-transparent.png)
+![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/codebuild-proxy-transparent.png)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)
 
 ### Set up a VPC, subnets, and a network gateway<a name="use-proxy-server-transparent-setup"></a>
 
@@ -169,7 +169,7 @@ For more information, see [Explicit proxy server sample `squid.conf` file](#use-
 
 ### Create a CodeBuild project<a name="use-proxy-server-explicit-create-acb-project"></a>
 
- To run AWS CodeBuild with your explicit proxy server, set its `HTTP_PROXY` and `HTTPS_PROXY` environment variables with the private IP address of the EC2 instance you created for your proxy server and port 3128 at the project level\. The private IP address looks like `http://your-ec2-private-ip-address:3128`\. For more information, see [Create a build project in AWS CodeBuild](create-project.md) and [Change a build project's settings in AWS CodeBuild ](change-project.md)\.
+ To run AWS CodeBuild with your explicit proxy server, set its `HTTP_PROXY` and `HTTPS_PROXY` environment variables with the private IP address of the EC2 instance you created for your proxy server and port 3128 at the project level\. The private IP address looks like `http://your-ec2-private-ip-address:3128`\. For more information, see [Create a build project in AWS CodeBuild](create-project.md) and [Change a build project's settings in AWS CodeBuild](change-project.md)\.
 
  Use the following command to view the Squid proxy access log: 
 

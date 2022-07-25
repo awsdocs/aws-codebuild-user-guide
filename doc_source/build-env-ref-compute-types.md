@@ -7,13 +7,17 @@ AWS CodeBuild provides build environments with the following available memory, 
 | --- | --- | --- | --- | --- | --- | 
 | ARM Small | BUILD\_GENERAL1\_SMALL | ARM\_CONTAINER | 4 GB | 2 | 50 GB | 
 | ARM Large | BUILD\_GENERAL1\_LARGE | ARM\_CONTAINER | 16 GB | 8 | 50 GB | 
-| Linux Small | BUILD\_GENERAL1\_SMALL | LINUX\_CONTAINER | 3 GB | 2 | 64 GB | 
-| Linux Medium | BUILD\_GENERAL1\_MEDIUM | LINUX\_CONTAINER | 7 GB | 4 | 128 GB | 
-| Linux Large | BUILD\_GENERAL1\_LARGE | LINUX\_CONTAINER | 15 GB | 8 | 128 GB | 
+| Linux Small ¹ | BUILD\_GENERAL1\_SMALL | LINUX\_CONTAINER | 3 GB | 2 | 64 GB | 
+| Linux Medium ¹ | BUILD\_GENERAL1\_MEDIUM | LINUX\_CONTAINER | 7 GB | 4 | 128 GB | 
+| Linux Large ¹ | BUILD\_GENERAL1\_LARGE | LINUX\_CONTAINER | 15 GB | 8 | 128 GB | 
 | Linux 2XLarge | BUILD\_GENERAL1\_2XLARGE | LINUX\_CONTAINER | 145 GB | 72 | 824 GB \(SSD\) | 
 | Linux GPU Large | BUILD\_GENERAL1\_LARGE | LINUX\_GPU\_CONTAINER | 255 GB | 32 | 50 GB | 
 | Windows Medium | BUILD\_GENERAL1\_MEDIUM | WINDOWS\_SERVER\_2019\_CONTAINER | 7 GB | 4 | 128 GB | 
 | Windows Large | BUILD\_GENERAL1\_LARGE | WINDOWS\_SERVER\_2019\_CONTAINER | 15 GB | 8 | 128 GB | 
+
+¹ The latest version of this image type is cached\. If you specify a more specific version, then CodeBuild provisions that version instead of the cached version\. This can result in longer build times\. For example, to benefit from caching, specify `aws/codebuild/amazonlinux2-x86_64-standard:3.0` instead of a more granular version, such as `aws/codebuild/amazonlinux2-x86_64-standard:3.0-1.0.0`\. 
+
+When using other environment types, it is recommended that you use a custom image to reduce build times\.
 
 The disk space listed for each build environment is available only in the directory specified by the `CODEBUILD_SRC_DIR` environment variable\.
 
@@ -42,17 +46,22 @@ Some environment and compute types have Region availability limitations:
   + US West \(N\. California\)
   + US West \(Oregon\)
   + Asia Pacific \(Mumbai\)
+  + Asia Pacific \(Seoul\)
   + Asia Pacific \(Singapore\)
   + Asia Pacific \(Sydney\)
   + Asia Pacific \(Tokyo\)
+  + Canada \(Central\)
   + Europe \(Frankfurt\)
   + Europe \(Ireland\)
+  + Europe \(London\)
+  + Europe \(Paris\)
 + The compute type `BUILD_GENERAL1_2XLARGE` is only available in these Regions:
   + US East \(Ohio\)
   + US East \(N\. Virginia\)
   + US West \(N\. California\)
   + US West \(Oregon\)
   + Asia Pacific \(Hong Kong\)
+  + Asia Pacific \(Jakarta\)
   + Asia Pacific \(Mumbai\)
   + Asia Pacific \(Seoul\)
   + Asia Pacific \(Singapore\)

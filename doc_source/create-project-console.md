@@ -296,7 +296,7 @@ For **Cache type**, choose one of the following:
 Do not append a trailing slash \(/\) to the end of the path prefix\.
 +  If you want to use a local cache, choose **Local**, and then choose one or more local cache modes\. 
 **Note**  
-Docker layer cache mode is available for Linux only\. If you choose it, your project must run in privileged mode\. The `ARM_CONTAINER` and `LINUX_GPU_CONTAINER` environment types and the `BUILD_GENERAL1_2XLARGE` compute type do not support the use of a local cache\.
+Docker layer cache mode is available for Linux only\. If you choose it, your project must run in privileged mode\. 
 Using a cache saves considerable build time because reusable pieces of the build environment are stored in the cache and used across builds\. For information about specifying a cache in the buildspec file, see [Buildspec syntax](build-spec-ref.md#build-spec-ref-syntax)\. For more information about caching, see [Build caching in AWS CodeBuild](build-caching.md)\. 
 
 ## Logs<a name="create-project-console-logs"></a>

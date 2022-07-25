@@ -47,7 +47,7 @@ This procedure shows you how to add a build action in a build stage between the 
 This procedure shows you how to add a build stage between the **Source** and **Beta** stages to your pipeline\. To add a build action to an existing stage, choose **Edit stage** in the stage, and then skip to step 8 of this procedure\. To add the build stage somewhere else, choose **Add stage** in the desired place\.
 
      
-![\[\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/create-stage.png)
+![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/create-stage.png)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)
 
    
 

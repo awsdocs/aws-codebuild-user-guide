@@ -13,7 +13,7 @@
 1.  In **Source**, for **Source provider**, choose **GitHub**\. Follow the instructions to connect \(or reconnect\) with GitHub, and then choose **Authorize**\. 
 
     For **Webhook**, select **Rebuild every time a code change is pushed to this repository**\. You can select this check box only if you chose **Use a repository in my account**\.   
-![\[\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/webhook.png)
+![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/webhook.png)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)
 
 1. In **Environment**:
 

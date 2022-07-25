@@ -15,7 +15,9 @@ Amazon S3 caching stores the cache in an Amazon S3 bucket that is available acro
 
 ## Local caching<a name="caching-local"></a>
 
-Local caching stores a cache locally on a build host that is available to that build host only\. This is a good option for intermediate to large build artifacts because the cache is immediately available on the build host\. This is not the best option if your builds are infrequent\. This means that build performance is not impacted by network transfer time\. If you choose local caching, you must choose one or more of the following cache modes: 
+Local caching stores a cache locally on a build host that is available to that build host only\. This is a good option for intermediate to large build artifacts because the cache is immediately available on the build host\. This is not the best option if your builds are infrequent\. This means that build performance is not impacted by network transfer time\.
+
+If you choose local caching, you must choose one or more of the following cache modes: 
 + Source cache mode caches Git metadata for primary and secondary sources\. After the cache is created, subsequent builds pull only the change between commits\. This mode is a good choice for projects with a clean working directory and a source that is a large Git repository\. If you choose this option and your project does not use a Git repository \(GitHub, GitHub Enterprise Server, or Bitbucket\), the option is ignored\. 
 + Docker layer cache mode caches existing Docker layers\. This mode is a good choice for projects that build or pull large Docker images\. It can prevent the performance issues caused by pulling large Docker images down from the network\. 
 **Note**  
@@ -30,7 +32,10 @@ You should consider the security implication before you use a Docker layer cache
   + Avoid directory names that are the same in the source and in the cache\. Locally\-cached directories may override, or delete the contents of, directories in the source repository that have the same name\.
 
 **Note**  
-The `ARM_CONTAINER` and `LINUX_GPU_CONTAINER` environment types and the `BUILD_GENERAL1_2XLARGE` compute type do not support the use of a local cache\. For more information, see [Build environment compute types](build-env-ref-compute-types.md)\.
+Local caching is not supported with the `ARM_CONTAINER` and `LINUX_GPU_CONTAINER` environment types and the `BUILD_GENERAL1_2XLARGE` compute type\. For more information, see [Build environment compute types](build-env-ref-compute-types.md)\.
+
+**Note**  
+Local caching is not supported when you configure CodeBuild to work with a VPC\. For more information on using VPCs with CodeBuild, see [Use AWS CodeBuild with Amazon Virtual Private Cloud](vpc-support.md)\.
 
 **Topics**
 + [Specify local caching \(CLI\)](#caching-local-cli)
@@ -64,7 +69,7 @@ For more information, see [Create a build project \(AWS CLI\)](create-project-cl
 
 You specify a cache in the **Artifacts** section of the console\. For **Cache type**, choose **Amazon S3** or **Local**\. If you choose **Local**, choose one or more of the three local cache options\.
 
-![\[\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/local-cache.png)
+![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/local-cache.png)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)
 
 For more information, see [Create a build project \(console\)](create-project-console.md)\.
 

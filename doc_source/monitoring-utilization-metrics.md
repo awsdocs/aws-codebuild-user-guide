@@ -77,7 +77,7 @@ The Amazon CloudWatch console can be used to access CodeBuild resource utilizati
 1. In the navigation pane, choose **Metrics**\.
 
 1. On the **All metrics** tab, choose **CodeBuild**\.  
-![\[Console screenshot showing the CodeBuild option located on the All metrics tab.\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/codebuild-metrics-in-cw.png)
+![\[Console screenshot showing the CodeBuild option located on the All metrics tab.\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/codebuild-metrics-in-cw.png)![\[Console screenshot showing the CodeBuild option located on the All metrics tab.\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)![\[Console screenshot showing the CodeBuild option located on the All metrics tab.\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)
 
 1. Choose **By Project**\.
 
@@ -96,7 +96,7 @@ The Amazon CloudWatch console can be used to access CodeBuild resource utilizati
 1. In the navigation pane, choose **Metrics**\.
 
 1. On the **All metrics** tab, choose **CodeBuild**\.  
-![\[Console screenshot showing the CodeBuild option located on the All metrics tab.\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/codebuild-metrics-in-cw.png)
+![\[Console screenshot showing the CodeBuild option located on the All metrics tab.\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/codebuild-metrics-in-cw.png)![\[Console screenshot showing the CodeBuild option located on the All metrics tab.\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)![\[Console screenshot showing the CodeBuild option located on the All metrics tab.\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)
 
 1. Choose **BuildId, BuildNumber, ProjectName**\.
 

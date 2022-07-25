@@ -61,6 +61,8 @@ Data in transit for your file system is encrypted\. To encrypt data in transit u
 
 1.  Choose **Create File System**\. 
 
+1.  \(Optional\) We recommend adding a policy to your Amazon EFS file system that enforces encryption of data in transit\. In the Amazon EFS console, choose **File system policy**, choose **Edit**, select the box labeled **Enforce in\-transit encryption for all clients**, and then choose **Save**\.
+
 ## Create a CodeBuild project to use with Amazon EFS<a name="sample-efs-create-acb"></a>
 
  Create a AWS CodeBuild project that uses the VPC you created earlier in this sample\. When the build is run, it mounts the Amazon EFS file system created earlier\. Next, it stores the \.jar file created by your Java application in your file system's mount point directory\.
@@ -119,7 +121,7 @@ By default, Docker containers do not allow access to any devices\. Privileged mo
 
 1.  For **Build specification**, choose **Insert build commands**, and then choose **Switch to editor**\. 
 
-1.  Enter the following buildspec commands into the editor\. Replace `<file_system_identifier>` with the identifier you entered in step 17\. Use capital letters \(for example, `CODEBUILD_MY_EFS`\)\.
+1.  Enter the following build spec commands into the editor\. Replace `<file_system_identifier>` with the identifier you entered in step 17\. Use capital letters \(for example, `CODEBUILD_MY_EFS`\)\.
 
    ```
    version: 0.2
@@ -148,7 +150,7 @@ By default, Docker containers do not allow access to any devices\. Privileged mo
 
 ## Troubleshooting<a name="sample-efs-troubleshooting"></a>
 
-The following are errors you might encounter when setting up EFS with CodeBuild\.
+The following are errors you might encounter when setting up Amazon EFS with CodeBuild\.
 
 **Topics**
 + [CLIENT\_ERROR: mounting '127\.0\.0\.1:/' failed\. permission denied](#sample-efs-troubleshooting.permission-denied)
@@ -157,7 +159,7 @@ The following are errors you might encounter when setting up EFS with CodeBuild\
 
 ### CLIENT\_ERROR: mounting '127\.0\.0\.1:/' failed\. permission denied<a name="sample-efs-troubleshooting.permission-denied"></a>
 
-IAM authorization is not supported for mounting EFS with CodeBuild\. If you are using a custom EFS file system policy, you will need to grant read and write access to all IAM principals\. For example:
+IAM authorization is not supported for mounting Amazon EFS with CodeBuild\. If you are using a custom Amazon EFS file system policy, you will need to grant read and write access to all IAM principals\. For example:
 
 ```
 "Principal": {
@@ -168,8 +170,8 @@ IAM authorization is not supported for mounting EFS with CodeBuild\. If you are 
 ### CLIENT\_ERROR: mounting '127\.0\.0\.1:/' failed\. connection reset by peer<a name="sample-efs-troubleshooting.connection-reset"></a>
 
 There are two possible causes for this error:
-+ The CodeBuild VPC subnet is in a different availability zone than the EFS mount target\. You can resolve this by adding a VPC subnet in the same availability zone as the EFS mount target\.
-+ The security group does not have permissions to communicate with EFS\. You can resolve this by adding an inbound rule to allow all traffic from either the VPC \(add the primary CIDR block for your VPC\), or the security group itself\.
++ The CodeBuild VPC subnet is in a different availability zone than the Amazon EFS mount target\. You can resolve this by adding a VPC subnet in the same availability zone as the Amazon EFS mount target\.
++ The security group does not have permissions to communicate with Amazon EFS\. You can resolve this by adding an inbound rule to allow all traffic from either the VPC \(add the primary CIDR block for your VPC\), or the security group itself\.
 
 ### VPC\_CLIENT\_ERROR: Unexpected EC2 error: UnauthorizedOperation<a name="sample-efs-troubleshooting.unauthorized-operation"></a>
 

@@ -15,7 +15,7 @@ You can improve the security of your builds by configuring AWS CodeBuild to use 
 
 Follow the instructions in [Creating an interface endpoint](https://docs.aws.amazon.com/vpc/latest/userguide/vpce-interface.html#create-interface-endpoint) to create the endpoint `com.amazonaws.region.codebuild`\. This is a VPC endpoint for AWS CodeBuild\. 
 
-![\[\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/vpc-endpoint.png)
+![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/images/vpc-endpoint.png)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codebuild/latest/userguide/)
 
  *region* represents the region identifier for an AWS Region supported by CodeBuild, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported AWS Regions, see [CodeBuild](https://docs.aws.amazon.com/general/latest/gr/rande.html#codebuild_region) in the * AWS General Reference*\. The endpoint is prepopulated with the Region you specified when you signed in to AWS\. If you change your Region, the VPC endpoint is updated accordingly\. 
 

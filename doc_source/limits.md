@@ -44,7 +44,9 @@ Quotas for the maximum number of concurrent running builds vary, depending on th
 | Resource | Default  | 
 | --- | --- | 
 | Maximum duration a test report is available after it is created | 30 days | 
-| Maximum number of report groups per AWS account | 1000 | 
+| Maximum length of a test case message | 5,000 characters | 
+| Maximum length of a test case name | 1,000 characters | 
+| Maximum number of report groups per AWS account | 1,000 | 
 | Maximum number of test cases per report | 500 | 
 
 ### Tags<a name="tag-limits"></a>

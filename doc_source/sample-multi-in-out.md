@@ -139,4 +139,4 @@ artifacts:
 
 For more information, see [Create a build project \(AWS CLI\)](create-project-cli.md)\.
 
-To learn how to to create a pipeline that uses multiple source inputs to CodeBuild to create multiple output artifacts, see [ AWS CodePipeline integration with CodeBuild and multiple input sources and output artifacts sample ](sample-pipeline-multi-input-output.md)\.
+To learn how to to create a pipeline that uses multiple source inputs to CodeBuild to create multiple output artifacts, see [AWS CodePipeline integration with CodeBuild and multiple input sources and output artifacts sample ](sample-pipeline-multi-input-output.md)\.
