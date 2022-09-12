@@ -50,17 +50,17 @@ You can use the the `--cache` parameter in the AWS CLI to specify each of the th
 + To specify a source cache: 
 
   ```
-  --cache type=LOCAL,mode=[LOCAL_SOURCE_CACHE]
+  --cache type=LOCAL,modes=LOCAL_SOURCE_CACHE
   ```
 + To specify a Docker layer cache: 
 
   ```
-  --cache type=LOCAL,mode=[LOCAL_DOCKER_LAYER_CACHE]
+  --cache type=LOCAL,modes=LOCAL_DOCKER_LAYER_CACHE
   ```
 + To specify a custom cache: 
 
   ```
-  --cache type=LOCAL,mode=[LOCAL_CUSTOM_CACHE]
+  --cache type=LOCAL,modes=LOCAL_CUSTOM_CACHE
   ```
 
 For more information, see [Create a build project \(AWS CLI\)](create-project-cli.md)\.
