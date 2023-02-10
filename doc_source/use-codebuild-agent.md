@@ -61,13 +61,13 @@ You only need to set up the build image the first time you run the agent, or whe
    The Secure Hash Algorithm \(SHA\) signature for the x86\_64 version of the agent is:
 
    ```
-   sha256:fdfff9470520c53dcd522606a3cc2b5df195ae8a5546697b08249b48175f45ed
+   sha256:6d4aca40229b0e21232198016e82b3d0e2027fb8ee639276b6d64ff995065f0c
    ```
 
    The SHA signature for the ARM version of the agent is:
 
    ```
-   sha256:5480b70cf48435e276c21789c61280cfada24e17701ede6386e5d82088bc41ca
+   sha256:3fb32e40b65d38a1ea800bf05eba0bf05b36c954d9cd72fa008c74aaf2fb6577
    ```
 
    You can use the SHA to identify the version of the agent\. To see the agent's SHA signature, run the following command and look for the SHA under `RepoDigests`: 
